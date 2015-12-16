@@ -40,7 +40,7 @@ struct Color4f{
 	float r, g, b, a;
 };
 
-class GV3DCORE_API Color {
+class CORE_API Color {
 public:
 	static void convert(long c, Color4b & c4b);
 	static void convert(long c, Color4f & c4f);
@@ -54,7 +54,7 @@ public:
 
 typedef std::vector<Color3b> Color3bList;
 
-class GV3DCORE_API ColorSeries
+class CORE_API ColorSeries
 {
 	int _index;
 	unsigned char  _redvector[256];

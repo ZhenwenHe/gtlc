@@ -30,7 +30,7 @@ typedef std::shared_ptr< VertexCollection2d >  VertexCollection2dSharedPtr;
 /** @addtogroup vertex  VertexCollection2d-点集类，可以用来管理点元素集
 *  @{
 */
-class GV3DCORE_API VertexCollection2d
+class CORE_API VertexCollection2d
 {
 public:
 	/** 构造函数

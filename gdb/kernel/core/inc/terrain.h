@@ -126,7 +126,7 @@ typedef std::shared_ptr<DEMBlock> DEMBlockSharedPtr;
 /** @defgroup terrain DEMBlock-DEM数据块 
 *  @{
 */
-class GV3DCORE_API DEMBlock								
+class CORE_API DEMBlock								
 {
 public:
 	Identifier::raw_type		blockID;		//DEM数据块ID
@@ -164,7 +164,7 @@ typedef std::shared_ptr<DEMDataInfo> DEMDataInfoSharedPtr;
 /** @addtogroup terrain DEMDataInfo-DEM数据描述信息 
 *  @{
 */
-class GV3DCORE_API DEMDataInfo		
+class CORE_API DEMDataInfo		
 {
 public:
 	std::string			version;	            //DEM数据库标志
@@ -218,7 +218,7 @@ typedef std::shared_ptr<DEMLayerInfo> DEMLayerInfoSharedPtr;
 /** @addtogroup terrain DEMLayerInfo-DEM金字塔层描述信息 
 *  @{
 */
-class GV3DCORE_API DEMLayerInfo	
+class CORE_API DEMLayerInfo	
 {
 public:
 	Identifier::raw_type				layerID;			//该DEM层的ID
@@ -377,7 +377,7 @@ typedef std::shared_ptr<DOMBlock> DOMBlockSharedPtr;
 /** @addtogroup terrain DOMBlock-DOM块结构
 *  @{
 */
-class GV3DCORE_API DOMBlock
+class CORE_API DOMBlock
 {
 public:
 	Identifier::raw_type		    blockID;				//DOM数据块ID
@@ -470,7 +470,7 @@ typedef std::shared_ptr<DOMLayerInfo> DOMLayerInfoSharedPtr;
 /** @addtogroup terrain DOMLayerInfo-DOM数据库层结构信息
 *  @{
 */
-class GV3DCORE_API DOMLayerInfo			//DOM数据库层结构信息
+class CORE_API DOMLayerInfo			//DOM数据库层结构信息
 {
 public:
 	Identifier::raw_type  layerID;			    //DOM层的ID
@@ -544,7 +544,7 @@ typedef std::shared_ptr<DOMDataInfo> DOMDataInfoSharedPtr;
 *  @{
 */
 
-class GV3DCORE_API DOMDataInfo				
+class CORE_API DOMDataInfo				
 {
 public:
 	std::string			version;		             //DOM数据库标志
@@ -606,7 +606,7 @@ typedef std::shared_ptr<DEMDBInfo> DEMDBInfoSharedPtr;
 *  @{
 */
 
-class GV3DCORE_API  DEMDBInfo		
+class CORE_API  DEMDBInfo		
 {
 public:
 	Identifier::raw_type		demdbID;                //DEM数据库ID
@@ -650,7 +650,7 @@ typedef std::shared_ptr<DOMDBInfo> DOMDBInfoSharedPtr;
 *  @{
 */
 
-class GV3DCORE_API DOMDBInfo		
+class CORE_API DOMDBInfo		
 {
 public:
 	Identifier::raw_type			domdbID;						//DOM数据库ID
@@ -693,7 +693,7 @@ typedef std::shared_ptr<SourceDataInfo> SourceDataInfoSharedPtr;
 *  @{
 */
 
-class GV3DCORE_API SourceDataInfo
+class CORE_API SourceDataInfo
 {
 public:
 	Identifier::raw_type			dbID;					//该原始数据入库的数据库ID
@@ -732,7 +732,7 @@ typedef std::shared_ptr<DEMGrid> DEMGridSharedPtr;
 *  @{
 */
 
-class GV3DCORE_API DEMGrid{
+class CORE_API DEMGrid{
 public:
 	static DEMGridSharedPtr create();
 	static double getDefaultInvalidValue() ;
@@ -1057,7 +1057,7 @@ typedef std::shared_ptr<DOMGrid> DOMGridSharedPtr;
 /** @addtogroup terrain DOMGrid-DOM格网结构　
 *  @{
 */
-class GV3DCORE_API DOMGrid{
+class CORE_API DOMGrid{
 public:
 	static DOMGridSharedPtr create();
 	static DOMGridSharedPtr create(string szfiledom);

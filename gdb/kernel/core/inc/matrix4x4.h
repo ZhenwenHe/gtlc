@@ -34,7 +34,7 @@ typedef std::shared_ptr<Matrix4x4> Matrix4x4SharedPtr;
 /** @addtogroup math  Matrix4x4
 *  @{
 */
-class GV3DCORE_API Matrix4x4 : public Matrix
+class CORE_API Matrix4x4 : public Matrix
 {
 public:
 
@@ -380,7 +380,7 @@ public:
 };
 /** @} */
 
-GV3DCORE_API Vertex3d operator*(const Vertex3d& lhv, const Matrix4x4& rhm); 
+CORE_API Vertex3d operator*(const Vertex3d& lhv, const Matrix4x4& rhm); 
 
 end_gdb_namespace
 end_cug_namespace

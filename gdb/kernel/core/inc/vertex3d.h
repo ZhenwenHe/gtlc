@@ -28,7 +28,7 @@ begin_gdb_namespace
 /** @addtogroup vertex Vertex3d 坐标点的结构体定义
 *  @{
 */
-class GV3DCORE_API Vertex3d{
+class CORE_API Vertex3d{
 public:
 	double x, y, z;
 	Vertex3d(double xx, double yy, double zz);
@@ -102,15 +102,15 @@ public:
 	inline double getProjectLength(Vertex3d& vVec) const;
 	inline double getProjectHeight(Vertex3d& vVec) const;
 };
-GV3DCORE_API const Vertex3d operator*(const Vertex3d& lhv, double rhd);
-GV3DCORE_API const Vertex3d operator*(double lhd, const Vertex3d& rhv);
-GV3DCORE_API double operator*(const Vertex3d& lhv, const Vertex3d& rhv);
-GV3DCORE_API Vertex3d operator-(const Vertex3d & c1, const Vertex3d & c2);
-GV3DCORE_API Vertex3d operator+(const Vertex3d & c1, const Vertex3d & c2);
-GV3DCORE_API bool operator==(const Vertex3d& lhv, const Vertex3d& rhv);
-GV3DCORE_API bool operator!=(const Vertex3d& lhv, const Vertex3d& rhv);
-GV3DCORE_API const Vertex3d operator /(const Vertex3d& lhv, double rhd);
-GV3DCORE_API const Vertex3d operator^(const Vertex3d& lhv, const Vertex3d& rhv);
+CORE_API const Vertex3d operator*(const Vertex3d& lhv, double rhd);
+CORE_API const Vertex3d operator*(double lhd, const Vertex3d& rhv);
+CORE_API double operator*(const Vertex3d& lhv, const Vertex3d& rhv);
+CORE_API Vertex3d operator-(const Vertex3d & c1, const Vertex3d & c2);
+CORE_API Vertex3d operator+(const Vertex3d & c1, const Vertex3d & c2);
+CORE_API bool operator==(const Vertex3d& lhv, const Vertex3d& rhv);
+CORE_API bool operator!=(const Vertex3d& lhv, const Vertex3d& rhv);
+CORE_API const Vertex3d operator /(const Vertex3d& lhv, double rhd);
+CORE_API const Vertex3d operator^(const Vertex3d& lhv, const Vertex3d& rhv);
 typedef Vertex3d Vertex;
 typedef Vertex3d& Vertex3dRef;
 typedef vector<Vertex3d> Vertex3dVector;

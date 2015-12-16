@@ -33,7 +33,7 @@ typedef Envelope3d& Envelope3dRef;
 /** @defgroup Envelope Envelope3d-包围边界结构体定义
 *  @{
 */
-class GV3DCORE_API Envelope3d{
+class CORE_API Envelope3d{
 public:
 	double minx, maxx;
 	double miny, maxy;

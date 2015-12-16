@@ -28,7 +28,7 @@ class Quaternion;
 /** @addtogroup math  Matrix3x3
 *  @{
 */
-class GV3DCORE_API Matrix3x3 : public Matrix
+class CORE_API Matrix3x3 : public Matrix
 {
 
 public:
@@ -218,14 +218,14 @@ public:
 /** @addtogroup math  Matrix3x3È«¾Ö·ûºÅÖØÔØ
 *  @{
 */
-GV3DCORE_API Vertex3d operator*(const Vertex3d& lhv, const Matrix3x3& rhm);
-GV3DCORE_API const Matrix3x3 operator+(const Matrix3x3& lhm, const Matrix3x3& rhm);
-GV3DCORE_API const Matrix3x3 operator-(const Matrix3x3& lhm, const Matrix3x3& rhm);
-GV3DCORE_API const Matrix3x3 operator+(const Matrix3x3& lhm, double rhd);
-GV3DCORE_API const Matrix3x3 operator-(const Matrix3x3& lhm, double rhd);
-GV3DCORE_API const Matrix3x3 operator*(const Matrix3x3& lhm, const Matrix3x3& rhm);
-GV3DCORE_API const Matrix3x3 operator*(const Matrix3x3& lhm, double rhd);
-GV3DCORE_API const Matrix3x3 operator/(const Matrix3x3& lhm, double rhd);
+CORE_API Vertex3d operator*(const Vertex3d& lhv, const Matrix3x3& rhm);
+CORE_API const Matrix3x3 operator+(const Matrix3x3& lhm, const Matrix3x3& rhm);
+CORE_API const Matrix3x3 operator-(const Matrix3x3& lhm, const Matrix3x3& rhm);
+CORE_API const Matrix3x3 operator+(const Matrix3x3& lhm, double rhd);
+CORE_API const Matrix3x3 operator-(const Matrix3x3& lhm, double rhd);
+CORE_API const Matrix3x3 operator*(const Matrix3x3& lhm, const Matrix3x3& rhm);
+CORE_API const Matrix3x3 operator*(const Matrix3x3& lhm, double rhd);
+CORE_API const Matrix3x3 operator/(const Matrix3x3& lhm, double rhd);
 /** @} */
 
 end_gdb_namespace

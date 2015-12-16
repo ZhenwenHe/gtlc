@@ -109,14 +109,14 @@
 
 #endif
 
-#ifdef GV3DCORE_EXPORTS
+#ifdef CORE_EXPORTS
 #ifdef _USRDLL
-#define GV3DCORE_API __declspec(dllexport)
+#define CORE_API __declspec(dllexport)
 #else
-#define GV3DCORE_API  
+#define CORE_API  
 #endif
 #else
-#define GV3DCORE_API __declspec(dllimport)
+#define CORE_API __declspec(dllimport)
 #endif
 
 
@@ -197,7 +197,7 @@ class Envelope3d;
 /** @defgroup Config  Config-»´æ÷≈‰÷√¿‡ 
 *  @{
 */
-class GV3DCORE_API Config {
+class CORE_API Config {
 
 	std::locale _loc;
 	static string   shaderPath;

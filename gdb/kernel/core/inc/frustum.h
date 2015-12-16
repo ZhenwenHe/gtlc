@@ -27,7 +27,7 @@ begin_gdb_namespace
 /** @addtogroup Geometry Frustum-½ØÍ·×¶ÌåÀà
 *  @{
 */
-class GV3DCORE_API Frustum{
+class CORE_API Frustum{
 public:
 	virtual void set(Vertex3d& eye, Vertex3d& cen, double nearD, double farD, double angle, double ratio) = 0;
 	virtual	void setCamInternals(double nearD, double farD, double angle, double ratio) = 0;

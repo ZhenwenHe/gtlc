@@ -97,7 +97,7 @@ enum
 /** @addtogroup Geometry Geometry-º∏∫Œ¿‡ 
 *  @{
 */
-class  GV3DCORE_API Geometry {
+class  CORE_API Geometry {
 public:
 
 public:

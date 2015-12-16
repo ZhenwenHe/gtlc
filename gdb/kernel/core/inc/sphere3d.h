@@ -35,7 +35,7 @@ typedef std::shared_ptr<Sphere3d> Sphere3dSharedPtr;
 /** @defgroup Sphere3d Sphere3d-ÈýÎ¬Çò
 *  @{
 */
-class GV3DCORE_API Sphere3d{
+class CORE_API Sphere3d{
 	/*breif ÇòÐÄ */
 	Vertex3d _center;
 	/*breif °ë¾¶ */

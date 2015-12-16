@@ -32,7 +32,7 @@ begin_gdb_namespace
 /** @defgroup Bitset  Bitset位集类
 *  @{
 */
-class GV3DCORE_API Bitset{
+class CORE_API Bitset{
 	std::vector<unsigned char> _data;//最高位放在[0]位置，每位的默认值为0
 public:
 	//返回已经设置的位数

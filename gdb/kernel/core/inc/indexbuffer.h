@@ -24,7 +24,7 @@ begin_edu_namespace
 begin_cug_namespace
 begin_gdb_namespace
 
-class GV3DCORE_API IndexBuffer :public DescribableBuffer {
+class CORE_API IndexBuffer :public DescribableBuffer {
 public:
 	IndexBuffer();
 	IndexBuffer(unsigned int * pi, size_t number, bool b_alloc = false);//构造函数，如果b_alloc为真，则会新申请一块大小为s的内存块，并复制d的内容，反之，则指向d

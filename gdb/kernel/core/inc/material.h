@@ -129,7 +129,7 @@ typedef MAT_PARAM*   LPMAT_PARAM;
 class Material;
 typedef std::shared_ptr<Material> MaterialSharedPtr;
 typedef Material* MaterialPtr;
-class GV3DCORE_API Material  
+class CORE_API Material  
 {
 public:
 	/*0-简单纹理，1-复杂纹理*/
@@ -146,7 +146,7 @@ public:
 /** @addtogroup material  SimpleMaterial 
     *  @{
     */
-class GV3DCORE_API SimpleMaterial  : virtual  public Material
+class CORE_API SimpleMaterial  : virtual  public Material
 {
 public:
 	virtual Identifier::raw_type getTextureID()=0;
@@ -211,7 +211,7 @@ struct COMMAT_ITEM
 /** @addtogroup material  ComplexMaterial 
     *  @{
     */
-class GV3DCORE_API ComplexMaterial:virtual public Material {
+class CORE_API ComplexMaterial:virtual public Material {
 public:
 	/** 复杂材质参数 */
 	virtual std::vector<COMMAT_ITEM> & getMaterialItems() =0;

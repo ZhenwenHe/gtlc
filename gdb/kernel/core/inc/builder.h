@@ -36,7 +36,7 @@ class Builder;
 typedef std::shared_ptr<Proxy> ProxySharedPtr;
 typedef std::shared_ptr<Builder> BuilderSharedPtr;
 
-class GV3DCORE_API Builder  {
+class CORE_API Builder  {
 
 	/** @name 保护成员变量说明  
 	*  @{

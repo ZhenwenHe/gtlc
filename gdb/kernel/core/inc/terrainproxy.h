@@ -38,7 +38,7 @@ typedef std::shared_ptr<TerrainProxy>  TerrainProxySharedPtr;
 /** @addtogroup terrain TerrainProxy-地形查询接口　
 *  @{
 */
-class GV3DCORE_API TerrainProxy{
+class CORE_API TerrainProxy{
 public:
 	/** 读取指定金字塔层和矩形范围的DEM数据
 	* @param [in]  box2d			DEM金字塔层范围

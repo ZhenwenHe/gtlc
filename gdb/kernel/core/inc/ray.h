@@ -13,7 +13,7 @@ begin_gdb_namespace
 /** @addtogroup Geometry Ray-…‰œﬂ¿‡
 *  @{
 */
-class GV3DCORE_API Ray{
+class CORE_API Ray{
 public:
 	virtual Vertex3d getOrigin() = 0;
 	virtual void setOrigin(const Vertex3d& d) = 0;

@@ -31,7 +31,7 @@ typedef Envelope2d& Envelope2dRef;
 /** @addtogroup Envelope Envelope2d-包围边界结构体定义
 *  @{
 */
-class GV3DCORE_API Envelope2d{
+class CORE_API Envelope2d{
 public:
 	double minx, maxx;
 	double miny, maxy;

@@ -27,7 +27,7 @@ typedef SharedModel* SharedModelPtr;
 /** @addtogroup Geometry SharedModel-共享模型类
 *  @{
 */
-class GV3DCORE_API SharedModel{
+class CORE_API SharedModel{
 public:
 	/** 获取关联模型ID
 	* @return 关联模型ID

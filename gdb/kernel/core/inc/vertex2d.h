@@ -23,7 +23,7 @@ begin_gdb_namespace
 /** @addtogroup vertex Vertex2d
 *  @{
 */
-class GV3DCORE_API Vertex2d
+class CORE_API Vertex2d
 {
 public:
 	double x, y;

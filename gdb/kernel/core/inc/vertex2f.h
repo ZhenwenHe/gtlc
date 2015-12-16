@@ -26,7 +26,7 @@ begin_gdb_namespace
 /** @addtogroup vertex Vertex2f
 *  @{
 */
-class GV3DCORE_API Vertex2f
+class CORE_API Vertex2f
 {
 public:
 	float x, y;

@@ -112,7 +112,7 @@ typedef Identifier::raw_type LAYERID;
 /** @addtogroup Feature LODInfo 
 *  @{
 */
-class GV3DCORE_API LODInfo {
+class CORE_API LODInfo {
 public:
 	/**LOD结构体*/
 	struct LOD_PARAM{
@@ -154,7 +154,7 @@ public:
 /** @addtogroup Feature FeatureClass 
 *  @{
 */
-class GV3DCORE_API FeatureClass {
+class CORE_API FeatureClass {
 public:
 	virtual FCLSID getID()=0;
 	virtual void  setID(FCLSID id )=0;
@@ -198,7 +198,7 @@ public:
 /** @addtogroup Feature Feature  
 *  @{
 */
-class GV3DCORE_API Feature {
+class CORE_API Feature {
 public:
 	enum{
 		STATUS_DELETED =0x00000001,
@@ -362,7 +362,7 @@ public:
 /** @addtogroup Feature FeatureSet  
 *  @{
 */
-class GV3DCORE_API FeatureSet {
+class CORE_API FeatureSet {
 public:
 	virtual FSID getID()=0;
 	virtual void setID(FSID id)=0;
@@ -426,7 +426,7 @@ public:
 /** @addtogroup Feature Layer  
 *  @{
 */
-class GV3DCORE_API Layer {
+class CORE_API Layer {
 public:
 	/** @} */ 
 	/** @name 拷贝构造与赋值构造函数 
@@ -600,7 +600,7 @@ public:
 /** @addtogroup Feature Workspace  
 *  @{
 */
-class GV3DCORE_API Workspace {
+class CORE_API Workspace {
 public:
 	virtual WKSPID getID()=0;
 	virtual void  setID(WKSPID id )=0;
@@ -622,7 +622,7 @@ public:
 
 
 
-class GV3DCORE_API ProjectAdapter
+class CORE_API ProjectAdapter
 {
 public:
 	virtual void save(string &sz)=0;
@@ -634,7 +634,7 @@ typedef std::shared_ptr<ProjectAdapter> ProjectAdapterSharedPtr;
 /** @addtogroup Feature Project  
 *  @{
 */
-class  GV3DCORE_API Project{
+class  CORE_API Project{
 public:
 	virtual PRJID getID()const=0;
 	virtual void  setID(PRJID id )=0;

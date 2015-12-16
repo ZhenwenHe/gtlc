@@ -36,7 +36,7 @@ typedef std::shared_ptr<Factory>  FactorySharedPtr;
 /** @defgroup Factory  Factory-类工厂基类 
 *  @{
 */
-class GV3DCORE_API Factory{
+class CORE_API Factory{
 protected:
 	int _type;
 public:
@@ -78,7 +78,7 @@ public:
 /** @addtogroup Factory  Geometry2DFactory-2D几何工厂类 
 *  @{
 */
-class GV3DCORE_API Geometry2dFactory: public Factory
+class CORE_API Geometry2dFactory: public Factory
 {
 public:
 	Geometry2dFactory() 
@@ -158,7 +158,7 @@ public:
 /** @addtogroup Factory  Render2dFactory-2D显示工厂类 
 *  @{
 */
-class GV3DCORE_API Render2dFactory: public cn::edu::cug::gdb::Factory
+class CORE_API Render2dFactory: public cn::edu::cug::gdb::Factory
 {
 public:
 	Render2dFactory()
@@ -189,7 +189,7 @@ public:
 /** @addtogroup Factory  Geometry3dFactory-3D几何工厂类 
 *  @{
 */
-class GV3DCORE_API Geometry3dFactory: public Factory{
+class CORE_API Geometry3dFactory: public Factory{
 public:
 	Geometry3dFactory(){
 		_type = FACTORYTYPE_3D_GEOMETRY;
@@ -214,7 +214,7 @@ public:
 /** @addtogroup Factory  ImageFactory-图像工厂类 
 *  @{
 */
-class GV3DCORE_API ImageFactory: public Factory{
+class CORE_API ImageFactory: public Factory{
 public:
 	ImageFactory(){
 		_type = FACTORYTYPE_IMAGE;
@@ -231,7 +231,7 @@ public:
 /** @addtogroup Factory  FDBBuilderFactory-文件数据库工厂类 
 *  @{
 */
-class GV3DCORE_API FDBBuilderFactory: public Factory{
+class CORE_API FDBBuilderFactory: public Factory{
 public:
 	FDBBuilderFactory(){
 		_type = FACTORYTYPE_FDB_BUILDER;
@@ -246,7 +246,7 @@ public:
 /** @addtogroup Factory  RDBBuilderFactory-关系数据库工厂类 
 *  @{
 */
-class GV3DCORE_API RDBBuilderFactory: public Factory{
+class CORE_API RDBBuilderFactory: public Factory{
 public:
 	RDBBuilderFactory(){
 		_type = FACTORYTYPE_RDB_BUILDER;
@@ -261,7 +261,7 @@ public:
 /** @addtogroup Factory  CDBBuilderFactory-集群数据库工厂类 
 *  @{
 */
-class GV3DCORE_API CDBBuilderFactory: public Factory{//集群数据库
+class CORE_API CDBBuilderFactory: public Factory{//集群数据库
 public:
 	CDBBuilderFactory(){
 		_type = FACTORYTYPE_CDB_BUILDER;
@@ -276,7 +276,7 @@ public:
 /** @addtogroup Factory  CDBBuilderFactory-分布式数据库工厂类 
 *  @{
 */
-class GV3DCORE_API DDBBuilderFactory: public Factory{ 
+class CORE_API DDBBuilderFactory: public Factory{ 
 public:
 	DDBBuilderFactory(){
 		_type = FACTORYTYPE_DDB_BUILDER;
@@ -291,7 +291,7 @@ public:
 /** @addtogroup Factory  Render3dFactory-3D渲染工厂类 
 *  @{
 */
-class GV3DCORE_API Render3dFactory : public gdb::Factory {
+class CORE_API Render3dFactory : public gdb::Factory {
 public:
 	Render3dFactory(){
 		_type = FACTORYTYPE_3D_RENDER;
@@ -306,7 +306,7 @@ typedef std::shared_ptr<Render3dFactory> Render3dFactorySharedPtr;
 /** @addtogroup Factory  MeshFactory-网格工厂类 
 *  @{
 */
-class GV3DCORE_API MeshFactory : public gdb::Factory {
+class CORE_API MeshFactory : public gdb::Factory {
 public:
 	MeshFactory(){
 		_type = FACTORYTYPE_MESH;
@@ -319,7 +319,7 @@ typedef std::shared_ptr<MeshFactory> MeshFactorySharedPtr;
 /** @addtogroup Factory  FMeshBuilderFactory-文件版网格库工厂类 
 *  @{
 */
-class GV3DCORE_API FMeshBuilderFactory: public Factory{
+class CORE_API FMeshBuilderFactory: public Factory{
 public:
 	FMeshBuilderFactory(){
 		_type = FACTORYTYPE_FMESH_BUILDER;
@@ -331,7 +331,7 @@ public:
 /** @addtogroup Factory  RMeshBuilderFactory-关系数据库版网格库工厂类 
 *  @{
 */
-class GV3DCORE_API RMeshBuilderFactory: public Factory{
+class CORE_API RMeshBuilderFactory: public Factory{
 public:
 	RMeshBuilderFactory(){
 		_type = FACTORYTYPE_RMESH_BUILDER;
@@ -343,7 +343,7 @@ public:
 /** @addtogroup Factory  CMeshBuilderFactory-集群版网格库工厂类 
 *  @{
 */
-class GV3DCORE_API CMeshBuilderFactory: public Factory{
+class CORE_API CMeshBuilderFactory: public Factory{
 public:
 	CMeshBuilderFactory(){
 		_type = FACTORYTYPE_CMESH_BUILDER;
@@ -355,7 +355,7 @@ public:
 /** @addtogroup Factory  DMeshBuilderFactory-分布式版网格库工厂类 
 *  @{
 */
-class GV3DCORE_API DMeshBuilderFactory: public Factory{//集群数据库
+class CORE_API DMeshBuilderFactory: public Factory{//集群数据库
 public:
 	DMeshBuilderFactory(){
 		_type = FACTORYTYPE_DMESH_BUILDER;
@@ -368,7 +368,7 @@ public:
 /** @addtogroup Factory  FTerrainBuilderFactory-文件版地形库工厂类 
 *  @{
 */
-class GV3DCORE_API FTerrainBuilderFactory: public Factory{
+class CORE_API FTerrainBuilderFactory: public Factory{
 public:
 	FTerrainBuilderFactory(){
 		_type = FACTORYTYPE_FTERRAIN_BUILDER;
@@ -380,7 +380,7 @@ public:
 /** @addtogroup Factory  RTerrainBuilderFactory-关系数据库版地形库工厂类 
 *  @{
 */
-class GV3DCORE_API RTerrainBuilderFactory: public Factory{
+class CORE_API RTerrainBuilderFactory: public Factory{
 public:
 	RTerrainBuilderFactory(){
 		_type = FACTORYTYPE_RTERRAIN_BUILDER;
@@ -392,7 +392,7 @@ public:
 /** @addtogroup Factory  CTerrainBuilderFactory-集群版地形库工厂类 
 *  @{
 */
-class GV3DCORE_API CTerrainBuilderFactory: public Factory{
+class CORE_API CTerrainBuilderFactory: public Factory{
 public:
 	CTerrainBuilderFactory(){
 		_type = FACTORYTYPE_CTERRAIN_BUILDER;
@@ -404,7 +404,7 @@ public:
 /** @addtogroup Factory  DTerrainBuilderFactory-分布式版地形库工厂类 
 *  @{
 */
-class GV3DCORE_API DTerrainBuilderFactory: public Factory{
+class CORE_API DTerrainBuilderFactory: public Factory{
 public:
 	DTerrainBuilderFactory(){
 		_type = FACTORYTYPE_DTERRAIN_BUILDER;

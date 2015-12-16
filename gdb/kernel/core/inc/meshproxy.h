@@ -37,7 +37,7 @@ typedef std::shared_ptr<MeshProxy> MeshProxySharedPtr;
 /** @addtogroup Mesh MeshBuilder-MeshBuilder网格生成管理
 *  @{
 */
-class GV3DCORE_API MeshProxy {
+class CORE_API MeshProxy {
 public:
 	virtual bool queryByBox(Envelope3d & e3d, std::vector<BlockSharedPtr> & blocks) = 0;
 	virtual bool queryByBlockID(const Identifier &id, BlockSharedPtr & block) = 0;

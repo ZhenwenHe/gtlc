@@ -31,7 +31,7 @@ begin_gdb_namespace
 /** @defgroup vertex Vertex3f 常用坐标点的结构体定义
 *  @{
 */
-class GV3DCORE_API Vertex3f{
+class CORE_API Vertex3f{
 public:
 	float x, y, z;
 	Vertex3f(float xx, float yy, float zz);
@@ -40,11 +40,11 @@ public:
 	inline float normalize();
 	Vertex3f operator = (const Vertex3f & c);
 };
-GV3DCORE_API const Vertex3f operator*(const Vertex3f& lhv, double rhd);
-GV3DCORE_API const Vertex3f operator*(float lhd, const Vertex3f& rhv);
-GV3DCORE_API float operator*(const Vertex3f& lhv, const Vertex3f& rhv);
-GV3DCORE_API bool operator==(const Vertex3f& lhv, const Vertex3f& rhv);
-GV3DCORE_API bool operator!=(const Vertex3f& lhv, const Vertex3f& rhv);
+CORE_API const Vertex3f operator*(const Vertex3f& lhv, double rhd);
+CORE_API const Vertex3f operator*(float lhd, const Vertex3f& rhv);
+CORE_API float operator*(const Vertex3f& lhv, const Vertex3f& rhv);
+CORE_API bool operator==(const Vertex3f& lhv, const Vertex3f& rhv);
+CORE_API bool operator!=(const Vertex3f& lhv, const Vertex3f& rhv);
 
 
 inline void Vertex3f::operator*=(float rhd)

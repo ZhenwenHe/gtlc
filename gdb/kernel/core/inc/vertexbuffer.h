@@ -24,7 +24,7 @@ begin_edu_namespace
 begin_cug_namespace
 begin_gdb_namespace
 
-class GV3DCORE_API VertexBuffer :public DescribableBuffer {
+class CORE_API VertexBuffer :public DescribableBuffer {
 public:
 	enum VBF{
 		VBF_3FLOAT_XYZ = DescribableBuffer::DBF_3FLOAT,

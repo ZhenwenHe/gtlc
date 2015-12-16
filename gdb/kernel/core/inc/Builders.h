@@ -37,7 +37,7 @@ class Builders;
 
 typedef std::shared_ptr<Builders> BuildersSharedPtr;
 
-class GV3DCORE_API Builders  {
+class CORE_API Builders  {
 protected:
 	BuilderSharedPtr        _modelBuilder;
 	MeshBuilderSharedPtr    _meshBuilder;

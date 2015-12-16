@@ -30,7 +30,7 @@ begin_gdb_namespace
 /** @addtogroup value Value 
 *  @{
 */
-class GV3DCORE_API Value {
+class CORE_API Value {
 protected:	
 	ValUtils::VALUE * m_data;
 	bool _need_release;

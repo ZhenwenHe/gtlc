@@ -29,7 +29,7 @@ begin_gdb_namespace
 /** @defgroup TriTool TriTool 
 *  @{
 */
-class GV3DCORE_API TriTool{
+class CORE_API TriTool{
 public:
 	static bool trianglate(const VertexCollection2d  * in_points, std::vector<int> & tri_index);
 	static bool trianglate(const std::vector<Vertex3d> & in_points, std::vector<int> & tri_index);

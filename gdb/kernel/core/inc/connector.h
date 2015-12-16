@@ -29,7 +29,7 @@ begin_gdb_namespace
 /** @defgroup Connector Connector-空间数据库连接接口  
 *  @{
 */
-class GV3DCORE_API Connector  {	
+class CORE_API Connector  {	
 	int _type;
 	std::string _pathName;
 	std::string _user;

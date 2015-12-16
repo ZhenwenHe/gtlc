@@ -27,7 +27,7 @@ begin_gdb_namespace
 *  @{
 */
 #if(ENABLE_CONSOLE_OUTPUT!=0)
-class GV3DCORE_API Console
+class CORE_API Console
 {
 public:
 	Console();
@@ -49,8 +49,8 @@ private:
 };
 #endif
 
-GV3DCORE_API bool CONSOLE_OUTPUT(const char * fmt, ...);
-GV3DCORE_API bool CONSOLE_OUTPUT(unsigned int Attrs, const char * fmt, ...);
+CORE_API bool CONSOLE_OUTPUT(const char * fmt, ...);
+CORE_API bool CONSOLE_OUTPUT(unsigned int Attrs, const char * fmt, ...);
 /** @}*/
 end_gdb_namespace
 end_cug_namespace

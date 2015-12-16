@@ -30,7 +30,7 @@ typedef Texture*  TexturePtr;
 /** @defgroup Texture Texture 
 *  @{
 */
-class GV3DCORE_API Texture  
+class CORE_API Texture  
 {
 public:
 	enum

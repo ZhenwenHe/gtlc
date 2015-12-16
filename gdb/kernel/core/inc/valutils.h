@@ -30,7 +30,7 @@ begin_gdb_namespace
 /** @defgroup value ValUtils
 *  @{
 */
-class GV3DCORE_API ValUtils{
+class CORE_API ValUtils{
 public:
 
 	enum GVT{

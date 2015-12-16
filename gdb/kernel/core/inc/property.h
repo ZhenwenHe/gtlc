@@ -48,7 +48,7 @@ static const char*  PROPTYPES[] = {
 /** @addtogroup value Property
 *  @{
 */
-class GV3DCORE_API Property :public Value{
+class CORE_API Property :public Value{
 public:
 	/** @addtogroup value PropType 属性类型对象
 	*  @{

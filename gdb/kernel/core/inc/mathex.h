@@ -29,7 +29,7 @@ begin_gdb_namespace
 *  @{
 */
 
-class GV3DCORE_API MathEx
+class CORE_API MathEx
 {
 public:
 

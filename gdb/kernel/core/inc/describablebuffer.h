@@ -25,7 +25,7 @@ begin_cug_namespace
 begin_gdb_namespace
 
 
-class GV3DCORE_API DescribableBuffer: public Buffer{
+class CORE_API DescribableBuffer: public Buffer{
 public:
 	enum DBF{
 		DBF_VOID,

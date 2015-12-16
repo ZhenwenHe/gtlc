@@ -31,7 +31,7 @@ begin_gdb_namespace
 /** @defgroup TemporarySets TempSet-临时要素集合，用于存放中间操作结果  
 *  @{
 */
-class GV3DCORE_API TempSet
+class CORE_API TempSet
 {
 	/** @name 保护成员变量说明  
 	*  @{
@@ -180,7 +180,7 @@ typedef std::shared_ptr<TempSet> TempSetSharedPtr;
 /** @addtogroup TemporarySets    TemporarySets
 *  @{
 */
-class GV3DCORE_API TemporarySets
+class CORE_API TemporarySets
 {
 	/** @name 保护成员变量说明  
 	*  @{

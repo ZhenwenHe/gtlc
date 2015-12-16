@@ -36,7 +36,7 @@ struct PLANE3D
 /** @addtogroup math  Quaternion
 *  @{
 */
-class GV3DCORE_API Quaternion{
+class CORE_API Quaternion{
 	double _v[4];
 public:
 	Quaternion(){

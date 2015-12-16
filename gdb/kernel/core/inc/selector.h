@@ -28,7 +28,7 @@ begin_gdb_namespace
 /** @defgroup Selector Selector   
 *  @{
 */
-class GV3DCORE_API Selector: protected FeatureWeakPtrVector
+class CORE_API Selector: protected FeatureWeakPtrVector
 {
 	typedef FeatureWeakPtrVector BaseType;
 public:

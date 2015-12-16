@@ -46,7 +46,7 @@ enum SEMAN_TOPO_TYPE
 /** @addtogroup topology TopoItem-A - B语义拓扑关系 
 *  @{
 */
-class GV3DCORE_API TopoItem{
+class CORE_API TopoItem{
 public:
 	virtual int getType() const =0;
 	virtual void setType(int t)=0;
@@ -87,7 +87,7 @@ enum TOPO_INFO_TYPE
 /** @addtogroup topology TopoInfo 
 *  @{
 */
-class  GV3DCORE_API TopoInfo
+class  CORE_API TopoInfo
 {
 public:
 	virtual int getType() const=0;
@@ -131,7 +131,7 @@ typedef std::shared_ptr<TopoItem> TopoItemSharedPtr;
 /** @addtogroup topology SemanticGeometryTopoInfo 
 *  @{
 */
-class GV3DCORE_API SemanticGeometryTopoInfo: virtual public TopoInfo {
+class CORE_API SemanticGeometryTopoInfo: virtual public TopoInfo {
 public:
 	/** 获得对象的语义信息	
 	* @param 
@@ -161,7 +161,7 @@ public:
 /** @addtogroup topology SemanticActionTopoInfo 
 *  @{
 */
-class GV3DCORE_API SemanticActionTopoInfo: virtual public TopoInfo{
+class CORE_API SemanticActionTopoInfo: virtual public TopoInfo{
 	virtual std::string getName() =0;
 };
 /** @} */ 

@@ -33,7 +33,7 @@ begin_gdb_namespace
 * 其实质是一个64位长整数  
 *  @{
 */
-class GV3DCORE_API Identifier{
+class CORE_API Identifier{
 	/** @name ULONGNumber 32位整数联合体  
 	*  @{
 	*/

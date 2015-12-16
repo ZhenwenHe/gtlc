@@ -34,7 +34,7 @@ typedef std::shared_ptr<MeshBuilder> MeshBuilderSharedPtr;
 /** @addtogroup Mesh MeshBuilder-MeshBuilder网格生成管理
 *  @{
 */
-class GV3DCORE_API MeshBuilder {
+class CORE_API MeshBuilder {
 protected:
 	/** 查询接口指针 */
 	MeshProxySharedPtr _proxySptr;

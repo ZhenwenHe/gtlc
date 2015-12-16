@@ -29,7 +29,7 @@ begin_gdb_namespace
 /** @defgroup Render Render-渲染引擎  
 *  @{
 */
-class GV3DCORE_API GraphicsDevice{
+class CORE_API GraphicsDevice{
 	void *  _handle;
 public:
 	explicit GraphicsDevice(void * pHandle): _handle(pHandle) { } 
@@ -45,7 +45,7 @@ typedef std::shared_ptr<GraphicsDevice> GraphicsDeviceSharedPtr;
 /** @addtogroup Render Camera-相机类  
 *  @{
 */
-class GV3DCORE_API Camera{
+class CORE_API Camera{
 public:	
 	virtual void setViewMatrix(const Vertex3d eye,const Vertex3d center, const Vertex3d up)=0;
 	virtual void getViewMatrix(Vertex3d &eye,  Vertex3d & center,  Vertex3d & up)=0;
@@ -71,7 +71,7 @@ typedef std::shared_ptr<Render3d> Render3dSharedPtr;
 /** @addtogroup Render Render-渲染引擎类  
 *  @{
 */
-class  GV3DCORE_API Render 
+class  CORE_API Render 
 {
 protected:
 	int               _dimension;
@@ -142,7 +142,7 @@ public:
 /** @addtogroup Render Render3d-渲染引擎类  
 *  @{
 */
-class  GV3DCORE_API Render3d : public Render 
+class  CORE_API Render3d : public Render 
 {
 public:
 	Render3d();
@@ -657,7 +657,7 @@ struct Rect2d
 /** @addtogroup Render  二维显示接口
 *  @{
 */
-class GV3DCORE_API Render2d : public Render
+class CORE_API Render2d : public Render
 {
 public:
 	Render2d();

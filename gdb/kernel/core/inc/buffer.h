@@ -56,7 +56,7 @@ begin_gdb_namespace
 * g.readBuffer(buf);  
 *  @{
 */
-class GV3DCORE_API Buffer{
+class CORE_API Buffer{
 protected:
 	/*breif 指向内存块头地址 */
 	void * _data;

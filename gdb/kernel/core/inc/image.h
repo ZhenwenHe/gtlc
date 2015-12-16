@@ -25,7 +25,7 @@ class  Image;
 /** @defgroup Image ImageFilter
 *  @{
 */
-class GV3DCORE_API ImageFilter{
+class CORE_API ImageFilter{
 public:
 	enum IMAGE_FILTER {
 		FILTER_BOX		  = 0,	// Box, pulse, Fourier window, 1st order (constant) b-spline
@@ -53,7 +53,7 @@ typedef std::shared_ptr<Image> ImageSharedPtr;
 /** @defgroup Image Image-Í¼Ïñ½Ó¿Ú
 *  @{
 */
-class GV3DCORE_API Image{
+class CORE_API Image{
 public:
 	enum{
 		    IMAGE_FORMAT_UNKNOWN = -1,

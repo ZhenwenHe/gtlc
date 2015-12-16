@@ -36,7 +36,7 @@ begin_gdb_namespace
 /** @addtogroup Geometry Point3d-三维点类
 *  @{
 */
-class GV3DCORE_API Point3d : virtual public Geometry
+class CORE_API Point3d : virtual public Geometry
 {
 public:
 	/**  获取点位置坐标
@@ -56,7 +56,7 @@ public:
 /** @addtogroup Geometry SinglePoint3d-三维单点类 
 *  @{
 */
-class GV3DCORE_API SinglePoint3d : virtual public Point3d
+class CORE_API SinglePoint3d : virtual public Point3d
 {
 public:	
 	/**  获取点的颜色
@@ -100,7 +100,7 @@ public:
 /** @addtogroup Geometry MultiPoint3d-三维多点类 
 *  @{
 */
-class GV3DCORE_API MultiPoint3d : virtual public Point3d
+class CORE_API MultiPoint3d : virtual public Point3d
 {
 public:
 	/**  获取点位置坐标列
@@ -155,7 +155,7 @@ public:
 /** @addtogroup Geometry Annotation3d-三维注记类
 *  @{
 */
-class GV3DCORE_API Annotation3d : virtual public Point3d
+class CORE_API Annotation3d : virtual public Point3d
 {
 public:	
 	/** 获得平移坐标值
@@ -277,7 +277,7 @@ public:
 /** @addtogroup Geometry Reference3d-三维参照类 
 *  @{
 */
-class GV3DCORE_API Reference3d : virtual public Point3d
+class CORE_API Reference3d : virtual public Point3d
 {
 public:
 	/**  获取共享模板
@@ -325,7 +325,7 @@ public:
 /** @addtogroup Geometry Curve3d-三维线类 
 *  @{
 */
-class GV3DCORE_API Curve3d : virtual public Geometry
+class CORE_API Curve3d : virtual public Geometry
 {
 public:
 	/**  获取对象位置坐标访问器
@@ -372,7 +372,7 @@ public:
 /** @addtogroup Geometry LinearRing3d-三维线环类 
 *  @{
 */
-class GV3DCORE_API LinearRing3d : virtual public Curve3d
+class CORE_API LinearRing3d : virtual public Curve3d
 {
 public:
 	/**  获取线环标志
@@ -391,7 +391,7 @@ public:
 /** @addtogroup Geometry LineString3d-三维折线类 
 *  @{
 */
-class GV3DCORE_API LineString3d : virtual public Curve3d
+class CORE_API LineString3d : virtual public Curve3d
 {
 public:
 
@@ -411,7 +411,7 @@ public:
 /** @addtogroup Geometry MultiPolyline3d-三维复杂折线类 
 *  @{
 */
-class GV3DCORE_API MultiPolyline3d : virtual public Curve3d
+class CORE_API MultiPolyline3d : virtual public Curve3d
 {
 public:
 	/** 获取线的宽度
@@ -448,7 +448,7 @@ public:
 /** @addtogroup Geometry ParameterizedCurve3d-三维参数化曲线类 
 *  @{
 */
-class GV3DCORE_API ParameterizedCurve3d : virtual public Curve3d
+class CORE_API ParameterizedCurve3d : virtual public Curve3d
 {
 public:
 	/** 获得曲线类型标记	
@@ -480,7 +480,7 @@ public:
 /** @addtogroup Geometry Surface3d-三维面类 
 *  @{
 */
-class GV3DCORE_API Surface3d : virtual public Geometry
+class CORE_API Surface3d : virtual public Geometry
 {
 public:
 	/**  获取对象位置坐标访问器
@@ -545,7 +545,7 @@ public:
 /** @addtogroup Geometry TriangleMesh3d-三维三角形网格类 
 *  @{
 */
-class GV3DCORE_API  TriangleMesh3d : virtual public Surface3d
+class CORE_API  TriangleMesh3d : virtual public Surface3d
 {
 public:
 	/**  获取三角形网格序号结构
@@ -570,7 +570,7 @@ public:
 /** @addtogroup Geometry Polygon3d-三维多边形类 
 *  @{
 */
-class GV3DCORE_API Polygon3d : virtual public Surface3d
+class CORE_API Polygon3d : virtual public Surface3d
 {
 public:
 	/** 获取多边形中环数组
@@ -598,7 +598,7 @@ public:
 /** @addtogroup Geometry ParameterizedSurface3d-三维参数化曲面类 
 *  @{
 */
-class GV3DCORE_API ParameterizedSurface3d : virtual public Surface3d
+class CORE_API ParameterizedSurface3d : virtual public Surface3d
 {
 public:
 	/** 获得参数化曲面类型标记	
@@ -630,7 +630,7 @@ public:
 /** @addtogroup Geometry MultiPolygon3d-三维多面类 
 *  @{
 */
-class GV3DCORE_API MultiPolygon3d : virtual public Surface3d
+class CORE_API MultiPolygon3d : virtual public Surface3d
 {
 public:
 	/**  获取组合多边形面的个数
@@ -663,7 +663,7 @@ public:
 /** @addtogroup Geometry Triangle3d-三维三角形类 
 *  @{
 */
-class GV3DCORE_API Triangle3d : virtual public Surface3d
+class CORE_API Triangle3d : virtual public Surface3d
 {
 public:
 	/**  设置三角形顶点坐标
@@ -699,7 +699,7 @@ public:
 /** @addtogroup Geometry Rectangle3d-三维矩形类 
 *  @{
 */
-class GV3DCORE_API Rectangle3d : virtual public Surface3d
+class CORE_API Rectangle3d : virtual public Surface3d
 {
 public:
 	/** 求矩形长度
@@ -719,7 +719,7 @@ public:
 /** @addtogroup Geometry Volume3d-三维体类 
 *  @{
 */
-class GV3DCORE_API Volume3d : virtual public Geometry
+class CORE_API Volume3d : virtual public Geometry
 {
 public:
 	/** 获取对象的体积
@@ -766,7 +766,7 @@ public:
 /** @addtogroup Geometry Solid3d-三维多面体类 
 *  @{
 */
-class GV3DCORE_API Solid3d : virtual public Volume3d
+class CORE_API Solid3d : virtual public Volume3d
 {
 public:
 	/**  获取组合面列
@@ -785,7 +785,7 @@ public:
 /** @addtogroup Geometry MultiSolid3d-三维复杂多面体类 
 *  @{
 */
-class GV3DCORE_API MultiSolid3d : virtual public Volume3d
+class CORE_API MultiSolid3d : virtual public Volume3d
 {
 public:
 	/**  获取组合面列
@@ -799,7 +799,7 @@ public:
 /** @addtogroup Geometry Voxel3d-三维体元类 
 *  @{
 */
-class GV3DCORE_API Voxel3d : virtual public Volume3d
+class CORE_API Voxel3d : virtual public Volume3d
 {
 public:
 	/** 获得体元类型编号	
@@ -813,7 +813,7 @@ public:
 /** @addtogroup Geometry Cube3d-三维长方体类 
 *  @{
 */
-class GV3DCORE_API Cube3d : virtual public Voxel3d
+class CORE_API Cube3d : virtual public Voxel3d
 {
 public:
 	/** 求取长度
@@ -839,7 +839,7 @@ public:
 /** @addtogroup Geometry Prism3d-三维棱柱类 
 *  @{
 */
-class GV3DCORE_API Prism3d : virtual public Voxel3d
+class CORE_API Prism3d : virtual public Voxel3d
 {
 public:
 	/** 求取长度
@@ -877,7 +877,7 @@ public:
 /** @addtogroup Geometry Tetrahedron3d-三维四面体类 
 *  @{
 */
-class GV3DCORE_API Tetrahedron3d : virtual public Voxel3d
+class CORE_API Tetrahedron3d : virtual public Voxel3d
 {
 public:
 };
@@ -886,7 +886,7 @@ public:
 /** @addtogroup Geometry Group3d-三维组类 
 *  @{
 */
-class GV3DCORE_API Group3d : virtual public Geometry
+class CORE_API Group3d : virtual public Geometry
 {
 public:
 	/**  获取子单元列表

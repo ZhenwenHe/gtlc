@@ -34,7 +34,7 @@ typedef std::shared_ptr<TerrainBuilder>  TerrainBuilderSharedPtr;
 /** @addtogroup terrain TerrainBuilder-地形数据库管理指针　
 *  @{
 */
-class GV3DCORE_API TerrainBuilder
+class CORE_API TerrainBuilder
 {
 protected:
 	/** 打开DEM数据库

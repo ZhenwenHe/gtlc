@@ -34,7 +34,7 @@ class QResult;
 /** @defgroup proxy Proxy-数据查询接口  
     *  @{
     */
-class GV3DCORE_API Proxy {	
+class CORE_API Proxy {	
 	
 	/** @name 构造与析构函数 
 		*  @{
@@ -429,7 +429,7 @@ protected:
 /** @addtogroup proxy QResult-查询结果,该类仅在Proxy内部进行创建，外部不能创建,只能使用其指针
 *  @{
 */
-class GV3DCORE_API QResult{	
+class CORE_API QResult{	
 	/** @name 私有成员变量说明  
 	*  @{
 	*/

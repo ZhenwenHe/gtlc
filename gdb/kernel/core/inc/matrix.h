@@ -30,7 +30,7 @@ begin_gdb_namespace
 /** @addtogroup math  Matrix-矩阵（基类） 
     *  @{
     */
-class GV3DCORE_API Matrix 
+class CORE_API Matrix 
 {
 
 protected:
@@ -291,13 +291,13 @@ public:
 /** @addtogroup math  Matrix-全局操作符号重载 
     *  @{
     */
- GV3DCORE_API const Matrix operator+(const Matrix& lhm, const Matrix& rhm);
- GV3DCORE_API const Matrix operator-(const Matrix& lhm, const Matrix& rhm);
- GV3DCORE_API const Matrix operator+(const Matrix& lhm, double rhd);
- GV3DCORE_API const Matrix operator-(const Matrix& lhm, double rhd);
- GV3DCORE_API const Matrix operator*(const Matrix& lhm, const Matrix& rhm);
- GV3DCORE_API const Matrix operator*(const Matrix& lhm, double rhd);
- GV3DCORE_API const Matrix operator/(const Matrix& lhm, double rhd);
+ CORE_API const Matrix operator+(const Matrix& lhm, const Matrix& rhm);
+ CORE_API const Matrix operator-(const Matrix& lhm, const Matrix& rhm);
+ CORE_API const Matrix operator+(const Matrix& lhm, double rhd);
+ CORE_API const Matrix operator-(const Matrix& lhm, double rhd);
+ CORE_API const Matrix operator*(const Matrix& lhm, const Matrix& rhm);
+ CORE_API const Matrix operator*(const Matrix& lhm, double rhd);
+ CORE_API const Matrix operator/(const Matrix& lhm, double rhd);
  /** @}*/
 
 end_gdb_namespace

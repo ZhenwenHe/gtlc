@@ -1,0 +1,37 @@
+﻿生成启动时间为 2014/2/9 21:32:22。
+     1>项目“D:\Devs\GTL\2.0\test\gtl_test_dpsi\ServerApp\ServerApp.vcxproj”在节点 2 上(Build 个目标)。
+     1>ClCompile:
+         C:\Program Files\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I../../../gtl /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp"Debug\ServerApp.pch" /Fo"Debug\\" /Fd"Debug\vc120.pdb" /FR"Debug\\" /Gd /TP /analyze- /errorReport:prompt ServerApp.cpp
+         ServerApp.cpp
+     1>d:\devs\gtl\2.0\gtl\tdtree.h(109): warning C4018: “<=”: 有符号/无符号不匹配
+     1>d:\devs\gtl\2.0\gtl\tdtree.h(325): warning C4018: “<”: 有符号/无符号不匹配
+     1>d:\devs\gtl\2.0\gtl\tritree.h(194): warning C4018: “<”: 有符号/无符号不匹配
+     1>d:\devs\gtl\2.0\gtl\tritree.h(240): warning C4018: “<”: 有符号/无符号不匹配
+     1>d:\devs\gtl\2.0\gtl\bitset.h(168): warning C4018: “<=”: 有符号/无符号不匹配
+                 d:\devs\gtl\2.0\gtl\bitset.h(166): 编译类 模板 成员函数“size_t gtl::Bitset<char,std::char_traits<char>,std::allocator<char>>::get(std::basic_string<char,std::char_traits<char>,std::allocator<char>> &)”时
+                 d:\devs\gtl\2.0\gtl\tdtree.h(333): 参见对正在编译的函数 模板 实例化“size_t gtl::Bitset<char,std::char_traits<char>,std::allocator<char>>::get(std::basic_string<char,std::char_traits<char>,std::allocator<char>> &)”的引用
+                 d:\devs\gtl\2.0\gtl\tdtree.h(323): 参见对正在编译的类 模板 实例化“gtl::Bitset<char,std::char_traits<char>,std::allocator<char>>”的引用
+     1>d:\devs\gtl\2.0\gtl\bitset.h(318): warning C4018: “>=”: 有符号/无符号不匹配
+                 d:\devs\gtl\2.0\gtl\bitset.h(315): 编译类 模板 成员函数“void gtl::Bitset<char,std::char_traits<char>,std::allocator<char>>::resize(size_t)”时
+                 d:\devs\gtl\2.0\gtl\tdtree.h(339): 参见对正在编译的函数 模板 实例化“void gtl::Bitset<char,std::char_traits<char>,std::allocator<char>>::resize(size_t)”的引用
+     1>d:\devs\gtl\2.0\gtl\pointerarray.h(103): warning C4018: “<”: 有符号/无符号不匹配
+                 d:\devs\gtl\2.0\gtl\pointerarray.h(98): 编译类 模板 成员函数“void gtl::PointerArray<gtl::Interval1d,false,char,std::char_traits<char>,std::allocator<char>>::clear(void)”时
+                 d:\devs\gtl\2.0\gtl\pointerarray.h(59): 参见对正在编译的函数 模板 实例化“void gtl::PointerArray<gtl::Interval1d,false,char,std::char_traits<char>,std::allocator<char>>::clear(void)”的引用
+                 c:\program files\microsoft visual studio 12.0\vc\include\utility(199): 参见对正在编译的类 模板 实例化“gtl::PointerArray<gtl::Interval1d,false,char,std::char_traits<char>,std::allocator<char>>”的引用
+                 d:\devs\gtl\2.0\gtl\tdtree.h(75): 参见对正在编译的类 模板 实例化“std::pair<const _Kty,_Ty>”的引用
+                 with
+                 [
+                     _Kty=unsigned __int64
+         ,            _Ty=gtl::IntervalArray
+                 ]
+       Link:
+         C:\Program Files\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\Devs\GTL\2.0\test\gtl_test_dpsi\Debug\ServerApp.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\Devs\GTL\2.0\test\gtl_test_dpsi\Debug\ServerApp.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\Devs\GTL\2.0\test\gtl_test_dpsi\Debug\ServerApp.lib" /MACHINE:X86 Debug\ServerApp.obj
+         Debug\stdafx.obj
+         ServerApp.vcxproj -> D:\Devs\GTL\2.0\test\gtl_test_dpsi\Debug\ServerApp.exe
+       BscMake:
+         C:\Program Files\Microsoft Visual Studio 12.0\VC\bin\bscmake.exe /nologo /o"D:\Devs\GTL\2.0\test\gtl_test_dpsi\Debug\ServerApp.bsc" /n Debug\ServerApp.sbr Debug\stdafx.sbr
+     1>已完成生成项目“D:\Devs\GTL\2.0\test\gtl_test_dpsi\ServerApp\ServerApp.vcxproj”(Build 个目标)的操作。
+
+生成成功。
+
+已用时间 00:00:04.31

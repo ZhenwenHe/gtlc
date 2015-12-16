@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="4d3fda10-0414-4d5a-aabd-979b582586f9" name="index" linkedPackageId="3a0a0ca0-8a34-42d4-b13b-0d66692bc373" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
+  <profileInstances>
+    <packageHasProfileInstances Id="f7a20011-cc10-4f02-a877-4077aaabea6c">
+      <profileInstance Id="8b231b82-adbb-4d22-8d6b-6247873e8d2e" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="a4c768b9-b3e6-4f83-b9e3-a4b8d72017d8">
+      <profileInstance Id="f3bec0d3-b92d-483d-a87b-9c18f7e8e673" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <logicalClassDesignerModelHasPackages>
+      <package Id="ae302668-207f-4cf9-b9eb-67de1b738c21" name="geometry">
+        <elementDefinition Id="1c09f983-57ff-40a0-aa56-42c24fa3d69b" />
+      </package>
+    </logicalClassDesignerModelHasPackages>
+  </packagedElements>
+  <package Id="3a0a0ca0-8a34-42d4-b13b-0d66692bc373" name="modeling">
+    <elementDefinition Id="a10d7e8d-714a-401f-ba3f-aa5f8be77436" />
+  </package>
+</logicalClassDesignerModel>

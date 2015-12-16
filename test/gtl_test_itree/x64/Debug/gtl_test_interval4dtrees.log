@@ -1,0 +1,178 @@
+﻿Build started 2015/11/4 21:16:37.
+     1>Project "H:\Git\test\gtl_test_itree\gtl_test_interval4dtrees.vcxproj" on node 2 (Rebuild target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\CL.exe /c /I../../gtl /Zi /nologo /W3 /WX- /Od /D WIN32 /D _DEBUG /D _CONSOLE /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yc"stdafx.h" /Fp"x64\Debug\gtl_test_itree.pch" /Fo"x64\Debug\\" /Fd"x64\Debug\vc120.pdb" /Gd /TP /errorReport:prompt stdafx.cpp
+         stdafx.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\CL.exe /c /I../../gtl /Zi /nologo /W3 /WX- /Od /D WIN32 /D _DEBUG /D _CONSOLE /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp"x64\Debug\gtl_test_itree.pch" /Fo"x64\Debug\\" /Fd"x64\Debug\vc120.pdb" /Gd /TP /errorReport:prompt gtl_test_interval4dtrees.cpp
+         gtl_test_interval4dtrees.cpp
+     1>H:\Git\gtl\TriTree.h(194): warning C4018: '<' : signed/unsigned mismatch
+     1>H:\Git\gtl\TriTree.h(240): warning C4018: '<' : signed/unsigned mismatch
+     1>h:\git\gtl\tdtree.h(236): warning C4267: 'return' : conversion from 'size_t' to 'int', possible loss of data
+     1>h:\git\gtl\tdtree.h(298): warning C4267: 'return' : conversion from 'size_t' to 'int', possible loss of data
+     1>h:\git\gtl\tdtree.h(334): warning C4267: 'return' : conversion from 'size_t' to 'int', possible loss of data
+     1>h:\git\gtl\tdtree.h(337): warning C4267: 'initializing' : conversion from 'size_t' to 'int', possible loss of data
+     1>gtl_test_interval4dtrees.cpp(27): warning C4267: 'initializing' : conversion from 'size_t' to 'unsigned int', possible loss of data
+     1>gtl_test_interval4dtrees.cpp(28): warning C4018: '<' : signed/unsigned mismatch
+     1>gtl_test_interval4dtrees.cpp(162): warning C4267: 'initializing' : conversion from 'size_t' to 'int', possible loss of data
+     1>gtl_test_interval4dtrees.cpp(182): warning C4267: 'initializing' : conversion from 'size_t' to 'int', possible loss of data
+     1>gtl_test_interval4dtrees.cpp(202): warning C4267: 'initializing' : conversion from 'size_t' to 'unsigned int', possible loss of data
+     1>gtl_test_interval4dtrees.cpp(203): warning C4018: '<' : signed/unsigned mismatch
+     1>h:\git\gtl\intervals.h(178): warning C4267: 'initializing' : conversion from 'size_t' to 'int', possible loss of data
+                 h:\git\gtl\intervals.h(149) : while compiling class template member function 'bool gtl::Intervals<double,4,gtl::Identifier<64,char,std::char_traits<char>,std::allocator<char>>,char,std::char_traits<char>,std::allocator<char>>::readIndexFile(const std::string &,std::vector<gtl::Intervals<double,4,gtl::Identifier<64,char,std::char_traits<char>,std::allocator<char>>,char,std::char_traits<char>,std::allocator<char>> *,std::allocator<_Ty>> &)'
+                 with
+                 [
+                     _Ty=gtl::Intervals<double,4,gtl::Identifier<64,char,std::char_traits<char>,std::allocator<char>>,char,std::char_traits<char>,std::allocator<char>> *
+                 ]
+                 gtl_test_interval4dtrees.cpp(198) : see reference to function template instantiation 'bool gtl::Intervals<double,4,gtl::Identifier<64,char,std::char_traits<char>,std::allocator<char>>,char,std::char_traits<char>,std::allocator<char>>::readIndexFile(const std::string &,std::vector<gtl::Intervals<double,4,gtl::Identifier<64,char,std::char_traits<char>,std::allocator<char>>,char,std::char_traits<char>,std::allocator<char>> *,std::allocator<_Ty>> &)' being compiled
+                 with
+                 [
+                     _Ty=gtl::Intervals<double,4,gtl::Identifier<64,char,std::char_traits<char>,std::allocator<char>>,char,std::char_traits<char>,std::allocator<char>> *
+                 ]
+                 H:\Git\gtl\TriTree.h(343) : see reference to class template instantiation 'gtl::Intervals<double,4,gtl::Identifier<64,char,std::char_traits<char>,std::allocator<char>>,char,std::char_traits<char>,std::allocator<char>>' being compiled
+     1>h:\git\gtl\bitset.h(118): warning C4267: '=' : conversion from 'size_t' to 'unsigned int', possible loss of data
+                 h:\git\gtl\bitset.h(114) : while compiling class template member function 'void gtl::Bitset<char,std::char_traits<char>,std::allocator<char>>::set(size_t,bool)'
+                 h:\git\gtl\tdtree.h(342) : see reference to function template instantiation 'void gtl::Bitset<char,std::char_traits<char>,std::allocator<char>>::set(size_t,bool)' being compiled
+                 h:\git\gtl\tdtree.h(323) : see reference to class template instantiation 'gtl::Bitset<char,std::char_traits<char>,std::allocator<char>>' being compiled
+     1>h:\git\gtl\bitset.h(127): warning C4267: '=' : conversion from 'size_t' to 'unsigned int', possible loss of data
+     1>h:\git\gtl\bitset.h(137): warning C4267: '=' : conversion from 'size_t' to 'unsigned int', possible loss of data
+     1>h:\git\gtl\bitset.h(143): warning C4267: 'argument' : conversion from 'size_t' to 'unsigned int', possible loss of data
+     1>h:\git\gtl\bitset.h(146): warning C4267: 'argument' : conversion from 'size_t' to 'unsigned int', possible loss of data
+     1>h:\git\gtl\bitset.h(151): warning C4267: 'argument' : conversion from 'size_t' to 'unsigned int', possible loss of data
+     1>h:\git\gtl\bitset.h(185): warning C4018: '<=' : signed/unsigned mismatch
+                 h:\git\gtl\bitset.h(183) : while compiling class template member function 'size_t gtl::Bitset<char,std::char_traits<char>,std::allocator<char>>::get(std::basic_string<char,std::char_traits<char>,std::allocator<char>> &)'
+                 h:\git\gtl\tdtree.h(333) : see reference to function template instantiation 'size_t gtl::Bitset<char,std::char_traits<char>,std::allocator<char>>::get(std::basic_string<char,std::char_traits<char>,std::allocator<char>> &)' being compiled
+     1>h:\git\gtl\bitset.h(540): warning C4267: '=' : conversion from 'size_t' to 'unsigned int', possible loss of data
+                 h:\git\gtl\bitset.h(535) : while compiling class template member function 'void gtl::Bitset<char,std::char_traits<char>,std::allocator<char>>::resize(size_t)'
+                 h:\git\gtl\tdtree.h(339) : see reference to function template instantiation 'void gtl::Bitset<char,std::char_traits<char>,std::allocator<char>>::resize(size_t)' being compiled
+     1>h:\git\gtl\intervaloperators.h(208): warning C4018: '<' : signed/unsigned mismatch
+                 h:\git\gtl\intervaloperators.h(204) : while compiling class template member function 'void gtl::IntervalOperators<double,char,std::char_traits<char>,std::allocator<char>>::random(int,T,T,std::vector<gtl::Interval1d,std::allocator<_Ty>> &)'
+                 with
+                 [
+                     T=double
+         ,            _Ty=gtl::Interval1d
+                 ]
+                 gtl_test_interval4dtrees.cpp(150) : see reference to function template instantiation 'void gtl::IntervalOperators<double,char,std::char_traits<char>,std::allocator<char>>::random(int,T,T,std::vector<gtl::Interval1d,std::allocator<_Ty>> &)' being compiled
+                 with
+                 [
+                     T=double
+         ,            _Ty=gtl::Interval1d
+                 ]
+                 gtl_test_interval4dtrees.cpp(149) : see reference to class template instantiation 'gtl::IntervalOperators<double,char,std::char_traits<char>,std::allocator<char>>' being compiled
+     1>h:\git\gtl\intervaloperators.h(233): warning C4018: '<' : signed/unsigned mismatch
+     1>h:\git\gtl\bitset.h(107): warning C4267: 'argument' : conversion from 'size_t' to 'unsigned int', possible loss of data
+                 h:\git\gtl\bitset.h(103) : while compiling class template member function 'bool gtl::Bitset<char,std::char_traits<char>,std::allocator<char>>::get(size_t) const'
+                 h:\git\gtl\bitset.h(187) : see reference to function template instantiation 'bool gtl::Bitset<char,std::char_traits<char>,std::allocator<char>>::get(size_t) const' being compiled
+     1>h:\git\gtl\bitset.h(108): warning C4267: 'argument' : conversion from 'size_t' to 'unsigned int', possible loss of data
+     1>h:\git\gtl\buffer.h(47): warning C4267: '=' : conversion from 'size_t' to 'uint32_t', possible loss of data
+                 h:\git\gtl\buffer.h(29) : while compiling class template member function 'void gtl::Buffer<char,std::char_traits<char>,std::allocator<char>>::writeBuffer(void *&,size_t &)'
+                 H:\Git\gtl\rtree.h(201) : see reference to class template instantiation 'gtl::Buffer<char,std::char_traits<char>,std::allocator<char>>' being compiled
+                 H:\Git\gtl\rtree.h(200) : while compiling class template member function 'bool gtl::RTree<gtl::Interval4d *,double,3,ELEMTYPE,32,16,char,std::char_traits<char>,std::allocator<char>>::readBuffer(const gtl::Buffer<char,std::char_traits<char>,std::allocator<char>> &)'
+                 with
+                 [
+                     ELEMTYPE=double
+                 ]
+                 gtl_test_interval4dtrees.cpp(77) : see reference to class template instantiation 'gtl::RTree<gtl::Interval4d *,double,3,ELEMTYPE,32,16,char,std::char_traits<char>,std::allocator<char>>' being compiled
+                 with
+                 [
+                     ELEMTYPE=double
+                 ]
+     1>h:\git\gtl\buffer.h(49): warning C4267: '=' : conversion from 'size_t' to 'uint32_t', possible loss of data
+     1>h:\git\gtl\buffer.h(51): warning C4267: '=' : conversion from 'size_t' to 'uint32_t', possible loss of data
+     1>h:\git\gtl\buffer.h(53): warning C4267: '=' : conversion from 'size_t' to 'uint32_t', possible loss of data
+     1>h:\git\gtl\buffer.h(90): warning C4267: '=' : conversion from 'size_t' to 'uint32_t', possible loss of data
+                 h:\git\gtl\buffer.h(74) : while compiling class template member function 'void gtl::Buffer<char,std::char_traits<char>,std::allocator<char>>::readBuffer(const void *,size_t)'
+     1>h:\git\gtl\buffer.h(92): warning C4267: '=' : conversion from 'size_t' to 'uint32_t', possible loss of data
+     1>h:\git\gtl\buffer.h(94): warning C4267: '=' : conversion from 'size_t' to 'uint32_t', possible loss of data
+     1>h:\git\gtl\buffer.h(96): warning C4267: '=' : conversion from 'size_t' to 'uint32_t', possible loss of data
+     1>H:\Git\gtl\RStarTree.h(1022): warning C4244: '+=' : conversion from 'double' to 'int', possible loss of data
+                 H:\Git\gtl\RStarTree.h(954) : while compiling class template member function 'gtl::RStarNode<gtl::RStarBoundedItem<0x04>> *gtl::RStarTree<gtl::Interval4d *,0x04,0x04,0x08,char,std::char_traits<char>,std::allocator<char>>::Split(gtl::RStarNode<gtl::RStarBoundedItem<0x04>> *)'
+                 H:\Git\gtl\RStarTree.h(921) : see reference to function template instantiation 'gtl::RStarNode<gtl::RStarBoundedItem<0x04>> *gtl::RStarTree<gtl::Interval4d *,0x04,0x04,0x08,char,std::char_traits<char>,std::allocator<char>>::Split(gtl::RStarNode<gtl::RStarBoundedItem<0x04>> *)' being compiled
+                 gtl_test_interval4dtrees.cpp(79) : see reference to class template instantiation 'gtl::RStarTree<gtl::Interval4d *,0x04,0x04,0x08,char,std::char_traits<char>,std::allocator<char>>' being compiled
+     1>h:\git\gtl\console.inl(97): warning C4996: '_vsnprintf': This function or variable may be unsafe. Consider using _vsnprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(346) : see declaration of '_vsnprintf'
+                 h:\git\gtl\console.inl(92) : while compiling class template member function 'bool gtl::Console<char,std::char_traits<char>,std::allocator<char>>::print(const ELEMENT *,...)'
+                 with
+                 [
+                     ELEMENT=char
+                 ]
+                 gtl_test_interval4dtrees.cpp(87) : see reference to function template instantiation 'bool gtl::Console<char,std::char_traits<char>,std::allocator<char>>::print(const ELEMENT *,...)' being compiled
+                 with
+                 [
+                     ELEMENT=char
+                 ]
+                 gtl_test_interval4dtrees.cpp(18) : see reference to class template instantiation 'gtl::Console<char,std::char_traits<char>,std::allocator<char>>' being compiled
+     1>h:\git\gtl\console.inl(66): warning C4267: 'argument' : conversion from 'size_t' to 'DWORD', possible loss of data
+                 h:\git\gtl\console.inl(61) : while compiling class template member function 'bool gtl::Console<char,std::char_traits<char>,std::allocator<char>>::writeString(const std::basic_string<char,std::char_traits<char>,std::allocator<char>> &)'
+                 h:\git\gtl\console.inl(99) : see reference to function template instantiation 'bool gtl::Console<char,std::char_traits<char>,std::allocator<char>>::writeString(const std::basic_string<char,std::char_traits<char>,std::allocator<char>> &)' being compiled
+                 h:\git\gtl\console.inl(9) : while compiling class template member function 'gtl::Console<char,std::char_traits<char>,std::allocator<char>>::Console(void)'
+                 gtl_test_interval4dtrees.cpp(18) : see reference to function template instantiation 'gtl::Console<char,std::char_traits<char>,std::allocator<char>>::Console(void)' being compiled
+     1>h:\git\gtl\RTreebase.h(1542): warning C4267: '=' : conversion from 'size_t' to 'int', possible loss of data
+                 h:\git\gtl\RTreebase.h(1522) : while compiling class template member function 'bool gtl::RTreeBase<DATATYPE,ELEMTYPE,3,ELEMTYPEREAL,32,16,T,TRAITS,ALLOC>::writeNodeBuffer(gtl::RTreeBase<DATATYPE,ELEMTYPE,3,ELEMTYPEREAL,32,16,T,TRAITS,ALLOC>::Node *,gtl::Buffer<T,TRAITS,ALLOC> &,size_t)'
+                 with
+                 [
+                     DATATYPE=gtl::Interval4d *
+         ,            ELEMTYPE=double
+         ,            ELEMTYPEREAL=double
+         ,            T=char
+         ,            TRAITS=std::char_traits<char>
+         ,            ALLOC=std::allocator<char>
+                 ]
+                 h:\git\gtl\RTreebase.h(1519) : see reference to function template instantiation 'bool gtl::RTreeBase<DATATYPE,ELEMTYPE,3,ELEMTYPEREAL,32,16,T,TRAITS,ALLOC>::writeNodeBuffer(gtl::RTreeBase<DATATYPE,ELEMTYPE,3,ELEMTYPEREAL,32,16,T,TRAITS,ALLOC>::Node *,gtl::Buffer<T,TRAITS,ALLOC> &,size_t)' being compiled
+                 with
+                 [
+                     DATATYPE=gtl::Interval4d *
+         ,            ELEMTYPE=double
+         ,            ELEMTYPEREAL=double
+         ,            T=char
+         ,            TRAITS=std::char_traits<char>
+         ,            ALLOC=std::allocator<char>
+                 ]
+                 h:\git\gtl\RTreebase.h(1517) : while compiling class template member function 'bool gtl::RTreeBase<DATATYPE,ELEMTYPE,3,ELEMTYPEREAL,32,16,T,TRAITS,ALLOC>::writeBuffer(gtl::Buffer<T,TRAITS,ALLOC> &)'
+                 with
+                 [
+                     DATATYPE=gtl::Interval4d *
+         ,            ELEMTYPE=double
+         ,            ELEMTYPEREAL=double
+         ,            T=char
+         ,            TRAITS=std::char_traits<char>
+         ,            ALLOC=std::allocator<char>
+                 ]
+                 H:\Git\gtl\rtree.h(198) : see reference to function template instantiation 'bool gtl::RTreeBase<DATATYPE,ELEMTYPE,3,ELEMTYPEREAL,32,16,T,TRAITS,ALLOC>::writeBuffer(gtl::Buffer<T,TRAITS,ALLOC> &)' being compiled
+                 with
+                 [
+                     DATATYPE=gtl::Interval4d *
+         ,            ELEMTYPE=double
+         ,            ELEMTYPEREAL=double
+         ,            T=char
+         ,            TRAITS=std::char_traits<char>
+         ,            ALLOC=std::allocator<char>
+                 ]
+                 H:\Git\gtl\rtree.h(24) : see reference to class template instantiation 'gtl::RTreeBase<DATATYPE,ELEMTYPE,3,ELEMTYPEREAL,32,16,T,TRAITS,ALLOC>' being compiled
+                 with
+                 [
+                     DATATYPE=gtl::Interval4d *
+         ,            ELEMTYPE=double
+         ,            ELEMTYPEREAL=double
+         ,            T=char
+         ,            TRAITS=std::char_traits<char>
+         ,            ALLOC=std::allocator<char>
+                 ]
+     1>h:\git\gtl\pointerarray.h(103): warning C4018: '<' : signed/unsigned mismatch
+                 h:\git\gtl\pointerarray.h(98) : while compiling class template member function 'void gtl::PointerArray<gtl::Interval1d,false,char,std::char_traits<char>,std::allocator<char>>::clear(void)'
+                 h:\git\gtl\pointerarray.h(59) : see reference to function template instantiation 'void gtl::PointerArray<gtl::Interval1d,false,char,std::char_traits<char>,std::allocator<char>>::clear(void)' being compiled
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\utility(199) : see reference to class template instantiation 'gtl::PointerArray<gtl::Interval1d,false,char,std::char_traits<char>,std::allocator<char>>' being compiled
+                 h:\git\gtl\tdtree.h(75) : see reference to class template instantiation 'std::pair<const _Kty,_Ty>' being compiled
+                 with
+                 [
+                     _Kty=unsigned __int64
+         ,            _Ty=gtl::IntervalArray
+                 ]
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"H:\Git\test\gtl_test_itree\x64\Debug\gtl_test_itree.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"H:\Git\test\gtl_test_itree\x64\Debug\gtl_test_itree.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"H:\Git\test\gtl_test_itree\x64\Debug\gtl_test_itree.lib" /MACHINE:X64 x64\Debug\gtl_test_interval4dtrees.obj
+         x64\Debug\stdafx.obj
+         gtl_test_interval4dtrees.vcxproj -> H:\Git\test\gtl_test_itree\x64\Debug\gtl_test_itree.exe
+     1>Done Building Project "H:\Git\test\gtl_test_itree\gtl_test_interval4dtrees.vcxproj" (Rebuild target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:03.85

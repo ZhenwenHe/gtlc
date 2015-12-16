@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<logicalClassDesignerDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="index">
+  <logicalClassDesignerModelMoniker Id="4d3fda10-0414-4d5a-aabd-979b582586f9" />
+  <nestedChildShapes>
+    <packageShape Id="b05b9614-697b-474e-8f76-6c215e602ec0" absoluteBounds="2.625, 1.625, 1.875, 1.5" customColor="255, 249, 230" hideQualifiedName="false">
+      <packageMoniker Id="ae302668-207f-4cf9-b9eb-67de1b738c21" LastKnownName="geometry" />
+    </packageShape>
+  </nestedChildShapes>
+</logicalClassDesignerDiagram>

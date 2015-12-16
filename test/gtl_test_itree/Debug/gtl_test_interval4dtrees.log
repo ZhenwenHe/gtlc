@@ -1,0 +1,96 @@
+﻿Build started 2015/11/4 21:16:26.
+     1>Project "H:\Git\test\gtl_test_itree\gtl_test_interval4dtrees.vcxproj" on node 2 (Rebuild target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I../../gtl /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yc"stdafx.h" /Fp"Debug\gtl_test_itree.pch" /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt stdafx.cpp
+         stdafx.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I../../gtl /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp"Debug\gtl_test_itree.pch" /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt gtl_test_interval4dtrees.cpp
+         gtl_test_interval4dtrees.cpp
+     1>h:\git\gtl\tritree.h(194): warning C4018: '<' : signed/unsigned mismatch
+     1>h:\git\gtl\tritree.h(240): warning C4018: '<' : signed/unsigned mismatch
+     1>h:\git\gtl\tdtree.h(109): warning C4018: '<=' : signed/unsigned mismatch
+     1>h:\git\gtl\tdtree.h(325): warning C4018: '<' : signed/unsigned mismatch
+     1>h:\git\test\gtl_test_itree\gtl_test_interval4dtrees.cpp(28): warning C4018: '<' : signed/unsigned mismatch
+     1>h:\git\test\gtl_test_itree\gtl_test_interval4dtrees.cpp(203): warning C4018: '<' : signed/unsigned mismatch
+     1>h:\git\gtl\intervals.h(171): warning C4244: 'initializing' : conversion from 'std::streamoff' to 'size_t', possible loss of data
+                 h:\git\gtl\intervals.h(149) : while compiling class template member function 'bool gtl::Intervals<double,4,gtl::Identifier<64,char,std::char_traits<char>,std::allocator<char>>,char,std::char_traits<char>,std::allocator<char>>::readIndexFile(const std::string &,std::vector<gtl::Intervals<double,4,gtl::Identifier<64,char,std::char_traits<char>,std::allocator<char>>,char,std::char_traits<char>,std::allocator<char>> *,std::allocator<_Ty>> &)'
+                 with
+                 [
+                     _Ty=gtl::Intervals<double,4,gtl::Identifier<64,char,std::char_traits<char>,std::allocator<char>>,char,std::char_traits<char>,std::allocator<char>> *
+                 ]
+                 h:\git\test\gtl_test_itree\gtl_test_interval4dtrees.cpp(198) : see reference to function template instantiation 'bool gtl::Intervals<double,4,gtl::Identifier<64,char,std::char_traits<char>,std::allocator<char>>,char,std::char_traits<char>,std::allocator<char>>::readIndexFile(const std::string &,std::vector<gtl::Intervals<double,4,gtl::Identifier<64,char,std::char_traits<char>,std::allocator<char>>,char,std::char_traits<char>,std::allocator<char>> *,std::allocator<_Ty>> &)' being compiled
+                 with
+                 [
+                     _Ty=gtl::Intervals<double,4,gtl::Identifier<64,char,std::char_traits<char>,std::allocator<char>>,char,std::char_traits<char>,std::allocator<char>> *
+                 ]
+                 h:\git\gtl\tritree.h(343) : see reference to class template instantiation 'gtl::Intervals<double,4,gtl::Identifier<64,char,std::char_traits<char>,std::allocator<char>>,char,std::char_traits<char>,std::allocator<char>>' being compiled
+     1>h:\git\gtl\bitset.h(185): warning C4018: '<=' : signed/unsigned mismatch
+                 h:\git\gtl\bitset.h(183) : while compiling class template member function 'size_t gtl::Bitset<char,std::char_traits<char>,std::allocator<char>>::get(std::basic_string<char,std::char_traits<char>,std::allocator<char>> &)'
+                 h:\git\gtl\tdtree.h(333) : see reference to function template instantiation 'size_t gtl::Bitset<char,std::char_traits<char>,std::allocator<char>>::get(std::basic_string<char,std::char_traits<char>,std::allocator<char>> &)' being compiled
+                 h:\git\gtl\tdtree.h(323) : see reference to class template instantiation 'gtl::Bitset<char,std::char_traits<char>,std::allocator<char>>' being compiled
+     1>h:\git\gtl\bitset.h(538): warning C4018: '>=' : signed/unsigned mismatch
+                 h:\git\gtl\bitset.h(535) : while compiling class template member function 'void gtl::Bitset<char,std::char_traits<char>,std::allocator<char>>::resize(size_t)'
+                 h:\git\gtl\tdtree.h(339) : see reference to function template instantiation 'void gtl::Bitset<char,std::char_traits<char>,std::allocator<char>>::resize(size_t)' being compiled
+     1>h:\git\gtl\interval4dtrees.h(71): warning C4018: '<' : signed/unsigned mismatch
+                 h:\git\gtl\interval4dtrees.h(64) : while compiling class template member function 'void gtl::Interval4dTrees<gtl::TriTree>::insert(std::vector<gtl::Intervals<double,4,gtl::Identifier<64,char,std::char_traits<char>,std::allocator<char>>,char,std::char_traits<char>,std::allocator<char>> *,std::allocator<_Ty>> &)'
+                 with
+                 [
+                     _Ty=gtl::Intervals<double,4,gtl::Identifier<64,char,std::char_traits<char>,std::allocator<char>>,char,std::char_traits<char>,std::allocator<char>> *
+                 ]
+                 h:\git\test\gtl_test_itree\gtl_test_interval4dtrees.cpp(92) : see reference to function template instantiation 'void gtl::Interval4dTrees<gtl::TriTree>::insert(std::vector<gtl::Intervals<double,4,gtl::Identifier<64,char,std::char_traits<char>,std::allocator<char>>,char,std::char_traits<char>,std::allocator<char>> *,std::allocator<_Ty>> &)' being compiled
+                 with
+                 [
+                     _Ty=gtl::Intervals<double,4,gtl::Identifier<64,char,std::char_traits<char>,std::allocator<char>>,char,std::char_traits<char>,std::allocator<char>> *
+                 ]
+                 h:\git\test\gtl_test_itree\gtl_test_interval4dtrees.cpp(82) : see reference to class template instantiation 'gtl::Interval4dTrees<gtl::TriTree>' being compiled
+     1>h:\git\gtl\interval4dtrees.h(78): warning C4018: '<' : signed/unsigned mismatch
+     1>h:\git\gtl\intervaloperators.h(208): warning C4018: '<' : signed/unsigned mismatch
+                 h:\git\gtl\intervaloperators.h(204) : while compiling class template member function 'void gtl::IntervalOperators<double,char,std::char_traits<char>,std::allocator<char>>::random(int,T,T,std::vector<gtl::Interval1d,std::allocator<_Ty>> &)'
+                 with
+                 [
+                     T=double
+         ,            _Ty=gtl::Interval1d
+                 ]
+                 h:\git\test\gtl_test_itree\gtl_test_interval4dtrees.cpp(150) : see reference to function template instantiation 'void gtl::IntervalOperators<double,char,std::char_traits<char>,std::allocator<char>>::random(int,T,T,std::vector<gtl::Interval1d,std::allocator<_Ty>> &)' being compiled
+                 with
+                 [
+                     T=double
+         ,            _Ty=gtl::Interval1d
+                 ]
+                 h:\git\test\gtl_test_itree\gtl_test_interval4dtrees.cpp(149) : see reference to class template instantiation 'gtl::IntervalOperators<double,char,std::char_traits<char>,std::allocator<char>>' being compiled
+     1>h:\git\gtl\intervaloperators.h(233): warning C4018: '<' : signed/unsigned mismatch
+     1>h:\git\gtl\rstartree.h(1022): warning C4244: '+=' : conversion from 'double' to 'int', possible loss of data
+                 h:\git\gtl\rstartree.h(954) : while compiling class template member function 'gtl::RStarNode<gtl::RStarBoundedItem<4>> *gtl::RStarTree<gtl::Interval4d *,4,4,8,char,std::char_traits<char>,std::allocator<char>>::Split(gtl::RStarNode<gtl::RStarBoundedItem<4>> *)'
+                 h:\git\gtl\rstartree.h(921) : see reference to function template instantiation 'gtl::RStarNode<gtl::RStarBoundedItem<4>> *gtl::RStarTree<gtl::Interval4d *,4,4,8,char,std::char_traits<char>,std::allocator<char>>::Split(gtl::RStarNode<gtl::RStarBoundedItem<4>> *)' being compiled
+                 h:\git\test\gtl_test_itree\gtl_test_interval4dtrees.cpp(79) : see reference to class template instantiation 'gtl::RStarTree<gtl::Interval4d *,4,4,8,char,std::char_traits<char>,std::allocator<char>>' being compiled
+     1>h:\git\gtl\console.inl(97): warning C4996: '_vsnprintf': This function or variable may be unsafe. Consider using _vsnprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(346) : see declaration of '_vsnprintf'
+                 h:\git\gtl\console.inl(92) : while compiling class template member function 'bool gtl::Console<char,std::char_traits<char>,std::allocator<char>>::print(const ELEMENT *,...)'
+                 with
+                 [
+                     ELEMENT=char
+                 ]
+                 h:\git\test\gtl_test_itree\gtl_test_interval4dtrees.cpp(87) : see reference to function template instantiation 'bool gtl::Console<char,std::char_traits<char>,std::allocator<char>>::print(const ELEMENT *,...)' being compiled
+                 with
+                 [
+                     ELEMENT=char
+                 ]
+                 h:\git\test\gtl_test_itree\gtl_test_interval4dtrees.cpp(18) : see reference to class template instantiation 'gtl::Console<char,std::char_traits<char>,std::allocator<char>>' being compiled
+     1>h:\git\gtl\pointerarray.h(103): warning C4018: '<' : signed/unsigned mismatch
+                 h:\git\gtl\pointerarray.h(98) : while compiling class template member function 'void gtl::PointerArray<gtl::Interval1d,false,char,std::char_traits<char>,std::allocator<char>>::clear(void)'
+                 h:\git\gtl\pointerarray.h(59) : see reference to function template instantiation 'void gtl::PointerArray<gtl::Interval1d,false,char,std::char_traits<char>,std::allocator<char>>::clear(void)' being compiled
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\utility(199) : see reference to class template instantiation 'gtl::PointerArray<gtl::Interval1d,false,char,std::char_traits<char>,std::allocator<char>>' being compiled
+                 h:\git\gtl\tdtree.h(75) : see reference to class template instantiation 'std::pair<const _Kty,_Ty>' being compiled
+                 with
+                 [
+                     _Kty=unsigned __int64
+         ,            _Ty=gtl::IntervalArray
+                 ]
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"H:\Git\test\gtl_test_itree\Debug\gtl_test_itree.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"H:\Git\test\gtl_test_itree\Debug\gtl_test_itree.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"H:\Git\test\gtl_test_itree\Debug\gtl_test_itree.lib" /MACHINE:X86 Debug\gtl_test_interval4dtrees.obj
+         Debug\stdafx.obj
+         gtl_test_interval4dtrees.vcxproj -> H:\Git\test\gtl_test_itree\Debug\gtl_test_itree.exe
+     1>Done Building Project "H:\Git\test\gtl_test_itree\gtl_test_interval4dtrees.vcxproj" (Rebuild target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:03.07

@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "gtl_test_rlist", "gtl_test_rlist.vcproj", "{E2CC5F70-D5ED-4573-925D-ACD0DB366403}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "kmeans", "..\kmeans\kmeans.vcproj", "{ADC11588-2216-43C6-A1F8-1FFC7A6DF206}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E2CC5F70-D5ED-4573-925D-ACD0DB366403}.Debug|Win32.ActiveCfg = Debug|Win32
+		{E2CC5F70-D5ED-4573-925D-ACD0DB366403}.Debug|Win32.Build.0 = Debug|Win32
+		{E2CC5F70-D5ED-4573-925D-ACD0DB366403}.Release|Win32.ActiveCfg = Release|Win32
+		{E2CC5F70-D5ED-4573-925D-ACD0DB366403}.Release|Win32.Build.0 = Release|Win32
+		{ADC11588-2216-43C6-A1F8-1FFC7A6DF206}.Debug|Win32.ActiveCfg = Debug|Win32
+		{ADC11588-2216-43C6-A1F8-1FFC7A6DF206}.Debug|Win32.Build.0 = Debug|Win32
+		{ADC11588-2216-43C6-A1F8-1FFC7A6DF206}.Release|Win32.ActiveCfg = Release|Win32
+		{ADC11588-2216-43C6-A1F8-1FFC7A6DF206}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,243 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{EC6A3ACC-B6CC-4528-8752-56842B0A6D6C}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>ServerApp</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>../../../gtl</AdditionalIncludeDirectories>
+      <BrowseInformation>true</BrowseInformation>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+    <Bscmake>
+      <PreserveSbr>true</PreserveSbr>
+    </Bscmake>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>../../../gtl</AdditionalIncludeDirectories>
+      <BrowseInformation>true</BrowseInformation>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+    <Bscmake>
+      <PreserveSbr>true</PreserveSbr>
+    </Bscmake>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>../../../gtl</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>../../../gtl</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\gtl\bitset.h" />
+    <ClInclude Include="..\..\..\gtl\bplustree.h" />
+    <ClInclude Include="..\..\..\gtl\buffer.h" />
+    <ClInclude Include="..\..\..\gtl\bufferedfile.h" />
+    <ClInclude Include="..\..\..\gtl\bufferstream.h" />
+    <ClInclude Include="..\..\..\gtl\cachemanager.h" />
+    <ClInclude Include="..\..\..\gtl\cbplustree.h" />
+    <ClInclude Include="..\..\..\gtl\config.h" />
+    <ClInclude Include="..\..\..\gtl\console.h" />
+    <ClInclude Include="..\..\..\gtl\csrtree.h" />
+    <ClInclude Include="..\..\..\gtl\datetime.h" />
+    <ClInclude Include="..\..\..\gtl\decompositiontree.h" />
+    <ClInclude Include="..\..\..\gtl\dpsi.h" />
+    <ClInclude Include="..\..\..\gtl\envelope.h" />
+    <ClInclude Include="..\..\..\gtl\envelopes.h" />
+    <ClInclude Include="..\..\..\gtl\event.h" />
+    <ClInclude Include="..\..\..\gtl\fastlist.h" />
+    <ClInclude Include="..\..\..\gtl\gtl.h" />
+    <ClInclude Include="..\..\..\gtl\identifier.h" />
+    <ClInclude Include="..\..\..\gtl\interval.h" />
+    <ClInclude Include="..\..\..\gtl\interval4dtrees.h" />
+    <ClInclude Include="..\..\..\gtl\intervals.h" />
+    <ClInclude Include="..\..\..\gtl\isoscelesrighttriangle.h" />
+    <ClInclude Include="..\..\..\gtl\matrix.h" />
+    <ClInclude Include="..\..\..\gtl\movingenvelope.h" />
+    <ClInclude Include="..\..\..\gtl\movingpoint.h" />
+    <ClInclude Include="..\..\..\gtl\movingpoints.h" />
+    <ClInclude Include="..\..\..\gtl\movingsegment.h" />
+    <ClInclude Include="..\..\..\gtl\movingsegments.h" />
+    <ClInclude Include="..\..\..\gtl\movingshape.h" />
+    <ClInclude Include="..\..\..\gtl\movingvertex.h" />
+    <ClInclude Include="..\..\..\gtl\number.h" />
+    <ClInclude Include="..\..\..\gtl\object.h" />
+    <ClInclude Include="..\..\..\gtl\pointerarray.h" />
+    <ClInclude Include="..\..\..\gtl\random.h" />
+    <ClInclude Include="..\..\..\gtl\randomnumbers.h" />
+    <ClInclude Include="..\..\..\gtl\rstartree.h" />
+    <ClInclude Include="..\..\..\gtl\rtree.h" />
+    <ClInclude Include="..\..\..\gtl\rtreebase.h" />
+    <ClInclude Include="..\..\..\gtl\socket.h" />
+    <ClInclude Include="..\..\..\gtl\sort.h" />
+    <ClInclude Include="..\..\..\gtl\spatiotemporalgenerator.h" />
+    <ClInclude Include="..\..\..\gtl\spatiotemporalreader.h" />
+    <ClInclude Include="..\..\..\gtl\spatiotemporalwriter.h" />
+    <ClInclude Include="..\..\..\gtl\storagemanager.h" />
+    <ClInclude Include="..\..\..\gtl\tdtree.h" />
+    <ClInclude Include="..\..\..\gtl\temporalenvelope.h" />
+    <ClInclude Include="..\..\..\gtl\temporalvertex.h" />
+    <ClInclude Include="..\..\..\gtl\timer.h" />
+    <ClInclude Include="..\..\..\gtl\tprtree.h" />
+    <ClInclude Include="..\..\..\gtl\trajectories.h" />
+    <ClInclude Include="..\..\..\gtl\trajectory.h" />
+    <ClInclude Include="..\..\..\gtl\tritree.h" />
+    <ClInclude Include="..\..\..\gtl\typeinfo.h" />
+    <ClInclude Include="..\..\..\gtl\vertex.h" />
+    <ClInclude Include="..\..\..\gtl\xlist.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="targetver.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="ServerApp.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\gtl\bitset.inl" />
+    <None Include="..\..\..\gtl\buffer.inl" />
+    <None Include="..\..\..\gtl\bufferedfile.inl" />
+    <None Include="..\..\..\gtl\console.inl" />
+    <None Include="..\..\..\gtl\envelope.inl" />
+    <None Include="..\..\..\gtl\identifier.inl" />
+    <None Include="..\..\..\gtl\intervals.inl" />
+    <None Include="..\..\..\gtl\random.inl" />
+    <None Include="..\..\..\gtl\storagemanager.inl" />
+    <None Include="..\..\..\gtl\vertex2.inl" />
+    <None Include="..\..\..\gtl\vertex3.inl" />
+    <None Include="ClassDiagram.cd" />
+    <None Include="ClassDiagram1.cd" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

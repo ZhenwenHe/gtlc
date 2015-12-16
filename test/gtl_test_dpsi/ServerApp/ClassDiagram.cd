@@ -1,0 +1,963 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Bitset&lt;ELEMENT, TRAITS, ALLOC&gt;" Collapsed="true">
+    <Position X="16" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AGAAgAgAAAgAERAABAQAQQhkAAEAAAIAAQAgEQkAAEA=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\bitset.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Object&lt;T, TRAITS, ALLOC&gt;" Collapsed="true">
+    <Position X="7.25" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\bplustree.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="iterator" Collapsed="true">
+    <Position X="90.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgAAAAQAEEAwAAAAAAAIAAAAAwEAAABAA=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\bplustree.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="const_iterator" Collapsed="true">
+    <Position X="92.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAQAEEAwAAAAAAAIAAAAAwEAQABAA=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\bplustree.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="reverse_iterator" Collapsed="true">
+    <Position X="92.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAQAEEAwAAABAAAIAAAAAwEAAABAA=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\bplustree.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="const_reverse_iterator" Collapsed="true">
+    <Position X="94" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAAAAAAAAQAEEAwAAAAAAAIAAAAAwEAAABAA=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\bplustree.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Buffer&lt;T, TRAITS, ALLOC&gt;" Collapsed="true">
+    <Position X="9.5" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAEAAAABggIMgAAAKQAAAQgAAAIAAKAQQEwEAIQQAA=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\buffer.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BufferedFile&lt;ELEMENT, TRAITS, ALLOC&gt;" Collapsed="true">
+    <Position X="69" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAQAAAgIFABAAAAEEACgAAAAAAAAAIAAEAAAAAA=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\bufferedfile.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BufferedFileReader&lt;ELEMENT, TRAITS, ALLOC&gt;" Collapsed="true">
+    <Position X="67.75" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAgIEACAAGAREAAgAAAAAACgAAFQFAAAAEA=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\bufferedfile.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BufferedFileWriter&lt;ELEMENT, TRAITS, ALLOC&gt;" Collapsed="true">
+    <Position X="70" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAgIEAAAACAAEAAgAAAAAAAAAQAAEAkAAAA=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\bufferedfile.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TemporaryFile&lt;ELEMENT, TRAITS, ALLOC&gt;" Collapsed="true">
+    <Position X="18.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAgAEACAAEBVAAEgAAAAAECCAQFAEAQEAEA=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\bufferedfile.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="basic_bufferbuf&lt;ELEMENT, TRAITS&gt;" Collapsed="true">
+    <Position X="7.5" Y="15.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAQAAAAAQAFAAgAAAAAAAAgAAAAgAABAAIAACIA=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\bufferstream.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="basic_ibufferstream&lt;ELEMENT, TRAITS&gt;" Collapsed="true">
+    <Position X="11.5" Y="12.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAIAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAABAAAAAIAA=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\bufferstream.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="basic_obufferstream&lt;ELEMENT, TRAITS&gt;" Collapsed="true">
+    <Position X="3.5" Y="12.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAABAAAAACAA=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\bufferstream.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="basic_bufferstream&lt;ELEMENT, TRAITS&gt;" Collapsed="true">
+    <Position X="3.5" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAIAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAFAAAAAAAA=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\bufferstream.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CacheManager&lt;ELEMENT, TRAITS, ALLOC&gt;" Collapsed="true">
+    <Position X="31.75" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAEEAQAAIAAAAAEAFAIAEAAAAAAAAABgAAAAAAAAIA=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\cachemanager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CBPlusTree&lt;_Key, _Data, _Value, _Compare, _Traits, _Duplicates, _Alloc, T, TRAITS, ALLOC&gt;" Collapsed="true">
+    <Position X="90.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAgAEAAAAAAAAAAgAAAAAAAACAAAEAAAAAA=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\cbplustree.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Console&lt;ELEMENT, TRAITS, ALLOC&gt;" Collapsed="true">
+    <Position X="40.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AASAAAAAAAgCEAAAAEAAAAAgAAAAAAAAAAQQEAAQAAA=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\console.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CSRTree&lt;OBJTYPE, ELEMTYPE, NUMDIMS, ELEMTYPEREAL, NodeVisitorType, TMAXNODES, TMINNODES, T, TRAITS, ALLOC&gt;" Collapsed="true">
+    <Position X="7.25" Y="12" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAQABAgQEAAEgA4AAAAkABQACEASCgAAEAAAAAE=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\csrtree.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DateTime&lt;ELEMENT, TRAITS, ALLOC&gt;" Collapsed="true">
+    <Position X="45.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAgAAAAIAggEAAAAAAARAAgAgAAAAQAAAAAEAQAAAA=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\datetime.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DecompositionTree&lt;OBJECTTYPE, COORDTYPE, NUMDIMS, DTTRAITS, ELEMENT, TRAITS, ALLOC&gt;" Collapsed="true">
+    <Position X="61" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EEAIQABQCghAMAAAAAJEABRkAwAAABCIhCgAkLMEAAY=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\decompositiontree.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Envelope&lt;ElemType, NUMDIMS, ELEMENT, TRAITS, ALLOC&gt;" Collapsed="true">
+    <Position X="13" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>UAAQABNkAAhAGACCgAUACRAiBAAEACIIAAGgEAAKIAA=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\envelope.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Envelope&lt;T, 2, char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt;&gt;" Collapsed="true">
+    <Position X="43" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>UAgAABBQAAgAEACAAAQAQAAgAAAAAAAICAAgEGAAAAQ=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\envelope.inl</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Envelopes&lt;ElemType, NUMDIMS, ELEMENT, TRAITS, ALLOC&gt;" Collapsed="true">
+    <Position X="63.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAgAEAAAACAAAAAgAAAEAAAAAQAAEAAAAAA=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\envelopes.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Event&lt;ELEMENT, TRAITS, ALLOC&gt;" Collapsed="true">
+    <Position X="76.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEgAEAQAAAAAAAAwAQAAAAAAAAAAEAAAAAA=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\event.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="List&lt;T, ELEMENT, TRAITS, ALLOC&gt;" Collapsed="true">
+    <Position X="85.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACABgQkAAAAAEIQAAyAAAIAAAAAAAAEAABgAI=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\fastlist.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Identifier&lt;BITS, ELEMENT, TRAITS, ALLOC&gt;" Collapsed="true">
+    <Position X="20.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAgggAEAAAAAABQAAgAAAAAAAIwAAgUCAAQAA=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\identifier.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Interval&lt;T, ELEMENT, TRAITS, ALLOC&gt;" Collapsed="true">
+    <Position X="29.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABgAAAAGAAiAkARgAIAAQQAwARAAAAIAAAQgkAQAAAA=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\interval.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Interval4dTrees&lt;IntervalTreeType&gt;" Collapsed="true">
+    <Position X="97.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAASBAAAACAAAAAAAAAAAAIAAACCAAAAAAAAA=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\interval4dtrees.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Intervals&lt;T, DIMS, IDENTIFIER, ELEMENT, TRAITS, ALLOC&gt;" Collapsed="true">
+    <Position X="47.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAACABAgAEAAAIIQIwAAgAAAAAAAABAQAEAAAAAQ=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\intervals.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IsoscelesRightTriangle&lt;ELEMENT, TRAITS, ALLOC&gt;" Collapsed="true">
+    <Position X="72.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAACAEAiAEAAAgAYAwAAgAAAAAAAIEAAAEAAAAAA=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\isoscelesrighttriangle.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Matrix&lt;T, ELEMENT, TRAITS, ALLOC&gt;" Collapsed="true">
+    <Position X="79" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEABAAEAApgAUgAAcDQAQAAgYASgCBIAAQggEAAAAAA=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\matrix.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LUMatrix&lt;T&gt;" Collapsed="true">
+    <Position X="79" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAIABAABAAAAgAAAAJQAAAAIACAAAAAAQAgABAAAAA=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\matrix.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SVDMatrix&lt;T&gt;" Collapsed="true">
+    <Position X="94" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAACABgAgSAAEoQAACAQAAACAAAwAEBABISAAA=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\matrix.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MovingEnvelope&lt;DataType, DIMS, ELEMENT, TRAITS, ALLOC&gt;" Collapsed="true">
+    <Position X="20.25" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAgAGAACACAAAAEgAAAAAQABAAAhEAAAAAA=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\movingenvelope.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MovingPoint&lt;DataType, DIMS, ELEMENT, TRAITS, ALLOC&gt;" Collapsed="true">
+    <Position X="44.25" Y="13" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAwAECAAAAAAAAAgAAAAACAAAAAgEAAAAAA=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\movingpoint.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MovingPoints&lt;DataType, DIMS, ELEMENT, TRAITS, ALLOC&gt;" Collapsed="true">
+    <Position X="49.75" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AECAABAAAQwAECAAAIQAQAAoAAEAASAAAAAAEAACAAA=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\movingpoints.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MovingSegment&lt;DataType, DIMS, ELEMENT, TRAITS, ALLOC&gt;" Collapsed="true">
+    <Position X="52" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAgAECAAAgwAAAEgIAAAACAAAAAgEAAACAA=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\movingsegment.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MovingSegments&lt;DataType, DIMS, ELEMENT, TRAITS, ALLOC&gt;" Collapsed="true">
+    <Position X="54.25" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BECAAAAAAQhIECAAAIAAQAAgAAEAACAAAAAAEAACAAA=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\movingsegments.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MovingShape&lt;DataType, DIMS, ELEMENT, TRAITS, ALLOC&gt;" Collapsed="true">
+    <Position X="54.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAgAGCIAAAAAgARgAQAgACAAAAAAEAAAAAA=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\movingshape.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MovingVertex&lt;DataType, DIMS, ELEMENT, TRAITS, ALLOC&gt;" Collapsed="true">
+    <Position X="34" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAAoAFAAAAAAAAAAgAAAAAAIAAABgEAAAggA=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\movingvertex.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Number&lt;BASE, DIGITSL, T, TRAITS, ALLOC&gt;" Collapsed="true">
+    <Position X="11.75" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAgAEAAAAAAAAAAgAAAAAAAAAAAAEAAAAAA=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\number.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Object&lt;ELEMENT, TRAITS, ALLOC&gt;" Collapsed="true">
+    <Position X="13" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAgAEAAAACAAAAAgAAAAAAAAAQAAEAAAAAA=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\object.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PointerArray&lt;OBJECTTYPE, AUTODESTORY, ELEMENT, TRAITS, ALLOC&gt;" Collapsed="true">
+    <Position X="81.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAACACAAgCkAAAAIcAYAQwAAEAAAAAQQgAEAAAAAA=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\pointerarray.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Random&lt;ELEMENT, TRAITS, ALLOC&gt;" Collapsed="true">
+    <Position X="88" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEQACQAgQEABAAAAAAQAgYGgABAABAAoJUABACIA=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\random.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RandomNumbers&lt;T, ELEMENT, TRAITS, ALLOC&gt;" Collapsed="true">
+    <Position X="22.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAgAEAAAAAAIAAAgAAAAAAAAAAAAEAAAAAA=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\randomnumbers.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RStarTree&lt;LeafType, dimensions, min_child_items, max_child_items, T, TRAITS, ALLOC&gt;" Collapsed="true">
+    <Position X="2.75" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAUAAAAhAEASAAIAABAAgAAAAAAwUgCABEAKIkIA=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\rstartree.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RTree&lt;DATATYPE, ELEMTYPE, NUMDIMS, ELEMTYPEREAL, TMAXNODES, TMINNODES, T, TRAITS, ALLOC&gt;" Collapsed="true">
+    <Position X="7.25" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAACCAAAhAEAAEBCAAAAgkAAAAEAAAASAAEAAAEAA=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\rtree.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RTreeBase&lt;DATATYPE, ELEMTYPE, NUMDIMS, ELEMTYPEREAL, TMAXNODES, TMINNODES, T, TRAITS, ALLOC&gt;" Collapsed="true">
+    <Position X="7.25" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>GAgMAEgCBQggVAAhASAARCRgBkhUFIQAIwhBGAjgkEI=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\rtreebase.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IndexSorter&lt;KEYTYPE, INDEXTYPE, OBJTYPE, ELEMENT, TRAITS, ALLOC&gt;" Collapsed="true">
+    <Position X="83.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAgAEAQABAAAAIAgAAAAQAAAAAAQEAAAAAA=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\sort.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SpatiotemporalGenerator&lt;DataType, DIMS, ELEMENT, TRAITS, ALLOC&gt;" Collapsed="true">
+    <Position X="26.25" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAAAgAEAIQAAAAAAAgBAAAQAIACAAAEABAAAA=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\spatiotemporalgenerator.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SpatiotemporalReader&lt;DataType, DIMS, ELEMENT, TRAITS, ALLOC&gt;" Collapsed="true">
+    <Position X="25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIgAEAAAAAAAAAAgAAIAABAgAAAAEAIAAAA=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\spatiotemporalreader.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SpatiotemporalWriter&lt;DataType, DIMS, ELEMENT, TRAITS, ALLOC&gt;" Collapsed="true">
+    <Position X="27.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAgAEAAIIAAAABAgAAAAAAEAAAAAEAAAAAA=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\spatiotemporalwriter.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="StorageManager&lt;ELEMENT, TRAITS, ALLOC&gt;" Collapsed="true">
+    <Position X="34" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIgAEAAAAAAIAAAgAACAAAABAAAAEAAAAAA=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\storagemanager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MemoryStorageManager&lt;ELEMENT, TRAITS, ALLOC&gt;" Collapsed="true">
+    <Position X="34" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAACQAAIgAEAAAAAAIAAAgAAAAAgABAAAAEAAAAAA=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\storagemanager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DiskStorageManager&lt;ELEMENT, TRAITS, ALLOC&gt;" Collapsed="true">
+    <Position X="36.25" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYAAAQAAIgQEAAAAAAIAAAgCAIAIAABCAgAMAAAAAA=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\storagemanager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TDTree" Collapsed="true">
+    <Position X="95.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>UAIIQAAQBABCECgAAAIEABREBBAAAAAAACCAAAAAAAQ=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\tdtree.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TemporalEnvelope&lt;DataType, DIMS, ELEMENT, TRAITS, ALLOC&gt;" Collapsed="true">
+    <Position X="20.25" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAAAAgAGCAAAAQIAAAggABAACAAAAAgEAAAAAA=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\temporalenvelope.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TemporalVertex&lt;DataType, DIMS, ELEMENT, TRAITS, ALLOC&gt;" Collapsed="true">
+    <Position X="34" Y="10" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAAgAECAAACAAAQAiAAAAACAAQAAgEAAAAAA=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\temporalvertex.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Timer&lt;ELEMENT, TRAITS, ALLOC&gt;" Collapsed="true">
+    <Position X="65.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAgAAACAAggkAAgAAAAAAAgAAAAAAAAAUQAEAQAAAA=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\timer.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TPRTree&lt;OBJECTTYPE, DataType, DIMS, ELEMENT, TRAITS, ALLOC&gt;" Collapsed="true">
+    <Position X="74.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAChAEAAkAAAABABgEAAAAAAAgCAAEAAAAAA=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\tprtree.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Trajectories&lt;DataType, DIMS, ELEMENT, TRAITS, ALLOC&gt;" Collapsed="true">
+    <Position X="56.5" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAAEgYECIAAIAAQAAkABEAACAAAAAAEAACgAA=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\trajectories.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Trajectory&lt;DataType, DIMS, ELEMENT, TRAITS, ALLOC&gt;" Collapsed="true">
+    <Position X="58.75" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAIAAAAAgBECIAgIAAQgAgABEAACBCAAAEEAACAAA=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\trajectory.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TriTree" Collapsed="true">
+    <Position X="97.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIgAAAAAJSACgAAAAAADQCBBAAAAAAACAIAAgAEAA=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\tritree.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Vertex&lt;T, NUMDIMS, ELEMENT, TRAITS, ALLOC&gt;" Collapsed="true">
+    <Position X="38.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAgBECCAAAQBQQAwAAEAAAIAAAAgEAAAAAA=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\vertex.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Xlist&lt;OBJECTTYPE, VALUETYPE, NUMDIMS, MAXELEMS, T, TRAITS, ALLOC&gt;" Collapsed="true">
+    <Position X="5" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>kkBAIAIAQAhBEAAEEEAAAQAgAAAQQAAACCEAEACBABA=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\xlist.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Struct Name="btree_default_set_traits&lt;_Key&gt;" Collapsed="true">
+    <Position X="92.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAgEACAAAAAAAAAAAAAAAAAAAAAQAA=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\bplustree.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="btree_default_map_traits&lt;_Key, _Data&gt;" Collapsed="true">
+    <Position X="90.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAgEACAAAAAAAAAAAAAAAAAAAAAQAA=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\bplustree.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="inner_node" Collapsed="true">
+    <Position X="90.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAAAAAAIAAEAAAAAAAAAAAAAAAAACABAAAA=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\bplustree.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="leaf_node" Collapsed="true">
+    <Position X="92.25" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAAAAAAIAAEBAAAAAAAAQAgAAAAACABAAAA=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\bplustree.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="btree_pair_to_value&lt;value_type, value_type&gt;" Collapsed="true">
+    <Position X="3.5" Y="19.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\bplustree.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="result_t" Collapsed="true">
+    <Position X="95.75" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAIAAgAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAQ=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\bplustree.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="default_decomposition_tree_trait&lt;OBJECTTYPE, NUMDIMS&gt;" Collapsed="true">
+    <Position X="94" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAEAIAAAAAAAAAAAAAAAQAAAAABAA=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\decompositiontree.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="RStarBoundingBox&lt;dimensions&gt;" Collapsed="true">
+    <Position X="95.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAgEAIAAAAAEAAQCIRAAQAAAABAAAAAAAAAAAAE=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\rstartree.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="RStarBoundedItem&lt;dimensions&gt;" Collapsed="true">
+    <Position X="94" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAA=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\rstartree.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="StretchBoundingBox&lt;BoundedItem&gt;" Collapsed="true">
+    <Position X="95.75" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAEAAAAAAgAAAAAAAAAAAAAAAABAA=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\rstartree.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="SortBoundedItemsByFirstEdge&lt;BoundedItem&gt;" Collapsed="true">
+    <Position X="90.5" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAEIAAAAAAAAAAAAAAAAAAAAIAAAA=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\rstartree.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="SortBoundedItemsBySecondEdge&lt;BoundedItem&gt;" Collapsed="true">
+    <Position X="94" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAMIAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\rstartree.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="SortBoundedItemsByDistanceFromCenter&lt;BoundedItem&gt;" Collapsed="true">
+    <Position X="97.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEEAAAAAAAAAAAAAAAAAAAAAAAAAQ=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\rstartree.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="SortBoundedItemsByAreaEnlargement&lt;BoundedItem&gt;" Collapsed="true">
+    <Position X="95.75" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAEAAIAAAAAAAAAAAAAAAAAAAAAAE=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\rstartree.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="SortBoundedItemsByOverlapEnlargement&lt;BoundedItem&gt;" Collapsed="true">
+    <Position X="92.25" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEEAAAAAAAAAAAAAAEAAAAAAAAAAA=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\rstartree.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="RStarAcceptOverlapping&lt;Node, Leaf&gt;" Collapsed="true">
+    <Position X="92.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABAEAAAAAAAAAAAAAAAAAAAAAAABAA=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\rstartree.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="RStarAcceptEnclosing&lt;Node, Leaf&gt;" Collapsed="true">
+    <Position X="90.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAEAAAAEAAAAAAAAAAAAAAAAAAAAAAABAA=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\rstartree.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="RStarAcceptAny&lt;Node, Leaf&gt;" Collapsed="true">
+    <Position X="97.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\rstartree.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="RStarRemoveLeaf&lt;Leaf&gt;" Collapsed="true">
+    <Position X="92.25" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAEACAAAAAAAACAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\rstartree.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="RStarRemoveSpecificLeaf&lt;Leaf&gt;" Collapsed="true">
+    <Position X="94" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAAAAAAAAAAAEACAAAAAEAAAAAAAAAAAAAACAAA=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\rstartree.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="RStarLeaf&lt;BoundedItem, LeafType&gt;" Collapsed="true">
+    <Position X="97.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAA=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\rstartree.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="RStarNode&lt;BoundedItem&gt;" Collapsed="true">
+    <Position X="90.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\rstartree.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="IndexItem&lt;KEYTYPE, INDEXTYPE, OBJTYPE&gt;" Collapsed="true">
+    <Position X="97.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAA=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\sort.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="greater_index_item&lt;KEYTYPE, INDEXTYPE, OBJTYPE&gt;" Collapsed="true">
+    <Position X="95.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\sort.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="less_index_item&lt;KEYTYPE, INDEXTYPE, OBJTYPE&gt;" Collapsed="true">
+    <Position X="94" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\sort.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="TypeInfo" Collapsed="true">
+    <Position X="97.5" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAAAAEAAAAAAABQAAAEAAEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\typeinfo.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Typedef Name="data_type" Collapsed="true">
+    <Position X="92.25" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\bplustree.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="value_type" Collapsed="true">
+    <Position X="92.25" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\bplustree.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="key_compare" Collapsed="true">
+    <Position X="94" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\bplustree.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="traits" Collapsed="true">
+    <Position X="90.5" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\bplustree.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="allocator_type" Collapsed="true">
+    <Position X="90.5" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\bplustree.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="size_type" Collapsed="true">
+    <Position X="97.5" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\bplustree.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="pair_type" Collapsed="true">
+    <Position X="95.75" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\bplustree.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="pair_to_value_type" Collapsed="true">
+    <Position X="3.5" Y="17.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\bplustree.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="bufferbuf" Collapsed="true">
+    <Position X="7.5" Y="17.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\bufferstream.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="bufferstream" Collapsed="true">
+    <Position X="0.5" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\bufferstream.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="ibufferstream" Collapsed="true">
+    <Position X="14.5" Y="12.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\bufferstream.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="obufferstream" Collapsed="true">
+    <Position X="0.5" Y="12.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\bufferstream.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="wbufferbuf" Collapsed="true">
+    <Position X="7.5" Y="13.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\bufferstream.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="wbufferstream" Collapsed="true">
+    <Position X="3.5" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\bufferstream.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="wibufferstream" Collapsed="true">
+    <Position X="11.5" Y="14.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\bufferstream.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="wobufferstream" Collapsed="true">
+    <Position X="3.5" Y="14.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\bufferstream.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="Envelope3d" Collapsed="true">
+    <Position X="16" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\envelope.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="Envelope3f" Collapsed="true">
+    <Position X="10" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\envelope.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="Envelope3i" Collapsed="true">
+    <Position X="17" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\envelope.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="Envelope4d" Collapsed="true">
+    <Position X="14" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\envelope.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="Envelope4f" Collapsed="true">
+    <Position X="16" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\envelope.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="Envelope4i" Collapsed="true">
+    <Position X="10" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\envelope.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="Envelope2d" Collapsed="true">
+    <Position X="13" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\envelope.inl</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="Envelope2f" Collapsed="true">
+    <Position X="10" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\envelope.inl</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="Envelope2i" Collapsed="true">
+    <Position X="14" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\envelope.inl</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="Identifier64" Collapsed="true">
+    <Position X="20.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\identifier.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="Interval4d" Collapsed="true">
+    <Position X="47.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\intervals.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="IntervalArray" Collapsed="true">
+    <Position X="81.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\intervals.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="Vertex4d" Collapsed="true">
+    <Position X="32.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\vertex.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="Vertex4f" Collapsed="true">
+    <Position X="38.5" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\vertex.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="Vertex4i" Collapsed="true">
+    <Position X="38.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\vertex.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="Color4f" Collapsed="true">
+    <Position X="41.5" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\vertex.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="Color4b" Collapsed="true">
+    <Position X="41.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\vertex.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="Vertex2d" Collapsed="true">
+    <Position X="35.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\vertex2.inl</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="Vertex2i" Collapsed="true">
+    <Position X="38.5" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\vertex2.inl</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="Vertex2f" Collapsed="true">
+    <Position X="38.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\vertex2.inl</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="Vertex3d" Collapsed="true">
+    <Position X="41.5" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\vertex3.inl</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="Vertex3f" Collapsed="true">
+    <Position X="41.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\vertex3.inl</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="Vertex3i" Collapsed="true">
+    <Position X="35.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\vertex3.inl</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="Color3f" Collapsed="true">
+    <Position X="38.5" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\vertex3.inl</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="Color3b" Collapsed="true">
+    <Position X="38.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\vertex3.inl</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="Interval1dPtr" Collapsed="true">
+    <Position X="29.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\interval.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="Interval1d" Collapsed="true">
+    <Position X="29.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\interval.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Enum Name="__unnamed_enum_0010_1" Collapsed="true">
+    <Position X="90.5" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>JggoAEFARAAEIAgAggEIgEAAAACAAAABAAAAxAEACAA=</HashCode>
+      <FileName>c:\program files\windows kits\8.1\include\shared\ws2def.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="EVENTTYPE" Collapsed="true">
+    <Position X="92.25" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAgAAAAACCAAAAAAEBAAAAAIACAAEAAQAAAA=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\event.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Microsoft YaHei UI" Size="9" />
+</ClassDiagram>

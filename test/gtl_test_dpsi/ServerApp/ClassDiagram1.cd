@@ -1,0 +1,356 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="DecompositionTree&lt;OBJECTTYPE, COORDTYPE, NUMDIMS, DTTRAITS, ELEMENT, TRAITS, ALLOC&gt;" Collapsed="true">
+    <Position X="26.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EEAIQABQCghAMAAAAAJEABRkAwAAABCIhCgAkLMEAAY=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\decompositiontree.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NodeInfoTable&lt;COORDTYPE, DIMS, CHARTYPE, TRAITS, ALLOC&gt;">
+    <Position X="37.5" Y="1.75" Width="2" />
+    <NestedTypes>
+      <Typedef Name="NodeInfoTable&lt;COORDTYPE, DIMS, CHARTYPE, TRAITS, ALLOC&gt;::interval_type" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>D:\Devs\GTL\2.0\gtl\dpsi.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Typedef>
+      <Typedef Name="NodeInfoTable&lt;COORDTYPE, DIMS, CHARTYPE, TRAITS, ALLOC&gt;::envelope_type" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>D:\Devs\GTL\2.0\gtl\dpsi.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Typedef>
+      <Typedef Name="NodeInfoTable&lt;COORDTYPE, DIMS, CHARTYPE, TRAITS, ALLOC&gt;::ip_type" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>D:\Devs\GTL\2.0\gtl\dpsi.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Typedef>
+      <Typedef Name="NodeInfoTable&lt;COORDTYPE, DIMS, CHARTYPE, TRAITS, ALLOC&gt;::port_type" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>D:\Devs\GTL\2.0\gtl\dpsi.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Typedef>
+      <Typedef Name="NodeInfoTable&lt;COORDTYPE, DIMS, CHARTYPE, TRAITS, ALLOC&gt;::status_type" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>D:\Devs\GTL\2.0\gtl\dpsi.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Typedef>
+      <Struct Name="NodeInfoTable&lt;COORDTYPE, DIMS, CHARTYPE, TRAITS, ALLOC&gt;::NODEINFO" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>D:\Devs\GTL\2.0\gtl\dpsi.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAAAgAEAAAAgAAAAAgAAAAAAAAAAAAEAAAAIA=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\dpsi.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IndexCommand&lt;COORDTYPE, DIMS, CHARTYPE, TRAITS, ALLOC&gt;">
+    <Position X="39.75" Y="1.75" Width="2" />
+    <NestedTypes>
+      <Typedef Name="IndexCommand&lt;COORDTYPE, DIMS, CHARTYPE, TRAITS, ALLOC&gt;::nodeinfotable_type" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>D:\Devs\GTL\2.0\gtl\dpsi.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Typedef>
+      <Typedef Name="IndexCommand&lt;COORDTYPE, DIMS, CHARTYPE, TRAITS, ALLOC&gt;::interval_type" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>D:\Devs\GTL\2.0\gtl\dpsi.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Typedef>
+      <Typedef Name="IndexCommand&lt;COORDTYPE, DIMS, CHARTYPE, TRAITS, ALLOC&gt;::envelope_type" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>D:\Devs\GTL\2.0\gtl\dpsi.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Typedef>
+      <Typedef Name="IndexCommand&lt;COORDTYPE, DIMS, CHARTYPE, TRAITS, ALLOC&gt;::ip_type" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>D:\Devs\GTL\2.0\gtl\dpsi.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Typedef>
+      <Typedef Name="IndexCommand&lt;COORDTYPE, DIMS, CHARTYPE, TRAITS, ALLOC&gt;::port_type" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>D:\Devs\GTL\2.0\gtl\dpsi.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Typedef>
+      <Typedef Name="IndexCommand&lt;COORDTYPE, DIMS, CHARTYPE, TRAITS, ALLOC&gt;::status_type" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>D:\Devs\GTL\2.0\gtl\dpsi.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Typedef>
+      <Typedef Name="IndexCommand&lt;COORDTYPE, DIMS, CHARTYPE, TRAITS, ALLOC&gt;::command_type" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>D:\Devs\GTL\2.0\gtl\dpsi.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Typedef>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\dpsi.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="QueryCommand&lt;COORDTYPE, DIMS, CHARTYPE, TRAITS, ALLOC&gt;" Collapsed="true">
+    <Position X="38.25" Y="6" Width="1.5" />
+    <InheritanceLine Type="IndexCommand&lt;COORDTYPE, DIMS, CHARTYPE, TRAITS, ALLOC&gt;" ManuallyRouted="true">
+      <Path>
+        <Point X="40.75" Y="3.228" />
+        <Point X="40.75" Y="5.542" />
+        <Point X="39" Y="5.542" />
+        <Point X="39" Y="6" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\dpsi.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InsertCommand&lt;COORDTYPE, DIMS, CHARTYPE, TRAITS, ALLOC&gt;" Collapsed="true">
+    <Position X="40" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\dpsi.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DeleteCommand&lt;COORDTYPE, DIMS, CHARTYPE, TRAITS, ALLOC&gt;" Collapsed="true">
+    <Position X="41.75" Y="6" Width="1.5" />
+    <InheritanceLine Type="IndexCommand&lt;COORDTYPE, DIMS, CHARTYPE, TRAITS, ALLOC&gt;" ManuallyRouted="true">
+      <Path>
+        <Point X="40.75" Y="3.228" />
+        <Point X="40.75" Y="5.541" />
+        <Point X="42.5" Y="5.541" />
+        <Point X="42.5" Y="6" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\dpsi.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MasterServer&lt;COORDTYPE, DIMS, CHARTYPE, TRAITS, ALLOC&gt;">
+    <Position X="42.5" Y="1.75" Width="2" />
+    <NestedTypes>
+      <Typedef Name="MasterServer&lt;COORDTYPE, DIMS, CHARTYPE, TRAITS, ALLOC&gt;::nodeinfotable_type" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>D:\Devs\GTL\2.0\gtl\dpsi.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Typedef>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAggAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\dpsi.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SlaveServer&lt;COORDTYPE, DIMS, CHARTYPE, TRAITS, ALLOC&gt;">
+    <Position X="43.5" Y="4.75" Width="2" />
+    <NestedTypes>
+      <Typedef Name="SlaveServer&lt;COORDTYPE, DIMS, CHARTYPE, TRAITS, ALLOC&gt;::nodeinfotable_type" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>D:\Devs\GTL\2.0\gtl\dpsi.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Typedef>
+      <Typedef Name="SlaveServer&lt;COORDTYPE, DIMS, CHARTYPE, TRAITS, ALLOC&gt;::interval_type" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>D:\Devs\GTL\2.0\gtl\dpsi.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Typedef>
+      <Typedef Name="SlaveServer&lt;COORDTYPE, DIMS, CHARTYPE, TRAITS, ALLOC&gt;::envelope_type" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>D:\Devs\GTL\2.0\gtl\dpsi.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Typedef>
+      <Typedef Name="SlaveServer&lt;COORDTYPE, DIMS, CHARTYPE, TRAITS, ALLOC&gt;::ip_type" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>D:\Devs\GTL\2.0\gtl\dpsi.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Typedef>
+      <Typedef Name="SlaveServer&lt;COORDTYPE, DIMS, CHARTYPE, TRAITS, ALLOC&gt;::port_type" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>D:\Devs\GTL\2.0\gtl\dpsi.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Typedef>
+      <Typedef Name="SlaveServer&lt;COORDTYPE, DIMS, CHARTYPE, TRAITS, ALLOC&gt;::status_type" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>D:\Devs\GTL\2.0\gtl\dpsi.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Typedef>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\dpsi.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PeerServer&lt;COORDTYPE, DIMS, CHARTYPE, TRAITS, ALLOC&gt;">
+    <Position X="45" Y="1.75" Width="2" />
+    <NestedTypes>
+      <Typedef Name="PeerServer&lt;COORDTYPE, DIMS, CHARTYPE, TRAITS, ALLOC&gt;::nodeinfotable_type" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>D:\Devs\GTL\2.0\gtl\dpsi.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Typedef>
+      <Typedef Name="PeerServer&lt;COORDTYPE, DIMS, CHARTYPE, TRAITS, ALLOC&gt;::interval_type" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>D:\Devs\GTL\2.0\gtl\dpsi.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Typedef>
+      <Typedef Name="PeerServer&lt;COORDTYPE, DIMS, CHARTYPE, TRAITS, ALLOC&gt;::envelope_type" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>D:\Devs\GTL\2.0\gtl\dpsi.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Typedef>
+      <Typedef Name="PeerServer&lt;COORDTYPE, DIMS, CHARTYPE, TRAITS, ALLOC&gt;::ip_type" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>D:\Devs\GTL\2.0\gtl\dpsi.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Typedef>
+      <Typedef Name="PeerServer&lt;COORDTYPE, DIMS, CHARTYPE, TRAITS, ALLOC&gt;::port_type" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>D:\Devs\GTL\2.0\gtl\dpsi.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Typedef>
+      <Typedef Name="PeerServer&lt;COORDTYPE, DIMS, CHARTYPE, TRAITS, ALLOC&gt;::status_type" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>D:\Devs\GTL\2.0\gtl\dpsi.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Typedef>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAggAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\dpsi.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Envelope&lt;ElemType, NUMDIMS, ELEMENT, TRAITS, ALLOC&gt;">
+    <Position X="34" Y="1.25" Width="1.5" />
+    <NestedTypes>
+      <Typedef Name="Envelope&lt;ElemType, NUMDIMS, ELEMENT, TRAITS, ALLOC&gt;::vertex_type" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>D:\Devs\GTL\2.0\gtl\envelope.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Typedef>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>UAAQABNkAAhAGACCgAUACRAiBAAEACIIAAGgEAAKIAA=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\envelope.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Identifier&lt;BITS, ELEMENT, TRAITS, ALLOC&gt;" Collapsed="true">
+    <Position X="28.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAgggAEAAAAAABQAAgAAAAAAAIwAAgUCAAQAA=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\identifier.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Interval&lt;T, ELEMENT, TRAITS, ALLOC&gt;" Collapsed="true">
+    <Position X="13.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABgAAAAGAAiAkARgAIAAQQAwARAAAAIAAAQgkAQAAAA=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\interval.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Intervals&lt;T, DIMS, IDENTIFIER, ELEMENT, TRAITS, ALLOC&gt;">
+    <Position X="35.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAACABAgAEAAAIIQIwAAgAAAAAAAABAQAEAAAAAQ=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\intervals.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IsoscelesRightTriangle&lt;ELEMENT, TRAITS, ALLOC&gt;" Collapsed="true">
+    <Position X="30.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAACAEAiAEAAAgAYAwAAgAAAAAAAIEAAAEAAAAAA=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\isoscelesrighttriangle.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MovingEnvelope&lt;DataType, DIMS, ELEMENT, TRAITS, ALLOC&gt;" Collapsed="true">
+    <Position X="11" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAgAGAACACAAAAEgAAAAAQABAAAhEAAAAAA=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\movingenvelope.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MovingPoint&lt;DataType, DIMS, ELEMENT, TRAITS, ALLOC&gt;" Collapsed="true">
+    <Position X="16.5" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAwAECAAAAAAAAAgAAAAACAAAAAgEAAAAAA=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\movingpoint.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MovingPoints&lt;DataType, DIMS, ELEMENT, TRAITS, ALLOC&gt;" Collapsed="true">
+    <Position X="15.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AECAABAAAQwAECAAAIQAQAAoAAEAASAAAAAAEAACAAA=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\movingpoints.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MovingSegment&lt;DataType, DIMS, ELEMENT, TRAITS, ALLOC&gt;" Collapsed="true">
+    <Position X="17.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAgAECAAAgwAAAEgIAAAACAAAAAgEAAACAA=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\movingsegment.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MovingSegments&lt;DataType, DIMS, ELEMENT, TRAITS, ALLOC&gt;" Collapsed="true">
+    <Position X="20" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BECAAAAAAQhIECAAAIAAQAAgAAEAACAAAAAAEAACAAA=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\movingsegments.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MovingShape&lt;DataType, DIMS, ELEMENT, TRAITS, ALLOC&gt;" Collapsed="true">
+    <Position X="20" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAgAGCIAAAAAgARgAQAgACAAAAAAEAAAAAA=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\movingshape.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MovingVertex&lt;DataType, DIMS, ELEMENT, TRAITS, ALLOC&gt;" Collapsed="true">
+    <Position X="13.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAAoAFAAAAAAAAAAgAAAAAAIAAABgEAAAggA=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\movingvertex.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Object&lt;ELEMENT, TRAITS, ALLOC&gt;" Collapsed="true">
+    <Position X="38.25" Y="0.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAgAEAAAACAAAAAgAAAAAAAAAQAAEAAAAAA=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\object.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TemporalEnvelope&lt;DataType, DIMS, ELEMENT, TRAITS, ALLOC&gt;" Collapsed="true">
+    <Position X="11" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAAAAgAGCAAAAQIAAAggABAACAAAAAgEAAAAAA=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\temporalenvelope.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TemporalVertex&lt;DataType, DIMS, ELEMENT, TRAITS, ALLOC&gt;" Collapsed="true">
+    <Position X="13.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAAgAECAAACAAAQAiAAAAACAAQAAgEAAAAAA=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\temporalvertex.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TPRTree&lt;OBJECTTYPE, DataType, DIMS, ELEMENT, TRAITS, ALLOC&gt;" Collapsed="true">
+    <Position X="24.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAChAEAAkAAAABABgEAAAAAAAgCAAEAAAAAA=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\tprtree.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Trajectories&lt;DataType, DIMS, ELEMENT, TRAITS, ALLOC&gt;" Collapsed="true">
+    <Position X="22.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAAEgYECIAAIAAQAAkABEAACAAAAAAEAACgAA=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\trajectories.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Trajectory&lt;DataType, DIMS, ELEMENT, TRAITS, ALLOC&gt;" Collapsed="true">
+    <Position X="24.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAIAAAAAgBECIAgIAAQgAgABEAACBCAAAEEAACAAA=</HashCode>
+      <FileName>D:\Devs\GTL\2.0\gtl\trajectory.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

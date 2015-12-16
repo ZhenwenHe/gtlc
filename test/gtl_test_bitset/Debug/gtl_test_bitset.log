@@ -1,0 +1,40 @@
+﻿Build started 2014/3/27 10:44:56.
+     1>Project "D:\Devs\GTL\2.0\test\gtl_test_bitset\gtl_test_bitset.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         D:\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yc"stdafx.h" /Fp"Debug\gtl_test_bitset.pch" /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt stdafx.cpp
+         stdafx.cpp
+         D:\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp"Debug\gtl_test_bitset.pch" /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt gtl_test_bitset.cpp
+         gtl_test_bitset.cpp
+     1>d:\devs\gtl\2.0\gtl\bitset.h(161): warning C4018: '<=' : signed/unsigned mismatch
+                 d:\devs\gtl\2.0\gtl\bitset.h(156) : while compiling class template member function 'void gtl::Bitset<char,std::char_traits<char>,std::allocator<char>>::set(const char *)'
+                 d:\devs\gtl\2.0\test\gtl_test_bitset\gtl_test_bitset.cpp(17) : see reference to function template instantiation 'void gtl::Bitset<char,std::char_traits<char>,std::allocator<char>>::set(const char *)' being compiled
+                 d:\devs\gtl\2.0\test\gtl_test_bitset\gtl_test_bitset.cpp(14) : see reference to class template instantiation 'gtl::Bitset<char,std::char_traits<char>,std::allocator<char>>' being compiled
+     1>d:\devs\gtl\2.0\gtl\bitset.h(185): warning C4018: '<=' : signed/unsigned mismatch
+                 d:\devs\gtl\2.0\gtl\bitset.h(183) : while compiling class template member function 'size_t gtl::Bitset<char,std::char_traits<char>,std::allocator<char>>::get(std::basic_string<char,std::char_traits<char>,std::allocator<char>> &)'
+                 d:\devs\gtl\2.0\test\gtl_test_bitset\gtl_test_bitset.cpp(19) : see reference to function template instantiation 'size_t gtl::Bitset<char,std::char_traits<char>,std::allocator<char>>::get(std::basic_string<char,std::char_traits<char>,std::allocator<char>> &)' being compiled
+     1>d:\devs\gtl\2.0\gtl\bitset.h(343): warning C4018: '<=' : signed/unsigned mismatch
+                 d:\devs\gtl\2.0\gtl\bitset.h(341) : while compiling class template member function 'gtl::Bitset<char,std::char_traits<char>,std::allocator<char>> gtl::Bitset<char,std::char_traits<char>,std::allocator<char>>::leftShift(size_t)'
+                 d:\devs\gtl\2.0\test\gtl_test_bitset\gtl_test_bitset.cpp(33) : see reference to function template instantiation 'gtl::Bitset<char,std::char_traits<char>,std::allocator<char>> gtl::Bitset<char,std::char_traits<char>,std::allocator<char>>::leftShift(size_t)' being compiled
+     1>d:\devs\gtl\2.0\gtl\bitset.h(351): warning C4018: '<' : signed/unsigned mismatch
+                 d:\devs\gtl\2.0\gtl\bitset.h(349) : while compiling class template member function 'gtl::Bitset<char,std::char_traits<char>,std::allocator<char>> gtl::Bitset<char,std::char_traits<char>,std::allocator<char>>::rightShift(size_t)'
+                 d:\devs\gtl\2.0\test\gtl_test_bitset\gtl_test_bitset.cpp(38) : see reference to function template instantiation 'gtl::Bitset<char,std::char_traits<char>,std::allocator<char>> gtl::Bitset<char,std::char_traits<char>,std::allocator<char>>::rightShift(size_t)' being compiled
+     1>d:\devs\gtl\2.0\gtl\bitset.h(364): warning C4018: '<' : signed/unsigned mismatch
+                 d:\devs\gtl\2.0\gtl\bitset.h(359) : while compiling class template member function 'gtl::Bitset<char,std::char_traits<char>,std::allocator<char>> gtl::Bitset<char,std::char_traits<char>,std::allocator<char>>::left(size_t) const'
+                 d:\devs\gtl\2.0\test\gtl_test_bitset\gtl_test_bitset.cpp(21) : see reference to function template instantiation 'gtl::Bitset<char,std::char_traits<char>,std::allocator<char>> gtl::Bitset<char,std::char_traits<char>,std::allocator<char>>::left(size_t) const' being compiled
+     1>d:\devs\gtl\2.0\gtl\bitset.h(380): warning C4018: '<=' : signed/unsigned mismatch
+                 d:\devs\gtl\2.0\gtl\bitset.h(375) : while compiling class template member function 'gtl::Bitset<char,std::char_traits<char>,std::allocator<char>> gtl::Bitset<char,std::char_traits<char>,std::allocator<char>>::right(size_t) const'
+                 d:\devs\gtl\2.0\test\gtl_test_bitset\gtl_test_bitset.cpp(28) : see reference to function template instantiation 'gtl::Bitset<char,std::char_traits<char>,std::allocator<char>> gtl::Bitset<char,std::char_traits<char>,std::allocator<char>>::right(size_t) const' being compiled
+     1>d:\devs\gtl\2.0\gtl\bitset.h(460): warning C4018: '<' : signed/unsigned mismatch
+                 d:\devs\gtl\2.0\gtl\bitset.h(455) : while compiling class template member function 'gtl::Bitset<char,std::char_traits<char>,std::allocator<char>> gtl::Bitset<char,std::char_traits<char>,std::allocator<char>>::operator &(const gtl::Bitset<char,std::char_traits<char>,std::allocator<char>> &)'
+                 d:\devs\gtl\2.0\test\gtl_test_bitset\gtl_test_bitset.cpp(63) : see reference to function template instantiation 'gtl::Bitset<char,std::char_traits<char>,std::allocator<char>> gtl::Bitset<char,std::char_traits<char>,std::allocator<char>>::operator &(const gtl::Bitset<char,std::char_traits<char>,std::allocator<char>> &)' being compiled
+     1>d:\devs\gtl\2.0\gtl\bitset.h(468): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\devs\gtl\2.0\gtl\bitset.h(476): warning C4018: '<' : signed/unsigned mismatch
+       Link:
+         D:\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\Devs\GTL\2.0\test\gtl_test_bitset\Debug\gtl_test_bitset.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\Devs\GTL\2.0\test\gtl_test_bitset\Debug\gtl_test_bitset.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\Devs\GTL\2.0\test\gtl_test_bitset\Debug\gtl_test_bitset.lib" /MACHINE:X86 Debug\gtl_test_bitset.obj
+         Debug\stdafx.obj
+         gtl_test_bitset.vcxproj -> D:\Devs\GTL\2.0\test\gtl_test_bitset\Debug\gtl_test_bitset.exe
+     1>Done Building Project "D:\Devs\GTL\2.0\test\gtl_test_bitset\gtl_test_bitset.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:02.79

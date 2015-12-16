@@ -1,2 +1,2 @@
 # gtl
-geosciences template library
+geosciences test library

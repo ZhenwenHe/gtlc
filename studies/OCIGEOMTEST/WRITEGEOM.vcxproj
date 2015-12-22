@@ -19,9 +19,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{B7DEC81A-8183-4EB2-9D8F-4C64AFBAC409}</ProjectGuid>
+    <ProjectGuid>{DAB95EBB-3801-451B-A6A7-113168B913BC}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>OCIGEOMTEST</RootNamespace>
+    <RootNamespace>WRITEGEOM</RootNamespace>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -34,7 +34,7 @@
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v120</PlatformToolset>
-    <CharacterSet>Unicode</CharacterSet>
+    <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
@@ -103,8 +103,8 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\Oracle\Database\product\12.1.0\dbhome_1\OCI\lib;C:\Oracle\Database\product\12.1.0\dbhome_1\OCI\lib\MSVC;C:\Oracle\Database\product\12.1.0\dbhome_1\OCI\lib\MSVC\vc12;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>oci.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\Oracle\Database\product\12.1.0\dbhome_1\OCI\lib;C:\Oracle\Database\product\12.1.0\dbhome_1\OCI\lib\MSVC;C:\Oracle\Database\product\12.1.0\dbhome_1\OCI\lib\MSVC\vc12;</AdditionalLibraryDirectories>
+      <AdditionalDependencies>oci.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -142,12 +142,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="geomops.h" />
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
     <ClInclude Include="readgeom.h" />
+    <ClInclude Include="writegeom.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="geomops.c" />
-    <ClCompile Include="readgeom.c" />
+    <ClCompile Include="writegeom.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

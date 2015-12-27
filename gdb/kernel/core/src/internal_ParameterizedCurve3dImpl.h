@@ -15,7 +15,7 @@
 #pragma once 
 #include "geometry3d.h"
 #include <utility>
-#include "internal_Curve3dImpl.h"
+#include "internal_curve3dimpl.h"
 begin_cn_namespace
 begin_edu_namespace
 begin_cug_namespace

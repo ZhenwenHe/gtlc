@@ -1,4 +1,4 @@
-#include "internal_ParameterizedCurve3dImpl.h"
+#include "internal_parameterizedcurve3dimpl.h"
 
 begin_cn_namespace
 begin_edu_namespace

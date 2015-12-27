@@ -22,7 +22,7 @@
 #include "matrix4x4.h"
 #include "indexbuffer.h"
 #include "geometry.h"
-#include "sharedModel.h"
+#include "sharedmodel.h"
 #include "identifier.h"
 #include "mesh.h"
 #include "terrain.h"

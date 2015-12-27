@@ -1,7 +1,7 @@
 #pragma once
 #include "geometry.h" 
-#include "internal_OBBoxImpl.h"
-#include "internal_AABBoxImpl.h"
+#include "internal_obboximpl.h"
+#include "internal_aabboximpl.h"
 begin_cn_namespace
 begin_edu_namespace
 begin_cug_namespace

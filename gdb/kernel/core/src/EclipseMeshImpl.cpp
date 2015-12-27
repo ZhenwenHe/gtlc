@@ -1,5 +1,5 @@
-#include "internal_EclipseMeshImpl.h" 
-#include "internal_EclipseMeshReader.h"
+#include "internal_eclipsemeshimpl.h" 
+#include "internal_eclipsemeshreader.h"
 begin_cn_namespace
 begin_edu_namespace
 begin_cug_namespace

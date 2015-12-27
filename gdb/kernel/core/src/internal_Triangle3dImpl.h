@@ -13,7 +13,7 @@
 * It is provided "as is" without express or implied warranty.
 */
 #pragma once 
-#include "internal_Surface3dImpl.h"
+#include "internal_surface3dimpl.h"
 #include "internal_spatialfuns.h"
 begin_cn_namespace
 begin_edu_namespace

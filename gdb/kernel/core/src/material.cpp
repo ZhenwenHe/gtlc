@@ -1,7 +1,7 @@
 #include "material.h"
 #include "factory.h"
-#include "internal_ComplexMaterialImpl.h"
-#include "internal_SimpleMaterialImpl.h"
+#include "internal_complexmaterialimpl.h"
+#include "internal_simplematerialimpl.h"
 begin_cn_namespace
 begin_edu_namespace
 begin_cug_namespace

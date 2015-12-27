@@ -1,6 +1,6 @@
 #pragma once
 #include "internal_geometry3dimpl.h"
-#include "ShadedVertex3d.h"
+#include "shadedvertex3d.h"
 begin_cn_namespace
 begin_edu_namespace
 begin_cug_namespace

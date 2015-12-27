@@ -14,7 +14,7 @@
 */
 #pragma once 
 #include "geometry3d.h"
-#include "internal_TriangleMesh3dImpl.h"
+#include "internal_trianglemesh3dimpl.h"
 begin_cn_namespace
 begin_edu_namespace
 begin_cug_namespace

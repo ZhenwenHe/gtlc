@@ -14,7 +14,7 @@
 * It is provided "as is" without express or implied warranty.
 */
 #pragma once
-#include "internal_MaterialImpl.h"
+#include "internal_materialimpl.h"
 
 begin_cn_namespace
 begin_edu_namespace

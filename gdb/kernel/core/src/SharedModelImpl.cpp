@@ -1,4 +1,4 @@
-#include "internal_SharedModelImpl.h"
+#include "internal_sharedmodelimpl.h"
 
 begin_cn_namespace
 begin_edu_namespace

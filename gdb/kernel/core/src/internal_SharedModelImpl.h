@@ -1,5 +1,5 @@
 #pragma once
-#include "sharedModel.h"
+#include "sharedmodel.h"
 
 /*
 * Geosciences Template Library

@@ -1,4 +1,4 @@
-#include "internal_MultiSolid3dImpl.h"
+#include "internal_multisolid3dimpl.h"
 
 begin_cn_namespace
 begin_edu_namespace

@@ -17,7 +17,7 @@
 #include "envelope3d.h"
 #include "mathex.h"
 #include "matrix4x4.h"
-#include "internal_OBBoxImpl.h"
+#include "internal_obboximpl.h"
 begin_cn_namespace
 begin_edu_namespace
 begin_cug_namespace

@@ -1,6 +1,6 @@
 #pragma once
 #include "topology.h"
-#include "internal_TopoInfoImpl.h"
+#include "internal_topoinfoimpl.h"
 begin_cn_namespace
 begin_edu_namespace
 begin_cug_namespace

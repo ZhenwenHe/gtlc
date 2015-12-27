@@ -1,4 +1,4 @@
-#include "internal_DEMGridImpl.h"
+#include "internal_demgridimpl.h"
 #include "mathex.h"
 begin_cn_namespace
 begin_edu_namespace

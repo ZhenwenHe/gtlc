@@ -1,4 +1,4 @@
-#include "internal_DOMGridImpl.h"
+#include "internal_domgridimpl.h"
 #include "terrainbuilder.h"
 begin_cn_namespace
 begin_edu_namespace

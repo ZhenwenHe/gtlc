@@ -1,4 +1,4 @@
-#include "Proxy.h"
+#include "proxy.h"
 
 begin_cn_namespace
 begin_edu_namespace

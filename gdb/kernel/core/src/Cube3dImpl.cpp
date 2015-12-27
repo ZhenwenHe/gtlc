@@ -1,4 +1,4 @@
-#include "internal_Cube3dImpl.h"
+#include "internal_cube3dimpl.h"
 #include "mathex.h"
 #include "internal_spatialfuns.h"
 begin_cn_namespace

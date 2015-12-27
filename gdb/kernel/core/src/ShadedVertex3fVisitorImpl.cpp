@@ -1,4 +1,4 @@
-#include "internal_ShadedVertex3fVisitorImpl.h"
+#include "internal_shadedvertex3fvisitorimpl.h"
 
 
 begin_cn_namespace

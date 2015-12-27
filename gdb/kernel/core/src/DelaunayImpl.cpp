@@ -13,7 +13,7 @@
 * about the suitability of this software for any purpose.
 * It is provided "as is" without express or implied warranty.
 */
-#include "internal_DelaunayImpl.h"
+#include "internal_delaunayimpl.h"
 #include "internal_spatialfuns.h"
 #include <map>
 #ifdef _DEBUG

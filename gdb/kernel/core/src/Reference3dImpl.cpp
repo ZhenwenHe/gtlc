@@ -1,6 +1,6 @@
-#include "internal_Reference3dImpl.h"
+#include "internal_reference3dimpl.h"
 #include "internal_spatialfuns.h"
-#include "internal_SharedModelImpl.h"
+#include "internal_sharedmodelimpl.h"
 begin_cn_namespace
 begin_edu_namespace
 begin_cug_namespace

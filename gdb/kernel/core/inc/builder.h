@@ -20,7 +20,7 @@
 #include <map>
 
 #include "connector.h"
-#include "Proxy.h"
+#include "proxy.h"
 
 
 begin_cn_namespace

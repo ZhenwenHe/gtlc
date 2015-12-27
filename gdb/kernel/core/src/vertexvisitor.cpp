@@ -1,14 +1,14 @@
 #include "config.h"
 #include "vertexvisitor.h"
 #include "factory.h"
-#include "internal_Vertex3dVisitorImpl.h"
-#include "internal_Vertex3fVisitorImpl.h"
-#include "internal_TexturedVertex3dVisitorImpl.h"
-#include "internal_TexturedVertex3fVisitorImpl.h"
-#include "internal_ShadedVertex3dVisitorImpl.h"
-#include "internal_ShadedVertex3fVisitorImpl.h"
-#include "internal_VersatileVertex3dVisitorImpl.h"
-#include "internal_VersatileVertex3fVisitorImpl.h"
+#include "internal_vertex3dvisitorimpl.h"
+#include "internal_vertex3fvisitorimpl.h"
+#include "internal_texturedvertex3dvisitorimpl.h"
+#include "internal_texturedvertex3fvisitorimpl.h"
+#include "internal_shadedvertex3dvisitorimpl.h"
+#include "internal_shadedvertex3fvisitorimpl.h"
+#include "internal_versatilevertex3dvisitorImpl.h"
+#include "internal_versatilevertex3fvisitorimpl.h"
 
 begin_cn_namespace
 begin_edu_namespace

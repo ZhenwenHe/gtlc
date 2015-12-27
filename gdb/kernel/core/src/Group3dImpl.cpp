@@ -1,4 +1,4 @@
-#include "internal_Group3dImpl.h"
+#include "internal_group3dimpl.h"
 
 begin_cn_namespace
 begin_edu_namespace

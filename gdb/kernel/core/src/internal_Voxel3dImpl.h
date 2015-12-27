@@ -13,7 +13,7 @@
 * It is provided "as is" without express or implied warranty.
 */
 #pragma once 
-#include "internal_Volume3dImpl.h"
+#include "internal_volume3dimpl.h"
 begin_cn_namespace
 begin_edu_namespace
 begin_cug_namespace

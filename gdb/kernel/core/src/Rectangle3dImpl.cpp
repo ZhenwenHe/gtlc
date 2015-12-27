@@ -1,5 +1,5 @@
-#include "internal_Rectangle3dImpl.h"
-#include "internal_Polygon3dImpl.h"
+#include "internal_rectangle3dimpl.h"
+#include "internal_polygon3dimpl.h"
 begin_cn_namespace
 begin_edu_namespace
 begin_cug_namespace

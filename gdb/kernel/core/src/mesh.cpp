@@ -1,6 +1,6 @@
 #include "mesh.h"
 #include "factory.h"
-#include "internal_EclipseMeshImpl.h"
+#include "internal_eclipsemeshimpl.h"
  
 begin_cn_namespace
 begin_edu_namespace

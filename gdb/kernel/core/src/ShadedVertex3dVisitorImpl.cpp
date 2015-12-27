@@ -1,4 +1,4 @@
-#include "internal_ShadedVertex3dVisitorImpl.h"
+#include "internal_shadedvertex3dvisitorimpl.h"
 /*
 * Geosciences Template Library
 *

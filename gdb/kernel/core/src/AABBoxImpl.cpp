@@ -1,4 +1,4 @@
-#include "internal_AABBoxImpl.h"
+#include "internal_aabboximpl.h"
 #include "internal_spatialfuns.h"
 
 

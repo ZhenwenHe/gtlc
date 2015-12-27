@@ -1,4 +1,4 @@
-#include "internal_SemanticGeometryTopoInfoImpl.h"
+#include "internal_semanticgeometrytopoinfoimpl.h"
 
 begin_cn_namespace
 begin_edu_namespace

@@ -1,6 +1,6 @@
 #include "geometry.h"
 #include "geometry3d.h"
-#include "internal_GeometryImpl.h"
+#include "internal_geometryimpl.h"
 #include "factory.h"
 begin_cn_namespace
 begin_edu_namespace

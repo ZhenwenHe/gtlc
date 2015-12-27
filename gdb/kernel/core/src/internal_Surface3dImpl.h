@@ -14,10 +14,10 @@
 */
 #pragma once 
 #include "identifier.h"
-#include "internal_MaterialImpl.h"
+#include "internal_materialimpl.h"
 #include "internal_geometry3dimpl.h"
-#include "internal_SimpleMaterialImpl.h"
-#include "internal_ComplexMaterialImpl.h"
+#include "internal_simplematerialimpl.h"
+#include "internal_complexmaterialimpl.h"
 begin_cn_namespace
 begin_edu_namespace
 begin_cug_namespace

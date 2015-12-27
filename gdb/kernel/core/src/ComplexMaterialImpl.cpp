@@ -1,5 +1,5 @@
 
-#include "internal_ComplexMaterialImpl.h"
+#include "internal_complexmaterialimpl.h"
 
 begin_cn_namespace
 begin_edu_namespace

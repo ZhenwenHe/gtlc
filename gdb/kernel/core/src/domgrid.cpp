@@ -1,7 +1,7 @@
 #include "config.h"
 #include "terrain.h" 
 #include "factory.h"
-#include "internal_DOMGridImpl.h"
+#include "internal_domgridimpl.h"
 begin_cn_namespace
 begin_edu_namespace
 begin_cug_namespace

@@ -1,4 +1,4 @@
-#include "internal_Tetrahedron3dImpl.h"
+#include "internal_tetrahedron3dimpl.h"
 #include "internal_spatialfuns.h"
 #include "mathex.h"
 begin_cn_namespace

@@ -1,6 +1,6 @@
 #include "texture.h"
 #include "factory.h"
-#include "internal_TextureImpl.h"
+#include "internal_textureimpl.h"
 begin_cn_namespace
 begin_edu_namespace
 begin_cug_namespace

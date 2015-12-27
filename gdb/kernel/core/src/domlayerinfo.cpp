@@ -1,6 +1,6 @@
 #include "config.h"
 #include "terrain.h" 
-#include "TerrainBuilder.h"
+#include "terrainbuilder.h"
 begin_cn_namespace
 begin_edu_namespace
 begin_cug_namespace

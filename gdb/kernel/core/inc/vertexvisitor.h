@@ -22,7 +22,7 @@
 #include "TexturedVertex3f.h"
 #include "TexturedVertex3d.h"
 #include "ShadedVertex3f.h"
-#include "ShadedVertex3d.h"
+#include "shadedvertex3d.h"
 #include "VersatileVertex3d.h"
 #include "VersatileVertex3f.h"
 

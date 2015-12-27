@@ -1,4 +1,4 @@
-#include "internal_Prism3dImpl.h"
+#include "internal_prism3dimpl.h"
 #include "mathex.h"
 #include "internal_spatialfuns.h"
 begin_cn_namespace

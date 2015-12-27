@@ -20,8 +20,8 @@
 #include <map>
 
 
-#include "Selector.h"
-#include "TemporarySet.h"
+#include "selector.h"
+#include "temporaryset.h"
 
 begin_cn_namespace
 begin_edu_namespace

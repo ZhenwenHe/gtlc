@@ -1,10 +1,10 @@
-#include "internal_MultiPolygon3dImpl.h"
+#include "internal_multipolygon3dimpl.h"
 #include "internal_spatialfuns.h"
-#include "internal_TriangleMesh3dImpl.h"
-#include "internal_TextureImpl.h"
-#include "internal_SimpleMaterialImpl.h"
-#include "internal_ComplexMaterialImpl.h"
-#include "internal_DelaunayImpl.h"
+#include "internal_trianglemesh3dimpl.h"
+#include "internal_textureimpl.h"
+#include "internal_simplematerialimpl.h"
+#include "internal_complexmaterialimpl.h"
+#include "internal_delaunayimpl.h"
 begin_cn_namespace
 begin_edu_namespace
 begin_cug_namespace

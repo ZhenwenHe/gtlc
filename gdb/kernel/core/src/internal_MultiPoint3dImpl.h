@@ -14,7 +14,7 @@
 */
 #pragma once 
 #include "geometry3d.h"
-#include "internal_Point3dImpl.h"
+#include "internal_point3dimpl.h"
 #include "internal_spatialfuns.h"
 begin_cn_namespace
 begin_edu_namespace

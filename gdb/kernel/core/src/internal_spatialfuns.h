@@ -18,7 +18,7 @@
 #include "mathex.h"
 #include "internal_frustumimpl.h"
 #include "internal_rayimpl.h"
-#include "internal_AABBoxImpl.h"
+#include "internal_aabboximpl.h"
 #include <vector>
 #include <algorithm>
 #include <limits>

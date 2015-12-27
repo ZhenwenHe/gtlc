@@ -1,4 +1,4 @@
-#include "internal_OBBoxImpl.h"
+#include "internal_obboximpl.h"
 #include "internal_spatialfuns.h"
 begin_cn_namespace
 begin_edu_namespace

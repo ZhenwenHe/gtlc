@@ -1,5 +1,5 @@
 #include "config.h"
-#include "Buffer.h"
+#include "buffer.h"
 begin_cn_namespace
 begin_edu_namespace
 begin_cug_namespace

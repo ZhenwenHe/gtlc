@@ -1,4 +1,4 @@
-#include "internal_Vertex3fVisitorImpl.h"
+#include "internal_vertex3fvisitorimpl.h"
 begin_cn_namespace
 begin_edu_namespace
 begin_cug_namespace

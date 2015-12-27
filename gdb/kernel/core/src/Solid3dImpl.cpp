@@ -1,9 +1,9 @@
-#include "internal_Solid3dImpl.h"
-#include "internal_TriangleMesh3dImpl.h"
-#include "internal_ParameterizedSurface3dImpl.h"
-#include "internal_Triangle3dImpl.h"
-#include "internal_MultiPolygon3dImpl.h"
-#include "internal_Polygon3dImpl.h"
+#include "internal_solid3dimpl.h"
+#include "internal_trianglemesh3dimpl.h"
+#include "internal_parameterizedsurface3dimpl.h"
+#include "internal_triangle3dimpl.h"
+#include "internal_multipolygon3dimpl.h"
+#include "internal_polygon3dimpl.h"
 #include "internal_spatialfuns.h"
 begin_cn_namespace
 begin_edu_namespace

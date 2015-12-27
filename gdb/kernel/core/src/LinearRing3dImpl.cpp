@@ -1,4 +1,4 @@
-#include "internal_LinearRing3dImpl.h"
+#include "internal_linearring3dimpl.h"
 #include "internal_spatialfuns.h"
 begin_cn_namespace
 begin_edu_namespace

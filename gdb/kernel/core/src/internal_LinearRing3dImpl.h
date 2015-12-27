@@ -14,7 +14,7 @@
 */
 #pragma once 
 #include "geometry3d.h"
-#include "internal_Curve3dImpl.h"
+#include "internal_curve3dimpl.h"
 #include "internal_rayimpl.h"
 #include "internal_frustumimpl.h"
 begin_cn_namespace

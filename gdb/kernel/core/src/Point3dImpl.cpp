@@ -1,4 +1,4 @@
-#include "internal_Point3dImpl.h"
+#include "internal_point3dimpl.h"
 begin_cn_namespace
 begin_edu_namespace
 begin_cug_namespace

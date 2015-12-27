@@ -1,6 +1,6 @@
-#include "internal_TopoInfoImpl.h"
-#include "internal_SemanticGeometryTopoInfoImpl.h"
-#include "internal_SemanticActionTopoInfoImpl.h"
+#include "internal_topoinfoimpl.h"
+#include "internal_semanticgeometrytopoinfoimpl.h"
+#include "internal_semanticactiontopoinfoimpl.h"
 begin_cn_namespace
 begin_edu_namespace
 begin_cug_namespace

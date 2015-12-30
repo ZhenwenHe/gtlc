@@ -17,7 +17,7 @@
 #include <string>
 #include <vector>
 #include <sstream>
-#include "Buffer.h"
+#include "buffer.h"
 #include "material.h"
 #include "matrix4x4.h"
 #include "describablebuffer.h"
@@ -26,27 +26,27 @@
 
 
 #ifndef VERINFOLENGTH
-#define VERINFOLENGTH				256				//DEMÓëDOMÊý¾Ý¿â°æ±¾ÐÅÏ¢³¤¶È
+#define VERINFOLENGTH				256				//DEMï¿½ï¿½DOMï¿½ï¿½ï¿½Ý¿ï¿½æ±¾ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½
 #endif
 
 #ifndef MAXDEMLAYERNUMBER
-#define MAXDEMLAYERNUMBER			24			//×î´óDEM½ð×ÖËþ²ãÊý
+#define MAXDEMLAYERNUMBER			24			//ï¿½ï¿½ï¿½DEMï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 #endif
 
 #ifndef MAXDOMLAYERNUMBER
-#define MAXDOMLAYERNUMBER			24			//×î´óDOM½ð×ÖËþ²ãÊý
+#define MAXDOMLAYERNUMBER			24			//ï¿½ï¿½ï¿½DOMï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 #endif
 
 #ifndef MAX_NAME
-#define MAX_NAME					256				//×î³¤Ãû³Æ
+#define MAX_NAME					256				//ï¿½î³¤ï¿½ï¿½ï¿½ï¿½
 #endif
 
 #ifndef MAX_PATH
-#define MAX_PATH					512				//×î³¤Â·¾¶
+#define MAX_PATH					512				//ï¿½î³¤Â·ï¿½ï¿½
 #endif
 
 #ifndef MULTIFACTOR
-#define MULTIFACTOR					100000			//×ø±êµ¥Î»ÎªDÊ±µÄ¸ß³Ì×ø±êËõ·ÅÒò×Ó
+#define MULTIFACTOR					100000			//ï¿½ï¿½ï¿½êµ¥Î»ÎªDÊ±ï¿½Ä¸ß³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 #endif
 
 
@@ -56,12 +56,12 @@ begin_edu_namespace
 begin_cug_namespace
 begin_gdb_namespace
 
-//ÊÍ·ÅÄÚ´æ
+//ï¿½Í·ï¿½ï¿½Ú´ï¿½
 #define SAFE_DELETE(p)  { if(p) { delete[] (p);     (p)=0; }  }
 #define SAFE_FREE(p)  { if(p) { free (p);     (p)=0; }  }
 
 
-//·ÖÅäÄÚ´æ
+//ï¿½ï¿½ï¿½ï¿½ï¿½Ú´ï¿½
 #define SAFE_NEW(p,type,num)												\
 {																			\
 	SAFE_DELETE( p );														\
@@ -74,7 +74,7 @@ begin_gdb_namespace
 	( p ) = static_cast<type *>(malloc((unsigned long long)sizeof(type) * num));\
 }																			    \
 
-//È¡Õû
+//È¡ï¿½ï¿½
 #define GET_INT(result,divisor,dividend)					                \
 {																			\
 	result = (int)( ( divisor ) / dividend );				                \
@@ -86,7 +86,7 @@ begin_gdb_namespace
 	result -= 1;															\
 }															                \
 
-//È¡³ýÊýÉÏÏÞ
+//È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 #define GET_CEIL_INT(result,divisor,dividend)				                \
 {																			\
 	result = (int)( ( divisor ) / dividend );				                \
@@ -96,7 +96,7 @@ begin_gdb_namespace
 	result ++;																\
 }															                \
 
-//È¡³ýÊýÏÂÏÞ
+//È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 #define GET_FLOOR_INT(result,divisor,dividend)				                \
 {																			\
 	result = (int)( ( divisor ) / dividend );				                \
@@ -107,7 +107,7 @@ begin_gdb_namespace
 }															                \
 
 
-//Í¶Ó°²ÎÊý
+//Í¶Ó°ï¿½ï¿½ï¿½ï¿½
 struct ProjectionParameter
 {
 	int		ellipsoid;
@@ -118,42 +118,42 @@ struct ProjectionParameter
 
 
 /**************************************************************/
-/********************  DEMÖ÷ÒªÊý¾Ý½á¹¹   **********************/
+/********************  DEMï¿½ï¿½Òªï¿½ï¿½ï¿½Ý½á¹¹   **********************/
 
 class DEMBlock;
 typedef std::shared_ptr<DEMBlock> DEMBlockSharedPtr;
 
-/** @defgroup terrain DEMBlock-DEMÊý¾Ý¿é 
+/** @defgroup terrain DEMBlock-DEMï¿½ï¿½ï¿½Ý¿ï¿½ 
 *  @{
 */
 class CORE_API DEMBlock								
 {
 public:
-	Identifier::raw_type		blockID;		//DEMÊý¾Ý¿éID
-	Identifier::raw_type		layerID;    	//½ð×ÖËþ²ãID
-	int			row;							//Êý¾Ý¿éµÄÐÐºÅ
-	int			column;						    //Êý¾Ý¿éµÄÁÐºÅ
-	int			full;							//ÊÇ·ñ°üº¬Ìî³äµÄÎÞÐ§Öµ 0:ÎÞÌî³ä£¬È«²¿ÎªÓÐÐ§Öµ; 1:È«²¿Ìî³äÎÞÐ§Öµ; 2:²¿·ÖÌî³ä
+	Identifier::raw_type		blockID;		//DEMï¿½ï¿½ï¿½Ý¿ï¿½ID
+	Identifier::raw_type		layerID;    	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ID
+	int			row;							//ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½ï¿½Ðºï¿½
+	int			column;						    //ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½ï¿½Ðºï¿½
+	int			full;							//ï¿½Ç·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð§Öµ 0:ï¿½ï¿½ï¿½ï¿½ä£¬È«ï¿½ï¿½Îªï¿½ï¿½Ð§Öµ; 1:È«ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð§Öµ; 2:ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
-	Envelope2d	scope;							//µ±Ç°¿éÔÚX¡¢Y·½ÏòµÄ·¶Î§
-	int			pointNumber;					//µ±Ç°¿éµÄ¸ñÍøµãÊý
-	float		maxZ;							//µ±Ç°¿éÔÚZ·½ÏòµÄ×î´óÖµ
-	float		minZ;							//µ±Ç°¿éÔÚZ·½ÏòµÄ×îÐ¡Öµ
-	int			valid;							//Êý¾Ý¿éµÄÓÐÐ§ÐÔ0£ºÎÞÐ§£»1£ºÓÐÐ§
-	float	   *rawData;						//µ±Ç°¿é¸ß³ÌÊý¾Ý
+	Envelope2d	scope;							//ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½Xï¿½ï¿½Yï¿½ï¿½ï¿½ï¿½Ä·ï¿½Î§
+	int			pointNumber;					//ï¿½ï¿½Ç°ï¿½ï¿½Ä¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	float		maxZ;							//ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½Zï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµ
+	float		minZ;							//ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½Zï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¡Öµ
+	int			valid;							//ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½ï¿½ï¿½Ð§ï¿½ï¿½0ï¿½ï¿½ï¿½ï¿½Ð§ï¿½ï¿½1ï¿½ï¿½ï¿½ï¿½Ð§
+	float	   *rawData;						//ï¿½ï¿½Ç°ï¿½ï¿½ß³ï¿½ï¿½ï¿½ï¿½ï¿½
 
 	DEMBlock();
 	void clear();
 	~DEMBlock();
 public:
-	/** ´ÓBufferÖÐ¶ÁÈ¡ÐÅÏ¢Ìî³ä±¾¼¸ºÎ¶ÔÏó
-     * @param  [in,out] buf Buffer & £¬»º³åÇø¶ÔÏóÒýÓÃ 
-     * @return ³É¹¦·µ»Øtrue£¬·ñÔò·µ»Øfalse
+	/** ï¿½ï¿½Bufferï¿½Ð¶ï¿½È¡ï¿½ï¿½Ï¢ï¿½ï¿½ä±¾ï¿½ï¿½ï¿½Î¶ï¿½ï¿½ï¿½
+     * @param  [in,out] buf Buffer & ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
+     * @return ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½trueï¿½ï¿½ï¿½ï¿½ï¿½ò·µ»ï¿½false
     */
     virtual bool readBuffer( Buffer & buf) ;
-	/** ½«±¾ÀàµÄÐÅÏ¢Ð´ÈëBufferÖÐ 
-     * @param  [in,out] buf Buffer & £¬»º³åÇø¶ÔÏóÒýÓÃ
-     * @return ³É¹¦·µ»Øtrue£¬·ñÔò·µ»Øfalse
+	/** ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢Ð´ï¿½ï¿½Bufferï¿½ï¿½ 
+     * @param  [in,out] buf Buffer & ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+     * @return ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½trueï¿½ï¿½ï¿½ï¿½ï¿½ò·µ»ï¿½false
     */
     virtual bool writeBuffer(Buffer& buf) ;
 };
@@ -161,53 +161,53 @@ public:
 
 class DEMDataInfo;
 typedef std::shared_ptr<DEMDataInfo> DEMDataInfoSharedPtr;
-/** @addtogroup terrain DEMDataInfo-DEMÊý¾ÝÃèÊöÐÅÏ¢ 
+/** @addtogroup terrain DEMDataInfo-DEMï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ 
 *  @{
 */
 class CORE_API DEMDataInfo		
 {
 public:
-	std::string			version;	            //DEMÊý¾Ý¿â±êÖ¾
-	int					rectified;				//Êý¾Ý¿âÔ­µãÊÇ·ñµ÷Õû±êÖ¾¡£µ±µÝ½»DEMµÄÔ­µãÓëÈÎÒâ¸ø¶¨·¶Î§µÄÔ­µãÃ»ÓÐÏà²îCELLµÄÕûÊý±¶Ê±£¬¸ø¶¨·¶Î§ÐèÒªµ÷Õû
-	double				xDistance;				//Ô­Ê¼Êý¾ÝÔÚX·½ÏòÉÏµÄ¿í¶È
-	double				yDistance;				//Ô­Ê¼Êý¾ÝÔÚY·½ÏòÉÏµÄ¿í¶È
-	double				cellSize;				//Ô­Ê¼Êý¾Ý¸ñÍø¼ä¾à
-	char				coordinateUnit[1];		//Ô­Ê¼Êý¾Ý×ø±êµ¥Î»
-	float				elevationOffset;		//Ô­Ê¼Êý¾Ý¸ß³ÌÆ«ÒÆÁ¿
-	double				xOverlayDistance;		//Ô­Ê¼Êý¾ÝÔÚX·½ÏòÉÏµÄÖØµþ
-	double				yOverlayDistance; 		//Ô­Ê¼Êý¾ÝÔÚY·½ÏòÉÏµÄÖØµþ
-	int					scale;					//Ô­Ê¼Êý¾Ý±ÈÀý³ß		
-	float				zMax;					//Êý¾Ý¿â×î´ó¸ß³Ì
-	float				zMin;					//Êý¾Ý¿â×îÐ¡¸ß³Ì
+	std::string			version;	            //DEMï¿½ï¿½ï¿½Ý¿ï¿½ï¿½Ö¾
+	int					rectified;				//ï¿½ï¿½ï¿½Ý¿ï¿½Ô­ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¾ï¿½ï¿½ï¿½ï¿½ï¿½Ý½ï¿½DEMï¿½ï¿½Ô­ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î§ï¿½ï¿½Ô­ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½CELLï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î§ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½
+	double				xDistance;				//Ô­Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½ï¿½ï¿½ÏµÄ¿ï¿½ï¿½
+	double				yDistance;				//Ô­Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Yï¿½ï¿½ï¿½ï¿½ï¿½ÏµÄ¿ï¿½ï¿½
+	double				cellSize;				//Ô­Ê¼ï¿½ï¿½ï¿½Ý¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	char				coordinateUnit[1];		//Ô­Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½êµ¥Î»
+	float				elevationOffset;		//Ô­Ê¼ï¿½ï¿½ï¿½Ý¸ß³ï¿½Æ«ï¿½ï¿½ï¿½ï¿½
+	double				xOverlayDistance;		//Ô­Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½ï¿½ï¿½Ïµï¿½ï¿½Øµï¿½
+	double				yOverlayDistance; 		//Ô­Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Yï¿½ï¿½ï¿½ï¿½ï¿½Ïµï¿½ï¿½Øµï¿½
+	int					scale;					//Ô­Ê¼ï¿½ï¿½ï¿½Ý±ï¿½ï¿½ï¿½ï¿½ï¿½		
+	float				zMax;					//ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½ï¿½ï¿½ß³ï¿½
+	float				zMin;					//ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½ï¿½Ð¡ï¿½ß³ï¿½
 
-	unsigned char				byteNumber;				//4×Ö½ÚÎªFLOAT£¬2×Ö½ÚÎªSHORT INT
-	unsigned char				zoomFactor;				//2×Ö½ÚÊ±¸ß³Ì·Å´óÒò×Ó
-	unsigned char				blockFlagNumber;		//¿é±êÖ¾ÊýÁ¿ ×Ö½Ú1£º¿éÊÇ·ñÓÐÐ§ ×Ö½Ú2£º¸ß³Ì·Å´óÒò×Ó ×Ö½Ú3£º±£Áô ×Ö½Ú4£º±£Áô
-	unsigned char				haveMMZ;				//×î´ó×îÐ¡¸ß³ÌÊýÁ¿£¬ÆäÖµÎª0»òÕß2
-	unsigned char				compress;				//0x00 = Î´Ñ¹Ëõ	0x01 = LZWÑ¹Ëõ
+	unsigned char				byteNumber;				//4ï¿½Ö½ï¿½ÎªFLOATï¿½ï¿½2ï¿½Ö½ï¿½ÎªSHORT INT
+	unsigned char				zoomFactor;				//2ï¿½Ö½ï¿½Ê±ï¿½ß³Ì·Å´ï¿½ï¿½ï¿½ï¿½ï¿½
+	unsigned char				blockFlagNumber;		//ï¿½ï¿½ï¿½Ö¾ï¿½ï¿½ï¿½ï¿½ ï¿½Ö½ï¿½1ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½Ð§ ï¿½Ö½ï¿½2ï¿½ï¿½ï¿½ß³Ì·Å´ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö½ï¿½3ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö½ï¿½4ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	unsigned char				haveMMZ;				//ï¿½ï¿½ï¿½ï¿½ï¿½Ð¡ï¿½ß³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÖµÎª0ï¿½ï¿½ï¿½ï¿½2
+	unsigned char				compress;				//0x00 = Î´Ñ¹ï¿½ï¿½	0x01 = LZWÑ¹ï¿½ï¿½
 
-	double				        threshold;				//Ô­Ê¼Êý¾ÝÔÚÖØµþ·¶Î§ÄÚµÄ¾«¶ÈãÐÖµ
-	ProjectionParameter		    projectionParameter;	//Í¶Ó°²ÎÊý
+	double				        threshold;				//Ô­Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Øµï¿½ï¿½ï¿½Î§ï¿½ÚµÄ¾ï¿½ï¿½ï¿½ï¿½ï¿½Öµ
+	ProjectionParameter		    projectionParameter;	//Í¶Ó°ï¿½ï¿½ï¿½ï¿½
 
-	long						invalidData;			//ÎÞÐ§¸ß³ÌÖµ
+	long						invalidData;			//ï¿½ï¿½Ð§ï¿½ß³ï¿½Öµ
 
-	char				        pyramid; 				//ÊÇ·ñ´´½¨ÁË½ð×ÖËþ²ã£¬ÒÑ´´½¨ÉèÎª1,·ñÔòÉèÎª-1£¬Ä¬ÈÏÖµ-1
-	char						preprocess; 			//ÊÇ·ñ½øÐÐÁËÔ¤´¦Àí£¬ÒÑ¾­Ô¤´¦ÀíÉèÎª1£¬·ñÔòÎª-1£¬Ä¬ÈÏÖµ-1
-	char						domResolution; 			//¶ÔÓ¦DOMÊý¾Ý¿âÔ­Ê¼·Ö±æÂÊ£¬Ä¬ÈÏÖµ-1
-	char				        reserved[8]; 			//±£Áô
+	char				        pyramid; 				//ï¿½Ç·ñ´´½ï¿½ï¿½Ë½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ã£¬ï¿½Ñ´ï¿½ï¿½ï¿½ï¿½ï¿½Îª1,ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îª-1ï¿½ï¿½Ä¬ï¿½ï¿½Öµ-1
+	char						preprocess; 			//ï¿½Ç·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô¤ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¾ï¿½Ô¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îª1ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îª-1ï¿½ï¿½Ä¬ï¿½ï¿½Öµ-1
+	char						domResolution; 			//ï¿½ï¿½Ó¦DOMï¿½ï¿½ï¿½Ý¿ï¿½Ô­Ê¼ï¿½Ö±ï¿½ï¿½Ê£ï¿½Ä¬ï¿½ï¿½Öµ-1
+	char				        reserved[8]; 			//ï¿½ï¿½ï¿½ï¿½
 
 	DEMDataInfo();
 	bool operator == ( DEMDataInfo &other );
 	bool operator != ( DEMDataInfo &other );
 public:
-	/** ´ÓBufferÖÐ¶ÁÈ¡ÐÅÏ¢Ìî³ä±¾¼¸ºÎ¶ÔÏó
-     * @param  [in,out] buf Buffer & £¬»º³åÇø¶ÔÏóÒýÓÃ 
-     * @return ³É¹¦·µ»Øtrue£¬·ñÔò·µ»Øfalse
+	/** ï¿½ï¿½Bufferï¿½Ð¶ï¿½È¡ï¿½ï¿½Ï¢ï¿½ï¿½ä±¾ï¿½ï¿½ï¿½Î¶ï¿½ï¿½ï¿½
+     * @param  [in,out] buf Buffer & ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
+     * @return ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½trueï¿½ï¿½ï¿½ï¿½ï¿½ò·µ»ï¿½false
     */
     virtual bool readBuffer( Buffer & buf) ;
-	/** ½«±¾ÀàµÄÐÅÏ¢Ð´ÈëBufferÖÐ 
-     * @param  [in,out] buf Buffer & £¬»º³åÇø¶ÔÏóÒýÓÃ
-     * @return ³É¹¦·µ»Øtrue£¬·ñÔò·µ»Øfalse
+	/** ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢Ð´ï¿½ï¿½Bufferï¿½ï¿½ 
+     * @param  [in,out] buf Buffer & ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+     * @return ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½trueï¿½ï¿½ï¿½ï¿½ï¿½ò·µ»ï¿½false
     */
     virtual bool writeBuffer(Buffer& buf) ;
 };
@@ -215,25 +215,25 @@ public:
 
 class DEMLayerInfo ;
 typedef std::shared_ptr<DEMLayerInfo> DEMLayerInfoSharedPtr;
-/** @addtogroup terrain DEMLayerInfo-DEM½ð×ÖËþ²ãÃèÊöÐÅÏ¢ 
+/** @addtogroup terrain DEMLayerInfo-DEMï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ 
 *  @{
 */
 class CORE_API DEMLayerInfo	
 {
 public:
-	Identifier::raw_type				layerID;			//¸ÃDEM²ãµÄID
-	Identifier::raw_type				demdbID;			//¸Ã²ãËùÊôµÄDEMÊý¾Ý¿âID
+	Identifier::raw_type				layerID;			//ï¿½ï¿½DEMï¿½ï¿½ï¿½ID
+	Identifier::raw_type				demdbID;			//ï¿½Ã²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½DEMï¿½ï¿½ï¿½Ý¿ï¿½ID
 
-	std::string			layerName;	                        //¸Ã²ãÃû³Æ
-	double				blockSize;			                //¸ÃDEM²ãÊý¾Ý¿é¸ñÍø¼ä¾à,Ò²¼´Ã¿¸öÊý¾Ý¿éµÄ´óÐ¡
-	Envelope2d			layerScope;				            //DEM²ãµÄ·¶Î§
-	Envelope2d			dataScope;				            //¸ÃDEM²ãÓµÓÐÊý¾ÝµÄ·¶Î§
-	Envelope2d          domSubmitScope;                     //µÝ½»domÊý¾ÝµÄ±ß½ç£¬±ÜÃâDEMBlockÓÐÖØºÏµÄÇé¿ö
-	int					rowsPreblock;				        //Ã¿¸öÊý¾Ý¿éµÄÐÐÊý
-	int					colsPreblock;				        //Ã¿¸öÊý¾Ý¿éµÄÁÐÊý
-	int					xBlocksNumber;				        //¸Ã²ãX·½ÏòµÄÊý¾Ý¿éÊý
-	int					yBlocksNumber;				        //¸Ã²ãY·½ÏòµÄÊý¾Ý¿éÊý
-	int					scale;						        //½ð×ÖËþ²ãÖ®¼äµÄ·Ö±æÂÊµÄ±ÈÂÊ£»Ä¬ÈÏÎª2
+	std::string			layerName;	                        //ï¿½Ã²ï¿½ï¿½ï¿½ï¿½ï¿½
+	double				blockSize;			                //ï¿½ï¿½DEMï¿½ï¿½ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,Ò²ï¿½ï¿½Ã¿ï¿½ï¿½ï¿½ï¿½ï¿½Ý¿ï¿½Ä´ï¿½Ð¡
+	Envelope2d			layerScope;				            //DEMï¿½ï¿½Ä·ï¿½Î§
+	Envelope2d			dataScope;				            //ï¿½ï¿½DEMï¿½ï¿½Óµï¿½ï¿½ï¿½ï¿½ï¿½ÝµÄ·ï¿½Î§
+	Envelope2d          domSubmitScope;                     //ï¿½Ý½ï¿½domï¿½ï¿½ï¿½ÝµÄ±ß½ç£¬ï¿½ï¿½ï¿½ï¿½DEMBlockï¿½ï¿½ï¿½ØºÏµï¿½ï¿½ï¿½ï¿½
+	int					rowsPreblock;				        //Ã¿ï¿½ï¿½ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	int					colsPreblock;				        //Ã¿ï¿½ï¿½ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	int					xBlocksNumber;				        //ï¿½Ã²ï¿½Xï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½ï¿½
+	int					yBlocksNumber;				        //ï¿½Ã²ï¿½Yï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½ï¿½
+	int					scale;						        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö®ï¿½ï¿½Ä·Ö±ï¿½ï¿½ÊµÄ±ï¿½ï¿½Ê£ï¿½Ä¬ï¿½ï¿½Îª2
 
 	 
 	DEMLayerInfo();
@@ -244,60 +244,60 @@ public:
 	bool operator != ( DEMLayerInfo &other );
 	void clear();
 public:
-	/** ¸ù¾ÝÍ¼²ã·¶Î§ºÍ¿éµÄ´óÐ¡£¬¼ÆËãÍ¼²ã¿ÉÒÔÔÚXºÍY·½ÏòÉÏ·Ö±ð»®·Ö³É¶àÉÙ¸ö¿é
-     * @param  [in,out] colBlockNumber Í¼²ã¿ÉÒÔÔÚX·½ÏòÉÏ·Ö±ð»®·Ö³É¶àÉÙ¸ö¿é 
-	 * @param  [in,out] rowBlockNumber Í¼²ã¿ÉÒÔÔÚY·½ÏòÉÏ·Ö±ð»®·Ö³É¶àÉÙ¸ö¿é 
+	/** ï¿½ï¿½ï¿½ï¿½Í¼ï¿½ã·¶Î§ï¿½Í¿ï¿½Ä´ï¿½Ð¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½ï¿½Yï¿½ï¿½ï¿½ï¿½ï¿½Ï·Ö±ð»®·Ö³É¶ï¿½ï¿½Ù¸ï¿½ï¿½ï¿½
+     * @param  [in,out] colBlockNumber Í¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½ï¿½ï¿½Ï·Ö±ð»®·Ö³É¶ï¿½ï¿½Ù¸ï¿½ï¿½ï¿½ 
+	 * @param  [in,out] rowBlockNumber Í¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Yï¿½ï¿½ï¿½ï¿½ï¿½Ï·Ö±ð»®·Ö³É¶ï¿½ï¿½Ù¸ï¿½ï¿½ï¿½ 
      * @return  
     */
 	virtual void calculateBlockNumbers(long & rowBlockNumber, long &colBlockNumber);
-	/** ¼ÆËã¿éµÄ·¶Î§
-     * @param  [in] block_row_in_layer Êý¾Ý¿éÔÚÍ¼²ãÐÐË÷Òý 
-	 * @param  [in] block_col_in_layer Êý¾Ý¿éÔÚÍ¼²ãÁÐË÷Òý 
+	/** ï¿½ï¿½ï¿½ï¿½ï¿½Ä·ï¿½Î§
+     * @param  [in] block_row_in_layer ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½ï¿½Í¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
+	 * @param  [in] block_col_in_layer ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½ï¿½Í¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
      * @return  
     */
 	virtual Envelope2d calcualteBlockEnvelope(unsigned int block_row_in_layer,unsigned int block_col_in_layer);
-	/** ¼ÆËãÍ¼²ãÖÐµ¥ÔªÍø¸ñµÄ¼ä¾à
-     * @param  [in] ÎÞ
-     * @return  Í¼²ãÖÐµ¥ÔªÍø¸ñµÄ¼ä¾à
+	/** ï¿½ï¿½ï¿½ï¿½Í¼ï¿½ï¿½ï¿½Ðµï¿½Ôªï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½
+     * @param  [in] ï¿½ï¿½
+     * @return  Í¼ï¿½ï¿½ï¿½Ðµï¿½Ôªï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½
     */
 	virtual double calcualteCellSize();
-	/** ¸ù¾ÝÍ¼²ã·¶Î§ºÍ¿éµÄ´óÐ¡£¬¼ÆËã¿éµÄËùÓÐ½Úµã×ø±ê
-     * @param  [in] block_row_in_layer Êý¾Ý¿éÔÚÍ¼²ãÐÐË÷Òý 
-	 * @param  [in] block_col_in_layer Êý¾Ý¿éÔÚÍ¼²ãÁÐË÷Òý 
+	/** ï¿½ï¿½ï¿½ï¿½Í¼ï¿½ã·¶Î§ï¿½Í¿ï¿½Ä´ï¿½Ð¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð½Úµï¿½ï¿½ï¿½ï¿½ï¿½
+     * @param  [in] block_row_in_layer ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½ï¿½Í¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
+	 * @param  [in] block_col_in_layer ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½ï¿½Í¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
      * @return  
     */
 	virtual void calculateBlockVertices(unsigned int block_row_in_layer,unsigned int block_col_in_layer,std::vector<Vertex3d> & vv);
-	/** ´´½¨Ò»¸öÐÂµÄÊý¾Ý¿é
-     * @param  [in] block_row_in_layer Êý¾Ý¿éÔÚÍ¼²ãÐÐË÷Òý 
-	 * @param  [in] block_col_in_layer Êý¾Ý¿éÔÚÍ¼²ãÁÐË÷Òý 
-	 * @param  [in] vv Êý¾Ý¿é¶ÔÓ¦µÄ½Úµã×ø±êÊý×é 
+	/** ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½Âµï¿½ï¿½ï¿½ï¿½Ý¿ï¿½
+     * @param  [in] block_row_in_layer ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½ï¿½Í¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
+	 * @param  [in] block_col_in_layer ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½ï¿½Í¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
+	 * @param  [in] vv ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½Ó¦ï¿½Ä½Úµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
      * @return  
     */
 	virtual DEMBlockSharedPtr createDEMBlock(unsigned int block_row_in_layer,unsigned int block_col_in_layer,std::vector<Vertex3d> & vv);
 
-	/** ´´½¨Ò»¸öÐÂµÄÊý¾Ý¿é
-     * @param  [in] block_row_in_layer Êý¾Ý¿éÔÚÍ¼²ãÐÐË÷Òý 
-	 * @param  [in] block_col_in_layer Êý¾Ý¿éÔÚÍ¼²ãÁÐË÷Òý 
-	 * @param  [in] rawData Êý¾Ý¿é¶ÔÓ¦µÄ½Úµã×ø±êÊý×é 
+	/** ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½Âµï¿½ï¿½ï¿½ï¿½Ý¿ï¿½
+     * @param  [in] block_row_in_layer ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½ï¿½Í¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
+	 * @param  [in] block_col_in_layer ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½ï¿½Í¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
+	 * @param  [in] rawData ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½Ó¦ï¿½Ä½Úµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
      * @return  
     */
 	virtual DEMBlockSharedPtr createDEMBlock(unsigned int block_row_in_layer,unsigned int block_col_in_layer,const float * rawData,const unsigned int pointNumber);
 
 public:
-	/** ´ÓBufferÖÐ¶ÁÈ¡ÐÅÏ¢Ìî³ä±¾¼¸ºÎ¶ÔÏó
-     * @param  [in,out] buf Buffer & £¬»º³åÇø¶ÔÏóÒýÓÃ 
-     * @return ³É¹¦·µ»Øtrue£¬·ñÔò·µ»Øfalse
+	/** ï¿½ï¿½Bufferï¿½Ð¶ï¿½È¡ï¿½ï¿½Ï¢ï¿½ï¿½ä±¾ï¿½ï¿½ï¿½Î¶ï¿½ï¿½ï¿½
+     * @param  [in,out] buf Buffer & ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
+     * @return ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½trueï¿½ï¿½ï¿½ï¿½ï¿½ò·µ»ï¿½false
     */
     virtual bool readBuffer( Buffer & buf) ;
-	/** ½«±¾ÀàµÄÐÅÏ¢Ð´ÈëBufferÖÐ 
-     * @param  [in,out] buf Buffer & £¬»º³åÇø¶ÔÏóÒýÓÃ
-     * @return ³É¹¦·µ»Øtrue£¬·ñÔò·µ»Øfalse
+	/** ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢Ð´ï¿½ï¿½Bufferï¿½ï¿½ 
+     * @param  [in,out] buf Buffer & ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+     * @return ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½trueï¿½ï¿½ï¿½ï¿½ï¿½ò·µ»ï¿½false
     */
     virtual bool writeBuffer(Buffer& buf) ;
 };
 /** @} */ 
 
-/** @addtogroup terrain BLOCK_FILL_FLAG-µØÐÎÊý¾Ý¿éÌî³äÎÞÐ§ÖµµÄ±êÊ¶ 
+/** @addtogroup terrain BLOCK_FILL_FLAG-ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð§Öµï¿½Ä±ï¿½Ê¶ 
 *  @{
 */
 enum BLOCK_FILL_FLAG{
@@ -309,63 +309,63 @@ enum BLOCK_FILL_FLAG{
 
 struct DEMInfo;
 typedef std::shared_ptr<DEMInfo> DEMInfoSharedPtr;
-/** @addtogroup terrain DEMInfo-DEMÃèÊöÐÅÏ¢ 
+/** @addtogroup terrain DEMInfo-DEMï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ 
 *  @{
 */
 struct DEMInfo	
 {
-	double	x0;				//×îÐ¡Öµx
-	double	y0;				//×îÐ¡Öµy
-	double	cellSize;		//¸ñÍø¼ä¾à
-	double	minZ;			//×îÐ¡zÖµ
-	double	maxZ;			//×î´ózÖµ
-	int		columnNumber;	//ÁÐÊý
-	int		rowNumber;		//ÐÐÊý
+	double	x0;				//ï¿½ï¿½Ð¡Öµx
+	double	y0;				//ï¿½ï¿½Ð¡Öµy
+	double	cellSize;		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	double	minZ;			//ï¿½ï¿½Ð¡zÖµ
+	double	maxZ;			//ï¿½ï¿½ï¿½zÖµ
+	int		columnNumber;	//ï¿½ï¿½ï¿½ï¿½
+	int		rowNumber;		//ï¿½ï¿½ï¿½ï¿½
 
 	DEMInfo();
 	DEMInfo(double x0,double y0, double	cellSize, double minZ,double maxZ, int column,int row);
 public:
-	/** ´ÓBufferÖÐ¶ÁÈ¡ÐÅÏ¢Ìî³ä±¾¼¸ºÎ¶ÔÏó
-     * @param  [in,out] buf Buffer & £¬»º³åÇø¶ÔÏóÒýÓÃ 
-     * @return ³É¹¦·µ»Øtrue£¬·ñÔò·µ»Øfalse
+	/** ï¿½ï¿½Bufferï¿½Ð¶ï¿½È¡ï¿½ï¿½Ï¢ï¿½ï¿½ä±¾ï¿½ï¿½ï¿½Î¶ï¿½ï¿½ï¿½
+     * @param  [in,out] buf Buffer & ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
+     * @return ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½trueï¿½ï¿½ï¿½ï¿½ï¿½ò·µ»ï¿½false
     */
     virtual bool readBuffer( Buffer & buf) ;
-	/** ½«±¾ÀàµÄÐÅÏ¢Ð´ÈëBufferÖÐ 
-     * @param  [in,out] buf Buffer & £¬»º³åÇø¶ÔÏóÒýÓÃ
-     * @return ³É¹¦·µ»Øtrue£¬·ñÔò·µ»Øfalse
+	/** ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢Ð´ï¿½ï¿½Bufferï¿½ï¿½ 
+     * @param  [in,out] buf Buffer & ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+     * @return ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½trueï¿½ï¿½ï¿½ï¿½ï¿½ò·µ»ï¿½false
     */
     virtual bool writeBuffer(Buffer& buf) ;
 }; 
 /** @} */ 
 
 /**************************************************************************/
-/********************  DOMÊý¾Ý¿âÖ÷ÒªÊý¾Ý½á¹¹ ******************************/
+/********************  DOMï¿½ï¿½ï¿½Ý¿ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½Ý½á¹¹ ******************************/
 struct DOMInfo;
 typedef std::shared_ptr<DOMInfo> DOMInfoSharedPtr;
-/** @addtogroup terrain DOMInfo-¶¨ÒåÔ­Ê¼Ó°ÏñµÄ¿Õ¼äÐÅÏ¢½á¹¹
+/** @addtogroup terrain DOMInfo-ï¿½ï¿½ï¿½ï¿½Ô­Ê¼Ó°ï¿½ï¿½Ä¿Õ¼ï¿½ï¿½ï¿½Ï¢ï¿½á¹¹
 *  @{
 */
 struct DOMInfo	
 {
-	double	x0;					//Ô­Ê¼Ó°ÏñÊý¾ÝµÄ×óÏÂ½ÇX×ø±ê
-	double	y0;					//Ô­Ê¼Ó°ÏñÊý¾ÝµÄ×óÏÂ½ÇY×ø±ê
-	double	xResolution;		//Ô­Ê¼Ó°ÏñÊý¾ÝµÄX·½ÏòÉÏµÄ·Ö±æÂÊ
-	double	yResolution;		//Ô­Ê¼Ó°ÏñÊý¾ÝµÄY·½ÏòÉÏµÄ·Ö±æÂÊ
-	int		xPixelsNumber;		//Ô­Ê¼Ó°ÏñÊý¾ÝµÄX·½ÏòÉÏµÄÏñËØÊý
-	int		yPixelsNumber; 		//Ô­Ê¼Ó°ÏñÊý¾ÝµÄY·½ÏòÉÏµÄÏñËØÊý
-	int		bitsCount; 		    //Ô­Ê¼Ó°ÏñÊý¾ÝÏñËØÎ»Êý
+	double	x0;					//Ô­Ê¼Ó°ï¿½ï¿½ï¿½ï¿½ï¿½Ýµï¿½ï¿½ï¿½ï¿½Â½ï¿½Xï¿½ï¿½ï¿½ï¿½
+	double	y0;					//Ô­Ê¼Ó°ï¿½ï¿½ï¿½ï¿½ï¿½Ýµï¿½ï¿½ï¿½ï¿½Â½ï¿½Yï¿½ï¿½ï¿½ï¿½
+	double	xResolution;		//Ô­Ê¼Ó°ï¿½ï¿½ï¿½ï¿½ï¿½Ýµï¿½Xï¿½ï¿½ï¿½ï¿½ï¿½ÏµÄ·Ö±ï¿½ï¿½ï¿½
+	double	yResolution;		//Ô­Ê¼Ó°ï¿½ï¿½ï¿½ï¿½ï¿½Ýµï¿½Yï¿½ï¿½ï¿½ï¿½ï¿½ÏµÄ·Ö±ï¿½ï¿½ï¿½
+	int		xPixelsNumber;		//Ô­Ê¼Ó°ï¿½ï¿½ï¿½ï¿½ï¿½Ýµï¿½Xï¿½ï¿½ï¿½ï¿½ï¿½Ïµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	int		yPixelsNumber; 		//Ô­Ê¼Ó°ï¿½ï¿½ï¿½ï¿½ï¿½Ýµï¿½Yï¿½ï¿½ï¿½ï¿½ï¿½Ïµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	int		bitsCount; 		    //Ô­Ê¼Ó°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î»ï¿½ï¿½
 
 	DOMInfo();
 	DOMInfo( double x0, double y0, double resX, double resY, int nXPixelsNum, int nYPixelsNum, int nBitsNum );
 public:
-	/** ´ÓBufferÖÐ¶ÁÈ¡ÐÅÏ¢Ìî³ä±¾¼¸ºÎ¶ÔÏó
-     * @param  [in,out] buf Buffer & £¬»º³åÇø¶ÔÏóÒýÓÃ 
-     * @return ³É¹¦·µ»Øtrue£¬·ñÔò·µ»Øfalse
+	/** ï¿½ï¿½Bufferï¿½Ð¶ï¿½È¡ï¿½ï¿½Ï¢ï¿½ï¿½ä±¾ï¿½ï¿½ï¿½Î¶ï¿½ï¿½ï¿½
+     * @param  [in,out] buf Buffer & ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
+     * @return ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½trueï¿½ï¿½ï¿½ï¿½ï¿½ò·µ»ï¿½false
     */
     virtual bool readBuffer( Buffer & buf) ;
-	/** ½«±¾ÀàµÄÐÅÏ¢Ð´ÈëBufferÖÐ 
-     * @param  [in,out] buf Buffer & £¬»º³åÇø¶ÔÏóÒýÓÃ
-     * @return ³É¹¦·µ»Øtrue£¬·ñÔò·µ»Øfalse
+	/** ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢Ð´ï¿½ï¿½Bufferï¿½ï¿½ 
+     * @param  [in,out] buf Buffer & ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+     * @return ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½trueï¿½ï¿½ï¿½ï¿½ï¿½ò·µ»ï¿½false
     */
     virtual bool writeBuffer(Buffer& buf) ;
 };
@@ -373,24 +373,24 @@ public:
 
 class DOMBlock;
 typedef std::shared_ptr<DOMBlock> DOMBlockSharedPtr;
-//DOMÊý¾Ý¿éÐÅÏ¢½á¹¹Ìå
-/** @addtogroup terrain DOMBlock-DOM¿é½á¹¹
+//DOMï¿½ï¿½ï¿½Ý¿ï¿½ï¿½ï¿½Ï¢ï¿½á¹¹ï¿½ï¿½
+/** @addtogroup terrain DOMBlock-DOMï¿½ï¿½á¹¹
 *  @{
 */
 class CORE_API DOMBlock
 {
 public:
-	Identifier::raw_type		    blockID;				//DOMÊý¾Ý¿éID
-	Identifier::raw_type			layerID;				//½ð×ÖËþ²ãID
-	int			row;					                    //Êý¾Ý¿éµÄÐÐºÅ
-	int			column;					                    //Êý¾Ý¿éµÄÁÐºÅ
-	int			full;					                    //ÊÇ·ñ°üº¬Ìî³äµÄÎÞÐ§Öµ,1±íÊ¾Ã»ÓÐ£¬0±íÊ¾ÓÐÎÞÐ§Öµ
-	int			xPixelsNumber;				                //Êý¾Ý¿éX·½ÏòÏñËØÊý
-	int			yPixelsNumber;				                //Êý¾Ý¿éY·½ÏòÏñËØÊý
+	Identifier::raw_type		    blockID;				//DOMï¿½ï¿½ï¿½Ý¿ï¿½ID
+	Identifier::raw_type			layerID;				//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ID
+	int			row;					                    //ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½ï¿½Ðºï¿½
+	int			column;					                    //ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½ï¿½Ðºï¿½
+	int			full;					                    //ï¿½Ç·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð§Öµ,1ï¿½ï¿½Ê¾Ã»ï¿½Ð£ï¿½0ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½Ð§Öµ
+	int			xPixelsNumber;				                //ï¿½ï¿½ï¿½Ý¿ï¿½Xï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	int			yPixelsNumber;				                //ï¿½ï¿½ï¿½Ý¿ï¿½Yï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
-	Envelope2d	  scope;					               //µ±Ç°¿éÔÚX¡¢Y·½ÏòµÄ·¶Î§
-	unsigned char*imageData;				               //Ó°ÏñÊý¾Ý¿é
-	int			  valid;					               //Ó°ÏñÊý¾Ý¿éµÄÓÐÐ§ÐÔ
+	Envelope2d	  scope;					               //ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½Xï¿½ï¿½Yï¿½ï¿½ï¿½ï¿½Ä·ï¿½Î§
+	unsigned char*imageData;				               //Ó°ï¿½ï¿½ï¿½ï¿½ï¿½Ý¿ï¿½
+	int			  valid;					               //Ó°ï¿½ï¿½ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½ï¿½ï¿½Ð§ï¿½ï¿½
 	int			  imageLength;
 
 	DOMBlock();
@@ -403,47 +403,47 @@ public:
 	inline unsigned char* getPixel(int nCol,int nRow);
 	inline unsigned char * getRowPixels(int nRow);
 public:
-	/** ´ÓBufferÖÐ¶ÁÈ¡ÐÅÏ¢Ìî³ä±¾¼¸ºÎ¶ÔÏó
-     * @param  [in,out] buf Buffer & £¬»º³åÇø¶ÔÏóÒýÓÃ 
-     * @return ³É¹¦·µ»Øtrue£¬·ñÔò·µ»Øfalse
+	/** ï¿½ï¿½Bufferï¿½Ð¶ï¿½È¡ï¿½ï¿½Ï¢ï¿½ï¿½ä±¾ï¿½ï¿½ï¿½Î¶ï¿½ï¿½ï¿½
+     * @param  [in,out] buf Buffer & ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
+     * @return ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½trueï¿½ï¿½ï¿½ï¿½ï¿½ò·µ»ï¿½false
     */
     virtual bool readBuffer( Buffer & buf) ;
-	/** ½«±¾ÀàµÄÐÅÏ¢Ð´ÈëBufferÖÐ 
-     * @param  [in,out] buf Buffer & £¬»º³åÇø¶ÔÏóÒýÓÃ
-     * @return ³É¹¦·µ»Øtrue£¬·ñÔò·µ»Øfalse
+	/** ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢Ð´ï¿½ï¿½Bufferï¿½ï¿½ 
+     * @param  [in,out] buf Buffer & ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+     * @return ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½trueï¿½ï¿½ï¿½ï¿½ï¿½ò·µ»ï¿½false
     */
     virtual bool writeBuffer(Buffer& buf) ;
-	/** ¾²Ì¬º¯Êý£¬½«DOMµÄ¿é×ª»»³ÉÓ°ÏñÊý¾Ý
-     * @param  [in,out] p DOMBlockSharedPtr & £¬DOMBlock¶ÔÏóÒýÓÃ
-     * @return ³É¹¦·µ»ØImageSharedPtr£¬·ñÔò·µ»ØImageSharedPtrµÄ¿ÕÖ¸Õë
+	/** ï¿½ï¿½Ì¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½DOMï¿½Ä¿ï¿½×ªï¿½ï¿½ï¿½ï¿½Ó°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+     * @param  [in,out] p DOMBlockSharedPtr & ï¿½ï¿½DOMBlockï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+     * @return ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½ImageSharedPtrï¿½ï¿½ï¿½ï¿½ï¿½ò·µ»ï¿½ImageSharedPtrï¿½Ä¿ï¿½Ö¸ï¿½ï¿½
     */
 	static  ImageSharedPtr DOMBlock2Image(DOMBlockSharedPtr & p);
-	//Ö»ÄÜÉú³ÉÒ»¸öÃ»ÓÐblockIDºÅlayidµÈÐÅÏ¢µÄblock
-	/** ¾²Ì¬º¯Êý£¬½«Ó°Ïñ×ª»»³ÉDOMBlock
-     * @param  [in,out] image ImageSharedPtr & £¬Ó°Ïñ¶ÔÏóÒýÓÃ
-     * @return ³É¹¦·µ»Ø×ª»»ºóµÄDOMBlockSharedPtr£¬·ñÔò·µ»Ø¿ÕµÄDOMBlockSharedPtr
+	//Ö»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½Ã»ï¿½ï¿½blockIDï¿½ï¿½layidï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½block
+	/** ï¿½ï¿½Ì¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó°ï¿½ï¿½×ªï¿½ï¿½ï¿½ï¿½DOMBlock
+     * @param  [in,out] image ImageSharedPtr & ï¿½ï¿½Ó°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+     * @return ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½ï¿½ï¿½ï¿½DOMBlockSharedPtrï¿½ï¿½ï¿½ï¿½ï¿½ò·µ»Ø¿Õµï¿½DOMBlockSharedPtr
     */
 	static DOMBlockSharedPtr Image2DOMBlock(ImageSharedPtr &image);
-	/** ¾²Ì¬º¯Êý£¬½«Á½¸öDOMBlockºÏ²¢³ÉÒ»¸öDOMBlock
-     * @param  [in] p1 DOMBlockSharedPtr &DOM¿é¶ÔÏóÒýÓÃ
-	 * @param  [in] p2 DOMBlockSharedPtr &¿é¶ÔÏóÒýÓÃ
-     * @return ³É¹¦·µ»ØºÏ²¢ºóµÄDOMBlockSharedPtr£¬·ñÔò·µ»Ø¿ÕµÄDOMBlockSharedPtr
+	/** ï¿½ï¿½Ì¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½DOMBlockï¿½Ï²ï¿½ï¿½ï¿½Ò»ï¿½ï¿½DOMBlock
+     * @param  [in] p1 DOMBlockSharedPtr &DOMï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	 * @param  [in] p2 DOMBlockSharedPtr &ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+     * @return ï¿½É¹ï¿½ï¿½ï¿½ï¿½ØºÏ²ï¿½ï¿½ï¿½ï¿½DOMBlockSharedPtrï¿½ï¿½ï¿½ï¿½ï¿½ò·µ»Ø¿Õµï¿½DOMBlockSharedPtr
     */
 	static DOMBlockSharedPtr merge(const DOMBlockSharedPtr & p1, const DOMBlockSharedPtr & p2);
-	/** ¾²Ì¬º¯Êý£¬½«DOMBlockÖÐº¬ÓÐµÄµÄÓ°ÏñÊý¾Ý½øÐÐÖØ²ÉÑù
-     * @param  [in] p1 DOMBlockSharedPtr &DOM¿é¶ÔÏóÒýÓÃ
-	 * @param  [in] newx ÕûÊý ÖØ²ÉÑùºóµÄ¿í¶È
-	 * @param  [in] newy ÕûÊý ÖØ²ÉÑùºóµÄ¸ß¶È
-     * @return ³É¹¦·µ»ØÖØ²ÉÑùºóµÄDOMBlockSharedPtr£¬·ñÔò·µ»Ø¿ÕµÄDOMBlockSharedPtr
+	/** ï¿½ï¿½Ì¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½DOMBlockï¿½Ðºï¿½ï¿½ÐµÄµï¿½Ó°ï¿½ï¿½ï¿½ï¿½ï¿½Ý½ï¿½ï¿½ï¿½ï¿½Ø²ï¿½ï¿½ï¿½
+     * @param  [in] p1 DOMBlockSharedPtr &DOMï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	 * @param  [in] newx ï¿½ï¿½ï¿½ï¿½ ï¿½Ø²ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿ï¿½ï¿½
+	 * @param  [in] newy ï¿½ï¿½ï¿½ï¿½ ï¿½Ø²ï¿½ï¿½ï¿½ï¿½ï¿½Ä¸ß¶ï¿½
+     * @return ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ø²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½DOMBlockSharedPtrï¿½ï¿½ï¿½ï¿½ï¿½ò·µ»Ø¿Õµï¿½DOMBlockSharedPtr
     */
 	static DOMBlockSharedPtr resample(const DOMBlockSharedPtr & p1,int newx, int newy);
 }; 
 /** @} */ 
 
-/** µÃµ½DOMBlockÖÐµÄÄ³¸öÏñËØÖµµÄµØÖ·
-* @param  [in] nCol ÕûÊý ÏñËØËùÔÚµÄÐÐ
-* @param  [in] nRow ÕûÊý ÏñËØËùÔÚµÄÁÐ
-* @return ³É¹¦·µ»Ø¸ÃÏñËØµÄµØÖ·£¬·ñÔò·µ»Ø
+/** ï¿½Ãµï¿½DOMBlockï¿½Ðµï¿½Ä³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµï¿½Äµï¿½Ö·
+* @param  [in] nCol ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Úµï¿½ï¿½ï¿½
+* @param  [in] nRow ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Úµï¿½ï¿½ï¿½
+* @return ï¿½É¹ï¿½ï¿½ï¿½ï¿½Ø¸ï¿½ï¿½ï¿½ï¿½ØµÄµï¿½Ö·ï¿½ï¿½ï¿½ï¿½ï¿½ò·µ»ï¿½
 */
 inline unsigned char* DOMBlock::getPixel(int nCol,int nRow){
 	if((nCol<xPixelsNumber)&&(nRow<yPixelsNumber)&&(imageData)) 
@@ -451,41 +451,41 @@ inline unsigned char* DOMBlock::getPixel(int nCol,int nRow){
 	else 
 		return 0;
 }
-/** µÃµ½DOMBlockÖÐµÄÄ³ÐÐÏñËØµÄµØÖ·
-* @param  [in] nRow ÕûÊý ÏñËØËùÔÚµÄÁÐ
-* @return ³É¹¦·µ»Ø¸ÃÐÐÏñËØµÄÆðÊ¼µØÖ·£¬·ñÔò·µ»Ø0
+/** ï¿½Ãµï¿½DOMBlockï¿½Ðµï¿½Ä³ï¿½ï¿½ï¿½ï¿½ï¿½ØµÄµï¿½Ö·
+* @param  [in] nRow ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Úµï¿½ï¿½ï¿½
+* @return ï¿½É¹ï¿½ï¿½ï¿½ï¿½Ø¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Øµï¿½ï¿½ï¿½Ê¼ï¿½ï¿½Ö·ï¿½ï¿½ï¿½ï¿½ï¿½ò·µ»ï¿½0
 */
 inline unsigned char * DOMBlock::getRowPixels(int nRow){
 	//return imageData+(nRow*xPixelsNumber)*(imageLength/(xPixelsNumber*yPixelsNumber);
 	return imageData+(nRow*imageLength/yPixelsNumber);
 }
-/** ¼ÆËãDOMBlockµÄÃ¿¸öÏñËØµÄ×Ö½ÚÊý
-* @return ³É¹¦·µ»Ø¸ÃÐÐÏñËØµÄ×Ö½ÚÊý£¬·ñÔò·µ»Ø
+/** ï¿½ï¿½ï¿½ï¿½DOMBlockï¿½ï¿½Ã¿ï¿½ï¿½ï¿½ï¿½ï¿½Øµï¿½ï¿½Ö½ï¿½ï¿½ï¿½
+* @return ï¿½É¹ï¿½ï¿½ï¿½ï¿½Ø¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Øµï¿½ï¿½Ö½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ò·µ»ï¿½
 */
 inline int DOMBlock::computeBitsPrepixel(){return imageLength/(xPixelsNumber*yPixelsNumber)*8;}
 
 class DOMLayerInfo;
 typedef std::shared_ptr<DOMLayerInfo> DOMLayerInfoSharedPtr;
-//DOMÊý¾Ý¿éÐÅÏ¢½á¹¹Ìå
-/** @addtogroup terrain DOMLayerInfo-DOMÊý¾Ý¿â²ã½á¹¹ÐÅÏ¢
+//DOMï¿½ï¿½ï¿½Ý¿ï¿½ï¿½ï¿½Ï¢ï¿½á¹¹ï¿½ï¿½
+/** @addtogroup terrain DOMLayerInfo-DOMï¿½ï¿½ï¿½Ý¿ï¿½ï¿½á¹¹ï¿½ï¿½Ï¢
 *  @{
 */
-class CORE_API DOMLayerInfo			//DOMÊý¾Ý¿â²ã½á¹¹ÐÅÏ¢
+class CORE_API DOMLayerInfo			//DOMï¿½ï¿½ï¿½Ý¿ï¿½ï¿½á¹¹ï¿½ï¿½Ï¢
 {
 public:
-	Identifier::raw_type  layerID;			    //DOM²ãµÄID
-	Identifier::raw_type  demLayerID;			//DOM²ã¶ÔÓ¦µÄDEM²ãID
-	Identifier::raw_type  domdbID;			    //DOM²ãËùÊôµÄDOMÊý¾Ý¿âID
-	Envelope2d			  layerScope;			//DOM²ãµÄ·¶Î§
-	Envelope2d			  dataScope;			//DOM²ãµÄ·¶Î§
+	Identifier::raw_type  layerID;			    //DOMï¿½ï¿½ï¿½ID
+	Identifier::raw_type  demLayerID;			//DOMï¿½ï¿½ï¿½Ó¦ï¿½ï¿½DEMï¿½ï¿½ID
+	Identifier::raw_type  domdbID;			    //DOMï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½DOMï¿½ï¿½ï¿½Ý¿ï¿½ID
+	Envelope2d			  layerScope;			//DOMï¿½ï¿½Ä·ï¿½Î§
+	Envelope2d			  dataScope;			//DOMï¿½ï¿½Ä·ï¿½Î§
 
-	std::string			  layerName;	        //¸Ã²ãÃû³Æ
-	double				  layerResolution; 		//DOM²ã·Ö±æÂÊ
-	int					  xPixelsNumber;		//DOM²ãÓ°Ïñ¿éÔÚX·½ÏòÉÏµÄÏñËØÊý
-	int					  yPixelsNumber;		//DOM²ãÓ°Ïñ¿éÔÚY·½ÏòÉÏµÄÏñËØÊý
-	int					  xBlocksNumber;		//DOM²ãµÄX·½ÏòµÄ¿éÊýÁ¿
-	int					  yBlocksNumber;		//DOM²ãµÄY·½ÏòµÄ¿éÊýÁ¿
-	int					  scale;				//²ãÓë²ãÖ®¼ä·Ö±æÂÊµÄ±ÈÂÊ
+	std::string			  layerName;	        //ï¿½Ã²ï¿½ï¿½ï¿½ï¿½ï¿½
+	double				  layerResolution; 		//DOMï¿½ï¿½Ö±ï¿½ï¿½ï¿½
+	int					  xPixelsNumber;		//DOMï¿½ï¿½Ó°ï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½ï¿½ï¿½Ïµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	int					  yPixelsNumber;		//DOMï¿½ï¿½Ó°ï¿½ï¿½ï¿½ï¿½ï¿½Yï¿½ï¿½ï¿½ï¿½ï¿½Ïµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	int					  xBlocksNumber;		//DOMï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½ï¿½Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½
+	int					  yBlocksNumber;		//DOMï¿½ï¿½ï¿½Yï¿½ï¿½ï¿½ï¿½Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½
+	int					  scale;				//ï¿½ï¿½ï¿½ï¿½ï¿½Ö®ï¿½ï¿½Ö±ï¿½ï¿½ÊµÄ±ï¿½ï¿½ï¿½
 
 	DOMLayerInfo();
 	DOMLayerInfo( Identifier::raw_type lyrID,Identifier::raw_type demLyrID,Identifier::raw_type dbID,char* name, Envelope2d lyrScope, Envelope2d dataScope, int xBlocks, int yBlocks, int xPixels, int yPixels, double res,
@@ -495,106 +495,106 @@ public:
 	bool operator != ( DOMLayerInfo &other );
 	void clear();
 public:
-	/** ¼ÆËã¿éµÄ·¶Î§
-     * @param  [in] block_row_in_layer Êý¾Ý¿éÔÚÍ¼²ãÐÐË÷Òý 
-	 * @param  [in] block_col_in_layer Êý¾Ý¿éÔÚÍ¼²ãÁÐË÷Òý 
+	/** ï¿½ï¿½ï¿½ï¿½ï¿½Ä·ï¿½Î§
+     * @param  [in] block_row_in_layer ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½ï¿½Í¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
+	 * @param  [in] block_col_in_layer ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½ï¿½Í¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
      * @return  
     */
 	virtual Envelope2d calcualteBlockEnvelope(unsigned int block_row_in_layer,unsigned int block_col_in_layer);
-	/** ´ÓBufferÖÐ¶ÁÈ¡ÐÅÏ¢Ìî³ä±¾¼¸ºÎ¶ÔÏó
-     * @param  [in,out] buf Buffer & £¬»º³åÇø¶ÔÏóÒýÓÃ 
-     * @return ³É¹¦·µ»Øtrue£¬·ñÔò·µ»Øfalse
+	/** ï¿½ï¿½Bufferï¿½Ð¶ï¿½È¡ï¿½ï¿½Ï¢ï¿½ï¿½ä±¾ï¿½ï¿½ï¿½Î¶ï¿½ï¿½ï¿½
+     * @param  [in,out] buf Buffer & ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
+     * @return ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½trueï¿½ï¿½ï¿½ï¿½ï¿½ò·µ»ï¿½false
     */
     virtual bool readBuffer( Buffer & buf) ;
-	/** ½«±¾ÀàµÄÐÅÏ¢Ð´ÈëBufferÖÐ 
-     * @param  [in,out] buf Buffer & £¬»º³åÇø¶ÔÏóÒýÓÃ
-     * @return ³É¹¦·µ»Øtrue£¬·ñÔò·µ»Øfalse
+	/** ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢Ð´ï¿½ï¿½Bufferï¿½ï¿½ 
+     * @param  [in,out] buf Buffer & ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+     * @return ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½trueï¿½ï¿½ï¿½ï¿½ï¿½ò·µ»ï¿½false
     */
     virtual bool writeBuffer(Buffer& buf) ;
 	/**
-	 * @param  [in] row£¬colÊý¾Ý¿âÖÐµÄÐÐÁÐ
-	 * @param  [in£¬out] blkID£¬ÊäÈë£¬Êä³öÊý¾ÝËùÔÚµÄ¿éºÅ
-	 * @param  [in,out] blkID£¬ÊäÈë£¬Êä³öÊý¾ÝËùÔÚ¿éµÄÐÐÁÐºÅ
+	 * @param  [in] rowï¿½ï¿½colï¿½ï¿½ï¿½Ý¿ï¿½ï¿½Ðµï¿½ï¿½ï¿½ï¿½ï¿½
+	 * @param  [inï¿½ï¿½out] blkIDï¿½ï¿½ï¿½ï¿½ï¿½ë£¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÚµÄ¿ï¿½ï¿½
+	 * @param  [in,out] blkIDï¿½ï¿½ï¿½ï¿½ï¿½ë£¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú¿ï¿½ï¿½ï¿½ï¿½ï¿½Ðºï¿½
 	*/
-	//×¢Òâ£º´Ëº¯Êý±ØÐëÔÚÃ¿¿éblockµÄxPixelNumbersºÍyPixelNumbersÈ·¶¨ÕýÈ·Ê±²ÅÄÜÓÃ
+	//×¢ï¿½â£ºï¿½Ëºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã¿ï¿½ï¿½blockï¿½ï¿½xPixelNumbersï¿½ï¿½yPixelNumbersÈ·ï¿½ï¿½ï¿½ï¿½È·Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	virtual void calculate(unsigned long long  row,unsigned long long col, Identifier::raw_type &blkID,int &blockRow,int &blockCol);
 	/**
-	 * @param  [in] blkID£¬ÊäÈë£¬Êä³öÊý¾ÝËùÔÚµÄ¿éºÅ
-	 * @param  [in] blkID£¬ÊäÈë£¬Êä³öÊý¾ÝËùÔÚ¿éµÄÐÐÁÐºÅ
-	 * @param  [in,out] row£¬colÊý¾Ý¿âÖÐµÄÐÐÁÐ
+	 * @param  [in] blkIDï¿½ï¿½ï¿½ï¿½ï¿½ë£¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÚµÄ¿ï¿½ï¿½
+	 * @param  [in] blkIDï¿½ï¿½ï¿½ï¿½ï¿½ë£¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú¿ï¿½ï¿½ï¿½ï¿½ï¿½Ðºï¿½
+	 * @param  [in,out] rowï¿½ï¿½colï¿½ï¿½ï¿½Ý¿ï¿½ï¿½Ðµï¿½ï¿½ï¿½ï¿½ï¿½
 	*/
-	//×¢Òâ£º´Ëº¯Êý±ØÐëÔÚÃ¿¿éblockµÄxPixelNumbersºÍyPixelNumbersÈ·¶¨ÕýÈ·Ê±²ÅÄÜÓÃ
+	//×¢ï¿½â£ºï¿½Ëºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã¿ï¿½ï¿½blockï¿½ï¿½xPixelNumbersï¿½ï¿½yPixelNumbersÈ·ï¿½ï¿½ï¿½ï¿½È·Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	virtual void calculate(Identifier::raw_type blkID,int blockRow,int blockCol,unsigned long long  &row,unsigned long long &col);
 	/**
-	 * @param  [in]col,rowÊäÈë²ãËùÔÚµÄÐÐÁÐºÅ
-	 * @param  [in£¬out]*wx,*wy,ÊäÈë¡¢Êä³öÊÀ½ç×ø±ê×ø±êÖµ
+	 * @param  [in]col,rowï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Úµï¿½ï¿½ï¿½ï¿½Ðºï¿½
+	 * @param  [inï¿½ï¿½out]*wx,*wy,ï¿½ï¿½ï¿½ë¡¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµ
 	*/
 	virtual void IP2WP(unsigned long long  col, unsigned long long row, double * wx, double * wy);
 	/**
-	 * @param  [in]*wx,*wy,ÊäÈëÊÀ½ç×ø±ê×ø±êÖµ
-	 * @param  [in£¬out]col,rowÊäÈë¡¢Êä³ö²ãËùÔÚµÄÐÐÁÐºÅ
+	 * @param  [in]*wx,*wy,ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµ
+	 * @param  [inï¿½ï¿½out]col,rowï¿½ï¿½ï¿½ë¡¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Úµï¿½ï¿½ï¿½ï¿½Ðºï¿½
 	*/
 	virtual void WP2IP(double   wx, double   wy,unsigned long long *col, unsigned long long *row);
 }; 
 /** @} */ 
 class DOMDataInfo;
 typedef std::shared_ptr<DOMDataInfo> DOMDataInfoSharedPtr;
-//DOMÊý¾Ý¿éÐÅÏ¢½á¹¹Ìå
-/** @addtogroup terrain DOMDataInfo-Ô­Ê¼DOMÊý¾ÝÐÅÏ¢
+//DOMï¿½ï¿½ï¿½Ý¿ï¿½ï¿½ï¿½Ï¢ï¿½á¹¹ï¿½ï¿½
+/** @addtogroup terrain DOMDataInfo-Ô­Ê¼DOMï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
 *  @{
 */
 
 class CORE_API DOMDataInfo				
 {
 public:
-	std::string			version;		             //DOMÊý¾Ý¿â±êÖ¾
-	double				xDistance;					//Ô­Ê¼Êý¾ÝÔÚX·½ÏòÉÏµÄ¿í¶È
-	double				yDistance;					//Ô­Ê¼Êý¾ÝÔÚY·½ÏòÉÏµÄ¿í¶È
-	double				resolution;					//Ô­Ê¼Êý¾Ý·Ö±æÂÊ
-	int					bitsCount;					//Ô­Ê¼Êý¾ÝÏñËØÎ»Êý	
-	char				coordinateUnit[1];			//Ô­Ê¼Êý¾Ý×ø±êµ¥Î»
-	double				xOverlayDistance;			//Ô­Ê¼Êý¾ÝÔÚX·½ÏòÉÏµÄÖØµþ
-	double				yOverlayDistance;			//Ô­Ê¼Êý¾ÝÔÚY·½ÏòÉÏµÄÖØµþ
-	int					scale;						//Ô­Ê¼Êý¾Ý±ÈÀý³ß		
+	std::string			version;		             //DOMï¿½ï¿½ï¿½Ý¿ï¿½ï¿½Ö¾
+	double				xDistance;					//Ô­Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½ï¿½ï¿½ÏµÄ¿ï¿½ï¿½
+	double				yDistance;					//Ô­Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Yï¿½ï¿½ï¿½ï¿½ï¿½ÏµÄ¿ï¿½ï¿½
+	double				resolution;					//Ô­Ê¼ï¿½ï¿½ï¿½Ý·Ö±ï¿½ï¿½ï¿½
+	int					bitsCount;					//Ô­Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î»ï¿½ï¿½	
+	char				coordinateUnit[1];			//Ô­Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½êµ¥Î»
+	double				xOverlayDistance;			//Ô­Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½ï¿½ï¿½Ïµï¿½ï¿½Øµï¿½
+	double				yOverlayDistance;			//Ô­Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Yï¿½ï¿½ï¿½ï¿½ï¿½Ïµï¿½ï¿½Øµï¿½
+	int					scale;						//Ô­Ê¼ï¿½ï¿½ï¿½Ý±ï¿½ï¿½ï¿½ï¿½ï¿½		
 
-	int					xOverlayNumber;				//¿é¼äX·½ÏòÏóËØÖØµþÊýÁ¿
-	int					yOverlayNumber;				//¿é¼äY·½ÏòÏóËØÖØµþÊýÁ¿
-	unsigned char		compressFormat;				//0x00: Î´Ñ¹Ëõ£»0x01£ºÐ¡²¨Ñ¹Ëõ£»0X02£ºJPEGÑ¹Ëõ
-	int					compressQuilty;				//Ð¡²¨Ñ¹ËõÖ¸Ñ¹Ëõ±È£»JPEGÑ¹ËõÖ¸Ñ¹ËõÖÊÁ¿1-100
+	int					xOverlayNumber;				//ï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Øµï¿½ï¿½ï¿½ï¿½ï¿½
+	int					yOverlayNumber;				//ï¿½ï¿½ï¿½Yï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Øµï¿½ï¿½ï¿½ï¿½ï¿½
+	unsigned char		compressFormat;				//0x00: Î´Ñ¹ï¿½ï¿½ï¿½ï¿½0x01ï¿½ï¿½Ð¡ï¿½ï¿½Ñ¹ï¿½ï¿½ï¿½ï¿½0X02ï¿½ï¿½JPEGÑ¹ï¿½ï¿½
+	int					compressQuilty;				//Ð¡ï¿½ï¿½Ñ¹ï¿½ï¿½Ö¸Ñ¹ï¿½ï¿½ï¿½È£ï¿½JPEGÑ¹ï¿½ï¿½Ö¸Ñ¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½1-100
 
-	int					demLayersNumber;			//Ïà¹ØDEMÊý¾Ý¿â²ãÊýÁ¿
-	double				originDEMCellSize;			//Ô­Ê¼DEM¸ñÍø¼ä¾à
-	unsigned char		paletteReady;				//ÊÇ·ñÉú³Éµ÷É«°å
-	int					indexedLayersNumber;		//Ë÷ÒýÓ°Ïó²ãÊýÁ¿
-	int					grayLayersNumber;			//»Ò¶ÈÓ°Ïó²ãÊýÁ¿
+	int					demLayersNumber;			//ï¿½ï¿½ï¿½DEMï¿½ï¿½ï¿½Ý¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	double				originDEMCellSize;			//Ô­Ê¼DEMï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	unsigned char		paletteReady;				//ï¿½Ç·ï¿½ï¿½ï¿½ï¿½Éµï¿½É«ï¿½ï¿½
+	int					indexedLayersNumber;		//ï¿½ï¿½ï¿½ï¿½Ó°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	int					grayLayersNumber;			//ï¿½Ò¶ï¿½Ó°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
-	unsigned char				userDefBits;		//ÓÃ»§µÝ½»µÚÒ»·ùÔ­Ê¼Ó°ÏñÎ»Êý
-	unsigned char				cvs8To24;			//ÊÇ·ñ½«8Î»ÒÔ24Î»×ª»»±£´æ 0 = ÎÞ×ª»» 1 = ×ª»»
-	PALETTEENTRY 		        palette[256];		//Ô­Ê¼Ó°ÏñÊý¾ÝµÄµ÷É«°å
+	unsigned char				userDefBits;		//ï¿½Ã»ï¿½ï¿½Ý½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½Ô­Ê¼Ó°ï¿½ï¿½Î»ï¿½ï¿½
+	unsigned char				cvs8To24;			//ï¿½Ç·ï¿½8Î»ï¿½ï¿½24Î»×ªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 0 = ï¿½ï¿½×ªï¿½ï¿½ 1 = ×ªï¿½ï¿½
+	PALETTEENTRY 		        palette[256];		//Ô­Ê¼Ó°ï¿½ï¿½ï¿½ï¿½ï¿½ÝµÄµï¿½É«ï¿½ï¿½
 
-	unsigned char				blockFlagNumber;	//¿é±êÖ¾ÊýÁ¿
-	unsigned char				power2Blk;			//ÔÚµÝ½»Êý¾ÝÊ±£¬ÊÇ·ñÒÔÔ­Ê¼Ó°ÏñµÄ·Ö±æÂÊ±£´æ¿éÊý¾Ý¡£0 = Ô­Ê¼Ó°Ïñ·Ö±æÂÊ 1 = ÒÔ2µÄÃÝÏñËØÊý±£´æ¿éÊý¾Ý
+	unsigned char				blockFlagNumber;	//ï¿½ï¿½ï¿½Ö¾ï¿½ï¿½ï¿½ï¿½
+	unsigned char				power2Blk;			//ï¿½ÚµÝ½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½Ô­Ê¼Ó°ï¿½ï¿½Ä·Ö±ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý¡ï¿½0 = Ô­Ê¼Ó°ï¿½ï¿½Ö±ï¿½ï¿½ï¿½ 1 = ï¿½ï¿½2ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
-	unsigned char				xSOPixelNumber;		//Ô­Ê¼Êý¾Ý¿éµÄX·½ÏòµÄÖØµþÏñËØÊý¡£µ±¿é²»Îª2µÄÃÝÊ±£¬´ËÖµÐèÒª¼ÆËã£¬µ±¿éÎª2µÄÃÝÊ±£¬´ËÖµµÈÓÚÓÃ»§Éè¶¨µÄÖØµþÏñËØÊý
+	unsigned char				xSOPixelNumber;		//Ô­Ê¼ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½Xï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Øµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½é²»Îª2ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½Öµï¿½ï¿½Òªï¿½ï¿½ï¿½ã£¬ï¿½ï¿½ï¿½ï¿½Îª2ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½Öµï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½ï¿½è¶¨ï¿½ï¿½ï¿½Øµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	unsigned char				ySOPixelNumber;			
 
-	char				reserved1;					//±£Áô
-	char				reserved2;					//±£Áô
-	char				reserved3;					//±£Áô
-	char				reserved4;					//±£Áô
+	char				reserved1;					//ï¿½ï¿½ï¿½ï¿½
+	char				reserved2;					//ï¿½ï¿½ï¿½ï¿½
+	char				reserved3;					//ï¿½ï¿½ï¿½ï¿½
+	char				reserved4;					//ï¿½ï¿½ï¿½ï¿½
 
 	DOMDataInfo();
 	bool operator == ( DOMDataInfo &other );
 	bool operator != ( DOMDataInfo &other );
 public:
-	/** ´ÓBufferÖÐ¶ÁÈ¡ÐÅÏ¢Ìî³ä±¾¼¸ºÎ¶ÔÏó
-     * @param  [in,out] buf Buffer & £¬»º³åÇø¶ÔÏóÒýÓÃ 
-     * @return ³É¹¦·µ»Øtrue£¬·ñÔò·µ»Øfalse
+	/** ï¿½ï¿½Bufferï¿½Ð¶ï¿½È¡ï¿½ï¿½Ï¢ï¿½ï¿½ä±¾ï¿½ï¿½ï¿½Î¶ï¿½ï¿½ï¿½
+     * @param  [in,out] buf Buffer & ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
+     * @return ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½trueï¿½ï¿½ï¿½ï¿½ï¿½ò·µ»ï¿½false
     */
     virtual bool readBuffer( Buffer & buf) ;
-	/** ½«±¾ÀàµÄÐÅÏ¢Ð´ÈëBufferÖÐ 
-     * @param  [in,out] buf Buffer & £¬»º³åÇø¶ÔÏóÒýÓÃ
-     * @return ³É¹¦·µ»Øtrue£¬·ñÔò·µ»Øfalse
+	/** ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢Ð´ï¿½ï¿½Bufferï¿½ï¿½ 
+     * @param  [in,out] buf Buffer & ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+     * @return ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½trueï¿½ï¿½ï¿½ï¿½ï¿½ò·µ»ï¿½false
     */
     virtual bool writeBuffer(Buffer& buf) ;
 };
@@ -602,28 +602,28 @@ public:
 
 class  DEMDBInfo;
 typedef std::shared_ptr<DEMDBInfo> DEMDBInfoSharedPtr;
-/** @addtogroup terrain DEMDBInfo-DEMÊý¾Ý¿âÐÅÏ¢
+/** @addtogroup terrain DEMDBInfo-DEMï¿½ï¿½ï¿½Ý¿ï¿½ï¿½ï¿½Ï¢
 *  @{
 */
 
 class CORE_API  DEMDBInfo		
 {
 public:
-	Identifier::raw_type		demdbID;                //DEMÊý¾Ý¿âID
-	std::string		            demdbName;				//DEMÊý¾Ý¿âÃû³Æ
-	std::string		            demdbPath;				//DEMÊý¾Ý¿âÂ·¾¶
+	Identifier::raw_type		demdbID;                //DEMï¿½ï¿½ï¿½Ý¿ï¿½ID
+	std::string		            demdbName;				//DEMï¿½ï¿½ï¿½Ý¿ï¿½ï¿½ï¿½ï¿½ï¿½
+	std::string		            demdbPath;				//DEMï¿½ï¿½ï¿½Ý¿ï¿½Â·ï¿½ï¿½
 
-	Envelope2d	    demdbScope;							//DEMÊý¾Ý¿â·¶Î§
+	Envelope2d	    demdbScope;							//DEMï¿½ï¿½ï¿½Ý¿â·¶Î§
 
-	double		lowestResolution;							//DEMÊý¾Ý¿âµÄ×î´Ö²Ú·Ö±æÂÊ
-	double		highestResolution;							//DEMÊý¾Ý¿âµÄ×î¾«Ï¸·Ö±æÂÊ
+	double		lowestResolution;							//DEMï¿½ï¿½ï¿½Ý¿ï¿½ï¿½ï¿½ï¿½Ö²Ú·Ö±ï¿½ï¿½ï¿½
+	double		highestResolution;							//DEMï¿½ï¿½ï¿½Ý¿ï¿½ï¿½ï¿½î¾«Ï¸ï¿½Ö±ï¿½ï¿½ï¿½
 
-	DEMDataInfoSharedPtr		demDataInfo;						//DEMÊý¾ÝÃèÊöÐÅÏ¢	
-	std::vector<DEMLayerInfoSharedPtr>	demLayerInfos;	//DEMÊý¾Ý¿âµÄ²ãÐÅÏ¢
+	DEMDataInfoSharedPtr		demDataInfo;						//DEMï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢	
+	std::vector<DEMLayerInfoSharedPtr>	demLayerInfos;	//DEMï¿½ï¿½ï¿½Ý¿ï¿½Ä²ï¿½ï¿½ï¿½Ï¢
 
-	Identifier::raw_type		srefID;								//DEMÊý¾Ý¿âµÄ¿Õ¼ä²Î¿¼ID
-	Identifier::raw_type		createTime;							//DEMÊý¾Ý¿â´´½¨Ê±¼ä
-	Identifier::raw_type		updateTime;							//DEMÊý¾Ý¿â´´½¨Ê±¼ä
+	Identifier::raw_type		srefID;								//DEMï¿½ï¿½ï¿½Ý¿ï¿½Ä¿Õ¼ï¿½Î¿ï¿½ID
+	Identifier::raw_type		createTime;							//DEMï¿½ï¿½ï¿½Ý¿â´´ï¿½ï¿½Ê±ï¿½ï¿½
+	Identifier::raw_type		updateTime;							//DEMï¿½ï¿½ï¿½Ý¿â´´ï¿½ï¿½Ê±ï¿½ï¿½
 
 	DEMDBInfo();
 	bool operator == ( DEMDBInfo &other );
@@ -631,14 +631,14 @@ public:
 	DEMDBInfo operator=(const DEMDBInfo &other);
 	void clear();
 public:
-	/** ´ÓBufferÖÐ¶ÁÈ¡ÐÅÏ¢Ìî³ä±¾¼¸ºÎ¶ÔÏó
-     * @param  [in,out] buf Buffer & £¬»º³åÇø¶ÔÏóÒýÓÃ 
-     * @return ³É¹¦·µ»Øtrue£¬·ñÔò·µ»Øfalse
+	/** ï¿½ï¿½Bufferï¿½Ð¶ï¿½È¡ï¿½ï¿½Ï¢ï¿½ï¿½ä±¾ï¿½ï¿½ï¿½Î¶ï¿½ï¿½ï¿½
+     * @param  [in,out] buf Buffer & ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
+     * @return ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½trueï¿½ï¿½ï¿½ï¿½ï¿½ò·µ»ï¿½false
     */
     virtual bool readBuffer( Buffer & buf) ;
-	/** ½«±¾ÀàµÄÐÅÏ¢Ð´ÈëBufferÖÐ 
-     * @param  [in,out] buf Buffer & £¬»º³åÇø¶ÔÏóÒýÓÃ
-     * @return ³É¹¦·µ»Øtrue£¬·ñÔò·µ»Øfalse
+	/** ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢Ð´ï¿½ï¿½Bufferï¿½ï¿½ 
+     * @param  [in,out] buf Buffer & ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+     * @return ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½trueï¿½ï¿½ï¿½ï¿½ï¿½ò·µ»ï¿½false
     */
     virtual bool writeBuffer(Buffer& buf) ;
 }; 
@@ -646,75 +646,75 @@ public:
 
 class DOMDBInfo;
 typedef std::shared_ptr<DOMDBInfo> DOMDBInfoSharedPtr;
-/** @addtogroup terrain DOMDBInfo-DOMÊý¾Ý¿âÐÅÏ¢¡¡
+/** @addtogroup terrain DOMDBInfo-DOMï¿½ï¿½ï¿½Ý¿ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½
 *  @{
 */
 
 class CORE_API DOMDBInfo		
 {
 public:
-	Identifier::raw_type			domdbID;						//DOMÊý¾Ý¿âID
-	Identifier::raw_type			demdbID;						//DOMÊý¾Ý¿â¶ÔÓ¦µÄDEMÊý¾Ý¿âID
-	std::string			domdbName;			//DOMÊý¾Ý¿âÃû³Æ
-	std::string			domdbPath;			//DOMÊý¾Ý¿âÂ·¾¶
+	Identifier::raw_type			domdbID;						//DOMï¿½ï¿½ï¿½Ý¿ï¿½ID
+	Identifier::raw_type			demdbID;						//DOMï¿½ï¿½ï¿½Ý¿ï¿½ï¿½Ó¦ï¿½ï¿½DEMï¿½ï¿½ï¿½Ý¿ï¿½ID
+	std::string			domdbName;			//DOMï¿½ï¿½ï¿½Ý¿ï¿½ï¿½ï¿½ï¿½ï¿½
+	std::string			domdbPath;			//DOMï¿½ï¿½ï¿½Ý¿ï¿½Â·ï¿½ï¿½
 
-	Envelope2d		domdbScope;						//DOMÊý¾Ý¿â·¶Î§
-	//int				layerNum;						//DOMÊý¾Ý¿âµÄ½ð×ÖËþ²ãÊýÁ¿
-	double			lowestResolution;						//DOMÊý¾Ý¿âµÄ×î´Ö²Ú·Ö±æÂÊ
-	double			highestResolution;						//DOMÊý¾Ý¿âµÄ×î¾«Ï¸·Ö±æÂÊ
+	Envelope2d		domdbScope;						//DOMï¿½ï¿½ï¿½Ý¿â·¶Î§
+	//int				layerNum;						//DOMï¿½ï¿½ï¿½Ý¿ï¿½Ä½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	double			lowestResolution;						//DOMï¿½ï¿½ï¿½Ý¿ï¿½ï¿½ï¿½ï¿½Ö²Ú·Ö±ï¿½ï¿½ï¿½
+	double			highestResolution;						//DOMï¿½ï¿½ï¿½Ý¿ï¿½ï¿½ï¿½î¾«Ï¸ï¿½Ö±ï¿½ï¿½ï¿½
 
-	DOMDataInfoSharedPtr	    domDataInfo;					//DOMÊý¾ÝÃèÊöÐÅÏ¢	
-	std::vector<DOMLayerInfoSharedPtr>	domLayerInfos;	//DEMÊý¾Ý¿âµÄ²ãÐÅÏ¢
+	DOMDataInfoSharedPtr	    domDataInfo;					//DOMï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢	
+	std::vector<DOMLayerInfoSharedPtr>	domLayerInfos;	//DEMï¿½ï¿½ï¿½Ý¿ï¿½Ä²ï¿½ï¿½ï¿½Ï¢
 
 
-	Identifier::raw_type			srefID;							//DOMÊý¾Ý¿âµÄ¿Õ¼ä²Î¿¼ID
-	Identifier::raw_type			createTime;						//DOMÊý¾Ý¿â´´½¨Ê±¼ä
-	Identifier::raw_type			updateTime;						//DOMÊý¾Ý¿â´´½¨Ê±¼ä
+	Identifier::raw_type			srefID;							//DOMï¿½ï¿½ï¿½Ý¿ï¿½Ä¿Õ¼ï¿½Î¿ï¿½ID
+	Identifier::raw_type			createTime;						//DOMï¿½ï¿½ï¿½Ý¿â´´ï¿½ï¿½Ê±ï¿½ï¿½
+	Identifier::raw_type			updateTime;						//DOMï¿½ï¿½ï¿½Ý¿â´´ï¿½ï¿½Ê±ï¿½ï¿½
 
 	DOMDBInfo();
 	DOMDBInfo operator=(const DOMDBInfo &other);
 	void clear();
 public:
-	/** ´ÓBufferÖÐ¶ÁÈ¡ÐÅÏ¢Ìî³ä±¾¼¸ºÎ¶ÔÏó
-     * @param  [in,out] buf Buffer & £¬»º³åÇø¶ÔÏóÒýÓÃ 
-     * @return ³É¹¦·µ»Øtrue£¬·ñÔò·µ»Øfalse
+	/** ï¿½ï¿½Bufferï¿½Ð¶ï¿½È¡ï¿½ï¿½Ï¢ï¿½ï¿½ä±¾ï¿½ï¿½ï¿½Î¶ï¿½ï¿½ï¿½
+     * @param  [in,out] buf Buffer & ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
+     * @return ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½trueï¿½ï¿½ï¿½ï¿½ï¿½ò·µ»ï¿½false
     */
     virtual bool readBuffer( Buffer & buf) ;
-	/** ½«±¾ÀàµÄÐÅÏ¢Ð´ÈëBufferÖÐ 
-     * @param  [in,out] buf Buffer & £¬»º³åÇø¶ÔÏóÒýÓÃ
-     * @return ³É¹¦·µ»Øtrue£¬·ñÔò·µ»Øfalse
+	/** ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢Ð´ï¿½ï¿½Bufferï¿½ï¿½ 
+     * @param  [in,out] buf Buffer & ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+     * @return ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½trueï¿½ï¿½ï¿½ï¿½ï¿½ò·µ»ï¿½false
     */
     virtual bool writeBuffer(Buffer& buf) ;
 }; 
 /** @} */ 
 class SourceDataInfo;
 typedef std::shared_ptr<SourceDataInfo> SourceDataInfoSharedPtr;
-/** @addtogroup terrain SourceDataInfo-Ô­Ê¼ÎÄ¼þÈë¿âµÄÃèÊöÐÅÏ¢¡¡
+/** @addtogroup terrain SourceDataInfo-Ô­Ê¼ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½
 *  @{
 */
 
 class CORE_API SourceDataInfo
 {
 public:
-	Identifier::raw_type			dbID;					//¸ÃÔ­Ê¼Êý¾ÝÈë¿âµÄÊý¾Ý¿âID
-	int			dataType;				//¸ÃÔ­Ê¼Êý¾ÝµÄÀàÐÍ£¬0:dem; 1:dom
-	std::string		srcName;		//¸ÃÔ­Ê¼Êý¾ÝµÄÃû³Æ
-	std::string		srcPath;		//¸ÃÔ­Ê¼Êý¾ÝµÄÂ·¾¶
-	double		srcCellsize;			//¸ÃÔ­Ê¼Êý¾ÝµÄ·Ö±æÂÊ
-	Envelope2d	srcScope;				//¸ÃÔ­Ê¼Êý¾Ý·¶Î§
-	Identifier::raw_type		srcCreatetime;			//¸ÃÔ­Ê¼Êý¾ÝµÄÈë¿âÊ±¼ä
+	Identifier::raw_type			dbID;					//ï¿½ï¿½Ô­Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý¿ï¿½ID
+	int			dataType;				//ï¿½ï¿½Ô­Ê¼ï¿½ï¿½ï¿½Ýµï¿½ï¿½ï¿½ï¿½Í£ï¿½0:dem; 1:dom
+	std::string		srcName;		//ï¿½ï¿½Ô­Ê¼ï¿½ï¿½ï¿½Ýµï¿½ï¿½ï¿½ï¿½ï¿½
+	std::string		srcPath;		//ï¿½ï¿½Ô­Ê¼ï¿½ï¿½ï¿½Ýµï¿½Â·ï¿½ï¿½
+	double		srcCellsize;			//ï¿½ï¿½Ô­Ê¼ï¿½ï¿½ï¿½ÝµÄ·Ö±ï¿½ï¿½ï¿½
+	Envelope2d	srcScope;				//ï¿½ï¿½Ô­Ê¼ï¿½ï¿½ï¿½Ý·ï¿½Î§
+	Identifier::raw_type		srcCreatetime;			//ï¿½ï¿½Ô­Ê¼ï¿½ï¿½ï¿½Ýµï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½
 
 	SourceDataInfo();
 	SourceDataInfo operator=(const SourceDataInfo &other);
 public:
-	/** ´ÓBufferÖÐ¶ÁÈ¡ÐÅÏ¢Ìî³ä±¾¼¸ºÎ¶ÔÏó
-     * @param  [in,out] buf Buffer & £¬»º³åÇø¶ÔÏóÒýÓÃ 
-     * @return ³É¹¦·µ»Øtrue£¬·ñÔò·µ»Øfalse
+	/** ï¿½ï¿½Bufferï¿½Ð¶ï¿½È¡ï¿½ï¿½Ï¢ï¿½ï¿½ä±¾ï¿½ï¿½ï¿½Î¶ï¿½ï¿½ï¿½
+     * @param  [in,out] buf Buffer & ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
+     * @return ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½trueï¿½ï¿½ï¿½ï¿½ï¿½ò·µ»ï¿½false
     */
     virtual bool readBuffer( Buffer & buf) ;
-	/** ½«±¾ÀàµÄÐÅÏ¢Ð´ÈëBufferÖÐ 
-     * @param  [in,out] buf Buffer & £¬»º³åÇø¶ÔÏóÒýÓÃ
-     * @return ³É¹¦·µ»Øtrue£¬·ñÔò·µ»Øfalse
+	/** ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢Ð´ï¿½ï¿½Bufferï¿½ï¿½ 
+     * @param  [in,out] buf Buffer & ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+     * @return ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½trueï¿½ï¿½ï¿½ï¿½ï¿½ò·µ»ï¿½false
     */
     virtual bool writeBuffer(Buffer& buf) ;
 };
@@ -728,7 +728,7 @@ typedef DOMDBInfo* DOMDBInfoPtr;
 //////////////////////////////////////////////////////////
 class DEMGrid;
 typedef std::shared_ptr<DEMGrid> DEMGridSharedPtr;
-/** @addtogroup terrain DEMGrid-DEM¸ñÍø½á¹¹¡¡
+/** @addtogroup terrain DEMGrid-DEMï¿½ï¿½ï¿½ï¿½ï¿½á¹¹ï¿½ï¿½
 *  @{
 */
 
@@ -737,26 +737,26 @@ public:
 	static DEMGridSharedPtr create();
 	static double getDefaultInvalidValue() ;
 public:
-	struct DEM{//GTL-DEM¸ñÊ½£¬¼æÈÝCNSDTF-DEM
-		std::string _DataMark;//--------GTL-DEM¸ñÊ½£»»ù±¾²¿·Ö£¬²»¿ÉÈ±Ê¡¡£
-		std::string _Version;//--------¸Ã¿Õ¼äÊý¾Ý½»»»¸ñÊ½µÄ°æ±¾ºÅ,Èç1.0¡£»ù±¾²¿·Ö£¬²»¿ÉÈ±Ê¡¡£		
-		double      _Alpha;//--------·½Ïò½Ç¡£»ù±¾²¿·Ö£¬²»¿ÉÈ±Ê¡¡£
-		std::string _Unit;//--------×ø±êµ¥Î»,K±íÊ¾¹«Àï,M±íÊ¾Ã×,D±íÊ¾ÒÔ¶ÈÎªµ¥Î»µÄ¾­Î³¶È,S±íÊ¾ÒÔ¶È·ÖÃë±íÊ¾µÄ¾­Î³¶È(´ËÊ±×ø±ê¸ñÊ½ÎªDDDMMSS.SSSS, DDDÎª¶È, MMÎª·Ö, SS.SSSSÎªÃë)¡£»ù±¾²¿·Ö£¬²»¿ÉÈ±Ê¡¡£
-		double      _Compress;//--------Ñ¹Ëõ·½·¨¡£0±íÊ¾²»Ñ¹Ëõ,1±íÊ¾ÓÎ³Ì±àÂë¡£»ù±¾²¿·Ö£¬²»¿ÉÈ±Ê¡¡£
-		double      _Xo;//--------×óÏÂ½ÇÔ­µãX×ø±ê¡£»ù±¾²¿·Ö£¬²»¿ÉÈ±Ê¡¡£
-		double      _Yo;//--------×óÏÂ½ÇÔ­µãY×ø±ê¡£»ù±¾²¿·Ö£¬²»¿ÉÈ±Ê¡¡£
-		double      _DX;//--------X·½ÏòµÄ¼ä¾à¡£»ù±¾²¿·Ö£¬²»¿ÉÈ±Ê¡¡£
-		double      _DY;//--------Y·½ÏòµÄ¼ä¾à¡£»ù±¾²¿·Ö£¬²»¿ÉÈ±Ê¡¡£
-		long        _Row;//--------ÐÐÊý¡£»ù±¾²¿·Ö£¬²»¿ÉÈ±Ê¡¡£
-		long        _Col;//--------ÁÐÊý¡£»ù±¾²¿·Ö£¬²»¿ÉÈ±Ê¡¡£
-		std::string _ValueType;//--------Êý¾ÝÖµµÄÀàÐÍ£¬ÈçInteger£¬¿ÉÑ¡£¬Ä¬ÈÏÎªDouble
-		double      _HZoom;//--------¸ß³Ì·Å´ó±¶ÂÊ¡£»ù±¾²¿·Ö£¬²»¿ÉÈ±Ê¡¡£ÉèÖÃ¸ß³ÌµÄ·Å´ó±¶ÂÊ,Ê¹¸ß³ÌÊý¾Ý¿ÉÒÔÕûÊý´æÖü,Èç¸ß³Ì¾«¶È¾«È·µ½ÀåÃ×,¸ß³ÌµÄ·Å´ó±¶ÂÊÎª100¡£Èç¹ûÎª0±íÊ¾²»Æð×÷ÓÃ¡£
-		double      _MinV;//--------¿ÉÑ¡²¿·Ö£¬×îÐ¡Öµ¡£
-		double      _MaxV;//--------¿ÉÑ¡²¿·Ö£¬×î´óÖµ¡£
+	struct DEM{//GTL-DEMï¿½ï¿½Ê½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½CNSDTF-DEM
+		std::string _DataMark;//--------GTL-DEMï¿½ï¿½Ê½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö£ï¿½ï¿½ï¿½ï¿½ï¿½È±Ê¡ï¿½ï¿½
+		std::string _Version;//--------ï¿½Ã¿Õ¼ï¿½ï¿½ï¿½ï¿½Ý½ï¿½ï¿½ï¿½ï¿½ï¿½Ê½ï¿½Ä°æ±¾ï¿½ï¿½,ï¿½ï¿½1.0ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö£ï¿½ï¿½ï¿½ï¿½ï¿½È±Ê¡ï¿½ï¿½		
+		double      _Alpha;//--------ï¿½ï¿½ï¿½ï¿½Ç¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö£ï¿½ï¿½ï¿½ï¿½ï¿½È±Ê¡ï¿½ï¿½
+		std::string _Unit;//--------ï¿½ï¿½ï¿½êµ¥Î»,Kï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½,Mï¿½ï¿½Ê¾ï¿½ï¿½,Dï¿½ï¿½Ê¾ï¿½Ô¶ï¿½Îªï¿½ï¿½Î»ï¿½Ä¾ï¿½Î³ï¿½ï¿½,Sï¿½ï¿½Ê¾ï¿½Ô¶È·ï¿½ï¿½ï¿½ï¿½Ê¾ï¿½Ä¾ï¿½Î³ï¿½ï¿½(ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½Ê½ÎªDDDMMSS.SSSS, DDDÎªï¿½ï¿½, MMÎªï¿½ï¿½, SS.SSSSÎªï¿½ï¿½)ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö£ï¿½ï¿½ï¿½ï¿½ï¿½È±Ê¡ï¿½ï¿½
+		double      _Compress;//--------Ñ¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½0ï¿½ï¿½Ê¾ï¿½ï¿½Ñ¹ï¿½ï¿½,1ï¿½ï¿½Ê¾ï¿½Î³Ì±ï¿½ï¿½ë¡£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö£ï¿½ï¿½ï¿½ï¿½ï¿½È±Ê¡ï¿½ï¿½
+		double      _Xo;//--------ï¿½ï¿½ï¿½Â½ï¿½Ô­ï¿½ï¿½Xï¿½ï¿½ï¿½ê¡£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö£ï¿½ï¿½ï¿½ï¿½ï¿½È±Ê¡ï¿½ï¿½
+		double      _Yo;//--------ï¿½ï¿½ï¿½Â½ï¿½Ô­ï¿½ï¿½Yï¿½ï¿½ï¿½ê¡£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö£ï¿½ï¿½ï¿½ï¿½ï¿½È±Ê¡ï¿½ï¿½
+		double      _DX;//--------Xï¿½ï¿½ï¿½ï¿½Ä¼ï¿½à¡£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö£ï¿½ï¿½ï¿½ï¿½ï¿½È±Ê¡ï¿½ï¿½
+		double      _DY;//--------Yï¿½ï¿½ï¿½ï¿½Ä¼ï¿½à¡£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö£ï¿½ï¿½ï¿½ï¿½ï¿½È±Ê¡ï¿½ï¿½
+		long        _Row;//--------ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö£ï¿½ï¿½ï¿½ï¿½ï¿½È±Ê¡ï¿½ï¿½
+		long        _Col;//--------ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö£ï¿½ï¿½ï¿½ï¿½ï¿½È±Ê¡ï¿½ï¿½
+		std::string _ValueType;//--------ï¿½ï¿½ï¿½ï¿½Öµï¿½ï¿½ï¿½ï¿½ï¿½Í£ï¿½ï¿½ï¿½Integerï¿½ï¿½ï¿½ï¿½Ñ¡ï¿½ï¿½Ä¬ï¿½ï¿½ÎªDouble
+		double      _HZoom;//--------ï¿½ß³Ì·Å´ï¿½ï¿½Ê¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö£ï¿½ï¿½ï¿½ï¿½ï¿½È±Ê¡ï¿½ï¿½ï¿½ï¿½ï¿½Ã¸ß³ÌµÄ·Å´ï¿½ï¿½ï¿½,Ê¹ï¿½ß³ï¿½ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½ß³Ì¾ï¿½ï¿½È¾ï¿½È·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,ï¿½ß³ÌµÄ·Å´ï¿½ï¿½ï¿½Îª100ï¿½ï¿½ï¿½ï¿½ï¿½Îª0ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã¡ï¿½
+		double      _MinV;//--------ï¿½ï¿½Ñ¡ï¿½ï¿½ï¿½Ö£ï¿½ï¿½ï¿½Ð¡Öµï¿½ï¿½
+		double      _MaxV;//--------ï¿½ï¿½Ñ¡ï¿½ï¿½ï¿½Ö£ï¿½ï¿½ï¿½ï¿½Öµï¿½ï¿½
 
-		double      _Nodata;//------¿ÉÑ¡²¿·Ö£¬ÎÞÖµ±êÊ¶
+		double      _Nodata;//------ï¿½ï¿½Ñ¡ï¿½ï¿½ï¿½Ö£ï¿½ï¿½ï¿½Öµï¿½ï¿½Ê¶
 
-		double*     _Data;//¸ß³ÌÖµÊý×é£¬´Ó×óÏÂ½Ç¿ªÊ¼´æ´¢
+		double*     _Data;//ï¿½ß³ï¿½Öµï¿½ï¿½ï¿½é£¬ï¿½ï¿½ï¿½ï¿½ï¿½Â½Ç¿ï¿½Ê¼ï¿½æ´¢
 	};
 	union HValue{
 		double _dblVal;
@@ -773,279 +773,279 @@ public:
 	static void getXYZ(const DEM & _dem, double *xyz);
 	static void uninitial(DEM & _dem);
 	/*
-	NSDTF-DEM¸ñÊ½ËµÃ÷£º
-	DataMark--------ÖÐ¹úµØÇò¿Õ¼äÊý¾Ý½»»»¸ñÊ½-¸ñÍøÊý¾Ý½»»»¸ñÊ½(CNSDTF-RAS»òCNSDTF-DEM)µÄ±êÖ¾¡£»ù±¾²¿·Ö£¬²»¿ÉÈ±Ê¡¡£
-	Version--------¸Ã¿Õ¼äÊý¾Ý½»»»¸ñÊ½µÄ°æ±¾ºÅ,Èç1.0¡£»ù±¾²¿·Ö£¬²»¿ÉÈ±Ê¡¡£
-	Alpha--------·½Ïò½Ç¡£»ù±¾²¿·Ö£¬²»¿ÉÈ±Ê¡¡£
-	Unit--------×ø±êµ¥Î»,K±íÊ¾¹«Àï,M±íÊ¾Ã×,D±íÊ¾ÒÔ¶ÈÎªµ¥Î»µÄ¾­Î³¶È,S±íÊ¾ÒÔ¶È·ÖÃë±íÊ¾µÄ¾­Î³¶È(´ËÊ±×ø±ê¸ñÊ½ÎªDDDMMSS.SSSS, DDDÎª¶È, MMÎª·Ö, SS.SSSSÎªÃë)¡£»ù±¾²¿·Ö£¬²»¿ÉÈ±Ê¡¡£
-	Compress--------Ñ¹Ëõ·½·¨¡£0±íÊ¾²»Ñ¹Ëõ,1±íÊ¾ÓÎ³Ì±àÂë¡£»ù±¾²¿·Ö£¬²»¿ÉÈ±Ê¡¡£
-	Xo--------×óÉÏ½ÇÔ­µãX×ø±ê¡£»ù±¾²¿·Ö£¬²»¿ÉÈ±Ê¡¡£
-	Yo--------×óÉÏ½ÇÔ­µãY×ø±ê¡£»ù±¾²¿·Ö£¬²»¿ÉÈ±Ê¡¡£
-	DX--------X·½ÏòµÄ¼ä¾à¡£»ù±¾²¿·Ö£¬²»¿ÉÈ±Ê¡¡£
-	DY--------Y·½ÏòµÄ¼ä¾à¡£»ù±¾²¿·Ö£¬²»¿ÉÈ±Ê¡¡£
-	Row--------ÐÐÊý¡£»ù±¾²¿·Ö£¬²»¿ÉÈ±Ê¡¡£
-	Col--------ÁÐÊý¡£»ù±¾²¿·Ö£¬²»¿ÉÈ±Ê¡¡£
-	HZoom--------¸ß³Ì·Å´ó±¶ÂÊ¡£»ù±¾²¿·Ö£¬²»¿ÉÈ±Ê¡¡£ÉèÖÃ¸ß³ÌµÄ·Å´ó±¶ÂÊ,Ê¹¸ß³ÌÊý¾Ý¿ÉÒÔÕûÊý´æÖü,Èç¸ß³Ì¾«¶È¾«È·µ½ÀåÃ×,¸ß³ÌµÄ·Å´ó±¶ÂÊÎª100¡£Èç¹û²»ÊÇDEMÔòHZoomÎª1¡£
-	MinV--------¿ÉÑ¡²¿·Ö£¬×îÐ¡Öµ¡£
-	MaxV--------¿ÉÑ¡²¿·Ö£¬×î´óÖµ¡£
+	NSDTF-DEMï¿½ï¿½Ê½Ëµï¿½ï¿½ï¿½ï¿½
+	DataMark--------ï¿½Ð¹ï¿½ï¿½ï¿½ï¿½ï¿½Õ¼ï¿½ï¿½ï¿½ï¿½Ý½ï¿½ï¿½ï¿½ï¿½ï¿½Ê½-ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý½ï¿½ï¿½ï¿½ï¿½ï¿½Ê½(CNSDTF-RASï¿½ï¿½CNSDTF-DEM)ï¿½Ä±ï¿½Ö¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö£ï¿½ï¿½ï¿½ï¿½ï¿½È±Ê¡ï¿½ï¿½
+	Version--------ï¿½Ã¿Õ¼ï¿½ï¿½ï¿½ï¿½Ý½ï¿½ï¿½ï¿½ï¿½ï¿½Ê½ï¿½Ä°æ±¾ï¿½ï¿½,ï¿½ï¿½1.0ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö£ï¿½ï¿½ï¿½ï¿½ï¿½È±Ê¡ï¿½ï¿½
+	Alpha--------ï¿½ï¿½ï¿½ï¿½Ç¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö£ï¿½ï¿½ï¿½ï¿½ï¿½È±Ê¡ï¿½ï¿½
+	Unit--------ï¿½ï¿½ï¿½êµ¥Î»,Kï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½,Mï¿½ï¿½Ê¾ï¿½ï¿½,Dï¿½ï¿½Ê¾ï¿½Ô¶ï¿½Îªï¿½ï¿½Î»ï¿½Ä¾ï¿½Î³ï¿½ï¿½,Sï¿½ï¿½Ê¾ï¿½Ô¶È·ï¿½ï¿½ï¿½ï¿½Ê¾ï¿½Ä¾ï¿½Î³ï¿½ï¿½(ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½Ê½ÎªDDDMMSS.SSSS, DDDÎªï¿½ï¿½, MMÎªï¿½ï¿½, SS.SSSSÎªï¿½ï¿½)ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö£ï¿½ï¿½ï¿½ï¿½ï¿½È±Ê¡ï¿½ï¿½
+	Compress--------Ñ¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½0ï¿½ï¿½Ê¾ï¿½ï¿½Ñ¹ï¿½ï¿½,1ï¿½ï¿½Ê¾ï¿½Î³Ì±ï¿½ï¿½ë¡£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö£ï¿½ï¿½ï¿½ï¿½ï¿½È±Ê¡ï¿½ï¿½
+	Xo--------ï¿½ï¿½ï¿½Ï½ï¿½Ô­ï¿½ï¿½Xï¿½ï¿½ï¿½ê¡£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö£ï¿½ï¿½ï¿½ï¿½ï¿½È±Ê¡ï¿½ï¿½
+	Yo--------ï¿½ï¿½ï¿½Ï½ï¿½Ô­ï¿½ï¿½Yï¿½ï¿½ï¿½ê¡£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö£ï¿½ï¿½ï¿½ï¿½ï¿½È±Ê¡ï¿½ï¿½
+	DX--------Xï¿½ï¿½ï¿½ï¿½Ä¼ï¿½à¡£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö£ï¿½ï¿½ï¿½ï¿½ï¿½È±Ê¡ï¿½ï¿½
+	DY--------Yï¿½ï¿½ï¿½ï¿½Ä¼ï¿½à¡£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö£ï¿½ï¿½ï¿½ï¿½ï¿½È±Ê¡ï¿½ï¿½
+	Row--------ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö£ï¿½ï¿½ï¿½ï¿½ï¿½È±Ê¡ï¿½ï¿½
+	Col--------ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö£ï¿½ï¿½ï¿½ï¿½ï¿½È±Ê¡ï¿½ï¿½
+	HZoom--------ï¿½ß³Ì·Å´ï¿½ï¿½Ê¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö£ï¿½ï¿½ï¿½ï¿½ï¿½È±Ê¡ï¿½ï¿½ï¿½ï¿½ï¿½Ã¸ß³ÌµÄ·Å´ï¿½ï¿½ï¿½,Ê¹ï¿½ß³ï¿½ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½ß³Ì¾ï¿½ï¿½È¾ï¿½È·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,ï¿½ß³ÌµÄ·Å´ï¿½ï¿½ï¿½Îª100ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½DEMï¿½ï¿½HZoomÎª1ï¿½ï¿½
+	MinV--------ï¿½ï¿½Ñ¡ï¿½ï¿½ï¿½Ö£ï¿½ï¿½ï¿½Ð¡Öµï¿½ï¿½
+	MaxV--------ï¿½ï¿½Ñ¡ï¿½ï¿½ï¿½Ö£ï¿½ï¿½ï¿½ï¿½Öµï¿½ï¿½
 	*/
 	static bool readCNSDTF(std::string filename, DEM & _dem);
 	static bool writeCNSDTF(const DEM & _dem, std::string filename);
-	/*ArcGISÖÐGRID×ª»»ÎÄ±¾ÎÄ¼þ¸ñÊ½ËµÃ÷£º ×Ö´®5
+	/*ArcGISï¿½ï¿½GRID×ªï¿½ï¿½ï¿½Ä±ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½Ê½Ëµï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½5
 
-	ncols         319----------------Êý¾ÝÁÐÊý
-	nrows         198----------------Êý¾ÝÐÐÊý
-	xllcorner     131985----------------Êý¾Ý×óÏÂ½ÇµÄXÖµ
-	yllcorner     19020----------------Êý¾Ý×óÏÂ½ÇµÄYÖµ
-	cellsize      5----------------Êý¾Ý·Ö±æÂÊ£¨Õ¤¸ñµ¥ÔªµÄ¿í¸ß£©
-	NODATA_value -99999----------------ÎÞÖµÊý¾Ý±êÖ¾*/
+	ncols         319----------------ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	nrows         198----------------ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	xllcorner     131985----------------ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â½Çµï¿½XÖµ
+	yllcorner     19020----------------ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â½Çµï¿½YÖµ
+	cellsize      5----------------ï¿½ï¿½ï¿½Ý·Ö±ï¿½ï¿½Ê£ï¿½Õ¤ï¿½ï¿½Ôªï¿½Ä¿ï¿½ß£ï¿½
+	NODATA_value -99999----------------ï¿½ï¿½Öµï¿½ï¿½ï¿½Ý±ï¿½Ö¾*/
 	static bool readASC(std::string filename, DEM & _dem);
 	static bool writeASC(const DEM & _dem, std::string filename);
 public:
-	/** ´ÓBufferÖÐ¶ÁÈ¡ÐÅÏ¢Ìî³ä±¾¼¸ºÎ¶ÔÏó
-     * @param  [in,out] buf Buffer & £¬»º³åÇø¶ÔÏóÒýÓÃ 
-     * @return ³É¹¦·µ»Øtrue£¬·ñÔò·µ»Øfalse
+	/** ï¿½ï¿½Bufferï¿½Ð¶ï¿½È¡ï¿½ï¿½Ï¢ï¿½ï¿½ä±¾ï¿½ï¿½ï¿½Î¶ï¿½ï¿½ï¿½
+     * @param  [in,out] buf Buffer & ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
+     * @return ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½trueï¿½ï¿½ï¿½ï¿½ï¿½ò·µ»ï¿½false
     */
     virtual bool readBuffer( Buffer & buf)=0 ;
-	/** ½«±¾ÀàµÄÐÅÏ¢Ð´ÈëBufferÖÐ 
-     * @param  [in,out] buf Buffer & £¬»º³åÇø¶ÔÏóÒýÓÃ
-     * @return ³É¹¦·µ»Øtrue£¬·ñÔò·µ»Øfalse
+	/** ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢Ð´ï¿½ï¿½Bufferï¿½ï¿½ 
+     * @param  [in,out] buf Buffer & ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+     * @return ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½trueï¿½ï¿½ï¿½ï¿½ï¿½ò·µ»ï¿½false
     */
     virtual bool writeBuffer(Buffer& buf) =0;
 
-	/** ¿½±´demÊý¾Ý
-	* @param [in] src	Ô´demÊý¾Ý
-	* @param [in] bCopyData	ÊÇ·ñ¿½±´Êý¾Ý
-	* @return 1 -- ¿½±´³É¹¦£»0 -- ¿½±´Ê§°Ü
+	/** ï¿½ï¿½ï¿½ï¿½demï¿½ï¿½ï¿½ï¿½
+	* @param [in] src	Ô´demï¿½ï¿½ï¿½ï¿½
+	* @param [in] bCopyData	ï¿½Ç·ñ¿½±ï¿½ï¿½ï¿½ï¿½ï¿½
+	* @return 1 -- ï¿½ï¿½ï¿½ï¿½ï¿½É¹ï¿½ï¿½ï¿½0 -- ï¿½ï¿½ï¿½ï¿½Ê§ï¿½ï¿½
     */
 	virtual bool copy(const DEMGridSharedPtr & src, bool bCopyData)=0;
 
 	
-	/** »ñÈ¡demµÄÈýÎ¬Íâ°üºÐ
+	/** ï¿½ï¿½È¡demï¿½ï¿½ï¿½ï¿½Î¬ï¿½ï¿½ï¿½ï¿½ï¿½
 	* @param 
-	* @return demµÄÈýÎ¬Íâ°üºÐ
+	* @return demï¿½ï¿½ï¿½ï¿½Î¬ï¿½ï¿½ï¿½ï¿½ï¿½
     */
 	virtual Envelope3d getEnvelope()=0;
 
-	/** ÉèÖÃalfa
-	* @param [in] dAlfa	Êý¾Ý
+	/** ï¿½ï¿½ï¿½ï¿½alfa
+	* @param [in] dAlfa	ï¿½ï¿½ï¿½ï¿½
     */
 	virtual void setAlpha(double dAlfa)=0;
 
-	/** ÉèÖÃBelta
-	* @param [in] dBelta	Êý¾Ý
+	/** ï¿½ï¿½ï¿½ï¿½Belta
+	* @param [in] dBelta	ï¿½ï¿½ï¿½ï¿½
     */
 	virtual void setBelta(double dBelta)=0;
 
-    /** »ñÈ¡alfa
+    /** ï¿½ï¿½È¡alfa
 	* @return Alfa
     */
 	virtual double getAlpha() const=0;
 
-    /** »ñÈ¡belta
+    /** ï¿½ï¿½È¡belta
 	* @return Belta
     */
 	virtual double getBelta() const=0;
 
-	/** ÉèÖÃDEM×óÏÂ½ÇÔ­µãx,y×ø±ê
-	* @param [in] dx x×ø±ê
-	* @param [in] dy y×ø±ê
+	/** ï¿½ï¿½ï¿½ï¿½DEMï¿½ï¿½ï¿½Â½ï¿½Ô­ï¿½ï¿½x,yï¿½ï¿½ï¿½ï¿½
+	* @param [in] dx xï¿½ï¿½ï¿½ï¿½
+	* @param [in] dy yï¿½ï¿½ï¿½ï¿½
     */
 	virtual void setOrigin(double dx,double dy)=0;
 
-	/** »ñÈ¡DEM×óÏÂ½ÇÔ­µãx,y×ø±ê
-	* @param [out] dx DEM×óÏÂ½ÇÔ­µãx×ø±ê
-	* @param [out] dy DEM×óÏÂ½ÇÔ­µãy×ø±ê
+	/** ï¿½ï¿½È¡DEMï¿½ï¿½ï¿½Â½ï¿½Ô­ï¿½ï¿½x,yï¿½ï¿½ï¿½ï¿½
+	* @param [out] dx DEMï¿½ï¿½ï¿½Â½ï¿½Ô­ï¿½ï¿½xï¿½ï¿½ï¿½ï¿½
+	* @param [out] dy DEMï¿½ï¿½ï¿½Â½ï¿½Ô­ï¿½ï¿½yï¿½ï¿½ï¿½ï¿½
     */
 	virtual void getOrigin(double& dx,double& dy)=0;
 
-    /** ÉèÖÃDEM¸ß³Ì·¶Î§
-	* @param [in] fminz ×îÐ¡¸ß³ÌÖµ
-	* @param [in] fmaxz ×î´ó¸ß³ÌÖµ
+    /** ï¿½ï¿½ï¿½ï¿½DEMï¿½ß³Ì·ï¿½Î§
+	* @param [in] fminz ï¿½ï¿½Ð¡ï¿½ß³ï¿½Öµ
+	* @param [in] fmaxz ï¿½ï¿½ï¿½ß³ï¿½Öµ
     */
 	virtual void setHeightRange(float fminz,float fmaxz)=0;
 
-    /** »ñÈ¡DEM¸ß³Ì·¶Î§
-	* @param [out] fminz DEM×îÐ¡¸ß³ÌÖµ
-	* @param [out] fmaxz DEM×î´ó¸ß³ÌÖµ
+    /** ï¿½ï¿½È¡DEMï¿½ß³Ì·ï¿½Î§
+	* @param [out] fminz DEMï¿½ï¿½Ð¡ï¿½ß³ï¿½Öµ
+	* @param [out] fmaxz DEMï¿½ï¿½ï¿½ß³ï¿½Öµ
     */
 	virtual void getHeightRange(float& fminz,float& fmaxz)=0;
 
-    /** ÉèÖÃDEMÐÐÊý
-	* @param [in] nRow demÐÐÊý
+    /** ï¿½ï¿½ï¿½ï¿½DEMï¿½ï¿½ï¿½ï¿½
+	* @param [in] nRow demï¿½ï¿½ï¿½ï¿½
     */
 	virtual void setRows(int nRow)=0;
-	 /** ÉèÖÃDEMÁÐÊý
-	* @param [in] nCol demÁÐÊý
+	 /** ï¿½ï¿½ï¿½ï¿½DEMï¿½ï¿½ï¿½ï¿½
+	* @param [in] nCol demï¿½ï¿½ï¿½ï¿½
     */
 	virtual void setCols(int nCol)=0;
 
-     /** »ñÈ¡DEMÐÐÊý
+     /** ï¿½ï¿½È¡DEMï¿½ï¿½ï¿½ï¿½
 	* @param 
-	* @return  demÐÐÊý
+	* @return  demï¿½ï¿½ï¿½ï¿½
     */
 	virtual int getRows()const =0;
-	 /** »ñÈ¡DEMÁÐÊý
+	 /** ï¿½ï¿½È¡DEMï¿½ï¿½ï¿½ï¿½
 	* @param 
-	* @return  demÁÐÊý
+	* @return  demï¿½ï¿½ï¿½ï¿½
     */
 	virtual int getCols()const =0;
-    /** ÉèÖÃDEM×ø±êÏµÀàÐÍ
-	* @param [in] bflag,×ø±êÏµÀàÐÍ,·ÖÎªÒÔÏÂ¼¸ÖÖ:
-	* -1Îª´óµØ×ø±ê
-	* -0Îª¾­Î³¶È×ø±êÏµ
+    /** ï¿½ï¿½ï¿½ï¿½DEMï¿½ï¿½ï¿½ï¿½Ïµï¿½ï¿½ï¿½ï¿½
+	* @param [in] bflag,ï¿½ï¿½ï¿½ï¿½Ïµï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½Îªï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½:
+	* -1Îªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	* -0Îªï¿½ï¿½Î³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ïµ
     */
 	virtual void setCoordinateSystem(int bFlag = 1)=0;
-    /** »ñÈ¡DEM×ø±êÏµÀàÐÍ
-	* @return ×ø±êÏµÀàÐÍ,·ÖÎªÒÔÏÂ¼¸ÖÖ:
-	* -1Îª´óµØ×ø±ê
-	* -0Îª¾­Î³¶È×ø±êÏµ
+    /** ï¿½ï¿½È¡DEMï¿½ï¿½ï¿½ï¿½Ïµï¿½ï¿½ï¿½ï¿½
+	* @return ï¿½ï¿½ï¿½ï¿½Ïµï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½Îªï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½:
+	* -1Îªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	* -0Îªï¿½ï¿½Î³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ïµ
     */
 	virtual int getCoordinateSystem()=0;
 
-    /** ÉèÖÃDEMµ¥Î»ÀàÐÍ
-	* @param [in] bflag,×ø±êµ¥Î»ÀàÐÍ,·ÖÎªÒÔÏÂ¼¸ÖÖ:
-	* -1ÎªÃ×
-	* -0ÎªºÁÃ×
+    /** ï¿½ï¿½ï¿½ï¿½DEMï¿½ï¿½Î»ï¿½ï¿½ï¿½ï¿½
+	* @param [in] bflag,ï¿½ï¿½ï¿½êµ¥Î»ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½Îªï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½:
+	* -1Îªï¿½ï¿½
+	* -0Îªï¿½ï¿½ï¿½ï¿½
     */
 	virtual void setUnit(int bFlag = 1)=0;
-    /** »ñÈ¡DEM×ø±êµ¥Î»ÀàÐÍ
-	* @return ×ø±êÏµÀàÐÍ,·ÖÎªÒÔÏÂ¼¸ÖÖ:
-	* -1ÎªÃ×
-	* -0ÎªºÁÃ×
+    /** ï¿½ï¿½È¡DEMï¿½ï¿½ï¿½êµ¥Î»ï¿½ï¿½ï¿½ï¿½
+	* @return ï¿½ï¿½ï¿½ï¿½Ïµï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½Îªï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½:
+	* -1Îªï¿½ï¿½
+	* -0Îªï¿½ï¿½ï¿½ï¿½
     */
 	virtual int getUnit()=0;
-    /** ÉèÖÃDEM¸ñÍø¼ä¾à
-	* @param [in] dSize,¸ñÍø¼ä¾à
+    /** ï¿½ï¿½ï¿½ï¿½DEMï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	* @param [in] dSize,ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     */
 	virtual void setCellSize(double dSize)=0;
-    /** »ñÈ¡DEM¸ñÍø¼ä¾à
-	* @return doubleÀàÐÍ¸ñÍø¼ä¾à
+    /** ï¿½ï¿½È¡DEMï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	* @return doubleï¿½ï¿½ï¿½Í¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     */
 	virtual double getCellSize()=0;
 
-    /** ÉèÖÃDEM¸ß³ÌÖµËõ·Å±ÈÀý
-	* @param [in] lScale,¸ß³ÌÖµËõ·Å±ÈÀý
+    /** ï¿½ï¿½ï¿½ï¿½DEMï¿½ß³ï¿½Öµï¿½ï¿½ï¿½Å±ï¿½ï¿½ï¿½
+	* @param [in] lScale,ï¿½ß³ï¿½Öµï¿½ï¿½ï¿½Å±ï¿½ï¿½ï¿½
     */
 	virtual void setScale(long lScale)=0;
 
-    /** »ñÈ¡DEM¸ß³ÌÖµËõ·Å±ÈÀý
-	* @return ¸ß³ÌÖµËõ·Å±ÈÀý
+    /** ï¿½ï¿½È¡DEMï¿½ß³ï¿½Öµï¿½ï¿½ï¿½Å±ï¿½ï¿½ï¿½
+	* @return ï¿½ß³ï¿½Öµï¿½ï¿½ï¿½Å±ï¿½ï¿½ï¿½
     */
 	virtual long getScale()=0;
 
-    /** ÉèÖÃDEMÃ¿¸ö¸ñÍøµãµÄ¸ß³ÌÊý¾Ý
-	* @param [in] pData,Ö¸ÏòfloatÀàÐÍµÄÒ»´®Êý¾ÝµÄÖ¸Õë
-    * @param [in] bAlloced,ÊÇ·ñÐèÒª×ÔÉíÎ¬»¤ÄÚ´æ
-    * -×ÔÉíÎ¬»¤ÄÚ´æ
-	* -×ÔÉí²»Î¬»¤ÄÚ´æ
+    /** ï¿½ï¿½ï¿½ï¿½DEMÃ¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¸ß³ï¿½ï¿½ï¿½ï¿½ï¿½
+	* @param [in] pData,Ö¸ï¿½ï¿½floatï¿½ï¿½ï¿½Íµï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½Ýµï¿½Ö¸ï¿½ï¿½
+    * @param [in] bAlloced,ï¿½Ç·ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½Î¬ï¿½ï¿½ï¿½Ú´ï¿½
+    * -ï¿½ï¿½ï¿½ï¿½Î¬ï¿½ï¿½ï¿½Ú´ï¿½
+	* -ï¿½ï¿½ï¿½ï¿½Î¬ï¿½ï¿½ï¿½Ú´ï¿½
     */
 	virtual void setHeightData(float *pData, bool bAlloced = true)=0;
-    /** »ñÈ¡DEMÃ¿¸ö¸ñÍøµãµÄ¸ß³ÌÊý¾Ý
-	* @return Ö¸ÏòdemÃ¿¸ö¸ñÍøµã¸ß³ÌÊý¾ÝµÄÖ¸Õë
+    /** ï¿½ï¿½È¡DEMÃ¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¸ß³ï¿½ï¿½ï¿½ï¿½ï¿½
+	* @return Ö¸ï¿½ï¿½demÃ¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß³ï¿½ï¿½ï¿½ï¿½Ýµï¿½Ö¸ï¿½ï¿½
     */
 	virtual float* getHeightData()=0;
 
-    /** ÉèÖÃDEMÃ¿¸ö¸ñÍøµãµÄÑÕÉ«Öµ
-	* @param [in] pData,Ö¸Ïòunsigned longÀàÐÍµÄÒ»´®Êý¾ÝµÄÖ¸Õë
-    * @param [in] bAlloced,ÊÇ·ñÐèÒª×ÔÉíÎ¬»¤ÄÚ´æ
-    * -×ÔÉíÎ¬»¤ÄÚ´æ
-	* -×ÔÉí²»Î¬»¤ÄÚ´æ
+    /** ï¿½ï¿½ï¿½ï¿½DEMÃ¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É«Öµ
+	* @param [in] pData,Ö¸ï¿½ï¿½unsigned longï¿½ï¿½ï¿½Íµï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½Ýµï¿½Ö¸ï¿½ï¿½
+    * @param [in] bAlloced,ï¿½Ç·ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½Î¬ï¿½ï¿½ï¿½Ú´ï¿½
+    * -ï¿½ï¿½ï¿½ï¿½Î¬ï¿½ï¿½ï¿½Ú´ï¿½
+	* -ï¿½ï¿½ï¿½ï¿½Î¬ï¿½ï¿½ï¿½Ú´ï¿½
     */
 	virtual void setVextexColors(std::vector<Color4f> & colors)=0;
-    /** »ñÈ¡DEMÃ¿¸ö¸ñÍøµãµÄÑÕÉ«Öµ
-	* @return Ö¸ÏòdemÃ¿¸ö¸ñÍøµãÑÕÉ«Êý¾ÝµÄÖ¸Õë
+    /** ï¿½ï¿½È¡DEMÃ¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É«Öµ
+	* @return Ö¸ï¿½ï¿½demÃ¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É«ï¿½ï¿½ï¿½Ýµï¿½Ö¸ï¿½ï¿½
     */
 	virtual void getVextexColors(std::vector<Color4f> & colors)=0;
 
-    /** ÉèÖÃDEMÃ¿¸ö¸ñÍø¶¥µãµÄÎÆÀí×ø±ê
-	* @param [in] pData,Ö¸ÏòVertex2fÀàÐÍµÄÒ»´®Êý¾ÝµÄÖ¸Õë
-    * @param [in] bAlloced,ÊÇ·ñÐèÒª×ÔÉíÎ¬»¤ÄÚ´æ
-    * -×ÔÉíÎ¬»¤ÄÚ´æ
-	* -×ÔÉí²»Î¬»¤ÄÚ´æ
+    /** ï¿½ï¿½ï¿½ï¿½DEMÃ¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	* @param [in] pData,Ö¸ï¿½ï¿½Vertex2fï¿½ï¿½ï¿½Íµï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½Ýµï¿½Ö¸ï¿½ï¿½
+    * @param [in] bAlloced,ï¿½Ç·ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½Î¬ï¿½ï¿½ï¿½Ú´ï¿½
+    * -ï¿½ï¿½ï¿½ï¿½Î¬ï¿½ï¿½ï¿½Ú´ï¿½
+	* -ï¿½ï¿½ï¿½ï¿½Î¬ï¿½ï¿½ï¿½Ú´ï¿½
     */
 	virtual void setVertexTextureCoordinates(std::vector<Vertex2d> & VexTexCoor)=0;
 
-	/** »ñÈ¡DEMÃ¿¸ö¸ñÍø¶¥µãµÄÎÆÀí×ø±ê
-	* @return Ö¸ÏòdemÃ¿¸ö¸ñÍø¶¥µãÎÆÀí×ø±êÊý¾ÝµÄÖ¸Õë
+	/** ï¿½ï¿½È¡DEMÃ¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	* @return Ö¸ï¿½ï¿½demÃ¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ýµï¿½Ö¸ï¿½ï¿½
     */
 	virtual void getVertexTextureCoordinates(std::vector<Vertex2d> & VexTexCoor)=0;
 
-	/** ÉèÖÃDEMÎÞÐ§¸ß³ÌÖµ
-	* @param [in] pData,Ö¸ÏòlongÀàÐÍµÄÊý¾Ý,Êý¾ÝÎªÎÞÐ§¸ß³ÌÖµµÄ´óÐ¡
+	/** ï¿½ï¿½ï¿½ï¿½DEMï¿½ï¿½Ð§ï¿½ß³ï¿½Öµ
+	* @param [in] pData,Ö¸ï¿½ï¿½longï¿½ï¿½ï¿½Íµï¿½ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½Ð§ï¿½ß³ï¿½Öµï¿½Ä´ï¿½Ð¡
     */
 	virtual void setInvalidValue(long lInvalidata)=0;
-	/** »ñÈ¡DEMÎÞÐ§¸ß³ÌÖµ
-	* @return DEMÎÞÐ§¸ß³ÌÖµ
+	/** ï¿½ï¿½È¡DEMï¿½ï¿½Ð§ï¿½ß³ï¿½Öµ
+	* @return DEMï¿½ï¿½Ð§ï¿½ß³ï¿½Öµ
     */
 	virtual long getInvalidValue()=0;
 
 
-	/** ÔÚµ±Ç°DEMÉÏÄÚ²å³ö´«ÈëµãµÄ¸ß³Ì
-	* @param [in] vVer	´«Èëµã×ø±ê
+	/** ï¿½Úµï¿½Ç°DEMï¿½ï¿½ï¿½Ú²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¸ß³ï¿½
+	* @param [in] vVer	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     */
 	virtual double interpolate(const double x, const double y)=0;
 	virtual int interpolate(Vertex3d & v)=0;
 
-	/** ÔÚµ±Ç°DEMÉÏÄÚ²å³ö´«Èëµã¼¯µÄËùÓÐ¸ß³Ì
-	* ¹¦ÄÜ£ºÄÚ²å¸ø¶¨µãµÄ¸ß³ÌÖµ.
-	* ²ÎÊý£ºPointInÎª¸ø¶¨µÄµã£¬vVerticesÎª¸ø¶¨µÄµã¼¯£¬ÆäÖÐx,yÓ¦µ±ÓÉµ÷ÓÃÕß¸³Öµ£¬¶øzÔòÊÇÄÚ²åµÄ¸ß³ÌÖµ.
-	* ×¢Òâ£º´«½øÀ´µÄ×ø±êÒ»¶¨ÊÇ´óµØ×ø±ê£¬¾ø¶ÔµÄ£¬²»ÊÇÏà¶ÔµÄ£¨¼õDEMÔ­µãµÄ£©
-	*      Èç¹û¸ø¶¨µÄµãÆ½ÃæÎ»ÖÃ²»ÔÚDEM·¶Î§ÄÚ£¬ÔòÄÚ²åµÄ¸ß³ÌÖµ½«ÊÇÎÞÐ§ÖµNODATA¡£
-	* @param [in] vVertices	´«Èëµã¼¯
+	/** ï¿½Úµï¿½Ç°DEMï¿½ï¿½ï¿½Ú²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ã¼¯ï¿½ï¿½ï¿½ï¿½ï¿½Ð¸ß³ï¿½
+	* ï¿½ï¿½ï¿½Ü£ï¿½ï¿½Ú²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¸ß³ï¿½Öµ.
+	* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½PointInÎªï¿½ï¿½ï¿½ï¿½ï¿½Äµã£¬vVerticesÎªï¿½ï¿½ï¿½ï¿½ï¿½Äµã¼¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½x,yÓ¦ï¿½ï¿½ï¿½Éµï¿½ï¿½ï¿½ï¿½ß¸ï¿½Öµï¿½ï¿½ï¿½ï¿½zï¿½ï¿½ï¿½ï¿½ï¿½Ú²ï¿½Ä¸ß³ï¿½Öµ.
+	* ×¢ï¿½â£ºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½Ç´ï¿½ï¿½ï¿½ï¿½ï¿½ê£¬ï¿½ï¿½ï¿½ÔµÄ£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÔµÄ£ï¿½ï¿½ï¿½DEMÔ­ï¿½ï¿½Ä£ï¿½
+	*      ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Äµï¿½Æ½ï¿½ï¿½Î»ï¿½Ã²ï¿½ï¿½ï¿½DEMï¿½ï¿½Î§ï¿½Ú£ï¿½ï¿½ï¿½ï¿½Ú²ï¿½Ä¸ß³ï¿½Öµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð§ÖµNODATAï¿½ï¿½
+	* @param [in] vVertices	ï¿½ï¿½ï¿½ï¿½ã¼¯
     */
 	virtual int interpolate(std::vector<Vertex3d>& vVertices)=0;
 
-	/** µÃµ½µ±Ç°DEM¸ß³Ì×î´óµÄµã
-	* @return µ±Ç°DEM¸ß³Ì×î´óµÄµã
+	/** ï¿½Ãµï¿½ï¿½ï¿½Ç°DEMï¿½ß³ï¿½ï¿½ï¿½ï¿½Äµï¿½
+	* @return ï¿½ï¿½Ç°DEMï¿½ß³ï¿½ï¿½ï¿½ï¿½Äµï¿½
     */
 	virtual Vertex3d getMaxPoint() const=0;
  
-	/** µÃµ½µ±Ç°DEM¸ß³Ì×îÐ¡µÄµã
-	* @return µ±Ç°DEM¸ß³Ì×îÐ¡µÄµã
+	/** ï¿½Ãµï¿½ï¿½ï¿½Ç°DEMï¿½ß³ï¿½ï¿½ï¿½Ð¡ï¿½Äµï¿½
+	* @return ï¿½ï¿½Ç°DEMï¿½ß³ï¿½ï¿½ï¿½Ð¡ï¿½Äµï¿½
     */
 	virtual Vertex3d getMinPoint() const=0;
 
-	/** ¶Ôµ±Ç°DEMÉÏµÄËùÓÐµãµÄ¸ß³Ì½øÐÐËõ·Å
-	* @param [in] dScale Ëõ·Å±ÈÀý
+	/** ï¿½Ôµï¿½Ç°DEMï¿½Ïµï¿½ï¿½ï¿½ï¿½Ðµï¿½Ä¸ß³Ì½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	* @param [in] dScale ï¿½ï¿½ï¿½Å±ï¿½ï¿½ï¿½
     */
 	virtual void scale(double dScale)=0;
 
-	/** µÃµ½µ±Ç°DEMÖ¸¶¨¶à±ßÐÎ·¶Î§ÄÚ¸ß³Ì×î´óµÄµã
-	* @param [in] pPolygon	Ö¸¶¨¶à±ßÐÎ
-	* @return µ±Ç°DEMÖ¸¶¨¶à±ßÐÎ·¶Î§ÄÚ¸ß³Ì×î´óµÄµã
+	/** ï¿½Ãµï¿½ï¿½ï¿½Ç°DEMÖ¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î·ï¿½Î§ï¿½Ú¸ß³ï¿½ï¿½ï¿½ï¿½Äµï¿½
+	* @param [in] pPolygon	Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	* @return ï¿½ï¿½Ç°DEMÖ¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î·ï¿½Î§ï¿½Ú¸ß³ï¿½ï¿½ï¿½ï¿½Äµï¿½
     */
 	virtual Vertex3d getMaxPointInPolygon(std::vector<Vertex3d>& pPolygon) const=0;
 
  
-	/** µÃµ½µ±Ç°DEMÖ¸¶¨¶à±ßÐÎ·¶Î§ÄÚ¸ß³Ì×îÐ¡µÄµã
-	* @param [in] pPolygon	Ö¸¶¨¶à±ßÐÎ
-	* @return µ±Ç°DEMÖ¸¶¨¶à±ßÐÎ·¶Î§ÄÚ¸ß³Ì×îÐ¡µÄµã
+	/** ï¿½Ãµï¿½ï¿½ï¿½Ç°DEMÖ¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î·ï¿½Î§ï¿½Ú¸ß³ï¿½ï¿½ï¿½Ð¡ï¿½Äµï¿½
+	* @param [in] pPolygon	Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	* @return ï¿½ï¿½Ç°DEMÖ¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î·ï¿½Î§ï¿½Ú¸ß³ï¿½ï¿½ï¿½Ð¡ï¿½Äµï¿½
     */
 	virtual Vertex3d getMinPointInPolygon(std::vector<Vertex3d>&pPolygon) const=0;
 
 
-	/** ¶Ôµ±Ç°DEM°´ÕÕÖ¸¶¨¶à±ßÐÎ·¶Î§½øÐÐ²Ã¼ô
-	* @param [in] pPolygon	Ö¸¶¨¶à±ßÐÎ
-	* @return 1 -- ²Ã¼ô³É¹¦£» 0 -- ²Ã¼ôÊ§°Ü
+	/** ï¿½Ôµï¿½Ç°DEMï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î·ï¿½Î§ï¿½ï¿½ï¿½Ð²Ã¼ï¿½
+	* @param [in] pPolygon	Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	* @return 1 -- ï¿½Ã¼ï¿½ï¿½É¹ï¿½ï¿½ï¿½ 0 -- ï¿½Ã¼ï¿½Ê§ï¿½ï¿½
     */
 	virtual int clip(std::vector<Vertex3d>&pPolygon)=0;
 
-	/** ³éÈ¡Ò»¶¨·¶Î§µÄDEM
-	* @param [in] nRow ÐÐºÅ
-	* @param [in] nCol ÁÐºÅ
+	/** ï¿½ï¿½È¡Ò»ï¿½ï¿½ï¿½ï¿½Î§ï¿½ï¿½DEM
+	* @param [in] nRow ï¿½Ðºï¿½
+	* @param [in] nCol ï¿½Ðºï¿½
     */
 	virtual void extract(int beg_nRow, int beg_nCol,int end_nRow,int end_nCol,DEMGridSharedPtr& extractGrid)=0;
 
  
-	/** µÃµ½DEM±ß½ç
-	* @param [in] pPolygon ¶à±ßÐÎ¶ÔÏóÖ¸Õë
-	* @return DEM±ß½ç¶à±ßÐÎ
+	/** ï¿½Ãµï¿½DEMï¿½ß½ï¿½
+	* @param [in] pPolygon ï¿½ï¿½ï¿½ï¿½Î¶ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½
+	* @return DEMï¿½ß½ï¿½ï¿½ï¿½ï¿½ï¿½
     */
 	virtual void getDEMBound(std::vector<Vertex3d>&pPolygon)=0;
 
-	/** ¸ù¾Ý´«ÈëµÄÐý×ª¾ØÕó£¬Ðý×ªµ±Ç°DEM
-	* @param [in] m4x4 ÒÑÖªµÄÐý×ª¾ØÕó
+	/** ï¿½ï¿½ï¿½Ý´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½Ç°DEM
+	* @param [in] m4x4 ï¿½ï¿½Öªï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½ï¿½ï¿½
 	* @return 
 	*/
 	virtual void transform(Matrix4x4& m4x4)=0;
@@ -1054,7 +1054,7 @@ public:
 //////////////////////////////////////////////////////////
 class  DOMGrid;
 typedef std::shared_ptr<DOMGrid> DOMGridSharedPtr;
-/** @addtogroup terrain DOMGrid-DOM¸ñÍø½á¹¹¡¡
+/** @addtogroup terrain DOMGrid-DOMï¿½ï¿½ï¿½ï¿½ï¿½á¹¹ï¿½ï¿½
 *  @{
 */
 class CORE_API DOMGrid{
@@ -1062,117 +1062,117 @@ public:
 	static DOMGridSharedPtr create();
 	static DOMGridSharedPtr create(string szfiledom);
 public:
-	/** ´ÓBufferÖÐ¶ÁÈ¡ÐÅÏ¢Ìî³ä±¾¼¸ºÎ¶ÔÏó
-     * @param  [in,out] buf Buffer & £¬»º³åÇø¶ÔÏóÒýÓÃ 
-     * @return ³É¹¦·µ»Øtrue£¬·ñÔò·µ»Øfalse
+	/** ï¿½ï¿½Bufferï¿½Ð¶ï¿½È¡ï¿½ï¿½Ï¢ï¿½ï¿½ä±¾ï¿½ï¿½ï¿½Î¶ï¿½ï¿½ï¿½
+     * @param  [in,out] buf Buffer & ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
+     * @return ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½trueï¿½ï¿½ï¿½ï¿½ï¿½ò·µ»ï¿½false
     */
     virtual bool readBuffer( Buffer & buf)=0 ;
-	/** ½«±¾ÀàµÄÐÅÏ¢Ð´ÈëBufferÖÐ 
-     * @param  [in,out] buf Buffer & £¬»º³åÇø¶ÔÏóÒýÓÃ
-     * @return ³É¹¦·µ»Øtrue£¬·ñÔò·µ»Øfalse
+	/** ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢Ð´ï¿½ï¿½Bufferï¿½ï¿½ 
+     * @param  [in,out] buf Buffer & ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+     * @return ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½trueï¿½ï¿½ï¿½ï¿½ï¿½ò·µ»ï¿½false
     */
     virtual bool writeBuffer(Buffer& buf) =0;
 
-	/** ¿½±´domÊý¾Ý
-	* @param [in] src	Ô´domÊý¾Ý
-	* @param [out] tar	domÊý¾Ý
-	* @return 1 -- ¿½±´³É¹¦£»0 -- ¿½±´Ê§°Ü
+	/** ï¿½ï¿½ï¿½ï¿½domï¿½ï¿½ï¿½ï¿½
+	* @param [in] src	Ô´domï¿½ï¿½ï¿½ï¿½
+	* @param [out] tar	domï¿½ï¿½ï¿½ï¿½
+	* @return 1 -- ï¿½ï¿½ï¿½ï¿½ï¿½É¹ï¿½ï¿½ï¿½0 -- ï¿½ï¿½ï¿½ï¿½Ê§ï¿½ï¿½
     */
 	virtual bool copy(const DOMGridSharedPtr & src, bool bCopyData)=0;
 
-	/** ÉèÖÃDom
-	* @param [in] resolvx x·½Ïò·Ö±æÂÊ
-	* @param [in] resolvy y·½Ïò·Ö±æÂÊ
-	* @param [in] east ¶«
-	* @param [in] west Î÷
-	* @param [in] north ±±
-	* @param [in] south ÄÏ
-	* @param [in] ImageW  Ó°Ïñ¿í¶È 
-	* @param [in] ImageH  Ó°Ïñ¸ß¶È
-	* @param [in] pData  Ó°ÏñÊý¾Ý
-	* @param [in] bAlloced,ÊÇ·ñÐèÒª×ÔÉíÎ¬»¤ÄÚ´æ
-	* -×ÔÉíÎ¬»¤ÄÚ´æ
-	* -×ÔÉí²»Î¬»¤ÄÚ´æ
+	/** ï¿½ï¿½ï¿½ï¿½Dom
+	* @param [in] resolvx xï¿½ï¿½ï¿½ï¿½Ö±ï¿½ï¿½ï¿½
+	* @param [in] resolvy yï¿½ï¿½ï¿½ï¿½Ö±ï¿½ï¿½ï¿½
+	* @param [in] east ï¿½ï¿½
+	* @param [in] west ï¿½ï¿½
+	* @param [in] north ï¿½ï¿½
+	* @param [in] south ï¿½ï¿½
+	* @param [in] ImageW  Ó°ï¿½ï¿½ï¿½ï¿½ 
+	* @param [in] ImageH  Ó°ï¿½ï¿½ß¶ï¿½
+	* @param [in] pData  Ó°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	* @param [in] bAlloced,ï¿½Ç·ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½Î¬ï¿½ï¿½ï¿½Ú´ï¿½
+	* -ï¿½ï¿½ï¿½ï¿½Î¬ï¿½ï¿½ï¿½Ú´ï¿½
+	* -ï¿½ï¿½ï¿½ï¿½Î¬ï¿½ï¿½ï¿½Ú´ï¿½
     */
 	virtual void setParameters( double resolvx, double resolvy, double east, double west, double north, double south, 
 		int ImageW, int ImageH, int ImageD, unsigned char * pData, 
 		unsigned long long datalength, bool bAlloced = true )=0;
 
-	/** ÉèÖÃDom
+	/** ï¿½ï¿½ï¿½ï¿½Dom
 	
-	* @param [in] east ¶«
-	* @param [in] west Î÷
-	* @param [in] north ±±
-	* @param [in] south ÄÏ
+	* @param [in] east ï¿½ï¿½
+	* @param [in] west ï¿½ï¿½
+	* @param [in] north ï¿½ï¿½
+	* @param [in] south ï¿½ï¿½
 	* @param [in] image  
     */
 	virtual void setParameters(double east, double west, double north, double south, const ImageSharedPtr & p )=0;
 
-	/** »ñÈ¡Dom²ÎÊý
-	* @param [out] resolvx x·½Ïò·Ö±æÂÊ
-	* @param [out] resolvy y·½Ïò·Ö±æÂÊ
-	* @param [out] east ¶«
-	* @param [out] west Î÷
-	* @param [out] north ±±
-	* @param [out] south ÄÏ
-	* @param [out] ImageW  Ó°Ïñ¿í¶È 
-	* @param [out] ImageH  Ó°Ïñ¸ß¶È
-	* @param [out] pData  Ó°ÏñÊý¾Ý
-	* @param [in] bAlloced,ÊÇ·ñÖØÐÂ¿ª±ÙÄÚ´æ
+	/** ï¿½ï¿½È¡Domï¿½ï¿½ï¿½ï¿½
+	* @param [out] resolvx xï¿½ï¿½ï¿½ï¿½Ö±ï¿½ï¿½ï¿½
+	* @param [out] resolvy yï¿½ï¿½ï¿½ï¿½Ö±ï¿½ï¿½ï¿½
+	* @param [out] east ï¿½ï¿½
+	* @param [out] west ï¿½ï¿½
+	* @param [out] north ï¿½ï¿½
+	* @param [out] south ï¿½ï¿½
+	* @param [out] ImageW  Ó°ï¿½ï¿½ï¿½ï¿½ 
+	* @param [out] ImageH  Ó°ï¿½ï¿½ß¶ï¿½
+	* @param [out] pData  Ó°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	* @param [in] bAlloced,ï¿½Ç·ï¿½ï¿½ï¿½ï¿½Â¿ï¿½ï¿½ï¿½ï¿½Ú´ï¿½
 	*/
 	virtual void getParameters( double& resolvx, double& resolvy, double& east, double& west, double& north, double& south,
 		int& ImageW, int& ImageH, int& ImageD, unsigned char *& pData, 
 		unsigned long long & datalength, bool bAlloced = true )=0;
 
-    /** »ñÈ¡DomÓ°Ïñ·Ö±æÂÊ
-	* @param [out] resolvx DomX·½Ïò·Ö±æÂÊ
-	* @param [out] resolvy DomY·½Ïò·Ö±æÂÊ
+    /** ï¿½ï¿½È¡DomÓ°ï¿½ï¿½Ö±ï¿½ï¿½ï¿½
+	* @param [out] resolvx DomXï¿½ï¿½ï¿½ï¿½Ö±ï¿½ï¿½ï¿½
+	* @param [out] resolvy DomYï¿½ï¿½ï¿½ï¿½Ö±ï¿½ï¿½ï¿½
     */
 	virtual void getResolution( double& resolvx, double& resolvy)=0;
    
-    /** »ñÈ¡DomÓ°Ïñ·½Ïò
-	* @param [out] east ¶«
-	* @param [out] west Î÷
-	* @param [out] north ±±
-	* @param [out] south ÄÏ
+    /** ï¿½ï¿½È¡DomÓ°ï¿½ï¿½ï¿½ï¿½
+	* @param [out] east ï¿½ï¿½
+	* @param [out] west ï¿½ï¿½
+	* @param [out] north ï¿½ï¿½
+	* @param [out] south ï¿½ï¿½
 	*/
 	virtual void getDirection(double& east, double& west, double& north, double& south)=0;
-    /** »ñÈ¡DomÓ°Ïñ´óÐ¡
-	* @param [out] ImageW Ó°Ïñ¿í¶È
-	* @param [out] ImageH Ó°Ïñ¸ß¶È
-	* @param [out] ImageD Ó°ÏñÉî¶È
+    /** ï¿½ï¿½È¡DomÓ°ï¿½ï¿½ï¿½Ð¡
+	* @param [out] ImageW Ó°ï¿½ï¿½ï¿½ï¿½
+	* @param [out] ImageH Ó°ï¿½ï¿½ß¶ï¿½
+	* @param [out] ImageD Ó°ï¿½ï¿½ï¿½ï¿½ï¿½
     */
 	virtual void getImageSize( int& ImageW, int& ImageH, int& ImageD )=0;
 
     
-    /** »ñÈ¡DomÓ°ÏñÊý¾Ý
-	* @return Ö¸ÏòDomÓ°ÏñÊý¾ÝµÄÖ¸Õë
+    /** ï¿½ï¿½È¡DomÓ°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	* @return Ö¸ï¿½ï¿½DomÓ°ï¿½ï¿½ï¿½ï¿½ï¿½Ýµï¿½Ö¸ï¿½ï¿½
     */
 	virtual unsigned char * getImageData()=0;
-	 /** »ñÈ¡DomÓ°ÏñÊý¾ÝµÄ³¤¶È
-	* @return DomÓ°ÏñÊý¾ÝµÄ³¤¶È
+	 /** ï¿½ï¿½È¡DomÓ°ï¿½ï¿½ï¿½ï¿½ï¿½ÝµÄ³ï¿½ï¿½ï¿½
+	* @return DomÓ°ï¿½ï¿½ï¿½ï¿½ï¿½ÝµÄ³ï¿½ï¿½ï¿½
     */
 	virtual unsigned long long  getImageLength()=0;
-	 /** »ñÈ¡DomÓ°ÏñÊý¾ÝÃ¿¸öÏñËØµÄ×Ö½ÚÊý
-	* @return DomÓ°ÏñÊý¾ÝÃ¿¸öÏñËØµÄ×Ö½ÚÊý
+	 /** ï¿½ï¿½È¡DomÓ°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã¿ï¿½ï¿½ï¿½ï¿½ï¿½Øµï¿½ï¿½Ö½ï¿½ï¿½ï¿½
+	* @return DomÓ°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã¿ï¿½ï¿½ï¿½ï¿½ï¿½Øµï¿½ï¿½Ö½ï¿½ï¿½ï¿½
     */
 	virtual unsigned int getBitsPerPixel() const=0;
-	 /** »ñÈ¡DomÓ°ÏñÊý¾ÝµÄÄ³¸öÏñËØÖµ
-	 * @param [in] ix  int ÏñËØËùÔÚÐÐ
-	 * @param [in] iy  int ÏñËØËùÔÚÁÐ
-	* @return DomÓ°ÏñÊý¾ÝµÄÄ³¸öÏñËØÖµ
+	 /** ï¿½ï¿½È¡DomÓ°ï¿½ï¿½ï¿½ï¿½ï¿½Ýµï¿½Ä³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµ
+	 * @param [in] ix  int ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	 * @param [in] iy  int ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	* @return DomÓ°ï¿½ï¿½ï¿½ï¿½ï¿½Ýµï¿½Ä³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµ
     */
 	virtual unsigned char * getPixel(int ix,int iy)=0;
-	 /** »ñÈ¡DomÓ°ÏñÊý¾ÝµÄÄ³¸öÏñËØÖµ
-	 * @param [in] ix  double ÏñËØËùÔÚx×ø±ê
-	 * @param [in] iy  double ÏñËØËùÔÚy×ø±ê
-	* @return DomÓ°ÏñÊý¾ÝµÄÄ³¸öÏñËØµØÖ·
+	 /** ï¿½ï¿½È¡DomÓ°ï¿½ï¿½ï¿½ï¿½ï¿½Ýµï¿½Ä³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµ
+	 * @param [in] ix  double ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½xï¿½ï¿½ï¿½ï¿½
+	 * @param [in] iy  double ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½yï¿½ï¿½ï¿½ï¿½
+	* @return DomÓ°ï¿½ï¿½ï¿½ï¿½ï¿½Ýµï¿½Ä³ï¿½ï¿½ï¿½ï¿½ï¿½Øµï¿½Ö·
     */
 	virtual unsigned char * getPixel(double x, double y)=0;
-	/** DomÓ°ÏñÏñËØ×ø±ê×ªÎªÊÀ½ç×ø±ê
-	* @param [in] ix  double ÏñËØËùÔÚx×ø±ê
-	* @param [in] iy  double ÏñËØËùÔÚy×ø±ê 
-	* @return DomÓ°ÏñÊý¾ÝµÄÄ³¸öÏñËØµØÖ·
+	/** DomÓ°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×ªÎªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	* @param [in] ix  double ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½xï¿½ï¿½ï¿½ï¿½
+	* @param [in] iy  double ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½yï¿½ï¿½ï¿½ï¿½ 
+	* @return DomÓ°ï¿½ï¿½ï¿½ï¿½ï¿½Ýµï¿½Ä³ï¿½ï¿½ï¿½ï¿½ï¿½Øµï¿½Ö·
     */
 	virtual void IP2WP(int x, int y, double * wx, double * wy)=0;
 

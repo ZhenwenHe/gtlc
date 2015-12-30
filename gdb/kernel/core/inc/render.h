@@ -17,7 +17,7 @@
 #include <string>
 #include <vector>
 #include <sstream>
-#include "Buffer.h"
+#include "buffer.h"
 #include "geometry2d.h"
 #include "geometry3d.h"
 #include "builders.h"

@@ -1,5 +1,3 @@
-#pragma once
-
 #include "config.h"
 #include "buffer.h"
 
@@ -8,37 +6,52 @@ begin_cn_namespace
 begin_edu_namespace
 begin_cug_namespace
 begin_gdb_namespace
+ 
+#if(USING_OS_TYPE == 0)
+string   Config::shaderPath = "h:\\git\\sdk\\shader";
+string   Config::imagePath = "h:\\git\\sdk\\images";
+#else
+string   Config::shaderPath = "/home/vincent/gtl/sdk/shader";
+string   Config::imagePath = "/home/vincent/gtl/sdk/images";
+#endif
 
-/** ÉèÖÃ»º´æ³Ø´óĞ¡,BYTE
-* @param  [in] fpsize	ÒªËØ»º´æ³Ø×Ö½ÚÊı
-* @param  [in] mpsize	²ÄÖÊ»º´æ³Ø×Ö½ÚÊı
-* @param  [in] tpsize	ÎÆÀí»º´æ³Ø×Ö½ÚÊı
-* @param  [in] spsize	¹²ÏíÄ£ĞÍ»º´æ³Ø×Ö½ÚÊı
+
+/** è®¾ç½®ç¼“å­˜æ± å¤§å°,BYTE
+* @param  [in] fpsize	è¦ç´ ç¼“å­˜æ± å­—èŠ‚æ•°
+* @param  [in] mpsize	æè´¨ç¼“å­˜æ± å­—èŠ‚æ•°
+* @param  [in] tpsize	çº¹ç†ç¼“å­˜æ± å­—èŠ‚æ•°
+* @param  [in] spsize	å…±äº«æ¨¡å‹ç¼“å­˜æ± å­—èŠ‚æ•°
 */
 static std::vector<unsigned long long> cacheSizes;
 
-string   Config::shaderPath = "h:\\dev\\sdk\\shader";
-
-string   Config::imagePath = "h:\\dev\\sdk\\images";
-
 Envelope3d Config::defaultQueryEnvelope=Envelope3d(-100,100,-100,100);
-int  Config::textureFileModel=0;//	TextureReadModel //0´ú±íIOÁ÷Ğ¡ÎÆÀíÎÄ¼ş£¬1´ú±íIOÁ÷´óÎÆÀíÎÄ¼ş£¬2´ú±íÄÚ´æÓ³ÉäÎÆÀíÎÄ¼ş
-int 	Config::featureFileModel=0; //1´ú±íIOÁ÷¶ÁĞ´£¬0´ú±íIOÄÚ´æÓ³ÉäÎÄ¼ş¶ÁĞ´
+/*
+ * 0-ä»£è¡¨IOæµå°çº¹ç†æ–‡ä»¶
+ * 1-ä»£è¡¨IOæµå¤§çº¹ç†æ–‡ä»¶
+ * 2-ä»£è¡¨å†…å­˜æ˜ å°„çº¹ç†æ–‡ä»¶
+ */
+int Config::textureFileModel=0;
+/*
+ * 1-ä»£è¡¨IOæµè¯»å†™
+ * 0-ä»£è¡¨IOå†…å­˜æ˜ å°„æ–‡ä»¶è¯»å†™
+ */
+int Config::featureFileModel=0; 
 double Config::unloadDistance =1000.0;
 double Config::loadDistance =100.0;
 double Config::fovy=45;
 double Config::zNear=0.0001;
 double Config::zFar=100000.0;
-
-//Ã¿Ò»Ö¡»Øµ÷¼ÓÈë³¡¾°ÖĞµÄ×î´óÒªËØ¸öÊı
+/*
+ * æ¯ä¸€å¸§å›è°ƒåŠ å…¥åœºæ™¯ä¸­çš„æœ€å¤§è¦ç´ ä¸ªæ•°
+ */
 unsigned int  Config::numberOfAddFeaturesPreframe=5;
 unsigned int  Config::cachedTexturesOfRender=3000;
 unsigned int  Config::cachedSharedModelsOfRender=2000;
 
 unsigned int Config::currentCommand =0;
 
-unsigned int Config::versionFileDB=0;//ÎÄ¼şÊı¾İ¿â°æ±¾
-unsigned int Config::versionRDB=0;//¹ØÏµÊı¾İ¿â°æ±¾ 
+unsigned int Config::versionFileDB=0;//æ–‡ä»¶æ•°æ®åº“ç‰ˆæœ¬
+unsigned int Config::versionRDB=0;//å…³ç³»æ•°æ®åº“ç‰ˆæœ¬ 
 
 unsigned int Config::cachedBlockNumber=1000;// 
 
@@ -55,11 +68,11 @@ unsigned int  Config::sameID4DEMDOMBlock()
 {
 	return Config::useSameBlockID4DomDem;
 }
-unsigned int  Config::getFDBVersion()//»ñÈ¡ÎÄ¼ş¿â°æ±¾
+unsigned int  Config::getFDBVersion()//è·å–æ–‡ä»¶åº“ç‰ˆæœ¬
 {
 	return versionFileDB;
 }
-unsigned int  Config::getRDBVersion()//»ñÈ¡Êı¾İ¿â°æ±¾
+unsigned int  Config::getRDBVersion()//è·å–æ•°æ®åº“ç‰ˆæœ¬
 {
 	return versionRDB;
 }
@@ -70,13 +83,21 @@ unsigned int Config::getCurrentCommand(){
 void Config::setCurrentCommand(unsigned int cmd){
 	currentCommand = cmd;
 }
-unsigned int  Config::beginPluginCommand()//»ñÈ¡ËùÓĞ²å¼ş¼¯µÄ×îĞ¡CommandID
+unsigned int  Config::beginPluginCommand()//è·å–æ‰€æœ‰æ’ä»¶é›†çš„æœ€å°CommandID
 {
-	return WM_USER+1000;
+#if(USING_OS_TYPE == 0)
+    return WM_USER+1000;
+#else
+    return 0x0400+1000;
+#endif	
 }
-unsigned int  Config::endPluginCommand()//»ñÈ¡ËùÓĞ²å¼ş¼¯µÄ×î´óCommandID
+unsigned int  Config::endPluginCommand()//è·å–æ‰€æœ‰æ’ä»¶é›†çš„æœ€å¤§CommandID
 {
-	return WM_USER+2000;;
+#if(USING_OS_TYPE == 0)
+    return WM_USER+2000;
+#else
+    return 0x0400+2000;
+#endif 
 }
 
 
@@ -107,15 +128,15 @@ double Config::getLoadDistance()
 {
 	return Config::loadDistance;
 }
-unsigned int Config::getCachedTexturesOfRender() //äÖÈ¾ÒıÇæÖĞµÄÎÆÀí»º´æ´óĞ¡£¬µ¥Î»ÎªÎÆÀí¸öÊı
+unsigned int Config::getCachedTexturesOfRender() //æ¸²æŸ“å¼•æ“ä¸­çš„çº¹ç†ç¼“å­˜å¤§å°ï¼Œå•ä½ä¸ºçº¹ç†ä¸ªæ•°
 {
 	return Config::cachedTexturesOfRender;
 }
-unsigned int Config::getCachedSharedModelsOfRender()//äÖÈ¾ÒıÇæÖĞµÄ¹²ÏíÄ£ĞÍ»º´æ´óĞ¡£¬µ¥Î»ÎªÎÆÀí¸öÊı
+unsigned int Config::getCachedSharedModelsOfRender()//æ¸²æŸ“å¼•æ“ä¸­çš„å…±äº«æ¨¡å‹ç¼“å­˜å¤§å°ï¼Œå•ä½ä¸ºçº¹ç†ä¸ªæ•°
 {
 	return Config::cachedSharedModelsOfRender;
 }
-unsigned int Config::getCachedBlockNumber()//»º´æÖĞÍø¸ñ¿éµÄ×î´ó¸öÊı
+unsigned int Config::getCachedBlockNumber()//ç¼“å­˜ä¸­ç½‘æ ¼å—çš„æœ€å¤§ä¸ªæ•°
 {
 	return Config::cachedBlockNumber;
 }
@@ -151,20 +172,22 @@ bool Config::isDynamicDispatching(){
 	return dispachMode != 0;
 }
 Config::Config(){
-	_loc = std::locale::global(std::locale(""));//ÉèÖÃ»·¾³ÎªÏµÍ³»·¾³  
-	char path[MAX_PATH];
-	DWORD size = ::GetModuleFileName(NULL,path,MAX_PATH);
-	string szModPath = string(path,size);
-	size_t pos = szModPath.find_last_of("\\");
-	string sz = szModPath.substr(0,pos);
-	sz += "\\sde.cfg";
+	_loc = std::locale::global(std::locale(""));//è®¾ç½®ç¯å¢ƒä¸ºç³»ç»Ÿç¯å¢ƒ  
+	char path[512];
+	string sz = gtl::getInstallHome();
+#if(USING_OS_TYPE == 0)
+        sz += "\\sde.cfg";
+#else
+        sz += "/sde.cfg";
+#endif
+	
 	ifstream iFstreamConfig;
-	iFstreamConfig.open(sz.c_str(),std::ios_base::in|std::ios_base::_Nocreate);
+	iFstreamConfig.open(sz.c_str(),std::ios_base::in);
 
 	if (iFstreamConfig)
 	{		
-		iFstreamConfig.getline(path,MAX_PATH);
-		char sz[MAX_PATH];	
+		iFstreamConfig.getline(path,512);
+		char sz[512];	
 		iFstreamConfig.getline(sz,2);
 		if (sz[0]=='0')
 		{
@@ -178,7 +201,7 @@ Config::Config(){
 		{
 			Config::textureFileModel =2;
 		}
-		iFstreamConfig.getline(path,MAX_PATH);
+		iFstreamConfig.getline(path,512);
 		iFstreamConfig.getline(sz,2);
 		if (sz[0]=='0')
 		{
@@ -190,78 +213,78 @@ Config::Config(){
 		}
 		
 		int c[3];
-		iFstreamConfig.getline(path,MAX_PATH);
-		iFstreamConfig.getline(sz,MAX_PATH,',');
+		iFstreamConfig.getline(path,512);
+		iFstreamConfig.getline(sz,512,',');
 		c[0]=stringToNumber<int,char>(sz);
-		iFstreamConfig.getline(sz,MAX_PATH,',');
+		iFstreamConfig.getline(sz,512,',');
 		c[1]=stringToNumber<int,char>(sz);
-		iFstreamConfig.getline(sz,MAX_PATH);
+		iFstreamConfig.getline(sz,512);
 		c[2]=stringToNumber<int,char>(sz);
 		Config::defaultQueryEnvelope = Envelope3d(0,c[0],0,c[1],0,c[2]);
 		
-		iFstreamConfig.getline(path,MAX_PATH);
-		iFstreamConfig.getline(sz,MAX_PATH);
+		iFstreamConfig.getline(path,512);
+		iFstreamConfig.getline(sz,512);
 		Config::unloadDistance =stringToNumber<double,char>(sz);
 
-		iFstreamConfig.getline(path,MAX_PATH);
-		iFstreamConfig.getline(sz,MAX_PATH);
+		iFstreamConfig.getline(path,512);
+		iFstreamConfig.getline(sz,512);
 		Config::numberOfAddFeaturesPreframe =stringToNumber<unsigned int,char>(sz);
 
-		iFstreamConfig.getline(path,MAX_PATH);
-		iFstreamConfig.getline(sz,MAX_PATH);
+		iFstreamConfig.getline(path,512);
+		iFstreamConfig.getline(sz,512);
 		Config::cachedTexturesOfRender =stringToNumber<unsigned int,char>(sz);
 
-		iFstreamConfig.getline(path,MAX_PATH);
-		iFstreamConfig.getline(sz,MAX_PATH);
+		iFstreamConfig.getline(path,512);
+		iFstreamConfig.getline(sz,512);
 		Config::cachedSharedModelsOfRender =stringToNumber<unsigned int,char>(sz);
 
-		iFstreamConfig.getline(path,MAX_PATH);
-		iFstreamConfig.getline(sz,MAX_PATH);
+		iFstreamConfig.getline(path,512);
+		iFstreamConfig.getline(sz,512);
 		Config::cachedBlockNumber =stringToNumber<unsigned int,char>(sz);
-		iFstreamConfig.getline(path,MAX_PATH);
-		iFstreamConfig.getline(sz,MAX_PATH);
+		iFstreamConfig.getline(path,512);
+		iFstreamConfig.getline(sz,512);
 		Config::useSameBlockID4DomDem=stringToNumber<unsigned int,char>(sz);
 
-		iFstreamConfig.getline(path,MAX_PATH);
-		iFstreamConfig.getline(sz,MAX_PATH);
+		iFstreamConfig.getline(path,512);
+		iFstreamConfig.getline(sz,512);
 		Config::loadDistance=stringToNumber<double,char>(sz);
 
-		iFstreamConfig.getline(path,MAX_PATH);
-		iFstreamConfig.getline(sz,MAX_PATH);
+		iFstreamConfig.getline(path,512);
+		iFstreamConfig.getline(sz,512);
 		Config::fovy=stringToNumber<double,char>(sz);
 
-		iFstreamConfig.getline(path,MAX_PATH);
-		iFstreamConfig.getline(sz,MAX_PATH);
+		iFstreamConfig.getline(path,512);
+		iFstreamConfig.getline(sz,512);
 		Config::zNear=stringToNumber<double,char>(sz);
 
-		iFstreamConfig.getline(path,MAX_PATH);
-		iFstreamConfig.getline(sz,MAX_PATH);
+		iFstreamConfig.getline(path,512);
+		iFstreamConfig.getline(sz,512);
 		Config::zFar=stringToNumber<double,char>(sz);
 
-		iFstreamConfig.getline(path, MAX_PATH);
-		iFstreamConfig.getline(sz, MAX_PATH);
+		iFstreamConfig.getline(path, 512);
+		iFstreamConfig.getline(sz, 512);
 		Config::stereo = stringToNumber<unsigned int, char>(sz);
 
-		iFstreamConfig.getline(path, MAX_PATH);
-		iFstreamConfig.getline(sz, MAX_PATH);
+		iFstreamConfig.getline(path, 512);
+		iFstreamConfig.getline(sz, 512);
 		Config::stereoMode = stringToNumber<unsigned int, char>(sz);
 
-		iFstreamConfig.getline(path, MAX_PATH);
-		iFstreamConfig.getline(sz, MAX_PATH);
+		iFstreamConfig.getline(path, 512);
+		iFstreamConfig.getline(sz, 512);
 		Config::dispachMode = stringToNumber<unsigned int, char>(sz);
 
-		iFstreamConfig.getline(path,MAX_PATH);
-		iFstreamConfig.getline(sz,MAX_PATH);
+		iFstreamConfig.getline(path,512);
+		iFstreamConfig.getline(sz,512);
 		Config::cameraLightStatus=stringToNumber<int,char>(sz);
 		 
-		iFstreamConfig.getline(path, MAX_PATH);
-		iFstreamConfig.getline(sz, MAX_PATH, ',');
+		iFstreamConfig.getline(path, 512);
+		iFstreamConfig.getline(sz, 512, ',');
 		cacheSizes.push_back(stringToNumber<int, char>(sz));
-		iFstreamConfig.getline(sz, MAX_PATH, ',');
+		iFstreamConfig.getline(sz, 512, ',');
 		cacheSizes.push_back(stringToNumber<int, char>(sz));
-		iFstreamConfig.getline(sz, MAX_PATH, ',');
+		iFstreamConfig.getline(sz, 512, ',');
 		cacheSizes.push_back(stringToNumber<int, char>(sz));
-		iFstreamConfig.getline(sz, MAX_PATH);
+		iFstreamConfig.getline(sz, 512);
 		cacheSizes.push_back(stringToNumber<int, char>(sz));
 		for (auto it = cacheSizes.begin(); it != cacheSizes.end(); it++)
 		{
@@ -270,7 +293,7 @@ Config::Config(){
 	}
 
 	iFstreamConfig.close();
-	std::locale::global(_loc);//»¹Ô­»·¾³  
+	std::locale::global(_loc);//è¿˜åŸç¯å¢ƒ  
 }
 
 

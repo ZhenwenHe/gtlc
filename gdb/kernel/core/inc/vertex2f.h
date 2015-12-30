@@ -33,7 +33,7 @@ public:
 
 	Vertex2f();
 	Vertex2f(float xx, float yy);
-	Vertex2f(Vertex2f & vt);
+	Vertex2f(const Vertex2f & vt);
 	void operator*=(float rhd);
 	Vertex2f operator = (const Vertex2f & c);
 };

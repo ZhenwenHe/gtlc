@@ -13,6 +13,7 @@
 * It is provided "as is" without express or implied warranty.
 */
 #pragma once
+#include <cstring>
 #include <iostream>
 #include <string>
 #include <vector>
@@ -25,100 +26,81 @@
 #include "time.h"
 #include "assert.h"
 
-#define ENABLE_CONSOLE_OUTPUT 0// 1-enable console window and display information 0-disable 
-#define USING_UILIB_TYPE  0 //0-MFC 1-Qt 2-wxWidget   
-#define USING_DEFAULT_3DGEOMETRY 1// 0-use geometry plugin library;1-use default geometry library implmented in GV3dCore
-#define USING_DEFAULT_2DGEOMETRY 0// 0-use geometry plugin library;1-use default geometry library implmented in GV3dCore
-#define USING_DEFAULT_MESHLIB    1// 0-use geometry plugin library;1-use default geometry library implmented in GV3dCore
-#if(USING_UILIB_TYPE==0)//MFC
-	// ÒÔÏÂºê¶¨ÒåÒªÇóµÄ×îµÍÆ½Ì¨¡£ÒªÇóµÄ×îµÍÆ½Ì¨
-	// ÊÇ¾ßÓÐÔËÐÐÓ¦ÓÃ³ÌÐòËùÐè¹¦ÄÜµÄ Windows¡¢Internet Explorer µÈ²úÆ·µÄ
-	// ×îÔç°æ±¾¡£Í¨¹ýÔÚÖ¸¶¨°æ±¾¼°¸üµÍ°æ±¾µÄÆ½Ì¨ÉÏÆôÓÃËùÓÐ¿ÉÓÃµÄ¹¦ÄÜ£¬ºê¿ÉÒÔ
-	// Õý³£¹¤×÷¡£
+/*
+ * 0-windows, include config_windows.h
+ * 1-linux, include config_linux.h
+ * 2-maxcos, include config_maxcos.h
+ */
+#define USING_OS_TYPE  1 //0-windows 1-linux 2-macxos
 
-	// Èç¹û±ØÐëÒªÕë¶ÔµÍÓÚÒÔÏÂÖ¸¶¨°æ±¾µÄÆ½Ì¨£¬ÇëÐÞ¸ÄÏÂÁÐ¶¨Òå¡£
-	// ÓÐ¹Ø²»Í¬Æ½Ì¨¶ÔÓ¦ÖµµÄ×îÐÂÐÅÏ¢£¬Çë²Î¿¼ MSDN¡£
-	#ifndef WINVER                          // Ö¸¶¨ÒªÇóµÄ×îµÍÆ½Ì¨ÊÇ Windows Vista¡£
-	#define WINVER 0x0600           // ½«´ËÖµ¸ü¸ÄÎªÏàÓ¦µÄÖµ£¬ÒÔÊÊÓÃÓÚ Windows µÄÆäËû°æ±¾¡£
-	#endif
-
-	#ifndef _WIN32_WINNT            // Ö¸¶¨ÒªÇóµÄ×îµÍÆ½Ì¨ÊÇ Windows Vista¡£
-	#define _WIN32_WINNT 0x0600     // ½«´ËÖµ¸ü¸ÄÎªÏàÓ¦µÄÖµ£¬ÒÔÊÊÓÃÓÚ Windows µÄÆäËû°æ±¾¡£
-	#endif
-
-	#ifndef _WIN32_WINDOWS          // Ö¸¶¨ÒªÇóµÄ×îµÍÆ½Ì¨ÊÇ Windows 98¡£
-	#define _WIN32_WINDOWS 0x0410 // ½«´ËÖµ¸ü¸ÄÎªÊÊµ±µÄÖµ£¬ÒÔÊÊÓÃÓÚ Windows Me »ò¸ü¸ß°æ±¾¡£
-	#endif
-
-	#ifndef _WIN32_IE                       // Ö¸¶¨ÒªÇóµÄ×îµÍÆ½Ì¨ÊÇ Internet Explorer 7.0¡£
-	#define _WIN32_IE 0x0700        // ½«´ËÖµ¸ü¸ÄÎªÏàÓ¦µÄÖµ£¬ÒÔÊÊÓÃÓÚ IE µÄÆäËû°æ±¾¡£
-	#endif
-
-	#define WIN32_LEAN_AND_MEAN 
-	#include "windows.h"
-	#include "winbase.h"
-	#include "process.h"
-	#include "tchar.h"
-	#pragma warning (disable:4251)
-
-#elif(USING_UILIB_TYPE==1)//Qt
-
-	#ifndef _PALETTEENTRY_DEFINED
-	#define _PALETTEENTRY_DEFINED
-	typedef struct tagPALETTEENTRY {
-		unsigned char*        peRed;
-		unsigned char*        peGreen;
-		unsigned char*        peBlue;
-		unsigned char*        peFlags;
-	} PALETTEENTRY, *PPALETTEENTRY, FAR *LPPALETTEENTRY;
-	#endif // !_PALETTEENTRY_DEFINED
-
-	#ifndef _LOGPALETTE_DEFINED
-	#define _LOGPALETTE_DEFINED
-	/* Logical Palette */
-	typedef struct tagLOGPALETTE {
-		short        palVersion;
-		short        palNumEntries;
-		PALETTEENTRY        palPalEntry[1];
-	} LOGPALETTE, *PLOGPALETTE, NEAR *NPLOGPALETTE, FAR *LPLOGPALETTE;
-	#endif // !_LOGPALETTE_DEFINED
-
-
-
-#else//wxWidget
-	#ifndef _PALETTEENTRY_DEFINED
-	#define _PALETTEENTRY_DEFINED
-	typedef struct tagPALETTEENTRY {
-		BYTE        peRed;
-		BYTE        peGreen;
-		BYTE        peBlue;
-		BYTE        peFlags;
-	} PALETTEENTRY, *PPALETTEENTRY, FAR *LPPALETTEENTRY;
-	#endif // !_PALETTEENTRY_DEFINED
-
-	#ifndef _LOGPALETTE_DEFINED
-	#define _LOGPALETTE_DEFINED
-	/* Logical Palette */
-	typedef struct tagLOGPALETTE {
-		WORD        palVersion;
-		WORD        palNumEntries;
-		_Field_size_opt_(palNumEntries) PALETTEENTRY        palPalEntry[1];
-	} LOGPALETTE, *PLOGPALETTE, NEAR *NPLOGPALETTE, FAR *LPLOGPALETTE;
-	#endif // !_LOGPALETTE_DEFINED
-
-
+/*
+ * 1-enable console window and display information 
+ * 0-disable
+ */
+#define ENABLE_CONSOLE_OUTPUT 0 
+/*
+ * 0-MFC , the USING_OS_TYPE must be 0
+ * 1-Qt 
+ * 2-wxWidget
+ */
+#define USING_UI_TYPE  1 
+/*
+ * If the ui library is 0, the os type must be 0.
+ */
+#if(USING_UI_TYPE==0 && USING_OS_TYPE!=0)
+#error operation system does not match the UI library you choose
 #endif
 
+/*
+ * 0-use geometry plugin library implemented by gv3dgemtry
+ * 1-use default geometry library implemented in Core project
+ * 2-some other geometry libraries implemented by user
+*/
+#define USING_3DGEOMETRY_TYPE 1
+
+/*
+ * 0-use geometry plugin library;
+ * 1-use default geometry library implemented in core project
+ */
+#define USING_2DGEOMETRY_TYPE 0
+
+/*
+ * 0-use geometry plugin library;
+ * 1-use default geometry library implemented in core project
+ */
+#define USING_MESH_TYPE     1
+
+
+#if(USING_OS_TYPE==0)
+#include "config_windows.h"    
+#elif(USING_OS_TYPE==1)
+#include "config_linux.h"          
+#else //MacX OS
+#include "config_macxos.h"        
+#endif //USING_OS_TYPE
+        
 #ifdef CORE_EXPORTS
-#ifdef _USRDLL
-#define CORE_API __declspec(dllexport)
+    #ifdef _USRDLL
+        #define CORE_API __declspec(dllexport)
+    #else
+        #define CORE_API  
+    #endif
 #else
-#define CORE_API  
-#endif
-#else
-#define CORE_API __declspec(dllimport)
+    #define CORE_API __declspec(dllimport)
 #endif
 
+
+#ifndef begin_gtl_namespace
+#define begin_gtl_namespace namespace gtl{
+#endif
+
+#ifndef end_gtl_namespace
+#define end_gtl_namespace  }
+#endif
+
+#ifndef using_gtl_namespace
+#define using_gtl_namespace  using namespace gtl;
+#endif
 
 #ifndef begin_cn_namespace
 #define begin_cn_namespace namespace cn{
@@ -165,11 +147,6 @@
 #define end_details_namespace                   }   
 #define useing_details_namespace using namespace details ;
 
-#define begin_ddb_namespace namespace ddb{   
-#define end_ddb_namespace                   }   
-#define useing_ddb_namespace using namespace ddb ;
-
-
 using namespace std;
 
 begin_cn_namespace
@@ -193,8 +170,10 @@ const double  PI        =  3.141592653589793238462643383279502884197169399375105
 #define SMALL_NUMBER 0.0000001
 #endif
 
+#include "config_env.h"
+
 class Envelope3d;
-/** @defgroup Config  Config-È«¾ÖÅäÖÃÀà 
+/** @defgroup Config  Config-È«ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
 *  @{
 */
 class CORE_API Config {
@@ -203,22 +182,22 @@ class CORE_API Config {
 	static string   shaderPath;
 	static string   imagePath;
 private:	
-	static int  textureFileModel;//	TextureReadModel //0´ú±íIOÁ÷Ð¡ÎÆÀíÎÄ¼þ£¬1´ú±íIOÁ÷´óÎÆÀíÎÄ¼þ£¬2´ú±íÄÚ´æÓ³ÉäÎÆÀíÎÄ¼þ
-	static int 	featureFileModel; //1´ú±íIOÁ÷¶ÁÐ´£¬0´ú±íIOÄÚ´æÓ³ÉäÎÄ¼þ¶ÁÐ´
+	static int  textureFileModel;//	TextureReadModel //0ï¿½ï¿½ï¿½ï¿½IOï¿½ï¿½Ð¡ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½1ï¿½ï¿½ï¿½ï¿½IOï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½2ï¿½ï¿½ï¿½ï¿½ï¿½Ú´ï¿½Ó³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½
+	static int 	featureFileModel; //1ï¿½ï¿½ï¿½ï¿½IOï¿½ï¿½ï¿½ï¿½Ð´ï¿½ï¿½0ï¿½ï¿½ï¿½ï¿½IOï¿½Ú´ï¿½Ó³ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½Ð´
 private:
 	static Envelope3d defaultQueryEnvelope;
-	static double unloadDistance;//´óÓÚunloadDistance¾àÀëµÄÊ±ºò£¬´ÓÄÚ´æÖÐÐ¶ÔØ£»
-	static double loadDistance;//Ð¡ÓÚloadDistance¾àÀëµÄÊ±ºò£¬²»´ÓÄÚ´æÖÐÐ¶ÔØ£»	
-	static unsigned int  numberOfAddFeaturesPreframe;//Ã¿Ò»Ö¡»Øµ÷¼ÓÈë³¡¾°ÖÐµÄ×î´óÒªËØ¸öÊý
-	static unsigned int cachedTexturesOfRender;//äÖÈ¾ÒýÇæÖÐµÄÎÆÀí»º´æ´óÐ¡£¬µ¥Î»ÎªÎÆÀí¸öÊý
-	static unsigned int cachedSharedModelsOfRender;//äÖÈ¾ÒýÇæÖÐµÄ¹²ÏíÄ£ÐÍ»º´æ´óÐ¡£¬µ¥Î»ÎªÎÆÀí¸öÊý
+	static double unloadDistance;//ï¿½ï¿½ï¿½ï¿½unloadDistanceï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ò£¬´ï¿½ï¿½Ú´ï¿½ï¿½ï¿½Ð¶ï¿½Ø£ï¿½
+	static double loadDistance;//Ð¡ï¿½ï¿½loadDistanceï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ò£¬²ï¿½ï¿½ï¿½ï¿½Ú´ï¿½ï¿½ï¿½Ð¶ï¿½Ø£ï¿½	
+	static unsigned int  numberOfAddFeaturesPreframe;//Ã¿Ò»Ö¡ï¿½Øµï¿½ï¿½ï¿½ï¿½ë³¡ï¿½ï¿½ï¿½Ðµï¿½ï¿½ï¿½ï¿½Òªï¿½Ø¸ï¿½ï¿½ï¿½
+	static unsigned int cachedTexturesOfRender;//ï¿½ï¿½È¾ï¿½ï¿½ï¿½ï¿½ï¿½Ðµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¡ï¿½ï¿½ï¿½ï¿½Î»Îªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	static unsigned int cachedSharedModelsOfRender;//ï¿½ï¿½È¾ï¿½ï¿½ï¿½ï¿½ï¿½ÐµÄ¹ï¿½ï¿½ï¿½Ä£ï¿½Í»ï¿½ï¿½ï¿½ï¿½Ð¡ï¿½ï¿½ï¿½ï¿½Î»Îªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 private:
-	static unsigned int versionFileDB;//ÎÄ¼þÊý¾Ý¿â°æ±¾
-	static unsigned int versionRDB;//¹ØÏµÊý¾Ý¿â°æ±¾
+	static unsigned int versionFileDB;//ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½Ý¿ï¿½æ±¾
+	static unsigned int versionRDB;//ï¿½ï¿½Ïµï¿½ï¿½ï¿½Ý¿ï¿½æ±¾
 private:
-	static unsigned  int cachedBlockNumber;//»º´æÖÐÍø¸ñ¿éµÄ×î´ó¸öÊý
-	static unsigned int useSameBlockID4DomDem;//DEMºÍDOM¿éµÄIDÊÇ·ñ¶ÔÓ¦
-private://Í¶Ó°²ÎÊý
+	static unsigned  int cachedBlockNumber;//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	static unsigned int useSameBlockID4DomDem;//DEMï¿½ï¿½DOMï¿½ï¿½ï¿½IDï¿½Ç·ï¿½ï¿½Ó¦
+private://Í¶Ó°ï¿½ï¿½ï¿½ï¿½
 	static double fovy;
 	static double zNear;
 	static double zFar;
@@ -239,7 +218,7 @@ private://Dynamic Dispaching
 public:
 	static int cameraLightStatus;
 private:
-	static unsigned int currentCommand;//µ±Ç°°´Å¥µÄID	
+	static unsigned int currentCommand;//ï¿½ï¿½Ç°ï¿½ï¿½Å¥ï¿½ï¿½ID	
 public:		
 	Config();
 public:
@@ -256,11 +235,11 @@ public:
 	static double getZNear();
 	static double getZFar();
 	static int getNumberOfAddFeaturesPreframe();
-	static unsigned int getCachedTexturesOfRender();//äÖÈ¾ÒýÇæÖÐµÄÎÆÀí»º´æ´óÐ¡£¬µ¥Î»ÎªÎÆÀí¸öÊý
-	static unsigned int getCachedSharedModelsOfRender();//äÖÈ¾ÒýÇæÖÐµÄ¹²ÏíÄ£ÐÍ»º´æ´óÐ¡£¬µ¥Î»ÎªÎÆÀí¸öÊý
-	static unsigned int getCachedBlockNumber();//»º´æÖÐÍø¸ñ¿éµÄ×î´ó¸öÊý
-	static unsigned int  getFDBVersion();//»ñÈ¡ÎÄ¼þ¿â°æ±¾
-	static unsigned int  getRDBVersion();//»ñÈ¡Êý¾Ý¿â°æ±¾
+	static unsigned int getCachedTexturesOfRender();//ï¿½ï¿½È¾ï¿½ï¿½ï¿½ï¿½ï¿½Ðµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¡ï¿½ï¿½ï¿½ï¿½Î»Îªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	static unsigned int getCachedSharedModelsOfRender();//ï¿½ï¿½È¾ï¿½ï¿½ï¿½ï¿½ï¿½ÐµÄ¹ï¿½ï¿½ï¿½Ä£ï¿½Í»ï¿½ï¿½ï¿½ï¿½Ð¡ï¿½ï¿½ï¿½ï¿½Î»Îªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	static unsigned int getCachedBlockNumber();//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	static unsigned int  getFDBVersion();//ï¿½ï¿½È¡ï¿½Ä¼ï¿½ï¿½ï¿½æ±¾
+	static unsigned int  getRDBVersion();//ï¿½ï¿½È¡ï¿½ï¿½ï¿½Ý¿ï¿½æ±¾
 	static unsigned int  sameID4DEMDOMBlock();
 	static int getCameraLightStatus();
 	static void enableStereo(bool s = true);
@@ -269,18 +248,18 @@ public:
 	static bool isDynamicDispatching();
 	static std::vector<unsigned long long> & getCacheSizes();
 public:
-	enum{//Ó¦ÓÃ³ÌÐòÖÐ¹Ì¶¨µÄ²Ù×÷ÃüÁî£¬Ò»°ãÕâÐ©ÃüÁî¹¦ÄÜÒÑ¾­ÓÉRender·â×°ÁË
+	enum{//Ó¦ï¿½Ã³ï¿½ï¿½ï¿½ï¿½Ð¹Ì¶ï¿½ï¿½Ä²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½î£¬Ò»ï¿½ï¿½ï¿½ï¿½Ð©ï¿½ï¿½ï¿½î¹¦ï¿½ï¿½ï¿½Ñ¾ï¿½ï¿½ï¿½Renderï¿½ï¿½×°ï¿½ï¿½
 		APP_COMMAND_UNKNOWN=0,
-		APP_COMMAND_SELECT,//Ñ¡Ôñ
-		APP_COMMAND_ROTATE,//×ó¼üÐý×ª
-		APP_COMMAND_ZOOM,//ÓÒ¼üËõ·Å
-		APP_COMMAND_TRANSLATE,//ÖÐ¼üÆ½ÒÆ
+		APP_COMMAND_SELECT,//Ñ¡ï¿½ï¿½
+		APP_COMMAND_ROTATE,//ï¿½ï¿½ï¿½ï¿½ï¿½×ª
+		APP_COMMAND_ZOOM,//ï¿½Ò¼ï¿½ï¿½ï¿½ï¿½ï¿½
+		APP_COMMAND_TRANSLATE,//ï¿½Ð¼ï¿½Æ½ï¿½ï¿½
 		APP_COMMAND_END
 	};
 	static unsigned int getCurrentCommand();
 	static void setCurrentCommand(unsigned int cmd);
-	static unsigned int beginPluginCommand();//»ñÈ¡ËùÓÐ²å¼þ¼¯µÄ×îÐ¡CommandID
-	static unsigned int endPluginCommand();//»ñÈ¡ËùÓÐ²å¼þ¼¯µÄ×î´óCommandID
+	static unsigned int beginPluginCommand();//ï¿½ï¿½È¡ï¿½ï¿½ï¿½Ð²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¡CommandID
+	static unsigned int endPluginCommand();//ï¿½ï¿½È¡ï¿½ï¿½ï¿½Ð²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½CommandID
 };
 /** @} */
 

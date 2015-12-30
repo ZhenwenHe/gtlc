@@ -30,7 +30,7 @@ public:
 
 	Vertex2d();
 	Vertex2d(double xx, double yy);
-	Vertex2d(Vertex2d & vt);
+	Vertex2d(const Vertex2d & vt);
 	void operator*=(double rhd);
 	Vertex2d operator = (const Vertex2d & c);
 };

@@ -17,7 +17,7 @@
 #include <string>
 #include <vector>
 #include <sstream>
-#include "Buffer.h"
+#include "buffer.h"
 #include "material.h"
 #include "matrix4x4.h"
 #include "indexbuffer.h"
@@ -33,559 +33,559 @@ begin_edu_namespace
 begin_cug_namespace
 begin_gdb_namespace 
 
-/** @addtogroup Geometry Point3d-ÈýÎ¬µãÀà
+/** @addtogroup Geometry Point3d-ï¿½ï¿½Î¬ï¿½ï¿½ï¿½ï¿½
 *  @{
 */
 class CORE_API Point3d : virtual public Geometry
 {
 public:
-	/**  »ñÈ¡µãÎ»ÖÃ×ø±ê
-	* @param  ÎÞ
-	* @return Î»ÖÃ×ø±ê
+	/**  ï¿½ï¿½È¡ï¿½ï¿½Î»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	* @param  ï¿½ï¿½
+	* @return Î»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	*/
 	virtual Vertex3d getPosition()=0;
 
-	/**  ÉèÖÃµãÎ»ÖÃ×ø±ê
-	* @param  [in] vPosition  µãÎ»ÖÃ×ø±ê
-	* @return ÎÞ
+	/**  ï¿½ï¿½ï¿½Ãµï¿½Î»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	* @param  [in] vPosition  ï¿½ï¿½Î»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	* @return ï¿½ï¿½
 	*/
 	virtual void setPosition(const Vertex3d & vPosition)=0;
 };
 /** @} */ 
 
-/** @addtogroup Geometry SinglePoint3d-ÈýÎ¬µ¥µãÀà 
+/** @addtogroup Geometry SinglePoint3d-ï¿½ï¿½Î¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
 *  @{
 */
 class CORE_API SinglePoint3d : virtual public Point3d
 {
 public:	
-	/**  »ñÈ¡µãµÄÑÕÉ«
-	* @param  ÎÞ
-	* @return µãµÄÑÕÉ«
+	/**  ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½É«
+	* @param  ï¿½ï¿½
+	* @return ï¿½ï¿½ï¿½ï¿½ï¿½É«
 	*/
 	virtual Color4f getColor()=0;
 
-	/**  ÉèÖÃµãµÄÑÕÉ«
-	* @param  [in] c4f  µãµÄÑÕÉ«
-	* @return ÎÞ
+	/**  ï¿½ï¿½ï¿½Ãµï¿½ï¿½ï¿½ï¿½É«
+	* @param  [in] c4f  ï¿½ï¿½ï¿½ï¿½ï¿½É«
+	* @return ï¿½ï¿½
 	*/
 	virtual void setColor(const Color4f &c4f)=0;
 
-	/**  »ñÈ¡µãµÄ·¨Ïß
-	* @param  ÎÞ
-	* @return µãµÄ·¨Ïß
+	/**  ï¿½ï¿½È¡ï¿½ï¿½Ä·ï¿½ï¿½ï¿½
+	* @param  ï¿½ï¿½
+	* @return ï¿½ï¿½Ä·ï¿½ï¿½ï¿½
 	*/
 	virtual Vertex3d getNormal()=0;
 
-	/**  ÉèÖÃµãµÄ·¨Ïß
-	* @param  [in] v  µãµÄ·¨ÏßÏòÁ¿
-	* @return ÎÞ
+	/**  ï¿½ï¿½ï¿½Ãµï¿½Ä·ï¿½ï¿½ï¿½
+	* @param  [in] v  ï¿½ï¿½Ä·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	* @return ï¿½ï¿½
 	*/
 	virtual void setNormal(const Vertex3d & v)=0;
 
-	/**  »ñÈ¡µãµÄ´óÐ¡
-	* @param  ÎÞ
-	* @return µãµÄ´óÐ¡
+	/**  ï¿½ï¿½È¡ï¿½ï¿½Ä´ï¿½Ð¡
+	* @param  ï¿½ï¿½
+	* @return ï¿½ï¿½Ä´ï¿½Ð¡
 	*/
 	virtual double getPointSize()=0;
 
-	/**  ÉèÖÃµãµÄ´óÐ¡
-	* @param  [in] s  µãµÄ´óÐ¡
-	* @return ÎÞ
+	/**  ï¿½ï¿½ï¿½Ãµï¿½Ä´ï¿½Ð¡
+	* @param  [in] s  ï¿½ï¿½Ä´ï¿½Ð¡
+	* @return ï¿½ï¿½
 	*/
 	virtual void setPointSize(double s)=0;
 };
 /** @} */
 
-/** @addtogroup Geometry MultiPoint3d-ÈýÎ¬¶àµãÀà 
+/** @addtogroup Geometry MultiPoint3d-ï¿½ï¿½Î¬ï¿½ï¿½ï¿½ï¿½ï¿½ 
 *  @{
 */
 class CORE_API MultiPoint3d : virtual public Point3d
 {
 public:
-	/**  »ñÈ¡µãÎ»ÖÃ×ø±êÁÐ
-	* @param  ÎÞ
-	* @return µãÎ»ÖÃ×ø±êÁÐ
+	/**  ï¿½ï¿½È¡ï¿½ï¿½Î»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	* @param  ï¿½ï¿½
+	* @return ï¿½ï¿½Î»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	*/
 	virtual VertexVisitorSharedPtr getVertexVisitor()=0;
 
-	/** »ñµÃ¶¥µãÀàÐÍ±àÂë	
-	* @param ÎÞ
-	* @return ¶¥µãÀàÐÍ±àÂë
+	/** ï¿½ï¿½Ã¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í±ï¿½ï¿½ï¿½	
+	* @param ï¿½ï¿½
+	* @return ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í±ï¿½ï¿½ï¿½
 	*/
 	virtual unsigned char getVertexType() const=0;
-	/** ÉèÖÃ¶¥µãÀàÐÍ±àÂë
-	* @param [in] iVertexType	 ¶¥µãÀàÐÍ±àÂë
-	* @return ÎÞ
+	/** ï¿½ï¿½ï¿½Ã¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í±ï¿½ï¿½ï¿½
+	* @param [in] iVertexType	 ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í±ï¿½ï¿½ï¿½
+	* @return ï¿½ï¿½
 	*/ 
 	virtual void setVertexType(unsigned char iVertexType)=0;
-	/** »ñµÃÈýÎ¬¶àµã¶¥µã¸öÊý	
-	* @param  ÎÞ
-	* @return ÈýÎ¬¶àµã¶¥µã¸öÊý
+	/** ï¿½ï¿½ï¿½ï¿½ï¿½Î¬ï¿½ï¿½ã¶¥ï¿½ï¿½ï¿½ï¿½ï¿½	
+	* @param  ï¿½ï¿½
+	* @return ï¿½ï¿½Î¬ï¿½ï¿½ã¶¥ï¿½ï¿½ï¿½ï¿½ï¿½
 	*/
 	virtual long getVerticesNum() const=0;
-	/** ÉèÖÃÈýÎ¬¶àµã¶¥µã¸öÊýºÍ¶¥µãÊý¾Ý
-	* @param [in] nVertexNum	ÈýÎ¬¶àµã¶¥µã¸öÊý	
-	* @param [in] vVertices	Ö¸ÏòÒ»´®ÈýÎ¬µã¶ÔÏóµÄÖ¸Õë	
-	* @return ÎÞ
+	/** ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î¬ï¿½ï¿½ã¶¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	* @param [in] nVertexNum	ï¿½ï¿½Î¬ï¿½ï¿½ã¶¥ï¿½ï¿½ï¿½ï¿½ï¿½	
+	* @param [in] vVertices	Ö¸ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½Î¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½	
+	* @return ï¿½ï¿½
 	*/
 	virtual void setVertices(long nVertexNum, void* const vVertices)=0;
-	/** »ñµÃÈýÎ¬¶àµã¶¥µãÊý¾Ý	
-	* @param [out] vVertices ½«±»¸³ÖµµÄÒ»´®ÈýÎ¬µã¶ÔÏóÖ¸ÕëµÄÒýÓÃ
-	* @param [out] vNum ½«±»¸³ÖµµÄÒ»´®ÈýÎ¬µã¶ÔÏóÖ¸ÕëµÄÒýÓÃ
-	* @return ÎÞ
+	/** ï¿½ï¿½ï¿½ï¿½ï¿½Î¬ï¿½ï¿½ã¶¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½	
+	* @param [out] vVertices ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½Î¬ï¿½ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	* @param [out] vNum ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½Î¬ï¿½ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	* @return ï¿½ï¿½
 	*/
 	virtual void getVertices( long& lVertNum, void*& vVertices ) const=0;
 	
-	/**  »ñÈ¡µãµÄÊôÐÔ
-	* @param  [out] size  ÊôÐÔµÄ×Ö½Ú³¤¶È
-	* @param  [out] att µãµÄÊôÐÔ
-	* @return ÎÞ
+	/**  ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	* @param  [out] size  ï¿½ï¿½ï¿½Ôµï¿½ï¿½Ö½Ú³ï¿½ï¿½ï¿½
+	* @param  [out] att ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	* @return ï¿½ï¿½
 	*/
 	virtual void getAttributes(long & size, void ** att)=0;
-	/**  ÉèÖÃµãµÄÊôÐÔ
-	* @param  [in] size  ÊôÐÔµÄ×Ö½Ú³¤¶È
-	* @param  [in] pAttributes µãµÄÊôÐÔ
-	* @return ÎÞ
+	/**  ï¿½ï¿½ï¿½Ãµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	* @param  [in] size  ï¿½ï¿½ï¿½Ôµï¿½ï¿½Ö½Ú³ï¿½ï¿½ï¿½
+	* @param  [in] pAttributes ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	* @return ï¿½ï¿½
 	*/
 	virtual void setAttributes(const long  size, void* const pAttributes)=0;
 };
 /** @} */
 
-/** @addtogroup Geometry Annotation3d-ÈýÎ¬×¢¼ÇÀà
+/** @addtogroup Geometry Annotation3d-ï¿½ï¿½Î¬×¢ï¿½ï¿½ï¿½ï¿½
 *  @{
 */
 class CORE_API Annotation3d : virtual public Point3d
 {
 public:	
-	/** »ñµÃÆ½ÒÆ×ø±êÖµ
-	* @param	ÎÞ
-	* @return	Æ½ÒÆ×ø±êÖµ
+	/** ï¿½ï¿½ï¿½Æ½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµ
+	* @param	ï¿½ï¿½
+	* @return	Æ½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµ
     */
 	virtual Vertex3d getPosition() const = 0;
-	/** Éè¶¨Æ½ÒÆ×ø±êÖµ
-	* @param [in] pos	ÈýÎ¬µã	
-	* @return ÎÞ
+	/** ï¿½è¶¨Æ½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµ
+	* @param [in] pos	ï¿½ï¿½Î¬ï¿½ï¿½	
+	* @return ï¿½ï¿½
     */
 	virtual void setPosition(Vertex3d pos)= 0;
 
-	/**  »ñÈ¡·½Î»²ÎÊý
-	* @param  ÎÞ
-	* @return ·½Î»²ÎÊý
+	/**  ï¿½ï¿½È¡ï¿½ï¿½Î»ï¿½ï¿½ï¿½ï¿½
+	* @param  ï¿½ï¿½
+	* @return ï¿½ï¿½Î»ï¿½ï¿½ï¿½ï¿½
 	*/
 	virtual Quaternion getOrientation()=0;
-	/**  ÉèÖÃ·½Î»²ÎÊý
-	* @param  [in] qOrientation  ·½Î»²ÎÊý
-	* @return ÎÞ
+	/**  ï¿½ï¿½ï¿½Ã·ï¿½Î»ï¿½ï¿½ï¿½ï¿½
+	* @param  [in] qOrientation  ï¿½ï¿½Î»ï¿½ï¿½ï¿½ï¿½
+	* @return ï¿½ï¿½
 	*/
 	virtual void setOrientation(const Quaternion & qOrientation)=0;
 	
-	/**  »ñÈ¡×¢¼ÇÀàÐÍ
-	* @param  ÎÞ
-	* @return ×¢¼ÇÀàÐÍ
+	/**  ï¿½ï¿½È¡×¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	* @param  ï¿½ï¿½
+	* @return ×¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	*/
 	virtual long getAnnotationType() =0;
-	/**  ÉèÖÃ×¢¼ÇÀàÐÍ
-	* @param  [in] lAnnotationType  ×¢¼ÇÀàÐÍ
-	* @return ÎÞ
+	/**  ï¿½ï¿½ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	* @param  [in] lAnnotationType  ×¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	* @return ï¿½ï¿½
 	*/
 	virtual void setAnnotationType(long lAnnotationType)=0;
 
-	/**  »ñÈ¡×¢¼Ç·ç¸ñ
-	* @param  ÎÞ
-	* @return ×¢¼Ç·ç¸ñ
+	/**  ï¿½ï¿½È¡×¢ï¿½Ç·ï¿½ï¿½
+	* @param  ï¿½ï¿½
+	* @return ×¢ï¿½Ç·ï¿½ï¿½
 	*/
 	virtual unsigned char getAnnotationStyle() =0;
-	/**  ÉèÖÃ×¢¼Ç·ç¸ñ
-	* @param  [in] cAnnotationStyle  ×¢¼Ç·ç¸ñ
-	* @return ÎÞ
+	/**  ï¿½ï¿½ï¿½ï¿½×¢ï¿½Ç·ï¿½ï¿½
+	* @param  [in] cAnnotationStyle  ×¢ï¿½Ç·ï¿½ï¿½
+	* @return ï¿½ï¿½
 	*/
 	virtual void setAnnotationStyle(unsigned char cAnnotationStyle)=0;
 	
-	/**  »ñÈ¡×¢¼Ç×Ö´®
-	* @param  ÎÞ
-	* @return ×¢¼Ç×Ö´®
+	/**  ï¿½ï¿½È¡×¢ï¿½ï¿½ï¿½Ö´ï¿½
+	* @param  ï¿½ï¿½
+	* @return ×¢ï¿½ï¿½ï¿½Ö´ï¿½
 	*/
 	virtual std::string getAnnotationString()=0;
-	/**  ÉèÖÃ×¢¼Ç×Ö´®
-	* @param  [in] szAnnotationString  ×¢¼Ç×Ö´®
-	* @return ÎÞ
+	/**  ï¿½ï¿½ï¿½ï¿½×¢ï¿½ï¿½ï¿½Ö´ï¿½
+	* @param  [in] szAnnotationString  ×¢ï¿½ï¿½ï¿½Ö´ï¿½
+	* @return ï¿½ï¿½
 	*/
 	virtual void setAnnotationString(const std::string &  szAnnotationString)=0;
 	
-	/**  »ñÈ¡×ÖÌåÃû³Æ
-	* @param  ÎÞ
-	* @return ×ÖÌåÃû³Æ
+	/**  ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	* @param  ï¿½ï¿½
+	* @return ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	*/
 	virtual std::string getFontName()=0;
-	/**  ÉèÖÃ×ÖÌåÃû³Æ
-	* @param  [in] szFontName  ×ÖÌåÃû³Æ
-	* @return ÎÞ
+	/**  ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	* @param  [in] szFontName  ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	* @return ï¿½ï¿½
 	*/
 	virtual void setFontName(const std::string & szFontName)=0;
 
-	/** ×¢¼Ç×Ö¸ßºÍ×Ö¿í£º¸ß16Îª×Ö¿í£»µÍ16Î»Îª×Ö¸ß;0.01mmÎªµ¥Î» */
-	/**  »ñÈ¡×¢¼Ç×Ö¸ß
-	* @param  ÎÞ
-	* @return ×¢¼Ç×Ö¸ß
+	/** ×¢ï¿½ï¿½ï¿½Ö¸ßºï¿½ï¿½Ö¿ï¿½ï¿½ï¿½16Îªï¿½Ö¿ï¿½ï¿½ï¿½16Î»Îªï¿½Ö¸ï¿½;0.01mmÎªï¿½ï¿½Î» */
+	/**  ï¿½ï¿½È¡×¢ï¿½ï¿½ï¿½Ö¸ï¿½
+	* @param  ï¿½ï¿½
+	* @return ×¢ï¿½ï¿½ï¿½Ö¸ï¿½
 	*/
 	virtual long getHeight()=0;
-	/**  ÉèÖÃ×¢¼Ç×Ö¸ß
-	* @param  [in] lHeight  ×¢¼Ç×Ö¸ß
-	* @return ÎÞ
+	/**  ï¿½ï¿½ï¿½ï¿½×¢ï¿½ï¿½ï¿½Ö¸ï¿½
+	* @param  [in] lHeight  ×¢ï¿½ï¿½ï¿½Ö¸ï¿½
+	* @return ï¿½ï¿½
 	*/
 	virtual void setHeight(long lHeight)=0;
 
-	/** ×¢¼Ç×Ö´®µÄ×Ö¿í£¬¶Ôµ¥µã×¢¼ÇÓÐÐ§£¬¶Ô²¼µãµÈÎÞÐ§;0.01mmÎªµ¥Î» */
-	/**  »ñÈ¡×¢¼Ç×Ö´®µÄ¿í¶È
-	* @param  ÎÞ
-	* @return ×¢¼Ç×Ö´®µÄ¿í¶È
+	/** ×¢ï¿½ï¿½ï¿½Ö´ï¿½ï¿½ï¿½ï¿½Ö¿ï¿½ï¿½Ôµï¿½ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½Ð§ï¿½ï¿½ï¿½Ô²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð§;0.01mmÎªï¿½ï¿½Î» */
+	/**  ï¿½ï¿½È¡×¢ï¿½ï¿½ï¿½Ö´ï¿½ï¿½Ä¿ï¿½ï¿½
+	* @param  ï¿½ï¿½
+	* @return ×¢ï¿½ï¿½ï¿½Ö´ï¿½ï¿½Ä¿ï¿½ï¿½
 	*/
 	virtual long getWidth()=0;
-	/**  ÉèÖÃ×¢¼Ç×Ö´®µÄ¿í¶È
-	* @param  [in] lWidth  ×¢¼Ç×Ö´®µÄ¿í¶È
-	* @return ÎÞ
+	/**  ï¿½ï¿½ï¿½ï¿½×¢ï¿½ï¿½ï¿½Ö´ï¿½ï¿½Ä¿ï¿½ï¿½
+	* @param  [in] lWidth  ×¢ï¿½ï¿½ï¿½Ö´ï¿½ï¿½Ä¿ï¿½ï¿½
+	* @return ï¿½ï¿½
 	*/
 	virtual void setWidth(long lWidth)=0;
 
-	/** ×¢¼Ç×Ö¼ä¾à;0.01mmÎªµ¥Î» */
-	/**  »ñÈ¡×¢¼Ç×Ö¼ä¾à
-	* @param  ÎÞ
-	* @return ×¢¼Ç×Ö¼ä¾à
+	/** ×¢ï¿½ï¿½ï¿½Ö¼ï¿½ï¿½;0.01mmÎªï¿½ï¿½Î» */
+	/**  ï¿½ï¿½È¡×¢ï¿½ï¿½ï¿½Ö¼ï¿½ï¿½
+	* @param  ï¿½ï¿½
+	* @return ×¢ï¿½ï¿½ï¿½Ö¼ï¿½ï¿½
 	*/
 	virtual long getSpaces()=0;
-	/**  ÉèÖÃ×¢¼Ç×Ö¼ä¾à
-	* @param  [in] lSpaces  ×¢¼Ç×Ö¼ä¾à
-	* @return ÎÞ
+	/**  ï¿½ï¿½ï¿½ï¿½×¢ï¿½ï¿½ï¿½Ö¼ï¿½ï¿½
+	* @param  [in] lSpaces  ×¢ï¿½ï¿½ï¿½Ö¼ï¿½ï¿½
+	* @return ï¿½ï¿½
 	*/
 	virtual void setSpaces(long lSpaces)=0;
 
-	/** ×¢¼ÇÑÕÉ« */
-	/**  »ñÈ¡×¢¼ÇÑÕÉ«
-	* @param  ÎÞ
-	* @return ×¢¼ÇÑÕÉ«
+	/** ×¢ï¿½ï¿½ï¿½ï¿½É« */
+	/**  ï¿½ï¿½È¡×¢ï¿½ï¿½ï¿½ï¿½É«
+	* @param  ï¿½ï¿½
+	* @return ×¢ï¿½ï¿½ï¿½ï¿½É«
 	*/
 	virtual Color4f getColor()=0;
-	/**  ÉèÖÃ×¢¼ÇÑÕÉ«
-	* @param  [in] clAnnotation  ×¢¼ÇÑÕÉ«
-	* @return ÎÞ
+	/**  ï¿½ï¿½ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½É«
+	* @param  [in] clAnnotation  ×¢ï¿½ï¿½ï¿½ï¿½É«
+	* @return ï¿½ï¿½
 	*/
 	virtual void setColor(const Color4f & clAnnotation)=0;
 };
 /** @} */
 
-/** @addtogroup Geometry Reference3d-ÈýÎ¬²ÎÕÕÀà 
+/** @addtogroup Geometry Reference3d-ï¿½ï¿½Î¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
 *  @{
 */
 class CORE_API Reference3d : virtual public Point3d
 {
 public:
-	/**  »ñÈ¡¹²ÏíÄ£°å
-	* @param  ÎÞ
-	* @return ¹²ÏíÄ£°å
+	/**  ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½Ä£ï¿½ï¿½
+	* @param  ï¿½ï¿½
+	* @return ï¿½ï¿½ï¿½ï¿½Ä£ï¿½ï¿½
 	*/
 	virtual SharedModelSharedPtr  getSharedModel()=0;
-	/**  ÉèÖÃ¹²ÏíÄ£°å
-	* @param  [in] spSharedModel  ¹²ÏíÄ£°åµÄ¹²ÏíÖ¸Õë
-	* @return ÎÞ
+	/**  ï¿½ï¿½ï¿½Ã¹ï¿½ï¿½ï¿½Ä£ï¿½ï¿½
+	* @param  [in] spSharedModel  ï¿½ï¿½ï¿½ï¿½Ä£ï¿½ï¿½Ä¹ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½
+	* @return ï¿½ï¿½
 	*/
 	virtual void  setSharedModel(SharedModelSharedPtr spSharedModel)=0;
-	/**  »ñÈ¡¹²ÏíÄ£°åID
-	* @param  ÎÞ
-	* @return ¹²ÏíÄ£°åID
+	/**  ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½Ä£ï¿½ï¿½ID
+	* @param  ï¿½ï¿½
+	* @return ï¿½ï¿½ï¿½ï¿½Ä£ï¿½ï¿½ID
 	*/
 	virtual MDLID  getSharedModelID()=0;
 
-	/** »ñµÃËõ·Å±ÈÀý	
-	* @param  ÎÞ
-	* @return Ëõ·Å±ÈÀý
+	/** ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å±ï¿½ï¿½ï¿½	
+	* @param  ï¿½ï¿½
+	* @return ï¿½ï¿½ï¿½Å±ï¿½ï¿½ï¿½
 	*/
 	virtual double getScale() const=0;
 
-	/** ÉèÖÃËõ·Å±ÈÀý	
-	* @param [in] dScale Ëõ·Å±ÈÀý
-	* @return ÎÞ
+	/** ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å±ï¿½ï¿½ï¿½	
+	* @param [in] dScale ï¿½ï¿½ï¿½Å±ï¿½ï¿½ï¿½
+	* @return ï¿½ï¿½
 	*/
 	virtual void setScale(double dScale)=0;
 
-	/** »ñµÃ¹ØÁª¶ÔÏóÃû³Æ	
-	* @param  ÎÞ
-	* @return ¹ØÁª¶ÔÏóÃû³Æ
+	/** ï¿½ï¿½Ã¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½	
+	* @param  ï¿½ï¿½
+	* @return ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	*/
 	virtual std::string getShareModelName() const=0;
 
-	/** ÉèÖÃ¹ØÁª¶ÔÏóÃû³Æ
-	* @param [in] strLinkName ¹ØÁª¶ÔÏóÃû³Æ
-	* @return ÎÞ
+	/** ï¿½ï¿½ï¿½Ã¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	* @param [in] strLinkName ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	* @return ï¿½ï¿½
 	*/
 	virtual void setShareModelName(std::string strLinkName)=0;
 };
 /** @} */
 
-/** @addtogroup Geometry Curve3d-ÈýÎ¬ÏßÀà 
+/** @addtogroup Geometry Curve3d-ï¿½ï¿½Î¬ï¿½ï¿½ï¿½ï¿½ 
 *  @{
 */
 class CORE_API Curve3d : virtual public Geometry
 {
 public:
-	/**  »ñÈ¡¶ÔÏóÎ»ÖÃ×ø±ê·ÃÎÊÆ÷
-	* @param  ÎÞ
-	* @return ¶ÔÏóÎ»ÖÃ×ø±ê·ÃÎÊÆ÷Ö¸Õë
+	/**  ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½Î»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	* @param  ï¿½ï¿½
+	* @return ï¿½ï¿½ï¿½ï¿½Î»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½
 	*/
 	virtual VertexVisitorSharedPtr getVertexVisitor()=0;
-	/** »ñµÃ¶¥µãÀàÐÍ±àÂë	
-	* @param ÎÞ
-	* @return ¶¥µãÀàÐÍ±àÂë
+	/** ï¿½ï¿½Ã¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í±ï¿½ï¿½ï¿½	
+	* @param ï¿½ï¿½
+	* @return ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í±ï¿½ï¿½ï¿½
 	*/
 	virtual unsigned char getVertexType() const=0;
-	/** ÉèÖÃ¶¥µãÀàÐÍ±àÂë
-	* @param [in] iVertexType	 ¶¥µãÀàÐÍ±àÂë
-	* @return ÎÞ
+	/** ï¿½ï¿½ï¿½Ã¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í±ï¿½ï¿½ï¿½
+	* @param [in] iVertexType	 ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í±ï¿½ï¿½ï¿½
+	* @return ï¿½ï¿½
 	*/ 
 	virtual void setVertexType(unsigned char iVertexType)=0;
-	/** »ñµÃÈýÎ¬¶¥µã¸öÊý	
-	* @param  ÎÞ
-	* @return ÈýÎ¬¶¥µã¸öÊý
+	/** ï¿½ï¿½ï¿½ï¿½ï¿½Î¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½	
+	* @param  ï¿½ï¿½
+	* @return ï¿½ï¿½Î¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	*/
 	virtual long getVerticesNum() const=0;
-	/** ÉèÖÃÈýÎ¬¶¥µã¸öÊýºÍ¶¥µãÊý¾Ý
-	* @param [in] nVertexNum	ÈýÎ¬¶¥µã¸öÊý	
-	* @param [in] vVertices	Ö¸ÏòÒ»´®ÈýÎ¬µã¶ÔÏóµÄÖ¸Õë	
-	* @return ÎÞ
+	/** ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	* @param [in] nVertexNum	ï¿½ï¿½Î¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½	
+	* @param [in] vVertices	Ö¸ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½Î¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½	
+	* @return ï¿½ï¿½
 	*/
 	virtual void setVertices(long nVertexNum, void* const vVertices)=0;
-	/** »ñµÃÈýÎ¬¶àµã¶¥µãÊý¾Ý	
-	* @param [out] vVertices ½«±»¸³ÖµµÄÒ»´®ÈýÎ¬µã¶ÔÏóÖ¸ÕëµÄÒýÓÃ
-	* @param [out] vNum ½«±»¸³ÖµµÄÒ»´®ÈýÎ¬µã¶ÔÏóÖ¸ÕëµÄÒýÓÃ
-	* @return ÎÞ
+	/** ï¿½ï¿½ï¿½ï¿½ï¿½Î¬ï¿½ï¿½ã¶¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½	
+	* @param [out] vVertices ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½Î¬ï¿½ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	* @param [out] vNum ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½Î¬ï¿½ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	* @return ï¿½ï¿½
 	*/
 	virtual void getVertices( long& lVertNum, void*& vVertices ) const=0;
 
-	/** »ñÈ¡ÏßµÄ³¤¶È
-	* @param  ÎÞ
-	* @return Ïß³¤
+	/** ï¿½ï¿½È¡ï¿½ßµÄ³ï¿½ï¿½ï¿½
+	* @param  ï¿½ï¿½
+	* @return ï¿½ß³ï¿½
     */
 	virtual double getLength()=0;
 };
 /** @} */
 
-/** @addtogroup Geometry LinearRing3d-ÈýÎ¬Ïß»·Àà 
+/** @addtogroup Geometry LinearRing3d-ï¿½ï¿½Î¬ï¿½ß»ï¿½ï¿½ï¿½ 
 *  @{
 */
 class CORE_API LinearRing3d : virtual public Curve3d
 {
 public:
-	/**  »ñÈ¡Ïß»·±êÖ¾
-	* @param  ÎÞ
-	* @return 1 -- ÄÚ»·±êÖ¾£»0 -- Íâ»·±êÖ¾
+	/**  ï¿½ï¿½È¡ï¿½ß»ï¿½ï¿½ï¿½Ö¾
+	* @param  ï¿½ï¿½
+	* @return 1 -- ï¿½Ú»ï¿½ï¿½ï¿½Ö¾ï¿½ï¿½0 -- ï¿½â»·ï¿½ï¿½Ö¾
 	*/
 	virtual int getRingFlag()=0;
-	/**  ÉèÖÃÏß»·±êÖ¾
-	* @param  [in] nFlag Ïß»·±êÖ¾ (1 -- ÄÚ»·±êÖ¾£»0 -- Íâ»·±êÖ¾)
-	* @return ÎÞ
+	/**  ï¿½ï¿½ï¿½ï¿½ï¿½ß»ï¿½ï¿½ï¿½Ö¾
+	* @param  [in] nFlag ï¿½ß»ï¿½ï¿½ï¿½Ö¾ (1 -- ï¿½Ú»ï¿½ï¿½ï¿½Ö¾ï¿½ï¿½0 -- ï¿½â»·ï¿½ï¿½Ö¾)
+	* @return ï¿½ï¿½
 	*/
 	virtual void setRingFlag(int nFlag)=0;
 };
 /** @} */
 
-/** @addtogroup Geometry LineString3d-ÈýÎ¬ÕÛÏßÀà 
+/** @addtogroup Geometry LineString3d-ï¿½ï¿½Î¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
 *  @{
 */
 class CORE_API LineString3d : virtual public Curve3d
 {
 public:
 
-	/**  »ñÈ¡ÕÛÏß¿í¶È
-	* @param  [in,out] lineWidth  ÕÛÏß¿í¶È
-	* @return ÎÞ
+	/**  ï¿½ï¿½È¡ï¿½ï¿½ï¿½ß¿ï¿½ï¿½
+	* @param  [in,out] lineWidth  ï¿½ï¿½ï¿½ß¿ï¿½ï¿½
+	* @return ï¿½ï¿½
 	*/
 	virtual void getLineWidth(double& lineWidth) =0;
-	/**  ÉèÖÃÕÛÏß¿í¶È
-	* @param  [in] lineWidth  ÕÛÏß¿í¶È
-	* @return ÎÞ
+	/**  ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß¿ï¿½ï¿½
+	* @param  [in] lineWidth  ï¿½ï¿½ï¿½ß¿ï¿½ï¿½
+	* @return ï¿½ï¿½
 	*/
 	virtual void setLineWidth(double& lineWidth) =0;
 };
 /** @} */
 
-/** @addtogroup Geometry MultiPolyline3d-ÈýÎ¬¸´ÔÓÕÛÏßÀà 
+/** @addtogroup Geometry MultiPolyline3d-ï¿½ï¿½Î¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
 *  @{
 */
 class CORE_API MultiPolyline3d : virtual public Curve3d
 {
 public:
-	/** »ñÈ¡ÏßµÄ¿í¶È
-	* @param  [in] lineWidth  ÕÛÏß¿í¶È
-	* @return ÎÞ
+	/** ï¿½ï¿½È¡ï¿½ßµÄ¿ï¿½ï¿½
+	* @param  [in] lineWidth  ï¿½ï¿½ï¿½ß¿ï¿½ï¿½
+	* @return ï¿½ï¿½
     */
 	virtual void setLineWidth(double& lineWidth)=0;
-	/** »ñÈ¡ÏßµÄ¿í¶È
-	* @param  ÎÞ
-	* @return ÏßµÄ¿í¶È
+	/** ï¿½ï¿½È¡ï¿½ßµÄ¿ï¿½ï¿½
+	* @param  ï¿½ï¿½
+	* @return ï¿½ßµÄ¿ï¿½ï¿½
     */
 	virtual double getLineWidth()=0;
 
-	/**  »ñÈ¡×éºÏÕÛÏßµÄ¸öÊý
-	* @param  ÎÞ
-	* @return ×éºÏÕÛÏßµÄ¸öÊý
+	/**  ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ßµÄ¸ï¿½ï¿½ï¿½
+	* @param  ï¿½ï¿½
+	* @return ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ßµÄ¸ï¿½ï¿½ï¿½
 	*/
 	virtual long getPolylineNumber()=0;
 
-	/**  »ñÈ¡ÕÛÏß½á¹¹ÐòºÅÁÐ
-	* @param  [in] ib  ÕÛÏß½á¹¹ÐòºÅÁÐ
-	* @return ÎÞ
+	/**  ï¿½ï¿½È¡ï¿½ï¿½ï¿½ß½á¹¹ï¿½ï¿½ï¿½ï¿½ï¿½
+	* @param  [in] ib  ï¿½ï¿½ï¿½ß½á¹¹ï¿½ï¿½ï¿½ï¿½ï¿½
+	* @return ï¿½ï¿½
 	*/
 	virtual void getPolylineIndexBuffer(IndexBuffer & ib)=0;
 
-	/**  »ñÈ¡×éºÏÕÛÏß¸÷×ÔµÄ½áµãÊýÄ¿ÁÐ
-	* @param  [in] ib  ×éºÏÕÛÏß¸÷×ÔµÄ½áµãÊýÄ¿ÁÐ
-	* @return ÎÞ
+	/**  ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß¸ï¿½ï¿½ÔµÄ½ï¿½ï¿½ï¿½ï¿½Ä¿ï¿½ï¿½
+	* @param  [in] ib  ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß¸ï¿½ï¿½ÔµÄ½ï¿½ï¿½ï¿½ï¿½Ä¿ï¿½ï¿½
+	* @return ï¿½ï¿½
 	*/
 	virtual void getVertexNumberPerPolyline(IndexBuffer & ib )=0;
 };
 /** @} */
 
-/** @addtogroup Geometry ParameterizedCurve3d-ÈýÎ¬²ÎÊý»¯ÇúÏßÀà 
+/** @addtogroup Geometry ParameterizedCurve3d-ï¿½ï¿½Î¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
 *  @{
 */
 class CORE_API ParameterizedCurve3d : virtual public Curve3d
 {
 public:
-	/** »ñµÃÇúÏßÀàÐÍ±ê¼Ç	
-	* @param  ÎÞ
-	* @return ÇúÏßÀàÐÍ±ê¼ÇÖµ
+	/** ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í±ï¿½ï¿½	
+	* @param  ï¿½ï¿½
+	* @return ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í±ï¿½ï¿½Öµ
     */
 	virtual unsigned char getParameterizedType() const=0;
 
-	/** ÉèÖÃÇúÏßÀàÐÍ
-	* @param  [in] iType	ÒÑÖªÇúÏßÀàÐÍÖµ	
-	* @return ÎÞ
+	/** ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	* @param  [in] iType	ï¿½ï¿½Öªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµ	
+	* @return ï¿½ï¿½
     */
 	virtual void setParameterizedType(unsigned char iType)=0;
 
-	/** »ñµÃ¿ØÖÆµãÊý×é	
-	* @param  [out] vControlPoints ½«±»¸³ÖµµÄ¿ØÖÆµãÊý×éµÄÒýÓÃ
-	* @return ÎÞ
+	/** ï¿½ï¿½Ã¿ï¿½ï¿½Æµï¿½ï¿½ï¿½ï¿½ï¿½	
+	* @param  [out] vControlPoints ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµï¿½Ä¿ï¿½ï¿½Æµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	* @return ï¿½ï¿½
     */
 	virtual void getControlVertices(vector<Vertex3d>& vControlPoints) const=0;
 
-	/** ÉèÖÃ¿ØÖÆµãÊý×é
-	* @param  [in] vControlPoints	ÒÑÖª¿ØÖÆµãÊý×éµÄÒýÓÃ	
-	* @return ÎÞ
+	/** ï¿½ï¿½ï¿½Ã¿ï¿½ï¿½Æµï¿½ï¿½ï¿½ï¿½ï¿½
+	* @param  [in] vControlPoints	ï¿½ï¿½Öªï¿½ï¿½ï¿½Æµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½	
+	* @return ï¿½ï¿½
     */
 	virtual void setControlVertices(const vector<Vertex3d>& vControlPoints)=0;
 };
 /** @} */
 
-/** @addtogroup Geometry Surface3d-ÈýÎ¬ÃæÀà 
+/** @addtogroup Geometry Surface3d-ï¿½ï¿½Î¬ï¿½ï¿½ï¿½ï¿½ 
 *  @{
 */
 class CORE_API Surface3d : virtual public Geometry
 {
 public:
-	/**  »ñÈ¡¶ÔÏóÎ»ÖÃ×ø±ê·ÃÎÊÆ÷
-	* @param  ÎÞ
-	* @return ¶ÔÏóÎ»ÖÃ×ø±ê·ÃÎÊÆ÷Ö¸Õë
+	/**  ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½Î»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	* @param  ï¿½ï¿½
+	* @return ï¿½ï¿½ï¿½ï¿½Î»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½
 	*/
 	virtual VertexVisitorSharedPtr getVertexVisitor()=0;
-	/** »ñµÃ¶¥µãÀàÐÍ±àÂë	
-	* @param  ÎÞ
-	* @return ¶¥µãÀàÐÍ±àÂë
+	/** ï¿½ï¿½Ã¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í±ï¿½ï¿½ï¿½	
+	* @param  ï¿½ï¿½
+	* @return ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í±ï¿½ï¿½ï¿½
 	*/
 	virtual unsigned char getVertexType() const=0;
-	/** ÉèÖÃ¶¥µãÀàÐÍ±àÂë
-	* @param  [in] iVertexType	 ¶¥µãÀàÐÍ±àÂë
-	* @return ÎÞ
+	/** ï¿½ï¿½ï¿½Ã¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í±ï¿½ï¿½ï¿½
+	* @param  [in] iVertexType	 ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í±ï¿½ï¿½ï¿½
+	* @return ï¿½ï¿½
 	*/ 
 	virtual void setVertexType(unsigned char iVertexType)=0;
-	/** »ñµÃÈýÎ¬¶¥µã¸öÊý	
-	* @param  ÎÞ
-	* @return ÈýÎ¬¶¥µã¸öÊý
+	/** ï¿½ï¿½ï¿½ï¿½ï¿½Î¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½	
+	* @param  ï¿½ï¿½
+	* @return ï¿½ï¿½Î¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	*/
 	virtual long getVerticesNum() const=0;
-	/** ÉèÖÃÈýÎ¬¶¥µã¸öÊýºÍ¶¥µãÊý¾Ý
-	* @param  [in] nVertexNum	ÈýÎ¬¶¥µã¸öÊý	
-	* @param  [in] vVertices	Ö¸ÏòÒ»´®ÈýÎ¬µã¶ÔÏóµÄÖ¸Õë	
-	* @return ÎÞ
+	/** ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	* @param  [in] nVertexNum	ï¿½ï¿½Î¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½	
+	* @param  [in] vVertices	Ö¸ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½Î¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½	
+	* @return ï¿½ï¿½
 	*/
 	virtual void setVertices(long nVertexNum, void* const vVertices)=0;
-	/** »ñµÃÈýÎ¬¶àµã¶¥µãÊý¾Ý	
-	* @param  [out] vVertices ½«±»¸³ÖµµÄÒ»´®ÈýÎ¬µã¶ÔÏóÖ¸ÕëµÄÒýÓÃ
-	* @param  [out] vNum ½«±»¸³ÖµµÄÒ»´®ÈýÎ¬µã¶ÔÏóÖ¸ÕëµÄÒýÓÃ
-	* @return ÎÞ
+	/** ï¿½ï¿½ï¿½ï¿½ï¿½Î¬ï¿½ï¿½ã¶¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½	
+	* @param  [out] vVertices ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½Î¬ï¿½ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	* @param  [out] vNum ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½Î¬ï¿½ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	* @return ï¿½ï¿½
 	*/
 	virtual void getVertices( long& lVertNum, void*& vVertices ) const=0;
 
-	/**  »ñÈ¡Ãæ²ÄÖÊÖ¸Õë
-	* @param  ÎÞ
-	* @return Ãæ²ÄÖÊÖ¸Õë
+	/**  ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½
+	* @param  ï¿½ï¿½
+	* @return ï¿½ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½
 	*/
 	virtual MaterialPtr  getMaterial()=0;
 
-	/**  ÉèÖÃÃæ²ÄÖÊ
-	* @param  [in] pMaterial Ãæ²ÄÖÊÖ¸Õë
-	* @return ÎÞ
+	/**  ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	* @param  [in] pMaterial ï¿½ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½
+	* @return ï¿½ï¿½
 	*/
 	virtual void  setMaterial(MaterialPtr pMaterial)=0;
 	
-	/**  »ñÈ¡²ÄÖÊID
-	* @param  ÎÞ
-	* @return ²ÄÖÊID
+	/**  ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ID
+	* @param  ï¿½ï¿½
+	* @return ï¿½ï¿½ï¿½ï¿½ID
 	*/
 	virtual Identifier::raw_type  getMaterialID()=0;
 
-	/** ÇóÃæ»ý
-	* @param  ÎÞ
-	* @return Ãæ»ýÖµ
+	/** ï¿½ï¿½ï¿½ï¿½ï¿½
+	* @param  ï¿½ï¿½
+	* @return ï¿½ï¿½ï¿½Öµ
     */
 	virtual double getArea() const =0;
 };
 /** @} */
 
-/** @addtogroup Geometry TriangleMesh3d-ÈýÎ¬Èý½ÇÐÎÍø¸ñÀà 
+/** @addtogroup Geometry TriangleMesh3d-ï¿½ï¿½Î¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
 *  @{
 */
 class CORE_API  TriangleMesh3d : virtual public Surface3d
 {
 public:
-	/**  »ñÈ¡Èý½ÇÐÎÍø¸ñÐòºÅ½á¹¹
-	* @param  [in,out] ib  Èý½ÇÐÎÍø¸ñÐòºÅ½á¹¹buffer
-	* @return ÎÞ
+	/**  ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å½á¹¹
+	* @param  [in,out] ib  ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å½á¹¹buffer
+	* @return ï¿½ï¿½
 	*/
 	virtual void getTriangleIndexBuffer(IndexBuffer & ib)=0;
-	/**  »ñÈ¡Èý½ÇÐÎÍø¸ñÌõ´øÐòºÅ½á¹¹
-	* @param  [in,out] ib  Èý½ÇÐÎÍø¸ñÌõ´øÐòºÅ½á¹¹buffer
-	* @return ÎÞ
+	/**  ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å½á¹¹
+	* @param  [in,out] ib  ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å½á¹¹buffer
+	* @return ï¿½ï¿½
 	*/
 	virtual void getTriangleStripIndexBuffer(IndexBuffer & ib)=0;
 
-	/** ÉèÖÃÈý½ÇÐÎË÷Òý¼°Ë÷Òý³¤¶È
-	* @param [in] lTriangleList  Èý½ÇÐÎË÷ÒýÐòÁÐ
-	* @param [in] lTriListSize Èý½ÇÐÎË÷Òý³¤¶È
-	* @return ÎÞ
+	/** ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	* @param [in] lTriangleList  ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	* @param [in] lTriListSize ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	* @return ï¿½ï¿½
     */
 	virtual void setTriangles(long* const lTriangleList, long lTriListSize)=0;
 };
 /** @} */
-/** @addtogroup Geometry Polygon3d-ÈýÎ¬¶à±ßÐÎÀà 
+/** @addtogroup Geometry Polygon3d-ï¿½ï¿½Î¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
 *  @{
 */
 class CORE_API Polygon3d : virtual public Surface3d
 {
 public:
-	/** »ñÈ¡¶à±ßÐÎÖÐ»·Êý×é
-	* @param  [in,out] rings ¶à±ßÐÎµÄ»·Êý×é
-	* @return ÎÞ
+	/** ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð»ï¿½ï¿½ï¿½ï¿½ï¿½
+	* @param  [in,out] rings ï¿½ï¿½ï¿½ï¿½ÎµÄ»ï¿½ï¿½ï¿½ï¿½ï¿½
+	* @return ï¿½ï¿½
 	*/
 	virtual void getRings(std::vector<LinearRing3d*> & rings)=0;
-	/** ÉèÖÃ¶à±ßÐÎÖÐ»·Êý×é
-	* @param  [in,out] rings ¶à±ßÐÎµÄ»·Êý×é
-	* @return ÎÞ
+	/** ï¿½ï¿½ï¿½Ã¶ï¿½ï¿½ï¿½ï¿½ï¿½Ð»ï¿½ï¿½ï¿½ï¿½ï¿½
+	* @param  [in,out] rings ï¿½ï¿½ï¿½ï¿½ÎµÄ»ï¿½ï¿½ï¿½ï¿½ï¿½
+	* @return ï¿½ï¿½
 	*/
 	virtual void setRings(std::vector<LinearRing3d*> & rings)=0;
-	/** Ïò¶à±ßÐÎÖÐÌí¼Ó»·
-	* @param  [in] pRing »·¶ÔÏóÖ¸Õë£¨Ìí¼Óºó¸ÃÖ¸ÕëÓÉPolygon×ÔÐÐÎ¬»¤£©
-	* @return ÎÞ
+	/** ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó»ï¿½
+	* @param  [in] pRing ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ë£¨ï¿½ï¿½Óºï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½Polygonï¿½ï¿½ï¿½ï¿½Î¬ï¿½ï¿½ï¿½ï¿½
+	* @return ï¿½ï¿½
 	*/
 	virtual void addRing(LinearRing3d * pRing )=0;
 
@@ -595,286 +595,286 @@ public:
 
 
 
-/** @addtogroup Geometry ParameterizedSurface3d-ÈýÎ¬²ÎÊý»¯ÇúÃæÀà 
+/** @addtogroup Geometry ParameterizedSurface3d-ï¿½ï¿½Î¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
 *  @{
 */
 class CORE_API ParameterizedSurface3d : virtual public Surface3d
 {
 public:
-	/** »ñµÃ²ÎÊý»¯ÇúÃæÀàÐÍ±ê¼Ç	
-	* @param  ÎÞ
-	* @return ²ÎÊý»¯ÇúÃæÀàÐÍ±ê¼ÇÖµ
+	/** ï¿½ï¿½Ã²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í±ï¿½ï¿½	
+	* @param  ï¿½ï¿½
+	* @return ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í±ï¿½ï¿½Öµ
     */
 	virtual unsigned char getParameterizedType() const=0;
 
-	/** ÉèÖÃ²ÎÊý»¯ÇúÃæÀàÐÍ
-	* @param [in] iType	ÒÑÖª²ÎÊý»¯ÇúÃæÀàÐÍÖµ	
-	* @return ÎÞ
+	/** ï¿½ï¿½ï¿½Ã²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	* @param [in] iType	ï¿½ï¿½Öªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµ	
+	* @return ï¿½ï¿½
     */
 	virtual void setParameterizedType(unsigned char iType)=0;
 
-	/** »ñµÃ¿ØÖÆµãÊý×é	
-	* @param  [out] vControlPoints ½«±»¸³ÖµµÄ¿ØÖÆµãÊý×éµÄÒýÓÃ
-	* @return ÎÞ
+	/** ï¿½ï¿½Ã¿ï¿½ï¿½Æµï¿½ï¿½ï¿½ï¿½ï¿½	
+	* @param  [out] vControlPoints ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµï¿½Ä¿ï¿½ï¿½Æµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	* @return ï¿½ï¿½
     */
 	virtual void getControlVertices(vector<Vertex3d>& vControlPoints) const=0;
 
-	/** ÉèÖÃ¿ØÖÆµãÊý×é
-	* @param  [in] vControlPoints	ÒÑÖª¿ØÖÆµãÊý×éµÄÒýÓÃ	
-	* @return ÎÞ
+	/** ï¿½ï¿½ï¿½Ã¿ï¿½ï¿½Æµï¿½ï¿½ï¿½ï¿½ï¿½
+	* @param  [in] vControlPoints	ï¿½ï¿½Öªï¿½ï¿½ï¿½Æµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½	
+	* @return ï¿½ï¿½
     */
 	virtual void setControlVertices(const vector<Vertex3d>& vControlPoints)=0;
 };
 /** @} */
 
-/** @addtogroup Geometry MultiPolygon3d-ÈýÎ¬¶àÃæÀà 
+/** @addtogroup Geometry MultiPolygon3d-ï¿½ï¿½Î¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
 *  @{
 */
 class CORE_API MultiPolygon3d : virtual public Surface3d
 {
 public:
-	/**  »ñÈ¡×éºÏ¶à±ßÐÎÃæµÄ¸öÊý
-	* @param  ÎÞ
-	* @return ×éºÏ¶à±ßÐÎÃæµÄ¸öÊý
+	/**  ï¿½ï¿½È¡ï¿½ï¿½Ï¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¸ï¿½ï¿½ï¿½
+	* @param  ï¿½ï¿½
+	* @return ï¿½ï¿½Ï¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¸ï¿½ï¿½ï¿½
 	*/
 	virtual long getPolygonNumber()=0;
 
-	/**  »ñÈ¡¶àÃæ½á¹¹ÐòºÅÁÐ
-	* @param  [in] ib  Ãæ½á¹¹ÐòºÅÁÐ
-	* @return ÎÞ
+	/**  ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½á¹¹ï¿½ï¿½ï¿½ï¿½ï¿½
+	* @param  [in] ib  ï¿½ï¿½á¹¹ï¿½ï¿½ï¿½ï¿½ï¿½
+	* @return ï¿½ï¿½
 	*/
 	virtual void getPolygonIndexBuffer(IndexBuffer & ib)=0;
-	/**  »ñÈ¡×éºÏ¶à±ßÐÎ¸÷×ÔµÄ½áµãÊýÄ¿ÁÐ
-	* @param  [in] ib  ×éºÏ¶à±ßÐÎ¸÷×ÔµÄ½áµãÊýÄ¿ÁÐ
-	* @return ÎÞ
+	/**  ï¿½ï¿½È¡ï¿½ï¿½Ï¶ï¿½ï¿½ï¿½Î¸ï¿½ï¿½ÔµÄ½ï¿½ï¿½ï¿½ï¿½Ä¿ï¿½ï¿½
+	* @param  [in] ib  ï¿½ï¿½Ï¶ï¿½ï¿½ï¿½Î¸ï¿½ï¿½ÔµÄ½ï¿½ï¿½ï¿½ï¿½Ä¿ï¿½ï¿½
+	* @return ï¿½ï¿½
 	*/
 	virtual void getVertexNumberPerPolygon(IndexBuffer & ib )=0;
 	
-	/**  ÉèÖÃÍØÆËÐÅÏ¢
-	* @param  [in] PolygonNumber  ¶à±ßÐÎ¸öÊý
-	* @param  [in] VertexNumberPrePolygon  Ã¿¸ö¶à±ßÐÎµÄ¶¥µãÊý
-	* @param  [in] VertexIndices  ¶à±ßÐÎ¶¥µãË÷ÒýÁÐ±í
-	* @return ÎÞ
+	/**  ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
+	* @param  [in] PolygonNumber  ï¿½ï¿½ï¿½ï¿½Î¸ï¿½ï¿½ï¿½
+	* @param  [in] VertexNumberPrePolygon  Ã¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÎµÄ¶ï¿½ï¿½ï¿½ï¿½ï¿½
+	* @param  [in] VertexIndices  ï¿½ï¿½ï¿½ï¿½Î¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð±ï¿½
+	* @return ï¿½ï¿½
 	*/
 	virtual void setPolyTopos(const long PolygonNumber, const std::vector<long> & VertexNumberPrePolygon, const std::vector<long> & VertexIndices )=0;
 };
 /** @} */
 
-/** @addtogroup Geometry Triangle3d-ÈýÎ¬Èý½ÇÐÎÀà 
+/** @addtogroup Geometry Triangle3d-ï¿½ï¿½Î¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
 *  @{
 */
 class CORE_API Triangle3d : virtual public Surface3d
 {
 public:
-	/**  ÉèÖÃÈý½ÇÐÎ¶¥µã×ø±ê
-	* @param  [in] v  Èý¸ö¶¥µã×ø±ê
-	* @return ÎÞ
+	/**  ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	* @param  [in] v  ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	* @return ï¿½ï¿½
 	*/
 	virtual void setVertices(Vertex3d v[3])=0;
-	/**  »ñÈ¡Èý½ÇÐÎ¶¥µã×ø±ê
-	* @param  [in,out] v  Èý¸ö¶¥µã×ø±ê
-	* @return ÎÞ
+	/**  ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½Î¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	* @param  [in,out] v  ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	* @return ï¿½ï¿½
 	*/
 	virtual void getVertices(Vertex3d v[3])=0;
 
-	/**  ÉèÖÃÈý½ÇÐÎ·¨Ïò
-	* @param  [in] vNormal  Èý½ÇÐÎ·¨Ïò
-	* @return ÎÞ
+	/**  ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î·ï¿½ï¿½ï¿½
+	* @param  [in] vNormal  ï¿½ï¿½ï¿½ï¿½ï¿½Î·ï¿½ï¿½ï¿½
+	* @return ï¿½ï¿½
 	*/
 	virtual void setNormal(const Vertex3d & vNormal)=0;
-	/**  »ñÈ¡Èý½ÇÐÎ·¨Ïò
-	* @param  [in,out] vNormal  Èý½ÇÐÎ·¨Ïò
-	* @return ÎÞ
+	/**  ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½Î·ï¿½ï¿½ï¿½
+	* @param  [in,out] vNormal  ï¿½ï¿½ï¿½ï¿½ï¿½Î·ï¿½ï¿½ï¿½
+	* @return ï¿½ï¿½
 	*/
 	virtual void getNormal(Vertex3d & vNormal )=0;
 
-	/** ÇóÈý½ÇÐÎÖÜ³¤
-	* @param  ÎÞ
-	* @return ÖÜ³¤
+	/** ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ü³ï¿½
+	* @param  ï¿½ï¿½
+	* @return ï¿½Ü³ï¿½
     */
 	virtual double getPerimeter()=0;
 };
 /** @} */
 
-/** @addtogroup Geometry Rectangle3d-ÈýÎ¬¾ØÐÎÀà 
+/** @addtogroup Geometry Rectangle3d-ï¿½ï¿½Î¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
 *  @{
 */
 class CORE_API Rectangle3d : virtual public Surface3d
 {
 public:
-	/** Çó¾ØÐÎ³¤¶È
-	* @param  ÎÞ
-	* @return ³¤¶ÈÖµ
+	/** ï¿½ï¿½ï¿½ï¿½Î³ï¿½ï¿½ï¿½
+	* @param  ï¿½ï¿½
+	* @return ï¿½ï¿½ï¿½ï¿½Öµ
     */
 	virtual double getLength()=0;
 
-	/** »ñÈ¡¾ØÐÎ¿í¶È
-	* @param  ÎÞ
-	* @return ¿í¶ÈÖµ
+	/** ï¿½ï¿½È¡ï¿½ï¿½ï¿½Î¿ï¿½ï¿½
+	* @param  ï¿½ï¿½
+	* @return ï¿½ï¿½ï¿½Öµ
     */
 	virtual double getWidth()=0;
 };
 /** @} */
 
-/** @addtogroup Geometry Volume3d-ÈýÎ¬ÌåÀà 
+/** @addtogroup Geometry Volume3d-ï¿½ï¿½Î¬ï¿½ï¿½ï¿½ï¿½ 
 *  @{
 */
 class CORE_API Volume3d : virtual public Geometry
 {
 public:
-	/** »ñÈ¡¶ÔÏóµÄÌå»ý
-	* @param  ÎÞ
-	* @return ¶ÔÏóÌå»ý
+	/** ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	* @param  ï¿½ï¿½
+	* @return ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     */
 	virtual double getVolume()=0;
 
-	/**  »ñÈ¡¶ÔÏóÎ»ÖÃ×ø±ê·ÃÎÊÆ÷
-	* @param  ÎÞ
-	* @return ¶ÔÏóÎ»ÖÃ×ø±ê·ÃÎÊÆ÷Ö¸Õë
+	/**  ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½Î»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	* @param  ï¿½ï¿½
+	* @return ï¿½ï¿½ï¿½ï¿½Î»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½
 	*/
 	virtual VertexVisitorSharedPtr getVertexVisitor()=0;
-	/** »ñµÃ¶¥µãÀàÐÍ±àÂë	
-	* @param  ÎÞ
-	* @return ¶¥µãÀàÐÍ±àÂë
+	/** ï¿½ï¿½Ã¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í±ï¿½ï¿½ï¿½	
+	* @param  ï¿½ï¿½
+	* @return ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í±ï¿½ï¿½ï¿½
 	*/
 	virtual unsigned char getVertexType() const=0;
-	/** ÉèÖÃ¶¥µãÀàÐÍ±àÂë
-	* @param  [in] iVertexType	 ¶¥µãÀàÐÍ±àÂë
-	* @return ÎÞ
+	/** ï¿½ï¿½ï¿½Ã¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í±ï¿½ï¿½ï¿½
+	* @param  [in] iVertexType	 ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í±ï¿½ï¿½ï¿½
+	* @return ï¿½ï¿½
 	*/ 
 	virtual void setVertexType(unsigned char iVertexType)=0;
-	/** »ñµÃÈýÎ¬¶¥µã¸öÊý	
-	* @param  ÎÞ
-	* @return ÈýÎ¬¶¥µã¸öÊý
+	/** ï¿½ï¿½ï¿½ï¿½ï¿½Î¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½	
+	* @param  ï¿½ï¿½
+	* @return ï¿½ï¿½Î¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	*/
 	virtual long getVerticesNum() const=0;
-	/** ÉèÖÃÈýÎ¬¶¥µã¸öÊýºÍ¶¥µãÊý¾Ý
-	* @param  [in] nVertexNum	ÈýÎ¬¶¥µã¸öÊý	
-	* @param  [in] vVertices	Ö¸ÏòÒ»´®ÈýÎ¬µã¶ÔÏóµÄÖ¸Õë	
-	* @return ÎÞ
+	/** ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	* @param  [in] nVertexNum	ï¿½ï¿½Î¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½	
+	* @param  [in] vVertices	Ö¸ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½Î¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½	
+	* @return ï¿½ï¿½
 	*/
 	virtual void setVertices(long nVertexNum, void* const vVertices)=0;
-	/** »ñµÃÈýÎ¬¶àµã¶¥µãÊý¾Ý	
-	* @param [out] vVertices ½«±»¸³ÖµµÄÒ»´®ÈýÎ¬µã¶ÔÏóÖ¸ÕëµÄÒýÓÃ
-	* @param [out] vNum ½«±»¸³ÖµµÄÒ»´®ÈýÎ¬µã¶ÔÏóÖ¸ÕëµÄÒýÓÃ
-	* @return ÎÞ
+	/** ï¿½ï¿½ï¿½ï¿½ï¿½Î¬ï¿½ï¿½ã¶¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½	
+	* @param [out] vVertices ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½Î¬ï¿½ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	* @param [out] vNum ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½Î¬ï¿½ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	* @return ï¿½ï¿½
 	*/
 	virtual void getVertices( long& lVertNum, void*& vVertices ) const=0;
 };
 /** @} */
 
-/** @addtogroup Geometry Solid3d-ÈýÎ¬¶àÃæÌåÀà 
+/** @addtogroup Geometry Solid3d-ï¿½ï¿½Î¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
 *  @{
 */
 class CORE_API Solid3d : virtual public Volume3d
 {
 public:
-	/**  »ñÈ¡×éºÏÃæÁÐ
-	* @param  [out] f  ×éºÏÃæÁÐ
-	* @return ÎÞ
+	/**  ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	* @param  [out] f  ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	* @return ï¿½ï¿½
 	*/
 	virtual void getSurfaces(std::vector<Surface3d*> & f)=0;
-	/**  Ïò¶àÃæÌåÐÂÔöÒ»¸ö±ß½çÃæ
-	* @param  [in] type  ±ß½çÃæµÄÀàÐÍ
-	* @return ÐÂÔöµÄ±ß½çÃæÖ¸Õë
+	/**  ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ß½ï¿½ï¿½ï¿½
+	* @param  [in] type  ï¿½ß½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	* @return ï¿½ï¿½ï¿½ï¿½ï¿½Ä±ß½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½
 	*/
 	virtual Surface3d * newSurface(int type) =0;
 };
 /** @} */
 
-/** @addtogroup Geometry MultiSolid3d-ÈýÎ¬¸´ÔÓ¶àÃæÌåÀà 
+/** @addtogroup Geometry MultiSolid3d-ï¿½ï¿½Î¬ï¿½ï¿½ï¿½Ó¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
 *  @{
 */
 class CORE_API MultiSolid3d : virtual public Volume3d
 {
 public:
-	/**  »ñÈ¡×éºÏÃæÁÐ
-	* @param  [out] f  ×éºÏÃæÁÐ
-	* @return ÎÞ
+	/**  ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	* @param  [out] f  ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	* @return ï¿½ï¿½
 	*/
 	virtual void getSurfaces(std::vector<Surface3d*> & f)=0;
 };
 /** @} */
 
-/** @addtogroup Geometry Voxel3d-ÈýÎ¬ÌåÔªÀà 
+/** @addtogroup Geometry Voxel3d-ï¿½ï¿½Î¬ï¿½ï¿½Ôªï¿½ï¿½ 
 *  @{
 */
 class CORE_API Voxel3d : virtual public Volume3d
 {
 public:
-	/** »ñµÃÌåÔªÀàÐÍ±àºÅ	
-	* @param  ÎÞ
-	* @return ÌåÔªÀàÐÍ±àºÅ
+	/** ï¿½ï¿½ï¿½ï¿½ï¿½Ôªï¿½ï¿½ï¿½Í±ï¿½ï¿½	
+	* @param  ï¿½ï¿½
+	* @return ï¿½ï¿½Ôªï¿½ï¿½ï¿½Í±ï¿½ï¿½
     */
 	virtual unsigned char getVolumeTypeID()=0;
 };
 /** @} */
 
-/** @addtogroup Geometry Cube3d-ÈýÎ¬³¤·½ÌåÀà 
+/** @addtogroup Geometry Cube3d-ï¿½ï¿½Î¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
 *  @{
 */
 class CORE_API Cube3d : virtual public Voxel3d
 {
 public:
-	/** ÇóÈ¡³¤¶È
-	* @param  ÎÞ
-	* @return ³¤¶ÈÖµ
+	/** ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½
+	* @param  ï¿½ï¿½
+	* @return ï¿½ï¿½ï¿½ï¿½Öµ
     */
 	virtual double getLength() const =0;
 
-	/** ÇóÈ¡¿í¶È
-	* @param  ÎÞ
-	* @return ¿í¶ÈÖµ
+	/** ï¿½ï¿½È¡ï¿½ï¿½ï¿½
+	* @param  ï¿½ï¿½
+	* @return ï¿½ï¿½ï¿½Öµ
     */
 	virtual double getWidth() const =0;
 
-	/** ÇóÈ¡¸ß¶È
-	* @param  ÎÞ
-	* @return ¸ß¶ÈÖµ
+	/** ï¿½ï¿½È¡ï¿½ß¶ï¿½
+	* @param  ï¿½ï¿½
+	* @return ï¿½ß¶ï¿½Öµ
     */
 	virtual double getHeight() const = 0;
 };
 /** @} */
 
-/** @addtogroup Geometry Prism3d-ÈýÎ¬ÀâÖùÀà 
+/** @addtogroup Geometry Prism3d-ï¿½ï¿½Î¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
 *  @{
 */
 class CORE_API Prism3d : virtual public Voxel3d
 {
 public:
-	/** ÇóÈ¡³¤¶È
-	* @param  ÎÞ
-	* @return ³¤¶ÈÖµ
+	/** ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½
+	* @param  ï¿½ï¿½
+	* @return ï¿½ï¿½ï¿½ï¿½Öµ
     */
 	virtual double getLength() const =0;
 
-	/** ÇóÈ¡¿í¶È
-	* @param  ÎÞ
-	* @return ¿í¶ÈÖµ
+	/** ï¿½ï¿½È¡ï¿½ï¿½ï¿½
+	* @param  ï¿½ï¿½
+	* @return ï¿½ï¿½ï¿½Öµ
     */
 	virtual double getWidth() const = 0;
 
-	/** ÇóÈ¡¸ß¶È
-	* @param  ÎÞ
-	* @return ¸ß¶ÈÖµ
+	/** ï¿½ï¿½È¡ï¿½ß¶ï¿½
+	* @param  ï¿½ï¿½
+	* @return ï¿½ß¶ï¿½Öµ
     */
 	virtual double getHeight() const = 0;
 
-	/** »ñµÃµ¥¸öµ×Ãæ¶¥µã¸öÊý	
-	* @param  ÎÞ
-	* @return µ¥¸öµ×Ãæ¶¥µã¸öÊý
+	/** ï¿½ï¿½Ãµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½æ¶¥ï¿½ï¿½ï¿½ï¿½ï¿½	
+	* @param  ï¿½ï¿½
+	* @return ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½æ¶¥ï¿½ï¿½ï¿½ï¿½ï¿½
     */
 	virtual int getVerNumPerSide()=0;
 	
-	/** ÉèÖÃµ¥¸öµ×Ãæ¶¥µã¸öÊý
-	* @param [in] VerNum  µ¥¸öµ×Ãæ¶¥µã¸öÊý
-	* @return ÎÞ
+	/** ï¿½ï¿½ï¿½Ãµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½æ¶¥ï¿½ï¿½ï¿½ï¿½ï¿½
+	* @param [in] VerNum  ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½æ¶¥ï¿½ï¿½ï¿½ï¿½ï¿½
+	* @return ï¿½ï¿½
     */
 	virtual void setVerNumPerSide(int VerNum)=0;
 };
 /** @} */
 
-/** @addtogroup Geometry Tetrahedron3d-ÈýÎ¬ËÄÃæÌåÀà 
+/** @addtogroup Geometry Tetrahedron3d-ï¿½ï¿½Î¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
 *  @{
 */
 class CORE_API Tetrahedron3d : virtual public Voxel3d
@@ -883,33 +883,33 @@ public:
 };
 /** @} */
 
-/** @addtogroup Geometry Group3d-ÈýÎ¬×éÀà 
+/** @addtogroup Geometry Group3d-ï¿½ï¿½Î¬ï¿½ï¿½ï¿½ï¿½ 
 *  @{
 */
 class CORE_API Group3d : virtual public Geometry
 {
 public:
-	/**  »ñÈ¡×Óµ¥ÔªÁÐ±í
-	* @param  [in,out] f  ×Óµ¥ÔªÁÐ±í
-	* @return ÎÞ
+	/**  ï¿½ï¿½È¡ï¿½Óµï¿½Ôªï¿½Ð±ï¿½
+	* @param  [in,out] f  ï¿½Óµï¿½Ôªï¿½Ð±ï¿½
+	* @return ï¿½ï¿½
 	*/
 	virtual void getElements(std::vector<Geometry*> & f)=0;
 
-	/** Ïò´æ´¢¼¸ºÎ¶ÔÏóÖ¸ÕëµÄÈÝÆ÷¶¥¶ËÌí¼ÓÒ»¸öÔªËØ
-	* @param  [in] pGeometry	´ýÌí¼ÓµÄ¼¸ºÎ¶ÔÏóµÄÖ¸Õë	
-	* @return ÔªËØÔÚÈÝÆ÷ÖÐµÄÐòºÅ
+	/** ï¿½ï¿½æ´¢ï¿½ï¿½ï¿½Î¶ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½Ôªï¿½ï¿½
+	* @param  [in] pGeometry	ï¿½ï¿½ï¿½ï¿½ÓµÄ¼ï¿½ï¿½Î¶ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½	
+	* @return Ôªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ðµï¿½ï¿½ï¿½ï¿½
     */
 	virtual int addElement(Geometry* const pGeometry) = 0;
 
-	/** Çå¿Õ´æ´¢¼¸ºÎ¶ÔÏóÖ¸ÕëµÄÈÝÆ÷£¬ÊÍ·ÅÈÝÆ÷ÖÐÔªËØÖ¸Õë¹ÜÀíµÄÄÚ´æ(ÔÝÊ±²»ÊÍ·ÅÄÚ´æ)
-	* @param  ÎÞ
-	* @return ÎÞ
+	/** ï¿½ï¿½Õ´æ´¢ï¿½ï¿½ï¿½Î¶ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ôªï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú´ï¿½(ï¿½ï¿½Ê±ï¿½ï¿½ï¿½Í·ï¿½ï¿½Ú´ï¿½)
+	* @param  ï¿½ï¿½
+	* @return ï¿½ï¿½
     */
 	virtual void removeAll()=0;
 
-	/** Çå¿Õ´æ´¢¼¸ºÎ¶ÔÏóÖ¸ÕëµÄÈÝÆ÷£¬ÊÍ·ÅÈÝÆ÷ÖÐÔªËØÖ¸Õë¹ÜÀíµÄÄÚ´æ(ÔÝÊ±²»ÊÍ·ÅÄÚ´æ)
-	* @param  ÎÞ
-	* @return ÎÞ
+	/** ï¿½ï¿½Õ´æ´¢ï¿½ï¿½ï¿½Î¶ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ôªï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú´ï¿½(ï¿½ï¿½Ê±ï¿½ï¿½ï¿½Í·ï¿½ï¿½Ú´ï¿½)
+	* @param  ï¿½ï¿½
+	* @return ï¿½ï¿½
     */
 	virtual void clear() =0;
 };

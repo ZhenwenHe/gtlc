@@ -408,18 +408,6 @@
     <ClInclude Include="src\internal_workspaceimpl.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="inc\config_env.h">
-      <Filter>inc</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\config_linux.h">
-      <Filter>inc</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\config_macxos.h">
-      <Filter>inc</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\config_windows.h">
-      <Filter>inc</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -834,9 +822,6 @@
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\workspaceimpl.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="src\config_env.cpp">
       <Filter>src</Filter>
     </ClCompile>
   </ItemGroup>

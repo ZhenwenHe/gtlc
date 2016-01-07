@@ -46,9 +46,9 @@ std::string getInstallHome(){
 	size_t pos = szModPath.find_last_of("\\");
 	sz = szModPath.substr(0,pos);        
 #elif(USING_OS_TYPE==1) //linux
-        s=s+"/sdk";
+        sz=sz+"/sdk";
 #else                   //macX OS
-        s=s+"/sdk";
+        sz=sz+"/sdk";
 #endif        
         return sz;
     }

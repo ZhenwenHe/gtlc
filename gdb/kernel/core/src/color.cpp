@@ -36,7 +36,8 @@ void Color::convert(const Color4f &  c4f, Color4b & c4b){
 void Color::convert(const Color4f &  c4f, long & c){
 	Color4b   c4b;
 	convert(c4f,c4b);
-	c=RGB(c4b.r,c4b.g,c4b.b);
+	//c=RGB(c4b.r,c4b.g,c4b.b);
+        c = c4b.r|(((short)(c4b.g))<<8)|(((long)(c4b.b))<<16);
 }
 
 Color4f Color::create(float r, float g, float b, float a){

@@ -1,0 +1,1498 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configurationDescriptor version="97">
+  <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
+    <logicalFolder name="HeaderFiles"
+                   displayName="Header Files"
+                   projectFiles="true">
+      <logicalFolder name="inc" displayName="inc" projectFiles="true">
+        <itemPath>inc/bitset.h</itemPath>
+        <itemPath>inc/buffer.h</itemPath>
+        <itemPath>inc/bufferstream.h</itemPath>
+        <itemPath>inc/builder.h</itemPath>
+        <itemPath>inc/builders.h</itemPath>
+        <itemPath>inc/color.h</itemPath>
+        <itemPath>inc/coloredvertex3d.h</itemPath>
+        <itemPath>inc/coloredvertex3f.h</itemPath>
+        <itemPath>inc/config.h</itemPath>
+        <itemPath>inc/config_env.h</itemPath>
+        <itemPath>inc/config_linux.h</itemPath>
+        <itemPath>inc/config_macxos.h</itemPath>
+        <itemPath>inc/config_windows.h</itemPath>
+        <itemPath>inc/connector.h</itemPath>
+        <itemPath>inc/console.h</itemPath>
+        <itemPath>inc/describablebuffer.h</itemPath>
+        <itemPath>inc/envelope2d.h</itemPath>
+        <itemPath>inc/envelope3d.h</itemPath>
+        <itemPath>inc/factory.h</itemPath>
+        <itemPath>inc/feature.h</itemPath>
+        <itemPath>inc/frustum.h</itemPath>
+        <itemPath>inc/geometry.h</itemPath>
+        <itemPath>inc/geometry2d.h</itemPath>
+        <itemPath>inc/geometry3d.h</itemPath>
+        <itemPath>inc/globalfuns.h</itemPath>
+        <itemPath>inc/identifier.h</itemPath>
+        <itemPath>inc/image.h</itemPath>
+        <itemPath>inc/indexbuffer.h</itemPath>
+        <itemPath>inc/lock.h</itemPath>
+        <itemPath>inc/material.h</itemPath>
+        <itemPath>inc/mathex.h</itemPath>
+        <itemPath>inc/matrix.h</itemPath>
+        <itemPath>inc/matrix3x3.h</itemPath>
+        <itemPath>inc/matrix4x4.h</itemPath>
+        <itemPath>inc/mesh.h</itemPath>
+        <itemPath>inc/meshbuilder.h</itemPath>
+        <itemPath>inc/meshproxy.h</itemPath>
+        <itemPath>inc/plugins.h</itemPath>
+        <itemPath>inc/property.h</itemPath>
+        <itemPath>inc/proxy.h</itemPath>
+        <itemPath>inc/quaternion.h</itemPath>
+        <itemPath>inc/ray.h</itemPath>
+        <itemPath>inc/render.h</itemPath>
+        <itemPath>inc/selector.h</itemPath>
+        <itemPath>inc/shadedvertex3d.h</itemPath>
+        <itemPath>inc/shadedvertex3f.h</itemPath>
+        <itemPath>inc/sharedmodel.h</itemPath>
+        <itemPath>inc/sphere3d.h</itemPath>
+        <itemPath>inc/temporaryset.h</itemPath>
+        <itemPath>inc/terrain.h</itemPath>
+        <itemPath>inc/terrainbuilder.h</itemPath>
+        <itemPath>inc/terrainproxy.h</itemPath>
+        <itemPath>inc/texture.h</itemPath>
+        <itemPath>inc/texturedvertex3d.h</itemPath>
+        <itemPath>inc/texturedvertex3f.h</itemPath>
+        <itemPath>inc/topology.h</itemPath>
+        <itemPath>inc/tritool.h</itemPath>
+        <itemPath>inc/value.h</itemPath>
+        <itemPath>inc/valutils.h</itemPath>
+        <itemPath>inc/versatilevertex3d.h</itemPath>
+        <itemPath>inc/versatilevertex3f.h</itemPath>
+        <itemPath>inc/vertex2d.h</itemPath>
+        <itemPath>inc/vertex2f.h</itemPath>
+        <itemPath>inc/vertex3d.h</itemPath>
+        <itemPath>inc/vertex3f.h</itemPath>
+        <itemPath>inc/vertex4d.h</itemPath>
+        <itemPath>inc/vertexbuffer.h</itemPath>
+        <itemPath>inc/vertexcollection2d.h</itemPath>
+        <itemPath>inc/vertexvisitor.h</itemPath>
+      </logicalFolder>
+    </logicalFolder>
+    <logicalFolder name="ResourceFiles"
+                   displayName="Resource Files"
+                   projectFiles="true">
+    </logicalFolder>
+    <logicalFolder name="SourceFiles"
+                   displayName="Source Files"
+                   projectFiles="true">
+      <logicalFolder name="src" displayName="src" projectFiles="true">
+        <itemPath>src/aabboximpl.cpp</itemPath>
+        <itemPath>src/annotation3dimpl.cpp</itemPath>
+        <itemPath>src/bitset.cpp</itemPath>
+        <itemPath>src/block.cpp</itemPath>
+        <itemPath>src/buffer.cpp</itemPath>
+        <itemPath>src/builder.cpp</itemPath>
+        <itemPath>src/builders.cpp</itemPath>
+        <itemPath>src/cell.cpp</itemPath>
+        <itemPath>src/color.cpp</itemPath>
+        <itemPath>src/colortable.cpp</itemPath>
+        <itemPath>src/complexmaterialimpl.cpp</itemPath>
+        <itemPath>src/config.cpp</itemPath>
+        <itemPath>src/config_env.cpp</itemPath>
+        <itemPath>src/connector.cpp</itemPath>
+        <itemPath>src/console.cpp</itemPath>
+        <itemPath>src/cube3dimpl.cpp</itemPath>
+        <itemPath>src/curve3dimpl.cpp</itemPath>
+        <itemPath>src/delaunayimpl.cpp</itemPath>
+        <itemPath>src/demblock.cpp</itemPath>
+        <itemPath>src/demdatainfo.cpp</itemPath>
+        <itemPath>src/demdbinfo.cpp</itemPath>
+        <itemPath>src/demgrid.cpp</itemPath>
+        <itemPath>src/demgridimpl.cpp</itemPath>
+        <itemPath>src/deminfo.cpp</itemPath>
+        <itemPath>src/demlayerinfo.cpp</itemPath>
+        <itemPath>src/describablebuffer.cpp</itemPath>
+        <itemPath>src/domblock.cpp</itemPath>
+        <itemPath>src/domdatainfo.cpp</itemPath>
+        <itemPath>src/domdbinfo.cpp</itemPath>
+        <itemPath>src/domgrid.cpp</itemPath>
+        <itemPath>src/domgridimpl.cpp</itemPath>
+        <itemPath>src/dominfo.cpp</itemPath>
+        <itemPath>src/domlayerinfo.cpp</itemPath>
+        <itemPath>src/eclipsemeshimpl.cpp</itemPath>
+        <itemPath>src/eclipsemeshreader.cpp</itemPath>
+        <itemPath>src/envelope2d.cpp</itemPath>
+        <itemPath>src/envelope3d.cpp</itemPath>
+        <itemPath>src/factory.cpp</itemPath>
+        <itemPath>src/feature.cpp</itemPath>
+        <itemPath>src/featureclass.cpp</itemPath>
+        <itemPath>src/featureclassimpl.cpp</itemPath>
+        <itemPath>src/featureimpl.cpp</itemPath>
+        <itemPath>src/featureset.cpp</itemPath>
+        <itemPath>src/featuresetimpl.cpp</itemPath>
+        <itemPath>src/frustum.cpp</itemPath>
+        <itemPath>src/frustumimpl.cpp</itemPath>
+        <itemPath>src/geometry.cpp</itemPath>
+        <itemPath>src/geometry2d.cpp</itemPath>
+        <itemPath>src/geometry3dimpl.cpp</itemPath>
+        <itemPath>src/geometryfactory.cpp</itemPath>
+        <itemPath>src/geometryimpl.cpp</itemPath>
+        <itemPath>src/globalfuns.cpp</itemPath>
+        <itemPath>src/group3dimpl.cpp</itemPath>
+        <itemPath>src/identifier.cpp</itemPath>
+        <itemPath>src/image.cpp</itemPath>
+        <itemPath>src/indexbuffer.cpp</itemPath>
+        <itemPath>src/internal_aabboximpl.h</itemPath>
+        <itemPath>src/internal_annotation3dimpl.h</itemPath>
+        <itemPath>src/internal_complexmaterialimpl.h</itemPath>
+        <itemPath>src/internal_cube3dimpl.h</itemPath>
+        <itemPath>src/internal_curve3dimpl.h</itemPath>
+        <itemPath>src/internal_delaunayimpl.h</itemPath>
+        <itemPath>src/internal_demgridimpl.h</itemPath>
+        <itemPath>src/internal_domgridimpl.h</itemPath>
+        <itemPath>src/internal_eclipsemeshimpl.h</itemPath>
+        <itemPath>src/internal_eclipsemeshreader.h</itemPath>
+        <itemPath>src/internal_featureclassimpl.h</itemPath>
+        <itemPath>src/internal_featureimpl.h</itemPath>
+        <itemPath>src/internal_featuresetimpl.h</itemPath>
+        <itemPath>src/internal_frustumimpl.h</itemPath>
+        <itemPath>src/internal_geometry3dimpl.h</itemPath>
+        <itemPath>src/internal_geometryimpl.h</itemPath>
+        <itemPath>src/internal_group3dimpl.h</itemPath>
+        <itemPath>src/internal_layerimpl.h</itemPath>
+        <itemPath>src/internal_linearring3dimpl.h</itemPath>
+        <itemPath>src/internal_linestring3dimpl.h</itemPath>
+        <itemPath>src/internal_loadinfoimpl.h</itemPath>
+        <itemPath>src/internal_materialimpl.h</itemPath>
+        <itemPath>src/internal_multipoint3dimpl.h</itemPath>
+        <itemPath>src/internal_multipolygon3dimpl.h</itemPath>
+        <itemPath>src/internal_multipolyline3dimpl.h</itemPath>
+        <itemPath>src/internal_multisolid3dimpl.h</itemPath>
+        <itemPath>src/internal_obboximpl.h</itemPath>
+        <itemPath>src/internal_parameterizedcurve3dimpl.h</itemPath>
+        <itemPath>src/internal_parameterizedsurface3dimpl.h</itemPath>
+        <itemPath>src/internal_point3dimpl.h</itemPath>
+        <itemPath>src/internal_polygon3dimpl.h</itemPath>
+        <itemPath>src/internal_prism3dimpl.h</itemPath>
+        <itemPath>src/internal_projectimpl.h</itemPath>
+        <itemPath>src/internal_rayimpl.h</itemPath>
+        <itemPath>src/internal_rectangle3dimpl.h</itemPath>
+        <itemPath>src/internal_reference3dimpl.h</itemPath>
+        <itemPath>src/internal_semanticactiontopoinfoimpl.h</itemPath>
+        <itemPath>src/internal_semanticgeometrytopoinfoimpl.h</itemPath>
+        <itemPath>src/internal_shadedvertex3dvisitorimpl.h</itemPath>
+        <itemPath>src/internal_shadedvertex3fvisitorimpl.h</itemPath>
+        <itemPath>src/internal_sharedmodelimpl.h</itemPath>
+        <itemPath>src/internal_simplematerialimpl.h</itemPath>
+        <itemPath>src/internal_singlepoint3dimpl.h</itemPath>
+        <itemPath>src/internal_solid3dimpl.h</itemPath>
+        <itemPath>src/internal_spatialfuns.h</itemPath>
+        <itemPath>src/internal_surface3dimpl.h</itemPath>
+        <itemPath>src/internal_tetrahedron3dimpl.h</itemPath>
+        <itemPath>src/internal_texturedvertex3dvisitorimpl.h</itemPath>
+        <itemPath>src/internal_texturedvertex3fvisitorimpl.h</itemPath>
+        <itemPath>src/internal_textureimpl.h</itemPath>
+        <itemPath>src/internal_topoinfoimpl.h</itemPath>
+        <itemPath>src/internal_topoitemimpl.h</itemPath>
+        <itemPath>src/internal_triangle3dimpl.h</itemPath>
+        <itemPath>src/internal_trianglemesh3dimpl.h</itemPath>
+        <itemPath>src/internal_versatilevertex3dvisitorimpl.h</itemPath>
+        <itemPath>src/internal_versatilevertex3fvisitorimpl.h</itemPath>
+        <itemPath>src/internal_vertex3dvisitorimpl.h</itemPath>
+        <itemPath>src/internal_vertex3fvisitorimpl.h</itemPath>
+        <itemPath>src/internal_volume3dimpl.h</itemPath>
+        <itemPath>src/internal_voxel3dimpl.h</itemPath>
+        <itemPath>src/internal_workspaceimpl.h</itemPath>
+        <itemPath>src/layer.cpp</itemPath>
+        <itemPath>src/layerimpl.cpp</itemPath>
+        <itemPath>src/linearring3dimpl.cpp</itemPath>
+        <itemPath>src/linestring3dimpl.cpp</itemPath>
+        <itemPath>src/lock.cpp</itemPath>
+        <itemPath>src/lodinfo.cpp</itemPath>
+        <itemPath>src/lodinfoimpl.cpp</itemPath>
+        <itemPath>src/material.cpp</itemPath>
+        <itemPath>src/materialimpl.cpp</itemPath>
+        <itemPath>src/mathex.cpp</itemPath>
+        <itemPath>src/matrix.cpp</itemPath>
+        <itemPath>src/matrix3x3.cpp</itemPath>
+        <itemPath>src/matrix4x4.cpp</itemPath>
+        <itemPath>src/mesh.cpp</itemPath>
+        <itemPath>src/multipoint3dimpl.cpp</itemPath>
+        <itemPath>src/multipolygon3dimpl.cpp</itemPath>
+        <itemPath>src/multipolyline3dimpl.cpp</itemPath>
+        <itemPath>src/multisolid3dimpl.cpp</itemPath>
+        <itemPath>src/obboximpl.cpp</itemPath>
+        <itemPath>src/parameterizedcurve3dimpl.cpp</itemPath>
+        <itemPath>src/parameterizedsurface3dimpl.cpp</itemPath>
+        <itemPath>src/point3dimpl.cpp</itemPath>
+        <itemPath>src/polygon3dimpl.cpp</itemPath>
+        <itemPath>src/prism3dimpl.cpp</itemPath>
+        <itemPath>src/project.cpp</itemPath>
+        <itemPath>src/projectimpl.cpp</itemPath>
+        <itemPath>src/property.cpp</itemPath>
+        <itemPath>src/proxy.cpp</itemPath>
+        <itemPath>src/quaternion.cpp</itemPath>
+        <itemPath>src/ray.cpp</itemPath>
+        <itemPath>src/rayimpl.cpp</itemPath>
+        <itemPath>src/rectangle3dimpl.cpp</itemPath>
+        <itemPath>src/reference3dimpl.cpp</itemPath>
+        <itemPath>src/render.cpp</itemPath>
+        <itemPath>src/selector.cpp</itemPath>
+        <itemPath>src/semanticactiontopoinfoimpl.cpp</itemPath>
+        <itemPath>src/semanticgeometrytopoinfoimpl.cpp</itemPath>
+        <itemPath>src/shadedvertex3dvisitorimpl.cpp</itemPath>
+        <itemPath>src/shadedvertex3fvisitorimpl.cpp</itemPath>
+        <itemPath>src/sharedmodel.cpp</itemPath>
+        <itemPath>src/sharedmodelimpl.cpp</itemPath>
+        <itemPath>src/simplematerialimpl.cpp</itemPath>
+        <itemPath>src/singlepoint3dimpl.cpp</itemPath>
+        <itemPath>src/solid3dimpl.cpp</itemPath>
+        <itemPath>src/sourcedatainfo.cpp</itemPath>
+        <itemPath>src/spatialfuns.cpp</itemPath>
+        <itemPath>src/sphere3d.cpp</itemPath>
+        <itemPath>src/surface3dimpl.cpp</itemPath>
+        <itemPath>src/temporaryset.cpp</itemPath>
+        <itemPath>src/terrain.cpp</itemPath>
+        <itemPath>src/tetrahedron3dimpl.cpp</itemPath>
+        <itemPath>src/texture.cpp</itemPath>
+        <itemPath>src/texturedvertex3dvisitorimpl.cpp</itemPath>
+        <itemPath>src/texturedvertex3fvisitorimpl.cpp</itemPath>
+        <itemPath>src/textureimpl.cpp</itemPath>
+        <itemPath>src/topoinfo.cpp</itemPath>
+        <itemPath>src/topoinfoimpl.cpp</itemPath>
+        <itemPath>src/topoitem.cpp</itemPath>
+        <itemPath>src/topoitemimpl.cpp</itemPath>
+        <itemPath>src/topology.cpp</itemPath>
+        <itemPath>src/triangle3dimpl.cpp</itemPath>
+        <itemPath>src/trianglemesh3dimpl.cpp</itemPath>
+        <itemPath>src/tritool.cpp</itemPath>
+        <itemPath>src/value.cpp</itemPath>
+        <itemPath>src/valutils.cpp</itemPath>
+        <itemPath>src/versatilevertex3dvisitorimpl.cpp</itemPath>
+        <itemPath>src/versatilevertex3fvisitorimpl.cpp</itemPath>
+        <itemPath>src/vertex2d.cpp</itemPath>
+        <itemPath>src/vertex2f.cpp</itemPath>
+        <itemPath>src/vertex3d.cpp</itemPath>
+        <itemPath>src/vertex3dvisitorimpl.cpp</itemPath>
+        <itemPath>src/vertex3f.cpp</itemPath>
+        <itemPath>src/vertex3fvisitorimpl.cpp</itemPath>
+        <itemPath>src/vertexbuffer.cpp</itemPath>
+        <itemPath>src/vertexcollection2d.cpp</itemPath>
+        <itemPath>src/vertexvisitor.cpp</itemPath>
+        <itemPath>src/volume3dimpl.cpp</itemPath>
+        <itemPath>src/voxel3dimpl.cpp</itemPath>
+        <itemPath>src/workspace.cpp</itemPath>
+        <itemPath>src/workspaceimpl.cpp</itemPath>
+      </logicalFolder>
+    </logicalFolder>
+    <logicalFolder name="TestFiles"
+                   displayName="Test Files"
+                   projectFiles="false"
+                   kind="TEST_LOGICAL_FOLDER">
+    </logicalFolder>
+    <logicalFolder name="ExternalFiles"
+                   displayName="Important Files"
+                   projectFiles="false"
+                   kind="IMPORTANT_FILES_FOLDER">
+      <itemPath>Makefile</itemPath>
+    </logicalFolder>
+  </logicalFolder>
+  <sourceRootList>
+    <Elem>inc</Elem>
+    <Elem>src</Elem>
+  </sourceRootList>
+  <projectmakefile>Makefile</projectmakefile>
+  <confs>
+    <conf name="Debug" type="2">
+      <toolsSet>
+        <compilerSet>default</compilerSet>
+        <dependencyChecking>true</dependencyChecking>
+        <rebuildPropChanged>false</rebuildPropChanged>
+      </toolsSet>
+      <compileType>
+        <ccTool>
+          <incDir>
+            <pElem>inc</pElem>
+          </incDir>
+          <commandLine>-std=c++11</commandLine>
+          <preprocessorList>
+            <Elem>CORE_EXPORTS</Elem>
+          </preprocessorList>
+        </ccTool>
+      </compileType>
+      <item path="inc/bitset.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/buffer.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/bufferstream.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/builder.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/builders.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/color.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/coloredvertex3d.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/coloredvertex3f.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/config.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/config_env.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/config_linux.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/config_macxos.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/config_windows.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/connector.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/console.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/describablebuffer.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/envelope2d.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/envelope3d.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/factory.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/feature.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/frustum.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/geometry.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/geometry2d.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/geometry3d.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/globalfuns.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/identifier.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/image.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/indexbuffer.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/lock.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/material.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/mathex.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/matrix.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/matrix3x3.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/matrix4x4.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/mesh.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/meshbuilder.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/meshproxy.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/plugins.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/property.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/proxy.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/quaternion.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/ray.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/render.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/selector.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/shadedvertex3d.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/shadedvertex3f.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/sharedmodel.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/sphere3d.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/temporaryset.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/terrain.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/terrainbuilder.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/terrainproxy.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/texture.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/texturedvertex3d.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/texturedvertex3f.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/topology.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/tritool.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/value.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/valutils.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/versatilevertex3d.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/versatilevertex3f.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/vertex2d.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/vertex2f.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/vertex3d.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/vertex3f.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/vertex4d.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/vertexbuffer.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/vertexcollection2d.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/vertexvisitor.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/aabboximpl.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/annotation3dimpl.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/bitset.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/block.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/buffer.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/builder.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/builders.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/cell.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/color.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/colortable.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/complexmaterialimpl.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/config.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/config_env.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/connector.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/console.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/cube3dimpl.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/curve3dimpl.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/delaunayimpl.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/demblock.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/demdatainfo.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/demdbinfo.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/demgrid.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/demgridimpl.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/deminfo.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/demlayerinfo.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/describablebuffer.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/domblock.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/domdatainfo.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/domdbinfo.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/domgrid.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/domgridimpl.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/dominfo.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/domlayerinfo.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/eclipsemeshimpl.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/eclipsemeshreader.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/envelope2d.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/envelope3d.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/factory.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/feature.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/featureclass.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/featureclassimpl.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/featureimpl.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/featureset.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/featuresetimpl.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/frustum.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/frustumimpl.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/geometry.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/geometry2d.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/geometry3dimpl.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/geometryfactory.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/geometryimpl.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/globalfuns.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/group3dimpl.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/identifier.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/image.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/indexbuffer.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/internal_aabboximpl.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/internal_annotation3dimpl.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/internal_complexmaterialimpl.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/internal_cube3dimpl.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/internal_curve3dimpl.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/internal_delaunayimpl.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/internal_demgridimpl.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/internal_domgridimpl.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/internal_eclipsemeshimpl.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/internal_eclipsemeshreader.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/internal_featureclassimpl.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/internal_featureimpl.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/internal_featuresetimpl.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/internal_frustumimpl.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/internal_geometry3dimpl.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/internal_geometryimpl.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/internal_group3dimpl.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/internal_layerimpl.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/internal_linearring3dimpl.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/internal_linestring3dimpl.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/internal_loadinfoimpl.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/internal_materialimpl.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/internal_multipoint3dimpl.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/internal_multipolygon3dimpl.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/internal_multipolyline3dimpl.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/internal_multisolid3dimpl.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/internal_obboximpl.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/internal_parameterizedcurve3dimpl.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src/internal_parameterizedsurface3dimpl.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src/internal_point3dimpl.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/internal_polygon3dimpl.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/internal_prism3dimpl.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/internal_projectimpl.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/internal_rayimpl.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/internal_rectangle3dimpl.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/internal_reference3dimpl.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/internal_semanticactiontopoinfoimpl.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src/internal_semanticgeometrytopoinfoimpl.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src/internal_shadedvertex3dvisitorimpl.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src/internal_shadedvertex3fvisitorimpl.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src/internal_sharedmodelimpl.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/internal_simplematerialimpl.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/internal_singlepoint3dimpl.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/internal_solid3dimpl.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/internal_spatialfuns.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/internal_surface3dimpl.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/internal_tetrahedron3dimpl.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/internal_texturedvertex3dvisitorimpl.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src/internal_texturedvertex3fvisitorimpl.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src/internal_textureimpl.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/internal_topoinfoimpl.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/internal_topoitemimpl.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/internal_triangle3dimpl.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/internal_trianglemesh3dimpl.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/internal_versatilevertex3dvisitorimpl.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src/internal_versatilevertex3fvisitorimpl.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src/internal_vertex3dvisitorimpl.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/internal_vertex3fvisitorimpl.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/internal_volume3dimpl.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/internal_voxel3dimpl.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/internal_workspaceimpl.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/layer.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/layerimpl.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/linearring3dimpl.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/linestring3dimpl.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/lock.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/lodinfo.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/lodinfoimpl.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/material.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/materialimpl.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/mathex.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/matrix.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/matrix3x3.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/matrix4x4.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/mesh.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/multipoint3dimpl.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/multipolygon3dimpl.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/multipolyline3dimpl.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/multisolid3dimpl.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/obboximpl.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/parameterizedcurve3dimpl.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/parameterizedsurface3dimpl.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/point3dimpl.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/polygon3dimpl.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/prism3dimpl.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/project.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/projectimpl.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/property.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/proxy.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/quaternion.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/ray.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/rayimpl.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/rectangle3dimpl.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/reference3dimpl.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/render.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/selector.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/semanticactiontopoinfoimpl.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/semanticgeometrytopoinfoimpl.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="src/shadedvertex3dvisitorimpl.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/shadedvertex3fvisitorimpl.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/sharedmodel.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/sharedmodelimpl.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/simplematerialimpl.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/singlepoint3dimpl.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/solid3dimpl.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/sourcedatainfo.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/spatialfuns.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/sphere3d.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/surface3dimpl.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/temporaryset.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/terrain.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/tetrahedron3dimpl.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/texture.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/texturedvertex3dvisitorimpl.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="src/texturedvertex3fvisitorimpl.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="src/textureimpl.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/topoinfo.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/topoinfoimpl.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/topoitem.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/topoitemimpl.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/topology.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/triangle3dimpl.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/trianglemesh3dimpl.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/tritool.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/value.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/valutils.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/versatilevertex3dvisitorimpl.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="src/versatilevertex3fvisitorimpl.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="src/vertex2d.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/vertex2f.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/vertex3d.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/vertex3dvisitorimpl.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/vertex3f.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/vertex3fvisitorimpl.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/vertexbuffer.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/vertexcollection2d.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/vertexvisitor.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/volume3dimpl.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/voxel3dimpl.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/workspace.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/workspaceimpl.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+    </conf>
+    <conf name="Release" type="2">
+      <toolsSet>
+        <compilerSet>default</compilerSet>
+        <dependencyChecking>true</dependencyChecking>
+        <rebuildPropChanged>false</rebuildPropChanged>
+      </toolsSet>
+      <compileType>
+        <cTool>
+          <developmentMode>5</developmentMode>
+        </cTool>
+        <ccTool>
+          <developmentMode>5</developmentMode>
+        </ccTool>
+        <fortranCompilerTool>
+          <developmentMode>5</developmentMode>
+        </fortranCompilerTool>
+        <asmTool>
+          <developmentMode>5</developmentMode>
+        </asmTool>
+      </compileType>
+      <item path="inc/bitset.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/buffer.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/bufferstream.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/builder.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/builders.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/color.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/coloredvertex3d.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/coloredvertex3f.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/config.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/config_env.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/config_linux.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/config_macxos.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/config_windows.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/connector.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/console.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/describablebuffer.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/envelope2d.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/envelope3d.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/factory.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/feature.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/frustum.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/geometry.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/geometry2d.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/geometry3d.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/globalfuns.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/identifier.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/image.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/indexbuffer.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/lock.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/material.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/mathex.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/matrix.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/matrix3x3.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/matrix4x4.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/mesh.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/meshbuilder.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/meshproxy.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/plugins.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/property.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/proxy.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/quaternion.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/ray.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/render.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/selector.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/shadedvertex3d.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/shadedvertex3f.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/sharedmodel.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/sphere3d.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/temporaryset.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/terrain.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/terrainbuilder.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/terrainproxy.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/texture.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/texturedvertex3d.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/texturedvertex3f.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/topology.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/tritool.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/value.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/valutils.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/versatilevertex3d.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/versatilevertex3f.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/vertex2d.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/vertex2f.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/vertex3d.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/vertex3f.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/vertex4d.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/vertexbuffer.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/vertexcollection2d.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="inc/vertexvisitor.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/aabboximpl.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/annotation3dimpl.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/bitset.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/block.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/buffer.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/builder.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/builders.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/cell.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/color.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/colortable.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/complexmaterialimpl.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/config.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/config_env.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/connector.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/console.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/cube3dimpl.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/curve3dimpl.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/delaunayimpl.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/demblock.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/demdatainfo.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/demdbinfo.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/demgrid.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/demgridimpl.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/deminfo.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/demlayerinfo.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/describablebuffer.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/domblock.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/domdatainfo.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/domdbinfo.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/domgrid.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/domgridimpl.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/dominfo.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/domlayerinfo.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/eclipsemeshimpl.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/eclipsemeshreader.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/envelope2d.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/envelope3d.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/factory.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/feature.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/featureclass.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/featureclassimpl.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/featureimpl.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/featureset.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/featuresetimpl.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/frustum.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/frustumimpl.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/geometry.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/geometry2d.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/geometry3dimpl.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/geometryfactory.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/geometryimpl.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/globalfuns.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/group3dimpl.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/identifier.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/image.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/indexbuffer.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/internal_aabboximpl.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/internal_annotation3dimpl.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/internal_complexmaterialimpl.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/internal_cube3dimpl.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/internal_curve3dimpl.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/internal_delaunayimpl.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/internal_demgridimpl.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/internal_domgridimpl.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/internal_eclipsemeshimpl.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/internal_eclipsemeshreader.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/internal_featureclassimpl.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/internal_featureimpl.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/internal_featuresetimpl.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/internal_frustumimpl.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/internal_geometry3dimpl.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/internal_geometryimpl.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/internal_group3dimpl.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/internal_layerimpl.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/internal_linearring3dimpl.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/internal_linestring3dimpl.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/internal_loadinfoimpl.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/internal_materialimpl.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/internal_multipoint3dimpl.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/internal_multipolygon3dimpl.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/internal_multipolyline3dimpl.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/internal_multisolid3dimpl.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/internal_obboximpl.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/internal_parameterizedcurve3dimpl.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src/internal_parameterizedsurface3dimpl.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src/internal_point3dimpl.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/internal_polygon3dimpl.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/internal_prism3dimpl.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/internal_projectimpl.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/internal_rayimpl.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/internal_rectangle3dimpl.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/internal_reference3dimpl.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/internal_semanticactiontopoinfoimpl.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src/internal_semanticgeometrytopoinfoimpl.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src/internal_shadedvertex3dvisitorimpl.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src/internal_shadedvertex3fvisitorimpl.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src/internal_sharedmodelimpl.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/internal_simplematerialimpl.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/internal_singlepoint3dimpl.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/internal_solid3dimpl.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/internal_spatialfuns.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/internal_surface3dimpl.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/internal_tetrahedron3dimpl.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/internal_texturedvertex3dvisitorimpl.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src/internal_texturedvertex3fvisitorimpl.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src/internal_textureimpl.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/internal_topoinfoimpl.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/internal_topoitemimpl.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/internal_triangle3dimpl.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/internal_trianglemesh3dimpl.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/internal_versatilevertex3dvisitorimpl.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src/internal_versatilevertex3fvisitorimpl.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src/internal_vertex3dvisitorimpl.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/internal_vertex3fvisitorimpl.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/internal_volume3dimpl.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/internal_voxel3dimpl.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/internal_workspaceimpl.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/layer.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/layerimpl.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/linearring3dimpl.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/linestring3dimpl.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/lock.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/lodinfo.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/lodinfoimpl.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/material.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/materialimpl.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/mathex.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/matrix.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/matrix3x3.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/matrix4x4.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/mesh.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/multipoint3dimpl.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/multipolygon3dimpl.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/multipolyline3dimpl.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/multisolid3dimpl.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/obboximpl.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/parameterizedcurve3dimpl.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/parameterizedsurface3dimpl.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/point3dimpl.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/polygon3dimpl.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/prism3dimpl.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/project.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/projectimpl.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/property.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/proxy.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/quaternion.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/ray.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/rayimpl.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/rectangle3dimpl.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/reference3dimpl.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/render.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/selector.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/semanticactiontopoinfoimpl.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/semanticgeometrytopoinfoimpl.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="src/shadedvertex3dvisitorimpl.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/shadedvertex3fvisitorimpl.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/sharedmodel.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/sharedmodelimpl.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/simplematerialimpl.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/singlepoint3dimpl.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/solid3dimpl.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/sourcedatainfo.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/spatialfuns.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/sphere3d.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/surface3dimpl.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/temporaryset.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/terrain.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/tetrahedron3dimpl.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/texture.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/texturedvertex3dvisitorimpl.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="src/texturedvertex3fvisitorimpl.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="src/textureimpl.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/topoinfo.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/topoinfoimpl.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/topoitem.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/topoitemimpl.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/topology.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/triangle3dimpl.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/trianglemesh3dimpl.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/tritool.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/value.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/valutils.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/versatilevertex3dvisitorimpl.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="src/versatilevertex3fvisitorimpl.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="src/vertex2d.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/vertex2f.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/vertex3d.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/vertex3dvisitorimpl.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/vertex3f.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/vertex3fvisitorimpl.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/vertexbuffer.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/vertexcollection2d.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/vertexvisitor.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/volume3dimpl.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/voxel3dimpl.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/workspace.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/workspaceimpl.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+    </conf>
+  </confs>
+</configurationDescriptor>

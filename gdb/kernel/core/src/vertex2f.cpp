@@ -10,7 +10,7 @@ Vertex2f::Vertex2f() :x(0), y(0){	}
 
 Vertex2f::Vertex2f(float xx, float yy) : x(xx), y(yy){	}
 
-Vertex2f::Vertex2f(Vertex2f & vt)	{
+Vertex2f::Vertex2f(const Vertex2f & vt)	{
 	x = vt.x; y = vt.y;
 }
 

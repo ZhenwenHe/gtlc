@@ -17,21 +17,21 @@
 #include "assert.h"
 #include <cmath>
 #include "config.h"
-#include "ColoredVertex3f.h"
-#include "ColoredVertex3d.h"
-#include "TexturedVertex3f.h"
-#include "TexturedVertex3d.h"
-#include "ShadedVertex3f.h"
+#include "coloredvertex3f.h"
+#include "coloredvertex3d.h"
+#include "texturedvertex3f.h"
+#include "texturedvertex3d.h"
+#include "shadedvertex3f.h"
 #include "shadedvertex3d.h"
-#include "VersatileVertex3d.h"
-#include "VersatileVertex3f.h"
+#include "versatilevertex3d.h"
+#include "versatilevertex3f.h"
 
 begin_cn_namespace
 begin_edu_namespace
 begin_cug_namespace
 begin_gdb_namespace
 
-/** @addtogroup vertex µãµÄÀàÐÍ
+/** @addtogroup vertex ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 *  @{
 */
 enum
@@ -60,13 +60,13 @@ typedef VertexVisitor* VertexVisitorPtr;
 class CORE_API VertexVisitor{
 
 protected:
-	/** ¶¥µãÁÐ±í */
+	/** ï¿½ï¿½ï¿½ï¿½ï¿½Ð±ï¿½ */
 	void** _vertexlist;
 
-	/** ¶¥µãÁÐ±í³¤¶È£¬Òà¼´¶¥µãÊýÄ¿ */
+	/** ï¿½ï¿½ï¿½ï¿½ï¿½Ð±ï¿½ï¿½È£ï¿½ï¿½à¼´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿ */
 	long* _vertexnumber;
 
-	/** ¶¥µãÀàÐÍ±àÂë */
+	/** ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í±ï¿½ï¿½ï¿½ */
 	unsigned char* _vertextype;
 public:
 	VertexVisitor();

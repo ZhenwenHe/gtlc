@@ -17,24 +17,36 @@
 #define CONFIG_ENV_H
  
 /* directory framework
-gtl (GTL_HOME)
+gtl (GTL_HOME)  // for development 
  * --gdb
    --gtl
-   --sdk (GTL_INSTALL_HOME)
+   --doc
+   --data (GTL_DATA_HOME) 
+   --sdk (GTL_INSTALL_HOME) //for installation
         --images
-        --share
+        --shader
    --build
    --others 
  */
 
+#include <string>
+
+begin_gtl_namespace
+
 /*
  * get GTL home directory
  */
-static string getHome();
+static std::string getHome();
 /*
  * get GTL installation home directory
  */
-static string getInstallHome();
+static std::string getInstallHome();
 
+/*
+ * get GTL data home directory
+ */
+static std::string getDataHome();
+
+end_gtl_namespace
 #endif /* CONFIG_ENV_H */
 

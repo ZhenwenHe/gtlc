@@ -17,6 +17,7 @@
 #include <string>
 #include <vector>
 #include <sstream>
+#include "config.h"
 #include "matrix4x4.h"
 
 begin_cn_namespace
@@ -24,7 +25,7 @@ begin_edu_namespace
 begin_cug_namespace
 begin_gdb_namespace
 
-/** @addtogroup Geometry Frustum-½ØÍ·×¶ÌåÀà
+/** @addtogroup Geometry Frustum-ï¿½ï¿½Í·×¶ï¿½ï¿½ï¿½ï¿½
 *  @{
 */
 class CORE_API Frustum{
@@ -33,10 +34,9 @@ public:
 	virtual	void setCamInternals(double nearD, double farD, double angle, double ratio) = 0;
 	virtual void setCamera(Vertex3d& eye, Vertex3d& cen) = 0;
 	virtual std::shared_ptr<Frustum> clone() = 0;
-
 	static std::shared_ptr<Frustum> create();
 };
-typedef std::shared_ptr<Frustum>  FrustumSharedPtr;
+typedef std::shared_ptr< Frustum >  FrustumSharedPtr;
 /** @} */
 
 

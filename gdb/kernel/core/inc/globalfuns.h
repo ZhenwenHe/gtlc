@@ -21,6 +21,7 @@
 #include <string>    // char traits            
 #include <cstddef>   // ptrdiff_t
 #include <cmath>
+#include <vector>
 #include "config.h"
 
 begin_cn_namespace
@@ -29,12 +30,12 @@ begin_cug_namespace
 begin_gdb_namespace
 
 
-/** @defgroup GlobalFunctions GlobalFunctions-È«¾ÖÊý×ÖÓë×Ö·û´®²Ù×÷º¯Êý¼¯
+/** @defgroup GlobalFunctions GlobalFunctions-È«ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 *  @{
 */
-/** ÅÐ¶ÏÁÐ±íÖÐÊÇ·ñÓÐÏàÍ¬µÄ¶ÔÏó´æÔÚ
-* @param [in] vv ¶ÔÏóÊý×é
-* @return bool:ÓÐÏàÍ¬ÔªËØÔò·µ»Øtrue£¬·ñÔò·µ»Øfalse
+/** ï¿½Ð¶ï¿½ï¿½Ð±ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½ï¿½ï¿½Í¬ï¿½Ä¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+* @param [in] vv ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+* @return bool:ï¿½ï¿½ï¿½ï¿½Í¬Ôªï¿½ï¿½ï¿½ò·µ»ï¿½trueï¿½ï¿½ï¿½ï¿½ï¿½ò·µ»ï¿½false
 */
 template<typename T>
 bool same(std::vector<T> & vv){
@@ -42,8 +43,8 @@ bool same(std::vector<T> & vv){
 	size_t s = vv.size();
 	if (s == 1) return false;
 
-	for (std::vector<T>::iterator it = vv.begin(); it != vv.end() - 1; it++){
-		for (std::vector<T>::iterator it2 = it + 1; it2 != vv.end(); it2++){
+	for (typename std::vector<T>::iterator it = vv.begin(); it != vv.end() - 1; it++){
+		for (typename std::vector<T>::iterator it2 = it + 1; it2 != vv.end(); it2++){
 			if (*it == *it2)
 				return true;
 		}
@@ -53,16 +54,16 @@ bool same(std::vector<T> & vv){
 };
 
 
-/** ×Ö·û´®²Ã¼ôº¯Êý
-* @param [in,out] str ×Ö·û´®¶ÔÏó
-* @param [in] c Ö¸¶¨µÄ²Ã¼ô×Ö·û
-* @return ÎÞ
+/** ï¿½Ö·ï¿½ï¿½ï¿½ï¿½Ã¼ï¿½ï¿½ï¿½ï¿½ï¿½
+* @param [in,out] str ï¿½Ö·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+* @param [in] c Ö¸ï¿½ï¿½ï¿½Ä²Ã¼ï¿½ï¿½Ö·ï¿½
+* @return ï¿½ï¿½
 */
 template<typename CharT>
 void trim(std::basic_string<CharT>  & str, CharT c)
 {
-	//É¾³ýµôÁ½¶ËµÄÖ¸¶¨×Ö·û
-	std::basic_string<CharT>::size_type pos = str.find_last_not_of(c);
+	//É¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ëµï¿½Ö¸ï¿½ï¿½ï¿½Ö·ï¿½
+	typename std::basic_string<CharT>::size_type pos = str.find_last_not_of(c);
 	if (pos != std::basic_string<CharT>::npos)
 	{
 		str.erase(pos + 1);
@@ -72,7 +73,7 @@ void trim(std::basic_string<CharT>  & str, CharT c)
 	}
 	else
 		str.erase(str.begin(), str.end());
-	//É¾³ýÖÐ¼äµÄÖ¸¶¨×Ö·û
+	//É¾ï¿½ï¿½ï¿½Ð¼ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½Ö·ï¿½
 	pos = str.find_first_of(c);
 	while (pos != std::basic_string<CharT>::npos){
 		str.erase(str.begin() + pos);
@@ -80,23 +81,23 @@ void trim(std::basic_string<CharT>  & str, CharT c)
 	}
 }
 
-/** ½«Êý×Ö×ª»»³É×Ö·û´®
-* @param [in,out] num   ÐèÒª×ª»»µÄÊý×Ö
-@return ×ª»»µÃµ½µÄ×Ö·û´®
+/** ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½
+* @param [in,out] num   ï¿½ï¿½Òª×ªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+@return ×ªï¿½ï¿½ï¿½Ãµï¿½ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½
 */
 template<typename CharT, typename NumericT>
 std::basic_string<CharT> numberToString(NumericT num)
 {
 	std::basic_ostringstream<CharT> oss;
 	oss << (NumericT)num;
-	if (oss.str().find_first_of(',') != std::basic_string<CharT>::npos){//º¬ÓÐ¸ñÊ½·ûºÅ
+	if (oss.str().find_first_of(',') != std::basic_string<CharT>::npos){//ï¿½ï¿½ï¿½Ð¸ï¿½Ê½ï¿½ï¿½ï¿½ï¿½
 		std::basic_string<CharT> sz = oss.str();
 		trim<CharT>(sz, ',');
 		return sz;
 	}
-	else if (oss.str().find_first_of('£¬') != std::basic_string<CharT>::npos){
+	else if (oss.str().find_first_of('ï¿½ï¿½') != std::basic_string<CharT>::npos){
 		std::basic_string<CharT> sz = oss.str();
-		trim<CharT>(sz, '£¬');
+		trim<CharT>(sz, 'ï¿½ï¿½');
 		return sz;
 	}
 	else{
@@ -104,9 +105,9 @@ std::basic_string<CharT> numberToString(NumericT num)
 	}
 }
 
-/** ×Ö·û´®×ª»»³ÉÊý×Ö
-* @param [in,out] str ×Ö·û´®
-* @return ×ª»»µÃµ½µÄÊý×Ö
+/** ï¿½Ö·ï¿½ï¿½ï¿½×ªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+* @param [in,out] str ï¿½Ö·ï¿½ï¿½ï¿½
+* @return ×ªï¿½ï¿½ï¿½Ãµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 */
 template<typename NumericT, typename CharT>
 NumericT stringToNumber(const std::basic_string<CharT> &str)
@@ -117,9 +118,9 @@ NumericT stringToNumber(const std::basic_string<CharT> &str)
 	iss >> result;
 	return result;
 }
-/** ½«×Ö·û´®×ª»»³ÉÊý×Ö
-@param [in,out] str ×Ö·û´®Ö¸Õë
-@return ×ª»»µÃµ½µÄÊý×Ö
+/** ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½×ªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+@param [in,out] str ï¿½Ö·ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½
+@return ×ªï¿½ï¿½ï¿½Ãµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 */
 template<typename NumericT, typename CharT>
 NumericT stringToNumber(const CharT * str)
@@ -129,15 +130,15 @@ NumericT stringToNumber(const CharT * str)
 	iss >> result;
 	return result;
 }
-/** »ñÈ¡ÏµÍ³µ±Ç°Ê±¼ä£¬µÃµ½ÏµÍ³Ê±¼ä×Ö·û´®
-@param [out] sz ×Ö·û´®
-@return ÎÞ
+/** ï¿½ï¿½È¡ÏµÍ³ï¿½ï¿½Ç°Ê±ï¿½ä£¬ï¿½Ãµï¿½ÏµÍ³Ê±ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½
+@param [out] sz ï¿½Ö·ï¿½ï¿½ï¿½
+@return ï¿½ï¿½
 */
 void getCurTime(std::string & sz);
 
-/** »ñÈ¡ÏµÍ³µ±Ç°Ê±¼ä£¬µÃµ½ÏµÍ³Ê±¼ä×Ö·û´®
-@param ÎÞ
-@return µÃµ½ÏµÍ³Ê±¼ä×Ö·û´®
+/** ï¿½ï¿½È¡ÏµÍ³ï¿½ï¿½Ç°Ê±ï¿½ä£¬ï¿½Ãµï¿½ÏµÍ³Ê±ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½
+@param ï¿½ï¿½
+@return ï¿½Ãµï¿½ÏµÍ³Ê±ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½
 */
 std::string getCurTime();
 

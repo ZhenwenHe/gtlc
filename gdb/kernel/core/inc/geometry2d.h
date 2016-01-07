@@ -3,7 +3,7 @@
 #include <string>
 #include <vector>
 #include <sstream>
-#include "Buffer.h"
+#include "buffer.h"
 #include "material.h"
 #include "matrix4x4.h"
 #include "describablebuffer.h"
@@ -16,7 +16,7 @@ begin_gdb_namespace
 
 
 #define FONT_2D_FACESIZE 32
-//ÎÄ±¾¶ÔÏóÖÐµÄ»»ÐÐ×Ö·û
+//ï¿½Ä±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÐµÄ»ï¿½ï¿½ï¿½ï¿½Ö·ï¿½
 #define GEOMETRY2D_LABEL_NEW_LINE_CHAR '$'
 
 class Element2d;
@@ -88,76 +88,76 @@ typedef Coordsys2d* Coordsys2dPtr;
 typedef std::shared_ptr<Coordsys2d> Coordsys2dSharedPtr;
 
 
-/** @defgroup Geometry2d Element2dType-Ïß¶ÎÀàÐÍ
+/** @defgroup Geometry2d Element2dType-ï¿½ß¶ï¿½ï¿½ï¿½ï¿½ï¿½
 *  @{
 */
 enum Element2dType
 {
 	ELEMENT_TYPE_2D_UNKNOW = 0,
-	ELEMENT_TYPE_2D_ELEMENT,		//ÔªËØ»ùÀà 
+	ELEMENT_TYPE_2D_ELEMENT,		//Ôªï¿½Ø»ï¿½ï¿½ï¿½ 
 
-	ELEMENT_TYPE_2D_LINE,			//Ïß¶Î
-	ELEMENT_TYPE_2D_CIRCULARARC,	//Ô²»¡
-	ELEMENT_TYPE_2D_ELLIPTICARC,	//ÍÖÔ²»¡
-	ELEMENT_TYPE_2D_BEZIERCURVE  	//±´Èü¶ûÇúÏß
+	ELEMENT_TYPE_2D_LINE,			//ï¿½ß¶ï¿½
+	ELEMENT_TYPE_2D_CIRCULARARC,	//Ô²ï¿½ï¿½
+	ELEMENT_TYPE_2D_ELLIPTICARC,	//ï¿½ï¿½Ô²ï¿½ï¿½
+	ELEMENT_TYPE_2D_BEZIERCURVE  	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 };
 /** @}*/
 
 
-/** @addtogroup Geometry2d BezierCurve2dType-ÑùÌõÇúÏßÀàÐÍ
+/** @addtogroup Geometry2d BezierCurve2dType-ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 *  @{
 */
 enum BezierCurve2dType
 {
 	BEZIER_CURVE_2D_UNKNOW = 0,
-	BEZIER_CURVE_2D_2_B,			//¶þ´ÎBÑùÌõÇúÏß
-	BEZIER_CURVE_2D_3_B,			//Èý´ÎBÑùÌõ
-	BEZIER_CURVE_2D_3,				//Èý´ÎÑùÌõ
-	BEZIER_CURVE_2D_POLYLINE		//ÕÛÏß
+	BEZIER_CURVE_2D_2_B,			//ï¿½ï¿½ï¿½ï¿½Bï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	BEZIER_CURVE_2D_3_B,			//ï¿½ï¿½ï¿½ï¿½Bï¿½ï¿½ï¿½ï¿½
+	BEZIER_CURVE_2D_3,				//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	BEZIER_CURVE_2D_POLYLINE		//ï¿½ï¿½ï¿½ï¿½
 };
 /** @}*/
 
-/** @addtogroup Geometry2d MirrorImageType-¾µÏñÀàÐÍ
+/** @addtogroup Geometry2d MirrorImageType-ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 *  @{
 */
 enum MirrorImageType
 {
-	MIRROR_IMAGE_TYPE_2D_ORIGIN = 0,	//Ô­µã¾µÏñ
-	MIRROR_IMAGE_TYPE_2D_X,				//XÖá¾µÏñ
-	MIRROR_IMAGE_TYPE_2D_Y				//YÖá¾µÏñ
+	MIRROR_IMAGE_TYPE_2D_ORIGIN = 0,	//Ô­ï¿½ã¾µï¿½ï¿½
+	MIRROR_IMAGE_TYPE_2D_X,				//Xï¿½á¾µï¿½ï¿½
+	MIRROR_IMAGE_TYPE_2D_Y				//Yï¿½á¾µï¿½ï¿½
 };
 /** @}*/
 
-/** @addtogroup Geometry2d ·ûºÅ¹ÜÀíÆ÷ÀàÐÍ
+/** @addtogroup Geometry2d ï¿½ï¿½ï¿½Å¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 *  @{
 */
 enum Symbol2dManagerType
 {
-	SYMBOL_MANAGER_TYPE_2D_POINT = 0,	//µã·ûºÅ¹ÜÀí
-	SYMBOL_MANAGER_TYPE_2D_LINE,		//Ïß·ûºÅ¹ÜÀí
-	SYMBOL_MANAGER_TYPE_2D_REGION		//Ìî³ä·ûºÅ¹ÜÀí
+	SYMBOL_MANAGER_TYPE_2D_POINT = 0,	//ï¿½ï¿½ï¿½ï¿½Å¹ï¿½ï¿½ï¿½
+	SYMBOL_MANAGER_TYPE_2D_LINE,		//ï¿½ß·ï¿½ï¿½Å¹ï¿½ï¿½ï¿½
+	SYMBOL_MANAGER_TYPE_2D_REGION		//ï¿½ï¿½ï¿½ï¿½ï¿½Å¹ï¿½ï¿½ï¿½
 };
 /** @}*/
 
-/** @addtogroup Geometry2d ·ûºÅÅÅÐòÀàÐÍ
+/** @addtogroup Geometry2d ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 *  @{
 */
 enum SymbolSortType
 {
-	SYMBOL_SORT_TYPE_2D_BY_ID = 0,	//¸ù¾Ý·ûºÅµÄIDÅÅÐò
-	SYMBOL_SORT_TYPE_2D_BY_NAME,	//¸ù¾Ý·ûºÅµÄÃû³ÆÅÅÐò
-	SYMBOL_SORT_TYPE_2D_BY_STDNUM	//¸ù¾Ý·ûºÅµÄ±ê×¼±àºÅÅÅÐò
+	SYMBOL_SORT_TYPE_2D_BY_ID = 0,	//ï¿½ï¿½ï¿½Ý·ï¿½ï¿½Åµï¿½IDï¿½ï¿½ï¿½ï¿½
+	SYMBOL_SORT_TYPE_2D_BY_NAME,	//ï¿½ï¿½ï¿½Ý·ï¿½ï¿½Åµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	SYMBOL_SORT_TYPE_2D_BY_STDNUM	//ï¿½ï¿½ï¿½Ý·ï¿½ï¿½ÅµÄ±ï¿½×¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 };
 /** @}*/
 
-/** @addtogroup Geometry2d Point2dÀàÐÍ
+/** @addtogroup Geometry2d Point2dï¿½ï¿½ï¿½ï¿½
 *  @{
 */
 enum Point2dType
 {
-	POINT_2D_TYPE_CIRCLE = 0,	//Ô²µã
-	POINT_2D_TYPE_SQUARE		//Õý·½ÐÎµÄµã
-	//POINT_2D_TYPE_TRIANGLE		//Èý½ÇÐÎµÄµã
+	POINT_2D_TYPE_CIRCLE = 0,	//Ô²ï¿½ï¿½
+	POINT_2D_TYPE_SQUARE		//ï¿½ï¿½ï¿½ï¿½ï¿½ÎµÄµï¿½
+	//POINT_2D_TYPE_TRIANGLE		//ï¿½ï¿½ï¿½ï¿½ï¿½ÎµÄµï¿½
 };
 /** @}*/
 
@@ -167,298 +167,298 @@ enum Point2dType
 class CORE_API Element2d
 {
 public:
-	/**@ ¸ù¾ÝÖ¸¶¨µÄÔªËØÀàÐÍ£¬´´½¨ÔªËØ
+	/**@ ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½Ôªï¿½ï¿½ï¿½ï¿½ï¿½Í£ï¿½ï¿½ï¿½ï¿½ï¿½Ôªï¿½ï¿½
 	*  @return Element2dSharedPtr
 	*/
 	static Element2dSharedPtr create(int type);
 
-	/**@name Ö¸Ê¾µ±Ç°ÔªËØ¼¸ºÎÐÅÏ¢ÒÑ¸ü¸Ä£¬ÐèÒªÖØÐÂ¼ÆËã ±ß½ç°üÎ§ºÐ
-	*  ´Ëº¯Êýµ÷ÓÃºó£¬Èç¹ûµ÷ÓÃgetEnvelope£¬»áÏÈµ÷ÓÃcalculateEnvelope¼ÆËã
+	/**@name Ö¸Ê¾ï¿½ï¿½Ç°Ôªï¿½Ø¼ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½Ñ¸ï¿½ï¿½Ä£ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ ï¿½ß½ï¿½ï¿½Î§ï¿½ï¿½
+	*  ï¿½Ëºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ãºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½getEnvelopeï¿½ï¿½ï¿½ï¿½ï¿½Èµï¿½ï¿½ï¿½calculateEnvelopeï¿½ï¿½ï¿½ï¿½
 	*  @return 
 	*/
 	virtual void dirtyEnvelope( bool bNeedReCalculateEnvelope ) = 0;
 
-	/**@name Ö¸Ê¾µ±Ç°ÔªËØ¼¸ºÎÐÅÏ¢ÊÇ·ñÐèÒªÖØÐÂ¼ÆËã ±ß½ç°üÎ§ºÐ
-	*  @return ÊÇ·ñÐèÒªÖØÐÂ¼ÆËã ±ß½ç°üÎ§ºÐ
+	/**@name Ö¸Ê¾ï¿½ï¿½Ç°Ôªï¿½Ø¼ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½Ç·ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ ï¿½ß½ï¿½ï¿½Î§ï¿½ï¿½
+	*  @return ï¿½Ç·ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ ï¿½ß½ï¿½ï¿½Î§ï¿½ï¿½
 	*/
 	virtual bool isDirtyEnvelope( ) = 0;
 
-	/**@name ¼ÆËãµ±Ç°¼¸ºÎÍ¼ÔªµÄ±ß½ç°üÎ§ºÐ
-	*  @param  [out] outEnvp:·µ»ØµÄ±ß½ç°üÎ§ºÐ
-	*  @return ¼ÆËãÊÇ·ñ³É¹¦ 
+	/**@name ï¿½ï¿½ï¿½ãµ±Ç°ï¿½ï¿½ï¿½ï¿½Í¼Ôªï¿½Ä±ß½ï¿½ï¿½Î§ï¿½ï¿½
+	*  @param  [out] outEnvp:ï¿½ï¿½ï¿½ØµÄ±ß½ï¿½ï¿½Î§ï¿½ï¿½
+	*  @return ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½É¹ï¿½ 
 	*/
 	virtual bool calculateEnvelope( Envelope3d& outEnvp ) = 0;
 
-	/** »ñ³¤¶È
-	* @param ÎÞ
-	* @return ³¤¶È
+	/** ï¿½ñ³¤¶ï¿½
+	* @param ï¿½ï¿½
+	* @return ï¿½ï¿½ï¿½ï¿½
 	*/	
 	virtual double getLength()=0;
 	
-	/**       »ñÈ¡¼¸ºÎÀàÐÍ
-	* @param  [in] ÎÞ
-	* @return ¼¸ºÎÀàÐÍ
+	/**       ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	* @param  [in] ï¿½ï¿½
+	* @return ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	*/	
 	virtual int getType() = 0;
 
-	/**       »ñÈ¡¼¸ºÎ¶ÔÏóµÄ±ß½ç¾ØÐÎ£¬ÎªÈýÎ¬±ß½ç£¬Èç¹ûÊÇ¶þÎ¬¶ÔÏó£¬ÔòZµÄ·¶Î§Îª0
-	* @param  [in] ÎÞ
-	* @return ·µ»Ø±ß½ç¾ØÐÎµÄÒýÓÃ
+	/**       ï¿½ï¿½È¡ï¿½ï¿½ï¿½Î¶ï¿½ï¿½ï¿½Ä±ß½ï¿½ï¿½ï¿½Î£ï¿½Îªï¿½ï¿½Î¬ï¿½ß½ç£¬ï¿½ï¿½ï¿½ï¿½Ç¶ï¿½Î¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Zï¿½Ä·ï¿½Î§Îª0
+	* @param  [in] ï¿½ï¿½
+	* @return ï¿½ï¿½ï¿½Ø±ß½ï¿½ï¿½ï¿½Îµï¿½ï¿½ï¿½ï¿½ï¿½
 	*/	
 	virtual const Envelope3d &getEnvelope() = 0;
 	
-	/**       ½«gËùÖ¸ÏòµÄ¼¸ºÎ¶ÔÏó¸´ÖÆµ½±¾¶ÔÏó
-	* @param  [in] g Element2dSharedPtr, Ö¸Ïò´ý¿½±´µÄ¶ÔÏóµÄÖ¸Õë 
-	* @return ÊÇ·ñ¿½±´³É¹¦
+	/**       ï¿½ï¿½gï¿½ï¿½Ö¸ï¿½ï¿½Ä¼ï¿½ï¿½Î¶ï¿½ï¿½ï¿½ï¿½Æµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	* @param  [in] g Element2dSharedPtr, Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¶ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ 
+	* @return ï¿½Ç·ñ¿½±ï¿½ï¿½É¹ï¿½
 	*/	
 	virtual bool copy( Element2dSharedPtr& g) = 0;
 
-	/** ¸´ÖÆÄÚ´æ
-	* @param ÎÞ
-	* @return Element2d*¶ÔÏó
+	/** ï¿½ï¿½ï¿½ï¿½ï¿½Ú´ï¿½
+	* @param ï¿½ï¿½
+	* @return Element2d*ï¿½ï¿½ï¿½ï¿½
 	*/
 	virtual Element2dSharedPtr  clone() = 0;
 	
-	/**   »ñÈ¡¼¸ºÎ¶ÔÏóÐ´Èëµ½BufferÖÐËùÕ¼ÓÃµÄ×Ö½ÚÊý£¬±ãÓÚ´ÓBuffer¶ÔÏóÖÐ¹¹½¨¼¸ºÎ¶ÔÏó
-	*     * @param  [in] ÎÞ 
-	*     * @return ·µ»Ø¼¸ºÎ¶ÔÏóÐ´Èëµ½BufferÖÐËùÕ¼ÓÃµÄ×Ö½ÚÊý
+	/**   ï¿½ï¿½È¡ï¿½ï¿½ï¿½Î¶ï¿½ï¿½ï¿½Ð´ï¿½ëµ½Bufferï¿½ï¿½ï¿½ï¿½Õ¼ï¿½Ãµï¿½ï¿½Ö½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú´ï¿½Bufferï¿½ï¿½ï¿½ï¿½ï¿½Ð¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î¶ï¿½ï¿½ï¿½
+	*     * @param  [in] ï¿½ï¿½ 
+	*     * @return ï¿½ï¿½ï¿½Ø¼ï¿½ï¿½Î¶ï¿½ï¿½ï¿½Ð´ï¿½ëµ½Bufferï¿½ï¿½ï¿½ï¿½Õ¼ï¿½Ãµï¿½ï¿½Ö½ï¿½ï¿½ï¿½
 	*/
 	virtual size_t sizeBuffer() = 0;
 	
-	/**´ÓBufferÖÐ¶ÁÈ¡ÐÅÏ¢Ìî³ä±¾¼¸ºÎ¶ÔÏó 
-	*  * @param  [in,out] buf Buffer & £¬»º³åÇø¶ÔÏóÒýÓÃ 
-	*  * @return ³É¹¦·µ»Øtrue£¬·ñÔò·µ»Øfalse 
+	/**ï¿½ï¿½Bufferï¿½Ð¶ï¿½È¡ï¿½ï¿½Ï¢ï¿½ï¿½ä±¾ï¿½ï¿½ï¿½Î¶ï¿½ï¿½ï¿½ 
+	*  * @param  [in,out] buf Buffer & ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
+	*  * @return ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½trueï¿½ï¿½ï¿½ï¿½ï¿½ò·µ»ï¿½false 
 	*/
 	virtual bool readBuffer(Buffer &buf) = 0;
 	
-	/**½«±¾ÀàµÄÐÅÏ¢Ð´ÈëBufferÖÐ  
-	*  * @param  [in,out] buf Buffer & £¬»º³åÇø¶ÔÏóÒýÓÃ 
-	*  * @return ³É¹¦·µ»Øtrue£¬·ñÔò·µ»Øfalse 
+	/**ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢Ð´ï¿½ï¿½Bufferï¿½ï¿½  
+	*  * @param  [in,out] buf Buffer & ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
+	*  * @return ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½trueï¿½ï¿½ï¿½ï¿½ï¿½ò·µ»ï¿½false 
 	*/
 	virtual bool writeBuffer(Buffer& buf) = 0;
 	
-	/**½«±¾ÀàµÄÐÅÏ¢Ð´ÈëÊä³öÁ÷ÖÐ£¬±ãÓÚÎÄ¼þ¶ÁÐ´»ò»º³åÇøÐ´²Ù×÷  
-	*  * @param  [in,out] f  std::ostream &£¬±ê×¼Êä³öÁ÷¶ÔÏóÒýÓÃ 
-	*  * @return ³É¹¦·µ»Øtrue£¬·ñÔò·µ»Øfalse 
+	/**ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢Ð´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½Ð´ï¿½ò»º³ï¿½ï¿½ï¿½Ð´ï¿½ï¿½ï¿½ï¿½  
+	*  * @param  [in,out] f  std::ostream &ï¿½ï¿½ï¿½ï¿½×¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
+	*  * @return ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½trueï¿½ï¿½ï¿½ï¿½ï¿½ò·µ»ï¿½false 
 	*/
 	virtual void write(std::ostream &f) = 0;
 	
-	/** ´Ó±ê×¼ÊäÈëÁ÷ÖÐÌáÈ¡±¾ÀàµÄÐÅÏ¢   
-	*   * @param  [in,out] f  std::istream &£¬±ê×¼ÊäÈëÁ÷¶ÔÏóÒýÓÃ 
-	*   * @return ³É¹¦·µ»Øtrue£¬·ñÔò·µ»Øfalse 
+	/** ï¿½Ó±ï¿½×¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢   
+	*   * @param  [in,out] f  std::istream &ï¿½ï¿½ï¿½ï¿½×¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
+	*   * @return ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½trueï¿½ï¿½ï¿½ï¿½ï¿½ò·µ»ï¿½false 
 	*/
 	virtual void read(std::istream &f) = 0;
 	
-	/**@name ½Ó¿Ú²éÑ¯ 
+	/**@name ï¿½Ó¿Ú²ï¿½Ñ¯ 
 	*  @param  [in] signal 
-	*  @param  [out] p£¬²éÑ¯µ½µÄ½Ó¿ÚÖ¸Õë 
-	*  @return ²éÑ¯ÊÇ·ñ³É¹¦
+	*  @param  [out] pï¿½ï¿½ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½Ä½Ó¿ï¿½Ö¸ï¿½ï¿½ 
+	*  @return ï¿½ï¿½Ñ¯ï¿½Ç·ï¿½É¹ï¿½
 	*/
 	virtual bool queryInterface(int signal, void **p )=0;
 
 protected:
-	/** ÉèÖÃ¼¸ºÎÀàÐÍ£¬Ö÷Òª¹©ÅÉÉúÀàÊ¹ÓÃ
-	*   * @param  [in] type int ¼¸ºÎ¶ÔÏóÀàÐÍ
-	*   * @return ÎÞ
+	/** ï¿½ï¿½ï¿½Ã¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í£ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¹ï¿½ï¿½
+	*   * @param  [in] type int ï¿½ï¿½ï¿½Î¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	*   * @return ï¿½ï¿½
 	*/
 	virtual void setType(const int type) = 0;
 public:
-	/** ÉèÖÃ¼¸ºÎ¶ÔÏóµÄ°üÎ§±ß½ç¾ØÐÎ£¬Ö÷Òª¹©ÅÉÉúÀàÊ¹ÓÃ
-	*   * @param  [in] e3d const Envelope3d & ±ß½ç¾ØÐÎ
-	*   * @return ÎÞ
+	/** ï¿½ï¿½ï¿½Ã¼ï¿½ï¿½Î¶ï¿½ï¿½ï¿½Ä°ï¿½Î§ï¿½ß½ï¿½ï¿½ï¿½Î£ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¹ï¿½ï¿½
+	*   * @param  [in] e3d const Envelope3d & ï¿½ß½ï¿½ï¿½ï¿½ï¿½
+	*   * @return ï¿½ï¿½
 	*/
 	virtual void setEnvelope(const Envelope3d &e3d) = 0;
 
 	//////////////////////////////////////////////////////////////////////////
-	//////////////////  Ô­Segment²¿·ÖµÄ½Ó¿ÚÒÆµ½´Ë´¦  ///////////////////////////
+	//////////////////  Ô­Segmentï¿½ï¿½ï¿½ÖµÄ½Ó¿ï¿½ï¿½Æµï¿½ï¿½Ë´ï¿½  ///////////////////////////
 	//////////////////////////////////////////////////////////////////////////
 public:
-	/** »ñÈ¡£¬ÉèÖÃÇúÏßÊÇ·ñ·â±Õ
+	/** ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½
 	* @param [in] b
 	* @return 
 	*/
 	virtual bool isClose() = 0;
 	virtual void setClose(bool b) = 0;
 	
-	/** Ïß¶Î·´Ïò
+	/** ï¿½ß¶Î·ï¿½ï¿½ï¿½
 	* @return
 	*/
 	virtual void reverseOrientation()=0;
 	
-	/** »ñÈ¡Ïß¶ÎµÄÆðµã
+	/** ï¿½ï¿½È¡ï¿½ß¶Îµï¿½ï¿½ï¿½ï¿½
 	* @return Vertex2d
 	*/
 	virtual void getFromPoint(Vertex2d& fromPoint)=0;
 
-	/** »ñÈ¡Ïß¶ÎµÄÖÕµã
+	/** ï¿½ï¿½È¡ï¿½ß¶Îµï¿½ï¿½Õµï¿½
 	* @return Vertex2d
 	*/
 	virtual void getToPoint(Vertex2d& toPoint)=0;
 	
-	/** »ñÈ¡ÓÃÓÚÏÔÊ¾µÄÏß¶ÎµÄµãÕó
-	* @param [in] ÎÞ
-	* @return ÓÃÓÚÏÔÊ¾µÄÏß¶ÎµÄµãÕóµÄÖ¸Õë
+	/** ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ß¶ÎµÄµï¿½ï¿½ï¿½
+	* @param [in] ï¿½ï¿½
+	* @return ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ß¶ÎµÄµï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½
 	*/
 	virtual VertexCollection2dSharedPtr& getDisplayPointCollection()=0;	
 	
-	 /**ÖØÐÂ¼ÆËãÏß¶ÎµÄÏÔÊ¾µãÕó£¬ ¼ÆËãµÄÍ¬Ê±£¬Ò²¼ÆËã±ß½ç¾ØÐÎ
+	 /**ï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½ß¶Îµï¿½ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Í¬Ê±ï¿½ï¿½Ò²ï¿½ï¿½ï¿½ï¿½ß½ï¿½ï¿½ï¿½ï¿½
 	 * @param   
-	 * @return ·µ»Ø
+	 * @return ï¿½ï¿½ï¿½ï¿½
 	 */
 	virtual void calculateDisplayPtList()=0;
 };
 /** @}*/
 
-/** @addtogroup Geometry2d ElementCollection2d-¼¸ºÎÔªËØ¼¯Àà£¬¿ÉÒÔÓÃÀ´¹ÜÀíËùÓÐ´ÓGeometryElement2d¼Ì³ÐµÄ¼¸ºÎÔªËØ¼¯
+/** @addtogroup Geometry2d ElementCollection2d-ï¿½ï¿½ï¿½ï¿½Ôªï¿½Ø¼ï¿½ï¿½à£¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð´ï¿½GeometryElement2dï¿½Ì³ÐµÄ¼ï¿½ï¿½ï¿½Ôªï¿½Ø¼ï¿½
 *  @{
 */
 class CORE_API ElementCollection2d 
 {
 public:
-	/**@name ¼ÆËãµ±Ç°¼¸ºÎÍ¼ÔªµÄ±ß½ç°üÎ§ºÐ
-	*  @param  [out] outEnvp:·µ»ØµÄ ±ß½ç°üÎ§ºÐ
-	*  @return ¼ÆËãÊÇ·ñ³É¹¦ 
+	/**@name ï¿½ï¿½ï¿½ãµ±Ç°ï¿½ï¿½ï¿½ï¿½Í¼Ôªï¿½Ä±ß½ï¿½ï¿½Î§ï¿½ï¿½
+	*  @param  [out] outEnvp:ï¿½ï¿½ï¿½Øµï¿½ ï¿½ß½ï¿½ï¿½Î§ï¿½ï¿½
+	*  @return ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½É¹ï¿½ 
 	*/
 	virtual bool calculateEnvelope( Envelope3d& outEnvp ) = 0;
 
-	/**½«±¾ÀàµÄÐÅÏ¢Ð´ÈëÊä³öÁ÷ÖÐ£¬±ãÓÚÎÄ¼þ¶ÁÐ´»ò»º³åÇøÐ´²Ù×÷
-	* @param  [in,out] f  std::ostream &£¬±ê×¼Êä³öÁ÷¶ÔÏóÒýÓÃ
-	* @return ³É¹¦·µ»Øtrue£¬·ñÔò·µ»Øfalse
+	/**ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢Ð´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½Ð´ï¿½ò»º³ï¿½ï¿½ï¿½Ð´ï¿½ï¿½ï¿½ï¿½
+	* @param  [in,out] f  std::ostream &ï¿½ï¿½ï¿½ï¿½×¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	* @return ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½trueï¿½ï¿½ï¿½ï¿½ï¿½ò·µ»ï¿½false
 	*/
 	virtual void write(std::ostream & f)=0;
-	/**´Ó±ê×¼ÊäÈëÁ÷ÖÐÌáÈ¡±¾ÀàµÄÐÅÏ¢ 
-	* @param  [in,out] f  std::istream &£¬±ê×¼ÊäÈëÁ÷¶ÔÏóÒýÓÃ
-	* @return ³É¹¦·µ»Øtrue£¬·ñÔò·µ»Øfalse
+	/**ï¿½Ó±ï¿½×¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ 
+	* @param  [in,out] f  std::istream &ï¿½ï¿½ï¿½ï¿½×¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	* @return ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½trueï¿½ï¿½ï¿½ï¿½ï¿½ò·µ»ï¿½false
 	*/
 	virtual void read(std::istream & f)=0;
 
-	/*´ÓBufferÖÐ¶ÁÈ¡ÐÅÏ¢Ìî³ä±¾¼¸ºÎ¶ÔÏó
-	* @param  [in,out] buf Buffer & £¬»º³åÇø¶ÔÏóÒýÓÃ 
-	* @return ³É¹¦·µ»Øtrue£¬·ñÔò·µ»Øfalse
+	/*ï¿½ï¿½Bufferï¿½Ð¶ï¿½È¡ï¿½ï¿½Ï¢ï¿½ï¿½ä±¾ï¿½ï¿½ï¿½Î¶ï¿½ï¿½ï¿½
+	* @param  [in,out] buf Buffer & ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
+	* @return ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½trueï¿½ï¿½ï¿½ï¿½ï¿½ò·µ»ï¿½false
 	*/
 	virtual bool writeBuffer (Buffer &buf)=0;
 
-	/*´ÓBufferÖÐ¶ÁÈ¡ÐÅÏ¢Ìî³ä±¾¼¸ºÎ¶ÔÏó
-	* @param  [in,out] buf Buffer & £¬»º³åÇø¶ÔÏóÒýÓÃ 
-	* @return ³É¹¦·µ»Øtrue£¬·ñÔò·µ»Øfalse
+	/*ï¿½ï¿½Bufferï¿½Ð¶ï¿½È¡ï¿½ï¿½Ï¢ï¿½ï¿½ä±¾ï¿½ï¿½ï¿½Î¶ï¿½ï¿½ï¿½
+	* @param  [in,out] buf Buffer & ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
+	* @return ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½trueï¿½ï¿½ï¿½ï¿½ï¿½ò·µ»ï¿½false
 	*/
 	virtual bool readBuffer (Buffer &buf)=0;
 
-	/** »ñÈ¡¶ÔÏóÐ´Èëµ½BufferÖÐËùÕ¼ÓÃµÄ×Ö½ÚÊý
-	* @param ÎÞ
-	* @return »ñÈ¡µ½µÄbuffer×Ö½ÚÊý
+	/** ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½Ð´ï¿½ëµ½Bufferï¿½ï¿½ï¿½ï¿½Õ¼ï¿½Ãµï¿½ï¿½Ö½ï¿½ï¿½ï¿½
+	* @param ï¿½ï¿½
+	* @return ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½bufferï¿½Ö½ï¿½ï¿½ï¿½
 	*/
 	virtual size_t sizeBuffer()=0 ;
 
-	/** Ìí¼ÓÔªËØµ½ÔªËØ¼¯ÖÐ
-	* Èç¹ûbefore, after¶¼Îª¿Õ£¬ÔòÌí¼Óµ½ÔªËØ¼¯µÄÄ©Î²
-	* @param [in] pt£¬Òª²åÈëµÄÔªËØ
-	* @param [in] before£¬ÔÚ´ËË÷ÒýÖ®Ç°²åÈë
-	* @param [in] after£¬ÔÚ´ËË÷ÒýÖ®ºó²åÈë
+	/** ï¿½ï¿½ï¿½Ôªï¿½Øµï¿½Ôªï¿½Ø¼ï¿½ï¿½ï¿½
+	* ï¿½ï¿½ï¿½before, afterï¿½ï¿½Îªï¿½Õ£ï¿½ï¿½ï¿½ï¿½ï¿½Óµï¿½Ôªï¿½Ø¼ï¿½ï¿½ï¿½Ä©Î²
+	* @param [in] ptï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½ï¿½Ôªï¿½ï¿½
+	* @param [in] beforeï¿½ï¿½ï¿½Ú´ï¿½ï¿½ï¿½ï¿½ï¿½Ö®Ç°ï¿½ï¿½ï¿½ï¿½
+	* @param [in] afterï¿½ï¿½ï¿½Ú´ï¿½ï¿½ï¿½ï¿½ï¿½Ö®ï¿½ï¿½ï¿½ï¿½ï¿½
 	* @return
 	*/
 	virtual void addElement(Element2dSharedPtr& obj,int* before=NULL, int* after=NULL)=0;
 
-	/** ½«Ä¿±êÔªËØ¼¯ÖÐµÄÔªËØÌí¼Óµ½µ±Ç°ÔªËØ¼¯µÄÄ©Î²
-	* @param [in] newElements£¬Ä¿±êÔªËØ¼¯
-	* @return Ìí¼ÓÊÇ·ñ³É¹¦
+	/** ï¿½ï¿½Ä¿ï¿½ï¿½Ôªï¿½Ø¼ï¿½ï¿½Ðµï¿½Ôªï¿½ï¿½ï¿½ï¿½Óµï¿½ï¿½ï¿½Ç°Ôªï¿½Ø¼ï¿½ï¿½ï¿½Ä©Î²
+	* @param [in] newElementsï¿½ï¿½Ä¿ï¿½ï¿½Ôªï¿½Ø¼ï¿½
+	* @return ï¿½ï¿½ï¿½ï¿½Ç·ï¿½É¹ï¿½
 	*/
 	virtual bool addCollection(ElementCollection2dSharedPtr&  newElements)=0;
 
-	/** ½«Ä¿±êÔªËØ¼¯ÖÐµÄÔªËØ²åÈëµ½µ±Ç°ÔªËØ¼¯ÖÐ
-	* @param [in] index£¬²åÈëÎ»ÖÃ
-	* @param [in] newElements£¬Ä¿±êÔªËØ¼¯
-	* @return Ìí¼ÓÊÇ·ñ³É¹¦
+	/** ï¿½ï¿½Ä¿ï¿½ï¿½Ôªï¿½Ø¼ï¿½ï¿½Ðµï¿½Ôªï¿½Ø²ï¿½ï¿½ëµ½ï¿½ï¿½Ç°Ôªï¿½Ø¼ï¿½ï¿½ï¿½
+	* @param [in] indexï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î»ï¿½ï¿½
+	* @param [in] newElementsï¿½ï¿½Ä¿ï¿½ï¿½Ôªï¿½Ø¼ï¿½
+	* @return ï¿½ï¿½ï¿½ï¿½Ç·ï¿½É¹ï¿½
 	*/
 	virtual bool insertCollection(long index,ElementCollection2dSharedPtr&  newElements)=0;
 
-	/** »ñÈ¡Ö¸¶¨Ë÷ÒýµÄÔªËØ
-	* @param [in] index: Òª»ñÈ¡µÄÔªËØµÄË÷Òý
-	* @return: »ñÈ¡µ½µÄÔªËØµÄÖ¸Õë£¬»ñÈ¡Ê§°ÜÔò·µ»ØNULL
+	/** ï¿½ï¿½È¡Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ôªï¿½ï¿½
+	* @param [in] index: Òªï¿½ï¿½È¡ï¿½ï¿½Ôªï¿½Øµï¿½ï¿½ï¿½ï¿½ï¿½
+	* @return: ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½Ôªï¿½Øµï¿½Ö¸ï¿½ë£¬ï¿½ï¿½È¡Ê§ï¿½ï¿½ï¿½ò·µ»ï¿½NULL
 	*/
 	virtual Element2dSharedPtr&  getElement(long index)=0;
 
-	/** »ñÈ¡ÔªËØµÄ¸öÊý
-	* @return: ÔªËØµÄ¸öÊý
+	/** ï¿½ï¿½È¡Ôªï¿½ØµÄ¸ï¿½ï¿½ï¿½
+	* @return: Ôªï¿½ØµÄ¸ï¿½ï¿½ï¿½
 	*/
 	virtual long getCount()=0;
 
-	/** ½»»»ÔªËØ¼¯ÖÐµÄÁ½¸öÔªËØ
-	* @param [in] index1,index2: Òª½»»»µÄÔªËØÔÚÊý×éÖÐµÄË÷Òý
-	* @return: ½»»»³É¹¦·µ»Øtrue£¬·ñÔò·µ»Øfalse
+	/** ï¿½ï¿½ï¿½ï¿½Ôªï¿½Ø¼ï¿½ï¿½Ðµï¿½ï¿½ï¿½ï¿½ï¿½Ôªï¿½ï¿½
+	* @param [in] index1,index2: Òªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ôªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ðµï¿½ï¿½ï¿½ï¿½ï¿½
+	* @return: ï¿½ï¿½ï¿½ï¿½ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½trueï¿½ï¿½ï¿½ï¿½ï¿½ò·µ»ï¿½false
 	*/
 	virtual bool swap(long index1,long index2)=0;
 
-	/** ´ÓÔªËØ¼¯ÖÐÒÆ³ýÖ¸¶¨Ë÷ÒýµÄÔªËØ£¬²¢·µ»ØÒÆ³ýµÄÔªËØ
-	* @param [in] index: ÒªÒÆ³ýµÄÔªËØµÄË÷Òý
-	* @return: ÒÆ³ýµÄÔªËØµÄÖ¸Õë£¬Ê§°ÜÔò·µ»ØNULL
+	/** ï¿½ï¿½Ôªï¿½Ø¼ï¿½ï¿½ï¿½ï¿½Æ³ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ôªï¿½Ø£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ³ï¿½ï¿½ï¿½Ôªï¿½ï¿½
+	* @param [in] index: Òªï¿½Æ³ï¿½ï¿½ï¿½Ôªï¿½Øµï¿½ï¿½ï¿½ï¿½ï¿½
+	* @return: ï¿½Æ³ï¿½ï¿½ï¿½Ôªï¿½Øµï¿½Ö¸ï¿½ë£¬Ê§ï¿½ï¿½ï¿½ò·µ»ï¿½NULL
 	*/
 	virtual Element2dSharedPtr removeElement(long index)=0;
 
-	/** ´ÓÔªËØ¼¯ÖÐÉ¾³ýÖ¸¶¨Ë÷ÒýµÄÔªËØ
-	* @param [in] index: ÒªÉ¾³ýµÄÔªËØµÄË÷Òý
-	* @return: É¾³ýÊ§°ÜÔò·µ»Øfalse
+	/** ï¿½ï¿½Ôªï¿½Ø¼ï¿½ï¿½ï¿½É¾ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ôªï¿½ï¿½
+	* @param [in] index: ÒªÉ¾ï¿½ï¿½ï¿½ï¿½Ôªï¿½Øµï¿½ï¿½ï¿½ï¿½ï¿½
+	* @return: É¾ï¿½ï¿½Ê§ï¿½ï¿½ï¿½ò·µ»ï¿½false
 	*/
 	virtual bool deleteElement(long index)=0;
 
-	/** Çå¿Õµ±Ç°ÔªËØ¼¯
+	/** ï¿½ï¿½Õµï¿½Ç°Ôªï¿½Ø¼ï¿½
 	* @return
 	*/
 	virtual void clear()=0;
 
-	/** @ ½«Ä¿±êÊý×é g ÖÐµÄ¿½±´µ½ µ±Ç°Êý×éÖÐ 
-	* @param  [in] g , ElementCollection2d *, Ö¸Ïò´ý¿½±´µÄÊý×éµÄÖ¸Õë 
-	* @return ÊÇ·ñ¿½±´³É¹¦
+	/** @ ï¿½ï¿½Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ g ï¿½ÐµÄ¿ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
+	* @param  [in] g , ElementCollection2d *, Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ 
+	* @return ï¿½Ç·ñ¿½±ï¿½ï¿½É¹ï¿½
 	*/
 	virtual bool copy(ElementCollection2dSharedPtr& g) = 0;
 	
 	
-	/** @  ÉèÖÃµ±Ç°ÔªËØ¼¯ºÏ£¬ÊÇ·ñÓÐÀàÐÍÏÞÖÆ£¬Èç¹ûÃ»ÓÐ£¬Ôò¿ÉÒÔÌí¼ÓÈÎÒâÀàÐÍµÄÔªËØ
-	* Èç¹ûÓÐ£¬ÔòÖ»ÄÜÌí¼Óm_allowedElementTypeListÖÐÔÊÐíµÄÔªËØÀàÐÍ
-	* @param  [in] elementTypeLimited: ÊÇ·ñÓÐÀàÐÍÏÞÖÆ
+	/** @  ï¿½ï¿½ï¿½Ãµï¿½Ç°Ôªï¿½Ø¼ï¿½ï¿½Ï£ï¿½ï¿½Ç·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ£ï¿½ï¿½ï¿½ï¿½Ã»ï¿½Ð£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Íµï¿½Ôªï¿½ï¿½
+	* ï¿½ï¿½ï¿½ï¿½Ð£ï¿½ï¿½ï¿½Ö»ï¿½ï¿½ï¿½ï¿½ï¿½m_allowedElementTypeListï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ôªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	* @param  [in] elementTypeLimited: ï¿½Ç·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	* @return 
 	*/
 	virtual void setElementTypeLimited(bool elementTypeLimited) = 0;
 	
-	/** @  µ±Ç°ÔªËØ¼¯ºÏ£¬ÊÇ·ñÓÐÀàÐÍÏÞÖÆ£¬Èç¹ûÃ»ÓÐ£¬Ôò¿ÉÒÔÌí¼ÓÈÎÒâÀàÐÍµÄÔªËØ
-	* Èç¹ûÓÐ£¬ÔòÖ»ÄÜÌí¼Óm_allowedElementTypeListÖÐÔÊÐíµÄÔªËØÀàÐÍ
+	/** @  ï¿½ï¿½Ç°Ôªï¿½Ø¼ï¿½ï¿½Ï£ï¿½ï¿½Ç·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ£ï¿½ï¿½ï¿½ï¿½Ã»ï¿½Ð£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Íµï¿½Ôªï¿½ï¿½
+	* ï¿½ï¿½ï¿½ï¿½Ð£ï¿½ï¿½ï¿½Ö»ï¿½ï¿½ï¿½ï¿½ï¿½m_allowedElementTypeListï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ôªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	* @param  [in] 
-	* @return ÊÇ·ñÓÐÀàÐÍÏÞÖÆ
+	* @return ï¿½Ç·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	*/
 	virtual bool isElementTypeLimited() = 0;
 	
-	/** @  µ±Ç°ÔªËØÀàÐÍelementType£¬ÄÜ·ñ±»Ìí¼Óµ½µ±Ç°ÔªËØ¼¯ºÏÖÐ
-	* @param  [in] elementType: ÔªËØÀàÐÍ
-	* @return bool ÄÜ·ñ±»Ìí¼Ó
+	/** @  ï¿½ï¿½Ç°Ôªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½elementTypeï¿½ï¿½ï¿½Ü·ï¿½ï¿½ï¿½Óµï¿½ï¿½ï¿½Ç°Ôªï¿½Ø¼ï¿½ï¿½ï¿½ï¿½ï¿½
+	* @param  [in] elementType: Ôªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	* @return bool ï¿½Ü·ï¿½ï¿½ï¿½ï¿½
 	*/
 	virtual bool canBeAddIn(int elementType) = 0;
 	
-	/** @  »ñÈ¡¿ÉÌí¼ÓÔªËØÀàÐÍµÄ¸öÊý
+	/** @  ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½Ôªï¿½ï¿½ï¿½ï¿½ï¿½ÍµÄ¸ï¿½ï¿½ï¿½
 	* @param  [in] 
-	* @return ¿ÉÌí¼ÓÔªËØÀàÐÍµÄ¸öÊý
+	* @return ï¿½ï¿½ï¿½ï¿½ï¿½Ôªï¿½ï¿½ï¿½ï¿½ï¿½ÍµÄ¸ï¿½ï¿½ï¿½
 	*/
 	virtual long getAllowedElementTypeCount() = 0;
 	
-	/** @  Ìí¼Ó ¿ÉÌí¼ÓµÄÔªËØÀàÐÍ
-	* @param  [in] elementType: ¿ÉÌí¼ÓµÄÔªËØÀàÐÍ
+	/** @  ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Óµï¿½Ôªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	* @param  [in] elementType: ï¿½ï¿½ï¿½ï¿½Óµï¿½Ôªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	* @return 
 	*/
 	virtual void addAllowedElementType(int elementType) = 0;
 	
-	/** @  »ñÈ¡Ö¸¶¨Ë÷ÒýµÄ ¿ÉÌí¼ÓµÄÔªËØÀàÐÍ
-	* @param  [in] lIndex: Ë÷Òý
-	* @return ÔªËØÀàÐÍ
+	/** @  ï¿½ï¿½È¡Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Óµï¿½Ôªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	* @param  [in] lIndex: ï¿½ï¿½ï¿½ï¿½
+	* @return Ôªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	*/
 	virtual int getAllowedElementType(long lIndex) = 0;
 	
-	/** @  ´Ó¿ÉÌí¼ÓÔªËØÀàÐÍÁÐ±íÖÐ£¬ÒÆ³ýÖ¸¶¨µÄ ¿ÉÌí¼ÓµÄÔªËØÀàÐÍelementType
-	* Èç¹ûÖ¸¶¨ÀàÐÍÔÚÁÐ±íÖÐ±¾À´¾Í²»´æÔÚ£¬Ôò²»×öÈÎºÎÊÂ
-	* @param  [in] elementType: ÒªÒÆ³ýµÄÔªËØÀàÐÍ
+	/** @  ï¿½Ó¿ï¿½ï¿½ï¿½ï¿½Ôªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð±ï¿½ï¿½Ð£ï¿½ï¿½Æ³ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Óµï¿½Ôªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½elementType
+	* ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð±ï¿½ï¿½Ð±ï¿½ï¿½ï¿½ï¿½Í²ï¿½ï¿½ï¿½ï¿½Ú£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îºï¿½ï¿½ï¿½
+	* @param  [in] elementType: Òªï¿½Æ³ï¿½ï¿½ï¿½Ôªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	* @return 
 	*/
 	virtual void removeAllowedElementType(int elementType) = 0;
 	
-	/** @  Çå³ý¿ÉÌí¼ÓÔªËØÀàÐÍÁÐ±íÖÐ
+	/** @  ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ôªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð±ï¿½ï¿½ï¿½
 	* @return 
 	*/
 	virtual void clearAllowedElementType() = 0;
@@ -466,115 +466,115 @@ public:
 /** @}*/
 
 
-/** @addtogroup Geometry2d Font2d-×ÖÌå½á¹¹Ìå
+/** @addtogroup Geometry2d Font2d-ï¿½ï¿½ï¿½ï¿½á¹¹ï¿½ï¿½
 *  @{
 */
 #define GV_2D_FACE_SIZE 32
 struct Font2d
 {
-	long      lfHeight;						//×Ö¸ß
-	long      lfWidth;						//×Ö¿í
+	long      lfHeight;						//ï¿½Ö¸ï¿½
+	long      lfWidth;						//ï¿½Ö¿ï¿½
 	long      lfEscapement;					//
-	long      lfOrientation;				//Ðý×ª·½Ïò
-	long      lfWeight;						//×ÖµÄÖØÁ¿£¨´ÖÏ¸£©
-	long      lfItalic;						//Ð±Ìå
-	long      lfUnderline;					//ÏÂ»®Ïß
-	long      lfStrikeOut;					//Í»³ö
-	long      lfCharSet;					//×Ö·û¼¯
+	long      lfOrientation;				//ï¿½ï¿½×ªï¿½ï¿½ï¿½ï¿½
+	long      lfWeight;						//ï¿½Öµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¸ï¿½ï¿½
+	long      lfItalic;						//Ð±ï¿½ï¿½
+	long      lfUnderline;					//ï¿½Â»ï¿½ï¿½ï¿½
+	long      lfStrikeOut;					//Í»ï¿½ï¿½
+	long      lfCharSet;					//ï¿½Ö·ï¿½ï¿½ï¿½
 	long      lfOutPrecision;				//
-	long      lfClipPrecision;				//¼ôÇÐµÄ¾«¶È
-	long      lfQuality;					//Æ·ÖÊ
+	long      lfClipPrecision;				//ï¿½ï¿½ï¿½ÐµÄ¾ï¿½ï¿½ï¿½
+	long      lfQuality;					//Æ·ï¿½ï¿½
 	long      lfPitchAndFamily;				//
-	char      lfFaceName[GV_2D_FACE_SIZE];		//×ÖÌåÃû³Æ
+	char      lfFaceName[GV_2D_FACE_SIZE];		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 };
 /** @}*/
 
-/** @addtogroup Geometry2d ElementLine2d-Ö±Ïß¶ÎÀà
+/** @addtogroup Geometry2d ElementLine2d-Ö±ï¿½ß¶ï¿½ï¿½ï¿½
 *  @{
 */
 class CORE_API ElementLine2d : virtual public Element2d
 {
 public:	
-	/** »ñÈ¡×é³ÉÏß¶ÎµÄµãÕó
-	* @return ×é³ÉÏß¶ÎµãÕóµÄÖ¸Õë
+	/** ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ß¶ÎµÄµï¿½ï¿½ï¿½
+	* @return ï¿½ï¿½ï¿½ï¿½ß¶Îµï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½
 	*/
 	virtual VertexCollection2dSharedPtr& getPointCollection() = 0;	
 };
 /** @}*/
 
 
-/** @addtogroup Geometry2d ElementCircularArc2d-Ô²»¡Àà
+/** @addtogroup Geometry2d ElementCircularArc2d-Ô²ï¿½ï¿½ï¿½ï¿½
 *  @{
 */
 class CORE_API ElementCircularArc2d : virtual public Element2d
 {
 public:	
-	/** ÉèÖÃÔ²»¡µÄ²ÎÊý£ºÔ²ÐÄ
-	* @param [in] Vertex2d& pt Ô²ÐÄ×ø±ê
+	/** ï¿½ï¿½ï¿½ï¿½Ô²ï¿½ï¿½ï¿½Ä²ï¿½ï¿½ï¿½ï¿½ï¿½Ô²ï¿½ï¿½
+	* @param [in] Vertex2d& pt Ô²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	* @return 
 	*/
 	virtual void setCenterPoint(Vertex2d& pt) = 0;
 	
-	/** ÉèÖÃÔ²»¡µÄ²ÎÊý£ºÔ²ÐÄ
-	* @param [in]  Ô²ÐÄ×ø±ê, x, y
+	/** ï¿½ï¿½ï¿½ï¿½Ô²ï¿½ï¿½ï¿½Ä²ï¿½ï¿½ï¿½ï¿½ï¿½Ô²ï¿½ï¿½
+	* @param [in]  Ô²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, x, y
 	* @return 
 	*/
 	virtual void setCenterPoint(double x,double y) = 0;
 
-	/** ÉèÖÃÔ²»¡µÄ²ÎÊý£º°ë¾¶
-	* @param [in] °ë¾¶r
+	/** ï¿½ï¿½ï¿½ï¿½Ô²ï¿½ï¿½ï¿½Ä²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ë¾¶
+	* @param [in] ï¿½ë¾¶r
 	* @return 
 	*/
 	virtual void setRadius(double r) = 0;
 
-	/** ÉèÖÃÔ²»¡µÄ²ÎÊý£ºÆðÊ¼½Ç£¨½Ç¶Èµ¥Î»£©
-	* @param [in] ÆðÊ¼½Ç£¨½Ç¶Èµ¥Î»£©fromAng
+	/** ï¿½ï¿½ï¿½ï¿½Ô²ï¿½ï¿½ï¿½Ä²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¼ï¿½Ç£ï¿½ï¿½Ç¶Èµï¿½Î»ï¿½ï¿½
+	* @param [in] ï¿½ï¿½Ê¼ï¿½Ç£ï¿½ï¿½Ç¶Èµï¿½Î»ï¿½ï¿½fromAng
 	* @return 
 	*/
 	virtual void setFromAngleDeg(double fromAng) = 0;
 
-	/** ÉèÖÃÔ²»¡µÄ²ÎÊý£ºÉ¨Ãè½Ç¶È£¨½Ç¶Èµ¥Î»£©
-	* @param [in] É¨Ãè½Ç¶È£¨½Ç¶Èµ¥Î»£©centralAng
+	/** ï¿½ï¿½ï¿½ï¿½Ô²ï¿½ï¿½ï¿½Ä²ï¿½ï¿½ï¿½ï¿½ï¿½É¨ï¿½ï¿½Ç¶È£ï¿½ï¿½Ç¶Èµï¿½Î»ï¿½ï¿½
+	* @param [in] É¨ï¿½ï¿½Ç¶È£ï¿½ï¿½Ç¶Èµï¿½Î»ï¿½ï¿½centralAng
 	* @return 
 	*/
 	virtual void setCentralAngleDeg(double centralAng) = 0;
 	//virtual void setClose(bool b) = 0;
 
-	/** ÉèÖÃÔ²»¡µÄ²ÎÊý£ºÔ²ÐÄ£¬°ë¾¶£¬ÆðÊ¼½Ç£¨½Ç¶Èµ¥Î»£©£¬É¨Ãè½Ç¶È£¨½Ç¶Èµ¥Î»£©£¬ÊÇ·ñ·â±Õ
+	/** ï¿½ï¿½ï¿½ï¿½Ô²ï¿½ï¿½ï¿½Ä²ï¿½ï¿½ï¿½ï¿½ï¿½Ô²ï¿½Ä£ï¿½ï¿½ë¾¶ï¿½ï¿½ï¿½ï¿½Ê¼ï¿½Ç£ï¿½ï¿½Ç¶Èµï¿½Î»ï¿½ï¿½ï¿½ï¿½É¨ï¿½ï¿½Ç¶È£ï¿½ï¿½Ç¶Èµï¿½Î»ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½
 	* @param [in] Vertex2d& ptCenter,double radius,double fromAngle,double centralAngle,bool isClose
 	* @return 
 	*/
 	virtual void putCoordsByAngle(Vertex2d& ptCenter,double radius,double fromAngle,double centralAngle,bool isClose) = 0;
 
-	/** ÉèÖÃÔ²»¡µÄ²ÎÊý£ºÔ²ÐÄ£¬°ë¾¶£¬ÆðÊ¼½Ç£¨½Ç¶Èµ¥Î»£©£¬É¨Ãè½Ç¶È£¨½Ç¶Èµ¥Î»£©£¬ÊÇ·ñ·â±Õ
+	/** ï¿½ï¿½ï¿½ï¿½Ô²ï¿½ï¿½ï¿½Ä²ï¿½ï¿½ï¿½ï¿½ï¿½Ô²ï¿½Ä£ï¿½ï¿½ë¾¶ï¿½ï¿½ï¿½ï¿½Ê¼ï¿½Ç£ï¿½ï¿½Ç¶Èµï¿½Î»ï¿½ï¿½ï¿½ï¿½É¨ï¿½ï¿½Ç¶È£ï¿½ï¿½Ç¶Èµï¿½Î»ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½
 	* @param [in] double centerX,double centerY,double radius,double fromAngle,double centralAngle,bool isClose
 	* @return 
 	*/
 	virtual void putCoordsByAngle(double centerX,double centerY,double radius,double fromAngle,double centralAngle,bool isClose) = 0;
 
 
-	/** »ñÈ¡Ô²»¡µÄ²ÎÊý£ºÔ²ÐÄ
-	* @return Ô²»¡µÄ²ÎÊý£ºÔ²ÐÄVertex2d
+	/** ï¿½ï¿½È¡Ô²ï¿½ï¿½ï¿½Ä²ï¿½ï¿½ï¿½ï¿½ï¿½Ô²ï¿½ï¿½
+	* @return Ô²ï¿½ï¿½ï¿½Ä²ï¿½ï¿½ï¿½ï¿½ï¿½Ô²ï¿½ï¿½Vertex2d
 	*/
 	virtual const Vertex2d& getCenterPoint() = 0;
 
-	/** »ñÈ¡Ô²»¡µÄ²ÎÊý£ºÔ²ÐÄ
-	* @param [out] Ô²ÐÄ pt
+	/** ï¿½ï¿½È¡Ô²ï¿½ï¿½ï¿½Ä²ï¿½ï¿½ï¿½ï¿½ï¿½Ô²ï¿½ï¿½
+	* @param [out] Ô²ï¿½ï¿½ pt
 	*/
 	virtual void getCenterPoint(Vertex2d& pt) = 0;
 
-	/** »ñÈ¡Ô²»¡µÄ²ÎÊý£º°ë¾¶
-	* @return Ô²»¡µÄ²ÎÊý£º°ë¾¶
+	/** ï¿½ï¿½È¡Ô²ï¿½ï¿½ï¿½Ä²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ë¾¶
+	* @return Ô²ï¿½ï¿½ï¿½Ä²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ë¾¶
 	*/
 	virtual double  getRadius() = 0;
 
-	/** »ñÈ¡Ô²»¡µÄ²ÎÊý£ºÆðÊ¼½Ç£¨½Ç¶Èµ¥Î»£©
-	* @return Ô²»¡µÄ²ÎÊý£ºÆðÊ¼½Ç£¨½Ç¶Èµ¥Î»£©
+	/** ï¿½ï¿½È¡Ô²ï¿½ï¿½ï¿½Ä²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¼ï¿½Ç£ï¿½ï¿½Ç¶Èµï¿½Î»ï¿½ï¿½
+	* @return Ô²ï¿½ï¿½ï¿½Ä²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¼ï¿½Ç£ï¿½ï¿½Ç¶Èµï¿½Î»ï¿½ï¿½
 	*/
 	virtual double  getFromAngleDeg() = 0;
 
-	/** »ñÈ¡Ô²»¡µÄ²ÎÊý£ºÉ¨Ãè½Ç¶È£¨½Ç¶Èµ¥Î»£©
-	* @return Ô²»¡µÄ²ÎÊý£ºÉ¨Ãè½Ç¶È£¨½Ç¶Èµ¥Î»£©
+	/** ï¿½ï¿½È¡Ô²ï¿½ï¿½ï¿½Ä²ï¿½ï¿½ï¿½ï¿½ï¿½É¨ï¿½ï¿½Ç¶È£ï¿½ï¿½Ç¶Èµï¿½Î»ï¿½ï¿½
+	* @return Ô²ï¿½ï¿½ï¿½Ä²ï¿½ï¿½ï¿½ï¿½ï¿½É¨ï¿½ï¿½Ç¶È£ï¿½ï¿½Ç¶Èµï¿½Î»ï¿½ï¿½
 	*/
 	virtual double  getCentralAngleDeg() = 0;
 };
@@ -586,50 +586,50 @@ public:
 class CORE_API ElementEllipticArc2d : virtual public Element2d
 {
 public:
-	/** ÉèÖÃÔ²»¡µÄ²ÎÊý£ºÔ²ÐÄ
-	* @param [in] Ô²ÐÄpt
+	/** ï¿½ï¿½ï¿½ï¿½Ô²ï¿½ï¿½ï¿½Ä²ï¿½ï¿½ï¿½ï¿½ï¿½Ô²ï¿½ï¿½
+	* @param [in] Ô²ï¿½ï¿½pt
 	* @return 
 	*/
 	virtual void setCenterPoint(Vertex2d& pt) = 0;
 
-	/** ÉèÖÃÔ²»¡µÄ²ÎÊý£ºÔ²ÐÄ
-	* @param [in] Ô²ÐÄ:x,y
+	/** ï¿½ï¿½ï¿½ï¿½Ô²ï¿½ï¿½ï¿½Ä²ï¿½ï¿½ï¿½ï¿½ï¿½Ô²ï¿½ï¿½
+	* @param [in] Ô²ï¿½ï¿½:x,y
 	* @return 
 	*/
 	virtual void setCenterPoint(double x,double y) = 0;
 
-	/** ÉèÖÃÔ²»¡µÄ²ÎÊý£º³¤Öá°ë¾¶
-	* @param [in] ³¤Öá°ë¾¶semiMajor
+	/** ï¿½ï¿½ï¿½ï¿½Ô²ï¿½ï¿½ï¿½Ä²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ë¾¶
+	* @param [in] ï¿½ï¿½ï¿½ï¿½ë¾¶semiMajor
 	* @return 
 	*/
 	virtual void setSemiMajor(double semiMajor) = 0;
 
-	/** ÉèÖÃÔ²»¡µÄ²ÎÊý£º¶ÌÖá°ë¾¶
-	* @param [in] ¶ÌÖá°ë¾¶semiMinor
+	/** ï¿½ï¿½ï¿½ï¿½Ô²ï¿½ï¿½ï¿½Ä²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ë¾¶
+	* @param [in] ï¿½ï¿½ï¿½ï¿½ë¾¶semiMinor
 	* @return 
 	*/
 	virtual void setSemiMinor(double semiMinor) = 0;
 
-	/** ÉèÖÃÔ²»¡µÄ²ÎÊý£ºÆðÊ¼½Ç£¨½Ç¶Èµ¥Î»£©
-	* @param [in] ÆðÊ¼½Ç£¨½Ç¶Èµ¥Î»£©fromAng
+	/** ï¿½ï¿½ï¿½ï¿½Ô²ï¿½ï¿½ï¿½Ä²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¼ï¿½Ç£ï¿½ï¿½Ç¶Èµï¿½Î»ï¿½ï¿½
+	* @param [in] ï¿½ï¿½Ê¼ï¿½Ç£ï¿½ï¿½Ç¶Èµï¿½Î»ï¿½ï¿½fromAng
 	* @return 
 	*/
 	virtual void setFromAngleDeg(double fromAng) = 0;
 
-	/** ÉèÖÃÔ²»¡µÄ²ÎÊý£º É¨Ãè½Ç¶È£¨½Ç¶Èµ¥Î»£©
-	* @param [in] É¨Ãè½Ç¶È£¨½Ç¶Èµ¥Î»£©centralAng
+	/** ï¿½ï¿½ï¿½ï¿½Ô²ï¿½ï¿½ï¿½Ä²ï¿½ï¿½ï¿½ï¿½ï¿½ É¨ï¿½ï¿½Ç¶È£ï¿½ï¿½Ç¶Èµï¿½Î»ï¿½ï¿½
+	* @param [in] É¨ï¿½ï¿½Ç¶È£ï¿½ï¿½Ç¶Èµï¿½Î»ï¿½ï¿½centralAng
 	* @return 
 	*/
 	virtual void setCentralAngleDeg(double centralAng) = 0;
 
-	/** ÉèÖÃÔ²»¡µÄ²ÎÊý£ºÐý×ª½Ç¶È
-	* @param [in] Ðý×ª½Ç¶ÈrotateAng
+	/** ï¿½ï¿½ï¿½ï¿½Ô²ï¿½ï¿½ï¿½Ä²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×ªï¿½Ç¶ï¿½
+	* @param [in] ï¿½ï¿½×ªï¿½Ç¶ï¿½rotateAng
 	* @return 
 	*/
 	virtual void setRotateAngleDeg(double rotateAng) = 0;
 
-	/** ÉèÖÃÔ²»¡µÄ²ÎÊý£ºÔ²ÐÄ£¬³¤Öá°ë¾¶£¬¶ÌÖá°ë¾¶£¬ÆðÊ¼½Ç£¨½Ç¶Èµ¥Î»£©£¬
-	* É¨Ãè½Ç¶È£¨½Ç¶Èµ¥Î»£©£¬Ðý×ª½Ç¶È£¬ÊÇ·ñ·â±Õ
+	/** ï¿½ï¿½ï¿½ï¿½Ô²ï¿½ï¿½ï¿½Ä²ï¿½ï¿½ï¿½ï¿½ï¿½Ô²ï¿½Ä£ï¿½ï¿½ï¿½ï¿½ï¿½ë¾¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ë¾¶ï¿½ï¿½ï¿½ï¿½Ê¼ï¿½Ç£ï¿½ï¿½Ç¶Èµï¿½Î»ï¿½ï¿½ï¿½ï¿½
+	* É¨ï¿½ï¿½Ç¶È£ï¿½ï¿½Ç¶Èµï¿½Î»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×ªï¿½Ç¶È£ï¿½ï¿½Ç·ï¿½ï¿½ï¿½
 	* @param [in] Vertex2d& center,double semiMajor,double minorMajorRatio
 	* @param [in] double fromAngle,double centralAngle,double rotationAngle,bool isClose
 	* @return 
@@ -637,8 +637,8 @@ public:
 	virtual void putCoordsByAngle(Vertex2d& center,double semiMajor,double minorMajorRatio,
 		double fromAngle,double centralAngle,double rotationAngle,bool isClose) = 0;
 
-	/** ÉèÖÃÔ²»¡µÄ²ÎÊý£ºÔ²ÐÄ£¬³¤Öá°ë¾¶£¬¶ÌÖá°ë¾¶£¬ÆðÊ¼½Ç£¨½Ç¶Èµ¥Î»£©£¬
-	* É¨Ãè½Ç¶È£¨½Ç¶Èµ¥Î»£©£¬Ðý×ª½Ç¶È£¬ÊÇ·ñ·â±Õ
+	/** ï¿½ï¿½ï¿½ï¿½Ô²ï¿½ï¿½ï¿½Ä²ï¿½ï¿½ï¿½ï¿½ï¿½Ô²ï¿½Ä£ï¿½ï¿½ï¿½ï¿½ï¿½ë¾¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ë¾¶ï¿½ï¿½ï¿½ï¿½Ê¼ï¿½Ç£ï¿½ï¿½Ç¶Èµï¿½Î»ï¿½ï¿½ï¿½ï¿½
+	* É¨ï¿½ï¿½Ç¶È£ï¿½ï¿½Ç¶Èµï¿½Î»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×ªï¿½Ç¶È£ï¿½ï¿½Ç·ï¿½ï¿½ï¿½
 	* @param [in] double centerX,double centerY,double semiMajor,double minorMajorRatio
 	* @param [in] double fromAngle,double centralAngle,double rotationAngle,bool isClose
 	* @return 
@@ -646,50 +646,50 @@ public:
 	virtual void putCoordsByAngle(double centerX,double centerY,double semiMajor,double minorMajorRatio,
 		double fromAngle,double centralAngle,double rotationAngle,bool isClose) = 0;
 
-	/** »ñÈ¡Ô²»¡µÄ²ÎÊý£ºÔ²ÐÄ
-	* @return Ô²ÐÄVertex2d
+	/** ï¿½ï¿½È¡Ô²ï¿½ï¿½ï¿½Ä²ï¿½ï¿½ï¿½ï¿½ï¿½Ô²ï¿½ï¿½
+	* @return Ô²ï¿½ï¿½Vertex2d
 	*/
 	virtual const Vertex2d& getCenterPoint() = 0;
 
-	/** »ñÈ¡Ô²»¡µÄ²ÎÊý£ºÔ²ÐÄ
-	* @param [out] Ô²ÐÄpt
+	/** ï¿½ï¿½È¡Ô²ï¿½ï¿½ï¿½Ä²ï¿½ï¿½ï¿½ï¿½ï¿½Ô²ï¿½ï¿½
+	* @param [out] Ô²ï¿½ï¿½pt
 	* @return 
 	*/
 	virtual void getCenterPoint(Vertex2d& pt) = 0;
 
-	/** »ñÈ¡Ô²»¡µÄ²ÎÊý£º³¤Öá°ë¾¶
-	* @return ³¤Öá°ë¾¶
+	/** ï¿½ï¿½È¡Ô²ï¿½ï¿½ï¿½Ä²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ë¾¶
+	* @return ï¿½ï¿½ï¿½ï¿½ë¾¶
 	*/
 	virtual double getSemiMajor() = 0;
 
-	/** »ñÈ¡Ô²»¡µÄ²ÎÊý£º¶ÌÖá°ë¾¶
-	* @return ¶ÌÖá°ë¾¶
+	/** ï¿½ï¿½È¡Ô²ï¿½ï¿½ï¿½Ä²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ë¾¶
+	* @return ï¿½ï¿½ï¿½ï¿½ë¾¶
 	*/
 	virtual double getSemiMinor() = 0;
 
-	/** »ñÈ¡Ô²»¡µÄ²ÎÊý£º±âÂÊ
-	* @return ±âÂÊ
+	/** ï¿½ï¿½È¡Ô²ï¿½ï¿½ï¿½Ä²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	* @return ï¿½ï¿½ï¿½ï¿½
 	*/
 	virtual double getMinorMajorRatio() = 0;
 
-	/** »ñÈ¡Ô²»¡µÄ²ÎÊý£ºÆðÊ¼½Ç£¨½Ç¶Èµ¥Î»£©
-	* @return ÆðÊ¼½Ç£¨½Ç¶Èµ¥Î»£©
+	/** ï¿½ï¿½È¡Ô²ï¿½ï¿½ï¿½Ä²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¼ï¿½Ç£ï¿½ï¿½Ç¶Èµï¿½Î»ï¿½ï¿½
+	* @return ï¿½ï¿½Ê¼ï¿½Ç£ï¿½ï¿½Ç¶Èµï¿½Î»ï¿½ï¿½
 	*/
 	virtual double getFromAngleDeg() = 0;
 
-	/** »ñÈ¡Ô²»¡µÄ²ÎÊý£ºÉ¨Ãè½Ç¶È£¨½Ç¶Èµ¥Î»£©
-	* @return É¨Ãè½Ç¶È£¨½Ç¶Èµ¥Î»£©
+	/** ï¿½ï¿½È¡Ô²ï¿½ï¿½ï¿½Ä²ï¿½ï¿½ï¿½ï¿½ï¿½É¨ï¿½ï¿½Ç¶È£ï¿½ï¿½Ç¶Èµï¿½Î»ï¿½ï¿½
+	* @return É¨ï¿½ï¿½Ç¶È£ï¿½ï¿½Ç¶Èµï¿½Î»ï¿½ï¿½
 	*/
 	virtual double getCentralAngleDeg() = 0;
 
-	/** »ñÈ¡Ô²»¡µÄ²ÎÊý£ºÐý×ª½Ç¶È
-	* @return Ðý×ª½Ç¶È
+	/** ï¿½ï¿½È¡Ô²ï¿½ï¿½ï¿½Ä²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×ªï¿½Ç¶ï¿½
+	* @return ï¿½ï¿½×ªï¿½Ç¶ï¿½
 	*/
 	virtual double getRotateAngleDeg() = 0;
 	
-	/** Í¨¹ý¸ø¶¨µÄ½Ç¶ÈdAngleDeg£¨½Ç¶Èµ¥Î»£©,¼ÆËãÍÖÔ²ÔÚ¸Ã½Ç¶ÈµÄµãµÄ×ø±ê
-	* @param [in]  ¸ø¶¨µÄ½Ç¶ÈdAngleDeg£¬ÍÖÔ²²ÎÊý·½³ÌÖÐµÄ½Ç¶È
-	* @param [out] Ö¸¶¨½Ç¶ÈÉÏ¶ÔÓ¦µÄµã×ø±êx,y
+	/** Í¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä½Ç¶ï¿½dAngleDegï¿½ï¿½ï¿½Ç¶Èµï¿½Î»ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô²ï¿½Ú¸Ã½Ç¶ÈµÄµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	* @param [in]  ï¿½ï¿½ï¿½ï¿½ï¿½Ä½Ç¶ï¿½dAngleDegï¿½ï¿½ï¿½ï¿½Ô²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÐµÄ½Ç¶ï¿½
+	* @param [out] Ö¸ï¿½ï¿½ï¿½Ç¶ï¿½ï¿½Ï¶ï¿½Ó¦ï¿½Äµï¿½ï¿½ï¿½ï¿½ï¿½x,y
 	* @return 
 	*/	
 	virtual void calculatePointByAngleDeg(double dAngleDeg, double &xx, double &yy) = 0;
@@ -697,535 +697,535 @@ public:
 };
 /** @}*/
 
-/** @addtogroup Geometry2d ElementBezierCurve2d-±´Èû¶ûÇúÏß
+/** @addtogroup Geometry2d ElementBezierCurve2d-ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 *  @{
 */
 class CORE_API ElementBezierCurve2d  : virtual public Element2d
 {
 public:	
-	/** »ñÈ¡ÇúÏßµÄÀàÐÍ
-	* @return ÇúÏßµÄÀàÐÍint
+	/** ï¿½ï¿½È¡ï¿½ï¿½ï¿½ßµï¿½ï¿½ï¿½ï¿½ï¿½
+	* @return ï¿½ï¿½ï¿½ßµï¿½ï¿½ï¿½ï¿½ï¿½int
 	*/
 	virtual int getSplineType() = 0;
 
-	/** ÉèÖÃÇúÏßµÄÀàÐÍ
-	* @param [in] ÇúÏßµÄÀàÐÍtype
+	/** ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ßµï¿½ï¿½ï¿½ï¿½ï¿½
+	* @param [in] ï¿½ï¿½ï¿½ßµï¿½ï¿½ï¿½ï¿½ï¿½type
 	*/
 	virtual void setSplineType(int type) = 0;
 	
-	/** »ñÈ¡¿ØÖÆµãÕó
-	* @param [in] ÎÞ
-	* @return ¿ØÖÆµãÕóµÄÖ¸Õë
+	/** ï¿½ï¿½È¡ï¿½ï¿½ï¿½Æµï¿½ï¿½ï¿½
+	* @param [in] ï¿½ï¿½
+	* @return ï¿½ï¿½ï¿½Æµï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½
 	*/
 	virtual VertexCollection2dSharedPtr& getPointCollection() = 0;	
 };
 /** @}*/
 
 
-/** @addtogroup Geometry2d Path2d-Â·¾¶Àà£¬ÓÉÁ¬ÐøµÄSegment2d×é³É£¬
-*³ýÁËÂ·¾¶µÄµÚÒ»¸öºÍ×îºóÒ»¸ö×é³ÉµÄSegment2dÖ®Íâ£¬
-*Ã¿Ò»¸öSegment2dµÄÆðÊ¼µã¶¼ÊÇÇ°Ò»¸öSegment2dµÄÖÕÖ¹µã
-*¼´Â·¾¶¶ÔÏóÖÐµÄSegment2d²»ÄÜ³öÏÖ·ÖÀëµÄÇé¿ö¡£
-*Â·¾¶¿ÉÒÔÊÇÈÎÒâÊýÄ¿µÄËÄÖÖSegment2dÀàÐÍµÄ×éºÏ¡£
+/** @addtogroup Geometry2d Path2d-Â·ï¿½ï¿½ï¿½à£¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Segment2dï¿½ï¿½É£ï¿½
+*ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½Äµï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½Éµï¿½Segment2dÖ®ï¿½â£¬
+*Ã¿Ò»ï¿½ï¿½Segment2dï¿½ï¿½ï¿½ï¿½Ê¼ï¿½ã¶¼ï¿½ï¿½Ç°Ò»ï¿½ï¿½Segment2dï¿½ï¿½ï¿½ï¿½Ö¹ï¿½ï¿½
+*ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ðµï¿½Segment2dï¿½ï¿½ï¿½Ü³ï¿½ï¿½Ö·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+*Â·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Segment2dï¿½ï¿½ï¿½Íµï¿½ï¿½ï¿½Ï¡ï¿½
 *  @{
 */
 class CORE_API Path2d
 {
 public:	
-	/**@name Ö¸Ê¾µ±Ç°ÔªËØ¼¸ºÎÐÅÏ¢ÒÑ¸ü¸Ä£¬ÐèÒªÖØÐÂ¼ÆËã ±ß½ç°üÎ§ºÐ
-	*  ´Ëº¯Êýµ÷ÓÃºó£¬Èç¹ûµ÷ÓÃgetEnvelope£¬»áÏÈµ÷ÓÃcalculateEnvelope¼ÆËã
+	/**@name Ö¸Ê¾ï¿½ï¿½Ç°Ôªï¿½Ø¼ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½Ñ¸ï¿½ï¿½Ä£ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ ï¿½ß½ï¿½ï¿½Î§ï¿½ï¿½
+	*  ï¿½Ëºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ãºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½getEnvelopeï¿½ï¿½ï¿½ï¿½ï¿½Èµï¿½ï¿½ï¿½calculateEnvelopeï¿½ï¿½ï¿½ï¿½
 	*  @return 
 	*/
 	virtual void dirtyEnvelope( bool bNeedReCalculateEnvelope ) = 0;
 
-	/**@name Ö¸Ê¾µ±Ç°ÔªËØ¼¸ºÎÐÅÏ¢ÊÇ·ñÐèÒªÖØÐÂ¼ÆËã ±ß½ç°üÎ§ºÐ
-	*  @return ÊÇ·ñÐèÒªÖØÐÂ¼ÆËã ±ß½ç°üÎ§ºÐ
+	/**@name Ö¸Ê¾ï¿½ï¿½Ç°Ôªï¿½Ø¼ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½Ç·ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ ï¿½ß½ï¿½ï¿½Î§ï¿½ï¿½
+	*  @return ï¿½Ç·ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ ï¿½ß½ï¿½ï¿½Î§ï¿½ï¿½
 	*/
 	virtual bool isDirtyEnvelope( ) = 0;
 	
-	 /**ÖØÐÂ¼ÆËãÏß¶ÎµÄÏÔÊ¾µãÕó£¬ ¼ÆËãµÄÍ¬Ê±£¬Ò²¼ÆËã±ß½ç¾ØÐÎ
+	 /**ï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½ß¶Îµï¿½ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Í¬Ê±ï¿½ï¿½Ò²ï¿½ï¿½ï¿½ï¿½ß½ï¿½ï¿½ï¿½ï¿½
 	 * @param  [in] 
-	 * @return ·µ»Ø
+	 * @return ï¿½ï¿½ï¿½ï¿½
 	 */
 	virtual void calculateDisplayPtList() = 0;
 
-	/**@name ¼ÆËãµ±Ç°¼¸ºÎÍ¼ÔªµÄ±ß½ç°üÎ§ºÐ
-	*  @param  [out] outEnvp:·µ»ØµÄ±ß½ç°üÎ§ºÐ
-	*  @return ¼ÆËãÊÇ·ñ³É¹¦ 
+	/**@name ï¿½ï¿½ï¿½ãµ±Ç°ï¿½ï¿½ï¿½ï¿½Í¼Ôªï¿½Ä±ß½ï¿½ï¿½Î§ï¿½ï¿½
+	*  @param  [out] outEnvp:ï¿½ï¿½ï¿½ØµÄ±ß½ï¿½ï¿½Î§ï¿½ï¿½
+	*  @return ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½É¹ï¿½ 
 	*/
 	virtual bool calculateEnvelope( Envelope3d& outEnvp ) = 0;
 
-	/** ¸´ÖÆÄÚ´æ
-	* @param ÎÞ
-	* @return Element2d*¶ÔÏó
+	/** ï¿½ï¿½ï¿½ï¿½ï¿½Ú´ï¿½
+	* @param ï¿½ï¿½
+	* @return Element2d*ï¿½ï¿½ï¿½ï¿½
 	*/
 	virtual Path2dSharedPtr  clone() = 0;
 	
-	/** ½«gËùÖ¸ÏòµÄ¼¸ºÎ¶ÔÏó¸´ÖÆµ½±¾¶ÔÏó
-	* @param  [in] g Element2dSharedPtr, Ö¸Ïò´ý¿½±´µÄ¶ÔÏóµÄÖ¸Õë 
-	* @return ÊÇ·ñ¿½±´³É¹¦
+	/** ï¿½ï¿½gï¿½ï¿½Ö¸ï¿½ï¿½Ä¼ï¿½ï¿½Î¶ï¿½ï¿½ï¿½ï¿½Æµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	* @param  [in] g Element2dSharedPtr, Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¶ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ 
+	* @return ï¿½Ç·ñ¿½±ï¿½ï¿½É¹ï¿½
 	*/	
 	virtual bool copy( Path2dSharedPtr& g) = 0;
 
-	/** »ñ³¤¶È
-	* @param ÎÞ
-	* @return ³¤¶È
+	/** ï¿½ñ³¤¶ï¿½
+	* @param ï¿½ï¿½
+	* @return ï¿½ï¿½ï¿½ï¿½
 	*/	
 	virtual double getLength() = 0;
 	
-	/** »ñÈ¡¼¸ºÎ¶ÔÏóµÄ±ß½ç¾ØÐÎ£¬ÎªÈýÎ¬±ß½ç£¬Èç¹ûÊÇ¶þÎ¬¶ÔÏó£¬ÔòZµÄ·¶Î§Îª0
-	* @param  [in] ÎÞ
-	* @return ·µ»Ø±ß½ç¾ØÐÎµÄÒýÓÃ
+	/** ï¿½ï¿½È¡ï¿½ï¿½ï¿½Î¶ï¿½ï¿½ï¿½Ä±ß½ï¿½ï¿½ï¿½Î£ï¿½Îªï¿½ï¿½Î¬ï¿½ß½ç£¬ï¿½ï¿½ï¿½ï¿½Ç¶ï¿½Î¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Zï¿½Ä·ï¿½Î§Îª0
+	* @param  [in] ï¿½ï¿½
+	* @return ï¿½ï¿½ï¿½Ø±ß½ï¿½ï¿½ï¿½Îµï¿½ï¿½ï¿½ï¿½ï¿½
 	*/	
 	virtual const Envelope3d &getEnvelope() = 0;
 	
-	/** ÉèÖÃ¼¸ºÎ¶ÔÏóµÄ°üÎ§±ß½ç¾ØÐÎ£¬Ö÷Òª¹©ÅÉÉúÀàÊ¹ÓÃ
-	*   * @param  [in] e3d const Envelope3d & ±ß½ç¾ØÐÎ
-	*   * @return ÎÞ
+	/** ï¿½ï¿½ï¿½Ã¼ï¿½ï¿½Î¶ï¿½ï¿½ï¿½Ä°ï¿½Î§ï¿½ß½ï¿½ï¿½ï¿½Î£ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¹ï¿½ï¿½
+	*   * @param  [in] e3d const Envelope3d & ï¿½ß½ï¿½ï¿½ï¿½ï¿½
+	*   * @return ï¿½ï¿½
 	*/
 	virtual void setEnvelope(const Envelope3d &e3d) = 0;
 
-	/** »ñÈ¡ÇúÏßÊÇ·ñ·â±Õ
-	* @return ÊÇ·ñ·â±Õ
+	/** ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½
+	* @return ï¿½Ç·ï¿½ï¿½ï¿½
 	*/
 	virtual bool isClose() = 0;
 
-	/** ÉèÖÃÇúÏßÊÇ·ñ·â±Õ
+	/** ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½
 	* @param [in] b
 	* @return 
 	*/
 	virtual void setClose(bool b) = 0;
 	
-	/** »ñÈ¡Ïß¶ÎµÄÆðµã
+	/** ï¿½ï¿½È¡ï¿½ß¶Îµï¿½ï¿½ï¿½ï¿½
 	* @param [out] fromPoint
 	* @return 
 	*/
 	virtual void getFromPoint(Vertex2d& fromPoint) = 0;
 
-	/** »ñÈ¡Ïß¶ÎµÄÖÕµã
+	/** ï¿½ï¿½È¡ï¿½ß¶Îµï¿½ï¿½Õµï¿½
 	* @param [out] toPoint
 	* @return 
 	*/
 	virtual void getToPoint(Vertex2d& toPoint) = 0;
 		
-	/** »ñÈ¡ÓÃÓÚÏÔÊ¾µÄÏß¶ÎµÄµãÕó
-	* @param [out] vtList£ºµãÕó
-	* @return »ñÈ¡ÊÇ·ñ³É¹¦
+	/** ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ß¶ÎµÄµï¿½ï¿½ï¿½
+	* @param [out] vtListï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	* @return ï¿½ï¿½È¡ï¿½Ç·ï¿½É¹ï¿½
 	*/
 	virtual bool getDisplayPointCollection(VertexCollection2d& vtList) = 0;	
 
-	/** »ñÈ¡µ±Ç°Â·¾¶µÄÏß¶ÎÁÐ±í
-	* @param ÎÞ
-	* @return SegmentCollection2dÖ¸Õë£¬µ±Ç°Â·¾¶µÄÏß¶ÎÁÐ±í
+	/** ï¿½ï¿½È¡ï¿½ï¿½Ç°Â·ï¿½ï¿½ï¿½ï¿½ï¿½ß¶ï¿½ï¿½Ð±ï¿½
+	* @param ï¿½ï¿½
+	* @return SegmentCollection2dÖ¸ï¿½ë£¬ï¿½ï¿½Ç°Â·ï¿½ï¿½ï¿½ï¿½ï¿½ß¶ï¿½ï¿½Ð±ï¿½
 	*/
 	virtual ElementCollection2dSharedPtr& getSegmentCollection() = 0;
 
-	/** Ê¹Â·¾¶ÓÐÐ§£¨Ã¿¸öÏß¶ÎµÄÆðµãÎªÏÂ¸öÏß¶ÎµÄÖÕµã£©
-	* @param ÎÞ 
-	* @return ¿Õ
+	/** Ê¹Â·ï¿½ï¿½ï¿½ï¿½Ð§ï¿½ï¿½Ã¿ï¿½ï¿½ï¿½ß¶Îµï¿½ï¿½ï¿½ï¿½Îªï¿½Â¸ï¿½ï¿½ß¶Îµï¿½ï¿½Õµã£©
+	* @param ï¿½ï¿½ 
+	* @return ï¿½ï¿½
 	*/
 	virtual void simplify() = 0;
 	
-	/**   »ñÈ¡¼¸ºÎ¶ÔÏóÐ´Èëµ½BufferÖÐËùÕ¼ÓÃµÄ×Ö½ÚÊý£¬±ãÓÚ´ÓBuffer¶ÔÏóÖÐ¹¹½¨¼¸ºÎ¶ÔÏó
-	*     * @param  [in] ÎÞ 
-	*     * @return ·µ»Ø¼¸ºÎ¶ÔÏóÐ´Èëµ½BufferÖÐËùÕ¼ÓÃµÄ×Ö½ÚÊý
+	/**   ï¿½ï¿½È¡ï¿½ï¿½ï¿½Î¶ï¿½ï¿½ï¿½Ð´ï¿½ëµ½Bufferï¿½ï¿½ï¿½ï¿½Õ¼ï¿½Ãµï¿½ï¿½Ö½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú´ï¿½Bufferï¿½ï¿½ï¿½ï¿½ï¿½Ð¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î¶ï¿½ï¿½ï¿½
+	*     * @param  [in] ï¿½ï¿½ 
+	*     * @return ï¿½ï¿½ï¿½Ø¼ï¿½ï¿½Î¶ï¿½ï¿½ï¿½Ð´ï¿½ëµ½Bufferï¿½ï¿½ï¿½ï¿½Õ¼ï¿½Ãµï¿½ï¿½Ö½ï¿½ï¿½ï¿½
 	*/
 	virtual size_t sizeBuffer() = 0;
 	
-	/**´ÓBufferÖÐ¶ÁÈ¡ÐÅÏ¢Ìî³ä±¾¼¸ºÎ¶ÔÏó 
-	*  * @param  [in,out] buf Buffer & £¬»º³åÇø¶ÔÏóÒýÓÃ 
-	*  * @return ³É¹¦·µ»Øtrue£¬·ñÔò·µ»Øfalse 
+	/**ï¿½ï¿½Bufferï¿½Ð¶ï¿½È¡ï¿½ï¿½Ï¢ï¿½ï¿½ä±¾ï¿½ï¿½ï¿½Î¶ï¿½ï¿½ï¿½ 
+	*  * @param  [in,out] buf Buffer & ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
+	*  * @return ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½trueï¿½ï¿½ï¿½ï¿½ï¿½ò·µ»ï¿½false 
 	*/
 	virtual bool readBuffer(Buffer &buf) = 0 ;
 	
-	/**½«±¾ÀàµÄÐÅÏ¢Ð´ÈëBufferÖÐ  
-	*  * @param  [in,out] buf Buffer & £¬»º³åÇø¶ÔÏóÒýÓÃ 
-	*  * @return ³É¹¦·µ»Øtrue£¬·ñÔò·µ»Øfalse 
+	/**ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢Ð´ï¿½ï¿½Bufferï¿½ï¿½  
+	*  * @param  [in,out] buf Buffer & ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
+	*  * @return ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½trueï¿½ï¿½ï¿½ï¿½ï¿½ò·µ»ï¿½false 
 	*/
 	virtual bool writeBuffer(Buffer& buf) = 0;
 	
-	/**½«±¾ÀàµÄÐÅÏ¢Ð´ÈëÊä³öÁ÷ÖÐ£¬±ãÓÚÎÄ¼þ¶ÁÐ´»ò»º³åÇøÐ´²Ù×÷  
-	*  * @param  [in,out] f  std::ostream &£¬±ê×¼Êä³öÁ÷¶ÔÏóÒýÓÃ 
-	*  * @return ³É¹¦·µ»Øtrue£¬·ñÔò·µ»Øfalse 
+	/**ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢Ð´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½Ð´ï¿½ò»º³ï¿½ï¿½ï¿½Ð´ï¿½ï¿½ï¿½ï¿½  
+	*  * @param  [in,out] f  std::ostream &ï¿½ï¿½ï¿½ï¿½×¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
+	*  * @return ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½trueï¿½ï¿½ï¿½ï¿½ï¿½ò·µ»ï¿½false 
 	*/
 	virtual void write(std::ostream &f) = 0;
 	
-	/** ´Ó±ê×¼ÊäÈëÁ÷ÖÐÌáÈ¡±¾ÀàµÄÐÅÏ¢   
-	*   * @param  [in,out] f  std::istream &£¬±ê×¼ÊäÈëÁ÷¶ÔÏóÒýÓÃ 
-	*   * @return ³É¹¦·µ»Øtrue£¬·ñÔò·µ»Øfalse 
+	/** ï¿½Ó±ï¿½×¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢   
+	*   * @param  [in,out] f  std::istream &ï¿½ï¿½ï¿½ï¿½×¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
+	*   * @return ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½trueï¿½ï¿½ï¿½ï¿½ï¿½ò·µ»ï¿½false 
 	*/
 	virtual void read(std::istream &f) = 0;
 	
-	/** Ïß¶Î·´Ïò
+	/** ï¿½ß¶Î·ï¿½ï¿½ï¿½
 	* @return
 	*/
 	virtual void reverseOrientation() = 0;
 };
 /** @}*/
 
-/** @addtogroup Geometry2d PathCollection2d-Â·¾¶¼¯Àà£¬¿ÉÒÔÓÃÀ´¹ÜÀíËùÓÐÂ·¾¶Path2d
+/** @addtogroup Geometry2d PathCollection2d-Â·ï¿½ï¿½ï¿½ï¿½ï¿½à£¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½Path2d
 *  @{
 */
 class CORE_API PathCollection2d 
 {
 public:
-	/**@name ¼ÆËãµ±Ç°¼¸ºÎÍ¼ÔªµÄ±ß½ç°üÎ§ºÐ
-	*  @param  [out] outEnvp:·µ»ØµÄ ±ß½ç°üÎ§ºÐ
-	*  @return ¼ÆËãÊÇ·ñ³É¹¦ 
+	/**@name ï¿½ï¿½ï¿½ãµ±Ç°ï¿½ï¿½ï¿½ï¿½Í¼Ôªï¿½Ä±ß½ï¿½ï¿½Î§ï¿½ï¿½
+	*  @param  [out] outEnvp:ï¿½ï¿½ï¿½Øµï¿½ ï¿½ß½ï¿½ï¿½Î§ï¿½ï¿½
+	*  @return ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½É¹ï¿½ 
 	*/
 	virtual bool calculateEnvelope( Envelope3d& outEnvp ) = 0;
 
-	/**½«±¾ÀàµÄÐÅÏ¢Ð´ÈëÊä³öÁ÷ÖÐ£¬±ãÓÚÎÄ¼þ¶ÁÐ´»ò»º³åÇøÐ´²Ù×÷
-	* @param  [in,out] f  std::ostream &£¬±ê×¼Êä³öÁ÷¶ÔÏóÒýÓÃ
-	* @return ³É¹¦·µ»Øtrue£¬·ñÔò·µ»Øfalse
+	/**ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢Ð´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½Ð´ï¿½ò»º³ï¿½ï¿½ï¿½Ð´ï¿½ï¿½ï¿½ï¿½
+	* @param  [in,out] f  std::ostream &ï¿½ï¿½ï¿½ï¿½×¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	* @return ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½trueï¿½ï¿½ï¿½ï¿½ï¿½ò·µ»ï¿½false
 	*/
 	virtual void write(std::ostream & f)=0;
-	/**´Ó±ê×¼ÊäÈëÁ÷ÖÐÌáÈ¡±¾ÀàµÄÐÅÏ¢ 
-	* @param  [in,out] f  std::istream &£¬±ê×¼ÊäÈëÁ÷¶ÔÏóÒýÓÃ
-	* @return ³É¹¦·µ»Øtrue£¬·ñÔò·µ»Øfalse
+	/**ï¿½Ó±ï¿½×¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ 
+	* @param  [in,out] f  std::istream &ï¿½ï¿½ï¿½ï¿½×¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	* @return ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½trueï¿½ï¿½ï¿½ï¿½ï¿½ò·µ»ï¿½false
 	*/
 	virtual void read(std::istream & f)=0;
 
-	/*´ÓBufferÖÐ¶ÁÈ¡ÐÅÏ¢Ìî³ä±¾¼¸ºÎ¶ÔÏó
-	* @param  [in,out] buf Buffer & £¬»º³åÇø¶ÔÏóÒýÓÃ 
-	* @return ³É¹¦·µ»Øtrue£¬·ñÔò·µ»Øfalse
+	/*ï¿½ï¿½Bufferï¿½Ð¶ï¿½È¡ï¿½ï¿½Ï¢ï¿½ï¿½ä±¾ï¿½ï¿½ï¿½Î¶ï¿½ï¿½ï¿½
+	* @param  [in,out] buf Buffer & ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
+	* @return ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½trueï¿½ï¿½ï¿½ï¿½ï¿½ò·µ»ï¿½false
 	*/
 	virtual bool writeBuffer (Buffer &buf)=0;
 
-	/*´ÓBufferÖÐ¶ÁÈ¡ÐÅÏ¢Ìî³ä±¾¼¸ºÎ¶ÔÏó
-	* @param  [in,out] buf Buffer & £¬»º³åÇø¶ÔÏóÒýÓÃ 
-	* @return ³É¹¦·µ»Øtrue£¬·ñÔò·µ»Øfalse
+	/*ï¿½ï¿½Bufferï¿½Ð¶ï¿½È¡ï¿½ï¿½Ï¢ï¿½ï¿½ä±¾ï¿½ï¿½ï¿½Î¶ï¿½ï¿½ï¿½
+	* @param  [in,out] buf Buffer & ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
+	* @return ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½trueï¿½ï¿½ï¿½ï¿½ï¿½ò·µ»ï¿½false
 	*/
 	virtual bool readBuffer (Buffer &buf)=0;
 
-	/** »ñÈ¡¶ÔÏóÐ´Èëµ½BufferÖÐËùÕ¼ÓÃµÄ×Ö½ÚÊý
-	* @param ÎÞ
-	* @return »ñÈ¡µ½µÄbuffer×Ö½ÚÊý
+	/** ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½Ð´ï¿½ëµ½Bufferï¿½ï¿½ï¿½ï¿½Õ¼ï¿½Ãµï¿½ï¿½Ö½ï¿½ï¿½ï¿½
+	* @param ï¿½ï¿½
+	* @return ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½bufferï¿½Ö½ï¿½ï¿½ï¿½
 	*/
 	virtual size_t sizeBuffer()=0 ;
 
-	/** Ìí¼ÓÔªËØµ½ÔªËØ¼¯ÖÐ
-	* Èç¹ûbefore, after¶¼Îª¿Õ£¬ÔòÌí¼Óµ½ÔªËØ¼¯µÄÄ©Î²
-	* @param [in] pt£¬Òª²åÈëµÄÔªËØ
-	* @param [in] before£¬ÔÚ´ËË÷ÒýÖ®Ç°²åÈë
-	* @param [in] after£¬ÔÚ´ËË÷ÒýÖ®ºó²åÈë
+	/** ï¿½ï¿½ï¿½Ôªï¿½Øµï¿½Ôªï¿½Ø¼ï¿½ï¿½ï¿½
+	* ï¿½ï¿½ï¿½before, afterï¿½ï¿½Îªï¿½Õ£ï¿½ï¿½ï¿½ï¿½ï¿½Óµï¿½Ôªï¿½Ø¼ï¿½ï¿½ï¿½Ä©Î²
+	* @param [in] ptï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½ï¿½Ôªï¿½ï¿½
+	* @param [in] beforeï¿½ï¿½ï¿½Ú´ï¿½ï¿½ï¿½ï¿½ï¿½Ö®Ç°ï¿½ï¿½ï¿½ï¿½
+	* @param [in] afterï¿½ï¿½ï¿½Ú´ï¿½ï¿½ï¿½ï¿½ï¿½Ö®ï¿½ï¿½ï¿½ï¿½ï¿½
 	* @return
 	*/
 	virtual void addElement(Path2dSharedPtr& obj,int* before=NULL, int* after=NULL)=0;
 
-	/** ½«Ä¿±êÔªËØ¼¯ÖÐµÄÔªËØÌí¼Óµ½µ±Ç°ÔªËØ¼¯µÄÄ©Î²
-	* @param [in] newElements£¬Ä¿±êÔªËØ¼¯
-	* @return Ìí¼ÓÊÇ·ñ³É¹¦
+	/** ï¿½ï¿½Ä¿ï¿½ï¿½Ôªï¿½Ø¼ï¿½ï¿½Ðµï¿½Ôªï¿½ï¿½ï¿½ï¿½Óµï¿½ï¿½ï¿½Ç°Ôªï¿½Ø¼ï¿½ï¿½ï¿½Ä©Î²
+	* @param [in] newElementsï¿½ï¿½Ä¿ï¿½ï¿½Ôªï¿½Ø¼ï¿½
+	* @return ï¿½ï¿½ï¿½ï¿½Ç·ï¿½É¹ï¿½
 	*/
 	virtual bool addCollection(PathCollection2dSharedPtr&  newElements)=0;
 
-	/** ½«Ä¿±êÔªËØ¼¯ÖÐµÄÔªËØ²åÈëµ½µ±Ç°ÔªËØ¼¯ÖÐ
-	* @param [in] index£¬²åÈëÎ»ÖÃ
-	* @param [in] newElements£¬Ä¿±êÔªËØ¼¯
-	* @return Ìí¼ÓÊÇ·ñ³É¹¦
+	/** ï¿½ï¿½Ä¿ï¿½ï¿½Ôªï¿½Ø¼ï¿½ï¿½Ðµï¿½Ôªï¿½Ø²ï¿½ï¿½ëµ½ï¿½ï¿½Ç°Ôªï¿½Ø¼ï¿½ï¿½ï¿½
+	* @param [in] indexï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î»ï¿½ï¿½
+	* @param [in] newElementsï¿½ï¿½Ä¿ï¿½ï¿½Ôªï¿½Ø¼ï¿½
+	* @return ï¿½ï¿½ï¿½ï¿½Ç·ï¿½É¹ï¿½
 	*/
 	virtual bool insertCollection(long index,PathCollection2dSharedPtr&  newElements)=0;
 
-	/** »ñÈ¡Ö¸¶¨Ë÷ÒýµÄÔªËØ
-	* @param [in] index: Òª»ñÈ¡µÄÔªËØµÄË÷Òý
-	* @return: »ñÈ¡µ½µÄÔªËØµÄÖ¸Õë£¬»ñÈ¡Ê§°ÜÔò·µ»ØNULL
+	/** ï¿½ï¿½È¡Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ôªï¿½ï¿½
+	* @param [in] index: Òªï¿½ï¿½È¡ï¿½ï¿½Ôªï¿½Øµï¿½ï¿½ï¿½ï¿½ï¿½
+	* @return: ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½Ôªï¿½Øµï¿½Ö¸ï¿½ë£¬ï¿½ï¿½È¡Ê§ï¿½ï¿½ï¿½ò·µ»ï¿½NULL
 	*/
 	virtual Path2dSharedPtr&  getElement(long index)=0;
 
-	/** »ñÈ¡ÔªËØµÄ¸öÊý
-	* @return: ÔªËØµÄ¸öÊý
+	/** ï¿½ï¿½È¡Ôªï¿½ØµÄ¸ï¿½ï¿½ï¿½
+	* @return: Ôªï¿½ØµÄ¸ï¿½ï¿½ï¿½
 	*/
 	virtual long getCount()=0;
 
-	/** ½»»»ÔªËØ¼¯ÖÐµÄÁ½¸öÔªËØ
-	* @param [in] index1,index2: Òª½»»»µÄÔªËØÔÚÊý×éÖÐµÄË÷Òý
-	* @return: ½»»»³É¹¦·µ»Øtrue£¬·ñÔò·µ»Øfalse
+	/** ï¿½ï¿½ï¿½ï¿½Ôªï¿½Ø¼ï¿½ï¿½Ðµï¿½ï¿½ï¿½ï¿½ï¿½Ôªï¿½ï¿½
+	* @param [in] index1,index2: Òªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ôªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ðµï¿½ï¿½ï¿½ï¿½ï¿½
+	* @return: ï¿½ï¿½ï¿½ï¿½ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½trueï¿½ï¿½ï¿½ï¿½ï¿½ò·µ»ï¿½false
 	*/
 	virtual bool swap(long index1,long index2)=0;
 
-	/** ´ÓÔªËØ¼¯ÖÐÒÆ³ýÖ¸¶¨Ë÷ÒýµÄÔªËØ£¬²¢·µ»ØÒÆ³ýµÄÔªËØ
-	* @param [in] index: ÒªÒÆ³ýµÄÔªËØµÄË÷Òý
-	* @return: ÒÆ³ýµÄÔªËØµÄÖ¸Õë£¬Ê§°ÜÔò·µ»ØNULL
+	/** ï¿½ï¿½Ôªï¿½Ø¼ï¿½ï¿½ï¿½ï¿½Æ³ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ôªï¿½Ø£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ³ï¿½ï¿½ï¿½Ôªï¿½ï¿½
+	* @param [in] index: Òªï¿½Æ³ï¿½ï¿½ï¿½Ôªï¿½Øµï¿½ï¿½ï¿½ï¿½ï¿½
+	* @return: ï¿½Æ³ï¿½ï¿½ï¿½Ôªï¿½Øµï¿½Ö¸ï¿½ë£¬Ê§ï¿½ï¿½ï¿½ò·µ»ï¿½NULL
 	*/
 	virtual Path2dSharedPtr removeElement(long index)=0;
 
-	/** ´ÓÔªËØ¼¯ÖÐÉ¾³ýÖ¸¶¨Ë÷ÒýµÄÔªËØ
-	* @param [in] index: ÒªÉ¾³ýµÄÔªËØµÄË÷Òý
-	* @return: É¾³ýÊ§°ÜÔò·µ»Øfalse
+	/** ï¿½ï¿½Ôªï¿½Ø¼ï¿½ï¿½ï¿½É¾ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ôªï¿½ï¿½
+	* @param [in] index: ÒªÉ¾ï¿½ï¿½ï¿½ï¿½Ôªï¿½Øµï¿½ï¿½ï¿½ï¿½ï¿½
+	* @return: É¾ï¿½ï¿½Ê§ï¿½ï¿½ï¿½ò·µ»ï¿½false
 	*/
 	virtual bool deleteElement(long index)=0;
 
-	/** Çå¿Õµ±Ç°ÔªËØ¼¯
+	/** ï¿½ï¿½Õµï¿½Ç°Ôªï¿½Ø¼ï¿½
 	* @return
 	*/
 	virtual void clear()=0;
 
-	/** @ ½«Ä¿±êÊý×é g ÖÐµÄ¿½±´µ½ µ±Ç°Êý×éÖÐ 
-	* @param  [in] g , ElementCollection2d *, Ö¸Ïò´ý¿½±´µÄÊý×éµÄÖ¸Õë 
-	* @return ÊÇ·ñ¿½±´³É¹¦
+	/** @ ï¿½ï¿½Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ g ï¿½ÐµÄ¿ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
+	* @param  [in] g , ElementCollection2d *, Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ 
+	* @return ï¿½Ç·ñ¿½±ï¿½ï¿½É¹ï¿½
 	*/
 	virtual bool copy(PathCollection2dSharedPtr& g) = 0;
 };
 /** @}*/
 
-/** @addtogroup Geometry2d Ring2dType-»·µÄÀàÐÍ
+/** @addtogroup Geometry2d Ring2dType-ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 *  @{
 */
 enum Ring2dType
 {
-	RINT_TYPE_2D_UNKNOW = 0,		//Î´ÖªÀàÐÍ
-	RINT_TYPE_2D_INTERIOR,			//ÄÚ»·
-	RINT_TYPE_2D_EXTRRIOR			//Íâ»·
+	RINT_TYPE_2D_UNKNOW = 0,		//Î´Öªï¿½ï¿½ï¿½ï¿½
+	RINT_TYPE_2D_INTERIOR,			//ï¿½Ú»ï¿½
+	RINT_TYPE_2D_EXTRRIOR			//ï¿½â»·
 };
 /** @}*/
 
-/** @addtogroup Geometry2d Ring2d-»·Àà£¬ÓÉÁ¬ÐøµÄSegment2d×é³É£¬
-*³ýÁË»·µÄµÚÒ»¸öºÍ×îºóÒ»¸ö×é³ÉµÄSegment2dÖ®Íâ£¬
-*Ã¿Ò»¸öSegment2dµÄÆðÊ¼µã¶¼ÊÇÇ°Ò»¸öSegment2dµÄÖÕÖ¹µã
-*¼´»·¶ÔÏóÖÐµÄSegment2d²»ÄÜ³öÏÖ·ÖÀëµÄÇé¿ö¡£
-*»·¿ÉÒÔÊÇÈÎÒâÊýÄ¿µÄËÄÖÖSegment2dÀàÐÍµÄ×éºÏ¡£
-*»·ÖÐµÄSegment2d·½Ïò±ØÐëÊÇÒ»ÖÂµÄ
-*»·±ØÐëÊÇ·â±ÕµÄ£¬¼´»·µÄÆðÊ¼µã±ØÐëÓëÖÕÖ¹µãÒ»Ñù
-*»·²»ÄÜ×ÔÏà½»
+/** @addtogroup Geometry2d Ring2d-ï¿½ï¿½ï¿½à£¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Segment2dï¿½ï¿½É£ï¿½
+*ï¿½ï¿½ï¿½Ë»ï¿½ï¿½Äµï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½Éµï¿½Segment2dÖ®ï¿½â£¬
+*Ã¿Ò»ï¿½ï¿½Segment2dï¿½ï¿½ï¿½ï¿½Ê¼ï¿½ã¶¼ï¿½ï¿½Ç°Ò»ï¿½ï¿½Segment2dï¿½ï¿½ï¿½ï¿½Ö¹ï¿½ï¿½
+*ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ðµï¿½Segment2dï¿½ï¿½ï¿½Ü³ï¿½ï¿½Ö·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+*ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Segment2dï¿½ï¿½ï¿½Íµï¿½ï¿½ï¿½Ï¡ï¿½
+*ï¿½ï¿½ï¿½Ðµï¿½Segment2dï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½Âµï¿½
+*ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ÕµÄ£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¹ï¿½ï¿½Ò»ï¿½ï¿½
+*ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½à½»
 *  @{
 */
 class CORE_API Ring2d 
 {
 public:
 
-	/** »ñÈ¡µ±Ç°»·µÄÏß¶ÎÁÐ±í
-	* @return SegmentCollection2dÖ¸Õë
+	/** ï¿½ï¿½È¡ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½ï¿½ß¶ï¿½ï¿½Ð±ï¿½
+	* @return SegmentCollection2dÖ¸ï¿½ï¿½
 	*/
 	virtual ElementCollection2dSharedPtr& getSegmentCollection() = 0;
 
-	/** »ñÈ¡»·µÄÃæ»ý
+	/** ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	* @return double
 	*/
 	virtual double getArea() = 0;
 
-	/** »ñÈ¡»·µÄ¼¸ºÎÖØÐÄ£¬ÓÃÓÚÉú³É±ê×¢
+	/** ï¿½ï¿½È¡ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É±ï¿½×¢
 	* @return Vertex2d
 	*/
 	virtual Vertex2d getCentrolid() = 0;
 
-	/** Éè¶¨»··â±Õ
+	/** ï¿½è¶¨ï¿½ï¿½ï¿½ï¿½ï¿½
 	* @return 
 	*/
 	virtual void setClose() = 0;
 
-	/** Ê¹»·ÓÐÐ§
+	/** Ê¹ï¿½ï¿½ï¿½ï¿½Ð§
 	* @return 
 	*/
 	virtual void simplify() = 0;
 
-	/** »ñÈ¡»·µÄÀàÐÍ
-	* @return »·µÄÀàÐÍ
+	/** ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	* @return ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	*/
 	virtual int getRingType() = 0;
 
-	/** ÉèÖÃ»·µÄÀàÐÍ
-	* @param [in] »·µÄÀàÐÍringType
+	/** ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	* @param [in] ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ringType
 	* @return 
 	*/
 	virtual void setRingType(Ring2dType ringType) = 0;
 
 	
-	/**@name Ö¸Ê¾µ±Ç°ÔªËØ¼¸ºÎÐÅÏ¢ÒÑ¸ü¸Ä£¬ÐèÒªÖØÐÂ¼ÆËã ±ß½ç°üÎ§ºÐ
-	*  ´Ëº¯Êýµ÷ÓÃºó£¬Èç¹ûµ÷ÓÃgetEnvelope£¬»áÏÈµ÷ÓÃcalculateEnvelope¼ÆËã
+	/**@name Ö¸Ê¾ï¿½ï¿½Ç°Ôªï¿½Ø¼ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½Ñ¸ï¿½ï¿½Ä£ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ ï¿½ß½ï¿½ï¿½Î§ï¿½ï¿½
+	*  ï¿½Ëºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ãºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½getEnvelopeï¿½ï¿½ï¿½ï¿½ï¿½Èµï¿½ï¿½ï¿½calculateEnvelopeï¿½ï¿½ï¿½ï¿½
 	*  @return 
 	*/
 	virtual void dirtyEnvelope( bool bNeedReCalculateEnvelope ) = 0;
 
-	/**@name Ö¸Ê¾µ±Ç°ÔªËØ¼¸ºÎÐÅÏ¢ÊÇ·ñÐèÒªÖØÐÂ¼ÆËã ±ß½ç°üÎ§ºÐ
-	*  @return ÊÇ·ñÐèÒªÖØÐÂ¼ÆËã ±ß½ç°üÎ§ºÐ
+	/**@name Ö¸Ê¾ï¿½ï¿½Ç°Ôªï¿½Ø¼ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½Ç·ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ ï¿½ß½ï¿½ï¿½Î§ï¿½ï¿½
+	*  @return ï¿½Ç·ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ ï¿½ß½ï¿½ï¿½Î§ï¿½ï¿½
 	*/
 	virtual bool isDirtyEnvelope( ) = 0;
 	
-	 /**ÖØÐÂ¼ÆËãÏß¶ÎµÄÏÔÊ¾µãÕó£¬ ¼ÆËãµÄÍ¬Ê±£¬Ò²¼ÆËã±ß½ç¾ØÐÎ
+	 /**ï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½ß¶Îµï¿½ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Í¬Ê±ï¿½ï¿½Ò²ï¿½ï¿½ï¿½ï¿½ß½ï¿½ï¿½ï¿½ï¿½
 	 * @param  [in] 
-	 * @return ·µ»Ø
+	 * @return ï¿½ï¿½ï¿½ï¿½
 	 */
 	virtual void calculateDisplayPtList() = 0;
 
-	/**@name ¼ÆËãµ±Ç°¼¸ºÎÍ¼ÔªµÄ±ß½ç°üÎ§ºÐ
-	*  @param  [out] outEnvp:·µ»ØµÄ±ß½ç°üÎ§ºÐ
-	*  @return ¼ÆËãÊÇ·ñ³É¹¦ 
+	/**@name ï¿½ï¿½ï¿½ãµ±Ç°ï¿½ï¿½ï¿½ï¿½Í¼Ôªï¿½Ä±ß½ï¿½ï¿½Î§ï¿½ï¿½
+	*  @param  [out] outEnvp:ï¿½ï¿½ï¿½ØµÄ±ß½ï¿½ï¿½Î§ï¿½ï¿½
+	*  @return ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½É¹ï¿½ 
 	*/
 	virtual bool calculateEnvelope( Envelope3d& outEnvp ) = 0;
 
-	/** ¸´ÖÆÄÚ´æ
-	* @param ÎÞ
-	* @return Element2d*¶ÔÏó
+	/** ï¿½ï¿½ï¿½ï¿½ï¿½Ú´ï¿½
+	* @param ï¿½ï¿½
+	* @return Element2d*ï¿½ï¿½ï¿½ï¿½
 	*/
 	virtual Ring2dSharedPtr  clone() = 0;
 	
-	/** ½«gËùÖ¸ÏòµÄ¼¸ºÎ¶ÔÏó¸´ÖÆµ½±¾¶ÔÏó
-	* @param  [in] g Element2dSharedPtr, Ö¸Ïò´ý¿½±´µÄ¶ÔÏóµÄÖ¸Õë 
-	* @return ÊÇ·ñ¿½±´³É¹¦
+	/** ï¿½ï¿½gï¿½ï¿½Ö¸ï¿½ï¿½Ä¼ï¿½ï¿½Î¶ï¿½ï¿½ï¿½ï¿½Æµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	* @param  [in] g Element2dSharedPtr, Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¶ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ 
+	* @return ï¿½Ç·ñ¿½±ï¿½ï¿½É¹ï¿½
 	*/	
 	virtual bool copy( Ring2dSharedPtr& g) = 0;
 
-	/** »ñ³¤¶È
-	* @param ÎÞ
-	* @return ³¤¶È
+	/** ï¿½ñ³¤¶ï¿½
+	* @param ï¿½ï¿½
+	* @return ï¿½ï¿½ï¿½ï¿½
 	*/	
 	virtual double getLength() = 0;
 
-	/** »ñÈ¡¼¸ºÎ¶ÔÏóµÄ±ß½ç¾ØÐÎ£¬ÎªÈýÎ¬±ß½ç£¬Èç¹ûÊÇ¶þÎ¬¶ÔÏó£¬ÔòZµÄ·¶Î§Îª0
-	* @param  [in] ÎÞ
-	* @return ·µ»Ø±ß½ç¾ØÐÎµÄÒýÓÃ
+	/** ï¿½ï¿½È¡ï¿½ï¿½ï¿½Î¶ï¿½ï¿½ï¿½Ä±ß½ï¿½ï¿½ï¿½Î£ï¿½Îªï¿½ï¿½Î¬ï¿½ß½ç£¬ï¿½ï¿½ï¿½ï¿½Ç¶ï¿½Î¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Zï¿½Ä·ï¿½Î§Îª0
+	* @param  [in] ï¿½ï¿½
+	* @return ï¿½ï¿½ï¿½Ø±ß½ï¿½ï¿½ï¿½Îµï¿½ï¿½ï¿½ï¿½ï¿½
 	*/	
 	virtual const Envelope3d &getEnvelope() = 0;
 	
-	/** ÉèÖÃ¼¸ºÎ¶ÔÏóµÄ°üÎ§±ß½ç¾ØÐÎ£¬Ö÷Òª¹©ÅÉÉúÀàÊ¹ÓÃ
-	*   * @param  [in] e3d const Envelope3d & ±ß½ç¾ØÐÎ
-	*   * @return ÎÞ
+	/** ï¿½ï¿½ï¿½Ã¼ï¿½ï¿½Î¶ï¿½ï¿½ï¿½Ä°ï¿½Î§ï¿½ß½ï¿½ï¿½ï¿½Î£ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¹ï¿½ï¿½
+	*   * @param  [in] e3d const Envelope3d & ï¿½ß½ï¿½ï¿½ï¿½ï¿½
+	*   * @return ï¿½ï¿½
 	*/
 	virtual void setEnvelope(const Envelope3d &e3d) = 0;
 	
-	/** »ñÈ¡ÓÃÓÚÏÔÊ¾µÄÏß¶ÎµÄµãÕó
-	* @param [out] vtList£ºµãÕó
-	* @return »ñÈ¡ÊÇ·ñ³É¹¦
+	/** ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ß¶ÎµÄµï¿½ï¿½ï¿½
+	* @param [out] vtListï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	* @return ï¿½ï¿½È¡ï¿½Ç·ï¿½É¹ï¿½
 	*/
 	virtual bool getDisplayPointCollection(VertexCollection2d& vtList) = 0;	
 	
-	/**   »ñÈ¡¼¸ºÎ¶ÔÏóÐ´Èëµ½BufferÖÐËùÕ¼ÓÃµÄ×Ö½ÚÊý£¬±ãÓÚ´ÓBuffer¶ÔÏóÖÐ¹¹½¨¼¸ºÎ¶ÔÏó
-	*     * @param  [in] ÎÞ 
-	*     * @return ·µ»Ø¼¸ºÎ¶ÔÏóÐ´Èëµ½BufferÖÐËùÕ¼ÓÃµÄ×Ö½ÚÊý
+	/**   ï¿½ï¿½È¡ï¿½ï¿½ï¿½Î¶ï¿½ï¿½ï¿½Ð´ï¿½ëµ½Bufferï¿½ï¿½ï¿½ï¿½Õ¼ï¿½Ãµï¿½ï¿½Ö½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú´ï¿½Bufferï¿½ï¿½ï¿½ï¿½ï¿½Ð¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î¶ï¿½ï¿½ï¿½
+	*     * @param  [in] ï¿½ï¿½ 
+	*     * @return ï¿½ï¿½ï¿½Ø¼ï¿½ï¿½Î¶ï¿½ï¿½ï¿½Ð´ï¿½ëµ½Bufferï¿½ï¿½ï¿½ï¿½Õ¼ï¿½Ãµï¿½ï¿½Ö½ï¿½ï¿½ï¿½
 	*/
 	virtual size_t sizeBuffer() = 0;
 	
-	/**´ÓBufferÖÐ¶ÁÈ¡ÐÅÏ¢Ìî³ä±¾¼¸ºÎ¶ÔÏó 
-	*  * @param  [in,out] buf Buffer & £¬»º³åÇø¶ÔÏóÒýÓÃ 
-	*  * @return ³É¹¦·µ»Øtrue£¬·ñÔò·µ»Øfalse 
+	/**ï¿½ï¿½Bufferï¿½Ð¶ï¿½È¡ï¿½ï¿½Ï¢ï¿½ï¿½ä±¾ï¿½ï¿½ï¿½Î¶ï¿½ï¿½ï¿½ 
+	*  * @param  [in,out] buf Buffer & ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
+	*  * @return ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½trueï¿½ï¿½ï¿½ï¿½ï¿½ò·µ»ï¿½false 
 	*/
 	virtual bool readBuffer(Buffer &buf) = 0 ;
 	
-	/**½«±¾ÀàµÄÐÅÏ¢Ð´ÈëBufferÖÐ  
-	*  * @param  [in,out] buf Buffer & £¬»º³åÇø¶ÔÏóÒýÓÃ 
-	*  * @return ³É¹¦·µ»Øtrue£¬·ñÔò·µ»Øfalse 
+	/**ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢Ð´ï¿½ï¿½Bufferï¿½ï¿½  
+	*  * @param  [in,out] buf Buffer & ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
+	*  * @return ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½trueï¿½ï¿½ï¿½ï¿½ï¿½ò·µ»ï¿½false 
 	*/
 	virtual bool writeBuffer(Buffer& buf) = 0;
 	
-	/**½«±¾ÀàµÄÐÅÏ¢Ð´ÈëÊä³öÁ÷ÖÐ£¬±ãÓÚÎÄ¼þ¶ÁÐ´»ò»º³åÇøÐ´²Ù×÷  
-	*  * @param  [in,out] f  std::ostream &£¬±ê×¼Êä³öÁ÷¶ÔÏóÒýÓÃ 
-	*  * @return ³É¹¦·µ»Øtrue£¬·ñÔò·µ»Øfalse 
+	/**ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢Ð´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½Ð´ï¿½ò»º³ï¿½ï¿½ï¿½Ð´ï¿½ï¿½ï¿½ï¿½  
+	*  * @param  [in,out] f  std::ostream &ï¿½ï¿½ï¿½ï¿½×¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
+	*  * @return ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½trueï¿½ï¿½ï¿½ï¿½ï¿½ò·µ»ï¿½false 
 	*/
 	virtual void write(std::ostream &f) = 0;
 	
-	/** ´Ó±ê×¼ÊäÈëÁ÷ÖÐÌáÈ¡±¾ÀàµÄÐÅÏ¢   
-	*   * @param  [in,out] f  std::istream &£¬±ê×¼ÊäÈëÁ÷¶ÔÏóÒýÓÃ 
-	*   * @return ³É¹¦·µ»Øtrue£¬·ñÔò·µ»Øfalse 
+	/** ï¿½Ó±ï¿½×¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢   
+	*   * @param  [in,out] f  std::istream &ï¿½ï¿½ï¿½ï¿½×¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
+	*   * @return ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½trueï¿½ï¿½ï¿½ï¿½ï¿½ò·µ»ï¿½false 
 	*/
 	virtual void read(std::istream &f) = 0;
 	
-	/** Ïß¶Î·´Ïò
+	/** ï¿½ß¶Î·ï¿½ï¿½ï¿½
 	* @return
 	*/
 	virtual void reverseOrientation() = 0;
 };
 /** @}*/
 
-/** @addtogroup Geometry2d RingCollection2d-»·¼¯Àà£¬¿ÉÒÔÓÃÀ´¹ÜÀíËùÓÐ»·Ring2d
+/** @addtogroup Geometry2d RingCollection2d-ï¿½ï¿½ï¿½ï¿½ï¿½à£¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð»ï¿½Ring2d
 *  @{
 */
 class CORE_API RingCollection2d 
 {
 public:
-	/**@name ¼ÆËãµ±Ç°¼¸ºÎÍ¼ÔªµÄ±ß½ç°üÎ§ºÐ
-	*  @param  [out] outEnvp:·µ»ØµÄ ±ß½ç°üÎ§ºÐ
-	*  @return ¼ÆËãÊÇ·ñ³É¹¦ 
+	/**@name ï¿½ï¿½ï¿½ãµ±Ç°ï¿½ï¿½ï¿½ï¿½Í¼Ôªï¿½Ä±ß½ï¿½ï¿½Î§ï¿½ï¿½
+	*  @param  [out] outEnvp:ï¿½ï¿½ï¿½Øµï¿½ ï¿½ß½ï¿½ï¿½Î§ï¿½ï¿½
+	*  @return ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½É¹ï¿½ 
 	*/
 	virtual bool calculateEnvelope( Envelope3d& outEnvp ) = 0;
 
-	/**½«±¾ÀàµÄÐÅÏ¢Ð´ÈëÊä³öÁ÷ÖÐ£¬±ãÓÚÎÄ¼þ¶ÁÐ´»ò»º³åÇøÐ´²Ù×÷
-	* @param  [in,out] f  std::ostream &£¬±ê×¼Êä³öÁ÷¶ÔÏóÒýÓÃ
-	* @return ³É¹¦·µ»Øtrue£¬·ñÔò·µ»Øfalse
+	/**ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢Ð´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½Ð´ï¿½ò»º³ï¿½ï¿½ï¿½Ð´ï¿½ï¿½ï¿½ï¿½
+	* @param  [in,out] f  std::ostream &ï¿½ï¿½ï¿½ï¿½×¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	* @return ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½trueï¿½ï¿½ï¿½ï¿½ï¿½ò·µ»ï¿½false
 	*/
 	virtual void write(std::ostream & f)=0;
-	/**´Ó±ê×¼ÊäÈëÁ÷ÖÐÌáÈ¡±¾ÀàµÄÐÅÏ¢ 
-	* @param  [in,out] f  std::istream &£¬±ê×¼ÊäÈëÁ÷¶ÔÏóÒýÓÃ
-	* @return ³É¹¦·µ»Øtrue£¬·ñÔò·µ»Øfalse
+	/**ï¿½Ó±ï¿½×¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ 
+	* @param  [in,out] f  std::istream &ï¿½ï¿½ï¿½ï¿½×¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	* @return ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½trueï¿½ï¿½ï¿½ï¿½ï¿½ò·µ»ï¿½false
 	*/
 	virtual void read(std::istream & f)=0;
 
-	/*´ÓBufferÖÐ¶ÁÈ¡ÐÅÏ¢Ìî³ä±¾¼¸ºÎ¶ÔÏó
-	* @param  [in,out] buf Buffer & £¬»º³åÇø¶ÔÏóÒýÓÃ 
-	* @return ³É¹¦·µ»Øtrue£¬·ñÔò·µ»Øfalse
+	/*ï¿½ï¿½Bufferï¿½Ð¶ï¿½È¡ï¿½ï¿½Ï¢ï¿½ï¿½ä±¾ï¿½ï¿½ï¿½Î¶ï¿½ï¿½ï¿½
+	* @param  [in,out] buf Buffer & ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
+	* @return ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½trueï¿½ï¿½ï¿½ï¿½ï¿½ò·µ»ï¿½false
 	*/
 	virtual bool writeBuffer (Buffer &buf)=0;
 
-	/*´ÓBufferÖÐ¶ÁÈ¡ÐÅÏ¢Ìî³ä±¾¼¸ºÎ¶ÔÏó
-	* @param  [in,out] buf Buffer & £¬»º³åÇø¶ÔÏóÒýÓÃ 
-	* @return ³É¹¦·µ»Øtrue£¬·ñÔò·µ»Øfalse
+	/*ï¿½ï¿½Bufferï¿½Ð¶ï¿½È¡ï¿½ï¿½Ï¢ï¿½ï¿½ä±¾ï¿½ï¿½ï¿½Î¶ï¿½ï¿½ï¿½
+	* @param  [in,out] buf Buffer & ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
+	* @return ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½trueï¿½ï¿½ï¿½ï¿½ï¿½ò·µ»ï¿½false
 	*/
 	virtual bool readBuffer (Buffer &buf)=0;
 
-	/** »ñÈ¡¶ÔÏóÐ´Èëµ½BufferÖÐËùÕ¼ÓÃµÄ×Ö½ÚÊý
-	* @param ÎÞ
-	* @return »ñÈ¡µ½µÄbuffer×Ö½ÚÊý
+	/** ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½Ð´ï¿½ëµ½Bufferï¿½ï¿½ï¿½ï¿½Õ¼ï¿½Ãµï¿½ï¿½Ö½ï¿½ï¿½ï¿½
+	* @param ï¿½ï¿½
+	* @return ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½bufferï¿½Ö½ï¿½ï¿½ï¿½
 	*/
 	virtual size_t sizeBuffer()=0 ;
 
-	/** Ìí¼ÓÔªËØµ½ÔªËØ¼¯ÖÐ
-	* Èç¹ûbefore, after¶¼Îª¿Õ£¬ÔòÌí¼Óµ½ÔªËØ¼¯µÄÄ©Î²
-	* @param [in] pt£¬Òª²åÈëµÄÔªËØ
-	* @param [in] before£¬ÔÚ´ËË÷ÒýÖ®Ç°²åÈë
-	* @param [in] after£¬ÔÚ´ËË÷ÒýÖ®ºó²åÈë
+	/** ï¿½ï¿½ï¿½Ôªï¿½Øµï¿½Ôªï¿½Ø¼ï¿½ï¿½ï¿½
+	* ï¿½ï¿½ï¿½before, afterï¿½ï¿½Îªï¿½Õ£ï¿½ï¿½ï¿½ï¿½ï¿½Óµï¿½Ôªï¿½Ø¼ï¿½ï¿½ï¿½Ä©Î²
+	* @param [in] ptï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½ï¿½Ôªï¿½ï¿½
+	* @param [in] beforeï¿½ï¿½ï¿½Ú´ï¿½ï¿½ï¿½ï¿½ï¿½Ö®Ç°ï¿½ï¿½ï¿½ï¿½
+	* @param [in] afterï¿½ï¿½ï¿½Ú´ï¿½ï¿½ï¿½ï¿½ï¿½Ö®ï¿½ï¿½ï¿½ï¿½ï¿½
 	* @return
 	*/
 	virtual void addElement(Ring2dSharedPtr& obj,int* before=NULL, int* after=NULL)=0;
 
-	/** ½«Ä¿±êÔªËØ¼¯ÖÐµÄÔªËØÌí¼Óµ½µ±Ç°ÔªËØ¼¯µÄÄ©Î²
-	* @param [in] newElements£¬Ä¿±êÔªËØ¼¯
-	* @return Ìí¼ÓÊÇ·ñ³É¹¦
+	/** ï¿½ï¿½Ä¿ï¿½ï¿½Ôªï¿½Ø¼ï¿½ï¿½Ðµï¿½Ôªï¿½ï¿½ï¿½ï¿½Óµï¿½ï¿½ï¿½Ç°Ôªï¿½Ø¼ï¿½ï¿½ï¿½Ä©Î²
+	* @param [in] newElementsï¿½ï¿½Ä¿ï¿½ï¿½Ôªï¿½Ø¼ï¿½
+	* @return ï¿½ï¿½ï¿½ï¿½Ç·ï¿½É¹ï¿½
 	*/
 	virtual bool addCollection(RingCollection2dSharedPtr&  newElements)=0;
 
-	/** ½«Ä¿±êÔªËØ¼¯ÖÐµÄÔªËØ²åÈëµ½µ±Ç°ÔªËØ¼¯ÖÐ
-	* @param [in] index£¬²åÈëÎ»ÖÃ
-	* @param [in] newElements£¬Ä¿±êÔªËØ¼¯
-	* @return Ìí¼ÓÊÇ·ñ³É¹¦
+	/** ï¿½ï¿½Ä¿ï¿½ï¿½Ôªï¿½Ø¼ï¿½ï¿½Ðµï¿½Ôªï¿½Ø²ï¿½ï¿½ëµ½ï¿½ï¿½Ç°Ôªï¿½Ø¼ï¿½ï¿½ï¿½
+	* @param [in] indexï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î»ï¿½ï¿½
+	* @param [in] newElementsï¿½ï¿½Ä¿ï¿½ï¿½Ôªï¿½Ø¼ï¿½
+	* @return ï¿½ï¿½ï¿½ï¿½Ç·ï¿½É¹ï¿½
 	*/
 	virtual bool insertCollection(long index,RingCollection2dSharedPtr&  newElements)=0;
 
-	/** »ñÈ¡Ö¸¶¨Ë÷ÒýµÄÔªËØ
-	* @param [in] index: Òª»ñÈ¡µÄÔªËØµÄË÷Òý
-	* @return: »ñÈ¡µ½µÄÔªËØµÄÖ¸Õë£¬»ñÈ¡Ê§°ÜÔò·µ»ØNULL
+	/** ï¿½ï¿½È¡Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ôªï¿½ï¿½
+	* @param [in] index: Òªï¿½ï¿½È¡ï¿½ï¿½Ôªï¿½Øµï¿½ï¿½ï¿½ï¿½ï¿½
+	* @return: ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½Ôªï¿½Øµï¿½Ö¸ï¿½ë£¬ï¿½ï¿½È¡Ê§ï¿½ï¿½ï¿½ò·µ»ï¿½NULL
 	*/
 	virtual Ring2dSharedPtr&  getElement(long index)=0;
 
-	/** »ñÈ¡ÔªËØµÄ¸öÊý
-	* @return: ÔªËØµÄ¸öÊý
+	/** ï¿½ï¿½È¡Ôªï¿½ØµÄ¸ï¿½ï¿½ï¿½
+	* @return: Ôªï¿½ØµÄ¸ï¿½ï¿½ï¿½
 	*/
 	virtual long getCount()=0;
 
-	/** ½»»»ÔªËØ¼¯ÖÐµÄÁ½¸öÔªËØ
-	* @param [in] index1,index2: Òª½»»»µÄÔªËØÔÚÊý×éÖÐµÄË÷Òý
-	* @return: ½»»»³É¹¦·µ»Øtrue£¬·ñÔò·µ»Øfalse
+	/** ï¿½ï¿½ï¿½ï¿½Ôªï¿½Ø¼ï¿½ï¿½Ðµï¿½ï¿½ï¿½ï¿½ï¿½Ôªï¿½ï¿½
+	* @param [in] index1,index2: Òªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ôªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ðµï¿½ï¿½ï¿½ï¿½ï¿½
+	* @return: ï¿½ï¿½ï¿½ï¿½ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½trueï¿½ï¿½ï¿½ï¿½ï¿½ò·µ»ï¿½false
 	*/
 	virtual bool swap(long index1,long index2)=0;
 
-	/** ´ÓÔªËØ¼¯ÖÐÒÆ³ýÖ¸¶¨Ë÷ÒýµÄÔªËØ£¬²¢·µ»ØÒÆ³ýµÄÔªËØ
-	* @param [in] index: ÒªÒÆ³ýµÄÔªËØµÄË÷Òý
-	* @return: ÒÆ³ýµÄÔªËØµÄÖ¸Õë£¬Ê§°ÜÔò·µ»ØNULL
+	/** ï¿½ï¿½Ôªï¿½Ø¼ï¿½ï¿½ï¿½ï¿½Æ³ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ôªï¿½Ø£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ³ï¿½ï¿½ï¿½Ôªï¿½ï¿½
+	* @param [in] index: Òªï¿½Æ³ï¿½ï¿½ï¿½Ôªï¿½Øµï¿½ï¿½ï¿½ï¿½ï¿½
+	* @return: ï¿½Æ³ï¿½ï¿½ï¿½Ôªï¿½Øµï¿½Ö¸ï¿½ë£¬Ê§ï¿½ï¿½ï¿½ò·µ»ï¿½NULL
 	*/
 	virtual Ring2dSharedPtr removeElement(long index)=0;
 
-	/** ´ÓÔªËØ¼¯ÖÐÉ¾³ýÖ¸¶¨Ë÷ÒýµÄÔªËØ
-	* @param [in] index: ÒªÉ¾³ýµÄÔªËØµÄË÷Òý
-	* @return: É¾³ýÊ§°ÜÔò·µ»Øfalse
+	/** ï¿½ï¿½Ôªï¿½Ø¼ï¿½ï¿½ï¿½É¾ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ôªï¿½ï¿½
+	* @param [in] index: ÒªÉ¾ï¿½ï¿½ï¿½ï¿½Ôªï¿½Øµï¿½ï¿½ï¿½ï¿½ï¿½
+	* @return: É¾ï¿½ï¿½Ê§ï¿½ï¿½ï¿½ò·µ»ï¿½false
 	*/
 	virtual bool deleteElement(long index)=0;
 
-	/** Çå¿Õµ±Ç°ÔªËØ¼¯
+	/** ï¿½ï¿½Õµï¿½Ç°Ôªï¿½Ø¼ï¿½
 	* @return
 	*/
 	virtual void clear()=0;
 
-	/** @ ½«Ä¿±êÊý×é g ÖÐµÄ¿½±´µ½ µ±Ç°Êý×éÖÐ 
-	* @param  [in] g , ElementCollection2d *, Ö¸Ïò´ý¿½±´µÄÊý×éµÄÖ¸Õë 
-	* @return ÊÇ·ñ¿½±´³É¹¦
+	/** @ ï¿½ï¿½Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ g ï¿½ÐµÄ¿ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
+	* @param  [in] g , ElementCollection2d *, Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ 
+	* @return ï¿½Ç·ñ¿½±ï¿½ï¿½É¹ï¿½
 	*/
 	virtual bool copy(RingCollection2dSharedPtr& g) = 0;
 };
@@ -1233,288 +1233,288 @@ public:
 
 
 
-/** @addtogroup Geometry2d Geometry2d-¶þÎ¬¼¸ºÎÀà
+/** @addtogroup Geometry2d Geometry2d-ï¿½ï¿½Î¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 *  @{
 */
 //##ModelId=4D0B58C6005F
 class  CORE_API Geometry2d : public Geometry
 {
 public:
-	/**@name ¼ÆËãµ±Ç°¼¸ºÎÍ¼ÔªµÄ±ß½ç°üÎ§ºÐ
-	*  @param  [in] pCoordSys:×ø±êÏµÍ³Ö¸Õë 
-	*  @param  [out] outEnvp: ±ß½ç°üÎ§ºÐ 
-	*  @return ¼ÆËãÊÇ·ñ³É¹¦ 
+	/**@name ï¿½ï¿½ï¿½ãµ±Ç°ï¿½ï¿½ï¿½ï¿½Í¼Ôªï¿½Ä±ß½ï¿½ï¿½Î§ï¿½ï¿½
+	*  @param  [in] pCoordSys:ï¿½ï¿½ï¿½ï¿½ÏµÍ³Ö¸ï¿½ï¿½ 
+	*  @param  [out] outEnvp: ï¿½ß½ï¿½ï¿½Î§ï¿½ï¿½ 
+	*  @return ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½É¹ï¿½ 
 	*/
 	virtual bool calculateEnvelope( Coordsys2dSharedPtr& pCoorSys, Envelope3d& outEnvp )=0;
 
-	/**@name ¼ÆËãµ±Ç°¼¸ºÎÍ¼ÔªµÄ±ß½ç°üÎ§ºÐ
-	*        ´Ëº¯Êý¼ÆËã³öÀ´µÄµã¡¢ÎÄ±¾¡¢±ê×¢¶ÔÏóµÄ°üÎ§ºÐ£¬²¢²»×¼È·£¬ÐèÒª´«ÈëCoordsys2dÄÜËã³ö¾«È·µÄ°üÎ§ºÐ
-	*  @param  [out] outEnvp: ±ß½ç°üÎ§ºÐ 
-	*  @return ¼ÆËãÊÇ·ñ³É¹¦ 
+	/**@name ï¿½ï¿½ï¿½ãµ±Ç°ï¿½ï¿½ï¿½ï¿½Í¼Ôªï¿½Ä±ß½ï¿½ï¿½Î§ï¿½ï¿½
+	*        ï¿½Ëºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Äµã¡¢ï¿½Ä±ï¿½ï¿½ï¿½ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½Ä°ï¿½Î§ï¿½Ð£ï¿½ï¿½ï¿½ï¿½ï¿½×¼È·ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½Coordsys2dï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È·ï¿½Ä°ï¿½Î§ï¿½ï¿½
+	*  @param  [out] outEnvp: ï¿½ß½ï¿½ï¿½Î§ï¿½ï¿½ 
+	*  @return ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½É¹ï¿½ 
 	*/
 	virtual bool calculateEnvelope( Envelope3d& outEnvp )=0;
 	
-	/** »ñÈ¡¼¸ºÎ¶ÔÏóµÄÑÕÉ«
-	* @return ¼¸ºÎ¶ÔÏóµÄÑÕÉ«Color4f
+	/** ï¿½ï¿½È¡ï¿½ï¿½ï¿½Î¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É«
+	* @return ï¿½ï¿½ï¿½Î¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É«Color4f
 	*/
 	virtual Color4f getPenColor() = 0;
 
-	/** »ñÈ¡¼¸ºÎ¶ÔÏóµÄÑÕÉ«
-	* @param [out] ¼¸ºÎ¶ÔÏóµÄÑÕÉ«cr
+	/** ï¿½ï¿½È¡ï¿½ï¿½ï¿½Î¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É«
+	* @param [out] ï¿½ï¿½ï¿½Î¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É«cr
 	* @return 
 	*/
 	virtual void getPenColor(Color4f &cr) = 0;
 
-	/** ÉèÖÃ¼¸ºÎ¶ÔÏóµÄÑÕÉ«
-	* @param [in] ¼¸ºÎ¶ÔÏóµÄÑÕÉ«cr
+	/** ï¿½ï¿½ï¿½Ã¼ï¿½ï¿½Î¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É«
+	* @param [in] ï¿½ï¿½ï¿½Î¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É«cr
 	* @return 
 	*/
 	virtual void setPenColor(Color4f cr) = 0;
 	
-	/** ÉèÖÃ¼¸ºÎ¶ÔÏóµÄÑÕÉ«
-	* @param [in] ¼¸ºÎ¶ÔÏóµÄÑÕÉ«r,g,b,a£»×¢Òâ£º r,g,bµÄÈ¡Öµ·¶Î§ÔÚ0 - 1
+	/** ï¿½ï¿½ï¿½Ã¼ï¿½ï¿½Î¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É«
+	* @param [in] ï¿½ï¿½ï¿½Î¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É«r,g,b,aï¿½ï¿½×¢ï¿½â£º r,g,bï¿½ï¿½È¡Öµï¿½ï¿½Î§ï¿½ï¿½0 - 1
 	* @return 
 	*/
 	virtual void setPenColor(float r, float g, float b, float a)=0;
 	
-	/** »ñÈ¡¼¸ºÎ¶ÔÏóµÄÌî³äÑÕÉ«£¬½ö¶ÔÌî³äÇø¶ÔÏóÓÐÐ§
-	* @return Ìî³äÑÕÉ«Color4f
+	/** ï¿½ï¿½È¡ï¿½ï¿½ï¿½Î¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É«ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð§
+	* @return ï¿½ï¿½ï¿½ï¿½ï¿½É«Color4f
 	*/
 	virtual Color4f getBrushColor() = 0;
 	
-	/** »ñÈ¡¼¸ºÎ¶ÔÏóµÄÌî³äÑÕÉ«£¬½ö¶ÔÌî³äÇø¶ÔÏóÓÐÐ§
-	* @param [out] Ìî³äÑÕÉ«cr
+	/** ï¿½ï¿½È¡ï¿½ï¿½ï¿½Î¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É«ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð§
+	* @param [out] ï¿½ï¿½ï¿½ï¿½ï¿½É«cr
 	* @return 
 	*/
 	virtual void getBrushColor(Color4f &cr) = 0;
 	
-	/** ÉèÖÃ¼¸ºÎ¶ÔÏóµÄÌî³äÑÕÉ«£¬½ö¶ÔÌî³äÇø¶ÔÏóÓÐÐ§
-	* @param [in] Ìî³äÑÕÉ«cr
+	/** ï¿½ï¿½ï¿½Ã¼ï¿½ï¿½Î¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É«ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð§
+	* @param [in] ï¿½ï¿½ï¿½ï¿½ï¿½É«cr
 	* @return 
 	*/
 	virtual void setBrushColor(Color4f cr) = 0;
 	
-	/** ÉèÖÃ¼¸ºÎ¶ÔÏóµÄÌî³äÑÕÉ«£¬½ö¶ÔÌî³äÇø¶ÔÏóÓÐÐ§
-	* @param [in] Ìî³äÑÕÉ«r,g,b,a
+	/** ï¿½ï¿½ï¿½Ã¼ï¿½ï¿½Î¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É«ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð§
+	* @param [in] ï¿½ï¿½ï¿½ï¿½ï¿½É«r,g,b,a
 	* @return 
 	*/
 	virtual void setBrushColor(float r, float g, float b, float a)=0;
 
-	/** ÉèÖÃ×´Ì¬Öµ£ºµ±Ç°¶ÔÏóÊÇ·ñÎªÄ³¸ö×éµÄ³ÉÔ±
+	/** ï¿½ï¿½ï¿½ï¿½×´Ì¬Öµï¿½ï¿½ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ÎªÄ³ï¿½ï¿½ï¿½ï¿½Ä³ï¿½Ô±
 	* @param [in] bool b
 	* @return 
 	*/
 	virtual void setGeometryInGroup(bool b) = 0;
 
-	/** µ±Ç°¼¸ºÎ¶ÔÏóÊÇ·ñÎªÄ³¸ö×éµÄ³ÉÔ±
-	* @return ÊÇ·ñÎªÄ³¸ö×éµÄ³ÉÔ±
+	/** ï¿½ï¿½Ç°ï¿½ï¿½ï¿½Î¶ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ÎªÄ³ï¿½ï¿½ï¿½ï¿½Ä³ï¿½Ô±
+	* @return ï¿½Ç·ï¿½ÎªÄ³ï¿½ï¿½ï¿½ï¿½Ä³ï¿½Ô±
 	*/	
 	virtual bool isGeometryInGroup() = 0;
 
-	/** ×´Ì¬±íÊ¾²Ù×÷, ÅÐ¶ÏÍ¼ÔªÊÇ·ñÊÇ´¦ÓÚÉ¾³ý×´Ì¬ 
+	/** ×´Ì¬ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½, ï¿½Ð¶ï¿½Í¼Ôªï¿½Ç·ï¿½ï¿½Ç´ï¿½ï¿½ï¿½É¾ï¿½ï¿½×´Ì¬ 
 	*/	
 	virtual bool isDeleted() = 0;
 
-	/** ·µ»ØÍ¼ÔªµÄÒþ²Ø×´Ì¬ 
+	/** ï¿½ï¿½ï¿½ï¿½Í¼Ôªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×´Ì¬ 
 	*/	
 	virtual bool isVisible() = 0;
 
-	/** ·µ»ØÍ¼ÔªµÄÑ¡ÖÐ×´Ì¬ 
+	/** ï¿½ï¿½ï¿½ï¿½Í¼Ôªï¿½ï¿½Ñ¡ï¿½ï¿½×´Ì¬ 
 	*/	
 	virtual bool isSelected() = 0;
 
-	/** ÉèÖÃÍ¼ÔªµÄÉ¾³ý×´Ì¬ 
-	* @param [in] bool ÊÇ·ñÉ¾³ý
+	/** ï¿½ï¿½ï¿½ï¿½Í¼Ôªï¿½ï¿½É¾ï¿½ï¿½×´Ì¬ 
+	* @param [in] bool ï¿½Ç·ï¿½É¾ï¿½ï¿½
 	*/	
 	virtual void setDeleteFlag(bool bDelete) = 0;
 
-	/** ÉèÖÃÍ¼ÔªµÄÒþ²Ø×´Ì¬ 
-	* @param [in] bool ÊÇ·ñ¿É¼û
+	/** ï¿½ï¿½ï¿½ï¿½Í¼Ôªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×´Ì¬ 
+	* @param [in] bool ï¿½Ç·ï¿½É¼ï¿½
 	*/	
 	virtual void setVisible(bool bHide) = 0;
 
-	/** ÉèÖÃÍ¼ÔªµÄÑ¡ÖÐ×´Ì¬ 
-	* @param [in] bool ÊÇ·ñÑ¡ÖÐ
+	/** ï¿½ï¿½ï¿½ï¿½Í¼Ôªï¿½ï¿½Ñ¡ï¿½ï¿½×´Ì¬ 
+	* @param [in] bool ï¿½Ç·ï¿½Ñ¡ï¿½ï¿½
 	*/	
 	virtual void setSelectFlag(bool bSel) = 0;
 
 public:	
-	/**µ±Ç°¶ÔÏó£¬Î§ÈÆÖ¸¶¨Ô­µã org ½øÐÐÐý×ª£¬½Ç¶Èµ¥Î»£º¶È 
-	* @param [in] Ô­µã org, Ðý×ª½Ç¶ÈdAngleDegree
+	/**ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½Î§ï¿½ï¿½Ö¸ï¿½ï¿½Ô­ï¿½ï¿½ org ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½ï¿½Ç¶Èµï¿½Î»ï¿½ï¿½ï¿½ï¿½ 
+	* @param [in] Ô­ï¿½ï¿½ org, ï¿½ï¿½×ªï¿½Ç¶ï¿½dAngleDegree
 	*/
 	virtual void rotate(Vertex2d &org, double dAngleDegree) = 0;
 
-	/** µ±Ç°¶ÔÏó£¬°´Ö¸¶¨µã org ÎªÔ­µã½øÐÐ±ÈÀý±ä»» 
-	* @param [in] scaleX,scaleYÎªx,yÖáµÄ±ä»»Òò×Ó, org ÎªÔ­µã×ø±ê
+	/** ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ó£¬°ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½ org ÎªÔ­ï¿½ï¿½ï¿½ï¿½Ð±ï¿½ï¿½ï¿½ï¿½ä»» 
+	* @param [in] scaleX,scaleYÎªx,yï¿½ï¿½Ä±ä»»ï¿½ï¿½ï¿½ï¿½, org ÎªÔ­ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	*/
 	virtual void transformByScale(Vertex2d &org,double& scaleX, double& scaleY) = 0;
 
-	/**Æ½ÒÆ 
-	* @param [in] Î»ÒÆ£ºoffX, offY
+	/**Æ½ï¿½ï¿½ 
+	* @param [in] Î»ï¿½Æ£ï¿½offX, offY
 	*/
 	virtual void translate(double offX, double offY) = 0;
 
-	/**¸ù¾Ý¾µÏñÀàÐÍ£¬½øÐÐ¾µÏñ±ä»» 
-	* @param [in] mirrorType¾µÏñÀàÐÍ
+	/**ï¿½ï¿½ï¿½Ý¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í£ï¿½ï¿½ï¿½ï¿½Ð¾ï¿½ï¿½ï¿½ä»» 
+	* @param [in] mirrorTypeï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	*/
 	virtual void mirrorImage(int mirrorType) = 0;
 
-	/**Î§ÈÆpt1£¬pt2×é³ÉµÄÏß¶Î£¬½øÐÐ¾µÏñ±ä»» 
-	* @param [in] ×é³ÉÏß¶ÎµÄµãpt1,pt2
+	/**Î§ï¿½ï¿½pt1ï¿½ï¿½pt2ï¿½ï¿½Éµï¿½ï¿½ß¶Î£ï¿½ï¿½ï¿½ï¿½Ð¾ï¿½ï¿½ï¿½ä»» 
+	* @param [in] ï¿½ï¿½ï¿½ï¿½ß¶ÎµÄµï¿½pt1,pt2
 	*/
 	virtual void mirrorImage(Vertex2d& pt1,Vertex2d& pt2) = 0;
 
 	//////////////////////////////////////////////////////////////////////////	
-	/** ÉèÖÃ¼¸ºÎ¶ÔÏóµÄÌî³äÑÕÉ«£¬½ö¶ÔÌî³äÇø¶ÔÏóÓÐÐ§
-	* @param [in] Ìî³äÑÕÉ«r,g,b,a
+	/** ï¿½ï¿½ï¿½Ã¼ï¿½ï¿½Î¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É«ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð§
+	* @param [in] ï¿½ï¿½ï¿½ï¿½ï¿½É«r,g,b,a
 	* @return 
 	*/
 	//virtual void setBrushColor(int r, int g, int b, int a)=0;
 
-	/** ÉèÖÃ¼¸ºÎ¶ÔÏóµÄÑÕÉ«
-	* @param [in] ¼¸ºÎ¶ÔÏóµÄÑÕÉ«r255,g255,b255,a255£»×¢Òâ£º r,g,bµÄÈ¡Öµ·¶Î§ÔÚ0 - 255
+	/** ï¿½ï¿½ï¿½Ã¼ï¿½ï¿½Î¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É«
+	* @param [in] ï¿½ï¿½ï¿½Î¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É«r255,g255,b255,a255ï¿½ï¿½×¢ï¿½â£º r,g,bï¿½ï¿½È¡Öµï¿½ï¿½Î§ï¿½ï¿½0 - 255
 	* @return 
 	*/
 	//virtual void setPenColor(int r255, int g255, int b255, int a)=0;
-	/** »ñÈ¡¼¸ºÎ¶ÔÏóµÄID
-	* @return ¼¸ºÎ¶ÔÏóµÄID
+	/** ï¿½ï¿½È¡ï¿½ï¿½ï¿½Î¶ï¿½ï¿½ï¿½ï¿½ID
+	* @return ï¿½ï¿½ï¿½Î¶ï¿½ï¿½ï¿½ï¿½ID
 	*/
 	//virtual FSID getID() = 0;
 
-	/** ÉèÖÃ¼¸ºÎ¶ÔÏóµÄID
-	* @param [in] ¼¸ºÎ¶ÔÏóµÄID
+	/** ï¿½ï¿½ï¿½Ã¼ï¿½ï¿½Î¶ï¿½ï¿½ï¿½ï¿½ID
+	* @param [in] ï¿½ï¿½ï¿½Î¶ï¿½ï¿½ï¿½ï¿½ID
 	* @return 
 	*/
 	//virtual void setID(FSID id) = 0;
 };
 /** @}*/
 
-/** @addtogroup Geometry2d GeometryCollection2d-¼¸ºÎ¶ÔÏó¼¯Àà
+/** @addtogroup Geometry2d GeometryCollection2d-ï¿½ï¿½ï¿½Î¶ï¿½ï¿½ï¿½ï¿½ï¿½
 *  @{
 */
 class CORE_API GeometryCollection2d 
 {
 public:
-	/**½«±¾ÀàµÄÐÅÏ¢Ð´ÈëÊä³öÁ÷ÖÐ£¬±ãÓÚÎÄ¼þ¶ÁÐ´»ò»º³åÇøÐ´²Ù×÷
-	* @param  [in,out] f  std::ostream &£¬±ê×¼Êä³öÁ÷¶ÔÏóÒýÓÃ
-	* @return ³É¹¦·µ»Øtrue£¬·ñÔò·µ»Øfalse
+	/**ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢Ð´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½Ð´ï¿½ò»º³ï¿½ï¿½ï¿½Ð´ï¿½ï¿½ï¿½ï¿½
+	* @param  [in,out] f  std::ostream &ï¿½ï¿½ï¿½ï¿½×¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	* @return ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½trueï¿½ï¿½ï¿½ï¿½ï¿½ò·µ»ï¿½false
 	*/
 	virtual void write(std::ostream & f) = 0;
 
-	/**´Ó±ê×¼ÊäÈëÁ÷ÖÐÌáÈ¡±¾ÀàµÄÐÅÏ¢ 
-	* @param  [in,out] f  std::istream &£¬±ê×¼ÊäÈëÁ÷¶ÔÏóÒýÓÃ
-	* @return ³É¹¦·µ»Øtrue£¬·ñÔò·µ»Øfalse
+	/**ï¿½Ó±ï¿½×¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ 
+	* @param  [in,out] f  std::istream &ï¿½ï¿½ï¿½ï¿½×¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	* @return ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½trueï¿½ï¿½ï¿½ï¿½ï¿½ò·µ»ï¿½false
 	*/
 	virtual void read(std::istream & f) = 0;
 
-	/** Ìí¼ÓÔªËØµ½ÔªËØ¼¯ÖÐ
-	* Èç¹ûbefore, after¶¼Îª¿Õ£¬ÔòÌí¼Óµ½ÔªËØ¼¯µÄÄ©Î²
-	* @param [in] pt£¬Òª²åÈëµÄÔªËØ
-	* @param [in] before£¬ÔÚ´ËË÷ÒýÖ®Ç°²åÈë
-	* @param [in] after£¬ÔÚ´ËË÷ÒýÖ®ºó²åÈë
+	/** ï¿½ï¿½ï¿½Ôªï¿½Øµï¿½Ôªï¿½Ø¼ï¿½ï¿½ï¿½
+	* ï¿½ï¿½ï¿½before, afterï¿½ï¿½Îªï¿½Õ£ï¿½ï¿½ï¿½ï¿½ï¿½Óµï¿½Ôªï¿½Ø¼ï¿½ï¿½ï¿½Ä©Î²
+	* @param [in] ptï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½ï¿½Ôªï¿½ï¿½
+	* @param [in] beforeï¿½ï¿½ï¿½Ú´ï¿½ï¿½ï¿½ï¿½ï¿½Ö®Ç°ï¿½ï¿½ï¿½ï¿½
+	* @param [in] afterï¿½ï¿½ï¿½Ú´ï¿½ï¿½ï¿½ï¿½ï¿½Ö®ï¿½ï¿½ï¿½ï¿½ï¿½
 	* @return
 	*/
 	virtual void addGeometry(GeometrySharedPtr& obj,int* before=NULL, int* after=NULL) = 0;
 
-	/** ½«Ä¿±êÔªËØ¼¯ÖÐµÄÔªËØÌí¼Óµ½µ±Ç°ÔªËØ¼¯µÄÄ©Î²
-	* @param [in] newElements£¬Ä¿±êÔªËØ¼¯
-	* @return Ìí¼ÓÊÇ·ñ³É¹¦
+	/** ï¿½ï¿½Ä¿ï¿½ï¿½Ôªï¿½Ø¼ï¿½ï¿½Ðµï¿½Ôªï¿½ï¿½ï¿½ï¿½Óµï¿½ï¿½ï¿½Ç°Ôªï¿½Ø¼ï¿½ï¿½ï¿½Ä©Î²
+	* @param [in] newElementsï¿½ï¿½Ä¿ï¿½ï¿½Ôªï¿½Ø¼ï¿½
+	* @return ï¿½ï¿½ï¿½ï¿½Ç·ï¿½É¹ï¿½
 	*/
 	virtual bool addCollection(GeometryCollection2dSharedPtr& newElements) = 0;
 
-	/** ½«Ä¿±êÔªËØ¼¯ÖÐµÄÔªËØ²åÈëµ½µ±Ç°ÔªËØ¼¯ÖÐ
-	* @param [in] index£¬²åÈëÎ»ÖÃ
-	* @param [in] newElements£¬Ä¿±êÔªËØ¼¯
-	* @return Ìí¼ÓÊÇ·ñ³É¹¦
+	/** ï¿½ï¿½Ä¿ï¿½ï¿½Ôªï¿½Ø¼ï¿½ï¿½Ðµï¿½Ôªï¿½Ø²ï¿½ï¿½ëµ½ï¿½ï¿½Ç°Ôªï¿½Ø¼ï¿½ï¿½ï¿½
+	* @param [in] indexï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î»ï¿½ï¿½
+	* @param [in] newElementsï¿½ï¿½Ä¿ï¿½ï¿½Ôªï¿½Ø¼ï¿½
+	* @return ï¿½ï¿½ï¿½ï¿½Ç·ï¿½É¹ï¿½
 	*/
 	virtual bool insertCollection(long index,GeometryCollection2dSharedPtr& newElements) = 0;
 
-	/** »ñÈ¡Ö¸¶¨Ë÷ÒýµÄÔªËØ
-	* @param [in] index: Òª»ñÈ¡µÄÔªËØµÄË÷Òý
-	* @return: »ñÈ¡µ½µÄÔªËØµÄÖ¸Õë£¬»ñÈ¡Ê§°ÜÔò·µ»ØNULL
+	/** ï¿½ï¿½È¡Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ôªï¿½ï¿½
+	* @param [in] index: Òªï¿½ï¿½È¡ï¿½ï¿½Ôªï¿½Øµï¿½ï¿½ï¿½ï¿½ï¿½
+	* @return: ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½Ôªï¿½Øµï¿½Ö¸ï¿½ë£¬ï¿½ï¿½È¡Ê§ï¿½ï¿½ï¿½ò·µ»ï¿½NULL
 	*/
 	virtual GeometrySharedPtr& getGeometry(long index) = 0;
 
-	/** »ñÈ¡ÔªËØµÄ¸öÊý
-	* @return: ÔªËØµÄ¸öÊý
+	/** ï¿½ï¿½È¡Ôªï¿½ØµÄ¸ï¿½ï¿½ï¿½
+	* @return: Ôªï¿½ØµÄ¸ï¿½ï¿½ï¿½
 	*/
 	virtual long getCount() = 0;
 
-	/** ´ÓÔªËØ¼¯ÖÐÒÆ³ýÖ¸¶¨Ë÷ÒýµÄÔªËØ£¬²¢·µ»ØÒÆ³ýµÄÔªËØ
-	* @param [in] index: ÒªÒÆ³ýµÄÔªËØµÄË÷Òý
-	* @return: ÒÆ³ýµÄÔªËØµÄÖ¸Õë£¬Ê§°ÜÔò·µ»ØNULL
+	/** ï¿½ï¿½Ôªï¿½Ø¼ï¿½ï¿½ï¿½ï¿½Æ³ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ôªï¿½Ø£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ³ï¿½ï¿½ï¿½Ôªï¿½ï¿½
+	* @param [in] index: Òªï¿½Æ³ï¿½ï¿½ï¿½Ôªï¿½Øµï¿½ï¿½ï¿½ï¿½ï¿½
+	* @return: ï¿½Æ³ï¿½ï¿½ï¿½Ôªï¿½Øµï¿½Ö¸ï¿½ë£¬Ê§ï¿½ï¿½ï¿½ò·µ»ï¿½NULL
 	*/
 	virtual GeometrySharedPtr removeGeometry(long index) = 0;
 
-	/** ´ÓÔªËØ¼¯ÖÐÉ¾³ýÖ¸¶¨Ë÷ÒýµÄÔªËØ
-	* @param [in] index: ÒªÉ¾³ýµÄÔªËØµÄË÷Òý
-	* @return: É¾³ýÊ§°ÜÔò·µ»Øfalse
+	/** ï¿½ï¿½Ôªï¿½Ø¼ï¿½ï¿½ï¿½É¾ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ôªï¿½ï¿½
+	* @param [in] index: ÒªÉ¾ï¿½ï¿½ï¿½ï¿½Ôªï¿½Øµï¿½ï¿½ï¿½ï¿½ï¿½
+	* @return: É¾ï¿½ï¿½Ê§ï¿½ï¿½ï¿½ò·µ»ï¿½false
 	*/
 	virtual bool deleteGeometry(long index) = 0;
 
-	/** Çå¿Õµ±Ç°ÔªËØ¼¯
+	/** ï¿½ï¿½Õµï¿½Ç°Ôªï¿½Ø¼ï¿½
 	* @return
 	*/
 	virtual void clear() = 0;
 	
-	/** ½«Ä¿±êÊý×é g ÖÐµÄ¿½±´µ½ µ±Ç°Êý×éÖÐ
-	*   @param  [in] g const GeometryCollection2d *, Ö¸Ïò´ý¿½±´µÄÊý×éµÄÖ¸Õë
-	*   @return ÊÇ·ñ¿½±´³É¹¦
+	/** ï¿½ï¿½Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ g ï¿½ÐµÄ¿ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	*   @param  [in] g const GeometryCollection2d *, Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½
+	*   @return ï¿½Ç·ñ¿½±ï¿½ï¿½É¹ï¿½
 	*/
 	virtual bool copy(const GeometryCollection2dSharedPtr& g) = 0;
 
-	/*´ÓBufferÖÐ¶ÁÈ¡ÐÅÏ¢Ìî³ä±¾¼¸ºÎ¶ÔÏó
-	* @param  [in,out] buf Buffer & £¬»º³åÇø¶ÔÏóÒýÓÃ 
-	* @return ³É¹¦·µ»Øtrue£¬·ñÔò·µ»Øfalse
+	/*ï¿½ï¿½Bufferï¿½Ð¶ï¿½È¡ï¿½ï¿½Ï¢ï¿½ï¿½ä±¾ï¿½ï¿½ï¿½Î¶ï¿½ï¿½ï¿½
+	* @param  [in,out] buf Buffer & ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
+	* @return ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½trueï¿½ï¿½ï¿½ï¿½ï¿½ò·µ»ï¿½false
 	*/
 	virtual bool writeBuffer (Buffer &buf)=0;
 
-	/*´ÓBufferÖÐ¶ÁÈ¡ÐÅÏ¢Ìî³ä±¾¼¸ºÎ¶ÔÏó
-	* @param  [in,out] buf Buffer & £¬»º³åÇø¶ÔÏóÒýÓÃ 
-	* @return ³É¹¦·µ»Øtrue£¬·ñÔò·µ»Øfalse
+	/*ï¿½ï¿½Bufferï¿½Ð¶ï¿½È¡ï¿½ï¿½Ï¢ï¿½ï¿½ä±¾ï¿½ï¿½ï¿½Î¶ï¿½ï¿½ï¿½
+	* @param  [in,out] buf Buffer & ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
+	* @return ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½trueï¿½ï¿½ï¿½ï¿½ï¿½ò·µ»ï¿½false
 	*/
 	virtual bool readBuffer (Buffer &buf)=0;
 
-	/** »ñÈ¡¶ÔÏóÐ´Èëµ½BufferÖÐËùÕ¼ÓÃµÄ×Ö½ÚÊý
-	* @param ÎÞ
-	* @return »ñÈ¡µ½µÄbuffer×Ö½ÚÊý
+	/** ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½Ð´ï¿½ëµ½Bufferï¿½ï¿½ï¿½ï¿½Õ¼ï¿½Ãµï¿½ï¿½Ö½ï¿½ï¿½ï¿½
+	* @param ï¿½ï¿½
+	* @return ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½bufferï¿½Ö½ï¿½ï¿½ï¿½
 	*/
 	virtual size_t sizeBuffer()=0 ;
 
-	/** ½»»»ÔªËØ¼¯ÖÐµÄÁ½¸öÔªËØ
-	* @param [in] index1,index2: Òª½»»»µÄÔªËØÔÚÊý×éÖÐµÄË÷Òý
-	* @return: ½»»»³É¹¦·µ»Øtrue£¬·ñÔò·µ»Øfalse
+	/** ï¿½ï¿½ï¿½ï¿½Ôªï¿½Ø¼ï¿½ï¿½Ðµï¿½ï¿½ï¿½ï¿½ï¿½Ôªï¿½ï¿½
+	* @param [in] index1,index2: Òªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ôªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ðµï¿½ï¿½ï¿½ï¿½ï¿½
+	* @return: ï¿½ï¿½ï¿½ï¿½ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½trueï¿½ï¿½ï¿½ï¿½ï¿½ò·µ»ï¿½false
 	*/
 	virtual bool swap(long index1,long index2)=0;
 	
-	/** »ñÈ¡¼¸ºÎ¶ÔÏóµÄ±ß½ç¾ØÐÎ£¬ÎªÈýÎ¬±ß½ç£¬Èç¹ûÊÇ¶þÎ¬¶ÔÏó£¬ÔòZµÄ·¶Î§Îª0
-    * @param  [in] ÎÞ
-    * @return ·µ»Ø±ß½ç¾ØÐÎµÄÒýÓÃ
+	/** ï¿½ï¿½È¡ï¿½ï¿½ï¿½Î¶ï¿½ï¿½ï¿½Ä±ß½ï¿½ï¿½ï¿½Î£ï¿½Îªï¿½ï¿½Î¬ï¿½ß½ç£¬ï¿½ï¿½ï¿½ï¿½Ç¶ï¿½Î¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Zï¿½Ä·ï¿½Î§Îª0
+    * @param  [in] ï¿½ï¿½
+    * @return ï¿½ï¿½ï¿½Ø±ß½ï¿½ï¿½ï¿½Îµï¿½ï¿½ï¿½ï¿½ï¿½
 	*/
 	virtual void getEnvelope(Envelope3d & envp)=0;
 	
-	/**µ±Ç°¶ÔÏó£¬Î§ÈÆÖ¸¶¨Ô­µã org ½øÐÐÐý×ª£¬½Ç¶Èµ¥Î»£º¶È
-	* @param [in] Ô­µã org,Ðý×ª½Ç¶È£¬dAngleDegree
+	/**ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½Î§ï¿½ï¿½Ö¸ï¿½ï¿½Ô­ï¿½ï¿½ org ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½ï¿½Ç¶Èµï¿½Î»ï¿½ï¿½ï¿½ï¿½
+	* @param [in] Ô­ï¿½ï¿½ org,ï¿½ï¿½×ªï¿½Ç¶È£ï¿½dAngleDegree
 	*/
 	virtual void rotate(Vertex2d &org, double dAngleDegree) = 0;
 
-	/** µ±Ç°¶ÔÏó£¬°´Ö¸¶¨µã org ÎªÔ­µã½øÐÐ±ÈÀý±ä»» 
-	* @param [in] scaleX,scaleYÎªx,yÖáµÄ±ä»»Òò×Ó,Ô­µã org
+	/** ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ó£¬°ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½ org ÎªÔ­ï¿½ï¿½ï¿½ï¿½Ð±ï¿½ï¿½ï¿½ï¿½ä»» 
+	* @param [in] scaleX,scaleYÎªx,yï¿½ï¿½Ä±ä»»ï¿½ï¿½ï¿½ï¿½,Ô­ï¿½ï¿½ org
 	*/
 	virtual void transformByScale(Vertex2d &org,double& scaleX, double& scaleY) = 0;
 
-	/**Æ½ÒÆ 
-	* @param [in] Î»ÒÆ£º offX, offY
+	/**Æ½ï¿½ï¿½ 
+	* @param [in] Î»ï¿½Æ£ï¿½ offX, offY
 	*/
 	virtual void translate(double offX, double offY) = 0;
 
-	/**¸ù¾Ý¾µÏñÀàÐÍ£¬½øÐÐ¾µÏñ±ä»» 
-	* @param [in] ¾µÏñÀàÐÍmirrorType
+	/**ï¿½ï¿½ï¿½Ý¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í£ï¿½ï¿½ï¿½ï¿½Ð¾ï¿½ï¿½ï¿½ä»» 
+	* @param [in] ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½mirrorType
 	*/
 	virtual void mirrorImage(int mirrorType) = 0;
 
-	/**Î§ÈÆpt1£¬pt2×é³ÉµÄÏß¶Î£¬½øÐÐ¾µÏñ±ä»» 
-	* @param [in] pt1£¬pt2×é³ÉµÄÏß¶Î
+	/**Î§ï¿½ï¿½pt1ï¿½ï¿½pt2ï¿½ï¿½Éµï¿½ï¿½ß¶Î£ï¿½ï¿½ï¿½ï¿½Ð¾ï¿½ï¿½ï¿½ä»» 
+	* @param [in] pt1ï¿½ï¿½pt2ï¿½ï¿½Éµï¿½ï¿½ß¶ï¿½
 	*/
 	virtual void mirrorImage(Vertex2d& pt1,Vertex2d& pt2) = 0;
 };
@@ -1527,381 +1527,381 @@ public:
 enum Pen2dType
 {
 	PEN_TYPE_2D_UNKNOW = 0,
-	PEN_TYPE_2D_SYSTEM,			//ÏµÍ³×Ô´ø»­±Ê£¨ÎåÖÖ»ù±¾ÀàÐÍ£ºµãÏß£¬µã»®Ïß£¬»®Ïß£¬Ë«µã»®Ïß£¬ÊµÏß£©
-	PEN_TYPE_2D_USERDEFINE		//ÓÃ»§×Ô¶¨Òå»­±Ê£¨×Ô¶¨ÒåÏßÐÍ£¬¼´¸´ºÏÏßÐÍ£©
+	PEN_TYPE_2D_SYSTEM,			//ÏµÍ³ï¿½Ô´ï¿½ï¿½ï¿½ï¿½Ê£ï¿½ï¿½ï¿½ï¿½Ö»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í£ï¿½ï¿½ï¿½ï¿½ß£ï¿½ï¿½ã»®ï¿½ß£ï¿½ï¿½ï¿½ï¿½ß£ï¿½Ë«ï¿½ã»®ï¿½ß£ï¿½Êµï¿½ß£ï¿½
+	PEN_TYPE_2D_USERDEFINE		//ï¿½Ã»ï¿½ï¿½Ô¶ï¿½ï¿½å»­ï¿½Ê£ï¿½ï¿½Ô¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í£ï¿½
 };
 /** @}*/
 
 
-/** @addtogroup Geometry2d Pen2d-»­±ÊÀà
+/** @addtogroup Geometry2d Pen2d-ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 *  @{
 */
 
 class CORE_API Pen2d
 {
 public:
-	/**½«gËùÖ¸ÏòµÄ¶ÔÏó¸´ÖÆµ½±¾¶ÔÏó 
-	*  * @param  [in] g Pen2dSharedPtr, Ö¸Ïò´ý¿½±´¶ÔÏóµÄÖ¸Õë 
-	*  * @return ÊÇ·ñ¿½±´³É¹¦ 
+	/**ï¿½ï¿½gï¿½ï¿½Ö¸ï¿½ï¿½Ä¶ï¿½ï¿½ï¿½ï¿½Æµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
+	*  * @param  [in] g Pen2dSharedPtr, Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ 
+	*  * @return ï¿½Ç·ñ¿½±ï¿½ï¿½É¹ï¿½ 
 	*/
 	virtual bool copy( Pen2dSharedPtr& g) = 0;
 
-	/** »ñÈ¡»­±ÊÀàÐÍ
-	* @return»­±ÊÀàÐÍPen2dType
+	/** ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	* @returnï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Pen2dType
 	*/
 	virtual Pen2dType getType() = 0;
 
-	/** ÉèÖÃ»­±ÊÀàÐÍ
-	* @param [in] »­±ÊÀàÐÍtp
+	/** ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	* @param [in] ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½tp
 	* @return
 	*/
 	virtual void setType(Pen2dType tp) = 0;
 
-	/** »ñÈ¡×Ô¶¨Òå»­±ÊµÄÃû³Æ£¬Èç¹ûÎªÓÃ»§×Ô¶¨Òå»­±ÊÊ±ÓÐÐ§
-	* @return»­±ÊµÄÃû³Æ
+	/** ï¿½ï¿½È¡ï¿½Ô¶ï¿½ï¿½å»­ï¿½Êµï¿½ï¿½ï¿½ï¿½Æ£ï¿½ï¿½ï¿½ï¿½Îªï¿½Ã»ï¿½ï¿½Ô¶ï¿½ï¿½å»­ï¿½ï¿½Ê±ï¿½ï¿½Ð§
+	* @returnï¿½ï¿½ï¿½Êµï¿½ï¿½ï¿½ï¿½ï¿½
 	*/
 	virtual string getUserDefineTypeName() = 0;
 
-	/** ÉèÖÃ×Ô¶¨Òå»­±ÊµÄÃû³Æ£¬Èç¹ûÎªÓÃ»§×Ô¶¨Òå»­±ÊÊ±ÓÐÐ§
-	* @param [in] »­±ÊµÄÃû³Æname
+	/** ï¿½ï¿½ï¿½ï¿½ï¿½Ô¶ï¿½ï¿½å»­ï¿½Êµï¿½ï¿½ï¿½ï¿½Æ£ï¿½ï¿½ï¿½ï¿½Îªï¿½Ã»ï¿½ï¿½Ô¶ï¿½ï¿½å»­ï¿½ï¿½Ê±ï¿½ï¿½Ð§
+	* @param [in] ï¿½ï¿½ï¿½Êµï¿½ï¿½ï¿½ï¿½ï¿½name
 	* @return
 	*/
 	virtual void   setUserDefineTypeName(string name) = 0;
 
-	/** »ñÈ¡×Ô¶¨Òå»­±ÊµÄÀàÐÍ£¬Èç¹ûÎªÏµÍ³»­±ÊÊ±ÓÐÐ§
-	* @return ÏµÍ³»­±ÊµÄÀàÐÍ
+	/** ï¿½ï¿½È¡ï¿½Ô¶ï¿½ï¿½å»­ï¿½Êµï¿½ï¿½ï¿½ï¿½Í£ï¿½ï¿½ï¿½ï¿½ÎªÏµÍ³ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½Ð§
+	* @return ÏµÍ³ï¿½ï¿½ï¿½Êµï¿½ï¿½ï¿½ï¿½ï¿½
 	*/
 	virtual int  getSystemTypeName() = 0;
 
-	/** ÉèÖÃ×Ô¶¨Òå»­±ÊµÄÀàÐÍ£¬Èç¹ûÎªÏµÍ³»­±ÊÊ±ÓÐÐ§
-	* @param [in] ÏµÍ³»­±ÊµÄÀàÐÍtype
+	/** ï¿½ï¿½ï¿½ï¿½ï¿½Ô¶ï¿½ï¿½å»­ï¿½Êµï¿½ï¿½ï¿½ï¿½Í£ï¿½ï¿½ï¿½ï¿½ÎªÏµÍ³ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½Ð§
+	* @param [in] ÏµÍ³ï¿½ï¿½ï¿½Êµï¿½ï¿½ï¿½ï¿½ï¿½type
 	* @return
 	*/
 	virtual void setSystemTypeName(int type) = 0;
 
-	/** »ñÈ¡»­±ÊµÄ¿í¶È£¬Èç¹ûÎªÏµÍ³»­±ÊÊ±ÓÐÐ§
-	* @return »­±ÊµÄ¿í¶È
+	/** ï¿½ï¿½È¡ï¿½ï¿½ï¿½ÊµÄ¿ï¿½È£ï¿½ï¿½ï¿½ï¿½ÎªÏµÍ³ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½Ð§
+	* @return ï¿½ï¿½ï¿½ÊµÄ¿ï¿½ï¿½
 	*/
 	virtual double  getWidth() = 0;
 
-	/** ÉèÖÃ»­±ÊµÄ¿í¶È£¬Èç¹ûÎªÏµÍ³»­±ÊÊ±ÓÐÐ§
-	* @param [in] »­±ÊµÄ¿í¶Èd
+	/** ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ÊµÄ¿ï¿½È£ï¿½ï¿½ï¿½ï¿½ÎªÏµÍ³ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½Ð§
+	* @param [in] ï¿½ï¿½ï¿½ÊµÄ¿ï¿½ï¿½d
 	* @return
 	*/
 	virtual void    setWidth(double d) = 0;
 
-	/** »ñÈ¡»­±ÊµÄÏÔÊ¾±ÈÀý£¬Èç¹ûÎªÓÃ»§×Ô¶¨Òå»­±ÊÊ±ÓÐÐ§
-	* @return »­±ÊµÄÏÔÊ¾±ÈÀý
+	/** ï¿½ï¿½È¡ï¿½ï¿½ï¿½Êµï¿½ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îªï¿½Ã»ï¿½ï¿½Ô¶ï¿½ï¿½å»­ï¿½ï¿½Ê±ï¿½ï¿½Ð§
+	* @return ï¿½ï¿½ï¿½Êµï¿½ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½
 	*/
 	virtual double  getScale() = 0;
 
-	/** ÉèÖÃ»­±ÊµÄÏÔÊ¾±ÈÀý£¬Èç¹ûÎªÓÃ»§×Ô¶¨Òå»­±ÊÊ±ÓÐÐ§
-	* @param [in] »­±ÊµÄÏÔÊ¾±ÈÀý d
+	/** ï¿½ï¿½ï¿½Ã»ï¿½ï¿½Êµï¿½ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îªï¿½Ã»ï¿½ï¿½Ô¶ï¿½ï¿½å»­ï¿½ï¿½Ê±ï¿½ï¿½Ð§
+	* @param [in] ï¿½ï¿½ï¿½Êµï¿½ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½ d
 	* @return
 	*/
 	virtual void    setScale(double d) = 0;
 
 		
-	/** »ñÈ¡»­±Ê¶ÔÏóÐ´Èëµ½BufferÖÐËùÕ¼ÓÃµÄ×Ö½ÚÊý£¬±ãÓÚ´ÓBuffer¶ÔÏóÖÐ¹¹½¨»­±Ê¶ÔÏó
-     * @param  [in] ÎÞ 
-     * @return ·µ»Ø¼¸ºÎ¶ÔÏóÐ´Èëµ½BufferÖÐËùÕ¼ÓÃµÄ×Ö½ÚÊý
+	/** ï¿½ï¿½È¡ï¿½ï¿½ï¿½Ê¶ï¿½ï¿½ï¿½Ð´ï¿½ëµ½Bufferï¿½ï¿½ï¿½ï¿½Õ¼ï¿½Ãµï¿½ï¿½Ö½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú´ï¿½Bufferï¿½ï¿½ï¿½ï¿½ï¿½Ð¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¶ï¿½ï¿½ï¿½
+     * @param  [in] ï¿½ï¿½ 
+     * @return ï¿½ï¿½ï¿½Ø¼ï¿½ï¿½Î¶ï¿½ï¿½ï¿½Ð´ï¿½ëµ½Bufferï¿½ï¿½ï¿½ï¿½Õ¼ï¿½Ãµï¿½ï¿½Ö½ï¿½ï¿½ï¿½
 	 */
     virtual size_t sizeBuffer()=0;
 
-	/** ´ÓBufferÖÐ¶ÁÈ¡ÐÅÏ¢Ìî³ä±¾»­±Ê¶ÔÏó
-     * @param  [in,out] buf Buffer & £¬»º³åÇø¶ÔÏóÒýÓÃ 
-     * @return ³É¹¦·µ»Øtrue£¬·ñÔò·µ»Øfalse
+	/** ï¿½ï¿½Bufferï¿½Ð¶ï¿½È¡ï¿½ï¿½Ï¢ï¿½ï¿½ä±¾ï¿½ï¿½ï¿½Ê¶ï¿½ï¿½ï¿½
+     * @param  [in,out] buf Buffer & ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
+     * @return ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½trueï¿½ï¿½ï¿½ï¿½ï¿½ò·µ»ï¿½false
     */
     virtual bool readBuffer( Buffer & buf)=0;
 
-	/** ½«±¾ÀàµÄÐÅÏ¢Ð´ÈëBufferÖÐ 
-     * @param  [in,out] buf Buffer & £¬»º³åÇø¶ÔÏóÒýÓÃ
-     * @return ³É¹¦·µ»Øtrue£¬·ñÔò·µ»Øfalse
+	/** ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢Ð´ï¿½ï¿½Bufferï¿½ï¿½ 
+     * @param  [in,out] buf Buffer & ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+     * @return ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½trueï¿½ï¿½ï¿½ï¿½ï¿½ò·µ»ï¿½false
     */
     virtual bool writeBuffer(Buffer& buf)=0;
 };
 /** @}*/
 
 
-/** @addtogroup Geometry2d GeomPolygon2d-Ìî³äÇø¼¸ºÎ¶ÔÏóÀà
+/** @addtogroup Geometry2d GeomPolygon2d-ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î¶ï¿½ï¿½ï¿½ï¿½ï¿½
 *  @{
 */
 
 class CORE_API GeomPolygon2d : virtual public Geometry2d
 {
 public:
-	/** ¸ù¾ÝµãÕóptList£¬°Ñµ±Ç°µÄÇø¶ÔÏóÖØÐÂ¹¹Ôì£¬¾ßÓÐÒ»¸ö·â±ÕµÄ»·
-	* @return ptList µãÕó
+	/** ï¿½ï¿½ï¿½Ýµï¿½ï¿½ï¿½ptListï¿½ï¿½ï¿½Ñµï¿½Ç°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¹ï¿½ï¿½ì£¬ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ÕµÄ»ï¿½
+	* @return ptList ï¿½ï¿½ï¿½ï¿½
 	*/
 	virtual void resetFromPointList( VertexCollection2d & ptList ) = 0;
 
-	/** ¸ù¾ÝµãÕóptList£¬°Ñµ±Ç°µÄÇø¶ÔÏóÖØÐÂ¹¹Ôì£¬¾ßÓÐÒ»¸ö·â±ÕµÄ»·
-	* @return ptList µãÕó
+	/** ï¿½ï¿½ï¿½Ýµï¿½ï¿½ï¿½ptListï¿½ï¿½ï¿½Ñµï¿½Ç°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¹ï¿½ï¿½ì£¬ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ÕµÄ»ï¿½
+	* @return ptList ï¿½ï¿½ï¿½ï¿½
 	*/
 	virtual void resetFromPointList( VertexCollection2dSharedPtr ptList ) = 0;
 
-	/** »ñÈ¡×é³ÉÌî³äÇøµÄ»·µÄ¼¯ºÏ
-	* @return »·µÄ¼¯ºÏ RingCollection2dSharedPtr
+	/** ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä»ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½
+	* @return ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ RingCollection2dSharedPtr
 	*/
 	virtual RingCollection2dSharedPtr& getRingCollection() = 0;
 
-	/** »ñÈ¡»­±Ê
-	* @return »­±Ê Pen2dSharedPtr
+	/** ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½
+	* @return ï¿½ï¿½ï¿½ï¿½ Pen2dSharedPtr
 	*/
 	virtual Pen2dSharedPtr& getPen() = 0;
 
-	/** »ñÈ¡ÊÇ·ñÌî³äÑÕÉ«
-	* @return ÊÇ·ñÌî³äÑÕÉ«
+	/** ï¿½ï¿½È¡ï¿½Ç·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É«
+	* @return ï¿½Ç·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É«
 	*/
 	virtual bool   isFilledColor() = 0;
 
-	/** ÉèÖÃÊÇ·ñÌî³äÑÕÉ«
-	* @param [in] ÊÇ·ñÌî³äÑÕÉ« bFill
+	/** ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É«
+	* @param [in] ï¿½Ç·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É« bFill
 	* @return
 	*/
 	virtual void   setFilledColorStatus(bool bFill) = 0;
 
-	/** »ñÈ¡ÊÇ·ñÌî³ä·ûºÅ
-	* @return ÊÇ·ñÌî³ä·ûºÅbool
+	/** ï¿½ï¿½È¡ï¿½Ç·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	* @return ï¿½Ç·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½bool
 	*/
 	virtual bool   isFilledPattern() = 0;
 
-	/** ÉèÖÃÊÇ·ñÌî³ä·ûºÅ
-	* @param [in] ÊÇ·ñÌî³ä·ûºÅbFill
+	/** ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	* @param [in] ï¿½Ç·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½bFill
 	* @return
 	*/
 	virtual void   setFilledPatternStatus(bool bFill) = 0;
 
-	/** »ñÈ¡Ãæ»ý
+	/** ï¿½ï¿½È¡ï¿½ï¿½ï¿½
 	* @return double
 	*/	
 	virtual double getArea() = 0;
 
-	/** »ñÈ¡ÖÜ³¤
+	/** ï¿½ï¿½È¡ï¿½Ü³ï¿½
 	* @return double
 	*/	
 	virtual double getPerimeter() = 0;
 
-	/** »ñÈ¡×ÓÍ¼Ìî³ä±ÈÀý
-	* @return ×ÓÍ¼Ìî³ä±ÈÀý
+	/** ï¿½ï¿½È¡ï¿½ï¿½Í¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	* @return ï¿½ï¿½Í¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	*/
 	virtual double getSymbolScale() = 0;
 
-	/** ÉèÖÃ×ÓÍ¼Ìî³ä±ÈÀý
-	* @param [in] ×ÓÍ¼Ìî³ä±ÈÀý d
+	/** ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	* @param [in] ï¿½ï¿½Í¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ d
 	* @return 
 	*/
 	virtual void setSymbolScale(double d) = 0;
 
-	/** »ñÈ¡×ÓÍ¼Ìî³ä½Ç¶È(½Ç¶È)
-	* @return ×ÓÍ¼Ìî³ä½Ç¶È(½Ç¶È)
+	/** ï¿½ï¿½È¡ï¿½ï¿½Í¼ï¿½ï¿½ï¿½Ç¶ï¿½(ï¿½Ç¶ï¿½)
+	* @return ï¿½ï¿½Í¼ï¿½ï¿½ï¿½Ç¶ï¿½(ï¿½Ç¶ï¿½)
 	*/
 	virtual double getSymbolAngleDeg() = 0;
 
-	/** ÉèÖÃ×ÓÍ¼Ìî³ä½Ç¶È(½Ç¶È)
-	* @param [in] ×ÓÍ¼Ìî³ä½Ç¶È(½Ç¶È) d
+	/** ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¼ï¿½ï¿½ï¿½Ç¶ï¿½(ï¿½Ç¶ï¿½)
+	* @param [in] ï¿½ï¿½Í¼ï¿½ï¿½ï¿½Ç¶ï¿½(ï¿½Ç¶ï¿½) d
 	* @return 
 	*/
 	virtual void setSymbolAngleDeg(double d) = 0;
 
-	/** »ñÈ¡»¨ÎÆÃû³Æ
-	* @return »¨ÎÆÃû³Æstring
+	/** ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	* @return ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½string
 	*/
 	virtual string getSymbolName() = 0;
 
-	/** ÉèÖÃ»¨ÎÆÃû³Æ
-	* @param [in] »¨ÎÆÃû³Æ name
+	/** ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	* @param [in] ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ name
 	* @return 
 	*/
 	virtual void setSymbolName(string name) = 0;
 
-	/** ÉèÖÃÏßÌõµÄÊÇ·ñÏÔÊ¾µã×´Ì¬ 
-	* @param [in] ÊÇ·ñÏÔÊ¾µã×´Ì¬ b
+	/** ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½×´Ì¬ 
+	* @param [in] ï¿½Ç·ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½×´Ì¬ b
 	*/	
 	virtual void setShowPointStatus(bool b) = 0;
 
-	/** »ñÈ¡ÏßÌõµÄÊÇ·ñÏÔÊ¾µã×´Ì¬ 
-	* @return ÊÇ·ñÏÔÊ¾µã×´Ì¬bool
+	/** ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½×´Ì¬ 
+	* @return ï¿½Ç·ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½×´Ì¬bool
 	*/	
 	virtual bool isShowPointStatus() = 0;
 };
 /** @}*/
 
 
-/** @addtogroup Geometry2d GeomPolyline2d-Ïß¼¸ºÎ¶ÔÏóÀà
+/** @addtogroup Geometry2d GeomPolyline2d-ï¿½ß¼ï¿½ï¿½Î¶ï¿½ï¿½ï¿½ï¿½ï¿½
 *  @{
 */
 class CORE_API GeomPolyline2d : virtual public Geometry2d
 {
 public:
-	/** ¸ù¾ÝµãÕóptList£¬°Ñµ±Ç°µÄÇø¶ÔÏóÖØÐÂ¹¹Ôì£¬¾ßÓÐÒ»¸ö·â±ÕµÄ»·
-	* @return ptList µãÕó
+	/** ï¿½ï¿½ï¿½Ýµï¿½ï¿½ï¿½ptListï¿½ï¿½ï¿½Ñµï¿½Ç°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¹ï¿½ï¿½ì£¬ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ÕµÄ»ï¿½
+	* @return ptList ï¿½ï¿½ï¿½ï¿½
 	*/
 	virtual void resetFromPointList( VertexCollection2d & ptList ) = 0;
 
-	/** ¸ù¾ÝµãÕóptList£¬°Ñµ±Ç°µÄÇø¶ÔÏóÖØÐÂ¹¹Ôì£¬¾ßÓÐÒ»¸ö·â±ÕµÄ»·
-	* @return ptList µãÕó
+	/** ï¿½ï¿½ï¿½Ýµï¿½ï¿½ï¿½ptListï¿½ï¿½ï¿½Ñµï¿½Ç°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¹ï¿½ï¿½ì£¬ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ÕµÄ»ï¿½
+	* @return ptList ï¿½ï¿½ï¿½ï¿½
 	*/
 	virtual void resetFromPointList( VertexCollection2dSharedPtr ptList ) = 0;
 
-	/** »ñÈ¡×é³ÉÏßÌõµÄÂ·¾¶µÄ¼¯ºÏ
-	* @return Â·¾¶µÄ¼¯ºÏPathCollection2dSharedPtr
+	/** ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½
+	* @return Â·ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½PathCollection2dSharedPtr
 	*/
 	virtual PathCollection2dSharedPtr& getPathCollection() = 0;
 
-	/** »ñÈ¡»­±Ê
-	* @return »­±Ê Pen2dSharedPtr
+	/** ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½
+	* @return ï¿½ï¿½ï¿½ï¿½ Pen2dSharedPtr
 	*/
 	virtual Pen2dSharedPtr& getPen() = 0;
 
-	/** »ñÈ¡³¤¶È
-	* @return ³¤¶Èdouble
+	/** ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½
+	* @return ï¿½ï¿½ï¿½ï¿½double
 	*/	
 	virtual double getLength() = 0;
 
-	/** ÉèÖÃÏßÌõµÄÊÇ·ñÏÔÊ¾µã×´Ì¬ 
-	* @param [in] ÊÇ·ñÏÔÊ¾µã bool
+	/** ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½×´Ì¬ 
+	* @param [in] ï¿½Ç·ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½ bool
 	*/	
 	virtual void setShowPointStatus(bool b) = 0;
 
-	/** »ñÈ¡ÏßÌõµÄÊÇ·ñÏÔÊ¾µã×´Ì¬ 
-	* @return boolÊÇ·ñÏÔÊ¾µã
+	/** ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½×´Ì¬ 
+	* @return boolï¿½Ç·ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½
 	*/	
 	virtual bool isShowPointStatus() = 0;
 
-	/** ÉèÖÃÊÇ·ñÏÔÊ¾ÏßÌõ·½Ïò 
-	* @param [in] bIsDispDirectionÊÇ·ñÏÔÊ¾ÏßÌõ·½Ïò
+	/** ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
+	* @param [in] bIsDispDirectionï¿½Ç·ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	* @return 
 	*/	
 	virtual void setDispDirection(bool bIsDispDirection) = 0;
 
-	/** ÅÐ¶ÏÊÇ·ñÏÔÊ¾ÏßÌõ·½Ïò 
-	* @return boolÊÇ·ñÏÔÊ¾ÏßÌõ·½Ïò
+	/** ï¿½Ð¶ï¿½ï¿½Ç·ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
+	* @return boolï¿½Ç·ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	*/	
 	virtual bool isDispDirection() = 0;
 };
 /** @}*/
 
 
-/** @addtogroup Geometry2d GeomLine2d-Ïß¼¸ºÎ¶ÔÏóÀà
+/** @addtogroup Geometry2d GeomLine2d-ï¿½ß¼ï¿½ï¿½Î¶ï¿½ï¿½ï¿½ï¿½ï¿½
 *  @{
 */
 class CORE_API GeomLine2d : virtual public Geometry2d
 {
 public:
-	/** ¸ù¾ÝµãÕóptList£¬°Ñµ±Ç°µÄÇø¶ÔÏóÖØÐÂ¹¹Ôì£¬¾ßÓÐÒ»¸ö·â±ÕµÄ»·
-	* @return ptList µãÕó
+	/** ï¿½ï¿½ï¿½Ýµï¿½ï¿½ï¿½ptListï¿½ï¿½ï¿½Ñµï¿½Ç°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¹ï¿½ï¿½ì£¬ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ÕµÄ»ï¿½
+	* @return ptList ï¿½ï¿½ï¿½ï¿½
 	*/
 	virtual void resetFromPointList( VertexCollection2d & ptList ) = 0;
 
-	/** ¸ù¾ÝµãÕóptList£¬°Ñµ±Ç°µÄÇø¶ÔÏóÖØÐÂ¹¹Ôì£¬¾ßÓÐÒ»¸ö·â±ÕµÄ»·
-	* @return ptList µãÕó
+	/** ï¿½ï¿½ï¿½Ýµï¿½ï¿½ï¿½ptListï¿½ï¿½ï¿½Ñµï¿½Ç°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¹ï¿½ï¿½ì£¬ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ÕµÄ»ï¿½
+	* @return ptList ï¿½ï¿½ï¿½ï¿½
 	*/
 	virtual void resetFromPointList( VertexCollection2dSharedPtr ptList ) = 0;
 
-	/** »ñÈ¡×é³ÉÏßÌõµÄµãÕóµÄ¼¯ºÏ
-	* @return µãÕóµÄ¼¯ºÏVertexCollection2dSharedPtr
+	/** ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Äµï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½
+	* @return ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½VertexCollection2dSharedPtr
 	*/
 	virtual VertexCollection2dSharedPtr& getPointCollection() = 0;
 
-	/** »ñÈ¡»­±Ê
-	* @return »­±Ê Pen2dSharedPtr
+	/** ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½
+	* @return ï¿½ï¿½ï¿½ï¿½ Pen2dSharedPtr
 	*/
 	virtual Pen2dSharedPtr& getPen() = 0;
 
-	/** »ñÈ¡³¤¶È
-	* @return ³¤¶Èdouble
+	/** ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½
+	* @return ï¿½ï¿½ï¿½ï¿½double
 	*/	
 	virtual double getLength() = 0;
 
-	/** ÉèÖÃÏßÌõµÄÊÇ·ñÏÔÊ¾µã×´Ì¬ 
-	* @param [in] ÊÇ·ñÏÔÊ¾µã bool
+	/** ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½×´Ì¬ 
+	* @param [in] ï¿½Ç·ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½ bool
 	*/	
 	virtual void setShowPointStatus(bool b) = 0;
 
-	/** »ñÈ¡ÏßÌõµÄÊÇ·ñÏÔÊ¾µã×´Ì¬ 
-	* @return boolÊÇ·ñÏÔÊ¾µã
+	/** ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½×´Ì¬ 
+	* @return boolï¿½Ç·ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½
 	*/	
 	virtual bool isShowPointStatus() = 0;
 
-	/** ÉèÖÃÊÇ·ñÏÔÊ¾ÏßÌõ·½Ïò 
-	* @param [in] bIsDispDirectionÊÇ·ñÏÔÊ¾ÏßÌõ·½Ïò
+	/** ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
+	* @param [in] bIsDispDirectionï¿½Ç·ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	* @return 
 	*/	
 	virtual void setDispDirection(bool bIsDispDirection) = 0;
 
-	/** ÅÐ¶ÏÊÇ·ñÏÔÊ¾ÏßÌõ·½Ïò 
-	* @return boolÊÇ·ñÏÔÊ¾ÏßÌõ·½Ïò
+	/** ï¿½Ð¶ï¿½ï¿½Ç·ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
+	* @return boolï¿½Ç·ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	*/	
 	virtual bool isDispDirection() = 0;
 
-	/** ÅÐ¶ÏÏßÌõÊÇ·ñ·â±Õ
-	* @return bool ÏßÌõÊÇ·ñ·â±Õ
+	/** ï¿½Ð¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½
+	* @return bool ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½
 	*/	
 	virtual bool isClosed() = 0;
 
-	/** ÉèÖÃÏßÌõÊÇ·ñ·â±Õ
-	* @param [in] b ÏßÌõÊÇ·ñ·â±Õ
+	/** ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½
+	* @param [in] b ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½
 	* @return 
 	*/	
 	virtual void setClosed(bool b) = 0;
 };
 /** @}*/
 
-/** @addtogroup Geometry2d GeomPoint2d-³éÏóµãÀà£¨ÒÔÔ²¡¢Õý·½ÐÎ¡¢Èý½ÇÐÎÏÔÊ¾µÄµã£¬ÓÐ´óÐ¡£©
+/** @addtogroup Geometry2d GeomPoint2d-ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½à£¨ï¿½ï¿½Ô²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾ï¿½Äµã£¬ï¿½Ð´ï¿½Ð¡ï¿½ï¿½
 *  @{
 */
 
 class CORE_API GeomPoint2d : virtual public Geometry2d
 {
 public:
-	/** µãÀàÐÍµÄ»ñÈ¡£¨Ô²£¬Õý·½ÐÎ£¬Èý½ÇÐÎ£©
-	* @return µãÀàÐÍ£¨Ô²£¬Õý·½ÐÎ£¬Èý½ÇÐÎ£©
+	/** ï¿½ï¿½ï¿½ï¿½ï¿½ÍµÄ»ï¿½È¡ï¿½ï¿½Ô²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î£ï¿½
+	* @return ï¿½ï¿½ï¿½ï¿½ï¿½Í£ï¿½Ô²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î£ï¿½
 	*/	
 	virtual int getPointType() = 0;
 
-	/** µãÀàÐÍµÄÉèÖÃ£¨Ô²£¬Õý·½ÐÎ£¬Èý½ÇÐÎ£©
-	* @param [in] nType: µãÀàÐÍ£¨Ô²£¬Õý·½ÐÎ£¬Èý½ÇÐÎ£©
+	/** ï¿½ï¿½ï¿½ï¿½ï¿½Íµï¿½ï¿½ï¿½ï¿½Ã£ï¿½Ô²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î£ï¿½
+	* @param [in] nType: ï¿½ï¿½ï¿½ï¿½ï¿½Í£ï¿½Ô²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î£ï¿½
 	* @return 
 	*/	
 	virtual void setPointType(int nType) = 0;
 
-	/** ·ûºÅÎ»ÖÃµÄ»ñÈ¡
-	* @return ·ûºÅÎ»ÖÃVertex2d
+	/** ï¿½ï¿½ï¿½ï¿½Î»ï¿½ÃµÄ»ï¿½È¡
+	* @return ï¿½ï¿½ï¿½ï¿½Î»ï¿½ï¿½Vertex2d
 	*/
 	virtual const Vertex2d& queryCoord() = 0;
 
-	/** ·ûºÅÎ»ÖÃµÄ»ñÈ¡
-	* @param [out] ·ûºÅÎ»ÖÃVertex2d
+	/** ï¿½ï¿½ï¿½ï¿½Î»ï¿½ÃµÄ»ï¿½È¡
+	* @param [out] ï¿½ï¿½ï¿½ï¿½Î»ï¿½ï¿½Vertex2d
 	* @return 
 	*/
 	virtual void queryCoord(Vertex2d& pt) = 0;
 
-	/** ·ûºÅÎ»ÖÃµÄ»ñÈ¡
-	* @param [out] ·ûºÅÎ»ÖÃx,y
+	/** ï¿½ï¿½ï¿½ï¿½Î»ï¿½ÃµÄ»ï¿½È¡
+	* @param [out] ï¿½ï¿½ï¿½ï¿½Î»ï¿½ï¿½x,y
 	* @return 
 	*/
 	virtual void queryCoord(double& x,double& y) = 0;
 
-	/** ·ûºÅÎ»ÖÃµÄÉèÖÃ
-	* @param [in] ·ûºÅÎ»ÖÃVertex2d
+	/** ï¿½ï¿½ï¿½ï¿½Î»ï¿½Ãµï¿½ï¿½ï¿½ï¿½ï¿½
+	* @param [in] ï¿½ï¿½ï¿½ï¿½Î»ï¿½ï¿½Vertex2d
 	* @return 
 	*/
 	virtual void putCoord(Vertex2d & pt) = 0;
 
-	/** ·ûºÅÎ»ÖÃµÄÉèÖÃ
-	* @param [in] ·ûºÅÎ»ÖÃx,y
+	/** ï¿½ï¿½ï¿½ï¿½Î»ï¿½Ãµï¿½ï¿½ï¿½ï¿½ï¿½
+	* @param [in] ï¿½ï¿½ï¿½ï¿½Î»ï¿½ï¿½x,y
 	* @return 
 	*/
 	virtual void putCoord(double x,double y) = 0;
 
-	/** µãµÄ´óÐ¡£¨ºÁÃ×µ¥Î»£©µÄ»ñÈ¡
-	* @return µãµÄ´óÐ¡£¨ºÁÃ×µ¥Î»£©
+	/** ï¿½ï¿½Ä´ï¿½Ð¡ï¿½ï¿½ï¿½ï¿½ï¿½×µï¿½Î»ï¿½ï¿½ï¿½Ä»ï¿½È¡
+	* @return ï¿½ï¿½Ä´ï¿½Ð¡ï¿½ï¿½ï¿½ï¿½ï¿½×µï¿½Î»ï¿½ï¿½
 	*/
 	virtual double getSize() = 0;
 
-	/** µãµÄ´óÐ¡£¨ºÁÃ×µ¥Î»£©µÄÉèÖÃ
-	* @param [in] µãµÄ´óÐ¡£¨ºÁÃ×µ¥Î»£©
+	/** ï¿½ï¿½Ä´ï¿½Ð¡ï¿½ï¿½ï¿½ï¿½ï¿½×µï¿½Î»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	* @param [in] ï¿½ï¿½Ä´ï¿½Ð¡ï¿½ï¿½ï¿½ï¿½ï¿½×µï¿½Î»ï¿½ï¿½
 	* @return 
 	*/
 	virtual void setSize(double s) = 0;
@@ -1909,71 +1909,71 @@ public:
 };
 /** @}*/
 
-/** @addtogroup Geometry2d GeomPointSymbol2d-µã·ûºÅÀà
+/** @addtogroup Geometry2d GeomPointSymbol2d-ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 *  @{
 */
 
 class CORE_API GeomPointSymbol2d : virtual public Geometry2d
 {
 public:
-	/** ·ûºÅÃû³ÆµÄ»ñÈ¡
-	* @return ·ûºÅÃû³Æstring
+	/** ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÆµÄ»ï¿½È¡
+	* @return ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½string
 	*/	
 	virtual std::string getSymbolName() = 0;
 
-	/** ·ûºÅÃû³ÆµÄÉèÖÃ
-	* @param [in] ·ûºÅÃû³Æstring
+	/** ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æµï¿½ï¿½ï¿½ï¿½ï¿½
+	* @param [in] ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½string
 	* @return 
 	*/	
 	virtual void setSymbolName(std::string strName) = 0;
 
-	/** ·ûºÅÎ»ÖÃµÄ»ñÈ¡
-	* @return ·ûºÅÎ»ÖÃVertex2d
+	/** ï¿½ï¿½ï¿½ï¿½Î»ï¿½ÃµÄ»ï¿½È¡
+	* @return ï¿½ï¿½ï¿½ï¿½Î»ï¿½ï¿½Vertex2d
 	*/
 	virtual const Vertex2d& queryCoord() = 0;
 
-	/** ·ûºÅÎ»ÖÃµÄ»ñÈ¡
-	* @param [in] ·ûºÅÎ»ÖÃVertex2d
+	/** ï¿½ï¿½ï¿½ï¿½Î»ï¿½ÃµÄ»ï¿½È¡
+	* @param [in] ï¿½ï¿½ï¿½ï¿½Î»ï¿½ï¿½Vertex2d
 	* @return 
 	*/
 	virtual void queryCoord(Vertex2d& pt) = 0;
 
-	/** ·ûºÅÎ»ÖÃµÄ»ñÈ¡
-	* @param [in] ·ûºÅÎ»ÖÃ x,y
+	/** ï¿½ï¿½ï¿½ï¿½Î»ï¿½ÃµÄ»ï¿½È¡
+	* @param [in] ï¿½ï¿½ï¿½ï¿½Î»ï¿½ï¿½ x,y
 	* @return 
 	*/
 	virtual void queryCoord(double& x,double& y) = 0;
 
-	/** ·ûºÅÎ»ÖÃµÄÉèÖÃ
-	* @param [in] ·ûºÅÎ»ÖÃ pt
+	/** ï¿½ï¿½ï¿½ï¿½Î»ï¿½Ãµï¿½ï¿½ï¿½ï¿½ï¿½
+	* @param [in] ï¿½ï¿½ï¿½ï¿½Î»ï¿½ï¿½ pt
 	* @return 
 	*/
 	virtual void putCoord(Vertex2d & pt) = 0;
 
-	/** ·ûºÅÎ»ÖÃµÄÉèÖÃ
-	* @param [in] ·ûºÅÎ»ÖÃ x,y
+	/** ï¿½ï¿½ï¿½ï¿½Î»ï¿½Ãµï¿½ï¿½ï¿½ï¿½ï¿½
+	* @param [in] ï¿½ï¿½ï¿½ï¿½Î»ï¿½ï¿½ x,y
 	* @return 
 	*/
 	virtual void putCoord(double x,double y) = 0;
 
-	/** ·ûºÅÏÔÊ¾±ÈÀýµÄ»ñÈ¡
-	* @return ·ûºÅÏÔÊ¾±ÈÀý
+	/** ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½ï¿½Ä»ï¿½È¡
+	* @return ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½
 	*/
 	virtual double getScale() = 0;
 
-	/** ·ûºÅÏÔÊ¾±ÈÀýµÄÉèÖÃ
-	* @param [in] ·ûºÅÏÔÊ¾±ÈÀý s
+	/** ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	* @param [in] ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½ s
 	* @return 
 	*/
 	virtual void setScale(double s) = 0;
 
-	/** ·ûºÅÐý×ª½Ç¶È£¨½Ç¶Èµ¥Î»£©µÄ»ñÈ¡
-	* @return ·ûºÅÐý×ª½Ç¶È£¨½Ç¶Èµ¥Î»£©
+	/** ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×ªï¿½Ç¶È£ï¿½ï¿½Ç¶Èµï¿½Î»ï¿½ï¿½ï¿½Ä»ï¿½È¡
+	* @return ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×ªï¿½Ç¶È£ï¿½ï¿½Ç¶Èµï¿½Î»ï¿½ï¿½
 	*/
 	virtual double getRotateAngleDeg() = 0;
 
-	/** ·ûºÅÐý×ª½Ç¶È£¨½Ç¶Èµ¥Î»£©µÄÉèÖÃ
-	* @param [in] ·ûºÅÐý×ª½Ç¶È£¨½Ç¶Èµ¥Î»£©
+	/** ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×ªï¿½Ç¶È£ï¿½ï¿½Ç¶Èµï¿½Î»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	* @param [in] ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×ªï¿½Ç¶È£ï¿½ï¿½Ç¶Èµï¿½Î»ï¿½ï¿½
 	* @return 
 	*/
 	virtual void setRotateAngleDeg(double ang) = 0;
@@ -1982,47 +1982,47 @@ public:
 
 
 
-/** @addtogroup Geometry2d GeomMultipoint2d-¶àµãÀà
+/** @addtogroup Geometry2d GeomMultipoint2d-ï¿½ï¿½ï¿½ï¿½ï¿½
 *  @{
 */
 
 class CORE_API GeomMultipoint2d : virtual public Geometry2d
 {
 public:
-	/** »ñÈ¡¶àµã¶ÔÏóµÄµã¼¯
-	* @return »ñÈ¡µ½µÄµã¼¯, VertexCollection2dSharedPtr
+	/** ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Äµã¼¯
+	* @return ï¿½ï¿½È¡ï¿½ï¿½ï¿½Äµã¼¯, VertexCollection2dSharedPtr
 	*/
 	virtual VertexCollection2dSharedPtr& getPointCollection() = 0;
 
-	/** ¶àµã¶ÔÏóµÄ·ûºÅÃû³ÆµÄ»ñÈ¡
-	* @return ¶àµã¶ÔÏóµÄ·ûºÅÃû³Æ
+	/** ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÆµÄ»ï¿½È¡
+	* @return ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	*/	
 	virtual std::string getSymbolName() = 0;
 
-	/** ¶àµã¶ÔÏóµÄ·ûºÅÃû³ÆµÄÉèÖÃ
-	* @param [in] ¶àµã¶ÔÏóµÄ·ûºÅÃû³Æ
+	/** ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æµï¿½ï¿½ï¿½ï¿½ï¿½
+	* @param [in] ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	* @return 
 	*/	
 	virtual void setSymbolName(std::string strName) = 0;
 
-	/** ·ûºÅÏÔÊ¾±ÈÀýµÄ»ñÈ¡
-	* @return ·ûºÅÏÔÊ¾±ÈÀý
+	/** ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½ï¿½Ä»ï¿½È¡
+	* @return ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½
 	*/
 	virtual double getScale() = 0;
 
-	/** ·ûºÅÏÔÊ¾±ÈÀýµÄÉèÖÃ
-	* @param [in] ·ûºÅÏÔÊ¾±ÈÀý
+	/** ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	* @param [in] ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½
 	* @return 
 	*/
 	virtual void setScale(double s) = 0;
 
-	/** ·ûºÅÐý×ª½Ç¶È£¨½Ç¶Èµ¥Î»£©µÄ»ñÈ¡
-	* @return ·ûºÅÐý×ª½Ç¶È£¨½Ç¶Èµ¥Î»£©
+	/** ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×ªï¿½Ç¶È£ï¿½ï¿½Ç¶Èµï¿½Î»ï¿½ï¿½ï¿½Ä»ï¿½È¡
+	* @return ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×ªï¿½Ç¶È£ï¿½ï¿½Ç¶Èµï¿½Î»ï¿½ï¿½
 	*/
 	virtual double getRotateAngleDeg() = 0;
 
-	/** ·ûºÅÐý×ª½Ç¶È£¨½Ç¶Èµ¥Î»£©µÄÉèÖÃ
-	* @param [in] ·ûºÅÐý×ª½Ç¶È£¨½Ç¶Èµ¥Î»£©
+	/** ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×ªï¿½Ç¶È£ï¿½ï¿½Ç¶Èµï¿½Î»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	* @param [in] ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×ªï¿½Ç¶È£ï¿½ï¿½Ç¶Èµï¿½Î»ï¿½ï¿½
 	* @return 
 	*/
 	virtual void setRotateAngleDeg(double ang) = 0;
@@ -2030,214 +2030,214 @@ public:
 /** @}*/
 
 
-/** @addtogroup Geometry2d Label2dStyle-±ê×¢·ç¸ñ£¬¼´²åÈëµãÏà¶ÔÓÚ±ê×¢µÄÎ»ÖÃ
+/** @addtogroup Geometry2d Label2dStyle-ï¿½ï¿½×¢ï¿½ï¿½ñ£¬¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú±ï¿½×¢ï¿½ï¿½Î»ï¿½ï¿½
 *  @{
 */
 enum Label2dStyle
 {
-	BottomLeft,			//ÏÂ×ó
-	BottomMiddle,		//ÏÂÖÐ
-	BottomRight,		//ÏÂÓÒ
-	IntervalLeft,		//ÖÐ×ó
-	IntervalMiddle,		//ÖÐÖÐ
-	IntervalRight,		//ÖÐÓÒ
-	TopLeft,			//ÉÏ×ó
-	TopMiddle,			//ÉÏÖÐ
-	TopRight			//ÉÏÓÒ
+	BottomLeft,			//ï¿½ï¿½ï¿½ï¿½
+	BottomMiddle,		//ï¿½ï¿½ï¿½ï¿½
+	BottomRight,		//ï¿½ï¿½ï¿½ï¿½
+	IntervalLeft,		//ï¿½ï¿½ï¿½ï¿½
+	IntervalMiddle,		//ï¿½ï¿½ï¿½ï¿½
+	IntervalRight,		//ï¿½ï¿½ï¿½ï¿½
+	TopLeft,			//ï¿½ï¿½ï¿½ï¿½
+	TopMiddle,			//ï¿½ï¿½ï¿½ï¿½
+	TopRight			//ï¿½ï¿½ï¿½ï¿½
 };
 /** @}*/
 
-/** @addtogroup Geometry2d GeomLabel2d-ÎÄ±¾±ê×¢Àà
+/** @addtogroup Geometry2d GeomLabel2d-ï¿½Ä±ï¿½ï¿½ï¿½×¢ï¿½ï¿½
 *  @{
 */
 
 class CORE_API GeomLabel2d : virtual public Geometry2d
 {
 public:
-	/** »ñÈ¡ÎÄ±¾
-	* @return ÎÄ±¾
+	/** ï¿½ï¿½È¡ï¿½Ä±ï¿½
+	* @return ï¿½Ä±ï¿½
 	*/
 	virtual std::string getText() = 0;
 
-	/** ÉèÖÃÎÄ±¾
-	* @param [in] ÎÄ±¾
+	/** ï¿½ï¿½ï¿½ï¿½ï¿½Ä±ï¿½
+	* @param [in] ï¿½Ä±ï¿½
 	* @return 
 	*/
 	virtual void setText(std::string str) = 0;
 
-	/** »ñÈ¡ÎÄ±¾µÄ´óÐ¡
-	* @return ÎÄ±¾µÄ´óÐ¡
+	/** ï¿½ï¿½È¡ï¿½Ä±ï¿½ï¿½Ä´ï¿½Ð¡
+	* @return ï¿½Ä±ï¿½ï¿½Ä´ï¿½Ð¡
 	*/
 	virtual double getSize() = 0;
 
-	/** ÉèÖÃÎÄ±¾µÄ´óÐ¡
-	* @param [in] ÎÄ±¾µÄ´óÐ¡
+	/** ï¿½ï¿½ï¿½ï¿½ï¿½Ä±ï¿½ï¿½Ä´ï¿½Ð¡
+	* @param [in] ï¿½Ä±ï¿½ï¿½Ä´ï¿½Ð¡
 	* @return 
 	*/
 	virtual void setSize(double size) = 0;
 
-	/** »ñÈ¡×Ö·û¼ä¾à
-	* @return ×Ö·û¼ä¾à
+	/** ï¿½ï¿½È¡ï¿½Ö·ï¿½ï¿½ï¿½ï¿½
+	* @return ï¿½Ö·ï¿½ï¿½ï¿½ï¿½
 	*/
 	virtual double getOffWide() = 0;
 
-	/** ÉèÖÃ×Ö·û¼ä¾à
-	* @param [in] ×Ö·û¼ä¾à d
+	/** ï¿½ï¿½ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½ï¿½
+	* @param [in] ï¿½Ö·ï¿½ï¿½ï¿½ï¿½ d
 	* @return 
 	*/
 	virtual void setOffWide(double d) = 0;
 
-	/** »ñÈ¡×Ö·ûÐÐ¼ä¾à
-	* @return ×Ö·ûÐÐ¼ä¾à
+	/** ï¿½ï¿½È¡ï¿½Ö·ï¿½ï¿½Ð¼ï¿½ï¿½
+	* @return ï¿½Ö·ï¿½ï¿½Ð¼ï¿½ï¿½
 	*/
 	virtual double getRowOffWide() = 0;
 
-	/** ÉèÖÃ×Ö·ûÐÐ¼ä¾à
-	* @param [in] ×Ö·ûÐÐ¼ä¾à d
+	/** ï¿½ï¿½ï¿½ï¿½ï¿½Ö·ï¿½ï¿½Ð¼ï¿½ï¿½
+	* @param [in] ï¿½Ö·ï¿½ï¿½Ð¼ï¿½ï¿½ d
 	* @return 
 	*/
 	virtual void setRowOffWide(double d) = 0;
 
-	/** »ñÈ¡×Ö·ûÐý×ª½Ç¶È£¨µ¥¸ö×Ö·û£¬½Ç¶Èµ¥Î»£©
-	* @return ×Ö·ûÐý×ª½Ç¶È£¨µ¥¸ö×Ö·û£¬½Ç¶Èµ¥Î»£©
+	/** ï¿½ï¿½È¡ï¿½Ö·ï¿½ï¿½ï¿½×ªï¿½Ç¶È£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½ï¿½Ç¶Èµï¿½Î»ï¿½ï¿½
+	* @return ï¿½Ö·ï¿½ï¿½ï¿½×ªï¿½Ç¶È£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½ï¿½Ç¶Èµï¿½Î»ï¿½ï¿½
 	*/
 	virtual double getFontRotateAngleDeg() = 0;
 
-	/** ÉèÖÃ×Ö·ûÐý×ª½Ç¶È£¨µ¥¸ö×Ö·û£¬½Ç¶Èµ¥Î»£©
-	* @param [in] ÉèÖÃ×Ö·ûÐý×ª½Ç¶È£¨µ¥¸ö×Ö·û£¬½Ç¶Èµ¥Î»£©
+	/** ï¿½ï¿½ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½×ªï¿½Ç¶È£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½ï¿½Ç¶Èµï¿½Î»ï¿½ï¿½
+	* @param [in] ï¿½ï¿½ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½×ªï¿½Ç¶È£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½ï¿½Ç¶Èµï¿½Î»ï¿½ï¿½
 	* @return 
 	*/
 	virtual void setFontRotateAngleDeg(double d) = 0;
 
-	/** »ñÈ¡Õû¸ö±ê×¢µÄÐý×ª½Ç¶È£¨ÕûÌå£¬½Ç¶Èµ¥Î»£©
-	* @return ±ê×¢µÄÐý×ª½Ç¶È£¨ÕûÌå£¬½Ç¶Èµ¥Î»£©
+	/** ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½×ªï¿½Ç¶È£ï¿½ï¿½ï¿½ï¿½å£¬ï¿½Ç¶Èµï¿½Î»ï¿½ï¿½
+	* @return ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½×ªï¿½Ç¶È£ï¿½ï¿½ï¿½ï¿½å£¬ï¿½Ç¶Èµï¿½Î»ï¿½ï¿½
 	*/
 	virtual double getLabelRotateAngleDeg() = 0;
 
-	/** ÉèÖÃÕû¸ö±ê×¢µÄÐý×ª½Ç¶È£¨ÕûÌå£¬½Ç¶Èµ¥Î»£©
-	* @param [in] ±ê×¢µÄÐý×ª½Ç¶È£¨ÕûÌå£¬½Ç¶Èµ¥Î»£©
+	/** ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½×ªï¿½Ç¶È£ï¿½ï¿½ï¿½ï¿½å£¬ï¿½Ç¶Èµï¿½Î»ï¿½ï¿½
+	* @param [in] ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½×ªï¿½Ç¶È£ï¿½ï¿½ï¿½ï¿½å£¬ï¿½Ç¶Èµï¿½Î»ï¿½ï¿½
 	* @return 
 	*/
 	virtual void setLabelRotateAngleDeg(double d) = 0;
 
-	/** »ñÈ¡ÎÄ±¾µÄ×ÖÌå
-	* @return ÎÄ±¾µÄ×ÖÌåFont2d
+	/** ï¿½ï¿½È¡ï¿½Ä±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	* @return ï¿½Ä±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Font2d
 	*/
 	virtual Font2d getFont() = 0;
 
-	/** ÉèÖÃÎÄ±¾µÄ×ÖÌå
-	* @param [in] ÎÄ±¾µÄ×ÖÌåFont2d
+	/** ï¿½ï¿½ï¿½ï¿½ï¿½Ä±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	* @param [in] ï¿½Ä±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Font2d
 	* @return 
 	*/
 	virtual void setFont(Font2d & font) = 0;
 
-	/** »ñÈ¡±ê×¢µÄ·ç¸ñ
-	* @return ±ê×¢µÄ·ç¸ñLabel2dStyle
+	/** ï¿½ï¿½È¡ï¿½ï¿½×¢ï¿½Ä·ï¿½ï¿½
+	* @return ï¿½ï¿½×¢ï¿½Ä·ï¿½ï¿½Label2dStyle
 	*/
 	virtual Label2dStyle getStyle() = 0;
 
-	/** ÉèÖÃ±ê×¢µÄ·ç¸ñ
-	* @param [in] ±ê×¢µÄ·ç¸ñLabel2dStyle
+	/** ï¿½ï¿½ï¿½Ã±ï¿½×¢ï¿½Ä·ï¿½ï¿½
+	* @param [in] ï¿½ï¿½×¢ï¿½Ä·ï¿½ï¿½Label2dStyle
 	* @return 
 	*/
 	virtual void setStyle(Label2dStyle sty) = 0;
 	
-	/** ·ûºÅÎ»ÖÃµÄ»ñÈ¡
-	* @return ·ûºÅÎ»ÖÃVertex2d
+	/** ï¿½ï¿½ï¿½ï¿½Î»ï¿½ÃµÄ»ï¿½È¡
+	* @return ï¿½ï¿½ï¿½ï¿½Î»ï¿½ï¿½Vertex2d
 	*/
 	virtual const Vertex2d& queryCoord() = 0;
 	
-	/** ·ûºÅÎ»ÖÃµÄ»ñÈ¡
-	* @param [out] ·ûºÅÎ»ÖÃVertex2d
+	/** ï¿½ï¿½ï¿½ï¿½Î»ï¿½ÃµÄ»ï¿½È¡
+	* @param [out] ï¿½ï¿½ï¿½ï¿½Î»ï¿½ï¿½Vertex2d
 	* @return 
 	*/
 	virtual void queryCoord(Vertex2d& pt) = 0;
 	
-	/** ·ûºÅÎ»ÖÃµÄ»ñÈ¡
-	* @param [out] ·ûºÅÎ»ÖÃ x,y
+	/** ï¿½ï¿½ï¿½ï¿½Î»ï¿½ÃµÄ»ï¿½È¡
+	* @param [out] ï¿½ï¿½ï¿½ï¿½Î»ï¿½ï¿½ x,y
 	* @return 
 	*/
 	virtual void queryCoord(double& x,double& y) = 0;
 	
-	/** ·ûºÅÎ»ÖÃµÄÉèÖÃ
-	* @param [in] ·ûºÅÎ»ÖÃpt
+	/** ï¿½ï¿½ï¿½ï¿½Î»ï¿½Ãµï¿½ï¿½ï¿½ï¿½ï¿½
+	* @param [in] ï¿½ï¿½ï¿½ï¿½Î»ï¿½ï¿½pt
 	* @return 
 	*/
 	virtual void putCoord(Vertex2d & pt) = 0;
 	
-	/** ·ûºÅÎ»ÖÃµÄÉèÖÃ
-	* @param [in] ·ûºÅÎ»ÖÃ x,y
+	/** ï¿½ï¿½ï¿½ï¿½Î»ï¿½Ãµï¿½ï¿½ï¿½ï¿½ï¿½
+	* @param [in] ï¿½ï¿½ï¿½ï¿½Î»ï¿½ï¿½ x,y
 	* @return 
 	*/
 	virtual void putCoord(double x,double y) = 0;
 };
 /** @}*/
 
-/** @addtogroup Geometry2d GeomAnnotation2d-×¢¼Ç¼¸ºÎ¶ÔÏóÀà£¬³éÏó×ø±êµã+×¢¼Ç
+/** @addtogroup Geometry2d GeomAnnotation2d-×¢ï¿½Ç¼ï¿½ï¿½Î¶ï¿½ï¿½ï¿½ï¿½à£¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½+×¢ï¿½ï¿½
 *  @{
 */
 
 class CORE_API GeomAnnotation2d : virtual public Geometry2d
 {
 public:
-	/** ×¢¼ÇÎÄ±¾µÄ»ñÈ¡
-	* @return ×¢¼ÇÎÄ±¾
+	/** ×¢ï¿½ï¿½ï¿½Ä±ï¿½ï¿½Ä»ï¿½È¡
+	* @return ×¢ï¿½ï¿½ï¿½Ä±ï¿½
 	*/	
 	virtual std::string getAnnotation() = 0;
 
-	/** ×¢¼ÇÎÄ±¾µÄÉèÖÃ
-	* @param [in] ×¢¼ÇÎÄ±¾strName
+	/** ×¢ï¿½ï¿½ï¿½Ä±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	* @param [in] ×¢ï¿½ï¿½ï¿½Ä±ï¿½strName
 	* @return 
 	*/	
 	virtual void setAnnotation(std::string strName) = 0;
 
-	/** ×¢¼ÇÎ»ÖÃµÄ»ñÈ¡
-	* @return ×¢¼ÇÎ»ÖÃVertex2d
+	/** ×¢ï¿½ï¿½Î»ï¿½ÃµÄ»ï¿½È¡
+	* @return ×¢ï¿½ï¿½Î»ï¿½ï¿½Vertex2d
 	*/
 	virtual const Vertex2d& queryCoord() = 0;
 
-	/** ×¢¼ÇÎ»ÖÃµÄ»ñÈ¡
-	* @param [out] ×¢¼ÇÎ»ÖÃpt
+	/** ×¢ï¿½ï¿½Î»ï¿½ÃµÄ»ï¿½È¡
+	* @param [out] ×¢ï¿½ï¿½Î»ï¿½ï¿½pt
 	* @return 
 	*/
 	virtual void queryCoord(Vertex2d& pt) = 0;
 
-	/** ×¢¼ÇÎ»ÖÃµÄ»ñÈ¡
-	* @param [out] ×¢¼ÇÎ»ÖÃ x,y
+	/** ×¢ï¿½ï¿½Î»ï¿½ÃµÄ»ï¿½È¡
+	* @param [out] ×¢ï¿½ï¿½Î»ï¿½ï¿½ x,y
 	* @return 
 	*/
 	virtual void queryCoord(double& x,double& y) = 0;
 
-	/** ×¢¼ÇÎ»ÖÃµÄÉèÖÃ
-	* @param [in] ×¢¼ÇÎ»ÖÃpt
+	/** ×¢ï¿½ï¿½Î»ï¿½Ãµï¿½ï¿½ï¿½ï¿½ï¿½
+	* @param [in] ×¢ï¿½ï¿½Î»ï¿½ï¿½pt
 	* @return 
 	*/
 	virtual void putCoord(Vertex2d & pt) = 0;
 
-	/** ×¢¼ÇÎ»ÖÃµÄÉèÖÃ
-	* @param [in] ×¢¼ÇÎ»ÖÃx,y
+	/** ×¢ï¿½ï¿½Î»ï¿½Ãµï¿½ï¿½ï¿½ï¿½ï¿½
+	* @param [in] ×¢ï¿½ï¿½Î»ï¿½ï¿½x,y
 	* @return 
 	*/
 	virtual void putCoord(double x,double y) = 0;
 
-	/** ×¢¼ÇÎÄ±¾´óÐ¡µÄ»ñÈ¡£¨ºÁÃ×µ¥Î»£©
-	* @return ×¢¼ÇÎÄ±¾´óÐ¡£¨ºÁÃ×µ¥Î»£©
+	/** ×¢ï¿½ï¿½ï¿½Ä±ï¿½ï¿½ï¿½Ð¡ï¿½Ä»ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½×µï¿½Î»ï¿½ï¿½
+	* @return ×¢ï¿½ï¿½ï¿½Ä±ï¿½ï¿½ï¿½Ð¡ï¿½ï¿½ï¿½ï¿½ï¿½×µï¿½Î»ï¿½ï¿½
 	*/
 	virtual double getSize() = 0;
 
-	/** ×¢¼ÇÎÄ±¾´óÐ¡µÄÉèÖÃ£¨ºÁÃ×µ¥Î»£©
-	* @param [in] ×¢¼ÇÎÄ±¾´óÐ¡£¨ºÁÃ×µ¥Î»£©
+	/** ×¢ï¿½ï¿½ï¿½Ä±ï¿½ï¿½ï¿½Ð¡ï¿½ï¿½ï¿½ï¿½ï¿½Ã£ï¿½ï¿½ï¿½ï¿½×µï¿½Î»ï¿½ï¿½
+	* @param [in] ×¢ï¿½ï¿½ï¿½Ä±ï¿½ï¿½ï¿½Ð¡ï¿½ï¿½ï¿½ï¿½ï¿½×µï¿½Î»ï¿½ï¿½
 	* @return 
 	*/
 	virtual void setSize(double s) = 0;
 
-	/** »ñÈ¡ÎÄ±¾µÄ×ÖÌå
-	* @return ÎÄ±¾µÄ×ÖÌå
+	/** ï¿½ï¿½È¡ï¿½Ä±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	* @return ï¿½Ä±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	*/
 	virtual Font2d getFont() = 0;
 
-	/** ÉèÖÃÎÄ±¾µÄ×ÖÌå
-	* @param [in] ÎÄ±¾µÄ×ÖÌå font
+	/** ï¿½ï¿½ï¿½ï¿½ï¿½Ä±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	* @param [in] ï¿½Ä±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ font
 	* @return 
 	*/
 	virtual void setFont(Font2d & font) = 0;
@@ -2245,14 +2245,14 @@ public:
 /** @}*/
 
 
-/** @addtogroup Geometry2d GeomGeometryBag2d-¼¸ºÎ¶ÔÏó°ü
+/** @addtogroup Geometry2d GeomGeometryBag2d-ï¿½ï¿½ï¿½Î¶ï¿½ï¿½ï¿½ï¿½
 *  @{
 */
 
 class CORE_API GeomGeometryBag2d : virtual public Geometry2d
 {
 public:
-	/** »ñÈ¡¼¸ºÎ¶ÔÏóÁÐ±í
+	/** ï¿½ï¿½È¡ï¿½ï¿½ï¿½Î¶ï¿½ï¿½ï¿½ï¿½Ð±ï¿½
 	* @return GeometryCollection2dSharedPtr
 	*/
 	virtual GeometryCollection2dSharedPtr& getGeometryCollection() = 0;
@@ -2260,7 +2260,7 @@ public:
 /** @}*/
 
 
-/** @addtogroup Geometry2d Image2dType-Í¼ÏñÀàÐÍ
+/** @addtogroup Geometry2d Image2dType-Í¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 *  @{
 */
 enum Image2dType
@@ -2275,82 +2275,82 @@ enum Image2dType
 /** @}*/
 
 
-/** @addtogroup Geometry2d GeomImage2d-Í¼Ïñ
+/** @addtogroup Geometry2d GeomImage2d-Í¼ï¿½ï¿½
 *  @{
 */
 
 class CORE_API GeomImage2d : virtual public Geometry2d
 {
 public:	
-	/** Í¼ÏñÀàÐÍµÄ»ñÈ¡
-	* @return Í¼ÏñÀàÐÍ
+	/** Í¼ï¿½ï¿½ï¿½ï¿½ï¿½ÍµÄ»ï¿½È¡
+	* @return Í¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	*/	
 	virtual int getImageType() = 0;
 	
-	/** Í¼ÏñÀàÐÍµÄÉèÖÃ
-	* @param [in] Í¼ÏñÀàÐÍ
+	/** Í¼ï¿½ï¿½ï¿½ï¿½ï¿½Íµï¿½ï¿½ï¿½ï¿½ï¿½
+	* @param [in] Í¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	* @return 
 	*/	
 	virtual void setImageType(int imgType) = 0;
 	
-	/** Í¼ÏñÃû³ÆµÄ»ñÈ¡
-	* @return Í¼ÏñÃû³Æ
+	/** Í¼ï¿½ï¿½ï¿½ï¿½ï¿½ÆµÄ»ï¿½È¡
+	* @return Í¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	*/	
 	virtual std::string getName() = 0;
 	
-	/** Í¼ÏñÃû³ÆµÄÉèÖÃ
-	* @param [in] Í¼ÏñÃû³Æ
+	/** Í¼ï¿½ï¿½ï¿½ï¿½ï¿½Æµï¿½ï¿½ï¿½ï¿½ï¿½
+	* @param [in] Í¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	* @return 
 	*/	
 	virtual void setName(std::string strName) = 0;
 
-	/** Í¼ÏñÎ»ÖÃµÄ»ñÈ¡
-	* @return Í¼ÏñÎ»ÖÃVertex2d
+	/** Í¼ï¿½ï¿½Î»ï¿½ÃµÄ»ï¿½È¡
+	* @return Í¼ï¿½ï¿½Î»ï¿½ï¿½Vertex2d
 	*/
 	virtual const Vertex2d& queryCoord() = 0;
 
-	/** Í¼ÏñÎ»ÖÃµÄ»ñÈ¡
-	* @param [out] Í¼ÏñÎ»ÖÃpt
+	/** Í¼ï¿½ï¿½Î»ï¿½ÃµÄ»ï¿½È¡
+	* @param [out] Í¼ï¿½ï¿½Î»ï¿½ï¿½pt
 	* @return 
 	*/
 	virtual void queryCoord(Vertex2d& pt) = 0;
 
-	/** Í¼ÏñÎ»ÖÃµÄ»ñÈ¡
-	* @param [out] Í¼ÏñÎ»ÖÃ x,y
+	/** Í¼ï¿½ï¿½Î»ï¿½ÃµÄ»ï¿½È¡
+	* @param [out] Í¼ï¿½ï¿½Î»ï¿½ï¿½ x,y
 	* @return 
 	*/
 	virtual void queryCoord(double& x,double& y) = 0;
 
-	/** Í¼ÏñÎ»ÖÃµÄÉèÖÃ
-	* @param [in] Í¼ÏñÎ»ÖÃpt
+	/** Í¼ï¿½ï¿½Î»ï¿½Ãµï¿½ï¿½ï¿½ï¿½ï¿½
+	* @param [in] Í¼ï¿½ï¿½Î»ï¿½ï¿½pt
 	* @return 
 	*/
 	virtual void putCoord(Vertex2d & pt) = 0;
 
-	/** Í¼ÏñÎ»ÖÃµÄÉèÖÃ
-	* @param [in] Í¼ÏñÎ»ÖÃx,y
+	/** Í¼ï¿½ï¿½Î»ï¿½Ãµï¿½ï¿½ï¿½ï¿½ï¿½
+	* @param [in] Í¼ï¿½ï¿½Î»ï¿½ï¿½x,y
 	* @return 
 	*/
 	virtual void putCoord(double x,double y) = 0;
 
-	/** ºáÖáÏÔÊ¾±ÈÀýµÄ»ñÈ¡
-	* @return ºáÖáÏÔÊ¾±ÈÀý
+	/** ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½ï¿½Ä»ï¿½È¡
+	* @return ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½
 	*/
 	virtual double getXScale() = 0;
 
-	/** ×ÝÖáÏÔÊ¾±ÈÀýµÄ»ñÈ¡
-	* @return ×ÝÖáÏÔÊ¾±ÈÀý
+	/** ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½ï¿½Ä»ï¿½È¡
+	* @return ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½
 	*/
 	virtual double getYScale() = 0;
 
-	/** ºáÖáÏÔÊ¾±ÈÀýµÄÉèÖÃ
-	* @param [in] s ºáÖáÏÔÊ¾±ÈÀý
+	/** ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	* @param [in] s ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½
 	* @return 
 	*/
 	virtual void setXScale(double s) = 0;
 
-	/** ×ÝÖáÏÔÊ¾±ÈÀýµÄÉèÖÃ
-	* @param [in] s ×ÝÖáÏÔÊ¾±ÈÀý
+	/** ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	* @param [in] s ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½
 	* @return 
 	*/
 	virtual void setYScale(double s) = 0;
@@ -2358,230 +2358,230 @@ public:
 /** @}*/
 
 
-// @addtogroup Geometry2d GeometrySelectManager2d ¶þÎ¬¼¸ºÎ¶ÔÏóÑ¡Ôñ¹ÜÀíÆ÷Àà½Ó¿Ú
+// @addtogroup Geometry2d GeometrySelectManager2d ï¿½ï¿½Î¬ï¿½ï¿½ï¿½Î¶ï¿½ï¿½ï¿½Ñ¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¿ï¿½
 //     *  @{
 //    
 class CORE_API GeometrySelectManager2d
 {
 public:
-	/**Éè¶¨Ñ¡Ôñ¹ÜÀíÀàµÄ×ø±êÏµÍ³ 
-	* @param [in] pCoorSys: ×ø±êÏµÍ³ 
+	/**ï¿½è¶¨Ñ¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÏµÍ³ 
+	* @param [in] pCoorSys: ï¿½ï¿½ï¿½ï¿½ÏµÍ³ 
 	* @return 
 	*/
 	virtual void setCoordsys(Coordsys2dSharedPtr& pCoorSys) = 0;
 
-	/**ÅÐ¶ÏÖ¸¶¨¼¸ºÎ¶ÔÏópObj ÊÇ·ñÔÚÖ¸¶¨µÄ±ß½ç¾ØÐÎ·¶Î§ÄÚ 
-	* @param [in] point_left_bottom_in_WP:ÊÀ½ç×ø±êÏÂ£¬±ß½ç¾ØÐÎµÄ×óÏÂ½Çµã
-	* @param [in] point_right_top_in_WP:  ÊÀ½ç×ø±êÏÂ£¬±ß½ç¾ØÐÎµÄÓÒÉÏ½Çµã
-	* @return ÊÇ·ñ´¦ÓÚÖ¸¶¨·¶Î§ÄÚ
+	/**ï¿½Ð¶ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½Î¶ï¿½ï¿½ï¿½pObj ï¿½Ç·ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½Ä±ß½ï¿½ï¿½ï¿½Î·ï¿½Î§ï¿½ï¿½ 
+	* @param [in] point_left_bottom_in_WP:ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â£ï¿½ï¿½ß½ï¿½ï¿½ï¿½Îµï¿½ï¿½ï¿½ï¿½Â½Çµï¿½
+	* @param [in] point_right_top_in_WP:  ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â£ï¿½ï¿½ß½ï¿½ï¿½ï¿½Îµï¿½ï¿½ï¿½ï¿½Ï½Çµï¿½
+	* @return ï¿½Ç·ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½Î§ï¿½ï¿½
 	*/
 	virtual bool boundIntersect(GeometrySharedPtr& pObj,
 		const Vertex2d &  point_left_bottom_in_WP,
 		const Vertex2d &  point_right_top_in_WP) = 0;
 
-	/**ÅÐ¶ÏÖ¸¶¨¼¸ºÎ¶ÔÏópObj ÊÇ·ñÔÚÖ¸¶¨µÄ±ß½ç¾ØÐÎ·¶Î§ÄÚ 
-	* @param [in] minx, maxx, miny, maxy£º ÊÀ½ç×ø±êÏÂ£¬Ñ¡Ôñ¿ò·¶Î§
-	* @return ÊÇ·ñ´¦ÓÚÖ¸¶¨·¶Î§ÄÚ
+	/**ï¿½Ð¶ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½Î¶ï¿½ï¿½ï¿½pObj ï¿½Ç·ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½Ä±ß½ï¿½ï¿½ï¿½Î·ï¿½Î§ï¿½ï¿½ 
+	* @param [in] minx, maxx, miny, maxyï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â£ï¿½Ñ¡ï¿½ï¿½ï¿½Î§
+	* @return ï¿½Ç·ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½Î§ï¿½ï¿½
 	*/
 	virtual bool boundIntersect(GeometrySharedPtr& pObj,
 		double minx, double maxx, double miny, double maxy) = 0;
 };
 /** @}*/
 
-/** @addtogroup Geometry2d Symbol ·ûºÅÀà
+/** @addtogroup Geometry2d Symbol ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 *  @{
 */
 
 class CORE_API Symbol2d
 {
 public:
-	/**»ñÈ¡·ûºÅID
-	* @return ·ûºÅID
+	/**ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ID
+	* @return ï¿½ï¿½ï¿½ï¿½ID
 	*/
 	virtual FSID		getID()=0;
 
-	/**ÉèÖÃ·ûºÅID
-	* @param [in] ·ûºÅID
+	/**ï¿½ï¿½ï¿½Ã·ï¿½ï¿½ï¿½ID
+	* @param [in] ï¿½ï¿½ï¿½ï¿½ID
 	* @return 
 	*/
 	virtual void		setID(FSID id)=0;
 
-	/**»ñÈ¡·ûºÅÃû³Æ 
-	* @return ·ûºÅÃû³Æ
+	/**ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
+	* @return ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	*/
 	virtual std::string	getName()=0;
 
-	/**ÉèÖÃ·ûºÅÃû³Æ 
-	* @param [in] ·ûºÅÃû³Æ 
+	/**ï¿½ï¿½ï¿½Ã·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
+	* @param [in] ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
 	* @return 
 	*/
 	virtual void		setName(std::string sz)=0;
 
-	/**»ñÈ¡±ê×¼±àºÅ
-	* @return ±ê×¼±àºÅ
+	/**ï¿½ï¿½È¡ï¿½ï¿½×¼ï¿½ï¿½ï¿½
+	* @return ï¿½ï¿½×¼ï¿½ï¿½ï¿½
 	*/
 	virtual std::string	getStdNum()=0;
 
-	/**ÉèÖÃ±ê×¼±àºÅ
-	* @param [in] ±ê×¼±àºÅsz
+	/**ï¿½ï¿½ï¿½Ã±ï¿½×¼ï¿½ï¿½ï¿½
+	* @param [in] ï¿½ï¿½×¼ï¿½ï¿½ï¿½sz
 	* @return 
 	*/
 	virtual void		setStdNum(std::string sz)=0;
 
-	/**»ñÈ¡·ûºÅÃèÊö 
-	* @return ·ûºÅÃèÊö
+	/**ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
+	* @return ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	*/
 	virtual std::string	getDescription()=0;
 
-	/**ÉèÖÃ·ûºÅÃèÊö 
-	* @param [in] ·ûºÅÃèÊö 
+	/**ï¿½ï¿½ï¿½Ã·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
+	* @param [in] ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
 	* @return 
 	*/
 	virtual void		setDescription(std::string sz)=0;
 
-	/**»ñÈ¡ÊÇ·ñÎªÓÎÀëµÄ·ûºÅ
-	* @return ÊÇ·ñÎªÓÎÀëµÄ·ûºÅ
+	/**ï¿½ï¿½È¡ï¿½Ç·ï¿½Îªï¿½ï¿½ï¿½ï¿½Ä·ï¿½ï¿½ï¿½
+	* @return ï¿½Ç·ï¿½Îªï¿½ï¿½ï¿½ï¿½Ä·ï¿½ï¿½ï¿½
 	*/
 	virtual bool		isFreedom()=0;
 
-	/**ÉèÖÃ ÊÇ·ñÎªÓÎÀëµÄ·ûºÅ
-	* @param [in] bfreedomÊÇ·ñÎªÓÎÀëµÄ·ûºÅ
+	/**ï¿½ï¿½ï¿½ï¿½ ï¿½Ç·ï¿½Îªï¿½ï¿½ï¿½ï¿½Ä·ï¿½ï¿½ï¿½
+	* @param [in] bfreedomï¿½Ç·ï¿½Îªï¿½ï¿½ï¿½ï¿½Ä·ï¿½ï¿½ï¿½
 	* @return 
 	*/
 	virtual void		setFreedom(bool bfreedom)=0;
 
-	/**»ñÈ¡¿í¶È ºÁÃ×
-	* @return ¿í¶È ºÁÃ×
+	/**ï¿½ï¿½È¡ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	* @return ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	*/
 	virtual double		getWidth()=0;
 
-	/**ÉèÖÃ¿í¶È ºÁÃ×
-	* @param [in] ¿í¶È ºÁÃ×
+	/**ï¿½ï¿½ï¿½Ã¿ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	* @param [in] ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	* @return 
 	*/
 	virtual void		setWidth(double dw)=0;
 
-	/**»ñÈ¡¸ß¶È ºÁÃ×
-	* @return ¸ß¶È ºÁÃ×
+	/**ï¿½ï¿½È¡ï¿½ß¶ï¿½ ï¿½ï¿½ï¿½ï¿½
+	* @return ï¿½ß¶ï¿½ ï¿½ï¿½ï¿½ï¿½
 	*/
 	virtual double		getHeight()=0;
 
-	/**»ñÈ¡¡¢ÉèÖÃ¸ß¶È ºÁÃ×
-	* @param [in] ¸ß¶È ºÁÃ×
+	/**ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½Ã¸ß¶ï¿½ ï¿½ï¿½ï¿½ï¿½
+	* @param [in] ï¿½ß¶ï¿½ ï¿½ï¿½ï¿½ï¿½
 	* @return 
 	*/
 	virtual void		setHeight(double dw)=0;
 
-	/**»ñÈ¡±³¾°ÑÕÉ« 
-	* @return ±³¾°ÑÕÉ« 
+	/**ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É« 
+	* @return ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É« 
 	*/
 	virtual Color4f		getBackgroundColor()=0;
 
-	/**ÉèÖÃ±³¾°ÑÕÉ« 
-	* @param [in] cr±³¾°ÑÕÉ«
+	/**ï¿½ï¿½ï¿½Ã±ï¿½ï¿½ï¿½ï¿½ï¿½É« 
+	* @param [in] crï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É«
 	* @return 
 	*/
 	virtual void		setBackgroundColor(Color4f& cr)=0;
 
-	/**»ñÈ¡ÊÇ·ñÌî³ä±³¾°É« 
-	* @return ÊÇ·ñÌî³ä±³¾°É«
+	/**ï¿½ï¿½È¡ï¿½Ç·ï¿½ï¿½ï¿½ä±³ï¿½ï¿½É« 
+	* @return ï¿½Ç·ï¿½ï¿½ï¿½ä±³ï¿½ï¿½É«
 	*/
 	virtual bool		isFilledBackground()=0;
 
-	/**ÉèÖÃÊÇ·ñÌî³ä±³¾°É« 
-	* @param [in] ÊÇ·ñÌî³ä±³¾°É«
+	/**ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½ä±³ï¿½ï¿½É« 
+	* @param [in] ï¿½Ç·ï¿½ï¿½ï¿½ä±³ï¿½ï¿½É«
 	* @return 
 	*/
 	virtual void		setFilledBackground(bool bFilled)=0;
 	
-	/** »ñÈ¡·ûºÅ²åÈëµã×ø±ê,½ö¶Ôµã·ûºÅÓÐÐ§
-	* @return ·ûºÅ²åÈëµã×ø±ê Vertex2d
+	/** ï¿½ï¿½È¡ï¿½ï¿½ï¿½Å²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½Ôµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð§
+	* @return ï¿½ï¿½ï¿½Å²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Vertex2d
 	*/
 	virtual Vertex2d getInserPosition()=0;
 
-	/** »ñÈ¡·ûºÅ²åÈëµã,½ö¶Ôµã·ûºÅÓÐÐ§
-	* @param [out] ·ûºÅ²åÈëµã×ø±ê
+	/** ï¿½ï¿½È¡ï¿½ï¿½ï¿½Å²ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½Ôµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð§
+	* @param [out] ï¿½ï¿½ï¿½Å²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	* @return
 	*/
 	virtual void getInserPosition(double& x,double& y)=0;
 	
-	/** ÉèÖÃ·ûºÅ²åÈëµã×ø±ê,½ö¶Ôµã·ûºÅÓÐÐ§
-	* @param [in] ·ûºÅ²åÈëµã×ø±êvpos
+	/** ï¿½ï¿½ï¿½Ã·ï¿½ï¿½Å²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½Ôµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð§
+	* @param [in] ï¿½ï¿½ï¿½Å²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½vpos
 	* @return
 	*/
 	virtual void setInserPosition(Vertex2d& vpos)=0;
 
-	/** ÉèÖÃ·ûºÅ²åÈëµã×ø±ê,½ö¶Ôµã·ûºÅÓÐÐ§
-	* @param [in] ·ûºÅ²åÈëµã×ø±ê x,y
+	/** ï¿½ï¿½ï¿½Ã·ï¿½ï¿½Å²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½Ôµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð§
+	* @param [in] ï¿½ï¿½ï¿½Å²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ x,y
 	* @return
 	*/
 	virtual void setInserPosition(double x,double y)=0;
 
-	/** »ñÈ¡×é³É·ûºÅµÄÔªËØ¼¯ºÏ
-	* @return ×é³É·ûºÅµÄÔªËØ¼¯ºÏGeometryCollection2dSharedPtr
+	/** ï¿½ï¿½È¡ï¿½ï¿½É·ï¿½ï¿½Åµï¿½Ôªï¿½Ø¼ï¿½ï¿½ï¿½
+	* @return ï¿½ï¿½É·ï¿½ï¿½Åµï¿½Ôªï¿½Ø¼ï¿½ï¿½ï¿½GeometryCollection2dSharedPtr
 	*/
 	virtual GeometryCollection2dSharedPtr& getGeometryCollection()=0;
 	
-	/** »ñÈ¡¼¸ºÎ¶ÔÏóµÄ±ß½ç¾ØÐÎ£¬ÎªÈýÎ¬±ß½ç£¬Èç¹ûÊÇ¶þÎ¬¶ÔÏó£¬ÔòZµÄ·¶Î§Îª0
-     * @param  [out] ±ß½ç¾ØÐÎEnvelope3d
+	/** ï¿½ï¿½È¡ï¿½ï¿½ï¿½Î¶ï¿½ï¿½ï¿½Ä±ß½ï¿½ï¿½ï¿½Î£ï¿½Îªï¿½ï¿½Î¬ï¿½ß½ç£¬ï¿½ï¿½ï¿½ï¿½Ç¶ï¿½Î¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Zï¿½Ä·ï¿½Î§Îª0
+     * @param  [out] ï¿½ß½ï¿½ï¿½ï¿½ï¿½Envelope3d
      * @return 
     */
     virtual void getEnvelope(Envelope3d & envp)=0; 
 
 public:	
-	/** ¿ËÂ¡±¾Éí
+	/** ï¿½ï¿½Â¡ï¿½ï¿½ï¿½ï¿½
 	 * @param  [in]  
-	 * @return ÊÇ·ñ¿½±´³É¹¦
+	 * @return ï¿½Ç·ñ¿½±ï¿½ï¿½É¹ï¿½
 	 */
 	virtual Symbol2dSharedPtr clone()=0;
 
-	/** »ñÈ¡¼¸ºÎ¶ÔÏóÐ´Èëµ½BufferÖÐËùÕ¼ÓÃµÄ×Ö½ÚÊý£¬±ãÓÚ´ÓBuffer¶ÔÏóÖÐ¹¹½¨¼¸ºÎ¶ÔÏó
-     * @param  [in] ÎÞ 
-     * @return ·µ»Ø¼¸ºÎ¶ÔÏóÐ´Èëµ½BufferÖÐËùÕ¼ÓÃµÄ×Ö½ÚÊý
+	/** ï¿½ï¿½È¡ï¿½ï¿½ï¿½Î¶ï¿½ï¿½ï¿½Ð´ï¿½ëµ½Bufferï¿½ï¿½ï¿½ï¿½Õ¼ï¿½Ãµï¿½ï¿½Ö½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú´ï¿½Bufferï¿½ï¿½ï¿½ï¿½ï¿½Ð¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î¶ï¿½ï¿½ï¿½
+     * @param  [in] ï¿½ï¿½ 
+     * @return ï¿½ï¿½ï¿½Ø¼ï¿½ï¿½Î¶ï¿½ï¿½ï¿½Ð´ï¿½ëµ½Bufferï¿½ï¿½ï¿½ï¿½Õ¼ï¿½Ãµï¿½ï¿½Ö½ï¿½ï¿½ï¿½
 	 */
     virtual size_t sizeBuffer()=0;
-	/** ´ÓBufferÖÐ¶ÁÈ¡ÐÅÏ¢Ìî³ä±¾¼¸ºÎ¶ÔÏó
-     * @param  [in,out] buf Buffer & £¬»º³åÇø¶ÔÏóÒýÓÃ 
-     * @return ³É¹¦·µ»Øtrue£¬·ñÔò·µ»Øfalse
+	/** ï¿½ï¿½Bufferï¿½Ð¶ï¿½È¡ï¿½ï¿½Ï¢ï¿½ï¿½ä±¾ï¿½ï¿½ï¿½Î¶ï¿½ï¿½ï¿½
+     * @param  [in,out] buf Buffer & ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
+     * @return ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½trueï¿½ï¿½ï¿½ï¿½ï¿½ò·µ»ï¿½false
     */
     virtual bool readBuffer( Buffer & buf)=0;
-	/** ½«±¾ÀàµÄÐÅÏ¢Ð´ÈëBufferÖÐ 
-     * @param  [in,out] buf Buffer & £¬»º³åÇø¶ÔÏóÒýÓÃ
-     * @return ³É¹¦·µ»Øtrue£¬·ñÔò·µ»Øfalse
+	/** ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢Ð´ï¿½ï¿½Bufferï¿½ï¿½ 
+     * @param  [in,out] buf Buffer & ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+     * @return ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½trueï¿½ï¿½ï¿½ï¿½ï¿½ò·µ»ï¿½false
     */
     virtual bool writeBuffer(Buffer& buf)=0;
-	/* ½«±¾ÀàµÄÐÅÏ¢Ð´ÈëÊä³öÁ÷ÖÐ£¬±ãÓÚÎÄ¼þ¶ÁÐ´»ò»º³åÇøÐ´²Ù×÷ 
-     * @param  [in,out] f  std::ostream &£¬±ê×¼Êä³öÁ÷¶ÔÏóÒýÓÃ
-     * @return ³É¹¦·µ»Øtrue£¬·ñÔò·µ»Øfalse
+	/* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢Ð´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½Ð´ï¿½ò»º³ï¿½ï¿½ï¿½Ð´ï¿½ï¿½ï¿½ï¿½ 
+     * @param  [in,out] f  std::ostream &ï¿½ï¿½ï¿½ï¿½×¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+     * @return ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½trueï¿½ï¿½ï¿½ï¿½ï¿½ò·µ»ï¿½false
     */
     virtual void write(std::ostream & f)=0;
-	/** ´Ó±ê×¼ÊäÈëÁ÷ÖÐÌáÈ¡±¾ÀàµÄÐÅÏ¢  
-     * @param  [in,out] f  std::istream &£¬±ê×¼ÊäÈëÁ÷¶ÔÏóÒýÓÃ
-     * @return ³É¹¦·µ»Øtrue£¬·ñÔò·µ»Øfalse
+	/** ï¿½Ó±ï¿½×¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢  
+     * @param  [in,out] f  std::istream &ï¿½ï¿½ï¿½ï¿½×¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+     * @return ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½trueï¿½ï¿½ï¿½ï¿½ï¿½ò·µ»ï¿½false
     */
 	virtual void read(std::istream & f)=0;
 
 public:
-	/**Í³¸ÄËùÓÐ¼¸ºÎ¶ÔÏóµÄ»­±ÊÑÕÉ« 
-	* @param [in] ¼¸ºÎ¶ÔÏóµÄ»­±ÊÑÕÉ«penColor
+	/**Í³ï¿½ï¿½ï¿½ï¿½ï¿½Ð¼ï¿½ï¿½Î¶ï¿½ï¿½ï¿½Ä»ï¿½ï¿½ï¿½ï¿½ï¿½É« 
+	* @param [in] ï¿½ï¿½ï¿½Î¶ï¿½ï¿½ï¿½Ä»ï¿½ï¿½ï¿½ï¿½ï¿½É«penColor
 	* @return 
 	*/
 	virtual void batchChangeGeometrysPenColor(Color4f &penColor)=0;
 
-	/**Í³¸ÄËùÓÐ¼¸ºÎ¶ÔÏóµÄÌî³äÑÕÉ« 
-	* @param [in] ¼¸ºÎ¶ÔÏóµÄÌî³äÑÕÉ«fillColor
+	/**Í³ï¿½ï¿½ï¿½ï¿½ï¿½Ð¼ï¿½ï¿½Î¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É« 
+	* @param [in] ï¿½ï¿½ï¿½Î¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É«fillColor
 	* @return 
 	*/
 	virtual void batchChangeGeometrysBrushColor(Color4f &fillColor)=0;
 
-	/**ÐÞ¸Ä·ûºÅµÄ´óÐ¡
-	* @param [in] ¿í¶È,¸ß¶È,µ¥Î»:ºÁÃ×, bIsKeepHWScale:ÊÇ·ñ±£³Ö×Ýºá±ÈÀý
+	/**ï¿½Þ¸Ä·ï¿½ï¿½ÅµÄ´ï¿½Ð¡
+	* @param [in] ï¿½ï¿½ï¿½,ï¿½ß¶ï¿½,ï¿½ï¿½Î»:ï¿½ï¿½ï¿½ï¿½, bIsKeepHWScale:ï¿½Ç·ñ±£³ï¿½ï¿½Ýºï¿½ï¿½ï¿½ï¿½
 	* @return 
 	*/
 	virtual void changeSize(double dWidth ,double dHeight,bool bIsKeepHWScale)=0;
 
-	/**½«·ûºÅ³äÂúµ½Ö¸¶¨µÄ¿í¶È,¸ß¶È,µ¥Î»:ºÁÃ×
-	* @param [in] dWidth¿í¶È,dHeight¸ß¶È,µ¥Î»:ºÁÃ×, bIsKeepHWScale:ÊÇ·ñ±£³Ö×Ýºá±ÈÀý 
+	/**ï¿½ï¿½ï¿½ï¿½ï¿½Å³ï¿½ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½Ä¿ï¿½ï¿½,ï¿½ß¶ï¿½,ï¿½ï¿½Î»:ï¿½ï¿½ï¿½ï¿½
+	* @param [in] dWidthï¿½ï¿½ï¿½,dHeightï¿½ß¶ï¿½,ï¿½ï¿½Î»:ï¿½ï¿½ï¿½ï¿½, bIsKeepHWScale:ï¿½Ç·ñ±£³ï¿½ï¿½Ýºï¿½ï¿½ï¿½ï¿½ 
 	* @return 
 	*/
 	virtual void expandToSize(double dWidth ,double dHeight,bool bIsKeepHWScale)=0;
@@ -2589,264 +2589,264 @@ public:
 };
 /** @}*/
 
-/** @addtogroup Geometry2d SymbolLibrary2d ·ûºÅ×éÀà
+/** @addtogroup Geometry2d SymbolLibrary2d ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 *  @{
 */
 
 class CORE_API SymbolLibrary2d
 {
 public:
-	/**»ñÈ¡·ûºÅ×éÎÄ¼þÃû 
-	* @return ·ûºÅ×éÎÄ¼þÃû
+	/**ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ 
+	* @return ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½
 	*/
 	virtual std::string	getFilePath() = 0;
 
-	/**»ñÈ¡ ·ûºÅ×éÃû³Æ 
-	* @return ·ûºÅ×éÃû³Æ
+	/**ï¿½ï¿½È¡ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
+	* @return ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	*/
 	virtual std::string	getName() = 0;
 
-	/**ÉèÖÃ ·ûºÅ×éÃû³Æ 
-	* @param [in] sz ·ûºÅ×éÃû³Æ
+	/**ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
+	* @param [in] sz ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	* @return 
 	*/
 	virtual void		setName(std::string sz) = 0;
 
-	/**»ñÈ¡ ·ûºÅ×éËµÃ÷ 
-	* @return ·ûºÅ×éËµÃ÷
+	/**ï¿½ï¿½È¡ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ëµï¿½ï¿½ 
+	* @return ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ëµï¿½ï¿½
 	*/
 	virtual std::string	getDescription() = 0;
 
-	/**ÉèÖÃ ·ûºÅ×éËµÃ÷ 
-	* @param [in] sz ·ûºÅ×éËµÃ÷
+	/**ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ëµï¿½ï¿½ 
+	* @param [in] sz ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ëµï¿½ï¿½
 	* @return 
 	*/
 	virtual void		setDescription(std::string sz) = 0;
 
-	/**»ñÈ¡ ·ûºÅ×é±ê×¼±àºÅ 
-	* @return ·ûºÅ×é±ê×¼±àºÅ
+	/**ï¿½ï¿½È¡ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×¼ï¿½ï¿½ï¿½ 
+	* @return ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×¼ï¿½ï¿½ï¿½
 	*/
 	virtual std::string	getStdNum() = 0;
 
-	/**ÉèÖÃ ·ûºÅ×é±ê×¼±àºÅ 
-	* @param [in] sz ·ûºÅ×é±ê×¼±àºÅ
+	/**ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×¼ï¿½ï¿½ï¿½ 
+	* @param [in] sz ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×¼ï¿½ï¿½ï¿½
 	* @return 
 	*/
 	virtual void		setStdNum(std::string sz) = 0;
 
-	/**µ±Ç°×é·ûºÅ°´ÕÕ·ûºÅIDÅÅÐò 
+	/**ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½Å°ï¿½ï¿½Õ·ï¿½ï¿½ï¿½IDï¿½ï¿½ï¿½ï¿½ 
 	* @return 
 	*/
 	virtual void sortSymbolByID() = 0;
 
-	/**µ±Ç°×é·ûºÅ°´ÕÕ±ê×¼±àºÅÅÅÐò 
+	/**ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½Å°ï¿½ï¿½Õ±ï¿½×¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
 	* @return 
 	*/
 	virtual void sortSymbolByStdNum() = 0;
 
-	/**µ±Ç°×é·ûºÅ°´ÕÕ·ûºÅÃû³ÆÅÅÐò 
+	/**ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½Å°ï¿½ï¿½Õ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
 	* @return 
 	*/
 	virtual void sortSymbolByName() = 0;
 
-	/**¶Ôµ±Ç°·ûºÅ×éÖÐµÄÖ¸¶¨Î»ÖÃµÄ·ûºÅ½»»»Î»ÖÃ 
-	* @param [in]  index1,  index2£¬Ö¸¶¨·ûºÅµÄË÷Òý
+	/**ï¿½Ôµï¿½Ç°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ðµï¿½Ö¸ï¿½ï¿½Î»ï¿½ÃµÄ·ï¿½ï¿½Å½ï¿½ï¿½ï¿½Î»ï¿½ï¿½ 
+	* @param [in]  index1,  index2ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½Åµï¿½ï¿½ï¿½ï¿½ï¿½
 	* @return 
 	*/
 	virtual void swap(long index1, long index2) = 0;
 
 public:
-	/** »ñÈ¡¼¸ºÎ¶ÔÏóÐ´Èëµ½BufferÖÐËùÕ¼ÓÃµÄ×Ö½ÚÊý£¬±ãÓÚ´ÓBuffer¶ÔÏóÖÐ¹¹½¨¼¸ºÎ¶ÔÏó
-     * @param  [in] ÎÞ 
-     * @return ·µ»Ø¼¸ºÎ¶ÔÏóÐ´Èëµ½BufferÖÐËùÕ¼ÓÃµÄ×Ö½ÚÊý
+	/** ï¿½ï¿½È¡ï¿½ï¿½ï¿½Î¶ï¿½ï¿½ï¿½Ð´ï¿½ëµ½Bufferï¿½ï¿½ï¿½ï¿½Õ¼ï¿½Ãµï¿½ï¿½Ö½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú´ï¿½Bufferï¿½ï¿½ï¿½ï¿½ï¿½Ð¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î¶ï¿½ï¿½ï¿½
+     * @param  [in] ï¿½ï¿½ 
+     * @return ï¿½ï¿½ï¿½Ø¼ï¿½ï¿½Î¶ï¿½ï¿½ï¿½Ð´ï¿½ëµ½Bufferï¿½ï¿½ï¿½ï¿½Õ¼ï¿½Ãµï¿½ï¿½Ö½ï¿½ï¿½ï¿½
 	 */
     virtual size_t sizeBuffer() = 0;
 
-	/** ´ÓBufferÖÐ¶ÁÈ¡ÐÅÏ¢Ìî³ä±¾¼¸ºÎ¶ÔÏó
-     * @param  [in,out] buf Buffer & £¬»º³åÇø¶ÔÏóÒýÓÃ 
-     * @return ³É¹¦·µ»Øtrue£¬·ñÔò·µ»Øfalse
+	/** ï¿½ï¿½Bufferï¿½Ð¶ï¿½È¡ï¿½ï¿½Ï¢ï¿½ï¿½ä±¾ï¿½ï¿½ï¿½Î¶ï¿½ï¿½ï¿½
+     * @param  [in,out] buf Buffer & ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
+     * @return ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½trueï¿½ï¿½ï¿½ï¿½ï¿½ò·µ»ï¿½false
     */
     virtual bool readBuffer( Buffer & buf) = 0;
-	/** ½«±¾ÀàµÄÐÅÏ¢Ð´ÈëBufferÖÐ 
-     * @param  [in,out] buf Buffer & £¬»º³åÇø¶ÔÏóÒýÓÃ
-     * @return ³É¹¦·µ»Øtrue£¬·ñÔò·µ»Øfalse
+	/** ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢Ð´ï¿½ï¿½Bufferï¿½ï¿½ 
+     * @param  [in,out] buf Buffer & ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+     * @return ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½trueï¿½ï¿½ï¿½ï¿½ï¿½ò·µ»ï¿½false
     */
     virtual bool writeBuffer(Buffer& buf) = 0;
-	/* ½«±¾ÀàµÄÐÅÏ¢Ð´ÈëÊä³öÁ÷ÖÐ£¬±ãÓÚÎÄ¼þ¶ÁÐ´»ò»º³åÇøÐ´²Ù×÷ 
-     * @param  [in,out] f  std::ostream &£¬±ê×¼Êä³öÁ÷¶ÔÏóÒýÓÃ
-     * @return ³É¹¦·µ»Øtrue£¬·ñÔò·µ»Øfalse
+	/* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢Ð´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½Ð´ï¿½ò»º³ï¿½ï¿½ï¿½Ð´ï¿½ï¿½ï¿½ï¿½ 
+     * @param  [in,out] f  std::ostream &ï¿½ï¿½ï¿½ï¿½×¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+     * @return ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½trueï¿½ï¿½ï¿½ï¿½ï¿½ò·µ»ï¿½false
     */
     virtual void write(std::ostream & f) = 0;
-	/** ´Ó±ê×¼ÊäÈëÁ÷ÖÐÌáÈ¡±¾ÀàµÄÐÅÏ¢  
-     * @param  [in,out] f  std::istream &£¬±ê×¼ÊäÈëÁ÷¶ÔÏóÒýÓÃ
-     * @return ³É¹¦·µ»Øtrue£¬·ñÔò·µ»Øfalse
+	/** ï¿½Ó±ï¿½×¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢  
+     * @param  [in,out] f  std::istream &ï¿½ï¿½ï¿½ï¿½×¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+     * @return ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½trueï¿½ï¿½ï¿½ï¿½ï¿½ò·µ»ï¿½false
     */
 	virtual void read(std::istream & f) = 0;
 
-	/**±£´æÎª·ûºÅ×éÎÄ¼þ 
-	* @param [in] szPath ÎÄ¼þÂ·¾¶Ãû
-	* @return ÊÇ·ñ±£´æ³É¹¦
+	/**ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ 
+	* @param [in] szPath ï¿½Ä¼ï¿½Â·ï¿½ï¿½ï¿½ï¿½
+	* @return ï¿½Ç·ñ±£´ï¿½É¹ï¿½
 	*/
 	virtual bool save(std::string szPath) = 0;
 
-	/**´ò¿ª·ûºÅ×éÎÄ¼þ 
-	* @param [in] szPath ÎÄ¼þÂ·¾¶Ãû
-	* @return ÊÇ·ñ´ò¿ª³É¹¦
+	/**ï¿½ò¿ª·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ 
+	* @param [in] szPath ï¿½Ä¼ï¿½Â·ï¿½ï¿½ï¿½ï¿½
+	* @return ï¿½Ç·ï¿½ò¿ª³É¹ï¿½
 	*/
 	virtual bool load(std::string szPath) = 0;
 
-	/**»ñÈ¡µ±Ç°×éÄÚ×î´óµÄ·ûºÅID 
-	* @return µ±Ç°×éÄÚ×î´óµÄ·ûºÅID
+	/**ï¿½ï¿½È¡ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä·ï¿½ï¿½ï¿½ID 
+	* @return ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä·ï¿½ï¿½ï¿½ID
 	*/
 	virtual long getMaxSymbolID() = 0;
 
 public:
-	/**¸ù¾ÝID,²éÕÒÖ¸¶¨µÄ·ûºÅ , Èç¹û´æÔÚ£¬·µ»Øµ½³ö¿Ú²ÎÊýoutPtrÖÐ
-	* @param [in] id£¬·ûºÅID
-	* @param [out] outPtr£¬²éÕÒµ½µÄ·ûºÅ
+	/**ï¿½ï¿½ï¿½ï¿½ID,ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½Ä·ï¿½ï¿½ï¿½ , ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú£ï¿½ï¿½ï¿½ï¿½Øµï¿½ï¿½ï¿½ï¿½Ú²ï¿½ï¿½ï¿½outPtrï¿½ï¿½
+	* @param [in] idï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ID
+	* @param [out] outPtrï¿½ï¿½ï¿½ï¿½ï¿½Òµï¿½ï¿½Ä·ï¿½ï¿½ï¿½
 	* @return 
 	*/
 	virtual bool findSymbolById(FSID id, Symbol2dSharedPtr& outPtr) = 0;
 
-	/**¸ù¾ÝÃû³Æ,²éÕÒÖ¸¶¨µÄ·ûºÅ , Èç¹û´æÔÚ£¬·µ»Øµ½³ö¿Ú²ÎÊýoutPtrÖÐ 
-	* @param [in] szName£¬·ûºÅÃû³Æ
-	* @param [out] outPtr£¬²éÕÒµ½µÄ·ûºÅ
+	/**ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½Ä·ï¿½ï¿½ï¿½ , ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú£ï¿½ï¿½ï¿½ï¿½Øµï¿½ï¿½ï¿½ï¿½Ú²ï¿½ï¿½ï¿½outPtrï¿½ï¿½ 
+	* @param [in] szNameï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	* @param [out] outPtrï¿½ï¿½ï¿½ï¿½ï¿½Òµï¿½ï¿½Ä·ï¿½ï¿½ï¿½
 	* @return 
 	*/
 	virtual bool findSymbolByName(std::string szName, Symbol2dSharedPtr& outPtr) = 0;
 
-	/**¸ù¾Ý±ê×¼±àºÅ,²éÕÒÖ¸¶¨µÄ·ûºÅ , Èç¹û´æÔÚ£¬·µ»Øµ½³ö¿Ú²ÎÊýoutPtrÖÐ 
-	* @param [in] szStdNum£¬·ûºÅ±ê×¼±àºÅ
-	* @param [out] outPtr£¬²éÕÒµ½µÄ·ûºÅ
+	/**ï¿½ï¿½ï¿½Ý±ï¿½×¼ï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½Ä·ï¿½ï¿½ï¿½ , ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú£ï¿½ï¿½ï¿½ï¿½Øµï¿½ï¿½ï¿½ï¿½Ú²ï¿½ï¿½ï¿½outPtrï¿½ï¿½ 
+	* @param [in] szStdNumï¿½ï¿½ï¿½ï¿½ï¿½Å±ï¿½×¼ï¿½ï¿½ï¿½
+	* @param [out] outPtrï¿½ï¿½ï¿½ï¿½ï¿½Òµï¿½ï¿½Ä·ï¿½ï¿½ï¿½
 	* @return 
 	*/
 	virtual bool findSymbolByStdNum(std::string szStdNum, Symbol2dSharedPtr& outPtr) = 0;
 
-	/**¸ù¾ÝÃû³Æ,²éÕÒÖ¸¶¨µÄ·ûºÅ£¨Ä£ºý²éÕÒ£¬°üº¬×Ö·û¼´·ûºÏÌõ¼þ£© , Èç¹û´æÔÚ£¬Ìí¼Óµ½³ö¿Ú²ÎÊýoutListÖÐ 
-	* @param [in] szName£¬·ûºÅÃû³Æ
-	* @param [out] outPtr£¬²éÕÒµ½µÄ·ûºÅÁÐ±í
-	* @return ²éÕÒµ½µÄ·ûºÅ¸öÊý
+	/**ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½Ä·ï¿½ï¿½Å£ï¿½Ä£ï¿½ï¿½ï¿½ï¿½ï¿½Ò£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ , ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú£ï¿½ï¿½ï¿½Óµï¿½ï¿½ï¿½ï¿½Ú²ï¿½ï¿½ï¿½outListï¿½ï¿½ 
+	* @param [in] szNameï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	* @param [out] outPtrï¿½ï¿½ï¿½ï¿½ï¿½Òµï¿½ï¿½Ä·ï¿½ï¿½ï¿½ï¿½Ð±ï¿½
+	* @return ï¿½ï¿½ï¿½Òµï¿½ï¿½Ä·ï¿½ï¿½Å¸ï¿½ï¿½ï¿½
 	*/
 	virtual long fuzzyFindSymbolByName(std::string szName, Symbol2dSharedPtrList& outList) = 0;
 
-	/**¸ù¾Ý±ê×¼±àºÅ,²éÕÒÖ¸¶¨µÄ·ûºÅ , £¨Ä£ºý²éÕÒ£¬°üº¬×Ö·û¼´·ûºÏÌõ¼þ£© , Èç¹û´æÔÚ£¬Ìí¼Óµ½³ö¿Ú²ÎÊýoutListÖÐ 
-	* @param [in] szStdNum£¬·ûºÅ±ê×¼±àºÅ
-	* @param [out] outPtr£¬²éÕÒµ½µÄ·ûºÅÁÐ±í
-	* @return ²éÕÒµ½µÄ·ûºÅ¸öÊý
+	/**ï¿½ï¿½ï¿½Ý±ï¿½×¼ï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½Ä·ï¿½ï¿½ï¿½ , ï¿½ï¿½Ä£ï¿½ï¿½ï¿½ï¿½ï¿½Ò£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ , ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú£ï¿½ï¿½ï¿½Óµï¿½ï¿½ï¿½ï¿½Ú²ï¿½ï¿½ï¿½outListï¿½ï¿½ 
+	* @param [in] szStdNumï¿½ï¿½ï¿½ï¿½ï¿½Å±ï¿½×¼ï¿½ï¿½ï¿½
+	* @param [out] outPtrï¿½ï¿½ï¿½ï¿½ï¿½Òµï¿½ï¿½Ä·ï¿½ï¿½ï¿½ï¿½Ð±ï¿½
+	* @return ï¿½ï¿½ï¿½Òµï¿½ï¿½Ä·ï¿½ï¿½Å¸ï¿½ï¿½ï¿½
 	*/
 	virtual long fuzzyFindSymbolByStdNum(std::string szStdNum, Symbol2dSharedPtrList& outList) = 0;
 	
-	/** »ñÈ¡·ûºÅÁÐ±í  
+	/** ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½Ð±ï¿½  
      * @param  [in,out] 
-     * @return Symbol2dSharedPtrList ·ûºÅÁÐ±í
+     * @return Symbol2dSharedPtrList ï¿½ï¿½ï¿½ï¿½ï¿½Ð±ï¿½
     */
 	virtual Symbol2dSharedPtrList& getSymbolList() = 0;
 };
 /** @}*/
 
 
-/** @addtogroup Geometry2d SymbolManager2d ·ûºÅ×éÀà
+/** @addtogroup Geometry2d SymbolManager2d ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 *  @{
 */
 class CORE_API SymbolManager2d
 {
 public:
-	/** »ñÈ¡µã·ûºÅ¹ÜÀíÆ÷
-	* @return ·ûºÅ¹ÜÀíÆ÷Ö¸Õë
+	/** ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½Å¹ï¿½ï¿½ï¿½ï¿½ï¿½
+	* @return ï¿½ï¿½ï¿½Å¹ï¿½ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½
 	*/
 	static SymbolManager2dSharedPtr& getPointSymbolManager();
 
-	/** »ñÈ¡Ïß·ûºÅ¹ÜÀíÆ÷
-	* @return ·ûºÅ¹ÜÀíÆ÷Ö¸Õë
+	/** ï¿½ï¿½È¡ï¿½ß·ï¿½ï¿½Å¹ï¿½ï¿½ï¿½ï¿½ï¿½
+	* @return ï¿½ï¿½ï¿½Å¹ï¿½ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½
 	*/
 	static SymbolManager2dSharedPtr& getLineSymbolManager();
 
-	/** »ñÈ¡Ãæ·ûºÅ¹ÜÀíÆ÷
-	* @return ·ûºÅ¹ÜÀíÆ÷Ö¸Õë
+	/** ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½Å¹ï¿½ï¿½ï¿½ï¿½ï¿½
+	* @return ï¿½ï¿½ï¿½Å¹ï¿½ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½
 	*/
 	static SymbolManager2dSharedPtr& getRegionSymbolManager();
 
-	/**¸ù¾ÝÅäÖÃÎÄ¼þ£¬ÒÀ´Î°´Ë³Ðò¶ÁÈ¡ÅäÖÃÎÄ¼þÖÐÖ¸¶¨µÄ·ûºÅ¿âÎÄ¼þ 
+	/**ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î°ï¿½Ë³ï¿½ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½Ä·ï¿½ï¿½Å¿ï¿½ï¿½Ä¼ï¿½ 
 	* @return 
 	*/
 	virtual void reloadSymbolFiles() = 0;
 
-	/**»ñÈ¡Ä¬ÈÏµÄ·ûºÅ 
-	* @return Ä¬ÈÏµÄ·ûºÅ
+	/**ï¿½ï¿½È¡Ä¬ï¿½ÏµÄ·ï¿½ï¿½ï¿½ 
+	* @return Ä¬ï¿½ÏµÄ·ï¿½ï¿½ï¿½
 	*/
 	virtual Symbol2dSharedPtr& getDefaultSymbol() = 0;
 
-	/**»ñÈ¡·ûºÅ×éÁÐ±í 
-	* @return ·ûºÅ×éÁÐ±í
+	/**ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð±ï¿½ 
+	* @return ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð±ï¿½
 	*/
 	virtual SymbolLibrary2dSharedPtrList& getGroupList() = 0;
 
-	/**¶Ôµ±Ç°·ûºÅ×éÖÐµÄÖ¸¶¨Î»ÖÃµÄ·ûºÅ½»»»Î»ÖÃ 
-	* @param [in] index1, index2£¬Ö¸¶¨·ûºÅË÷Òý
+	/**ï¿½Ôµï¿½Ç°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ðµï¿½Ö¸ï¿½ï¿½Î»ï¿½ÃµÄ·ï¿½ï¿½Å½ï¿½ï¿½ï¿½Î»ï¿½ï¿½ 
+	* @param [in] index1, index2ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	* @return 
 	*/
 	virtual void swap(long index1, long index2) = 0;
 
-	/**²éÕÒÖ¸¶¨µÄ·ûºÅ×é£¬Èç¹ûÓÐ¶à¸ö·ûºÏÌõ¼þ£¬·µ»ØµÚÒ»¸ö 
-	* @param [in] szGroupName£¬·ûºÅ×éÃû³Æ
-	* @param [out] outPtrÕÒµ½µÄ·ûºÅ×é
+	/**ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½Ä·ï¿½ï¿½ï¿½ï¿½é£¬ï¿½ï¿½ï¿½ï¿½Ð¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Øµï¿½Ò»ï¿½ï¿½ 
+	* @param [in] szGroupNameï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	* @param [out] outPtrï¿½Òµï¿½ï¿½Ä·ï¿½ï¿½ï¿½ï¿½ï¿½
 	* @return 
 	*/
 	virtual bool findGroup(std::string szGroupName, SymbolLibrary2dSharedPtr& outPtr) = 0;
 
-	/**´´½¨Ä¬ÈÏµÄµã·ûºÅ 
-	* @return Ä¬ÈÏµÄµã·ûºÅ
+	/**ï¿½ï¿½ï¿½ï¿½Ä¬ï¿½ÏµÄµï¿½ï¿½ï¿½ï¿½ 
+	* @return Ä¬ï¿½ÏµÄµï¿½ï¿½ï¿½ï¿½
 	*/
 	virtual Symbol2dSharedPtr createDefaultSymbolPoint() = 0;
 
-	/**´´½¨Ä¬ÈÏµÄÏß·ûºÅ 
-	* @return Ä¬ÈÏµÄÏß·ûºÅ
+	/**ï¿½ï¿½ï¿½ï¿½Ä¬ï¿½Ïµï¿½ï¿½ß·ï¿½ï¿½ï¿½ 
+	* @return Ä¬ï¿½Ïµï¿½ï¿½ß·ï¿½ï¿½ï¿½
 	*/
 	virtual Symbol2dSharedPtr createDefaultSymbolLine() = 0;
 
-	/**´´½¨Ä¬ÈÏµÄÌî³ä·ûºÅ 
-	* @return Ä¬ÈÏµÄÌî³ä·ûºÅ 
+	/**ï¿½ï¿½ï¿½ï¿½Ä¬ï¿½Ïµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
+	* @return Ä¬ï¿½Ïµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
 	*/
 	virtual Symbol2dSharedPtr createDefaultSymbolRegion() = 0;
 
 public:	
-	/**¸ù¾ÝID,²éÕÒÖ¸¶¨µÄ·ûºÅ , Èç¹û´æÔÚ£¬·µ»Øµ½³ö¿Ú²ÎÊýoutPtrÖÐ
-	*  Èç¹ûµ±Ç°·ûºÅ¿âÖÐ£¬ÓÐ¶à¸ö·ûºÅ·ûºÏ²éÕÒÌõ¼þ£¬Ö»·µ»Ø²éÕÒµ½µÄµÚÒ»¸ö 
-	* @param [in] id:·ûºÅID£¬returnDefaultSymbol:Èç¹ûÎªtrue£¬²éÕÒ²»µ½µÄ»°£¬·µ»ØÄ¬ÈÏ·ûºÅ
-	* @param [out] outPtr:ÕÒµ½µÄ·ûºÅ
-	* @return ÊÇ·ñ²éÕÒµ½
+	/**ï¿½ï¿½ï¿½ï¿½ID,ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½Ä·ï¿½ï¿½ï¿½ , ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú£ï¿½ï¿½ï¿½ï¿½Øµï¿½ï¿½ï¿½ï¿½Ú²ï¿½ï¿½ï¿½outPtrï¿½ï¿½
+	*  ï¿½ï¿½ï¿½ï¿½ï¿½Ç°ï¿½ï¿½ï¿½Å¿ï¿½ï¿½Ð£ï¿½ï¿½Ð¶ï¿½ï¿½ï¿½ï¿½ï¿½Å·ï¿½ï¿½Ï²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö»ï¿½ï¿½ï¿½Ø²ï¿½ï¿½Òµï¿½ï¿½Äµï¿½Ò»ï¿½ï¿½ 
+	* @param [in] id:ï¿½ï¿½ï¿½ï¿½IDï¿½ï¿½returnDefaultSymbol:ï¿½ï¿½ï¿½Îªtrueï¿½ï¿½ï¿½ï¿½ï¿½Ò²ï¿½ï¿½ï¿½ï¿½Ä»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¬ï¿½Ï·ï¿½ï¿½ï¿½
+	* @param [out] outPtr:ï¿½Òµï¿½ï¿½Ä·ï¿½ï¿½ï¿½
+	* @return ï¿½Ç·ï¿½ï¿½ï¿½Òµï¿½
 	*/
 	virtual bool findSymbolById(FSID id, Symbol2dSharedPtr& outPtr, bool returnDefaultSymbol) = 0;
 
-	/**¸ù¾ÝÃû³Æ,²éÕÒÖ¸¶¨µÄ·ûºÅ , Èç¹û´æÔÚ£¬·µ»Øµ½³ö¿Ú²ÎÊýoutPtrÖÐ
-	*  Èç¹ûµ±Ç°·ûºÅ¿âÖÐ£¬ÓÐ¶à¸ö·ûºÅ·ûºÏ²éÕÒÌõ¼þ£¬Ö»·µ»Ø²éÕÒµ½µÄµÚÒ»¸ö  
-	* @param [in] szName:·ûºÅÃû³Æ£¬returnDefaultSymbol:Èç¹ûÎªtrue£¬²éÕÒ²»µ½µÄ»°£¬·µ»ØÄ¬ÈÏ·ûºÅ
-	* @param [out] outPtr:ÕÒµ½µÄ·ûºÅ
-	* @return ÊÇ·ñ²éÕÒµ½
+	/**ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½Ä·ï¿½ï¿½ï¿½ , ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú£ï¿½ï¿½ï¿½ï¿½Øµï¿½ï¿½ï¿½ï¿½Ú²ï¿½ï¿½ï¿½outPtrï¿½ï¿½
+	*  ï¿½ï¿½ï¿½ï¿½ï¿½Ç°ï¿½ï¿½ï¿½Å¿ï¿½ï¿½Ð£ï¿½ï¿½Ð¶ï¿½ï¿½ï¿½ï¿½ï¿½Å·ï¿½ï¿½Ï²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö»ï¿½ï¿½ï¿½Ø²ï¿½ï¿½Òµï¿½ï¿½Äµï¿½Ò»ï¿½ï¿½  
+	* @param [in] szName:ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ£ï¿½returnDefaultSymbol:ï¿½ï¿½ï¿½Îªtrueï¿½ï¿½ï¿½ï¿½ï¿½Ò²ï¿½ï¿½ï¿½ï¿½Ä»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¬ï¿½Ï·ï¿½ï¿½ï¿½
+	* @param [out] outPtr:ï¿½Òµï¿½ï¿½Ä·ï¿½ï¿½ï¿½
+	* @return ï¿½Ç·ï¿½ï¿½ï¿½Òµï¿½
 	*/
 	virtual bool findSymbolByName(std::string szName, Symbol2dSharedPtr& outPtr, bool returnDefaultSymbol) = 0;
 
-	/**¸ù¾Ý±ê×¼±àºÅ,²éÕÒÖ¸¶¨µÄ·ûºÅ , Èç¹û´æÔÚ£¬·µ»Øµ½³ö¿Ú²ÎÊýoutPtrÖÐ
-	*  Èç¹ûµ±Ç°·ûºÅ¿âÖÐ£¬ÓÐ¶à¸ö·ûºÅ·ûºÏ²éÕÒÌõ¼þ£¬Ö»·µ»Ø²éÕÒµ½µÄµÚÒ»¸ö  
-	* @param [in] szStdNum:·ûºÅ±ê×¼±àºÅ£¬returnDefaultSymbol:Èç¹ûÎªtrue£¬²éÕÒ²»µ½µÄ»°£¬·µ»ØÄ¬ÈÏ·ûºÅ
-	* @param [out] outPtr:ÕÒµ½µÄ·ûºÅ
-	* @return ÊÇ·ñ²éÕÒµ½
+	/**ï¿½ï¿½ï¿½Ý±ï¿½×¼ï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½Ä·ï¿½ï¿½ï¿½ , ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú£ï¿½ï¿½ï¿½ï¿½Øµï¿½ï¿½ï¿½ï¿½Ú²ï¿½ï¿½ï¿½outPtrï¿½ï¿½
+	*  ï¿½ï¿½ï¿½ï¿½ï¿½Ç°ï¿½ï¿½ï¿½Å¿ï¿½ï¿½Ð£ï¿½ï¿½Ð¶ï¿½ï¿½ï¿½ï¿½ï¿½Å·ï¿½ï¿½Ï²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö»ï¿½ï¿½ï¿½Ø²ï¿½ï¿½Òµï¿½ï¿½Äµï¿½Ò»ï¿½ï¿½  
+	* @param [in] szStdNum:ï¿½ï¿½ï¿½Å±ï¿½×¼ï¿½ï¿½Å£ï¿½returnDefaultSymbol:ï¿½ï¿½ï¿½Îªtrueï¿½ï¿½ï¿½ï¿½ï¿½Ò²ï¿½ï¿½ï¿½ï¿½Ä»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¬ï¿½Ï·ï¿½ï¿½ï¿½
+	* @param [out] outPtr:ï¿½Òµï¿½ï¿½Ä·ï¿½ï¿½ï¿½
+	* @return ï¿½Ç·ï¿½ï¿½ï¿½Òµï¿½
 	*/
 	virtual bool findSymbolByStdNum(std::string szStdNum, Symbol2dSharedPtr& outPtr, bool returnDefaultSymbol) = 0;
 
-	/**¸ù¾ÝÃû³Æ,²éÕÒÖ¸¶¨µÄ·ûºÅ£¨Ä£ºý²éÕÒ£¬°üº¬×Ö·û¼´·ûºÏÌõ¼þ£©
-	*  Èç¹û´æÔÚ£¬Ìí¼Óµ½³ö¿Ú²ÎÊýoutListÖÐ£¬ ·µ»Ø²éÕÒµ½µÄ·ûºÅ¸öÊý  
-	* @param [in] szName:·ûºÅÃû³Æ
-	* @param [out] outList:ÕÒµ½µÄ·ûºÅÁÐ±í
-	* @return ²éÕÒµ½µÄ·ûºÅ¸öÊý
+	/**ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½Ä·ï¿½ï¿½Å£ï¿½Ä£ï¿½ï¿½ï¿½ï¿½ï¿½Ò£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	*  ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú£ï¿½ï¿½ï¿½Óµï¿½ï¿½ï¿½ï¿½Ú²ï¿½ï¿½ï¿½outListï¿½Ð£ï¿½ ï¿½ï¿½ï¿½Ø²ï¿½ï¿½Òµï¿½ï¿½Ä·ï¿½ï¿½Å¸ï¿½ï¿½ï¿½  
+	* @param [in] szName:ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	* @param [out] outList:ï¿½Òµï¿½ï¿½Ä·ï¿½ï¿½ï¿½ï¿½Ð±ï¿½
+	* @return ï¿½ï¿½ï¿½Òµï¿½ï¿½Ä·ï¿½ï¿½Å¸ï¿½ï¿½ï¿½
 	*/
 	virtual long fuzzyFindSymbolByName(std::string szName, Symbol2dSharedPtrList& outList) = 0;
 
-	/**¸ù¾Ý±ê×¼±àºÅ,²éÕÒÖ¸¶¨µÄ·ûºÅ , £¨Ä£ºý²éÕÒ£¬°üº¬×Ö·û¼´·ûºÏÌõ¼þ£©
-	*  Èç¹û´æÔÚ£¬Ìí¼Óµ½³ö¿Ú²ÎÊýoutListÖÐ £¬ ·µ»Ø²éÕÒµ½µÄ·ûºÅ¸öÊý 
-	* @param [in] szStdNum:·ûºÅ±ê×¼±àºÅ
-	* @param [out] outPtr:ÕÒµ½µÄ·ûºÅÁÐ±í
-	* @return ÕÒµ½µÄ·ûºÅ¸öÊý
+	/**ï¿½ï¿½ï¿½Ý±ï¿½×¼ï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½Ä·ï¿½ï¿½ï¿½ , ï¿½ï¿½Ä£ï¿½ï¿½ï¿½ï¿½ï¿½Ò£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	*  ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú£ï¿½ï¿½ï¿½Óµï¿½ï¿½ï¿½ï¿½Ú²ï¿½ï¿½ï¿½outListï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½Ø²ï¿½ï¿½Òµï¿½ï¿½Ä·ï¿½ï¿½Å¸ï¿½ï¿½ï¿½ 
+	* @param [in] szStdNum:ï¿½ï¿½ï¿½Å±ï¿½×¼ï¿½ï¿½ï¿½
+	* @param [out] outPtr:ï¿½Òµï¿½ï¿½Ä·ï¿½ï¿½ï¿½ï¿½Ð±ï¿½
+	* @return ï¿½Òµï¿½ï¿½Ä·ï¿½ï¿½Å¸ï¿½ï¿½ï¿½
 	*/
 	virtual long fuzzyFindSymbolByStdNum(std::string szStdNum, Symbol2dSharedPtrList& outList) = 0;
 };

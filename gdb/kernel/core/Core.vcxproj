@@ -42,13 +42,13 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v120</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v120</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
@@ -170,6 +170,10 @@
     <ClInclude Include="inc\ColoredVertex3d.h" />
     <ClInclude Include="inc\ColoredVertex3f.h" />
     <ClInclude Include="inc\config.h" />
+    <ClInclude Include="inc\config_env.h" />
+    <ClInclude Include="inc\config_linux.h" />
+    <ClInclude Include="inc\config_macxos.h" />
+    <ClInclude Include="inc\config_windows.h" />
     <ClInclude Include="inc\connector.h" />
     <ClInclude Include="inc\Console.h" />
     <ClInclude Include="inc\describablebuffer.h" />
@@ -318,6 +322,7 @@
     <ClCompile Include="src\colortable.cpp" />
     <ClCompile Include="src\ComplexMaterialImpl.cpp" />
     <ClCompile Include="src\config.cpp" />
+    <ClCompile Include="src\config_env.cpp" />
     <ClCompile Include="src\Connector.cpp" />
     <ClCompile Include="src\console.cpp" />
     <ClCompile Include="src\Cube3dImpl.cpp" />

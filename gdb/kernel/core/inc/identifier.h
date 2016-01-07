@@ -29,12 +29,12 @@ begin_edu_namespace
 begin_cug_namespace
 begin_gdb_namespace
 
-/** @defgroup Identifier Identifier-Î¨Ò»±êÊ¶
-* ÆäÊµÖÊÊÇÒ»¸ö64Î»³¤ÕûÊý  
+/** @defgroup Identifier Identifier-Î¨Ò»ï¿½ï¿½Ê¶
+* ï¿½ï¿½Êµï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½64Î»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½  
 *  @{
 */
 class CORE_API Identifier{
-	/** @name ULONGNumber 32Î»ÕûÊýÁªºÏÌå  
+	/** @name ULONGNumber 32Î»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½  
 	*  @{
 	*/
 	union ULONGNumber
@@ -44,36 +44,36 @@ class CORE_API Identifier{
 	};
 	/** @} */ 
 
-	/** @name 64Î»ÕûÊýÁªºÏÌå  
+	/** @name 64Î»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½  
 	*  @{
 	*/
 	union {
 		struct 	{			
-			/** ÓÃ»§IDÇøÓò */
+			/** ï¿½Ã»ï¿½IDï¿½ï¿½ï¿½ï¿½ */
 			unsigned char user_id;
-			/** ×Ô¶¯Ôö¼ÓÇøÓò */
+			/** ï¿½Ô¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
 			unsigned char numbers[3];
-			/** IDÉú³ÉÊ±¼ä */
+			/** IDï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ */
 			unsigned long time_stamp;
 		}_sid;
 		/** 64Î»Ô­Ê¼Öµ */
 		unsigned long long  _id;
-		/** ÒÔBYTE±íÊ¾µÄ64Î»Öµ */
+		/** ï¿½ï¿½BYTEï¿½ï¿½Ê¾ï¿½ï¿½64Î»Öµ */
 		unsigned char _bid[8]; 
 	} ;
 	/** @} */ 
 
 public:
-	/** @name Ô­Ê¼ÖµÀàÐÍ¶¨Òå  
+	/** @name Ô­Ê¼Öµï¿½ï¿½ï¿½Í¶ï¿½ï¿½ï¿½  
 	*  @{
 	*/
 	typedef unsigned long long raw_type;
 	/** @} */ 
 public:
-	/** @name ¹¹ÔìÓëÎö¹¹º¯Êý¼¯  
+	/** @name ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½  
 	*  @{
 	*/
-	/** ²ÉÓÃËæ»úÓÃ»§IDÉú³ÉIdentifier */
+	/** ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½IDï¿½ï¿½ï¿½ï¿½Identifier */
 	Identifier();
 	Identifier(int l ) {_id =l;}
 	Identifier(unsigned long l ) {_id =l;}
@@ -84,22 +84,22 @@ public:
 	Identifier(const Identifier & ids);
 	/** @} */ 	
 public:
-	/** @name ¾²Ì¬Éú³Éº¯Êý¼¯  
+	/** @name ï¿½ï¿½Ì¬ï¿½ï¿½ï¿½Éºï¿½ï¿½ï¿½ï¿½ï¿½  
 	*  @{
 	*/
-	/**  Éú³ÉÒ»¸öÖµÎª0µÄID¶ÔÏó
-	*	 @param ÎÞ
-	*   @return Identifier¶ÔÏó     
+	/**  ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ÖµÎª0ï¿½ï¿½IDï¿½ï¿½ï¿½ï¿½
+	*	 @param ï¿½ï¿½
+	*   @return Identifierï¿½ï¿½ï¿½ï¿½     
 	*/
 	static Identifier zero() {	return Identifier(0);}
-	/**  Éú³ÉÒ»¸öÎ¨Ò»µÄÔ­Ê¼IDÖµ£¬ÎªÒ»¸ö64Î»ÕûÊý
-	*	 @param ÎÞ
-	*   @return ·µ»ØÔ­Ê¼64Î»ID    
+	/**  ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½Î¨Ò»ï¿½ï¿½Ô­Ê¼IDÖµï¿½ï¿½ÎªÒ»ï¿½ï¿½64Î»ï¿½ï¿½ï¿½ï¿½
+	*	 @param ï¿½ï¿½
+	*   @return ï¿½ï¿½ï¿½ï¿½Ô­Ê¼64Î»ID    
 	*/
 	static raw_type  generate() ;
 	/** @} */  
 public:
-	/** @name »ñÈ¡IdentifierµÄÖµ  
+	/** @name ï¿½ï¿½È¡Identifierï¿½ï¿½Öµ  
 	*  @{
 	*/
 	inline unsigned long long  get() { return _id; }
@@ -109,7 +109,7 @@ public:
 	inline unsigned char * getBytes(){return _bid;}
 	/** @} */ 
 public:
-	/** @name ¸³ÖµµÈºÅÖØÔØ  
+	/** @name ï¿½ï¿½Öµï¿½Èºï¿½ï¿½ï¿½ï¿½ï¿½  
 	*  @{
 	*/
 	Identifier operator = (const Identifier&  ids);
@@ -119,7 +119,7 @@ public:
 	Identifier operator = (unsigned long   ids);
 	/** @} */ 
 
-	/** @name ÀàÐÍ×ª»»²Ù×÷ÖØÔØ  
+	/** @name ï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½  
 	*  @{
 	*/
 	operator unsigned long long  () { return _id; }
@@ -130,35 +130,35 @@ public:
 	/** @} */ 	
 public:
 
-	/** @name ¾²Ì¬ÓÑÔª·ûºÅÖØÔØ  
+	/** @name ï¿½ï¿½Ì¬ï¿½ï¿½Ôªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½  
 	*  @{
 	*/
-	friend static bool operator==(const Identifier & id1,const Identifier & id2);
-	friend static bool operator==(const Identifier & id1,unsigned long long  id2);
+	friend bool operator==(const Identifier & id1,const Identifier & id2);
+	friend bool operator==(const Identifier & id1,unsigned long long  id2);
 
-	friend static bool operator!=(const Identifier & id1,const Identifier & id2);
-	friend static bool operator!=(const Identifier & id1,unsigned long long  id2);
+	friend bool operator!=(const Identifier & id1,const Identifier & id2);
+	friend bool operator!=(const Identifier & id1,unsigned long long  id2);
 
-	friend static bool operator<(const Identifier & id1,const Identifier & id2);
-	friend static bool operator<(const Identifier & id1,unsigned long long  id2);
+	friend bool operator<(const Identifier & id1,const Identifier & id2);
+	friend bool operator<(const Identifier & id1,unsigned long long  id2);
 
-	friend static bool operator>(const Identifier & id1,const Identifier & id2);
-	friend static bool operator>(const Identifier & id1,unsigned long long  id2);
-
-
-	friend static Identifier operator-(const Identifier & id1,const Identifier & id2);
-	friend static Identifier operator-(const Identifier & id1,unsigned long long  id2);
-
-	friend static Identifier operator+(const Identifier & id1,const Identifier & id2);
-	friend static Identifier operator+(const Identifier & id1,unsigned long long  id2);
+	friend bool operator>(const Identifier & id1,const Identifier & id2);
+	friend bool operator>(const Identifier & id1,unsigned long long  id2);
 
 
-	friend static std::ostream & operator <<( std::ostream & s,const Identifier & id1);
-	friend static std::istream & operator >>( std::istream & s,const Identifier & id1);
+	friend Identifier operator-(const Identifier & id1,const Identifier & id2);
+	friend Identifier operator-(const Identifier & id1,unsigned long long  id2);
+
+	friend Identifier operator+(const Identifier & id1,const Identifier & id2);
+	friend Identifier operator+(const Identifier & id1,unsigned long long  id2);
+
+
+	friend std::ostream & operator <<( std::ostream & s,const Identifier & id1);
+	friend std::istream & operator >>( std::istream & s,const Identifier & id1);
 
 	/** @} */ 
 public:
-	/** @name Á÷¶ÁÐ´²Ù×÷
+	/** @name ï¿½ï¿½ï¿½ï¿½Ð´ï¿½ï¿½ï¿½ï¿½
 	*  @{
 	*/
 	virtual void  write(std::ostream & f);
@@ -166,7 +166,7 @@ public:
 	/** @} */ 
 };
 
-/** @name È«¾ÖµÄ0ÖµIdentifer¶ÔÏó  
+/** @name È«ï¿½Öµï¿½0ÖµIdentiferï¿½ï¿½ï¿½ï¿½  
 *  @{
 */
 static const Identifier ZEROID = Identifier::zero();
@@ -175,64 +175,64 @@ static const Identifier ZEROID = Identifier::zero();
 /** @} */ 
 
 
-/** @addtogroup Identifier  IdentifierÀàµÄÍâ²¿¾²Ì¬·ûºÅÖØÔØº¯Êý¼¯
+/** @addtogroup Identifier  Identifierï¿½ï¿½ï¿½ï¿½â²¿ï¿½ï¿½Ì¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Øºï¿½ï¿½ï¿½ï¿½ï¿½
 *  @{
 */
-static bool operator==(const Identifier & id1,const Identifier & id2){
+bool operator==(const Identifier & id1,const Identifier & id2){
 	return id1._id==id2._id;
 }
 
-static bool operator==(const Identifier & id1,unsigned long long  id2){
+bool operator==(const Identifier & id1,unsigned long long  id2){
 	return id1._id==id2;
 }
 
-static bool operator!=(const Identifier & id1,const Identifier & id2){
+bool operator!=(const Identifier & id1,const Identifier & id2){
 	return id1._id!=id2._id;
 }
 
-static bool operator!=(const Identifier & id1,unsigned long long  id2){
+bool operator!=(const Identifier & id1,unsigned long long  id2){
 	return id1._id!=id2;
 }
 
-static bool operator>(const Identifier & id1,const Identifier & id2){
+bool operator>(const Identifier & id1,const Identifier & id2){
 	return id1._id>id2._id;
 }
 
-static bool operator>(const Identifier & id1,unsigned long long  id2){
+bool operator>(const Identifier & id1,unsigned long long  id2){
 	return id1._id>id2;
 }
 
-static bool operator<(const Identifier & id1,const Identifier & id2){
+bool operator<(const Identifier & id1,const Identifier & id2){
 	return id1._id<id2._id;
 }
 
-static bool operator<(const Identifier & id1,unsigned long long  id2){
+bool operator<(const Identifier & id1,unsigned long long  id2){
 	return id1._id<id2;
 }
 
-static Identifier operator+(const Identifier & id1,const Identifier & id2){
+Identifier operator+(const Identifier & id1,const Identifier & id2){
 	return Identifier(id1._id+id2._id);
 }
 
-static Identifier operator+(const Identifier & id1,unsigned long long  id2){
+Identifier operator+(const Identifier & id1,unsigned long long  id2){
 	return Identifier(id1._id+id2);
 }
 
-static Identifier operator-(const Identifier & id1,const Identifier & id2){
+Identifier operator-(const Identifier & id1,const Identifier & id2){
 	return Identifier(id1._id-id2._id);
 }
 
-static Identifier operator-(const Identifier & id1,unsigned long long  id2){
+Identifier operator-(const Identifier & id1,unsigned long long  id2){
 	return Identifier(id1._id-id2);
 }
 
 
-static std::ostream & operator <<( std::ostream & s,const Identifier & id1){
+std::ostream & operator <<( std::ostream & s,const Identifier & id1){
 	s<< id1._id;
 	return s;
 }
 
-static std::istream & operator >>( std::istream & s,const Identifier & id1){
+std::istream & operator >>( std::istream & s,const Identifier & id1){
 	s>> id1._id;
 	return s;
 }
@@ -240,42 +240,42 @@ static std::istream & operator >>( std::istream & s,const Identifier & id1){
 /** @} */ 
 
 
-/** @addtogroup Identifier  ÏµÍ³³£ÓÃIDÀàÐÍ¶¨Òå
+/** @addtogroup Identifier  ÏµÍ³ï¿½ï¿½ï¿½ï¿½IDï¿½ï¿½ï¿½Í¶ï¿½ï¿½ï¿½
 *  @{
 */
-/** ¹¤³ÌID */
+/** ï¿½ï¿½ï¿½ï¿½ID */
 typedef unsigned long long PRJID; 
-/** ·ÖÇøID */
+/** ï¿½ï¿½ï¿½ï¿½ID */
 typedef unsigned long long REGID;
-/** ¹¤×÷ÇøID */
+/** ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ID */
 typedef REGID             WKSPID ;
-/** ÒªËØÀàÐÍID */
+/** Òªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ID */
 typedef unsigned long long FCLSID;
-/** ÒªËØID */
+/** Òªï¿½ï¿½ID */
 typedef unsigned long long FID; 
-/** ÒªËØ¼¯ID */
+/** Òªï¿½Ø¼ï¿½ID */
 typedef unsigned long long FSID;
-/** ÒªËØLODµÄID */
+/** Òªï¿½ï¿½LODï¿½ï¿½ID */
 typedef unsigned long long FLOD;
-/** ÎÆÀíID */
+/** ï¿½ï¿½ï¿½ï¿½ID */
 typedef unsigned long long TEXID; 
-/** Í¼²ãID */
+/** Í¼ï¿½ï¿½ID */
 typedef unsigned long long LYRID;
-/** ¹²ÓÃÄ£ÐÍµÄID */
+/** ï¿½ï¿½ï¿½ï¿½Ä£ï¿½Íµï¿½ID */
 typedef unsigned long long MDLID; 
-/** ¿Õ¼ä²Î¿¼ÏµÍ³ID */
+/** ï¿½Õ¼ï¿½Î¿ï¿½ÏµÍ³ID */
 typedef unsigned long long SREFID;
-/** ÓÃ»§¼ÇÂ¼Êý¾Ý¸üÐÂÊ±¼ä */
+/** ï¿½Ã»ï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½Ý¸ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ */
 typedef unsigned long long GDBTIME;
-/** ²ÄÖÊID */
+/** ï¿½ï¿½ï¿½ï¿½ID */
 typedef unsigned long long MATID;
-/** ×¢¼ÇID */
+/** ×¢ï¿½ï¿½ID */
 typedef unsigned long long ANNOID;
-/** ÓïÒå×¨Ìâ¼¯ID */
+/** ï¿½ï¿½ï¿½ï¿½×¨ï¿½â¼¯ID */
 typedef unsigned long long SEMID;
-/** ¹ØÏµÀàID */
+/** ï¿½ï¿½Ïµï¿½ï¿½ID */
 typedef unsigned long long RELID;
-/** ÓïÒåÍØÆË¶ÔÏóID; */
+/** ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ë¶ï¿½ï¿½ï¿½ID; */
 typedef unsigned long long TID;
 /** @} */ 
 

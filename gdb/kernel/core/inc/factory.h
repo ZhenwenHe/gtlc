@@ -17,7 +17,7 @@
 #include <string>
 #include <vector>
 #include <sstream>
-#include "Buffer.h"
+#include "buffer.h"
 #include "material.h"
 #include "matrix4x4.h"
 #include "describablebuffer.h"

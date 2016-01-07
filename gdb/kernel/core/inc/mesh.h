@@ -18,7 +18,7 @@
 #include <vector>
 #include <sstream>
 #include "bitset.h"
-#include "Buffer.h"
+#include "buffer.h"
 #include "material.h"
 #include "matrix4x4.h"
 #include "describablebuffer.h"
@@ -38,7 +38,7 @@ typedef std::shared_ptr<Cell> CellSharedPtr;
 typedef std::shared_ptr<Mesh> MeshSharedPtr;
 typedef std::shared_ptr<Block> BlockSharedPtr;
 
-/** @defgroup Mesh Íø¸ñÏà¹ØÀà  
+/** @defgroup Mesh ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½  
 *  @{
 */
 enum {
@@ -49,7 +49,7 @@ enum {
 /** @} */
 
 
-/** @addtogroup Mesh Cell-Íø¸ñµ¥Ôª  
+/** @addtogroup Mesh Cell-ï¿½ï¿½ï¿½ï¿½Ôª  
 *  @{
 */
 class CORE_API Cell {
@@ -71,29 +71,29 @@ public:
 	virtual void  getEnvelope(Envelope3d & e3d) ;
 	virtual void output(ofstream & f);
 public:
-	/** »ñÈ¡¶ÔÏóĞ´Èëµ½BufferÖĞËùÕ¼ÓÃµÄ×Ö½ÚÊı£¬±ãÓÚ´ÓBuffer¶ÔÏóÖĞ¹¹½¨¼¸ºÎ¶ÔÏó
-     * @param  [in] ÎŞ 
-     * @return ·µ»Ø¼¸ºÎ¶ÔÏóĞ´Èëµ½BufferÖĞËùÕ¼ÓÃµÄ×Ö½ÚÊı
+	/** ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½Ğ´ï¿½ëµ½Bufferï¿½ï¿½ï¿½ï¿½Õ¼ï¿½Ãµï¿½ï¿½Ö½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú´ï¿½Bufferï¿½ï¿½ï¿½ï¿½ï¿½Ğ¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î¶ï¿½ï¿½ï¿½
+     * @param  [in] ï¿½ï¿½ 
+     * @return ï¿½ï¿½ï¿½Ø¼ï¿½ï¿½Î¶ï¿½ï¿½ï¿½Ğ´ï¿½ëµ½Bufferï¿½ï¿½ï¿½ï¿½Õ¼ï¿½Ãµï¿½ï¿½Ö½ï¿½ï¿½ï¿½
 	 */
     virtual size_t sizeBuffer() ;
-	/** ´ÓBufferÖĞ¶ÁÈ¡ĞÅÏ¢Ìî³ä±¾¶ÔÏó
-     * @param  [in,out] buf Buffer & £¬»º³åÇø¶ÔÏóÒıÓÃ 
-     * @return ³É¹¦·µ»Øtrue£¬·ñÔò·µ»Øfalse
+	/** ï¿½ï¿½Bufferï¿½Ğ¶ï¿½È¡ï¿½ï¿½Ï¢ï¿½ï¿½ä±¾ï¿½ï¿½ï¿½ï¿½
+     * @param  [in,out] buf Buffer & ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
+     * @return ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½trueï¿½ï¿½ï¿½ï¿½ï¿½ò·µ»ï¿½false
     */
     virtual bool readBuffer( Buffer & buf);
-	/** ½«±¾ÀàµÄĞÅÏ¢Ğ´ÈëBufferÖĞ 
-     * @param  [in,out] buf Buffer & £¬»º³åÇø¶ÔÏóÒıÓÃ
-     * @return ³É¹¦·µ»Øtrue£¬·ñÔò·µ»Øfalse
+	/** ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢Ğ´ï¿½ï¿½Bufferï¿½ï¿½ 
+     * @param  [in,out] buf Buffer & ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+     * @return ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½trueï¿½ï¿½ï¿½ï¿½ï¿½ò·µ»ï¿½false
     */
     virtual bool writeBuffer(Buffer& buf);
-	/* ½«±¾ÀàµÄĞÅÏ¢Ğ´ÈëÊä³öÁ÷ÖĞ£¬±ãÓÚÎÄ¼ş¶ÁĞ´»ò»º³åÇøĞ´²Ù×÷ 
-     * @param  [in,out] f  std::ostream &£¬±ê×¼Êä³öÁ÷¶ÔÏóÒıÓÃ
-     * @return ³É¹¦·µ»Øtrue£¬·ñÔò·µ»Øfalse
+	/* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢Ğ´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ğ£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½Ğ´ï¿½ò»º³ï¿½ï¿½ï¿½Ğ´ï¿½ï¿½ï¿½ï¿½ 
+     * @param  [in,out] f  std::ostream &ï¿½ï¿½ï¿½ï¿½×¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+     * @return ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½trueï¿½ï¿½ï¿½ï¿½ï¿½ò·µ»ï¿½false
     */
     virtual void write(std::ostream & f);
-	/** ´Ó±ê×¼ÊäÈëÁ÷ÖĞÌáÈ¡±¾ÀàµÄĞÅÏ¢  
-     * @param  [in,out] f  std::istream &£¬±ê×¼ÊäÈëÁ÷¶ÔÏóÒıÓÃ
-     * @return ³É¹¦·µ»Øtrue£¬·ñÔò·µ»Øfalse
+	/** ï¿½Ó±ï¿½×¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢  
+     * @param  [in,out] f  std::istream &ï¿½ï¿½ï¿½ï¿½×¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+     * @return ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½trueï¿½ï¿½ï¿½ï¿½ï¿½ò·µ»ï¿½false
     */
     virtual void read(std::istream & f);
 public:
@@ -113,54 +113,54 @@ public:
 /** @} */
 
 
-/** @addtogroup Mesh Cell-Íø¸ñµ¥Ôª  
+/** @addtogroup Mesh Cell-ï¿½ï¿½ï¿½ï¿½Ôª  
 *  @{
 */
 class CORE_API Block {
-	Identifier                 _identifier;//Î¨Ò»±êÊ¶
-	unsigned long long         _layerID;//ËùÔÚ²ãµÄID
-	unsigned long long         _xCellNumber;//X·½ÏòÂß¼­µ¥ÔªÊı
-	unsigned long long         _yCellNumber;//Y·½ÏòÂß¼­µ¥ÔªÊı
-	unsigned long long         _zCellNumber;//Z·½ÏòÂß¼­µ¥ÔªÊı   
-	/** ÉÏ¼¶Íø¸ñµÄX·½ÏòµÄ¿ªÊ¼ºÍ½áÊøµ¥ÔªÏÂ±ê£¬´Ó0¿ªÊ¼,Îª°ë¿ªÇø¼ä£¬Ä¬ÈÏÊÇÇé¿öÏÂ_endX = _beginX+_xCellNumber */
+	Identifier                 _identifier;//Î¨Ò»ï¿½ï¿½Ê¶
+	unsigned long long         _layerID;//ï¿½ï¿½ï¿½Ú²ï¿½ï¿½ID
+	unsigned long long         _xCellNumber;//Xï¿½ï¿½ï¿½ï¿½ï¿½ß¼ï¿½ï¿½ï¿½Ôªï¿½ï¿½
+	unsigned long long         _yCellNumber;//Yï¿½ï¿½ï¿½ï¿½ï¿½ß¼ï¿½ï¿½ï¿½Ôªï¿½ï¿½
+	unsigned long long         _zCellNumber;//Zï¿½ï¿½ï¿½ï¿½ï¿½ß¼ï¿½ï¿½ï¿½Ôªï¿½ï¿½   
+	/** ï¿½Ï¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½ï¿½Ä¿ï¿½Ê¼ï¿½Í½ï¿½ï¿½ï¿½ï¿½ï¿½Ôªï¿½Â±ê£¬ï¿½ï¿½0ï¿½ï¿½Ê¼,Îªï¿½ë¿ªï¿½ï¿½ï¿½ä£¬Ä¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½_endX = _beginX+_xCellNumber */
 	unsigned long long _beginX;
-	/** ÉÏ¼¶Íø¸ñµÄY·½ÏòµÄ¿ªÊ¼ºÍ½áÊøµ¥ÔªÏÂ±ê£¬´Ó0¿ªÊ¼£¬Îª°ë¿ªÇø¼ä£¬Ä¬ÈÏÊÇÇé¿öÏÂ_endY = _beginY+_yCellNumber */
+	/** ï¿½Ï¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Yï¿½ï¿½ï¿½ï¿½Ä¿ï¿½Ê¼ï¿½Í½ï¿½ï¿½ï¿½ï¿½ï¿½Ôªï¿½Â±ê£¬ï¿½ï¿½0ï¿½ï¿½Ê¼ï¿½ï¿½Îªï¿½ë¿ªï¿½ï¿½ï¿½ä£¬Ä¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½_endY = _beginY+_yCellNumber */
 	unsigned long long _beginY;
-	/** ÉÏ¼¶Íø¸ñµÄZ·½ÏòµÄ¿ªÊ¼ºÍ½áÊøµ¥ÔªÏÂ±ê£¬´Ó0¿ªÊ¼£¬Îª°ë¿ªÇø¼ä£¬Ä¬ÈÏÊÇÇé¿öÏÂ_endZ = _beginZ+_zCellNumber */
+	/** ï¿½Ï¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Zï¿½ï¿½ï¿½ï¿½Ä¿ï¿½Ê¼ï¿½Í½ï¿½ï¿½ï¿½ï¿½ï¿½Ôªï¿½Â±ê£¬ï¿½ï¿½0ï¿½ï¿½Ê¼ï¿½ï¿½Îªï¿½ë¿ªï¿½ï¿½ï¿½ä£¬Ä¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½_endZ = _beginZ+_zCellNumber */
 	unsigned long long _beginZ;
 
 	std::vector<CellSharedPtr>  _cells;
 
-	cn::edu::cug::gdb::Envelope3d   _envelope;//¿é±ß½ç
+	cn::edu::cug::gdb::Envelope3d   _envelope;//ï¿½ï¿½ß½ï¿½
 public:
 	Block(unsigned long long cx,  unsigned long long cy, unsigned long long cz);
 	virtual ~Block();
 	virtual void output(ofstream & f);
 	static void output(std::vector<BlockSharedPtr> & blks,const std::string &filename);
 public:
-	/** »ñÈ¡¶ÔÏóĞ´Èëµ½BufferÖĞËùÕ¼ÓÃµÄ×Ö½ÚÊı£¬±ãÓÚ´ÓBuffer¶ÔÏóÖĞ¹¹½¨¼¸ºÎ¶ÔÏó
-     * @param  [in] ÎŞ 
-     * @return ·µ»Ø¼¸ºÎ¶ÔÏóĞ´Èëµ½BufferÖĞËùÕ¼ÓÃµÄ×Ö½ÚÊı
+	/** ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½Ğ´ï¿½ëµ½Bufferï¿½ï¿½ï¿½ï¿½Õ¼ï¿½Ãµï¿½ï¿½Ö½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú´ï¿½Bufferï¿½ï¿½ï¿½ï¿½ï¿½Ğ¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î¶ï¿½ï¿½ï¿½
+     * @param  [in] ï¿½ï¿½ 
+     * @return ï¿½ï¿½ï¿½Ø¼ï¿½ï¿½Î¶ï¿½ï¿½ï¿½Ğ´ï¿½ëµ½Bufferï¿½ï¿½ï¿½ï¿½Õ¼ï¿½Ãµï¿½ï¿½Ö½ï¿½ï¿½ï¿½
 	 */
     virtual size_t sizeBuffer() ;
-	/** ´ÓBufferÖĞ¶ÁÈ¡ĞÅÏ¢Ìî³ä±¾¼¸ºÎ¶ÔÏó
-     * @param  [in,out] buf Buffer & £¬»º³åÇø¶ÔÏóÒıÓÃ 
-     * @return ³É¹¦·µ»Øtrue£¬·ñÔò·µ»Øfalse
+	/** ï¿½ï¿½Bufferï¿½Ğ¶ï¿½È¡ï¿½ï¿½Ï¢ï¿½ï¿½ä±¾ï¿½ï¿½ï¿½Î¶ï¿½ï¿½ï¿½
+     * @param  [in,out] buf Buffer & ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
+     * @return ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½trueï¿½ï¿½ï¿½ï¿½ï¿½ò·µ»ï¿½false
     */
     virtual bool readBuffer( Buffer & buf) ;
-	/** ½«±¾ÀàµÄĞÅÏ¢Ğ´ÈëBufferÖĞ 
-     * @param  [in,out] buf Buffer & £¬»º³åÇø¶ÔÏóÒıÓÃ
-     * @return ³É¹¦·µ»Øtrue£¬·ñÔò·µ»Øfalse
+	/** ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢Ğ´ï¿½ï¿½Bufferï¿½ï¿½ 
+     * @param  [in,out] buf Buffer & ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+     * @return ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½trueï¿½ï¿½ï¿½ï¿½ï¿½ò·µ»ï¿½false
     */
     virtual bool writeBuffer(Buffer& buf) ;
-	/* ½«±¾ÀàµÄĞÅÏ¢Ğ´ÈëÊä³öÁ÷ÖĞ£¬±ãÓÚÎÄ¼ş¶ÁĞ´»ò»º³åÇøĞ´²Ù×÷ 
-     * @param  [in,out] f  std::ostream &£¬±ê×¼Êä³öÁ÷¶ÔÏóÒıÓÃ
-     * @return ³É¹¦·µ»Øtrue£¬·ñÔò·µ»Øfalse
+	/* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢Ğ´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ğ£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½Ğ´ï¿½ò»º³ï¿½ï¿½ï¿½Ğ´ï¿½ï¿½ï¿½ï¿½ 
+     * @param  [in,out] f  std::ostream &ï¿½ï¿½ï¿½ï¿½×¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+     * @return ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½trueï¿½ï¿½ï¿½ï¿½ï¿½ò·µ»ï¿½false
     */
     virtual void write(std::ostream & f);
-	/** ´Ó±ê×¼ÊäÈëÁ÷ÖĞÌáÈ¡±¾ÀàµÄĞÅÏ¢  
-     * @param  [in,out] f  std::istream &£¬±ê×¼ÊäÈëÁ÷¶ÔÏóÒıÓÃ
-     * @return ³É¹¦·µ»Øtrue£¬·ñÔò·µ»Øfalse
+	/** ï¿½Ó±ï¿½×¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢  
+     * @param  [in,out] f  std::istream &ï¿½ï¿½ï¿½ï¿½×¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+     * @return ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½trueï¿½ï¿½ï¿½ï¿½ï¿½ò·µ»ï¿½false
     */
     virtual void read(std::istream & f);
 public:
@@ -195,35 +195,35 @@ public:
 /** @} */
 
 
-/** @addtogroup Mesh Mesh-Íø¸ñ»ùÀà 
+/** @addtogroup Mesh Mesh-ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
 *  @{
 */
 class CORE_API Mesh{	
 protected:
-	Cell                       _currentCell;//µ±Ç°Íø¸ñ¶ÔÏó£¬²»ÓÃ´æ´¢£¬Ö»ÊÇÎªÁË²Ù×÷·½±ãµÄÁÙÊ±¶ÔÏó£»
+	Cell                       _currentCell;//ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ó£¬²ï¿½ï¿½Ã´æ´¢ï¿½ï¿½Ö»ï¿½ï¿½Îªï¿½Ë²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½
 
-	int                        _meshType;	   //Íø¸ñÀàĞÍ
-	gdb::Vertex3d              _origin;// Ô­µã×ø±ê  
-	unsigned long long         _xCellNumber;//X·½ÏòÂß¼­µ¥ÔªÊı
-	unsigned long long         _yCellNumber;//Y·½ÏòÂß¼­µ¥ÔªÊı
-	unsigned long long         _zCellNumber;//Z·½ÏòÂß¼­µ¥ÔªÊı
-	gdb::Bitset                _validBitset;//Ã¿¸öµ¥ÔªµÄÓĞĞ§ĞÔtrue±êÊ¶ÓĞĞ§£¬false±êÊ¶ÎŞĞ§
-	unsigned long long         _propNumberPreCell;//Ã¿¸öµ¥ÔªµÄÊôĞÔ¸öÊı
-	std::vector<std::string>   _propNames;//Ã¿¸öÊôĞÔµÄÃû³Æ£¬Êı×éÖĞÔªËØ¸öÊıµÈÓÚ_propNumberPreCell
-	double *                   _propValues;//Íø¸ñµÄËùÓĞÊôĞÔÖµ£¬Ã¿¸öµ¥ÔªµÄ_propNumberPreCell¸öÊôĞÔ´æ·ÅÔÚÒ»Æğ£¬´æ·ÅÓÅÏÈË³ĞòÎªX·½Ïò£¬Y·½Ïò£¬Z·½Ïò
-	/** ÏÂ¼¶Íø¸ñ¶ÔÏóÊı×é*/
+	int                        _meshType;	   //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	gdb::Vertex3d              _origin;// Ô­ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½  
+	unsigned long long         _xCellNumber;//Xï¿½ï¿½ï¿½ï¿½ï¿½ß¼ï¿½ï¿½ï¿½Ôªï¿½ï¿½
+	unsigned long long         _yCellNumber;//Yï¿½ï¿½ï¿½ï¿½ï¿½ß¼ï¿½ï¿½ï¿½Ôªï¿½ï¿½
+	unsigned long long         _zCellNumber;//Zï¿½ï¿½ï¿½ï¿½ï¿½ß¼ï¿½ï¿½ï¿½Ôªï¿½ï¿½
+	gdb::Bitset                _validBitset;//Ã¿ï¿½ï¿½ï¿½ï¿½Ôªï¿½ï¿½ï¿½ï¿½Ğ§ï¿½ï¿½trueï¿½ï¿½Ê¶ï¿½ï¿½Ğ§ï¿½ï¿½falseï¿½ï¿½Ê¶ï¿½ï¿½Ğ§
+	unsigned long long         _propNumberPreCell;//Ã¿ï¿½ï¿½ï¿½ï¿½Ôªï¿½ï¿½ï¿½ï¿½ï¿½Ô¸ï¿½ï¿½ï¿½
+	std::vector<std::string>   _propNames;//Ã¿ï¿½ï¿½ï¿½ï¿½ï¿½Ôµï¿½ï¿½ï¿½ï¿½Æ£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ôªï¿½Ø¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½_propNumberPreCell
+	double *                   _propValues;//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµï¿½ï¿½Ã¿ï¿½ï¿½ï¿½ï¿½Ôªï¿½ï¿½_propNumberPreCellï¿½ï¿½ï¿½ï¿½ï¿½Ô´ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ğ£¬´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ë³ï¿½ï¿½ÎªXï¿½ï¿½ï¿½ï¿½Yï¿½ï¿½ï¿½ï¿½Zï¿½ï¿½ï¿½ï¿½
+	/** ï¿½Â¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½*/
 	std::vector<MeshSharedPtr>  _children;
-protected://Èç¹ûÊÇ×ÓÍø¸ñ£¬ÔòÏÂÃæ±äÁ¿ÉúĞ§
+protected://ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ğ§
 	Mesh *                    _parent;
-	/** ÉÏ¼¶Íø¸ñµÄX·½ÏòµÄ¿ªÊ¼ºÍ½áÊøµ¥ÔªÏÂ±ê£¬´Ó0¿ªÊ¼,Îª°ë¿ªÇø¼ä£¬Ä¬ÈÏÊÇÇé¿öÏÂ_endX = _beginX+_xCellNumber,Èç¹û²»ÏàµÈ£¬Ôò±êÊ¶Îª¼ÓÃÜ»ò³éÏ¡Êè×ÓÍø¸ñ*/
+	/** ï¿½Ï¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½ï¿½Ä¿ï¿½Ê¼ï¿½Í½ï¿½ï¿½ï¿½ï¿½ï¿½Ôªï¿½Â±ê£¬ï¿½ï¿½0ï¿½ï¿½Ê¼,Îªï¿½ë¿ªï¿½ï¿½ï¿½ä£¬Ä¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½_endX = _beginX+_xCellNumber,ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È£ï¿½ï¿½ï¿½ï¿½Ê¶Îªï¿½ï¿½ï¿½Ü»ï¿½ï¿½Ï¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½*/
 	unsigned long long _beginX, _endX;
-	//newXCellNumb; =_xCellNumber//X·½ÏòÉÏ×ÓÍø¸ñµ¥ÔªÊı
-	/** ÉÏ¼¶Íø¸ñµÄY·½ÏòµÄ¿ªÊ¼ºÍ½áÊøµ¥ÔªÏÂ±ê£¬´Ó0¿ªÊ¼£¬Îª°ë¿ªÇø¼ä£¬Ä¬ÈÏÊÇÇé¿öÏÂ_endY = _beginY+_yCellNumber,Èç¹û²»ÏàµÈ£¬Ôò±êÊ¶Îª¼ÓÃÜ»ò³éÏ¡Êè×ÓÍø¸ñ*/
+	//newXCellNumb; =_xCellNumber//Xï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ôªï¿½ï¿½
+	/** ï¿½Ï¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Yï¿½ï¿½ï¿½ï¿½Ä¿ï¿½Ê¼ï¿½Í½ï¿½ï¿½ï¿½ï¿½ï¿½Ôªï¿½Â±ê£¬ï¿½ï¿½0ï¿½ï¿½Ê¼ï¿½ï¿½Îªï¿½ë¿ªï¿½ï¿½ï¿½ä£¬Ä¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½_endY = _beginY+_yCellNumber,ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È£ï¿½ï¿½ï¿½ï¿½Ê¶Îªï¿½ï¿½ï¿½Ü»ï¿½ï¿½Ï¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½*/
 	unsigned long long _beginY, _endY;
-	//newYCellNumb; =_yCellNumber//Y·½ÏòÉÏ×ÓÍø¸ñµ¥ÔªÊı
-	/** ÉÏ¼¶Íø¸ñµÄZ·½ÏòµÄ¿ªÊ¼ºÍ½áÊøµ¥ÔªÏÂ±ê£¬´Ó0¿ªÊ¼£¬Îª°ë¿ªÇø¼ä£¬Ä¬ÈÏÊÇÇé¿öÏÂ_endZ = _beginZ+_zCellNumber,Èç¹û²»ÏàµÈ£¬Ôò±êÊ¶Îª¼ÓÃÜ»ò³éÏ¡Êè×ÓÍø¸ñ*/
+	//newYCellNumb; =_yCellNumber//Yï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ôªï¿½ï¿½
+	/** ï¿½Ï¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Zï¿½ï¿½ï¿½ï¿½Ä¿ï¿½Ê¼ï¿½Í½ï¿½ï¿½ï¿½ï¿½ï¿½Ôªï¿½Â±ê£¬ï¿½ï¿½0ï¿½ï¿½Ê¼ï¿½ï¿½Îªï¿½ë¿ªï¿½ï¿½ï¿½ä£¬Ä¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½_endZ = _beginZ+_zCellNumber,ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È£ï¿½ï¿½ï¿½ï¿½Ê¶Îªï¿½ï¿½ï¿½Ü»ï¿½ï¿½Ï¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½*/
 	unsigned long long _beginZ, _endZ;
-	//newZCellNumb;= _zCellNumber//Z·½ÏòÉÏ×ÓÍø¸ñµ¥ÔªÊı
+	//newZCellNumb;= _zCellNumber//Zï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ôªï¿½ï¿½
 public:
 	Mesh();	
 	Mesh(unsigned long long cx, unsigned long long cy,unsigned long long cz,unsigned long long propNumberPreCell=1);
@@ -283,7 +283,7 @@ public:
 /** @} */ 
 
 
-/** @addtogroup EclipseMesh EclipseMesh-EclipseÍø¸ñ  
+/** @addtogroup EclipseMesh EclipseMesh-Eclipseï¿½ï¿½ï¿½ï¿½  
 *  @{
 */
 class CORE_API EclipseMesh : public Mesh {

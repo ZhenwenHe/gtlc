@@ -25,18 +25,19 @@ begin_edu_namespace
 begin_cug_namespace
 begin_gdb_namespace
 
-/** @addtogroup Geometry Frustum-��ͷ׶����
+/** @addtogroup Geometry Frustum-截头锥体类
 *  @{
 */
-class CORE_API Frustum{
+class GV3DCORE_API Frustum{
 public:
 	virtual void set(Vertex3d& eye, Vertex3d& cen, double nearD, double farD, double angle, double ratio) = 0;
 	virtual	void setCamInternals(double nearD, double farD, double angle, double ratio) = 0;
 	virtual void setCamera(Vertex3d& eye, Vertex3d& cen) = 0;
 	virtual std::shared_ptr<Frustum> clone() = 0;
+
 	static std::shared_ptr<Frustum> create();
 };
-typedef std::shared_ptr< Frustum >  FrustumSharedPtr;
+typedef std::shared_ptr<Frustum>  FrustumSharedPtr;
 /** @} */
 
 

@@ -48,7 +48,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v120</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
@@ -165,13 +165,17 @@
     <ClInclude Include="inc\buffer.h" />
     <ClInclude Include="inc\bufferstream.h" />
     <ClInclude Include="inc\builder.h" />
-    <ClInclude Include="inc\Builders.h" />
+    <ClInclude Include="inc\builders.h" />
     <ClInclude Include="inc\color.h" />
-    <ClInclude Include="inc\ColoredVertex3d.h" />
-    <ClInclude Include="inc\ColoredVertex3f.h" />
+    <ClInclude Include="inc\coloredvertex3d.h" />
+    <ClInclude Include="inc\coloredvertex3f.h" />
     <ClInclude Include="inc\config.h" />
+    <ClInclude Include="inc\config_env.h" />
+    <ClInclude Include="inc\config_linux.h" />
+    <ClInclude Include="inc\config_macxos.h" />
+    <ClInclude Include="inc\config_windows.h" />
     <ClInclude Include="inc\connector.h" />
-    <ClInclude Include="inc\Console.h" />
+    <ClInclude Include="inc\console.h" />
     <ClInclude Include="inc\describablebuffer.h" />
     <ClInclude Include="inc\envelope2d.h" />
     <ClInclude Include="inc\envelope3d.h" />
@@ -201,23 +205,23 @@
     <ClInclude Include="inc\ray.h" />
     <ClInclude Include="inc\render.h" />
     <ClInclude Include="inc\selector.h" />
-    <ClInclude Include="inc\ShadedVertex3d.h" />
-    <ClInclude Include="inc\ShadedVertex3f.h" />
-    <ClInclude Include="inc\sharedModel.h" />
+    <ClInclude Include="inc\shadedvertex3d.h" />
+    <ClInclude Include="inc\shadedvertex3f.h" />
+    <ClInclude Include="inc\sharedmodel.h" />
     <ClInclude Include="inc\sphere3d.h" />
     <ClInclude Include="inc\temporaryset.h" />
     <ClInclude Include="inc\terrain.h" />
     <ClInclude Include="inc\terrainbuilder.h" />
     <ClInclude Include="inc\terrainproxy.h" />
     <ClInclude Include="inc\texture.h" />
-    <ClInclude Include="inc\TexturedVertex3d.h" />
-    <ClInclude Include="inc\TexturedVertex3f.h" />
+    <ClInclude Include="inc\texturedvertex3d.h" />
+    <ClInclude Include="inc\texturedvertex3f.h" />
     <ClInclude Include="inc\topology.h" />
     <ClInclude Include="inc\tritool.h" />
     <ClInclude Include="inc\value.h" />
     <ClInclude Include="inc\valutils.h" />
-    <ClInclude Include="inc\VersatileVertex3d.h" />
-    <ClInclude Include="inc\VersatileVertex3f.h" />
+    <ClInclude Include="inc\versatilevertex3d.h" />
+    <ClInclude Include="inc\versatilevertex3f.h" />
     <ClInclude Include="inc\vertex2d.h" />
     <ClInclude Include="inc\vertex2f.h" />
     <ClInclude Include="inc\vertex3d.h" />

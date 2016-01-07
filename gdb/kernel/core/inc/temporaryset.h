@@ -28,219 +28,219 @@ begin_cug_namespace
 begin_gdb_namespace
 
 
-/** @defgroup TemporarySets TempSet-��ʱҪ�ؼ��ϣ����ڴ���м�������  
+/** @defgroup TemporarySets TempSet-临时要素集合，用于存放中间操作结果
 *  @{
 */
-class CORE_API TempSet
+class GV3DCORE_API TempSet
 {
-	/** @name ������Ա����˵��  
+	/** @name 保护成员变量说明
 	*  @{
 	*/
 protected:
-	typedef std::pair< FCLSID,FeatureVectorSharedPtr>   FSPAIR;
-	typedef std::map< FCLSID,FeatureVectorSharedPtr >   FSMAP;
-	
-	/**Ҫ���༯�б�*/
+	typedef std::pair< FCLSID, FeatureVectorSharedPtr>   FSPAIR;
+	typedef std::map< FCLSID, FeatureVectorSharedPtr >   FSMAP;
+
+	/**要素类集列表*/
 	FSMAP  _set;
-	/**��ʱ���ݼ���״̬*/
+	/**临时数据集的状态*/
 	int _status;
-	/**��ʱ���ݼ�������*/
+	/**临时数据集的名称*/
 	std::string    _Name;
-	/**Ҫ���༯�б�*/
+	/**要素类集列表*/
 	int _drawMode;
-	/**��ʱ���ݼ�����ɫ*/
+	/**临时数据集的颜色*/
 	int _color;
-	/**��ʱ���ݼ���͸����*/
+	/**临时数据集的透明度*/
 	float _alpha;
 protected:
-	/**�������캯������ֹ���洴��*/
+	/**保护构造函数，防止外面创建*/
 	TempSet();
 
-	/** @} */ 
+	/** @} */
 
 public:
-	/** @name �������� 
+	/** @name 析构函数
 	*  @{
 	*/
 	virtual ~TempSet();
-	/** @} */ 
+	/** @} */
 
-	/** ��Ԫ�� */
+	/** 友元类 */
 	friend class TemporarySets;
-	/** @} */ 
+	/** @} */
 
-	/** @name ����������  
+	/** @name 操作函数集
 	*  @{
 	*/
-	/**  ������ʱ���ݼ��Ļ���ģʽ
-	*	 @param [in]      mode  ��ʱ���ݼ��Ļ���ģʽ
-	*   @return ��    
+	/**  设置临时数据集的绘制模式
+	*	 @param [in]      mode  临时数据集的绘制模式
+	*   @return 无
 	*/
-	inline void setDrawMode(const int &mode){_drawMode = mode;}
+	inline void setDrawMode(const int &mode){ _drawMode = mode; }
 
-	/**  ��ȡ��ʱ���ݼ��Ļ���ģʽ
-	*	 @param [in]      ��  
-	*    @return ��ʱ���ݼ��Ļ���ģʽ  
+	/**  获取临时数据集的绘制模式
+	*	 @param [in]      无
+	*    @return 临时数据集的绘制模式
 	*/
-	inline int getDrawMode(){return _drawMode;}
+	inline int getDrawMode(){ return _drawMode; }
 
-	/**  ������ʱ���ݼ�����ɫ
-	*	 @param [in]      color  ��ʱ���ݼ�����ɫ
-	*   @return ��    
+	/**  设置临时数据集的颜色
+	*	 @param [in]      color  临时数据集的颜色
+	*   @return 无
 	*/
-	inline void setColor(const int &color){_color = color;}
+	inline void setColor(const int &color){ _color = color; }
 
-	/**  ��ȡ��ʱ���ݼ�����ɫ
-	*	 @param [in]      ��  
-	*    @return ��ʱ���ݼ�����ɫ   
+	/**  获取临时数据集的颜色
+	*	 @param [in]      无
+	*    @return 临时数据集的颜色
 	*/
-	inline int getColor(){return _color;}
+	inline int getColor(){ return _color; }
 
-	/**  ������ʱ���ݼ���͸����
-	*	 @param [in] alpha  ��ʱ���ݼ���͸����
-	*   @return ��    
+	/**  设置临时数据集的透明度
+	*	 @param [in] alpha  临时数据集的透明度
+	*   @return 无
 	*/
-	inline void setAlpha(const float &alpha){_alpha = alpha;}
+	inline void setAlpha(const float &alpha){ _alpha = alpha; }
 
-	/**  ��ȡ��ʱ���ݼ���͸����
-	*	 @param [in]      ��  
-	*    @return ��ʱ���ݼ���͸����
+	/**  获取临时数据集的透明度
+	*	 @param [in]      无
+	*    @return 临时数据集的透明度
 	*/
-	inline float getAlpha(){return _alpha;}
+	inline float getAlpha(){ return _alpha; }
 
-	/**  ������ʱ���ݼ������ƣ���һ��TemporarySets��ʽΨһ��
-	*	 @param [in]      strName  ��ʱ���ݼ�������
-	*   @return ��    
+	/**  设置临时数据集的名称，在一个TemporarySets中式唯一的
+	*	 @param [in]      strName  临时数据集的名称
+	*   @return 无
 	*/
-	inline void setName(std::string strName){_Name = strName;}
+	inline void setName(std::string strName){ _Name = strName; }
 
-	/**  ��ȡ��ʱ���ݼ������ƣ���һ��TemporarySets��ʽΨһ��
-	*	 @param [in]      ��  
-	*    @return ��ʱ���ݼ�������    
+	/**  获取临时数据集的名称，在一个TemporarySets中式唯一的
+	*	 @param [in]      无
+	*    @return 临时数据集的名称
 	*/
-	inline std::string getName(){ return _Name;}
+	inline std::string getName(){ return _Name; }
 
-	/**  ������ʱ���ݼ���״̬
-	*	 @param [in] status  ��ʱ���ݼ���״̬
-	*    @return ��    
+	/**  设置临时数据集的状态
+	*	 @param [in] status  临时数据集的状态
+	*    @return 无
 	*/
-	inline void setStatus(int status){ _status = status;}
+	inline void setStatus(int status){ _status = status; }
 
-	/**  ��ȡ��ʱ���ݼ���״̬
-	*	 @param ��  
-	*    @return ��ʱ���ݼ���״̬    
+	/**  获取临时数据集的状态
+	*	 @param 无
+	*    @return 临时数据集的状态
 	*/
-	inline int getStatus(){ return _status;}
+	inline int getStatus(){ return _status; }
 
 
-	/**  ��ȡָ��Ҫ�����͵�����Ҫ��,���ص�ָ�벻���ⲿ����
-	*	 @param [in] fclsid Ҫ�����͵�ΨһID  
-	*    @return ��ʱ���ݼ���Ҫ������Ϊfclsid��Feature����    
+	/**  获取指定要素类型的所有要素,返回的指针不用外部销毁
+	*	 @param [in] fclsid 要素类型的唯一ID
+	*    @return 临时数据集的要素类型为fclsid的Feature集合
 	*/
 	FeatureVectorSharedPtr getFeatures(FCLSID fclsid);
 
-	/**  �Ƴ�ָ��Ҫ�����͵�����Ҫ��
-	*	 @param [in] fclsid Ҫ�����͵�ΨһID  
-	*    @return ��  
+	/**  移除指定要素类型的所有要素
+	*	 @param [in] fclsid 要素类型的唯一ID
+	*    @return 无
 	*/
 	FeatureVectorSharedPtr removeFeatures(const FCLSID &fclsid);
 
 
 
-	/**  �����ݼ���ͨ��FCLSIDȷ��Ӧ�ò����ĸ����������У�������
-	*	 @param [in] fsp Ҫ������ʱ���ݼ��ϵ�Feature�Ĺ���ָ��  
-	*    @return ��    
+	/**  在数据集合通过FCLSID确定应该插入哪个向量数组中，并加入
+	*	 @param [in] fsp 要加入临时数据集合的Feature的共享指针
+	*    @return 无
 	*/
 	void addFeature(FeatureSharedPtr fsp);
-	/**  �����ݼ���ͨ��FCLSID��FIDȷ��Ӧ���Ƴ��ĸ�Ҫ�ض��󣬲�����ʱ�������Ƴ���
-	*	 @param [in] fclsid Ҫ������ID
-	*	 @param [in] fid Ҫ��ID
-	*    @return ��    
-	*/ 
-	FeatureSharedPtr removeFeature(const FCLSID &fclsid,const FID &fid);
+	/**  在数据集合通过FCLSID和FID确定应该移除哪个要素对象，并从临时集合中移除入
+	*	 @param [in] fclsid 要素类型ID
+	*	 @param [in] fid 要素ID
+	*    @return 无
+	*/
+	FeatureSharedPtr removeFeature(const FCLSID &fclsid, const FID &fid);
 
-	/**  ��ȡ���ݼ����е�����Fclsid
-	*	 @param [in] fclsids   �����洢����FCLSID��vector����
-	*    @return ��    
+	/**  获取数据集合中的所有Fclsid
+	*	 @param [in] fclsids   用来存储所有FCLSID的vector引用
+	*    @return 无
 	*/
 	void getAllFclsid(vector<FCLSID> &fclsids);
-	/**  ���Map
-	*	 @param ��  
-	*    @return ��    
+	/**  清空Map
+	*	 @param 无
+	*    @return 无
 	*/
-	void clear( );
+	void clear();
 
-	/** @} */ 
+	/** @} */
 
 };
 typedef std::shared_ptr<TempSet> TempSetSharedPtr;
-/** @} */ 
+/** @} */
 
 
 /** @addtogroup TemporarySets    TemporarySets
 *  @{
 */
-class CORE_API TemporarySets
+class GV3DCORE_API TemporarySets
 {
-	/** @name ������Ա����˵��  
+	/** @name 保护成员变量说明
 	*  @{
 	*/
 protected:
-	/**��ʱ���ݼ����б�*/
+	/**临时数据集的列表*/
 	std::list<TempSetSharedPtr>  _data;
 
-	/** @} */  
+	/** @} */
 public:
-	/** @name ����������������
+	/** @name 构造与析构函数集
 	*  @{
 	*/
 	TemporarySets(void);
 	virtual ~TemporarySets(void);
-	/** @} */  
+	/** @} */
 public:
-	/** @name ������������  
+	/** @name 操作函数集合
 	*  @{
 	*/
-	/**  �ڼ����д���һ��ָ����������ʱ���ݼ���������Ψһ��ʶ����������ɹ��򷵻�ָ�룬���򷵻ؿ�ָ��
-	*	 @param [in]  strSetName Ҫ��������ʱ���ݼ�������  
-	*    @return ��������ɹ��������TemporarySets�У�����ָ�룬���򷵻ؿ�ָ�룻ע�ⷵ�ص�ָ�벻��Ҫ�ⲿ��������    
+	/**  在集合中创建一个指定命名的临时数据集，名称是唯一标识，如果创建成功则返回指针，否则返回空指针
+	*	 @param [in]  strSetName 要创建的临时数据集的名称
+	*    @return 如果创建成功，则加入TemporarySets中，返回指针，否则返回空指针；注意返回的指针不需要外部进行销毁
 	*/
 	TempSetSharedPtr newTempSet(const std::string &strSetName);
-	/**  �Ӽ����в���һ��ָ����������ʱ���ݼ���������Ψһ��ʶ��������ҵ��򷵻�ָ�룬���򷵻ؿ�ָ��
-	*	 @param [in]  strSetName ��ʱ���ݼ�������  
-	*    @return ����ɹ�����ָ�룬���򷵻ؿ�ָ�룻ע�ⷵ�ص�ָ�벻��Ҫ�ⲿ��������    
+	/**  从集合中查找一个指定命名的临时数据集，名称是唯一标识，如果查找到则返回指针，否则返回空指针
+	*	 @param [in]  strSetName 临时数据集的名称
+	*    @return 如果成功返回指针，否则返回空指针；注意返回的指针不需要外部进行销毁
 	*/
 	TempSetSharedPtr findTempSet(const std::string &strSetName);
-	/**  �Ӽ����в��ҵ�i��tempset
-	*	 @param [in]    �±�i
-	*    @return ����ɹ�����ָ�룬���򷵻ؿ�ָ�룻ע�ⷵ�ص�ָ�벻��Ҫ�ⲿ��������    
+	/**  从集合中查找第i个tempset
+	*	 @param [in]    下标i
+	*    @return 如果成功返回指针，否则返回空指针；注意返回的指针不需要外部进行销毁
 	*/
 	TempSetSharedPtr getTempSetAt(const size_t &i);
-	/**  �Ӽ����л�ȡ��i��tempset
-	*	 @param [in]    �±�i
-	*    @return ����ɹ�����ָ�룬���򷵻ؿ�ָ�룻ע�ⷵ�ص�ָ�벻��Ҫ�ⲿ��������    
+	/**  从集合中获取第i个tempset
+	*	 @param [in]    下标i
+	*    @return 如果成功返回指针，否则返回空指针；注意返回的指针不需要外部进行销毁
 	*/
 	TempSetSharedPtr operator () (size_t i);
-	/**  �Ӽ�����ɾ����i��tempset
-	*	 @param [in]    strSetName ��ʱ���ݼ�������
-	*    @return ����ɹ�����ָ�룬���򷵻ؿ�ָ�룻ע�ⷵ�ص�ָ�벻��Ҫ�ⲿ��������    
+	/**  从集合中删除第i个tempset
+	*	 @param [in]    strSetName 临时数据集的名称
+	*    @return 如果成功返回指针，否则返回空指针；注意返回的指针不需要外部进行销毁
 	*/
 	TempSetSharedPtr removeTempSet(const std::string &strSetName);
-	/**  ��ȡ�������ʱ������
-	*	 @param ��
-	*    @return ���ع������ʱ������ 
+	/**  获取管理的临时集个数
+	*	 @param 无
+	*    @return 返回管理的临时集个数
 	*/
-	inline size_t size(){	return _data.size();}
-	/**  ���TemporarySets���ú��������������Զ����ã�Ҳ�������û���ε���
-	*	 @param [in]      ��  
-	*    @return ��    
+	inline size_t size(){ return _data.size(); }
+	/**  清空TemporarySets，该函数由析构函数自动调用，也可以由用户多次调用
+	*	 @param [in]      无
+	*    @return 无
 	*/
 	void clear();
-	/** @} */ 
+	/** @} */
 
 };
 
-/** @} */ 
+/** @} */
 
 end_gdb_namespace
 end_cug_namespace

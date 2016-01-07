@@ -173,31 +173,31 @@ const double  PI        =  3.141592653589793238462643383279502884197169399375105
 #include "config_env.h"
 
 class Envelope3d;
-/** @defgroup Config  Config-ȫ�������� 
+/** @defgroup Config  Config-全局配置类
 *  @{
 */
-class CORE_API Config {
+class GV3DCORE_API Config {
 
 	std::locale _loc;
 	static string   shaderPath;
 	static string   imagePath;
-private:	
-	static int  textureFileModel;//	TextureReadModel //0����IO��С�����ļ���1����IO���������ļ���2�����ڴ�ӳ�������ļ�
-	static int 	featureFileModel; //1����IO����д��0����IO�ڴ�ӳ���ļ���д
+private:
+	static int  textureFileModel;//	TextureReadModel //0代表IO流小纹理文件，1代表IO流大纹理文件，2代表内存映射纹理文件
+	static int 	featureFileModel; //1代表IO流读写，0代表IO内存映射文件读写
 private:
 	static Envelope3d defaultQueryEnvelope;
-	static double unloadDistance;//����unloadDistance�����ʱ�򣬴��ڴ���ж�أ�
-	static double loadDistance;//С��loadDistance�����ʱ�򣬲����ڴ���ж�أ�	
-	static unsigned int  numberOfAddFeaturesPreframe;//ÿһ֡�ص����볡���е����Ҫ�ظ���
-	static unsigned int cachedTexturesOfRender;//��Ⱦ�����е��������С����λΪ�������
-	static unsigned int cachedSharedModelsOfRender;//��Ⱦ�����еĹ���ģ�ͻ����С����λΪ�������
+	static double unloadDistance;//大于unloadDistance距离的时候，从内存中卸载；
+	static double loadDistance;//小于loadDistance距离的时候，不从内存中卸载；	
+	static unsigned int  numberOfAddFeaturesPreframe;//每一帧回调加入场景中的最大要素个数
+	static unsigned int cachedTexturesOfRender;//渲染引擎中的纹理缓存大小，单位为纹理个数
+	static unsigned int cachedSharedModelsOfRender;//渲染引擎中的共享模型缓存大小，单位为纹理个数
 private:
-	static unsigned int versionFileDB;//�ļ����ݿ�汾
-	static unsigned int versionRDB;//��ϵ���ݿ�汾
+	static unsigned int versionFileDB;//文件数据库版本
+	static unsigned int versionRDB;//关系数据库版本
 private:
-	static unsigned  int cachedBlockNumber;//������������������
-	static unsigned int useSameBlockID4DomDem;//DEM��DOM���ID�Ƿ��Ӧ
-private://ͶӰ����
+	static unsigned  int cachedBlockNumber;//缓存中网格块的最大个数
+	static unsigned int useSameBlockID4DomDem;//DEM和DOM块的ID是否对应
+private://投影参数
 	static double fovy;
 	static double zNear;
 	static double zFar;
@@ -211,21 +211,21 @@ private://Display Mode
 	RIGHT_EYE=5,
 	HORIZONTAL_INTERLACE=6,
 	VERTICAL_INTERLACE=7,
-	CHECKERBOARD=8*/	 
+	CHECKERBOARD=8*/
 	static unsigned int stereoMode;
 private://Dynamic Dispaching
 	static unsigned int dispachMode;
 public:
 	static int cameraLightStatus;
 private:
-	static unsigned int currentCommand;//��ǰ��ť��ID	
-public:		
+	static unsigned int currentCommand;//当前按钮的ID	
+public:
 	Config();
 public:
 	static string   getShaderPath();
 	static string   getImagePath();
-	static void   setShaderPath(string );
-	static void   setImagePath(string );
+	static void   setShaderPath(string);
+	static void   setImagePath(string);
 	static int getTextureFileModel();
 	static int getFeatureFileModel();
 	static Envelope3d&  getDefaultQueryEnvelope();
@@ -235,11 +235,11 @@ public:
 	static double getZNear();
 	static double getZFar();
 	static int getNumberOfAddFeaturesPreframe();
-	static unsigned int getCachedTexturesOfRender();//��Ⱦ�����е��������С����λΪ�������
-	static unsigned int getCachedSharedModelsOfRender();//��Ⱦ�����еĹ���ģ�ͻ����С����λΪ�������
-	static unsigned int getCachedBlockNumber();//������������������
-	static unsigned int  getFDBVersion();//��ȡ�ļ���汾
-	static unsigned int  getRDBVersion();//��ȡ���ݿ�汾
+	static unsigned int getCachedTexturesOfRender();//渲染引擎中的纹理缓存大小，单位为纹理个数
+	static unsigned int getCachedSharedModelsOfRender();//渲染引擎中的共享模型缓存大小，单位为纹理个数
+	static unsigned int getCachedBlockNumber();//缓存中网格块的最大个数
+	static unsigned int  getFDBVersion();//获取文件库版本
+	static unsigned int  getRDBVersion();//获取数据库版本
 	static unsigned int  sameID4DEMDOMBlock();
 	static int getCameraLightStatus();
 	static void enableStereo(bool s = true);
@@ -248,18 +248,18 @@ public:
 	static bool isDynamicDispatching();
 	static std::vector<unsigned long long> & getCacheSizes();
 public:
-	enum{//Ӧ�ó����й̶��Ĳ������һ����Щ������Ѿ���Render��װ��
-		APP_COMMAND_UNKNOWN=0,
-		APP_COMMAND_SELECT,//ѡ��
-		APP_COMMAND_ROTATE,//�����ת
-		APP_COMMAND_ZOOM,//�Ҽ�����
-		APP_COMMAND_TRANSLATE,//�м�ƽ��
+	enum{//应用程序中固定的操作命令，一般这些命令功能已经由Render封装了
+		APP_COMMAND_UNKNOWN = 0,
+		APP_COMMAND_SELECT,//选择
+		APP_COMMAND_ROTATE,//左键旋转
+		APP_COMMAND_ZOOM,//右键缩放
+		APP_COMMAND_TRANSLATE,//中键平移
 		APP_COMMAND_END
 	};
 	static unsigned int getCurrentCommand();
 	static void setCurrentCommand(unsigned int cmd);
-	static unsigned int beginPluginCommand();//��ȡ���в��������СCommandID
-	static unsigned int endPluginCommand();//��ȡ���в���������CommandID
+	static unsigned int beginPluginCommand();//获取所有插件集的最小CommandID
+	static unsigned int endPluginCommand();//获取所有插件集的最大CommandID
 };
 /** @} */
 

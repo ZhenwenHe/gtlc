@@ -9,7 +9,7 @@
 * provided that the above copyright notice appear in all copies and
 * that both that copyright notice and this permission notice appear
 * in supporting documentation.  Zhenwen He  makes no  representations
-* about the suitability of this software for any purpose. 
+* about the suitability of this software for any purpose.
 * It is provided "as is" without express or implied warranty.
 */
 #pragma once
@@ -29,12 +29,12 @@ begin_edu_namespace
 begin_cug_namespace
 begin_gdb_namespace
 
-/** @defgroup Identifier Identifier-Ψһ��ʶ
-* ��ʵ����һ��64λ������  
+/** @defgroup Identifier Identifier-唯一标识
+* 其实质是一个64位长整数
 *  @{
 */
-class CORE_API Identifier{
-	/** @name ULONGNumber 32λ����������  
+class GV3DCORE_API Identifier{
+	/** @name ULONGNumber 32位整数联合体
 	*  @{
 	*/
 	union ULONGNumber
@@ -42,74 +42,74 @@ class CORE_API Identifier{
 		unsigned long ns;
 		unsigned char bs[4];
 	};
-	/** @} */ 
+	/** @} */
 
-	/** @name 64λ����������  
+	/** @name 64位整数联合体
 	*  @{
 	*/
 	union {
-		struct 	{			
-			/** �û�ID���� */
+		struct 	{
+			/** 用户ID区域 */
 			unsigned char user_id;
-			/** �Զ��������� */
+			/** 自动增加区域 */
 			unsigned char numbers[3];
-			/** ID����ʱ�� */
+			/** ID生成时间 */
 			unsigned long time_stamp;
 		}_sid;
-		/** 64λԭʼֵ */
+		/** 64位原始值 */
 		unsigned long long  _id;
-		/** ��BYTE��ʾ��64λֵ */
-		unsigned char _bid[8]; 
-	} ;
-	/** @} */ 
+		/** 以BYTE表示的64位值 */
+		unsigned char _bid[8];
+	};
+	/** @} */
 
 public:
-	/** @name ԭʼֵ���Ͷ���  
+	/** @name 原始值类型定义
 	*  @{
 	*/
 	typedef unsigned long long raw_type;
-	/** @} */ 
+	/** @} */
 public:
-	/** @name ����������������  
+	/** @name 构造与析构函数集
 	*  @{
 	*/
-	/** ��������û�ID����Identifier */
+	/** 采用随机用户ID生成Identifier */
 	Identifier();
-	Identifier(int l ) {_id =l;}
-	Identifier(unsigned long l ) {_id =l;}
-	Identifier(unsigned int l ) {_id =l;}
-	Identifier(unsigned long long l ) {_id =l;}
-	Identifier(double l ) {_id = (unsigned long long)l;}
-	Identifier(unsigned char user_id );
+	Identifier(int l) { _id = l; }
+	Identifier(unsigned long l) { _id = l; }
+	Identifier(unsigned int l) { _id = l; }
+	Identifier(unsigned long long l) { _id = l; }
+	Identifier(double l) { _id = (unsigned long long)l; }
+	Identifier(unsigned char user_id);
 	Identifier(const Identifier & ids);
-	/** @} */ 	
+	/** @} */
 public:
-	/** @name ��̬���ɺ�����  
+	/** @name 静态生成函数集
 	*  @{
 	*/
-	/**  ����һ��ֵΪ0��ID����
-	*	 @param ��
-	*   @return Identifier����     
+	/**  生成一个值为0的ID对象
+	*	 @param 无
+	*   @return Identifier对象
 	*/
-	static Identifier zero() {	return Identifier(0);}
-	/**  ����һ��Ψһ��ԭʼIDֵ��Ϊһ��64λ����
-	*	 @param ��
-	*   @return ����ԭʼ64λID    
+	static Identifier zero() { return Identifier(0); }
+	/**  生成一个唯一的原始ID值，为一个64位整数
+	*	 @param 无
+	*   @return 返回原始64位ID
 	*/
-	static raw_type  generate() ;
-	/** @} */  
+	static raw_type  generate();
+	/** @} */
 public:
-	/** @name ��ȡIdentifier��ֵ  
+	/** @name 获取Identifier的值
 	*  @{
 	*/
 	inline unsigned long long  get() { return _id; }
 	inline const unsigned long long  get() const { return _id; }
-	inline unsigned long getTimestamp(){ return _sid.time_stamp;}
-	inline unsigned char getUserID() { return _sid.user_id;}
-	inline unsigned char * getBytes(){return _bid;}
-	/** @} */ 
+	inline unsigned long getTimestamp(){ return _sid.time_stamp; }
+	inline unsigned char getUserID() { return _sid.user_id; }
+	inline unsigned char * getBytes(){ return _bid; }
+	/** @} */
 public:
-	/** @name ��ֵ�Ⱥ�����  
+	/** @name 赋值等号重载
 	*  @{
 	*/
 	Identifier operator = (const Identifier&  ids);
@@ -117,167 +117,167 @@ public:
 	Identifier operator = (int  ids);
 	Identifier operator = (unsigned int  ids);
 	Identifier operator = (unsigned long   ids);
-	/** @} */ 
+	/** @} */
 
-	/** @name ����ת����������  
+	/** @name 类型转换操作重载
 	*  @{
 	*/
-	operator unsigned long long  () { return _id; }
-	operator unsigned long  () { return (unsigned long)_id; }
-	operator unsigned int () { return (unsigned int )_id; }
+	operator unsigned long long() { return _id; }
+	operator unsigned long() { return (unsigned long)_id; }
+	operator unsigned int() { return (unsigned int)_id; }
 	operator int() { return (int)_id; }
 	unsigned long long * operator &() { return &_id; }
-	/** @} */ 	
+	/** @} */
 public:
 
-	/** @name ��̬��Ԫ��������  
+	/** @name 静态友元符号重载
 	*  @{
 	*/
-	friend bool operator==(const Identifier & id1,const Identifier & id2);
-	friend bool operator==(const Identifier & id1,unsigned long long  id2);
+	friend static bool operator==(const Identifier & id1, const Identifier & id2);
+	friend static bool operator==(const Identifier & id1, unsigned long long  id2);
 
-	friend bool operator!=(const Identifier & id1,const Identifier & id2);
-	friend bool operator!=(const Identifier & id1,unsigned long long  id2);
+	friend static bool operator!=(const Identifier & id1, const Identifier & id2);
+	friend static bool operator!=(const Identifier & id1, unsigned long long  id2);
 
-	friend bool operator<(const Identifier & id1,const Identifier & id2);
-	friend bool operator<(const Identifier & id1,unsigned long long  id2);
+	friend static bool operator<(const Identifier & id1, const Identifier & id2);
+	friend static bool operator<(const Identifier & id1, unsigned long long  id2);
 
-	friend bool operator>(const Identifier & id1,const Identifier & id2);
-	friend bool operator>(const Identifier & id1,unsigned long long  id2);
-
-
-	friend Identifier operator-(const Identifier & id1,const Identifier & id2);
-	friend Identifier operator-(const Identifier & id1,unsigned long long  id2);
-
-	friend Identifier operator+(const Identifier & id1,const Identifier & id2);
-	friend Identifier operator+(const Identifier & id1,unsigned long long  id2);
+	friend static bool operator>(const Identifier & id1, const Identifier & id2);
+	friend static bool operator>(const Identifier & id1, unsigned long long  id2);
 
 
-	friend std::ostream & operator <<( std::ostream & s,const Identifier & id1);
-	friend std::istream & operator >>( std::istream & s,const Identifier & id1);
+	friend static Identifier operator-(const Identifier & id1, const Identifier & id2);
+	friend static Identifier operator-(const Identifier & id1, unsigned long long  id2);
 
-	/** @} */ 
+	friend static Identifier operator+(const Identifier & id1, const Identifier & id2);
+	friend static Identifier operator+(const Identifier & id1, unsigned long long  id2);
+
+
+	friend static std::ostream & operator <<(std::ostream & s, const Identifier & id1);
+	friend static std::istream & operator >>(std::istream & s, const Identifier & id1);
+
+	/** @} */
 public:
-	/** @name ����д����
+	/** @name 流读写操作
 	*  @{
 	*/
 	virtual void  write(std::ostream & f);
 	virtual void  read(std::istream & f);
-	/** @} */ 
+	/** @} */
 };
 
-/** @name ȫ�ֵ�0ֵIdentifer����  
+/** @name 全局的0值Identifer对象
 *  @{
 */
 static const Identifier ZEROID = Identifier::zero();
-/** @} */ 
+/** @} */
 
-/** @} */ 
+/** @} */
 
 
-/** @addtogroup Identifier  Identifier����ⲿ��̬�������غ�����
+/** @addtogroup Identifier  Identifier类的外部静态符号重载函数集
 *  @{
 */
-bool operator==(const Identifier & id1,const Identifier & id2){
-	return id1._id==id2._id;
+static bool operator==(const Identifier & id1, const Identifier & id2){
+	return id1._id == id2._id;
 }
 
-bool operator==(const Identifier & id1,unsigned long long  id2){
-	return id1._id==id2;
+static bool operator==(const Identifier & id1, unsigned long long  id2){
+	return id1._id == id2;
 }
 
-bool operator!=(const Identifier & id1,const Identifier & id2){
-	return id1._id!=id2._id;
+static bool operator!=(const Identifier & id1, const Identifier & id2){
+	return id1._id != id2._id;
 }
 
-bool operator!=(const Identifier & id1,unsigned long long  id2){
-	return id1._id!=id2;
+static bool operator!=(const Identifier & id1, unsigned long long  id2){
+	return id1._id != id2;
 }
 
-bool operator>(const Identifier & id1,const Identifier & id2){
+static bool operator>(const Identifier & id1, const Identifier & id2){
 	return id1._id>id2._id;
 }
 
-bool operator>(const Identifier & id1,unsigned long long  id2){
+static bool operator>(const Identifier & id1, unsigned long long  id2){
 	return id1._id>id2;
 }
 
-bool operator<(const Identifier & id1,const Identifier & id2){
+static bool operator<(const Identifier & id1, const Identifier & id2){
 	return id1._id<id2._id;
 }
 
-bool operator<(const Identifier & id1,unsigned long long  id2){
+static bool operator<(const Identifier & id1, unsigned long long  id2){
 	return id1._id<id2;
 }
 
-Identifier operator+(const Identifier & id1,const Identifier & id2){
-	return Identifier(id1._id+id2._id);
+static Identifier operator+(const Identifier & id1, const Identifier & id2){
+	return Identifier(id1._id + id2._id);
 }
 
-Identifier operator+(const Identifier & id1,unsigned long long  id2){
-	return Identifier(id1._id+id2);
+static Identifier operator+(const Identifier & id1, unsigned long long  id2){
+	return Identifier(id1._id + id2);
 }
 
-Identifier operator-(const Identifier & id1,const Identifier & id2){
-	return Identifier(id1._id-id2._id);
+static Identifier operator-(const Identifier & id1, const Identifier & id2){
+	return Identifier(id1._id - id2._id);
 }
 
-Identifier operator-(const Identifier & id1,unsigned long long  id2){
-	return Identifier(id1._id-id2);
+static Identifier operator-(const Identifier & id1, unsigned long long  id2){
+	return Identifier(id1._id - id2);
 }
 
 
-std::ostream & operator <<( std::ostream & s,const Identifier & id1){
-	s<< id1._id;
+static std::ostream & operator <<(std::ostream & s, const Identifier & id1){
+	s << id1._id;
 	return s;
 }
 
-std::istream & operator >>( std::istream & s,const Identifier & id1){
-	s>> id1._id;
+static std::istream & operator >>(std::istream & s, const Identifier & id1){
+	s >> id1._id;
 	return s;
 }
 
-/** @} */ 
+/** @} */
 
 
-/** @addtogroup Identifier  ϵͳ����ID���Ͷ���
+/** @addtogroup Identifier  系统常用ID类型定义
 *  @{
 */
-/** ����ID */
-typedef unsigned long long PRJID; 
-/** ����ID */
+/** 工程ID */
+typedef unsigned long long PRJID;
+/** 分区ID */
 typedef unsigned long long REGID;
-/** ������ID */
-typedef REGID             WKSPID ;
-/** Ҫ������ID */
+/** 工作区ID */
+typedef REGID             WKSPID;
+/** 要素类型ID */
 typedef unsigned long long FCLSID;
-/** Ҫ��ID */
-typedef unsigned long long FID; 
-/** Ҫ�ؼ�ID */
+/** 要素ID */
+typedef unsigned long long FID;
+/** 要素集ID */
 typedef unsigned long long FSID;
-/** Ҫ��LOD��ID */
+/** 要素LOD的ID */
 typedef unsigned long long FLOD;
-/** ����ID */
-typedef unsigned long long TEXID; 
-/** ͼ��ID */
+/** 纹理ID */
+typedef unsigned long long TEXID;
+/** 图层ID */
 typedef unsigned long long LYRID;
-/** ����ģ�͵�ID */
-typedef unsigned long long MDLID; 
-/** �ռ�ο�ϵͳID */
+/** 共用模型的ID */
+typedef unsigned long long MDLID;
+/** 空间参考系统ID */
 typedef unsigned long long SREFID;
-/** �û���¼���ݸ���ʱ�� */
+/** 用户记录数据更新时间 */
 typedef unsigned long long GDBTIME;
-/** ����ID */
+/** 材质ID */
 typedef unsigned long long MATID;
-/** ע��ID */
+/** 注记ID */
 typedef unsigned long long ANNOID;
-/** ����ר�⼯ID */
+/** 语义专题集ID */
 typedef unsigned long long SEMID;
-/** ��ϵ��ID */
+/** 关系类ID */
 typedef unsigned long long RELID;
-/** �������˶���ID; */
+/** 语义拓扑对象ID; */
 typedef unsigned long long TID;
-/** @} */ 
+/** @} */
 
 end_gdb_namespace
 end_cug_namespace

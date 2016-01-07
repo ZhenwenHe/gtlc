@@ -30,201 +30,6 @@
     <ClInclude Include="targetver.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="inc\bitset.h">
-      <Filter>inc</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\buffer.h">
-      <Filter>inc</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\bufferstream.h">
-      <Filter>inc</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\builder.h">
-      <Filter>inc</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\Builders.h">
-      <Filter>inc</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\color.h">
-      <Filter>inc</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\ColoredVertex3d.h">
-      <Filter>inc</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\ColoredVertex3f.h">
-      <Filter>inc</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\config.h">
-      <Filter>inc</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\connector.h">
-      <Filter>inc</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\Console.h">
-      <Filter>inc</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\describablebuffer.h">
-      <Filter>inc</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\envelope2d.h">
-      <Filter>inc</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\envelope3d.h">
-      <Filter>inc</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\factory.h">
-      <Filter>inc</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\feature.h">
-      <Filter>inc</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\frustum.h">
-      <Filter>inc</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\geometry.h">
-      <Filter>inc</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\geometry2d.h">
-      <Filter>inc</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\geometry3d.h">
-      <Filter>inc</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\globalfuns.h">
-      <Filter>inc</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\identifier.h">
-      <Filter>inc</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\image.h">
-      <Filter>inc</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\indexbuffer.h">
-      <Filter>inc</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\lock.h">
-      <Filter>inc</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\material.h">
-      <Filter>inc</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\mathex.h">
-      <Filter>inc</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\matrix.h">
-      <Filter>inc</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\matrix3x3.h">
-      <Filter>inc</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\matrix4x4.h">
-      <Filter>inc</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\mesh.h">
-      <Filter>inc</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\meshbuilder.h">
-      <Filter>inc</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\meshproxy.h">
-      <Filter>inc</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\plugins.h">
-      <Filter>inc</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\property.h">
-      <Filter>inc</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\proxy.h">
-      <Filter>inc</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\quaternion.h">
-      <Filter>inc</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\ray.h">
-      <Filter>inc</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\render.h">
-      <Filter>inc</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\selector.h">
-      <Filter>inc</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\ShadedVertex3d.h">
-      <Filter>inc</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\ShadedVertex3f.h">
-      <Filter>inc</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\sharedModel.h">
-      <Filter>inc</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\sphere3d.h">
-      <Filter>inc</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\temporaryset.h">
-      <Filter>inc</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\terrain.h">
-      <Filter>inc</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\terrainbuilder.h">
-      <Filter>inc</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\terrainproxy.h">
-      <Filter>inc</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\texture.h">
-      <Filter>inc</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\TexturedVertex3d.h">
-      <Filter>inc</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\TexturedVertex3f.h">
-      <Filter>inc</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\topology.h">
-      <Filter>inc</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\tritool.h">
-      <Filter>inc</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\value.h">
-      <Filter>inc</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\valutils.h">
-      <Filter>inc</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\VersatileVertex3d.h">
-      <Filter>inc</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\VersatileVertex3f.h">
-      <Filter>inc</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\vertex2d.h">
-      <Filter>inc</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\vertex2f.h">
-      <Filter>inc</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\vertex3d.h">
-      <Filter>inc</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\vertex3f.h">
-      <Filter>inc</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\vertex4d.h">
-      <Filter>inc</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\vertexbuffer.h">
-      <Filter>inc</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\vertexcollection2d.h">
-      <Filter>inc</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\vertexvisitor.h">
-      <Filter>inc</Filter>
-    </ClInclude>
     <ClInclude Include="src\internal_AABBoxImpl.h">
       <Filter>src</Filter>
     </ClInclude>
@@ -407,6 +212,213 @@
     </ClInclude>
     <ClInclude Include="src\internal_workspaceimpl.h">
       <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\bitset.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\buffer.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\bufferstream.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\builder.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\builders.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\color.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\coloredvertex3d.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\coloredvertex3f.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\config.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\config_env.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\config_linux.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\config_macxos.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\config_windows.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\connector.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\console.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\describablebuffer.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\envelope2d.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\envelope3d.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\factory.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\feature.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\frustum.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\geometry.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\geometry2d.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\geometry3d.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\globalfuns.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\identifier.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\image.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\indexbuffer.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\lock.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\material.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\mathex.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\matrix.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\matrix3x3.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\matrix4x4.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\mesh.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\meshbuilder.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\meshproxy.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\plugins.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\property.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\proxy.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\quaternion.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\ray.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\render.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\selector.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\shadedvertex3d.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\shadedvertex3f.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\sharedmodel.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\sphere3d.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\temporaryset.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\terrain.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\terrainbuilder.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\terrainproxy.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\texture.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\texturedvertex3d.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\texturedvertex3f.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\topology.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\tritool.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\value.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\valutils.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\versatilevertex3d.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\versatilevertex3f.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\vertex2d.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\vertex2f.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\vertex3d.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\vertex3f.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\vertex4d.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\vertexbuffer.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\vertexcollection2d.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\vertexvisitor.h">
+      <Filter>inc</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

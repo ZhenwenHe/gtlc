@@ -10,7 +10,7 @@ Vertex2d::Vertex2d() :x(0), y(0){	}
 
 Vertex2d::Vertex2d(double xx, double yy) : x(xx), y(yy){	}
 
-Vertex2d::Vertex2d(Vertex2d & vt)	{
+Vertex2d::Vertex2d(const Vertex2d & vt)	{
 	x = vt.x; y = vt.y;
 }
 

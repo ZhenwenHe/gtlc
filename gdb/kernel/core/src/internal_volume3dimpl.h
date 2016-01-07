@@ -14,12 +14,12 @@
 */
 #pragma once 
 #include "internal_geometry3dimpl.h"
-begin_cn_namespace
-begin_edu_namespace
-begin_cug_namespace
+
+
+begin_gtl_namespace
 begin_gdb_namespace
 
-class Volume3dImpl 	: public Geometry3dImpl, virtual public cn::edu::cug::gdb::Volume3d
+class Volume3dImpl 	: public Geometry3dImpl, virtual public Volume3d
 {
 	/** @defgroup Volume3dImpl Volume3dImpl-三维体（抽象基类）
 	*  @{
@@ -74,8 +74,8 @@ public:
 	* @param  无
 	* @return 对象位置坐标访问器指针
 	*/
-	virtual cn::edu::cug::gdb::VertexVisitorSharedPtr getVertexVisitor(){
-		cn::edu::cug::gdb::VertexVisitorSharedPtr p = VertexVisitor::create(m_iVertexType);
+	virtual VertexVisitorSharedPtr getVertexVisitor(){
+		VertexVisitorSharedPtr p = VertexVisitor::create(m_iVertexType);
 		p->set(m_vVertices, m_lVertNum, m_iVertexType);
 		return p;
 	}
@@ -131,9 +131,9 @@ public:
 	*/
 	virtual bool queryInterface(int signal, void ** p){
 		switch (signal){
-		case cn::edu::cug::gdb::GEOMTYPE_3D_VOLUME:
+		case GEOMTYPE_3D_VOLUME:
 		{
-			*p = (void*)(cn::edu::cug::gdb::Volume3d *) this;
+			*p = (void*)(Volume3d *) this;
 			return true;
 		}
 		default:
@@ -234,6 +234,6 @@ public:
 	/** @} */ // 模块结尾
 };
 end_gdb_namespace
-end_cug_namespace
-end_edu_namespace
-end_cn_namespace
+end_gtl_namespace
+
+

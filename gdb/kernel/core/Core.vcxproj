@@ -198,7 +198,6 @@
     <ClInclude Include="inc\mesh.h" />
     <ClInclude Include="inc\meshbuilder.h" />
     <ClInclude Include="inc\meshproxy.h" />
-    <ClInclude Include="inc\plugins.h" />
     <ClInclude Include="inc\property.h" />
     <ClInclude Include="inc\proxy.h" />
     <ClInclude Include="inc\quaternion.h" />
@@ -322,6 +321,7 @@
     <ClCompile Include="src\colortable.cpp" />
     <ClCompile Include="src\ComplexMaterialImpl.cpp" />
     <ClCompile Include="src\config.cpp" />
+    <ClCompile Include="src\config_env.cpp" />
     <ClCompile Include="src\Connector.cpp" />
     <ClCompile Include="src\console.cpp" />
     <ClCompile Include="src\Cube3dImpl.cpp" />

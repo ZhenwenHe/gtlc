@@ -1,9 +1,9 @@
 #include "internal_cube3dimpl.h"
 #include "mathex.h"
 #include "internal_spatialfuns.h"
-begin_cn_namespace
-begin_edu_namespace
-begin_cug_namespace
+
+
+begin_gtl_namespace
 begin_gdb_namespace
 double Cube3dImpl::Length() const
 {
@@ -338,6 +338,5 @@ int Cube3dImpl::RGeoWithPolygon2D(vector<Vertex3d>& ptArray, int precisionFlag)
 }
 
 end_gdb_namespace
-end_cug_namespace
-end_edu_namespace
-end_cn_namespace
+end_gtl_namespace
+

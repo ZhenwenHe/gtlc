@@ -3,9 +3,9 @@
 
 
 
-begin_cn_namespace
-begin_edu_namespace
-begin_cug_namespace
+
+
+begin_gtl_namespace
 begin_gdb_namespace
 
 Matrix::Matrix(int iDim,double* const pData)
@@ -276,6 +276,6 @@ Matrix3x3::Matrix3x3(const Vertex3d& rowV1,const Vertex3d& rowV2,const Vertex3d&
 	m_dData[6] = rowV3.x;  m_dData[7] = rowV3.y;  m_dData[8] = rowV3.z;
 }
 end_gdb_namespace
-end_cug_namespace
-end_edu_namespace
-end_cn_namespace
+end_gtl_namespace
+
+

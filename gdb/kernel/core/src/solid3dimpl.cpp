@@ -5,37 +5,37 @@
 #include "internal_multipolygon3dimpl.h"
 #include "internal_polygon3dimpl.h"
 #include "internal_spatialfuns.h"
-begin_cn_namespace
-begin_edu_namespace
-begin_cug_namespace
+
+
+begin_gtl_namespace
 begin_gdb_namespace
  
 
-cn::edu::cug::gdb::Surface3d *  Solid3dImpl::newSurface(int signal){
-	cn::edu::cug::gdb::Surface3d * pSurf = 0;
+Surface3d *  Solid3dImpl::newSurface(int signal){
+	Surface3d * pSurf = 0;
 	if (signal == GEOTYPE_3D_TRIANGLEMESH)//11	
 	{
-		pSurf = (cn::edu::cug::gdb::Surface3d *)((Surface3dImpl*)new TriangleMesh3dImpl);
+		pSurf = (Surface3d *)((Surface3dImpl*)new TriangleMesh3dImpl);
 	}
 	else if (signal == GEOTYPE_3D_SURFACE)//2
 	{
-		pSurf = (cn::edu::cug::gdb::Surface3d *)(new Surface3dImpl);
+		pSurf = (Surface3d *)(new Surface3dImpl);
 	}
 	else if (signal == GEOTYPE_3D_PARAMETERIZEDSURFACE)//10
 	{
-		pSurf = (cn::edu::cug::gdb::Surface3d *)((Surface3dImpl*)new ParameterizedSurface3dImpl);
+		pSurf = (Surface3d *)((Surface3dImpl*)new ParameterizedSurface3dImpl);
 	}
 	else if (signal == GEOTYPE_3D_TRIANGLE)//12
 	{
-		pSurf = (cn::edu::cug::gdb::Surface3d *)((Surface3dImpl*)new Triangle3dImpl);
+		pSurf = (Surface3d *)((Surface3dImpl*)new Triangle3dImpl);
 	}
 	else if (signal == GEOTYPE_3D_MULTIPOLYGON)//13
 	{
-		pSurf = (cn::edu::cug::gdb::Surface3d *)((Surface3dImpl*)new MultiPolygon3dImpl);
+		pSurf = (Surface3d *)((Surface3dImpl*)new MultiPolygon3dImpl);
 	}
 	else if (signal == GEOTYPE_3D_POLYGON)//14
 	{
-		pSurf = (cn::edu::cug::gdb::Surface3d *)((Surface3dImpl*)new Polygon3dImpl);
+		pSurf = (Surface3d *)((Surface3dImpl*)new Polygon3dImpl);
 	}
 
 	if (pSurf)
@@ -442,6 +442,5 @@ int Solid3dImpl::RGeoWithPolygon2D(vector<Vertex3d>& ptArray, int precisionFlag)
 		return -1;
 }
 end_gdb_namespace
-end_cug_namespace
-end_edu_namespace
-end_cn_namespace
+end_gtl_namespace
+

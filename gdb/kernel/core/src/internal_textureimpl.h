@@ -14,9 +14,9 @@
 */
 #pragma once 
 #include "texture.h"
-begin_cn_namespace
-begin_edu_namespace
-begin_cug_namespace
+
+
+begin_gtl_namespace
 begin_gdb_namespace
 
 class TextureImpl : public Texture
@@ -169,10 +169,10 @@ public:
 
 public:
 
-	virtual cn::edu::cug::gdb::Identifier::raw_type getID() const {
+	virtual Identifier::raw_type getID() const {
 		return m_nTextureID;
 	}
-	virtual void setID(cn::edu::cug::gdb::Identifier::raw_type d) {
+	virtual void setID(Identifier::raw_type d) {
 		m_nTextureID = d;
 	}
 	virtual std::string getName() const {
@@ -211,6 +211,5 @@ public:
 	} 
 };
 end_gdb_namespace
-end_cug_namespace
-end_edu_namespace
-end_cn_namespace
+end_gtl_namespace
+

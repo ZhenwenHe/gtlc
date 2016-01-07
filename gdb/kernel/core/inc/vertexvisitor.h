@@ -26,9 +26,9 @@
 #include "versatilevertex3d.h"
 #include "versatilevertex3f.h"
 
-begin_cn_namespace
-begin_edu_namespace
-begin_cug_namespace
+
+
+begin_gtl_namespace
 begin_gdb_namespace
 
 /** @addtogroup vertex 点的类型
@@ -57,7 +57,7 @@ typedef VertexVisitor* VertexVisitorPtr;
 /** @addtogroup vertex VertexVisitor
 *  @{
 */
-class GV3DCORE_API VertexVisitor{
+class CORE_API VertexVisitor{
 
 protected:
 	/** 顶点列表 */
@@ -105,7 +105,7 @@ inline unsigned char VertexVisitor::getType() { return *_vertextype; }
 /** @addtogroup vertex Vertex3dVisitor
 *  @{
 */
-class GV3DCORE_API Vertex3dVisitor : public VertexVisitor{
+class CORE_API Vertex3dVisitor : public VertexVisitor{
 public:
 	virtual double & x(long i) = 0;
 	virtual double & y(long i) = 0;
@@ -115,7 +115,7 @@ public:
 /** @addtogroup vertex Vertex3fVisitor
 *  @{
 */
-class GV3DCORE_API Vertex3fVisitor : public VertexVisitor{
+class CORE_API Vertex3fVisitor : public VertexVisitor{
 public:
 	virtual float & x(long i) = 0;
 	virtual float & y(long i) = 0;
@@ -126,7 +126,7 @@ public:
 /** @addtogroup vertex TexturedVertex3fVisitor
 *  @{
 */
-class GV3DCORE_API TexturedVertex3fVisitor :public VertexVisitor {
+class CORE_API TexturedVertex3fVisitor :public VertexVisitor {
 public:
 	virtual float & x(long i) = 0;
 	virtual float & y(long i) = 0;
@@ -138,7 +138,7 @@ public:
 /** @addtogroup vertex TexturedVertex3dVisitor
 *  @{
 */
-class GV3DCORE_API TexturedVertex3dVisitor :public VertexVisitor {
+class CORE_API TexturedVertex3dVisitor :public VertexVisitor {
 public:
 	virtual double & x(long i) = 0;
 	virtual double & y(long i) = 0;
@@ -150,7 +150,7 @@ public:
 /** @addtogroup vertex ShadedVertex3fVisitor
 *  @{
 */
-class GV3DCORE_API ShadedVertex3fVisitor :public VertexVisitor {
+class CORE_API ShadedVertex3fVisitor :public VertexVisitor {
 public:
 	virtual float & x(long i) = 0;
 	virtual float & y(long i) = 0;
@@ -166,7 +166,7 @@ public:
 /** @addtogroup vertex ShadedVertex3dVisitor
 *  @{
 */
-class GV3DCORE_API ShadedVertex3dVisitor :public VertexVisitor {
+class CORE_API ShadedVertex3dVisitor :public VertexVisitor {
 public:
 	virtual double & x(long i) = 0;
 	virtual double & y(long i) = 0;
@@ -182,7 +182,7 @@ public:
 /** @addtogroup vertex VersatileVertex3fVisitor
 *  @{
 */
-class GV3DCORE_API VersatileVertex3fVisitor :public VertexVisitor {
+class CORE_API VersatileVertex3fVisitor :public VertexVisitor {
 public:
 	virtual float & x(long i) = 0;
 	virtual float & y(long i) = 0;
@@ -200,7 +200,7 @@ public:
 /** @addtogroup vertex VersatileVertex3dVisitor
 *  @{
 */
-class GV3DCORE_API VersatileVertex3dVisitor :public VertexVisitor {
+class CORE_API VersatileVertex3dVisitor :public VertexVisitor {
 public:
 	virtual double & x(long i) = 0;
 	virtual double & y(long i) = 0;
@@ -216,7 +216,7 @@ public:
 };
 /** @} */
 end_gdb_namespace
-end_cug_namespace
-end_edu_namespace
-end_cn_namespace
+end_gtl_namespace
+
+
 

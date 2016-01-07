@@ -14,12 +14,12 @@
 */
 #pragma once 
 #include "internal_surface3dimpl.h"
-begin_cn_namespace
-begin_edu_namespace
-begin_cug_namespace
+
+
+begin_gtl_namespace
 begin_gdb_namespace
 class Polygon3dImpl;
-class  Rectangle3dImpl : virtual public cn::edu::cug::gdb::Rectangle3d, virtual public Surface3dImpl
+class  Rectangle3dImpl : virtual public Rectangle3d, virtual public Surface3dImpl
 {
 	/** @defgroup Rectangle3dImpl Rectangle3dImpl-三维矩形
 	*  @{
@@ -174,6 +174,6 @@ public:
 	/** @} */ // 模块结尾
 };
 end_gdb_namespace
-end_cug_namespace
-end_edu_namespace
-end_cn_namespace
+end_gtl_namespace
+
+

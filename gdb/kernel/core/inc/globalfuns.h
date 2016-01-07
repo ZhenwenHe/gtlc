@@ -23,9 +23,9 @@
 #include <cmath>
 #include "config.h"
 
-begin_cn_namespace
-begin_edu_namespace
-begin_cug_namespace
+
+
+begin_gtl_namespace
 begin_gdb_namespace
 
 
@@ -94,11 +94,11 @@ std::basic_string<CharT> numberToString(NumericT num)
 		trim<CharT>(sz, ',');
 		return sz;
 	}
-	else if (oss.str().find_first_of('，') != std::basic_string<CharT>::npos){
+	/*else if (oss.str().find_first_of('，') != std::basic_string<CharT>::npos){
 		std::basic_string<CharT> sz = oss.str();
 		trim<CharT>(sz, '，');
 		return sz;
-	}
+	}*/
 	else{
 		return oss.str();
 	}
@@ -145,7 +145,7 @@ std::string getCurTime();
 
 
 end_gdb_namespace
-end_cug_namespace
-end_edu_namespace
-end_cn_namespace
+end_gtl_namespace
+
+
 

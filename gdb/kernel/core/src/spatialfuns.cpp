@@ -1,9 +1,9 @@
 #include "internal_spatialfuns.h"
 #include <vector>
 #include "envelope3d.h"
-begin_cn_namespace
-begin_edu_namespace
-begin_cug_namespace
+
+
+begin_gtl_namespace
 begin_gdb_namespace
 int GetPlaneEquation(Vertex3d &p1, Vertex3d &p2, Vertex3d &p3, PLANE3D& plane)
 {
@@ -3298,7 +3298,7 @@ typedef std::list  <NvFaceInfo*>     NvFaceInfoList;
 typedef std::list  <NvFaceInfoVec*>  NvStripList;
 typedef std::vector<NvEdgeInfo*>     NvEdgeInfoVec;
 
-typedef std::vector<WORD> WordVec;
+typedef std::vector<unsigned short> WordVec;
 typedef std::vector<int> IntVec;
 typedef std::vector<MyVertex> MyVertexVec;
 typedef std::vector<MyFace> MyFaceVec;
@@ -5727,7 +5727,7 @@ bool GenerateStripsExEx(bool isStrip, bool isStitch, const unsigned long in_MinS
 ///////////////////////////////////////////////////////////////////////////////
 
 end_gdb_namespace
-end_cug_namespace
-end_edu_namespace
-end_cn_namespace
+end_gtl_namespace
+
+
 

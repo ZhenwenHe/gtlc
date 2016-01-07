@@ -14,12 +14,12 @@
 */
 #pragma once 
 #include "internal_voxel3dimpl.h"
-begin_cn_namespace
-begin_edu_namespace
-begin_cug_namespace
+
+
+begin_gtl_namespace
 begin_gdb_namespace
 
-class Prism3dImpl : virtual public cn::edu::cug::gdb::Prism3d, virtual public Voxel3dImpl
+class Prism3dImpl : virtual public Prism3d, virtual public Voxel3dImpl
 {
 	/** @defgroup Prism3dImpl Prism3dImpl-ÈýÎ¬ÀâÖù
 	*  @{
@@ -51,19 +51,19 @@ public:
 	*/
 	virtual bool queryInterface(int signal, void ** p){
 		switch (signal){
-		case cn::edu::cug::gdb::GEOMTYPE_3D_VOLUME:
+		case GEOMTYPE_3D_VOLUME:
 		{
-			*p = (void*)(cn::edu::cug::gdb::Volume3d *) this;
+			*p = (void*)(Volume3d *) this;
 			return true;
 		}
-		case cn::edu::cug::gdb::GEOMTYPE_3D_VOXEL:
+		case GEOMTYPE_3D_VOXEL:
 		{
-			*p = (void*)(cn::edu::cug::gdb::Voxel3d *) this;
+			*p = (void*)(Voxel3d *) this;
 			return true;
 		}
-		case cn::edu::cug::gdb::GEOMTYPE_3D_PRISM:
+		case GEOMTYPE_3D_PRISM:
 		{
-			*p = (void*)(cn::edu::cug::gdb::Prism3d *) this;
+			*p = (void*)(Prism3d *) this;
 			return true;
 		}
 		default:
@@ -275,6 +275,6 @@ public:
 	/** @} */ // Ä£¿é½áÎ²
 };
 end_gdb_namespace
-end_cug_namespace
-end_edu_namespace
-end_cn_namespace
+end_gtl_namespace
+
+

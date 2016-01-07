@@ -1,8 +1,8 @@
 #include "config.h"
 #include "envelope2d.h" 
-begin_cn_namespace
-begin_edu_namespace
-begin_cug_namespace
+
+
+begin_gtl_namespace
 begin_gdb_namespace
 //////////////////////////////////////////////////////////////
 void Envelope2d::moveTo(double x, double y){
@@ -179,6 +179,6 @@ int Envelope2d::test(Envelope2d & a, Envelope2d & b){
 		return 1;
 }
 end_gdb_namespace
-end_cug_namespace
-end_edu_namespace
-end_cn_namespace
+end_gtl_namespace
+
+

@@ -18,9 +18,9 @@
 #include "vertex2d.h" 
 
 
-begin_cn_namespace
-begin_edu_namespace
-begin_cug_namespace
+
+
+begin_gtl_namespace
 begin_gdb_namespace
 
 class Buffer;
@@ -68,13 +68,13 @@ public:
 	* @param  [in,out] buf Buffer & ，缓冲区对象引用
 	* @return 成功返回true，否则返回false
 	*/
-	bool writeBuffer(cn::edu::cug::gdb::Buffer &buf);
+	bool writeBuffer(Buffer &buf);
 
 	/*从Buffer中读取信息填充本几何对象
 	* @param  [in,out] buf Buffer & ，缓冲区对象引用
 	* @return 成功返回true，否则返回false
 	*/
-	bool readBuffer(cn::edu::cug::gdb::Buffer &buf);
+	bool readBuffer(Buffer &buf);
 
 	/** 获取对象写入到Buffer中所占用的字节数
 	* @param 无
@@ -171,7 +171,7 @@ public:
 	* @param [out] envp
 	* @return
 	*/
-	virtual void getEnvelope(cn::edu::cug::gdb::Envelope3d * envp);
+	virtual void getEnvelope(Envelope3d * envp);
 protected:
 	std::vector< Vertex2d  * > m_pointList;
 
@@ -179,7 +179,7 @@ protected:
 /** @} */
 
 end_gdb_namespace
-end_cug_namespace
-end_edu_namespace
-end_cn_namespace
+end_gtl_namespace
+
+
 

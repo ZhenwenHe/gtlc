@@ -26,9 +26,9 @@
 #include "geometry2d.h"
 #include "image.h"
 
-begin_cn_namespace
-begin_edu_namespace
-begin_cug_namespace
+
+
+begin_gtl_namespace
 begin_gdb_namespace
 class Factory;
 
@@ -158,7 +158,7 @@ public:
 /** @addtogroup Factory  Render2dFactory-2D显示工厂类 
 *  @{
 */
-class CORE_API Render2dFactory: public cn::edu::cug::gdb::Factory
+class CORE_API Render2dFactory: public Factory
 {
 public:
 	Render2dFactory()
@@ -414,6 +414,6 @@ public:
 };
 /** @} */
 end_gdb_namespace
-end_cug_namespace
-end_edu_namespace
-end_cn_namespace
+end_gtl_namespace
+
+

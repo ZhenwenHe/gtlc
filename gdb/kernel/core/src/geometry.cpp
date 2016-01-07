@@ -2,14 +2,14 @@
 #include "geometry3d.h"
 #include "internal_geometryimpl.h"
 #include "factory.h"
-begin_cn_namespace
-begin_edu_namespace
-begin_cug_namespace
+
+
+begin_gtl_namespace
 begin_gdb_namespace
 
 
 GeometrySharedPtr Geometry::create(int signal){
-#if(USING_DEFAULT_3DGEOMETRY==0)
+#if(USING_3DGEOMETRY_TYPE==0)
 	if (signal >= (int)GEOMTYPE_2D_GEOMETRY)
 		return ((Geometry2dFactory*)Factory::getFactory(Factory::FACTORYTYPE_2D_GEOMETRY))->newGeometry(signal);
 	else
@@ -21,7 +21,7 @@ GeometrySharedPtr Geometry::create(int signal){
 
 
 GeometrySharedPtr Geometry::create(Buffer & buf){
-#if(USING_DEFAULT_3DGEOMETRY==0)
+#if(USING_3DGEOMETRY_TYPE==0)
 	if (*((int*)buf.data()) >= (int)GEOMTYPE_3D_GEOMETRY)
 		return   ((Geometry3dFactory*)Factory::getFactory(Factory::FACTORYTYPE_3D_GEOMETRY))->newGeometry(buf);
 	else
@@ -139,6 +139,6 @@ bool Geometry::queryInterface(int signal, void ** p){
 		return true;
 }
 end_gdb_namespace
-end_cug_namespace
-end_edu_namespace
-end_cn_namespace
+end_gtl_namespace
+
+

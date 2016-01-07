@@ -1,11 +1,11 @@
 #include "internal_rayimpl.h"
 #include "factory.h"
-begin_cn_namespace
-begin_edu_namespace
-begin_cug_namespace
+
+
+begin_gtl_namespace
 begin_gdb_namespace
 std::shared_ptr<Ray> Ray::create(const Vertex3d& o, const Vertex3d& d){
-#if(USING_DEFAULT_3DGEOMETRY==1)
+#if(USING_3DGEOMETRY_TYPE==1)
 	RayImpl * r = new RayImpl(o, d);
 	return RaySharedPtr(r);
 #else
@@ -16,6 +16,6 @@ std::shared_ptr<Ray> Ray::create(const Vertex3d& o, const Vertex3d& d){
 }
 /////////////////////////////////////////////////////////////////////////////////////////
 end_gdb_namespace
-end_cug_namespace
-end_edu_namespace
-end_cn_namespace
+end_gtl_namespace
+
+

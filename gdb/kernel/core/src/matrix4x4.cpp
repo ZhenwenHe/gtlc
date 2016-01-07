@@ -2,9 +2,9 @@
 #include "mathex.h"
 #include "matrix4x4.h"
 #include "quaternion.h"
-begin_cn_namespace
-begin_edu_namespace
-begin_cug_namespace
+
+
+begin_gtl_namespace
 begin_gdb_namespace
 
 const Matrix4x4 Matrix4x4::IDENTITY4X4(1,0,0,0, 0,1,0,0, 0,0,1,0, 0,0,0,1);
@@ -151,6 +151,6 @@ void Matrix4x4::buildTransformMatrix(const Vertex3d& position, const Vertex3d& s
 }
 
 end_gdb_namespace
-end_cug_namespace
-end_edu_namespace
-end_cn_namespace
+end_gtl_namespace
+
+

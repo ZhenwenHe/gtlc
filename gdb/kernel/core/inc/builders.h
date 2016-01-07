@@ -25,9 +25,9 @@
 #include "builder.h"
 
 
-begin_cn_namespace
-begin_edu_namespace
-begin_cug_namespace
+
+
+begin_gtl_namespace
 begin_gdb_namespace
 
 class Builders;
@@ -58,14 +58,14 @@ public:
 	inline void setModelBuilder(BuilderSharedPtr p) {  _modelBuilder=p;}
 	inline void setMeshBuilder(MeshBuilderSharedPtr p) {_meshBuilder=p;}
 	inline void setTerrainBuilder(TerrainBuilderSharedPtr p) {_terrainBuilder=p;}
-	inline cn::edu::cug::gdb::Selector & getSelector(){return _modelBuilder->getSelector();}
-	inline void getEnvelope(cn::edu::cug::gdb::Envelope3d & r);
-	inline cn::edu::cug::gdb::Envelope3d getEnvelope();
+	inline Selector & getSelector(){return _modelBuilder->getSelector();}
+	inline void getEnvelope(Envelope3d & r);
+	inline Envelope3d getEnvelope();
 };
 /** @} */ 
 
-inline void Builders::getEnvelope(cn::edu::cug::gdb::Envelope3d & r){
-	cn::edu::cug::gdb::Envelope3d e ;
+inline void Builders::getEnvelope(Envelope3d & r){
+	Envelope3d e ;
 	if(_modelBuilder){
 		if(!_modelBuilder->isEmpty()){
 			e = _modelBuilder->getProxy()->getEnvelope();
@@ -85,12 +85,12 @@ inline void Builders::getEnvelope(cn::edu::cug::gdb::Envelope3d & r){
 		}			
 	}
 }
-inline cn::edu::cug::gdb::Envelope3d Builders::getEnvelope ( ){
-	cn::edu::cug::gdb::Envelope3d e ;
+inline Envelope3d Builders::getEnvelope ( ){
+	Envelope3d e ;
 	getEnvelope(e);
 	return e;
 }
 end_gdb_namespace
-end_cug_namespace
-end_edu_namespace
-end_cn_namespace
+end_gtl_namespace
+
+

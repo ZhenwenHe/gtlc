@@ -14,11 +14,11 @@
 */
 #pragma once 
 #include "internal_geometry3dimpl.h"
-begin_cn_namespace
-begin_edu_namespace
-begin_cug_namespace
+
+
+begin_gtl_namespace
 begin_gdb_namespace
-class  Group3dImpl : virtual public cn::edu::cug::gdb::Group3d, virtual public Geometry3dImpl
+class  Group3dImpl : virtual public Group3d, virtual public Geometry3dImpl
 {
 	/** @defgroup Group3dImpl Group3dImpl-几何组合体
 	*  @{
@@ -89,9 +89,9 @@ public:
 	* @param  [out] f 子单元列表
 	* @return 无
 	*/
-	virtual void getElements(std::vector<cn::edu::cug::gdb::Geometry*> & f){
+	virtual void getElements(std::vector<Geometry*> & f){
 		for (std::vector<Geometry3dImpl*>::iterator it = m_vGeoCollection.begin(); it != m_vGeoCollection.end(); it++){
-			f.push_back((cn::edu::cug::gdb::Geometry*)(*it));
+			f.push_back((Geometry*)(*it));
 		}
 	}
 	/** 向存储几何对象指针的容器顶端添加一个元素
@@ -125,9 +125,9 @@ public:
 	*/
 	virtual bool queryInterface(int signal, void ** p){
 		switch (signal){
-		case cn::edu::cug::gdb::GEOMTYPE_3D_GROUP:
+		case GEOMTYPE_3D_GROUP:
 		{
-			*p = (void*)(cn::edu::cug::gdb::Group3d *) this;
+			*p = (void*)(Group3d *) this;
 			return true;
 		}
 		default:
@@ -323,6 +323,6 @@ public:
 };
 
 end_gdb_namespace
-end_cug_namespace
-end_edu_namespace
-end_cn_namespace
+end_gtl_namespace
+
+

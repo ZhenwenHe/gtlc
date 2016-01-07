@@ -1,14 +1,14 @@
 #include "sharedmodel.h"
 #include "internal_sharedmodelimpl.h"
 #include "factory.h"
-begin_cn_namespace
-begin_edu_namespace
-begin_cug_namespace
+
+
+begin_gtl_namespace
 begin_gdb_namespace
 
 ////////////////////////////////////////////////////////////////
 SharedModelSharedPtr SharedModel::create(){
-#if(USING_DEFAULT_3DGEOMETRY==0)
+#if(USING_3DGEOMETRY_TYPE==0)
 	return  ((Geometry3dFactory*)Factory::getFactory(Factory::FACTORYTYPE_3D_GEOMETRY))->newSharedModel();
 #else
 	return SharedModelSharedPtr(new SharedModelImpl());
@@ -16,7 +16,7 @@ SharedModelSharedPtr SharedModel::create(){
 
 }
 SharedModelSharedPtr SharedModel::create(Identifier::raw_type d, std::string name, int type) {
-#if(USING_DEFAULT_3DGEOMETRY==0)
+#if(USING_3DGEOMETRY_TYPE==0)
 	SharedModelSharedPtr p = ((Geometry3dFactory*)Factory::getFactory(Factory::FACTORYTYPE_3D_GEOMETRY))->newSharedModel();
 #else
 	SharedModelSharedPtr  p(new SharedModelImpl());
@@ -27,6 +27,6 @@ SharedModelSharedPtr SharedModel::create(Identifier::raw_type d, std::string nam
 	return p;
 }
 end_gdb_namespace
-end_cug_namespace
-end_edu_namespace
-end_cn_namespace 
+end_gtl_namespace
+
+ 

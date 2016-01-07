@@ -1,8 +1,8 @@
 #include "internal_linearring3dimpl.h"
 #include "internal_spatialfuns.h"
-begin_cn_namespace
-begin_edu_namespace
-begin_cug_namespace
+
+
+begin_gtl_namespace
 begin_gdb_namespace
 double LinearRing3dImpl::DPointToGeometryEx(Vertex3d& vPt) const
 {
@@ -569,6 +569,5 @@ int LinearRing3dImpl::RGeoWithPolygon2D(vector<Vertex3d>& ptArray, int precision
 }
 
 end_gdb_namespace
-end_cug_namespace
-end_edu_namespace
-end_cn_namespace
+end_gtl_namespace
+

@@ -1,8 +1,8 @@
 #include "internal_versatilevertex3dvisitorImpl.h"
  
-begin_cn_namespace
-begin_edu_namespace
-begin_cug_namespace
+
+
+begin_gtl_namespace
 begin_gdb_namespace
 double & VersatileVertex3dVisitorImpl::x(long i) {
 	return (((VersatileVertex3d*)(*_vertexlist)) + i)->x;
@@ -110,6 +110,6 @@ void VersatileVertex3dVisitorImpl::append(const int pointsnumber,
 	(*_vertexnumber) += pointsnumber;
 }
 end_gdb_namespace
-end_cug_namespace
-end_edu_namespace
-end_cn_namespace
+end_gtl_namespace
+
+

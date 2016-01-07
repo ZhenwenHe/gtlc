@@ -1,7 +1,7 @@
 #include "internal_multipolyline3dimpl.h"
-begin_cn_namespace
-begin_edu_namespace
-begin_cug_namespace
+
+
+begin_gtl_namespace
 begin_gdb_namespace
 //##ModelId=49E6DE6101C5
 // void MultiPolyline3dImpl::SetWidth(const unsigned int wWidth)
@@ -93,6 +93,5 @@ GeometryImpl* MultiPolyline3dImpl::CreateObject()
 }
 
 end_gdb_namespace
-end_cug_namespace
-end_edu_namespace
-end_cn_namespace
+end_gtl_namespace
+

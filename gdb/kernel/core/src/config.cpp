@@ -2,14 +2,14 @@
 #include "buffer.h"
 
 
-begin_cn_namespace
-begin_edu_namespace
-begin_cug_namespace
+
+
+begin_gtl_namespace
 begin_gdb_namespace
  
 #if(USING_OS_TYPE == 0)
-string   Config::shaderPath = "h:\\git\\sdk\\shader";
-string   Config::imagePath = "h:\\git\\sdk\\images";
+string   Config::shaderPath = "h:\\gtl\\sdk\\shader";
+string   Config::imagePath = "h:\\gtl\\sdk\\images";
 #else
 string   Config::shaderPath = "/home/vincent/gtl/sdk/shader";
 string   Config::imagePath = "/home/vincent/gtl/sdk/images";
@@ -307,6 +307,4 @@ std::vector<unsigned long long> & Config::getCacheSizes() { return cacheSizes; }
 static Config  g_Config;
 
 end_gdb_namespace
-end_cug_namespace
-end_edu_namespace
-end_cn_namespace
+end_gtl_namespace

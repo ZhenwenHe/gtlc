@@ -3,9 +3,9 @@
 #include "matrix3x3.h"
 #include "quaternion.h"
 
-begin_cn_namespace
-begin_edu_namespace
-begin_cug_namespace
+
+
+begin_gtl_namespace
 begin_gdb_namespace
 
 const Matrix3x3 Matrix3x3::IDENTITY3X3(1,0,0, 0,1,0, 0,0,1);
@@ -622,6 +622,6 @@ const Matrix3x3 operator/(const Matrix3x3& lhm, double rhd)
 
 
 end_gdb_namespace
-end_cug_namespace
-end_edu_namespace
-end_cn_namespace
+end_gtl_namespace
+
+

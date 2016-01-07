@@ -324,9 +324,6 @@
     <ClInclude Include="inc\meshproxy.h">
       <Filter>inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\plugins.h">
-      <Filter>inc</Filter>
-    </ClInclude>
     <ClInclude Include="inc\property.h">
       <Filter>inc</Filter>
     </ClInclude>
@@ -834,6 +831,9 @@
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\workspaceimpl.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\config_env.cpp">
       <Filter>src</Filter>
     </ClCompile>
   </ItemGroup>

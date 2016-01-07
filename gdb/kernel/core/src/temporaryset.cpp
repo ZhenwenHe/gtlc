@@ -1,16 +1,16 @@
 #include "temporaryset.h"
 
 
-begin_cn_namespace
-begin_edu_namespace
-begin_cug_namespace
+
+
+begin_gtl_namespace
 begin_gdb_namespace
 
 TempSet::TempSet(){
-	_status = 0;	
+	this->_status=0;	
 	_drawMode=0;
 	_color=0;
-	_alpha=0;
+	this->_alpha = 0;
 }
 
 FeatureVectorSharedPtr TempSet::getFeatures(FCLSID fclsid) {
@@ -142,6 +142,6 @@ void TemporarySets::clear(){
 	_data.clear();
 }
 end_gdb_namespace
-end_cug_namespace
-end_edu_namespace
-end_cn_namespace
+end_gtl_namespace
+
+

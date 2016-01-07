@@ -15,11 +15,11 @@
 #pragma once 
 #include "internal_surface3dimpl.h"
 #include "internal_spatialfuns.h"
-begin_cn_namespace
-begin_edu_namespace
-begin_cug_namespace
+
+
+begin_gtl_namespace
 begin_gdb_namespace
-class Triangle3dImpl : virtual public cn::edu::cug::gdb::Triangle3d, virtual public Surface3dImpl
+class Triangle3dImpl : virtual public Triangle3d, virtual public Surface3dImpl
 {
 public:
 	/**  查询对象接口
@@ -29,14 +29,14 @@ public:
 	*/
 	virtual bool queryInterface(int signal, void ** p){
 		switch (signal){
-		case cn::edu::cug::gdb::GEOMTYPE_3D_SURFACE:
+		case GEOMTYPE_3D_SURFACE:
 		{
-			*p = (void*)(cn::edu::cug::gdb::Surface3d *) this;
+			*p = (void*)(Surface3d *) this;
 			return true;
 		}
-		case cn::edu::cug::gdb::GEOMTYPE_3D_TRIANGLE:
+		case GEOMTYPE_3D_TRIANGLE:
 		{
-			*p = (void*)(cn::edu::cug::gdb::Triangle3d *) this;
+			*p = (void*)(Triangle3d *) this;
 			return true;
 		}
 		default:
@@ -46,7 +46,7 @@ public:
 		}
 	}
 
-	virtual void setVertices(cn::edu::cug::gdb::Vertex3d v[3])
+	virtual void setVertices(Vertex3d v[3])
 	{
 		for (int i = 0; i<3; i++)
 		{
@@ -55,7 +55,7 @@ public:
 			m_vVetices[i].z = v[i].z;
 		}
 	}
-	virtual void getVertices(cn::edu::cug::gdb::Vertex3d v[3])
+	virtual void getVertices(Vertex3d v[3])
 	{
 		for (int i = 0; i<3; i++)
 		{
@@ -65,13 +65,13 @@ public:
 		}
 	}
 
-	virtual void setNormal(const cn::edu::cug::gdb::Vertex3d & v)
+	virtual void setNormal(const Vertex3d & v)
 	{
 		m_vNormal.x = v.x;
 		m_vNormal.y = v.y;
 		m_vNormal.z = v.z;
 	}
-	virtual void getNormal(cn::edu::cug::gdb::Vertex3d & v)
+	virtual void getNormal(Vertex3d & v)
 	{
 		v.x = m_vNormal.x;
 		v.y = m_vNormal.y;
@@ -346,6 +346,6 @@ public:
 	/** @} */ // 模块结尾
 };
 end_gdb_namespace
-end_cug_namespace
-end_edu_namespace
-end_cn_namespace
+end_gtl_namespace
+
+

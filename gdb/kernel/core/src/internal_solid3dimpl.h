@@ -15,11 +15,11 @@
 #pragma once 
 #include "internal_surface3dimpl.h"
 #include "internal_volume3dimpl.h" 
-begin_cn_namespace
-begin_edu_namespace
-begin_cug_namespace
+
+
+begin_gtl_namespace
 begin_gdb_namespace
-class Solid3dImpl : virtual public cn::edu::cug::gdb::Solid3d,virtual public Volume3dImpl
+class Solid3dImpl : virtual public Solid3d,virtual public Volume3dImpl
 {
 	/** @defgroup Solid3dImpl Solid3dImpl-ИэО¬КµМе
 	*  @{
@@ -222,14 +222,14 @@ public:
 	*/
 	virtual bool queryInterface(int signal, void ** p){
 		switch (signal){
-		case cn::edu::cug::gdb::GEOMTYPE_3D_SOLID:
+		case GEOMTYPE_3D_SOLID:
 		{
-			*p = (void*)(cn::edu::cug::gdb::Solid3d *) this;
+			*p = (void*)(Solid3d *) this;
 			return true;
 		}
-		case cn::edu::cug::gdb::GEOMTYPE_3D_VOLUME:
+		case GEOMTYPE_3D_VOLUME:
 		{
-			*p = (void*)(cn::edu::cug::gdb::Volume3d *) this;
+			*p = (void*)(Volume3d *) this;
 			return true;
 		}
 		default:
@@ -239,15 +239,15 @@ public:
 		}
 	}
 
-	virtual void getSurfaces(std::vector<cn::edu::cug::gdb::Surface3d*> & f){
+	virtual void getSurfaces(std::vector<Surface3d*> & f){
 		for (std::vector<Surface3dImpl*>::iterator it = m_vBoundarySurfaces.begin(); it != m_vBoundarySurfaces.end(); it++){
-			f.push_back((cn::edu::cug::gdb::Surface3d*)(*it));
+			f.push_back((Surface3d*)(*it));
 		}
 	}
-	virtual cn::edu::cug::gdb::Surface3d * newSurface(int type);
+	virtual Surface3d * newSurface(int type);
 };
 
 end_gdb_namespace
-end_cug_namespace
-end_edu_namespace
-end_cn_namespace
+end_gtl_namespace
+
+

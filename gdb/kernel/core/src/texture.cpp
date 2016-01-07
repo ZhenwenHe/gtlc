@@ -1,13 +1,13 @@
 #include "texture.h"
 #include "factory.h"
 #include "internal_textureimpl.h"
-begin_cn_namespace
-begin_edu_namespace
-begin_cug_namespace
+
+
+begin_gtl_namespace
 begin_gdb_namespace
 
 TextureSharedPtr Texture::create(){
-#if(USING_DEFAULT_3DGEOMETRY==0)//use plugin
+#if(USING_3DGEOMETRY_TYPE==0)//use plugin
 	return  ((Geometry3dFactory*)Factory::getFactory(Factory::FACTORYTYPE_3D_GEOMETRY))->newTexture();
 #else
 	TextureSharedPtr p(new TextureImpl());
@@ -17,7 +17,7 @@ TextureSharedPtr Texture::create(){
 
 TextureSharedPtr Texture::create(const std::string & fileName)
 {
-#if(USING_DEFAULT_3DGEOMETRY==0)//use plugin
+#if(USING_3DGEOMETRY_TYPE==0)//use plugin
 	TextureSharedPtr pt = ((Geometry3dFactory*)Factory::getFactory(Factory::FACTORYTYPE_3D_GEOMETRY))->newTexture();
 #else
 	TextureSharedPtr pt (new TextureImpl());
@@ -63,7 +63,7 @@ TextureSharedPtr Texture::create(const std::string & fileName)
 		else
 			return TextureSharedPtr();
 
-		pt->setID(cn::edu::cug::gdb::Identifier::generate());
+		pt->setID(Identifier::generate());
 		std::string fname = fileName.substr(fileName.rfind('\\') + 1);
 		pt->setName(fname);
 		size_t count_s = buf.size();
@@ -76,6 +76,6 @@ TextureSharedPtr Texture::create(const std::string & fileName)
 
 
 end_gdb_namespace
-end_cug_namespace
-end_edu_namespace
-end_cn_namespace
+end_gtl_namespace
+
+

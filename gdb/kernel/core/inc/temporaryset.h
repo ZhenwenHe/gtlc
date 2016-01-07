@@ -22,16 +22,16 @@
 #include "lock.h"
 #include "feature.h"
 
-begin_cn_namespace
-begin_edu_namespace
-begin_cug_namespace
+
+
+begin_gtl_namespace
 begin_gdb_namespace
 
 
 /** @defgroup TemporarySets TempSet-临时要素集合，用于存放中间操作结果
 *  @{
 */
-class GV3DCORE_API TempSet
+class CORE_API TempSet
 {
 	/** @name 保护成员变量说明
 	*  @{
@@ -44,14 +44,15 @@ protected:
 	FSMAP  _set;
 	/**临时数据集的状态*/
 	int _status;
+	/**临时数据集的透明度*/
+	float _alpha;
 	/**临时数据集的名称*/
 	std::string    _Name;
 	/**要素类集列表*/
 	int _drawMode;
 	/**临时数据集的颜色*/
 	int _color;
-	/**临时数据集的透明度*/
-	float _alpha;
+	
 protected:
 	/**保护构造函数，防止外面创建*/
 	TempSet();
@@ -100,13 +101,13 @@ public:
 	*	 @param [in] alpha  临时数据集的透明度
 	*   @return 无
 	*/
-	inline void setAlpha(const float &alpha){ _alpha = alpha; }
+	//inline void setAlpha(const float &alpha){ _alpha = alpha; }
 
 	/**  获取临时数据集的透明度
 	*	 @param [in]      无
 	*    @return 临时数据集的透明度
 	*/
-	inline float getAlpha(){ return _alpha; }
+	//inline float getAlpha(){ return _alpha; }
 
 	/**  设置临时数据集的名称，在一个TemporarySets中式唯一的
 	*	 @param [in]      strName  临时数据集的名称
@@ -124,13 +125,13 @@ public:
 	*	 @param [in] status  临时数据集的状态
 	*    @return 无
 	*/
-	inline void setStatus(int status){ _status = status; }
+	//inline void setStatus(int status){ _status = status; }
 
 	/**  获取临时数据集的状态
 	*	 @param 无
 	*    @return 临时数据集的状态
 	*/
-	inline int getStatus(){ return _status; }
+	//inline int getStatus(){ return _status; }
 
 
 	/**  获取指定要素类型的所有要素,返回的指针不用外部销毁
@@ -180,7 +181,7 @@ typedef std::shared_ptr<TempSet> TempSetSharedPtr;
 /** @addtogroup TemporarySets    TemporarySets
 *  @{
 */
-class GV3DCORE_API TemporarySets
+class CORE_API TemporarySets
 {
 	/** @name 保护成员变量说明
 	*  @{
@@ -243,6 +244,5 @@ public:
 /** @} */
 
 end_gdb_namespace
-end_cug_namespace
-end_edu_namespace
-end_cn_namespace
+end_gtl_namespace
+

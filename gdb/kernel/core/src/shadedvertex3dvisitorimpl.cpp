@@ -13,9 +13,9 @@
 * about the suitability of this software for any purpose.
 * It is provided "as is" without express or implied warranty.
 */ 
-begin_cn_namespace
-begin_edu_namespace
-begin_cug_namespace
+
+
+begin_gtl_namespace
 begin_gdb_namespace
 double & ShadedVertex3dVisitorImpl::x(long i) {
 	return (((ShadedVertex3d*)(*_vertexlist)) + i)->x;
@@ -111,6 +111,6 @@ void ShadedVertex3dVisitorImpl::append(const int pointsnumber,
 }
 
 end_gdb_namespace
-end_cug_namespace
-end_edu_namespace
-end_cn_namespace
+end_gtl_namespace
+
+

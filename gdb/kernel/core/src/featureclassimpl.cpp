@@ -1,8 +1,8 @@
 #include "internal_featureclassimpl.h"
 
-begin_cn_namespace
-begin_edu_namespace
-begin_cug_namespace
+
+
+begin_gtl_namespace
 begin_gdb_namespace
 FeatureClassImpl::FeatureClassImpl(){
 	_id = Identifier::generate();
@@ -358,6 +358,6 @@ int FeatureClassImpl::getFsetPropType() { return _fsetproptype; }
 */
 void FeatureClassImpl::setFsetPropType(int v) { _fsetproptype = v; }
 end_gdb_namespace
-end_cug_namespace
-end_edu_namespace
-end_cn_namespace
+end_gtl_namespace
+
+

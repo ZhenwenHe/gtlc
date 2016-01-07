@@ -1,8 +1,8 @@
 #include "internal_featureclassimpl.h"
 
-begin_cn_namespace
-begin_edu_namespace
-begin_cug_namespace
+
+
+begin_gtl_namespace
 begin_gdb_namespace
 
 static std::map<FCLSID, FeatureClassSharedPtr> * g_fclsmap = 0;//全局的要素类型ID，系统启动前要将该Map填充完成
@@ -45,6 +45,6 @@ FeatureClassSharedPtr FeatureClass::create(FCLSID id, std::string name, std::str
 }
 
 end_gdb_namespace
-end_cug_namespace
-end_edu_namespace
-end_cn_namespace
+end_gtl_namespace
+
+

@@ -9,9 +9,9 @@
 #include "describablebuffer.h"
 #include "geometry.h"
 
-begin_cn_namespace
-begin_edu_namespace
-begin_cug_namespace
+
+
+begin_gtl_namespace
 begin_gdb_namespace
 
 #define FONT_2D_FACESIZE 32
@@ -163,7 +163,7 @@ enum Point2dType
 /** @addtogroup Geometry2d Element2d
 *  @{
 */
-class GV3DCORE_API Element2d
+class CORE_API Element2d
 {
 public:
 	/**@ 根据指定的元素类型，创建元素
@@ -311,7 +311,7 @@ public:
 /** @addtogroup Geometry2d ElementCollection2d-几何元素集类，可以用来管理所有从GeometryElement2d继承的几何元素集
 *  @{
 */
-class GV3DCORE_API ElementCollection2d
+class CORE_API ElementCollection2d
 {
 public:
 	/**@name 计算当前几何图元的边界包围盒
@@ -491,7 +491,7 @@ struct Font2d
 /** @addtogroup Geometry2d ElementLine2d-直线段类
 *  @{
 */
-class GV3DCORE_API ElementLine2d : virtual public Element2d
+class CORE_API ElementLine2d : virtual public Element2d
 {
 public:
 	/** 获取组成线段的点阵
@@ -505,7 +505,7 @@ public:
 /** @addtogroup Geometry2d ElementCircularArc2d-圆弧类
 *  @{
 */
-class GV3DCORE_API ElementCircularArc2d : virtual public Element2d
+class CORE_API ElementCircularArc2d : virtual public Element2d
 {
 public:
 	/** 设置圆弧的参数：圆心
@@ -582,7 +582,7 @@ public:
 /** @addtogroup Geometry2d ElementEllipticArc2d
 *  @{
 */
-class GV3DCORE_API ElementEllipticArc2d : virtual public Element2d
+class CORE_API ElementEllipticArc2d : virtual public Element2d
 {
 public:
 	/** 设置圆弧的参数：圆心
@@ -699,7 +699,7 @@ public:
 /** @addtogroup Geometry2d ElementBezierCurve2d-贝塞尔曲线
 *  @{
 */
-class GV3DCORE_API ElementBezierCurve2d : virtual public Element2d
+class CORE_API ElementBezierCurve2d : virtual public Element2d
 {
 public:
 	/** 获取曲线的类型
@@ -728,7 +728,7 @@ public:
 *路径可以是任意数目的四种Segment2d类型的组合。
 *  @{
 */
-class GV3DCORE_API Path2d
+class CORE_API Path2d
 {
 public:
 	/**@name 指示当前元素几何信息已更改，需要重新计算 边界包围盒
@@ -865,7 +865,7 @@ public:
 /** @addtogroup Geometry2d PathCollection2d-路径集类，可以用来管理所有路径Path2d
 *  @{
 */
-class GV3DCORE_API PathCollection2d
+class CORE_API PathCollection2d
 {
 public:
 	/**@name 计算当前几何图元的边界包围盒
@@ -988,7 +988,7 @@ enum Ring2dType
 *环不能自相交
 *  @{
 */
-class GV3DCORE_API Ring2d
+class CORE_API Ring2d
 {
 public:
 
@@ -1128,7 +1128,7 @@ public:
 /** @addtogroup Geometry2d RingCollection2d-环集类，可以用来管理所有环Ring2d
 *  @{
 */
-class GV3DCORE_API RingCollection2d
+class CORE_API RingCollection2d
 {
 public:
 	/**@name 计算当前几何图元的边界包围盒
@@ -1236,7 +1236,7 @@ public:
 *  @{
 */
 //##ModelId=4D0B58C6005F
-class  GV3DCORE_API Geometry2d : public Geometry
+class  CORE_API Geometry2d : public Geometry
 {
 public:
 	/**@name 计算当前几何图元的边界包围盒
@@ -1391,7 +1391,7 @@ public:
 /** @addtogroup Geometry2d GeometryCollection2d-几何对象集类
 *  @{
 */
-class GV3DCORE_API GeometryCollection2d
+class CORE_API GeometryCollection2d
 {
 public:
 	/**将本类的信息写入输出流中，便于文件读写或缓冲区写操作
@@ -1536,7 +1536,7 @@ enum Pen2dType
 *  @{
 */
 
-class GV3DCORE_API Pen2d
+class CORE_API Pen2d
 {
 public:
 	/**将g所指向的对象复制到本对象
@@ -1626,7 +1626,7 @@ public:
 *  @{
 */
 
-class GV3DCORE_API GeomPolygon2d : virtual public Geometry2d
+class CORE_API GeomPolygon2d : virtual public Geometry2d
 {
 public:
 	/** 根据点阵ptList，把当前的区对象重新构造，具有一个封闭的环
@@ -1730,7 +1730,7 @@ public:
 /** @addtogroup Geometry2d GeomPolyline2d-线几何对象类
 *  @{
 */
-class GV3DCORE_API GeomPolyline2d : virtual public Geometry2d
+class CORE_API GeomPolyline2d : virtual public Geometry2d
 {
 public:
 	/** 根据点阵ptList，把当前的区对象重新构造，具有一个封闭的环
@@ -1785,7 +1785,7 @@ public:
 /** @addtogroup Geometry2d GeomLine2d-线几何对象类
 *  @{
 */
-class GV3DCORE_API GeomLine2d : virtual public Geometry2d
+class CORE_API GeomLine2d : virtual public Geometry2d
 {
 public:
 	/** 根据点阵ptList，把当前的区对象重新构造，具有一个封闭的环
@@ -1851,7 +1851,7 @@ public:
 *  @{
 */
 
-class GV3DCORE_API GeomPoint2d : virtual public Geometry2d
+class CORE_API GeomPoint2d : virtual public Geometry2d
 {
 public:
 	/** 点类型的获取（圆，正方形，三角形）
@@ -1912,7 +1912,7 @@ public:
 *  @{
 */
 
-class GV3DCORE_API GeomPointSymbol2d : virtual public Geometry2d
+class CORE_API GeomPointSymbol2d : virtual public Geometry2d
 {
 public:
 	/** 符号名称的获取
@@ -1985,7 +1985,7 @@ public:
 *  @{
 */
 
-class GV3DCORE_API GeomMultipoint2d : virtual public Geometry2d
+class CORE_API GeomMultipoint2d : virtual public Geometry2d
 {
 public:
 	/** 获取多点对象的点集
@@ -2050,7 +2050,7 @@ enum Label2dStyle
 *  @{
 */
 
-class GV3DCORE_API GeomLabel2d : virtual public Geometry2d
+class CORE_API GeomLabel2d : virtual public Geometry2d
 {
 public:
 	/** 获取文本
@@ -2176,7 +2176,7 @@ public:
 *  @{
 */
 
-class GV3DCORE_API GeomAnnotation2d : virtual public Geometry2d
+class CORE_API GeomAnnotation2d : virtual public Geometry2d
 {
 public:
 	/** 注记文本的获取
@@ -2248,7 +2248,7 @@ public:
 *  @{
 */
 
-class GV3DCORE_API GeomGeometryBag2d : virtual public Geometry2d
+class CORE_API GeomGeometryBag2d : virtual public Geometry2d
 {
 public:
 	/** 获取几何对象列表
@@ -2278,7 +2278,7 @@ enum Image2dType
 *  @{
 */
 
-class GV3DCORE_API GeomImage2d : virtual public Geometry2d
+class CORE_API GeomImage2d : virtual public Geometry2d
 {
 public:
 	/** 图像类型的获取
@@ -2360,7 +2360,7 @@ public:
 // @addtogroup Geometry2d GeometrySelectManager2d 二维几何对象选择管理器类接口
 //     *  @{
 //    
-class GV3DCORE_API GeometrySelectManager2d
+class CORE_API GeometrySelectManager2d
 {
 public:
 	/**设定选择管理类的坐标系统
@@ -2391,7 +2391,7 @@ public:
 *  @{
 */
 
-class GV3DCORE_API Symbol2d
+class CORE_API Symbol2d
 {
 public:
 	/**获取符号ID
@@ -2592,7 +2592,7 @@ public:
 *  @{
 */
 
-class GV3DCORE_API SymbolLibrary2d
+class CORE_API SymbolLibrary2d
 {
 public:
 	/**获取符号组文件名
@@ -2747,7 +2747,7 @@ public:
 /** @addtogroup Geometry2d SymbolManager2d 符号组类
 *  @{
 */
-class GV3DCORE_API SymbolManager2d
+class CORE_API SymbolManager2d
 {
 public:
 	/** 获取点符号管理器
@@ -2852,6 +2852,6 @@ public:
 /** @}*/
 
 end_gdb_namespace
-end_cug_namespace
-end_edu_namespace
-end_cn_namespace
+end_gtl_namespace
+
+

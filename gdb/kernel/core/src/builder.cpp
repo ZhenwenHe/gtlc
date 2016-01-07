@@ -3,9 +3,9 @@
 #include "factory.h"
 
 
-begin_cn_namespace
-begin_edu_namespace
-begin_cug_namespace
+
+
+begin_gtl_namespace
 begin_gdb_namespace
 
 BuilderSharedPtr Builder::newBuilder(int signal){
@@ -123,9 +123,9 @@ bool Builder::clip( const Envelope3dRef bound, Builder * resultBuilder) {
 	if (fobj_set.size()>0)	{
 		//获取符合查询条件的要素对象的要素类id
 		FCLSID temfclsid;
-		vector<cn::edu::cug::gdb::FCLSID> vecFclsIdinCombox;
+		vector<FCLSID> vecFclsIdinCombox;
 		vector<FeatureSharedPtr>::iterator it = fobj_set.begin();
-		cn::edu::cug::gdb::FeatureClass *pfcls = 0;
+		FeatureClass *pfcls = 0;
 		this->setActive();
 		for (unsigned int i = 0;i<fobj_set.size();i++)	{
 			pfcls = (*it)->getFeatureClass().get();
@@ -626,6 +626,5 @@ void Builder::translate(double dx, double dy , double dz) {
 }
 
 end_gdb_namespace
-end_cug_namespace
-end_edu_namespace
-end_cn_namespace
+end_gtl_namespace
+

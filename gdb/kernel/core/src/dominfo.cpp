@@ -1,8 +1,8 @@
 #include "config.h"
 #include "terrain.h" 
-begin_cn_namespace
-begin_edu_namespace
-begin_cug_namespace
+
+
+begin_gtl_namespace
 begin_gdb_namespace
 
 DOMInfo::DOMInfo()
@@ -54,6 +54,5 @@ bool DOMInfo::readBuffer(Buffer& buf){
 }
 
 end_gdb_namespace
-end_cug_namespace
-end_edu_namespace
-end_cn_namespace
+end_gtl_namespace
+

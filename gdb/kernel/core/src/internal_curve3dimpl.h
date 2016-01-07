@@ -15,9 +15,9 @@
 #pragma once 
 #include "geometry3d.h"
 #include "internal_geometry3dimpl.h"
-begin_cn_namespace
-begin_edu_namespace
-begin_cug_namespace
+
+
+begin_gtl_namespace
 begin_gdb_namespace
 
 class Curve3dImpl : virtual public Curve3d, virtual public Geometry3dImpl
@@ -230,6 +230,6 @@ public:
 	/** @} */ // Ä£¿é½áÎ²
 };
 end_gdb_namespace
-end_cug_namespace
-end_edu_namespace
-end_cn_namespace
+end_gtl_namespace
+
+

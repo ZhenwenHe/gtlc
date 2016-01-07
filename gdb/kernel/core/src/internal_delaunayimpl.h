@@ -15,9 +15,9 @@
 #pragma once 
 #include "internal_linearring3dimpl.h"
 #include "internal_trianglemesh3dimpl.h"
-begin_cn_namespace
-begin_edu_namespace
-begin_cug_namespace
+
+
+begin_gtl_namespace
 begin_gdb_namespace
 //实现二维三角化的功能,已计算包围盒，需要自行维护 TriangleMesh3dImpl* mesh
 
@@ -72,6 +72,6 @@ bool FastTriangulationFrmSimpleRing(LinearRing3dImpl* ring, unsigned char iVerte
 void eliminateRedundancy(LinearRing3dImpl* ring, double TOL = MathEx::TOL);
 
 end_gdb_namespace
-end_cug_namespace
-end_edu_namespace
-end_cn_namespace
+end_gtl_namespace
+
+

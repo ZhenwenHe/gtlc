@@ -1,9 +1,9 @@
 #include "config.h"
 #include "envelope3d.h" 
 #include "mathex.h"
-begin_cn_namespace
-begin_edu_namespace
-begin_cug_namespace
+
+
+begin_gtl_namespace
 begin_gdb_namespace
 //////////////////////////////////////////////////////////////
 void Envelope3d::moveTo(double x, double y, double z){
@@ -503,6 +503,6 @@ int Envelope3d::test(const Envelope3d& inBox) const
 	return 1;
 }
 end_gdb_namespace
-end_cug_namespace
-end_edu_namespace
-end_cn_namespace
+end_gtl_namespace
+
+

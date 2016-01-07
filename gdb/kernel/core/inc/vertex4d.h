@@ -18,9 +18,9 @@
 #include "assert.h"
 #include <cmath>
 
-begin_cn_namespace
-begin_edu_namespace
-begin_cug_namespace
+
+
+begin_gtl_namespace
 begin_gdb_namespace
 
 
@@ -35,7 +35,7 @@ struct Vertex4d{
 
 typedef double MATRIX4X4[4][4];
 end_gdb_namespace
-end_cug_namespace
-end_edu_namespace
-end_cn_namespace
+end_gtl_namespace
+
+
 

@@ -14,9 +14,9 @@
 */
 #pragma once 
 #include "internal_volume3dimpl.h"
-begin_cn_namespace
-begin_edu_namespace
-begin_cug_namespace
+
+
+begin_gtl_namespace
 begin_gdb_namespace
 //要贴在哪一个面, 贴的方向, 是否采用透明显示, 
 //是否自动生成纹理坐标, 纹理坐标映射效果
@@ -24,7 +24,7 @@ begin_gdb_namespace
 //纹理坐标的偏移量,  S 方向绕转方式, T 方向绕转方式,纹理模式, 
 // 放大滤镜, 缩小滤镜,
 //##ModelId=49E347250222
-class MultiSolid3dImpl : virtual public cn::edu::cug::gdb::MultiSolid3d,virtual  public Volume3dImpl
+class MultiSolid3dImpl : virtual public MultiSolid3d,virtual  public Volume3dImpl
 {
 	/** @defgroup MultiSolid3dImpl MultiSolid3dImpl-三维多体
 	*  @{
@@ -101,14 +101,14 @@ public:
 	*/
 	virtual bool queryInterface(int signal, void ** p){
 		switch (signal){
-		case cn::edu::cug::gdb::GEOMTYPE_3D_MULTISOLID:
+		case GEOMTYPE_3D_MULTISOLID:
 		{
-			*p = (void*)(cn::edu::cug::gdb::MultiSolid3d *) this;
+			*p = (void*)(MultiSolid3d *) this;
 			return true;
 		}
-		case cn::edu::cug::gdb::GEOMTYPE_3D_VOLUME:
+		case GEOMTYPE_3D_VOLUME:
 		{
-			*p = (void*)(cn::edu::cug::gdb::Volume3d *) this;
+			*p = (void*)(Volume3d *) this;
 			return true;
 		}
 		default:
@@ -122,7 +122,7 @@ public:
 	* @param  [out] f  组合面列
 	* @return 无
 	*/
-	virtual void getSurfaces(std::vector<cn::edu::cug::gdb::Surface3d*> & f){} //$$
+	virtual void getSurfaces(std::vector<Surface3d*> & f){} //$$
 
 	//##ModelId=49E6F3B3006D
 	/** 获取多面体几何上的组合数
@@ -224,6 +224,6 @@ public:
 };
 
 end_gdb_namespace
-end_cug_namespace
-end_edu_namespace
-end_cn_namespace
+end_gtl_namespace
+
+

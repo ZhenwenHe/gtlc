@@ -24,16 +24,16 @@
 #include "time.h"
 #include "config.h"
 
-begin_cn_namespace
-begin_edu_namespace
-begin_cug_namespace
+
+
+begin_gtl_namespace
 begin_gdb_namespace
 
 /** @defgroup Identifier Identifier-唯一标识
 * 其实质是一个64位长整数
 *  @{
 */
-class GV3DCORE_API Identifier{
+class CORE_API Identifier{
 	/** @name ULONGNumber 32位整数联合体
 	*  @{
 	*/
@@ -280,6 +280,6 @@ typedef unsigned long long TID;
 /** @} */
 
 end_gdb_namespace
-end_cug_namespace
-end_edu_namespace
-end_cn_namespace
+end_gtl_namespace
+
+

@@ -31,7 +31,7 @@
  * 1-linux, include config_linux.h
  * 2-maxcos, include config_maxcos.h
  */
-#define USING_OS_TYPE  1 //0-windows 1-linux 2-macxos
+#define USING_OS_TYPE  0 //0-windows 1-linux 2-macxos
 
 /*
  * 1-enable console window and display information 
@@ -43,7 +43,7 @@
  * 1-Qt 
  * 2-wxWidget
  */
-#define USING_UI_TYPE  1 
+#define USING_UI_TYPE  0 
 /*
  * If the ui library is 0, the os type must be 0.
  */
@@ -90,38 +90,9 @@
 #endif
 
 
-#ifndef begin_gtl_namespace
 #define begin_gtl_namespace namespace gtl{
-#endif
-
-#ifndef end_gtl_namespace
-#define end_gtl_namespace  }
-#endif
-
-#ifndef using_gtl_namespace
-#define using_gtl_namespace  using namespace gtl;
-#endif
-
-#ifndef begin_cn_namespace
-#define begin_cn_namespace namespace cn{
-#endif
-
-#ifndef end_cn_namespace
-#define end_cn_namespace }
-#endif
-
-#ifndef using_cn_namespace
-#define using_cn_namespace using namespace cn;
-#endif
-
-
-#define begin_edu_namespace namespace edu{
-#define end_edu_namespace }
-#define using_edu_namespace using namespace edu;
-
-#define begin_cug_namespace namespace cug{
-#define end_cug_namespace }
-#define using_cug_namespace using namespace cug;
+#define end_gtl_namespace }
+#define using_gtl_namespace using namespace gtl;
 
 #define begin_gdb_namespace namespace gdb{
 #define end_gdb_namespace }
@@ -149,9 +120,9 @@
 
 using namespace std;
 
-begin_cn_namespace
-begin_edu_namespace
-begin_cug_namespace
+
+
+begin_gtl_namespace
 begin_gdb_namespace
 
 
@@ -176,7 +147,7 @@ class Envelope3d;
 /** @defgroup Config  Config-全局配置类
 *  @{
 */
-class GV3DCORE_API Config {
+class CORE_API Config {
 
 	std::locale _loc;
 	static string   shaderPath;
@@ -265,6 +236,6 @@ public:
 
 
 end_gdb_namespace
-end_cug_namespace
-end_edu_namespace
-end_cn_namespace
+end_gtl_namespace
+
+

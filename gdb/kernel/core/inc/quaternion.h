@@ -22,9 +22,9 @@
 #include "vertex3d.h"
 #include "vertex4d.h"
 
-begin_cn_namespace
-begin_edu_namespace
-begin_cug_namespace
+
+
+begin_gtl_namespace
 begin_gdb_namespace
 class Matrix3x3;
 
@@ -265,6 +265,6 @@ typedef std::shared_ptr<Quaternion> QuaternionSharedPtr;
 /** @} */
 
 end_gdb_namespace
-end_cug_namespace
-end_edu_namespace
-end_cn_namespace
+end_gtl_namespace
+
+

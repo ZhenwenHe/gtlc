@@ -1,9 +1,9 @@
 
 #include "internal_linestring3dimpl.h"
 #include "internal_spatialfuns.h"
-begin_cn_namespace
-begin_edu_namespace
-begin_cug_namespace
+
+
+begin_gtl_namespace
 begin_gdb_namespace
 
 bool LineString3dImpl::readBuffer(Buffer & buf)
@@ -545,6 +545,5 @@ int LineString3dImpl::RGeoWithPolygon2D(vector<Vertex3d>& ptArray, int precision
 		return -1;
 }
 end_gdb_namespace
-end_cug_namespace
-end_edu_namespace
-end_cn_namespace
+end_gtl_namespace
+

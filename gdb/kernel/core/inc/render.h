@@ -22,9 +22,9 @@
 #include "geometry3d.h"
 #include "builders.h"
 
-begin_cn_namespace
-begin_edu_namespace
-begin_cug_namespace
+
+
+begin_gtl_namespace
 begin_gdb_namespace
 /** @defgroup Render Render-渲染引擎  
 *  @{
@@ -156,8 +156,8 @@ public://相机相关的操作
 	
 	virtual Vertex3d getSceneCenter()=0;
 	virtual double getSceneRadius()=0;
-	virtual void rotate(const cn::edu::cug::gdb::Quaternion & q)=0;
-	virtual void translate(const cn::edu::cug::gdb::Vertex3d & delta)=0;
+	virtual void rotate(const Quaternion & q)=0;
+	virtual void translate(const Vertex3d & delta)=0;
 
 public:
 	virtual void addNode(FeatureSharedPtr fsp)=0;
@@ -1010,6 +1010,6 @@ public:
 /** @}*/
 
 end_gdb_namespace
-end_cug_namespace
-end_edu_namespace
-end_cn_namespace
+end_gtl_namespace
+
+

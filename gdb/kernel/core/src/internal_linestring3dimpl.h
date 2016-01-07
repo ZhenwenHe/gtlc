@@ -16,9 +16,9 @@
 #include "geometry3d.h"
 #include "internal_curve3dimpl.h"
 #include "internal_rayimpl.h"
-begin_cn_namespace
-begin_edu_namespace
-begin_cug_namespace
+
+
+begin_gtl_namespace
 begin_gdb_namespace
 
 class LineString3dImpl : virtual public LineString3d, virtual public Curve3dImpl
@@ -285,6 +285,6 @@ public:
 	/** @} */ // Ä£¿é½áÎ²
 };
 end_gdb_namespace
-end_cug_namespace
-end_edu_namespace
-end_cn_namespace
+end_gtl_namespace
+
+

@@ -10,9 +10,9 @@
 #include "internal_versatilevertex3dvisitorImpl.h"
 #include "internal_versatilevertex3fvisitorimpl.h"
 
-begin_cn_namespace
-begin_edu_namespace
-begin_cug_namespace
+
+
+begin_gtl_namespace
 begin_gdb_namespace
 class VertexVisitorDeletor;
 struct VertexVisitorDeletor{
@@ -56,7 +56,7 @@ struct VertexVisitorDeletor{
 
 VertexVisitorSharedPtr VertexVisitor::create(int signal)
 {
-#if(USING_DEFAULT_3DGEOMETRY==1)
+#if(USING_3DGEOMETRY_TYPE==1)
 	switch (signal){
 	case VERTEXTYPE_V3d:
 		return VertexVisitorSharedPtr(
@@ -170,6 +170,6 @@ int VertexVisitor::releaseVertexArray(unsigned char iVertexType, void*& pVertexP
 }
 
 end_gdb_namespace
-end_cug_namespace
-end_edu_namespace
-end_cn_namespace
+end_gtl_namespace
+
+

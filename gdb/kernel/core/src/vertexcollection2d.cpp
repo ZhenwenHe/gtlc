@@ -2,9 +2,9 @@
 #include "buffer.h"
 
 
-begin_cn_namespace
-begin_edu_namespace
-begin_cug_namespace
+
+
+begin_gtl_namespace
 begin_gdb_namespace
 
  
@@ -77,12 +77,12 @@ void VertexCollection2d::read(std::istream & f)
 * @return 成功返回true，否则返回false
 *##ModelId=4D0B58C70264
 */
-bool VertexCollection2d::writeBuffer(cn::edu::cug::gdb::Buffer &buf)
+bool VertexCollection2d::writeBuffer(Buffer &buf)
 {
 	int nelementNum = m_pointList.size();
 	buf.write(&nelementNum, sizeof(int));
 
-	for (std::vector<cn::edu::cug::gdb::Vertex2d *>::iterator it = m_pointList.begin(); it != m_pointList.end(); it++)
+	for (std::vector<Vertex2d *>::iterator it = m_pointList.begin(); it != m_pointList.end(); it++)
 	{
 		buf.write(&((*it)->x), sizeof(double));
 		buf.write(&((*it)->y), sizeof(double));
@@ -105,7 +105,7 @@ bool VertexCollection2d::writeBuffer(cn::edu::cug::gdb::Buffer &buf)
 * @return 成功返回true，否则返回false
 *##ModelId=4D0B58C70264
 */
-bool VertexCollection2d::readBuffer(cn::edu::cug::gdb::Buffer &buf)
+bool VertexCollection2d::readBuffer(Buffer &buf)
 {
 	clear();
 	int listSize = 0;
@@ -404,7 +404,7 @@ double VertexCollection2d::getLength()
 * @param [out] envp
 * @return
 */
-void VertexCollection2d::getEnvelope(cn::edu::cug::gdb::Envelope3d * envp)
+void VertexCollection2d::getEnvelope(Envelope3d * envp)
 {
 	envp->minx = 1E20;
 	envp->maxx = -1E20;
@@ -424,6 +424,6 @@ void VertexCollection2d::getEnvelope(cn::edu::cug::gdb::Envelope3d * envp)
 }
 
 end_gdb_namespace
-end_cug_namespace
-end_edu_namespace
-end_cn_namespace
+end_gtl_namespace
+
+

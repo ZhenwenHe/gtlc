@@ -14,13 +14,13 @@
 */
 #pragma once 
 #include "internal_voxel3dimpl.h"
-begin_cn_namespace
-begin_edu_namespace
-begin_cug_namespace
+
+
+begin_gtl_namespace
 begin_gdb_namespace
 
 class Tetrahedron3dImpl
-	: virtual public cn::edu::cug::gdb::Tetrahedron3d, virtual public Voxel3dImpl
+	: virtual public Tetrahedron3d, virtual public Voxel3dImpl
 {
 	/** @defgroup Tetrahedron3dImpl Tetrahedron3dImpl-四面体
 	*  @{
@@ -48,19 +48,19 @@ public:
 	*/
 	virtual bool queryInterface(int signal, void ** p){
 		switch (signal){
-		case cn::edu::cug::gdb::GEOMTYPE_3D_VOLUME:
+		case GEOMTYPE_3D_VOLUME:
 		{
-			*p = (void*)(cn::edu::cug::gdb::Volume3d *) this;
+			*p = (void*)(Volume3d *) this;
 			return true;
 		}
-		case cn::edu::cug::gdb::GEOMTYPE_3D_VOXEL:
+		case GEOMTYPE_3D_VOXEL:
 		{
-			*p = (void*)(cn::edu::cug::gdb::Voxel3d *) this;
+			*p = (void*)(Voxel3d *) this;
 			return true;
 		}
-		case cn::edu::cug::gdb::GEOMTYPE_3D_TETRAHEDRON:
+		case GEOMTYPE_3D_TETRAHEDRON:
 		{
-			*p = (void*)(cn::edu::cug::gdb::Tetrahedron3d *) this;
+			*p = (void*)(Tetrahedron3d *) this;
 			return true;
 		}
 		default:
@@ -188,6 +188,6 @@ public:
 	/** @} */ // 模块结尾
 };
 end_gdb_namespace
-end_cug_namespace
-end_edu_namespace
-end_cn_namespace
+end_gtl_namespace
+
+

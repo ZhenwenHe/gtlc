@@ -24,9 +24,9 @@
 #include "describablebuffer.h"
 
 
-begin_cn_namespace
-begin_edu_namespace
-begin_cug_namespace
+
+
+begin_gtl_namespace
 begin_gdb_namespace
 
 class Mesh;
@@ -52,7 +52,7 @@ enum {
 /** @addtogroup Mesh Cell-网格单元
 *  @{
 */
-class GV3DCORE_API Cell {
+class CORE_API Cell {
 	unsigned long long _x, _y, _z;
 	std::vector<double>  _propValues;
 	std::vector<Vertex3d> _vertices;
@@ -116,7 +116,7 @@ public:
 /** @addtogroup Mesh Cell-网格单元
 *  @{
 */
-class GV3DCORE_API Block {
+class CORE_API Block {
 	Identifier                 _identifier;//唯一标识
 	unsigned long long         _layerID;//所在层的ID
 	unsigned long long         _xCellNumber;//X方向逻辑单元数
@@ -131,7 +131,7 @@ class GV3DCORE_API Block {
 
 	std::vector<CellSharedPtr>  _cells;
 
-	cn::edu::cug::gdb::Envelope3d   _envelope;//块边界
+	Envelope3d   _envelope;//块边界
 public:
 	Block(unsigned long long cx, unsigned long long cy, unsigned long long cz);
 	virtual ~Block();
@@ -198,7 +198,7 @@ public:
 /** @addtogroup Mesh Mesh-网格基类
 *  @{
 */
-class GV3DCORE_API Mesh{
+class CORE_API Mesh{
 protected:
 	Cell                       _currentCell;//当前网格对象，不用存储，只是为了操作方便的临时对象；
 
@@ -287,7 +287,7 @@ public:
 /** @addtogroup EclipseMesh EclipseMesh-Eclipse网格
 *  @{
 */
-class GV3DCORE_API EclipseMesh : public Mesh {
+class CORE_API EclipseMesh : public Mesh {
 public:
 	virtual double * reallocZValues() = 0;
 	virtual unsigned long long getZValuesNumber() = 0;
@@ -300,6 +300,6 @@ public:
 
 
 end_gdb_namespace
-end_cug_namespace
-end_edu_namespace
-end_cn_namespace
+end_gtl_namespace
+
+

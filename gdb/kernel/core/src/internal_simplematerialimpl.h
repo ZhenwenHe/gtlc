@@ -15,9 +15,9 @@
 #pragma once
 #include "internal_textureimpl.h"
 #include "internal_materialimpl.h"
-begin_cn_namespace
-begin_edu_namespace
-begin_cug_namespace
+
+
+begin_gtl_namespace
 begin_gdb_namespace
 class SimpleMaterialImpl : virtual public  SimpleMaterial, virtual public MaterialImpl
 { 
@@ -98,13 +98,13 @@ public:
 
  
 public:
-	virtual cn::edu::cug::gdb::Identifier::raw_type getTextureID() {
+	virtual Identifier::raw_type getTextureID() {
 		return m_nTextureID;
 	}
-	virtual void setTextureID(cn::edu::cug::gdb::Identifier::raw_type d) {
+	virtual void setTextureID(Identifier::raw_type d) {
 		m_nTextureID = d;
 	}
-	virtual cn::edu::cug::gdb::TexturePtr getTexture() {
+	virtual TexturePtr getTexture() {
 		return dynamic_cast<TexturePtr>(m_pTexture);
 	}
 	virtual void setTexture(TexturePtr p){
@@ -120,9 +120,9 @@ public:
 };
 
 end_gdb_namespace
-end_cug_namespace
-end_edu_namespace
-end_cn_namespace
+end_gtl_namespace
+
+
 
 
 

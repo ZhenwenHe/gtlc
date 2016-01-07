@@ -1,9 +1,9 @@
 #include "internal_tetrahedron3dimpl.h"
 #include "internal_spatialfuns.h"
 #include "mathex.h"
-begin_cn_namespace
-begin_edu_namespace
-begin_cug_namespace
+
+
+begin_gtl_namespace
 begin_gdb_namespace
 
 bool Tetrahedron3dImpl::readBuffer(Buffer & buf)
@@ -179,6 +179,5 @@ bool Tetrahedron3dImpl::Init()
 	return true;
 }
 end_gdb_namespace
-end_cug_namespace
-end_edu_namespace
-end_cn_namespace
+end_gtl_namespace
+

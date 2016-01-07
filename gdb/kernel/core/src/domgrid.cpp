@@ -2,9 +2,9 @@
 #include "terrain.h" 
 #include "factory.h"
 #include "internal_domgridimpl.h"
-begin_cn_namespace
-begin_edu_namespace
-begin_cug_namespace
+
+
+begin_gtl_namespace
 begin_gdb_namespace
 
 DOMGridSharedPtr DOMGrid::create(string szfiledom){
@@ -100,7 +100,7 @@ DOMGridSharedPtr DOMGrid::create(string szfiledom){
 
 
 DOMGridSharedPtr DOMGrid::create(){
-#if(USING_DEFAULT_3DGEOMETRY==1)
+#if(USING_3DGEOMETRY_TYPE==1)
 	return DOMGridSharedPtr(new DOMGridImpl());
 #else
 	return ((Geometry3dFactory*)Factory::getFactory(Factory::FACTORYTYPE_3D_GEOMETRY))->newDOMGrid();
@@ -110,6 +110,5 @@ DOMGridSharedPtr DOMGrid::create(){
 
 
 end_gdb_namespace
-end_cug_namespace
-end_edu_namespace
-end_cn_namespace
+end_gtl_namespace
+

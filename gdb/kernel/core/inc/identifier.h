@@ -133,28 +133,28 @@ public:
 	/** @name 静态友元符号重载
 	*  @{
 	*/
-	friend static bool operator==(const Identifier & id1, const Identifier & id2);
-	friend static bool operator==(const Identifier & id1, unsigned long long  id2);
+	friend  bool operator==(const Identifier & id1, const Identifier & id2);
+	friend  bool operator==(const Identifier & id1, unsigned long long  id2);
 
-	friend static bool operator!=(const Identifier & id1, const Identifier & id2);
-	friend static bool operator!=(const Identifier & id1, unsigned long long  id2);
+	friend  bool operator!=(const Identifier & id1, const Identifier & id2);
+	friend  bool operator!=(const Identifier & id1, unsigned long long  id2);
 
-	friend static bool operator<(const Identifier & id1, const Identifier & id2);
-	friend static bool operator<(const Identifier & id1, unsigned long long  id2);
+	friend  bool operator<(const Identifier & id1, const Identifier & id2);
+	friend  bool operator<(const Identifier & id1, unsigned long long  id2);
 
-	friend static bool operator>(const Identifier & id1, const Identifier & id2);
-	friend static bool operator>(const Identifier & id1, unsigned long long  id2);
-
-
-	friend static Identifier operator-(const Identifier & id1, const Identifier & id2);
-	friend static Identifier operator-(const Identifier & id1, unsigned long long  id2);
-
-	friend static Identifier operator+(const Identifier & id1, const Identifier & id2);
-	friend static Identifier operator+(const Identifier & id1, unsigned long long  id2);
+	friend  bool operator>(const Identifier & id1, const Identifier & id2);
+	friend  bool operator>(const Identifier & id1, unsigned long long  id2);
 
 
-	friend static std::ostream & operator <<(std::ostream & s, const Identifier & id1);
-	friend static std::istream & operator >>(std::istream & s, const Identifier & id1);
+	friend  Identifier operator-(const Identifier & id1, const Identifier & id2);
+	friend  Identifier operator-(const Identifier & id1, unsigned long long  id2);
+
+	friend  Identifier operator+(const Identifier & id1, const Identifier & id2);
+	friend  Identifier operator+(const Identifier & id1, unsigned long long  id2);
+
+
+	friend  std::ostream & operator <<(std::ostream & s, const Identifier & id1);
+	friend  std::istream & operator >>(std::istream & s, const Identifier & id1);
 
 	/** @} */
 public:

@@ -42,7 +42,7 @@ bool same(std::vector<T> & vv){
 	size_t s = vv.size();
 	if (s == 1) return false;
 
-	for (std::vector<T>::iterator it = vv.begin(); it != vv.end() - 1; it++){
+	for (typename std::vector<T>::iterator it = vv.begin(); it != vv.end() - 1; it++){
 		for (std::vector<T>::iterator it2 = it + 1; it2 != vv.end(); it2++){
 			if (*it == *it2)
 				return true;

@@ -128,7 +128,7 @@ public:
 
 	/** 默认构造函数
 	*/
-	Curve3dImpl::Curve3dImpl()
+	Curve3dImpl()
 	{
 		m_byteTypeID = GEOTYPE_3D_CURVE;
 		m_lVertNum = 0;

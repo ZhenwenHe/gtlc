@@ -2,12 +2,10 @@
 #include "image.h"
 #include "../inc/freeimage.h"
 
-begin_cn_namespace
-begin_edu_namespace
-begin_cug_namespace
+begin_gtl_namespace
 begin_gdb_namespace
 
-class ImageImpl :	public cn::edu::cug::gdb::Image
+class ImageImpl :	public gtl::gdb::Image
 {
 protected:
 	/// DIB data
@@ -172,23 +170,21 @@ public:
 };
 
 end_gdb_namespace
-end_cug_namespace
-end_edu_namespace
-end_cn_namespace
+end_gtl_namespace 
 
 
 #include "factory.h"
-class ImageFactoryImpl:public cn::edu::cug::gdb::ImageFactory
+class ImageFactoryImpl:public gtl::gdb::ImageFactory
 {
 public:
 	ImageFactoryImpl(void);
 	virtual ~ImageFactoryImpl(void);
-	virtual  cn::edu::cug::gdb::ImageSharedPtr newImage( );
-	virtual  cn::edu::cug::gdb::ImageSharedPtr newImage(unsigned w, unsigned h, unsigned bpp, void * pdata );
+	virtual  gtl::gdb::ImageSharedPtr newImage( );
+	virtual  gtl::gdb::ImageSharedPtr newImage(unsigned w, unsigned h, unsigned bpp, void * pdata );
 };
 
 struct ImageFactoryDeletor{
-	void operator ()(cn::edu::cug::gdb::Factory * p){
-		delete (ImageFactoryImpl*)((cn::edu::cug::gdb::ImageFactory* )p);
+	void operator ()(gtl::gdb::Factory * p){
+		delete (ImageFactoryImpl*)((gtl::gdb::ImageFactory* )p);
 	}
 };

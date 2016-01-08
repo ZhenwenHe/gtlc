@@ -1,9 +1,7 @@
 #include "imageimpl.h"
  
 
-begin_cn_namespace
-begin_edu_namespace
-begin_cug_namespace
+begin_gtl_namespace
 begin_gdb_namespace
 
 ImageImpl::ImageImpl( )
@@ -352,9 +350,7 @@ int ImageImpl::getType() const
 }
 
 end_gdb_namespace
-end_cug_namespace
-end_edu_namespace
-end_cn_namespace
+end_gtl_namespace 
 
 
 
@@ -367,12 +363,12 @@ ImageFactoryImpl::~ImageFactoryImpl(void)
 {
 }
 
-cn::edu::cug::gdb::ImageSharedPtr ImageFactoryImpl::newImage( ){	 
-	return cn::edu::cug::gdb::ImageSharedPtr(new cn::edu::cug::gdb::ImageImpl());
+gtl::gdb::ImageSharedPtr ImageFactoryImpl::newImage( ){	 
+	return gtl::gdb::ImageSharedPtr(new gtl::gdb::ImageImpl());
 	 
 }
 
-cn::edu::cug::gdb::ImageSharedPtr ImageFactoryImpl::newImage(unsigned w, unsigned h, unsigned bpp, void * pdata ){	 
-	return cn::edu::cug::gdb::ImageSharedPtr(new cn::edu::cug::gdb::ImageImpl(w, h, bpp, pdata));
+gtl::gdb::ImageSharedPtr ImageFactoryImpl::newImage(unsigned w, unsigned h, unsigned bpp, void * pdata ){	 
+	return gtl::gdb::ImageSharedPtr(new gtl::gdb::ImageImpl(w, h, bpp, pdata));
 	 
 }

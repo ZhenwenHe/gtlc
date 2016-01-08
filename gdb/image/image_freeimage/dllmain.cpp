@@ -11,8 +11,8 @@ BOOL APIENTRY DllMain( HMODULE hModule,
 	{
 	case DLL_PROCESS_ATTACH:
 	{
-		cn::edu::cug::gdb::Factory::setFactory(cn::edu::cug::gdb::FactorySharedPtr(
-			(cn::edu::cug::gdb::Factory*) new ImageFactoryImpl(),
+		gtl::gdb::Factory::setFactory(gtl::gdb::FactorySharedPtr(
+			(gtl::gdb::Factory*) new ImageFactoryImpl(),
 			ImageFactoryDeletor()));
 		break;
 	}
@@ -25,8 +25,8 @@ BOOL APIENTRY DllMain( HMODULE hModule,
 		break;
 	}
 	case DLL_PROCESS_DETACH:
-		cn::edu::cug::gdb::Factory::getFactoryMap()[cn::edu::cug::gdb::Factory::FACTORYTYPE_IMAGE] =
-			cn::edu::cug::gdb::FactorySharedPtr();
+		gtl::gdb::Factory::getFactoryMap()[gtl::gdb::Factory::FACTORYTYPE_IMAGE] =
+			gtl::gdb::FactorySharedPtr();
 
 		break;
 	}

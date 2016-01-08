@@ -1,6 +1,6 @@
 import os 
 
-strp = 'h:/git/gtl/gdb/kernel/core/src'
+strp = 'h:/gtl/gtl/gdb/kernel/core/src'
 fa = os.listdir(strp)
 for s in fa:
 	if(s.islower()):

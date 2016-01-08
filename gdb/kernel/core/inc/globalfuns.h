@@ -62,7 +62,8 @@ template<typename CharT>
 void trim(std::basic_string<CharT>  & str, CharT c)
 {
 	//删除掉两端的指定字符
-	std::basic_string<CharT>::size_type pos = str.find_last_not_of(c);
+	//std::basic_string<CharT>::size_type pos = str.find_last_not_of(c);
+	auto pos = str.find_last_not_of(c);
 	if (pos != std::basic_string<CharT>::npos)
 	{
 		str.erase(pos + 1);

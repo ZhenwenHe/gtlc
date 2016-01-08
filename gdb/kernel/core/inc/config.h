@@ -121,6 +121,8 @@
 using namespace std;
 
 
+#include "config_env.h"
+
 
 begin_gtl_namespace
 begin_gdb_namespace
@@ -141,7 +143,6 @@ const double  PI        =  3.141592653589793238462643383279502884197169399375105
 #define SMALL_NUMBER 0.0000001
 #endif
 
-#include "config_env.h"
 
 class Envelope3d;
 /** @defgroup Config  Config-全局配置类

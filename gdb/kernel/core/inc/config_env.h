@@ -36,16 +36,16 @@ begin_gtl_namespace
 /*
  * get GTL home directory
  */
-static std::string getHome();
+ std::string getHome();
 /*
  * get GTL installation home directory
  */
-static std::string getInstallHome();
+ std::string getInstallHome();
 
 /*
  * get GTL data home directory
  */
-static std::string getDataHome();
+ std::string getDataHome();
 
 end_gtl_namespace
 #endif /* CONFIG_ENV_H */

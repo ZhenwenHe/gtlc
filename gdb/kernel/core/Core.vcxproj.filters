@@ -30,189 +30,6 @@
     <ClInclude Include="targetver.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\internal_AABBoxImpl.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\internal_Annotation3dImpl.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\internal_ComplexMaterialImpl.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\internal_Cube3dImpl.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\internal_Curve3dImpl.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\internal_DelaunayImpl.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\internal_DEMGridImpl.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\internal_DOMGridImpl.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\internal_EclipseMeshImpl.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\internal_EclipseMeshReader.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\internal_featureclassimpl.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\internal_featureimpl.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\internal_featuresetimpl.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\internal_frustumimpl.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\internal_Geometry3dImpl.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\internal_GeometryImpl.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\internal_Group3dImpl.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\internal_layerimpl.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\internal_LinearRing3dImpl.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\internal_LineString3dImpl.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\internal_loadinfoimpl.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\internal_MaterialImpl.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\internal_MultiPoint3dImpl.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\internal_MultiPolygon3dImpl.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\internal_MultiPolyline3dImpl.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\internal_MultiSolid3dImpl.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\internal_OBBoxImpl.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\internal_ParameterizedCurve3dImpl.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\internal_ParameterizedSurface3dImpl.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\internal_Point3dImpl.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\internal_Polygon3dImpl.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\internal_Prism3dImpl.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\internal_projectimpl.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\internal_rayimpl.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\internal_Rectangle3dImpl.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\internal_Reference3dImpl.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\internal_SemanticActionTopoInfoImpl.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\internal_SemanticGeometryTopoInfoImpl.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\internal_ShadedVertex3dVisitorImpl.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\internal_ShadedVertex3fVisitorImpl.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\internal_SharedModelImpl.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\internal_SimpleMaterialImpl.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\internal_SinglePoint3dImpl.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\internal_Solid3dImpl.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\internal_spatialfuns.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\internal_Surface3dImpl.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\internal_Tetrahedron3dImpl.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\internal_TexturedVertex3dVisitorImpl.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\internal_TexturedVertex3fVisitorImpl.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\internal_TextureImpl.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\internal_TopoInfoImpl.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\internal_TopoItemImpl.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\internal_Triangle3dImpl.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\internal_TriangleMesh3dImpl.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\internal_VersatileVertex3dVisitorImpl.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\internal_VersatileVertex3fVisitorImpl.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\internal_Vertex3dVisitorImpl.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\internal_Vertex3fVisitorImpl.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\internal_Volume3dImpl.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\internal_Voxel3dImpl.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\internal_workspaceimpl.h">
-      <Filter>src</Filter>
-    </ClInclude>
     <ClInclude Include="inc\bitset.h">
       <Filter>inc</Filter>
     </ClInclude>
@@ -417,6 +234,189 @@
     <ClInclude Include="inc\vertexvisitor.h">
       <Filter>inc</Filter>
     </ClInclude>
+    <ClInclude Include="src\internal_aabboximpl.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\internal_annotation3dimpl.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\internal_complexmaterialimpl.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\internal_cube3dimpl.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\internal_curve3dimpl.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\internal_delaunayimpl.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\internal_demgridimpl.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\internal_domgridimpl.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\internal_eclipsemeshimpl.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\internal_eclipsemeshreader.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\internal_featureclassimpl.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\internal_featureimpl.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\internal_featuresetimpl.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\internal_frustumimpl.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\internal_geometry3dimpl.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\internal_geometryimpl.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\internal_group3dimpl.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\internal_layerimpl.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\internal_linearring3dimpl.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\internal_linestring3dimpl.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\internal_loadinfoimpl.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\internal_materialimpl.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\internal_multipoint3dimpl.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\internal_multipolygon3dimpl.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\internal_multipolyline3dimpl.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\internal_multisolid3dimpl.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\internal_obboximpl.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\internal_parameterizedcurve3dimpl.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\internal_parameterizedsurface3dimpl.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\internal_point3dimpl.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\internal_polygon3dimpl.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\internal_prism3dimpl.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\internal_projectimpl.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\internal_rayimpl.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\internal_rectangle3dimpl.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\internal_reference3dimpl.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\internal_semanticactiontopoinfoimpl.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\internal_semanticgeometrytopoinfoimpl.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\internal_shadedvertex3dvisitorimpl.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\internal_shadedvertex3fvisitorimpl.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\internal_sharedmodelimpl.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\internal_simplematerialimpl.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\internal_singlepoint3dimpl.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\internal_solid3dimpl.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\internal_spatialfuns.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\internal_surface3dimpl.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\internal_tetrahedron3dimpl.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\internal_texturedvertex3dvisitorimpl.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\internal_texturedvertex3fvisitorimpl.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\internal_textureimpl.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\internal_topoinfoimpl.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\internal_topoitemimpl.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\internal_triangle3dimpl.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\internal_trianglemesh3dimpl.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\internal_versatilevertex3dvisitorimpl.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\internal_versatilevertex3fvisitorimpl.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\internal_vertex3dvisitorimpl.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\internal_vertex3fvisitorimpl.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\internal_volume3dimpl.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\internal_voxel3dimpl.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\internal_workspaceimpl.h">
+      <Filter>src</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -428,10 +428,10 @@
     <ClCompile Include="dllmain.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\AABBoxImpl.cpp">
+    <ClCompile Include="src\aabboximpl.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\Annotation3dImpl.cpp">
+    <ClCompile Include="src\annotation3dimpl.cpp">
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\bitset.cpp">
@@ -458,31 +458,34 @@
     <ClCompile Include="src\colortable.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\ComplexMaterialImpl.cpp">
+    <ClCompile Include="src\complexmaterialimpl.cpp">
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\config.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\Connector.cpp">
+    <ClCompile Include="src\config_env.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\connector.cpp">
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\console.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\Cube3dImpl.cpp">
+    <ClCompile Include="src\cube3dimpl.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\Curve3dImpl.cpp">
+    <ClCompile Include="src\curve3dimpl.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\DelaunayImpl.cpp">
+    <ClCompile Include="src\delaunayimpl.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\DEMBlock.cpp">
+    <ClCompile Include="src\demblock.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\DEMDataInfo.cpp">
+    <ClCompile Include="src\demdatainfo.cpp">
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\demdbinfo.cpp">
@@ -491,10 +494,10 @@
     <ClCompile Include="src\demgrid.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\DEMGridImpl.cpp">
+    <ClCompile Include="src\demgridimpl.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\DEMInfo.cpp">
+    <ClCompile Include="src\deminfo.cpp">
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\demlayerinfo.cpp">
@@ -515,7 +518,7 @@
     <ClCompile Include="src\domgrid.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\DOMGridImpl.cpp">
+    <ClCompile Include="src\domgridimpl.cpp">
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\dominfo.cpp">
@@ -524,10 +527,10 @@
     <ClCompile Include="src\domlayerinfo.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\EclipseMeshImpl.cpp">
+    <ClCompile Include="src\eclipsemeshimpl.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\EclipseMeshReader.cpp">
+    <ClCompile Include="src\eclipsemeshreader.cpp">
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\envelope2d.cpp">
@@ -566,28 +569,28 @@
     <ClCompile Include="src\geometry.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\Geometry2d.cpp">
+    <ClCompile Include="src\geometry2d.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\Geometry3dImpl.cpp">
+    <ClCompile Include="src\geometry3dimpl.cpp">
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\geometryfactory.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\GeometryImpl.cpp">
+    <ClCompile Include="src\geometryimpl.cpp">
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\globalfuns.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\Group3dImpl.cpp">
+    <ClCompile Include="src\group3dimpl.cpp">
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\identifier.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\Image.cpp">
+    <ClCompile Include="src\image.cpp">
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\indexbuffer.cpp">
@@ -599,10 +602,10 @@
     <ClCompile Include="src\layerimpl.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\LinearRing3dImpl.cpp">
+    <ClCompile Include="src\linearring3dimpl.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\LineString3dImpl.cpp">
+    <ClCompile Include="src\linestring3dimpl.cpp">
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\lock.cpp">
@@ -617,7 +620,7 @@
     <ClCompile Include="src\material.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\MaterialImpl.cpp">
+    <ClCompile Include="src\materialimpl.cpp">
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\mathex.cpp">
@@ -635,34 +638,34 @@
     <ClCompile Include="src\mesh.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\MultiPoint3dImpl.cpp">
+    <ClCompile Include="src\multipoint3dimpl.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\MultiPolygon3dImpl.cpp">
+    <ClCompile Include="src\multipolygon3dimpl.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\MultiPolyline3dImpl.cpp">
+    <ClCompile Include="src\multipolyline3dimpl.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\MultiSolid3dImpl.cpp">
+    <ClCompile Include="src\multisolid3dimpl.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\OBBoxImpl.cpp">
+    <ClCompile Include="src\obboximpl.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\ParameterizedCurve3dImpl.cpp">
+    <ClCompile Include="src\parameterizedcurve3dimpl.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\ParameterizedSurface3dImpl.cpp">
+    <ClCompile Include="src\parameterizedsurface3dimpl.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\Point3dImpl.cpp">
+    <ClCompile Include="src\point3dimpl.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\Polygon3dImpl.cpp">
+    <ClCompile Include="src\polygon3dimpl.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\Prism3dImpl.cpp">
+    <ClCompile Include="src\prism3dimpl.cpp">
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\project.cpp">
@@ -677,7 +680,7 @@
     <ClCompile Include="src\proxy.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\Quaternion.cpp">
+    <ClCompile Include="src\quaternion.cpp">
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\ray.cpp">
@@ -686,10 +689,10 @@
     <ClCompile Include="src\rayimpl.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\Rectangle3dImpl.cpp">
+    <ClCompile Include="src\rectangle3dimpl.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\Reference3dImpl.cpp">
+    <ClCompile Include="src\reference3dimpl.cpp">
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\render.cpp">
@@ -698,31 +701,31 @@
     <ClCompile Include="src\selector.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\SemanticActionTopoInfoImpl.cpp">
+    <ClCompile Include="src\semanticactiontopoinfoimpl.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\SemanticGeometryTopoInfoImpl.cpp">
+    <ClCompile Include="src\semanticgeometrytopoinfoimpl.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\ShadedVertex3dVisitorImpl.cpp">
+    <ClCompile Include="src\shadedvertex3dvisitorimpl.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\ShadedVertex3fVisitorImpl.cpp">
+    <ClCompile Include="src\shadedvertex3fvisitorimpl.cpp">
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\sharedmodel.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\SharedModelImpl.cpp">
+    <ClCompile Include="src\sharedmodelimpl.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\SimpleMaterialImpl.cpp">
+    <ClCompile Include="src\simplematerialimpl.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\SinglePoint3dImpl.cpp">
+    <ClCompile Include="src\singlepoint3dimpl.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\Solid3dImpl.cpp">
+    <ClCompile Include="src\solid3dimpl.cpp">
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\sourcedatainfo.cpp">
@@ -734,7 +737,7 @@
     <ClCompile Include="src\sphere3d.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\Surface3dImpl.cpp">
+    <ClCompile Include="src\surface3dimpl.cpp">
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\temporaryset.cpp">
@@ -743,40 +746,40 @@
     <ClCompile Include="src\terrain.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\Tetrahedron3dImpl.cpp">
+    <ClCompile Include="src\tetrahedron3dimpl.cpp">
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\texture.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\TexturedVertex3dVisitorImpl.cpp">
+    <ClCompile Include="src\texturedvertex3dvisitorimpl.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\TexturedVertex3fVisitorImpl.cpp">
+    <ClCompile Include="src\texturedvertex3fvisitorimpl.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\TextureImpl.cpp">
+    <ClCompile Include="src\textureimpl.cpp">
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\topoinfo.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\TopoInfoImpl.cpp">
+    <ClCompile Include="src\topoinfoimpl.cpp">
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\topoitem.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\TopoItemImpl.cpp">
+    <ClCompile Include="src\topoitemimpl.cpp">
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\topology.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\Triangle3dImpl.cpp">
+    <ClCompile Include="src\triangle3dimpl.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\TriangleMesh3dImpl.cpp">
+    <ClCompile Include="src\trianglemesh3dimpl.cpp">
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\tritool.cpp">
@@ -788,10 +791,10 @@
     <ClCompile Include="src\valutils.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\VersatileVertex3dVisitorImpl.cpp">
+    <ClCompile Include="src\versatilevertex3dvisitorimpl.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\VersatileVertex3fVisitorImpl.cpp">
+    <ClCompile Include="src\versatilevertex3fvisitorimpl.cpp">
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\vertex2d.cpp">
@@ -803,13 +806,13 @@
     <ClCompile Include="src\vertex3d.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\Vertex3dVisitorImpl.cpp">
+    <ClCompile Include="src\vertex3dvisitorimpl.cpp">
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\vertex3f.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\Vertex3fVisitorImpl.cpp">
+    <ClCompile Include="src\vertex3fvisitorimpl.cpp">
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\vertexbuffer.cpp">
@@ -821,19 +824,16 @@
     <ClCompile Include="src\vertexvisitor.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\Volume3dImpl.cpp">
+    <ClCompile Include="src\volume3dimpl.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\Voxel3dImpl.cpp">
+    <ClCompile Include="src\voxel3dimpl.cpp">
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\workspace.cpp">
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\workspaceimpl.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="src\config_env.cpp">
       <Filter>src</Filter>
     </ClCompile>
   </ItemGroup>

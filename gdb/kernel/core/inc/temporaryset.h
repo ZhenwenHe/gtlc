@@ -36,16 +36,16 @@ class CORE_API TempSet
 	/** @name 保护成员变量说明
 	*  @{
 	*/
+	///**临时数据集的状态*/
+	int _status;
+	///**临时数据集的透明度*/
+	float _alpha;
 protected:
 	typedef std::pair< FCLSID, FeatureVectorSharedPtr>   FSPAIR;
 	typedef std::map< FCLSID, FeatureVectorSharedPtr >   FSMAP;
 
 	/**要素类集列表*/
-	FSMAP  _set;
-	/**临时数据集的状态*/
-	int _status;
-	/**临时数据集的透明度*/
-	float _alpha;
+	FSMAP  _set;	
 	/**临时数据集的名称*/
 	std::string    _Name;
 	/**要素类集列表*/

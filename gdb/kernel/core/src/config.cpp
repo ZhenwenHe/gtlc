@@ -1,9 +1,6 @@
 #include "config.h"
 #include "buffer.h"
 
-
-
-
 begin_gtl_namespace
 begin_gdb_namespace
  
@@ -172,7 +169,8 @@ bool Config::isDynamicDispatching(){
 	return dispachMode != 0;
 }
 Config::Config(){
-	_loc = std::locale::global(std::locale(""));//设置环境为系统环境  
+	//设置环境为系统环境  
+	_loc = std::locale::global(std::locale(""));
 	char path[512];
 	string sz = gtl::getInstallHome();
 #if(USING_OS_TYPE == 0)

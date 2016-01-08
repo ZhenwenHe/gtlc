@@ -791,14 +791,13 @@ public:
 	*/
 	static bool readCNSDTF(std::string filename, DEM & _dem);
 	static bool writeCNSDTF(const DEM & _dem, std::string filename);
-	/*ArcGIS中GRID转换文本文件格式说明： 字串5
-
-	ncols         319----------------数据列数
-	nrows         198----------------数据行数
-	xllcorner     131985----------------数据左下角的X值
-	yllcorner     19020----------------数据左下角的Y值
-	cellsize      5----------------数据分辨率（栅格单元的宽高）
-	NODATA_value -99999----------------无值数据标志*/
+	///*ArcGIS中GRID转换文本文件格式说明： 字串5
+	//ncols         319----------------数据列数
+	//nrows         198----------------数据行数
+	//xllcorner     131985----------------数据左下角的X值
+	//yllcorner     19020----------------数据左下角的Y值
+	//cellsize      5----------------数据分辨率（栅格单元的宽高）
+	//NODATA_value -99999----------------无值数据标志*/
 	static bool readASC(std::string filename, DEMGrid::DEM & _dem);
 	static bool writeASC(const DEMGrid::DEM & _dem, std::string filename);
 public:

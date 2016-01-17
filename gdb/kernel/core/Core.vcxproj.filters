@@ -417,6 +417,12 @@
     <ClInclude Include="src\internal_workspaceimpl.h">
       <Filter>src</Filter>
     </ClInclude>
+    <ClInclude Include="inc\sqlite3.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\sqlite3ext.h">
+      <Filter>inc</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -834,6 +840,9 @@
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\workspaceimpl.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\sqlite3.c">
       <Filter>src</Filter>
     </ClCompile>
   </ItemGroup>

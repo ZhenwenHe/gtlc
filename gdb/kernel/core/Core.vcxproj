@@ -111,7 +111,7 @@
       </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>_DEBUG;_WINDOWS;_USRDLL;CORE_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_DEBUG;_WINDOWS;_USRDLL;CORE_EXPORTS;SQLITE_ENABLE_RTREE;SQLITE_ENABLE_JSON1;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>./inc</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
@@ -147,7 +147,7 @@
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>NDEBUG;_WINDOWS;_USRDLL;CORE_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>NDEBUG;_WINDOWS;_USRDLL;CORE_EXPORTS;SQLITE_ENABLE_RTREE;SQLITE_ENABLE_JSON1;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>./inc</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
@@ -208,6 +208,8 @@
     <ClInclude Include="inc\shadedvertex3f.h" />
     <ClInclude Include="inc\sharedmodel.h" />
     <ClInclude Include="inc\sphere3d.h" />
+    <ClInclude Include="inc\sqlite3.h" />
+    <ClInclude Include="inc\sqlite3ext.h" />
     <ClInclude Include="inc\temporaryset.h" />
     <ClInclude Include="inc\terrain.h" />
     <ClInclude Include="inc\terrainbuilder.h" />
@@ -412,6 +414,7 @@
     <ClCompile Include="src\sourcedatainfo.cpp" />
     <ClCompile Include="src\spatialfuns.cpp" />
     <ClCompile Include="src\sphere3d.cpp" />
+    <ClCompile Include="src\sqlite3.c" />
     <ClCompile Include="src\surface3dimpl.cpp" />
     <ClCompile Include="src\temporaryset.cpp" />
     <ClCompile Include="src\terrain.cpp" />

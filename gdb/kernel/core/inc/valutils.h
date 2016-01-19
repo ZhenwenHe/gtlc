@@ -45,13 +45,21 @@ public:
 
 		GVT_BEGIN_INTEGER,
 		GVT_UCHAR,   //字节整数类型
+		GVT_BYTE= GVT_UCHAR,//和UCHAR等价
+		GVT_UINT8=GVT_BYTE,
+
 		GVT_SHORT,  //2个字节整数
+		GVT_INT16= GVT_SHORT,
 		GVT_USHORT,
+		GVT_UINT16 = GVT_USHORT,
 		GVT_INT,//4个字节整数
+		GVT_INT32 = GVT_INT,
 		GVT_UINT,
-		GVT_LONG,
-		GVT_ULONG,
-		GVT_ULONGLONG,
+		GVT_UINT32 = GVT_UINT,
+		GVT_LONGLONG,
+		GVT_INT64= GVT_LONGLONG,
+		GVT_ULONGLONG,//unsigned long long 8bytes
+		GVT_UINT64= GVT_ULONGLONG,
 		GVT_END_INTEGER,
 
 		GVT_BEGIN_DECIMAL,
@@ -67,7 +75,22 @@ public:
 	struct VALUE{
 		GVT       type;//值类型
 		int       count;//值的个数
-		void *    pvalue;//值内存块
+		union {
+			void *             pvalue;//值内存块
+			char *             carray;
+			unsigned char *    barray;
+			char               i8;
+			unsigned char      u8;
+			short              i16;
+			unsigned short     u16;			
+			int                i32;
+			unsigned int       u32;
+			long long          i64;
+			unsigned long long u64;
+			float              f32;
+			double             f64;
+		};
+		
 	};
 
 protected://用于类型转化

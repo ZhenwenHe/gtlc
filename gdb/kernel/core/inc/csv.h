@@ -39,6 +39,7 @@ public:
 	CommaSeparatedValues(const char * pathname);
 	CommaSeparatedValues(const std::string& pathname);
 	bool load(const char * pathname);
+	bool load(const std::string &  pathname);
 	void clear();
 public:
 	inline int  getFieldCount();

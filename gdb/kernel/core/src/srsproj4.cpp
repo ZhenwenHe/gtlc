@@ -1,9 +1,10 @@
 #include "spatialreference.h" 
 begin_gtl_namespace
 begin_gdb_namespace
-int EPSGGetWGS84Transform(int nGeogCS, double *padfTransform) {
-	return 0;
-}
+/*
+all in this file are derived from gdal 1.10 ogr_srs_proj4.cpp
+*/
+extern int EPSGGetWGS84Transform(int nGeogCS, double *padfTransform);
 char *OCTProj4Normalize(const char *pszProj4Src) { return 0; }
 /* -------------------------------------------------------------------- */
 /*      The following list comes from osrs/proj/src/pj_ellps.c          */
@@ -2371,7 +2372,7 @@ bool SpatialReference::exportToProj4(char ** ppszProj4) const
 
 	*ppszProj4 = cslDuplicateString(szProj4);
 
-	 setlocale(LC_NUMERIC, oLocale.c_str());
+	setlocale(LC_NUMERIC, oLocale.c_str());
 	return true;
 }
 

@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="H:\gtl\gtl\proj4\src\proj.c">
+      <Filter>Source Files\Bin</Filter>
+    </ClCompile>
+    <ClCompile Include="H:\gtl\gtl\proj4\src\gen_cheb.c">
+      <Filter>Source Files\Bin</Filter>
+    </ClCompile>
+    <ClCompile Include="H:\gtl\gtl\proj4\src\p_series.c">
+      <Filter>Source Files\Bin</Filter>
+    </ClCompile>
+    <ClCompile Include="H:\gtl\gtl\proj4\src\emess.c">
+      <Filter>Source Files\Core</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="H:\gtl\gtl\proj4\src\CMakeLists.txt">
+      <Filter>CMake Files</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files\Core">
+      <UniqueIdentifier>{56CBD110-EC0D-3AC3-9A1A-3DEB472C360A}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Bin">
+      <UniqueIdentifier>{8E6FCFD2-484F-307D-980D-4E58BCD054F2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{DAC4DE26-BB16-3894-919E-681BDC9F9961}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CMake Files">
+      <UniqueIdentifier>{0FA999C9-2EF1-33D5-9D12-CD967F2F3B02}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

@@ -431,6 +431,12 @@
     <ClCompile Include="src\spatialreference.cpp" />
     <ClCompile Include="src\sphere3d.cpp" />
     <ClCompile Include="src\sqlite3.c" />
+    <ClCompile Include="src\srsct.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
     <ClCompile Include="src\srsdict.cpp" />
     <ClCompile Include="src\srsepsg.cpp" />
     <ClCompile Include="src\srserm.cpp" />

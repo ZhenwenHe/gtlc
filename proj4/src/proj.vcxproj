@@ -1,0 +1,492 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="MinSizeRel|x64">
+      <Configuration>MinSizeRel</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|x64">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGUID>{B5C8A409-BB94-30E9-B716-14ECBF41DF39}</ProjectGUID>
+    <WindowsTargetPlatformVersion>10.0.10240.0</WindowsTargetPlatformVersion>
+    <Keyword>Win32Proj</Keyword>
+    <Platform>x64</Platform>
+    <ProjectName>proj</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+    <PropertyGroup>
+      <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+      <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">H:\gtl\gtl\proj4\bin\Debug\</OutDir>
+      <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">proj.dir\Debug\</IntDir>
+      <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">proj_4_9_d</TargetName>
+      <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.dll</TargetExt>
+      <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</LinkIncremental>
+      <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</GenerateManifest>
+      <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">H:\gtl\gtl\proj4\bin\Release\</OutDir>
+      <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">proj.dir\Release\</IntDir>
+      <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">proj_4_9</TargetName>
+      <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.dll</TargetExt>
+      <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
+      <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</GenerateManifest>
+      <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">H:\gtl\gtl\proj4\bin\MinSizeRel\</OutDir>
+      <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">proj.dir\MinSizeRel\</IntDir>
+      <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">proj_4_9</TargetName>
+      <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">.dll</TargetExt>
+      <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkIncremental>
+      <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">true</GenerateManifest>
+      <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">H:\gtl\gtl\proj4\bin\RelWithDebInfo\</OutDir>
+      <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">proj.dir\RelWithDebInfo\</IntDir>
+      <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">proj_4_9</TargetName>
+      <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">.dll</TargetExt>
+      <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">true</LinkIncremental>
+      <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">true</GenerateManifest>
+    </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>H:\gtl\gtl\proj4\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>Debug/</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <CompileAs>CompileAsC</CompileAs>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;MUTEX_win32;PROJ_LIB="c:/OSGeo4W/share";CMAKE_INTDIR="Debug";proj_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;MUTEX_win32;PROJ_LIB=\"c:/OSGeo4W/share\";CMAKE_INTDIR=\"Debug\";proj_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>H:\gtl\gtl\proj4\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>H:\gtl\gtl\proj4\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalOptions> /machine:x64 /debug %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>H:/gtl/gtl/proj4/lib;H:/gtl/gtl/proj4/lib/$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>H:/gtl/gtl/proj4/lib/Debug/proj_4_9_d.lib</ImportLibrary>
+      <ModuleDefinitionFile>H:/gtl/gtl/proj4/src/proj.def</ModuleDefinitionFile>
+      <ProgramDataBaseFile>H:/gtl/gtl/proj4/bin/Debug/proj_4_9_d.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+      <Version></Version>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>H:\gtl\gtl\proj4\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>Release/</AssemblerListingLocation>
+      <CompileAs>CompileAsC</CompileAs>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;MUTEX_win32;PROJ_LIB="c:/OSGeo4W/share";CMAKE_INTDIR="Release";proj_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat></DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;MUTEX_win32;PROJ_LIB=\"c:/OSGeo4W/share\";CMAKE_INTDIR=\"Release\";proj_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>H:\gtl\gtl\proj4\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>H:\gtl\gtl\proj4\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalOptions> /machine:x64 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>H:/gtl/gtl/proj4/lib;H:/gtl/gtl/proj4/lib/$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>H:/gtl/gtl/proj4/lib/Release/proj_4_9.lib</ImportLibrary>
+      <ModuleDefinitionFile>H:/gtl/gtl/proj4/src/proj.def</ModuleDefinitionFile>
+      <ProgramDataBaseFile>H:/gtl/gtl/proj4/bin/Release/proj_4_9.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+      <Version></Version>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>H:\gtl\gtl\proj4\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>MinSizeRel/</AssemblerListingLocation>
+      <CompileAs>CompileAsC</CompileAs>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <Optimization>MinSpace</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;MUTEX_win32;PROJ_LIB="c:/OSGeo4W/share";CMAKE_INTDIR="MinSizeRel";proj_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat></DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;MUTEX_win32;PROJ_LIB=\"c:/OSGeo4W/share\";CMAKE_INTDIR=\"MinSizeRel\";proj_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>H:\gtl\gtl\proj4\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>H:\gtl\gtl\proj4\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalOptions> /machine:x64 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>H:/gtl/gtl/proj4/lib;H:/gtl/gtl/proj4/lib/$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>H:/gtl/gtl/proj4/lib/MinSizeRel/proj_4_9.lib</ImportLibrary>
+      <ModuleDefinitionFile>H:/gtl/gtl/proj4/src/proj.def</ModuleDefinitionFile>
+      <ProgramDataBaseFile>H:/gtl/gtl/proj4/bin/MinSizeRel/proj_4_9.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+      <Version></Version>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>H:\gtl\gtl\proj4\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>RelWithDebInfo/</AssemblerListingLocation>
+      <CompileAs>CompileAsC</CompileAs>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;MUTEX_win32;PROJ_LIB="c:/OSGeo4W/share";CMAKE_INTDIR="RelWithDebInfo";proj_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;MUTEX_win32;PROJ_LIB=\"c:/OSGeo4W/share\";CMAKE_INTDIR=\"RelWithDebInfo\";proj_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>H:\gtl\gtl\proj4\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>H:\gtl\gtl\proj4\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalOptions> /machine:x64 /debug %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>H:/gtl/gtl/proj4/lib;H:/gtl/gtl/proj4/lib/$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>H:/gtl/gtl/proj4/lib/RelWithDebInfo/proj_4_9.lib</ImportLibrary>
+      <ModuleDefinitionFile>H:/gtl/gtl/proj4/src/proj.def</ModuleDefinitionFile>
+      <ProgramDataBaseFile>H:/gtl/gtl/proj4/bin/RelWithDebInfo/proj_4_9.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+      <Version></Version>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="H:\gtl\gtl\proj4\src\CMakeLists.txt">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule H:/gtl/gtl/proj4/src/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -HH:/gtl/gtl/proj4 -BH:/gtl/gtl/proj4 --check-stamp-file H:\gtl\gtl\proj4\src\CMakeFiles\generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">H:/gtl/gtl/proj4/src/CMakeLists.txt;H:\gtl\gtl\proj4\src\CMakeLists.txt;H:\gtl\gtl\proj4\src\lib_proj.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\FindThreads.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CheckLibraryExists.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CheckSymbolExists.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CheckIncludeFile.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\FindPackageMessage.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CMakeParseArguments.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\FindJNI.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CMakeFindJavaCommon.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\FindPackageMessage.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CMakeParseArguments.cmake;H:\gtl\gtl\proj4\src\bin_cs2cs.cmake;H:\gtl\gtl\proj4\src\bin_proj.cmake;H:\gtl\gtl\proj4\src\bin_geod.cmake;H:\gtl\gtl\proj4\src\bin_nad2bin.cmake;H:\gtl\gtl\proj4\src\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">H:\gtl\gtl\proj4\src\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule H:/gtl/gtl/proj4/src/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -HH:/gtl/gtl/proj4 -BH:/gtl/gtl/proj4 --check-stamp-file H:\gtl\gtl\proj4\src\CMakeFiles\generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">H:/gtl/gtl/proj4/src/CMakeLists.txt;H:\gtl\gtl\proj4\src\CMakeLists.txt;H:\gtl\gtl\proj4\src\lib_proj.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\FindThreads.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CheckLibraryExists.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CheckSymbolExists.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CheckIncludeFile.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\FindPackageMessage.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CMakeParseArguments.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\FindJNI.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CMakeFindJavaCommon.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\FindPackageMessage.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CMakeParseArguments.cmake;H:\gtl\gtl\proj4\src\bin_cs2cs.cmake;H:\gtl\gtl\proj4\src\bin_proj.cmake;H:\gtl\gtl\proj4\src\bin_geod.cmake;H:\gtl\gtl\proj4\src\bin_nad2bin.cmake;H:\gtl\gtl\proj4\src\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">H:\gtl\gtl\proj4\src\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule H:/gtl/gtl/proj4/src/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -HH:/gtl/gtl/proj4 -BH:/gtl/gtl/proj4 --check-stamp-file H:\gtl\gtl\proj4\src\CMakeFiles\generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">H:/gtl/gtl/proj4/src/CMakeLists.txt;H:\gtl\gtl\proj4\src\CMakeLists.txt;H:\gtl\gtl\proj4\src\lib_proj.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\FindThreads.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CheckLibraryExists.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CheckSymbolExists.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CheckIncludeFile.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\FindPackageMessage.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CMakeParseArguments.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\FindJNI.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CMakeFindJavaCommon.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\FindPackageMessage.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CMakeParseArguments.cmake;H:\gtl\gtl\proj4\src\bin_cs2cs.cmake;H:\gtl\gtl\proj4\src\bin_proj.cmake;H:\gtl\gtl\proj4\src\bin_geod.cmake;H:\gtl\gtl\proj4\src\bin_nad2bin.cmake;H:\gtl\gtl\proj4\src\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">H:\gtl\gtl\proj4\src\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule H:/gtl/gtl/proj4/src/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -HH:/gtl/gtl/proj4 -BH:/gtl/gtl/proj4 --check-stamp-file H:\gtl\gtl\proj4\src\CMakeFiles\generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">H:/gtl/gtl/proj4/src/CMakeLists.txt;H:\gtl\gtl\proj4\src\CMakeLists.txt;H:\gtl\gtl\proj4\src\lib_proj.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\FindThreads.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CheckLibraryExists.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CheckSymbolExists.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CheckIncludeFile.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\FindPackageMessage.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CMakeParseArguments.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\FindJNI.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CMakeFindJavaCommon.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\FindPackageMessage.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CMakeParseArguments.cmake;H:\gtl\gtl\proj4\src\bin_cs2cs.cmake;H:\gtl\gtl\proj4\src\bin_proj.cmake;H:\gtl\gtl\proj4\src\bin_geod.cmake;H:\gtl\gtl\proj4\src\bin_nad2bin.cmake;H:\gtl\gtl\proj4\src\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">H:\gtl\gtl\proj4\src\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="H:\gtl\gtl\proj4\src\emess.h" />
+    <ClInclude Include="H:\gtl\gtl\proj4\src\geocent.h" />
+    <ClInclude Include="H:\gtl\gtl\proj4\src\pj_list.h" />
+    <ClInclude Include="H:\gtl\gtl\proj4\src\proj_config.h" />
+    <ClInclude Include="H:\gtl\gtl\proj4\src\projects.h" />
+    <ClInclude Include="H:\gtl\gtl\proj4\src\proj_api.h" />
+    <ClInclude Include="H:\gtl\gtl\proj4\src\geodesic.h" />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\nad_init.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\PJ_aea.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\PJ_aeqd.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\PJ_airy.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\PJ_aitoff.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\PJ_august.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\PJ_bacon.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\PJ_bipc.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\PJ_boggs.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\PJ_bonne.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\PJ_calcofi.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\PJ_cass.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\PJ_cc.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\PJ_cea.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\PJ_chamb.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\PJ_collg.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\PJ_crast.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\PJ_denoy.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\PJ_eck1.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\PJ_eck2.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\PJ_eck3.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\PJ_eck4.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\PJ_eck5.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\PJ_eqc.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\PJ_eqdc.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\PJ_fahey.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\PJ_fouc_s.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\PJ_gall.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\PJ_geos.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\PJ_gins8.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\PJ_gnom.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\PJ_gn_sinu.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\PJ_goode.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\PJ_gstmerc.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\PJ_hammer.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\PJ_hatano.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\PJ_igh.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\PJ_isea.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\PJ_imw_p.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\PJ_krovak.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\PJ_labrd.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\PJ_laea.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\PJ_lagrng.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\PJ_larr.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\PJ_lask.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\PJ_lcca.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\PJ_lcc.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\PJ_loxim.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\PJ_lsat.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\PJ_mbt_fps.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\PJ_mbtfpp.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\PJ_mbtfpq.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\PJ_merc.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\PJ_mill.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\PJ_mod_ster.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\PJ_moll.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\PJ_natearth.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\PJ_nell.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\PJ_nell_h.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\PJ_nocol.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\PJ_nsper.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\PJ_nzmg.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\PJ_ob_tran.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\PJ_ocea.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\PJ_oea.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\PJ_omerc.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\PJ_ortho.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\PJ_poly.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\PJ_putp2.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\PJ_putp3.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\PJ_putp4p.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\PJ_putp5.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\PJ_putp6.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\PJ_qsc.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\PJ_robin.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\PJ_rpoly.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\PJ_sconics.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\PJ_somerc.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\PJ_sterea.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\PJ_stere.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\PJ_sts.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\PJ_tcc.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\PJ_tcea.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\PJ_tmerc.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\PJ_tpeqd.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\PJ_urm5.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\PJ_urmfps.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\PJ_vandg.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\PJ_vandg2.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\PJ_vandg4.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\PJ_wag2.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\PJ_wag3.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\PJ_wag7.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\PJ_wink1.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\PJ_wink2.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\proj_etmerc.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\aasincos.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\adjlon.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\bch2bps.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\bchgen.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\biveval.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\dmstor.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\emess.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\geocent.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\geodesic.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\mk_cheby.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\nad_cvt.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\nad_intr.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\pj_apply_gridshift.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\pj_apply_vgridshift.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\pj_auth.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\pj_ctx.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\pj_fileapi.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\pj_datum_set.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\pj_datums.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\pj_deriv.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\pj_ell_set.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\pj_ellps.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\pj_errno.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\pj_factors.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\pj_fwd.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\pj_gauss.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\pj_gc_reader.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\pj_geocent.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\pj_gridcatalog.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\pj_gridinfo.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\pj_gridlist.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\PJ_healpix.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\pj_init.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\pj_initcache.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\pj_inv.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\pj_latlong.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\pj_list.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\pj_log.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\pj_malloc.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\pj_mlfn.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\pj_msfn.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\pj_mutex.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\pj_open_lib.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\pj_param.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\pj_phi2.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\pj_pr_list.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\pj_qsfn.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\pj_release.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\pj_strerrno.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\pj_transform.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\pj_tsfn.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\pj_units.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\pj_utils.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\pj_zpoly1.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\proj_mdist.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\proj_rouss.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\rtodms.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\vector1.c"  />
+    <ClCompile Include="H:\gtl\gtl\proj4\src\pj_strtod.c"  />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="H:/gtl/gtl/proj4/ZERO_CHECK.vcxproj">
+      <Project>F4602A18-80EF-3F8D-9B7A-C7842933E22E</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

@@ -293,5 +293,9 @@ bool CommaSeparatedValues::load(const char * pathname)
 	fclose(fp); 
 }
 
+bool CommaSeparatedValues::load(const std::string &  pathname) {
+	return load(pathname.c_str());
+}
+
 end_gdb_namespace
 end_gtl_namespace

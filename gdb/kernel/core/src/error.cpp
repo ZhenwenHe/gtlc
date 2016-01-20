@@ -2,8 +2,8 @@
 #include <stdio.h> 
 #include "config.h"
 
-begin_gtl_namespace 
-
+begin_gtl_namespace
+void  defaultErrorHandler(ERRORTYPE eErrClass, int nError, const char * pszErrorMsg);
 static void *hErrorMutex = NULL;
 static void *pErrorHandlerUserData = NULL;
 static ErrorHandler pfnErrorHandler = defaultErrorHandler;

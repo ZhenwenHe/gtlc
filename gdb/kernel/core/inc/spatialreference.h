@@ -450,6 +450,65 @@ public:
 		const char* pszUnitsName, const char* pszCSName = 0);
 };
 
+
+class CORE_API CoordinateTransformer { 
+public:
+	virtual ~CoordinateTransformer() {}
+
+	static void destroy(CoordinateTransformer* poCT);
+	static CoordinateTransformer* create(SpatialReference * sourceCS, SpatialReference * targetCS);
+ 
+	/** Fetch internal source coordinate system. */
+	virtual SpatialReference *getSourceCS() = 0;
+
+	/** Fetch internal target coordinate system. */
+	virtual SpatialReference *getTargetCS() = 0;
+ 
+	/**
+	* Transform points from source to destination space.
+	*
+	* This method is the same as the C function OCTTransform().
+	*
+	* The method TransformEx() allows extended success information to
+	* be captured indicating which points failed to transform.
+	*
+	* @param nCount number of points to transform.
+	* @param x array of nCount X vertices, modified in place.
+	* @param y array of nCount Y vertices, modified in place.
+	* @param z array of nCount Z vertices, modified in place.
+	* @return TRUE on success, or FALSE if some or all points fail to
+	* transform.
+	*/
+	virtual int transform(int nCount,
+		double *x, double *y, double *z ) = 0;
+
+	/**
+	* Transform points from source to destination space.
+	*
+	* This method is the same as the C function OCTTransformEx().
+	*
+	* @param nCount number of points to transform.
+	* @param x array of nCount X vertices, modified in place.
+	* @param y array of nCount Y vertices, modified in place.
+	* @param z array of nCount Z vertices, modified in place.
+	* @param pabSuccess array of per-point flags set to TRUE if that point
+	* transforms, or FALSE if it does not.
+	*
+	* @return TRUE if some or all points transform successfully, or FALSE if
+	* if none transform.
+	*/
+	
+	virtual int transform(int nCount,
+		 double *x,  double *y,  double *z, 
+		int *pabSuccess ) = 0;
+
+
+	virtual int transform(int nCount,
+		const double *x, const double *y, const double *z,
+		double * destX, double* destY, double * destZ,) = 0;
+
+};
+
 end_gdb_namespace
 end_gtl_namespace
 

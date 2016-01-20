@@ -1,0 +1,191 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="MinSizeRel|x64">
+      <Configuration>MinSizeRel</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|x64">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGUID>{2BE0C20C-0CB5-32DB-987D-D287F0090F8B}</ProjectGUID>
+    <WindowsTargetPlatformVersion>10.0.10240.0</WindowsTargetPlatformVersion>
+    <Keyword>Win32Proj</Keyword>
+    <Platform>x64</Platform>
+    <ProjectName>ALL_BUILD</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+    <PropertyGroup>
+      <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+      <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+      <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+      <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+      <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>H:\gtl\gtl\proj4\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>H:\gtl\gtl\proj4\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>H:\gtl\gtl\proj4\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>H:\gtl\gtl\proj4\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="H:\gtl\gtl\proj4\CMakeLists.txt">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule H:/gtl/gtl/proj4/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -HH:/gtl/gtl/proj4 -BH:/gtl/gtl/proj4 --check-stamp-file H:\gtl\gtl\proj4\CMakeFiles\generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">H:/gtl/gtl/proj4/CMakeLists.txt;H:\gtl\gtl\proj4\CMakeLists.txt;H:\gtl\gtl\proj4\CMakeFiles\3.4.1\CMakeSystem.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CMakeSystemSpecificInitialize.cmake;H:\gtl\gtl\proj4\CMakeFiles\3.4.1\CMakeCCompiler.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CMakeGenericSystem.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\Platform\Windows.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\Platform\WindowsPaths.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CMakeCInformation.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\Platform\Windows-MSVC.cmake;H:\gtl\gtl\proj4\CMakeFiles\3.4.1\CMakeRCCompiler.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CMakeRCInformation.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CMakeCommonLanguageInclude.cmake;H:\gtl\gtl\proj4\cmake\Proj4Utilities.cmake;H:\gtl\gtl\proj4\cmake\Proj4Version.cmake;H:\gtl\gtl\proj4\cmake\Proj4SystemInfo.cmake;H:\gtl\gtl\proj4\cmake\Proj4Config.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CheckIncludeFiles.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CheckLibraryExists.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CheckFunctionExists.cmake;H:\gtl\gtl\proj4\cmake\proj_config.cmake.in;H:\gtl\gtl\proj4\cmake\Proj4Mac.cmake;H:\gtl\gtl\proj4\cmake\policies.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\FindThreads.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CheckLibraryExists.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CheckSymbolExists.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CheckIncludeFile.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\FindPackageMessage.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CMakeParseArguments.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CheckIncludeFiles.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CheckSymbolExists.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CTest.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CTestUseLaunchers.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CTestTargets.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\DartConfiguration.tcl.in;H:\gtl\gtl\proj4\cmake\Proj4Test.cmake;H:\gtl\gtl\proj4\cmake\Proj4InstallPath.cmake;H:\gtl\gtl\proj4\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">H:\gtl\gtl\proj4\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule H:/gtl/gtl/proj4/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -HH:/gtl/gtl/proj4 -BH:/gtl/gtl/proj4 --check-stamp-file H:\gtl\gtl\proj4\CMakeFiles\generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">H:/gtl/gtl/proj4/CMakeLists.txt;H:\gtl\gtl\proj4\CMakeLists.txt;H:\gtl\gtl\proj4\CMakeFiles\3.4.1\CMakeSystem.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CMakeSystemSpecificInitialize.cmake;H:\gtl\gtl\proj4\CMakeFiles\3.4.1\CMakeCCompiler.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CMakeGenericSystem.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\Platform\Windows.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\Platform\WindowsPaths.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CMakeCInformation.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\Platform\Windows-MSVC.cmake;H:\gtl\gtl\proj4\CMakeFiles\3.4.1\CMakeRCCompiler.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CMakeRCInformation.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CMakeCommonLanguageInclude.cmake;H:\gtl\gtl\proj4\cmake\Proj4Utilities.cmake;H:\gtl\gtl\proj4\cmake\Proj4Version.cmake;H:\gtl\gtl\proj4\cmake\Proj4SystemInfo.cmake;H:\gtl\gtl\proj4\cmake\Proj4Config.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CheckIncludeFiles.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CheckLibraryExists.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CheckFunctionExists.cmake;H:\gtl\gtl\proj4\cmake\proj_config.cmake.in;H:\gtl\gtl\proj4\cmake\Proj4Mac.cmake;H:\gtl\gtl\proj4\cmake\policies.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\FindThreads.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CheckLibraryExists.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CheckSymbolExists.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CheckIncludeFile.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\FindPackageMessage.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CMakeParseArguments.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CheckIncludeFiles.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CheckSymbolExists.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CTest.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CTestUseLaunchers.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CTestTargets.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\DartConfiguration.tcl.in;H:\gtl\gtl\proj4\cmake\Proj4Test.cmake;H:\gtl\gtl\proj4\cmake\Proj4InstallPath.cmake;H:\gtl\gtl\proj4\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">H:\gtl\gtl\proj4\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule H:/gtl/gtl/proj4/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -HH:/gtl/gtl/proj4 -BH:/gtl/gtl/proj4 --check-stamp-file H:\gtl\gtl\proj4\CMakeFiles\generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">H:/gtl/gtl/proj4/CMakeLists.txt;H:\gtl\gtl\proj4\CMakeLists.txt;H:\gtl\gtl\proj4\CMakeFiles\3.4.1\CMakeSystem.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CMakeSystemSpecificInitialize.cmake;H:\gtl\gtl\proj4\CMakeFiles\3.4.1\CMakeCCompiler.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CMakeGenericSystem.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\Platform\Windows.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\Platform\WindowsPaths.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CMakeCInformation.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\Platform\Windows-MSVC.cmake;H:\gtl\gtl\proj4\CMakeFiles\3.4.1\CMakeRCCompiler.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CMakeRCInformation.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CMakeCommonLanguageInclude.cmake;H:\gtl\gtl\proj4\cmake\Proj4Utilities.cmake;H:\gtl\gtl\proj4\cmake\Proj4Version.cmake;H:\gtl\gtl\proj4\cmake\Proj4SystemInfo.cmake;H:\gtl\gtl\proj4\cmake\Proj4Config.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CheckIncludeFiles.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CheckLibraryExists.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CheckFunctionExists.cmake;H:\gtl\gtl\proj4\cmake\proj_config.cmake.in;H:\gtl\gtl\proj4\cmake\Proj4Mac.cmake;H:\gtl\gtl\proj4\cmake\policies.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\FindThreads.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CheckLibraryExists.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CheckSymbolExists.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CheckIncludeFile.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\FindPackageMessage.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CMakeParseArguments.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CheckIncludeFiles.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CheckSymbolExists.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CTest.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CTestUseLaunchers.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CTestTargets.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\DartConfiguration.tcl.in;H:\gtl\gtl\proj4\cmake\Proj4Test.cmake;H:\gtl\gtl\proj4\cmake\Proj4InstallPath.cmake;H:\gtl\gtl\proj4\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">H:\gtl\gtl\proj4\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule H:/gtl/gtl/proj4/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -HH:/gtl/gtl/proj4 -BH:/gtl/gtl/proj4 --check-stamp-file H:\gtl\gtl\proj4\CMakeFiles\generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">H:/gtl/gtl/proj4/CMakeLists.txt;H:\gtl\gtl\proj4\CMakeLists.txt;H:\gtl\gtl\proj4\CMakeFiles\3.4.1\CMakeSystem.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CMakeSystemSpecificInitialize.cmake;H:\gtl\gtl\proj4\CMakeFiles\3.4.1\CMakeCCompiler.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CMakeGenericSystem.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\Platform\Windows.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\Platform\WindowsPaths.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CMakeCInformation.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\Platform\Windows-MSVC.cmake;H:\gtl\gtl\proj4\CMakeFiles\3.4.1\CMakeRCCompiler.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CMakeRCInformation.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CMakeCommonLanguageInclude.cmake;H:\gtl\gtl\proj4\cmake\Proj4Utilities.cmake;H:\gtl\gtl\proj4\cmake\Proj4Version.cmake;H:\gtl\gtl\proj4\cmake\Proj4SystemInfo.cmake;H:\gtl\gtl\proj4\cmake\Proj4Config.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CheckIncludeFiles.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CheckLibraryExists.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CheckFunctionExists.cmake;H:\gtl\gtl\proj4\cmake\proj_config.cmake.in;H:\gtl\gtl\proj4\cmake\Proj4Mac.cmake;H:\gtl\gtl\proj4\cmake\policies.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\FindThreads.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CheckLibraryExists.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CheckSymbolExists.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CheckIncludeFile.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\FindPackageMessage.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CMakeParseArguments.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CheckIncludeFiles.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CheckSymbolExists.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CTest.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CTestUseLaunchers.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CTestTargets.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\DartConfiguration.tcl.in;H:\gtl\gtl\proj4\cmake\Proj4Test.cmake;H:\gtl\gtl\proj4\cmake\Proj4InstallPath.cmake;H:\gtl\gtl\proj4\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">H:\gtl\gtl\proj4\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="H:/gtl/gtl/proj4/ZERO_CHECK.vcxproj">
+      <Project>F4602A18-80EF-3F8D-9B7A-C7842933E22E</Project>
+    </ProjectReference>
+    <ProjectReference Include="H:/gtl/gtl/proj4/src/binproj.vcxproj">
+      <Project>50B226C3-7772-3841-9156-15BB7EA3B2ED</Project>
+    </ProjectReference>
+    <ProjectReference Include="H:/gtl/gtl/proj4/src/cs2cs.vcxproj">
+      <Project>E5AE03F2-50B1-38CF-B365-9783F5EB8619</Project>
+    </ProjectReference>
+    <ProjectReference Include="H:/gtl/gtl/proj4/src/geod.vcxproj">
+      <Project>CA273AC2-8507-375A-8E44-F0B2DD68BE5C</Project>
+    </ProjectReference>
+    <ProjectReference Include="H:/gtl/gtl/proj4/src/nad2bin.vcxproj">
+      <Project>A3148DD6-F15B-31D7-85C5-E82333A821C8</Project>
+    </ProjectReference>
+    <ProjectReference Include="H:/gtl/gtl/proj4/nad/null.vcxproj">
+      <Project>0A151C2B-ADF6-31DB-A590-584D99F8F5F7</Project>
+    </ProjectReference>
+    <ProjectReference Include="H:/gtl/gtl/proj4/src/proj.vcxproj">
+      <Project>B5C8A409-BB94-30E9-B716-14ECBF41DF39</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

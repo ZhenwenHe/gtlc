@@ -17,6 +17,7 @@
 #pragma once 
 #include "config.h"
 #include "value.h"
+
 begin_gtl_namespace
 begin_gdb_namespace
 
@@ -47,9 +48,11 @@ public:
 	inline char ** getLine(const char * keyfieldname, const char * keyvalue, CSVCompareCriteria v);
 	inline int indexField(const char* fieldname);
 	inline int indexLine(const char* fieldname, const char * val);
+	inline int indexLine(const char* fieldname, const char * val, CSVCompareCriteria v);
 	inline std::string getValue(const char * keyfieldname, const char * keyvalue, const char * targetfieldname);
 	inline std::string getValue(const char * keyfieldname, const char * keyvalue,
 		CSVCompareCriteria v, const char * targetfieldname);
+	inline char getSeparator();
 public: 
 	static char ** tokenizeLine(const char *pszLine, char chDelimiter);
 	static char detectSeperator(const char* pszLine);
@@ -59,6 +62,7 @@ public:
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////
+inline char CommaSeparatedValues::getSeparator(){ return this->cSeparator; }
 inline int  CommaSeparatedValues::getFieldCount() {
 	if (papszFieldNames)
 		return cslCount(papszFieldNames);
@@ -100,6 +104,26 @@ inline int CommaSeparatedValues::indexLine(const char* fieldname, const char * v
 		curLine = getLine(k);
 		psca = tokenizeLine(curLine, cSeparator);
 		if (cslIEqualString(psca[i], val)) {
+			cslDestroy(psca);
+			return k;
+		}
+		else {
+			cslDestroy(psca);
+			continue;
+		}
+	}
+	return -1;
+}
+inline int CommaSeparatedValues::indexLine(const char* fieldname, const char * val, CSVCompareCriteria v){
+	int i = -1;
+	if((i=indexField(fieldname))==-1)
+		return -1;
+	char ** psca = 0;
+	const char * curLine = 0;
+	for (int k = 0; k < nLineCount; k++) {
+		curLine = getLine(k);
+		psca = tokenizeLine(curLine, cSeparator);
+		if (compare(psca[i], val,v)==0) {
 			cslDestroy(psca);
 			return k;
 		}

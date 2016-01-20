@@ -123,7 +123,7 @@ using namespace std;
 
 
 #include "config_env.h"
-
+#include "error.h"
 
 begin_gtl_namespace
 begin_gdb_namespace

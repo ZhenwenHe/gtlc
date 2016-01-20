@@ -180,6 +180,7 @@
     <ClInclude Include="inc\describablebuffer.h" />
     <ClInclude Include="inc\envelope2d.h" />
     <ClInclude Include="inc\envelope3d.h" />
+    <ClInclude Include="inc\error.h" />
     <ClInclude Include="inc\factory.h" />
     <ClInclude Include="inc\feature.h" />
     <ClInclude Include="inc\fielddefinition.h" />
@@ -360,6 +361,7 @@
     <ClCompile Include="src\eclipsemeshreader.cpp" />
     <ClCompile Include="src\envelope2d.cpp" />
     <ClCompile Include="src\envelope3d.cpp" />
+    <ClCompile Include="src\error.cpp" />
     <ClCompile Include="src\factory.cpp" />
     <ClCompile Include="src\feature.cpp" />
     <ClCompile Include="src\featureclass.cpp" />

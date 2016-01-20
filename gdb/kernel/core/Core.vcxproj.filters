@@ -438,6 +438,9 @@
     <ClInclude Include="inc\csv.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
+    <ClInclude Include="inc\error.h">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -906,6 +909,9 @@
       <Filter>Source Files\src</Filter>
     </ClCompile>
     <ClCompile Include="src\csvfile.cpp">
+      <Filter>Source Files\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\error.cpp">
       <Filter>Source Files\src</Filter>
     </ClCompile>
   </ItemGroup>

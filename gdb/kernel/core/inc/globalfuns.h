@@ -95,11 +95,14 @@ std::basic_string<CharT> numberToString(NumericT num)
 		trim<CharT>(sz, ',');
 		return sz;
 	}
+	/* 处理中文字符格式的逗号，Linux下编译不通,VC下可以编译通过，所以这段代码暂时只实现VC下的*/
+#ifdef _MSC_VER
 	/*else if (oss.str().find_first_of('，') != std::basic_string<CharT>::npos){
 		std::basic_string<CharT> sz = oss.str();
 		trim<CharT>(sz, '，');
 		return sz;
 	}*/
+#endif //_MSC_VER
 	else{
 		return oss.str();
 	}

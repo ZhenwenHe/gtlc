@@ -77,7 +77,7 @@ public:
 	inline bool isNumber(){return ValUtils::isNumber(*m_data);	}
 	inline bool isChar(){return ValUtils::isChar(*m_data);	}
 	inline bool isArray(){return ValUtils::isArray(*m_data);	}
-	inline operator double (){return ValUtils::toNumber(*m_data);	}
+	inline operator double() { double d; extractValue<double>(*m_data, d); return d; }
 	inline std::string toString(){return ValUtils::toString(*m_data);	}
 	inline std::wstring toWString(){return ValUtils::toWString(*m_data);	}
 	inline int compare( Value & v)  {return ValUtils::compare(*m_data,*v.m_data);	}

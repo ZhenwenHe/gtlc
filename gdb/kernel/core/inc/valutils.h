@@ -121,16 +121,6 @@ public:
 		
 	};
 
-protected://用于类型转化
-	static bool _numb_to_numb(VALUE & g, GVT pt);
-	static bool _numb_to_char(VALUE & g, GVT pt);
-	static bool _char_to_char(VALUE & g, GVT pt);
-	static bool _char_to_numb(VALUE & g, GVT pt);
-protected:
-	static bool changeTypeFromNumberArray(VALUE & g, GVT pt);
-	static bool changeTypeFromNumber(VALUE & g, GVT pt);
-	static bool changeTypeFromCharArray(VALUE & g, GVT pt);
-	static bool changeTypeFromChar(VALUE & g, GVT pt);
 public:
 	/*
 	GVT_INT8->GVT_INT16->GVT_INT32->GVT_INT64
@@ -140,10 +130,7 @@ public:
 	GVT_DATE->GVT_DATETIME	
 	*/
 	static bool changeType(VALUE & g, GVT pt);	
-	static double toNumber(VALUE & g);
-	static int toNumber(VALUE & g, double ** da, int * n);	
 	static int compare(VALUE &  v1, VALUE &v2);
-public:
 	static bool getNumbers(VALUE & g, std::vector<long long> & v);
 	static bool getNumbers(VALUE & g, std::vector<unsigned long long> & v);
 	static bool getNumbers(VALUE & g, std::vector<double> & v);
@@ -221,6 +208,637 @@ public:
 
 };
 /** @} */
+
+/*
+T = char, wchar_t, unsigned char, short,unsigned short,
+    int , unsigned int, 
+	long long, unsigned long long,
+	float, double
+	bool
+*/
+template<typename T> 
+bool  resetValue(ValUtils::VALUE & g, std::vector<T> & newval, ValUtils::GVT newtype) {
+	if (newval.size() == 1)	{
+		return resetValue<T>(g, newval[0], newtype);
+	}
+	ValUtils::clear(g);
+	switch (newtype) {
+	case  ValUtils::GVT::GVT_CHAR:
+	{
+		g.count = newval.size();
+		g.type = ValUtils::GVT::GVT_CHAR;
+		char * temp = new char[g.count];
+		g.pvalue = (void*)temp;
+		for (auto it = newval.begin(); it != newval.end(); it++, temp++) {
+			*temp = (char)(*it);
+		}		
+		break;
+	}
+	case  ValUtils::GVT::GVT_WCHAR:
+	{
+		g.count = newval.size();
+		wchar_t * temp = new wchar_t[g.count];
+		g.pvalue = (void*)temp;
+		for (auto it = newval.begin(); it != newval.end(); it++, temp++) {
+			*temp = (wchar_t)(*it);
+		}
+		g.type = ValUtils::GVT::GVT_WCHAR;
+		break;
+	}
+	case  ValUtils::GVT::GVT_INT8:
+	{
+		g.count = newval.size();
+		signed char * temp = new signed char[g.count];
+		g.pvalue = (void*)temp;
+		for (auto it = newval.begin(); it != newval.end(); it++, temp++) {
+			*temp = (signed char)(*it);
+		}
+		g.type = ValUtils::GVT::GVT_INT8;
+		break;
+	}
+	case  ValUtils::GVT::GVT_INT16:
+	{
+		g.count = newval.size();
+		short * temp = new short[g.count];
+		g.pvalue = (void*)temp;
+		for (auto it = newval.begin(); it != newval.end(); it++, temp++) {
+			*temp = (short)(*it);
+		}
+		g.type = ValUtils::GVT::GVT_INT16;
+		break;
+	}
+	case  ValUtils::GVT::GVT_INT32:
+	{
+		g.count = newval.size();
+		int * temp = new int[g.count];
+		g.pvalue = (void*)temp;
+		for (auto it = newval.begin(); it != newval.end(); it++, temp++) {
+			*temp = (int)(*it);
+		}
+		g.type = ValUtils::GVT::GVT_INT32;
+		break;
+	}
+	case  ValUtils::GVT::GVT_INT64:
+	{
+		g.count = newval.size();
+		long long * temp = new long long[g.count];
+		g.pvalue = (void*)temp;
+		for (auto it = newval.begin(); it != newval.end(); it++, temp++) {
+			*temp = (long long)(*it);
+		}
+		g.type = ValUtils::GVT::GVT_INT64;
+		break;
+	}
+	case  ValUtils::GVT::GVT_UINT8:
+	{
+		g.count = newval.size();
+		unsigned char * temp = new unsigned char[g.count];
+		g.pvalue = (void*)temp;
+		for (auto it = newval.begin(); it != newval.end(); it++, temp++) {
+			*temp = (unsigned char)(*it);
+		}
+		g.type = ValUtils::GVT::GVT_UINT8;
+		break;
+	}
+	case  ValUtils::GVT::GVT_UINT16:
+	{
+		g.count = newval.size();
+		unsigned short * temp = new unsigned short[g.count];
+		g.pvalue = (void*)temp;
+		for (auto it = newval.begin(); it != newval.end(); it++, temp++) {
+			*temp = (unsigned short)(*it);
+		}
+		g.type = ValUtils::GVT::GVT_UINT16;
+		break;
+	}
+	case  ValUtils::GVT::GVT_UINT32:
+	{
+		g.count = newval.size();
+		unsigned int * temp = new unsigned int[g.count];
+		g.pvalue = (void*)temp;
+		for (auto it = newval.begin(); it != newval.end(); it++, temp++) {
+			*temp = (unsigned int)(*it);
+		}
+		g.type = ValUtils::GVT::GVT_UINT32;
+		break;
+	}
+	case  ValUtils::GVT::GVT_UINT64:
+	{
+		g.count = newval.size();
+		unsigned long long * temp = new unsigned long long[g.count];
+		g.pvalue = (void*)temp;
+		for (auto it = newval.begin(); it != newval.end(); it++, temp++) {
+			*temp = (unsigned long long)(*it);
+		}
+		g.type = ValUtils::GVT::GVT_UINT64;
+		break;
+	}
+	case  ValUtils::GVT::GVT_FLOAT32:
+	{
+		g.count = newval.size();
+		float * temp = new float[g.count];
+		g.pvalue = (void*)temp;
+		for (auto it = newval.begin(); it != newval.end(); it++, temp++) {
+			*temp = (float)(*it);
+		}
+		g.type = ValUtils::GVT::GVT_FLOAT32;
+		break;
+	}
+	case  ValUtils::GVT::GVT_FLOAT64://f64
+	{
+		g.count = newval.size();
+		double * temp = new double[g.count];
+		g.pvalue = (void*)temp;
+		for (auto it = newval.begin(); it != newval.end(); it++, temp++) {
+			*temp = (double)(*it);
+		}
+		g.type = ValUtils::GVT::GVT_FLOAT64;
+		break;
+	}
+	case  ValUtils::GVT::GVT_BOOL:
+	{
+		g.count = newval.size();
+		bool * temp = new bool[g.count];
+		g.pvalue = (void*)temp;
+		for (auto it = newval.begin(); it != newval.end(); it++, temp++) {
+			*temp = ((*it) == 0) ? false : true;
+		}
+		g.type = ValUtils::GVT::GVT_BOOL;
+		break;
+	}
+	case  ValUtils::GVT::GVT_DATE:
+	{
+		int tc = newval.size() / 3;
+		if (newval.size() % 3 == 0)
+			g.count = tc;
+		else
+			g.count = tc + 1;
+		int * temp = new int[g.count * 3];
+		memset(temp, 0, g.count * 3*sizeof(int));
+		g.pvalue = (void*)temp;
+		for (auto it = newval.begin(); it != newval.end(); it++, temp++) {
+			*temp = (int)(*it);
+		}
+		g.type = ValUtils::GVT::GVT_DATE;
+		break;
+	}
+	case  ValUtils::GVT::GVT_DATETIME:
+	{
+		int tc = newval.size() / 7;
+		if (newval.size() % 7 == 0)
+			g.count = tc;
+		else
+			g.count = tc + 1;
+		int * temp = new int[g.count * 7];
+		memset(temp, 0, g.count * 7*sizeof(int));
+		g.pvalue = (void*)temp;
+		for (auto it = newval.begin(); it != newval.end(); it++, temp++) {
+			*temp = (int)(*it);
+		}
+		g.type = ValUtils::GVT::GVT_DATETIME;
+		break;
+	}
+	default:
+		return false;
+	}
+	return true;
+}
+/*
+T = char, wchar_t, unsigned char, short,unsigned short,
+int , unsigned int,
+long long, unsigned long long,
+float, double
+bool
+*/
+template<typename T>  
+bool  resetValue(ValUtils::VALUE & g, T & newval, ValUtils::GVT newtype) {
+	ValUtils::clear(g);
+	switch (newtype)
+	{
+	case ValUtils::GVT::GVT_CHAR:
+	{
+		g.count = 1;
+		g.c8 = (char)(newval);
+		g.type = ValUtils::GVT::GVT_CHAR;
+		break;
+	}
+	case  ValUtils::GVT::GVT_WCHAR:
+	{
+		g.count = 1;
+		g.c16 = (wchar_t)(newval);
+		g.type = ValUtils::GVT::GVT_WCHAR;
+		break;
+	}
+	case  ValUtils::GVT::GVT_INT8:
+	{
+		g.count = 1;
+		g.i8 = (char)(newval);
+		g.type = ValUtils::GVT::GVT_INT8;
+		break;
+	}
+	case  ValUtils::GVT::GVT_INT16:
+	{
+		g.count = 1;
+		g.i16 = (short)(newval);
+		g.type = ValUtils::GVT::GVT_INT16;
+		break;
+	}
+	case  ValUtils::GVT::GVT_INT32:
+	{
+		g.count = 1;
+		g.i32 = (int)(newval);
+		g.type = ValUtils::GVT::GVT_INT32;
+		break;
+	}
+	case  ValUtils::GVT::GVT_INT64:
+	{
+		g.count = 1;
+		g.i64 = (long long)(newval);
+		g.type = ValUtils::GVT::GVT_INT64;
+		break;
+	}
+	case  ValUtils::GVT::GVT_UINT8:
+	{
+		g.count = 1;
+		g.u8 = (unsigned char)(newval);
+		g.type = ValUtils::GVT::GVT_UINT8;
+		break;
+	}
+	case  ValUtils::GVT::GVT_UINT16:
+	{
+		g.count = 1;
+		g.u16 = (unsigned short)(newval);
+		g.type = ValUtils::GVT::GVT_UINT16;
+		break;
+	}
+	case  ValUtils::GVT::GVT_UINT32:
+	{
+		g.count = 1;
+		g.u32 = (unsigned int)(newval);
+		g.type = ValUtils::GVT::GVT_UINT32;
+		break;
+	}
+	case  ValUtils::GVT::GVT_UINT64:
+	{
+		g.count = 1;
+		g.u64 = (unsigned long long)(newval);
+		g.type = ValUtils::GVT::GVT_UINT64;
+		break;
+	}
+	case  ValUtils::GVT::GVT_FLOAT32:
+	{
+		g.count = 1;
+		g.f32 = (float)(newval);
+		g.type = ValUtils::GVT::GVT_FLOAT32;
+		break;
+	}
+	case  ValUtils::GVT::GVT_FLOAT64://f64
+	{
+		g.count = 1;
+		g.f64 = (double)(newval);
+		g.type = ValUtils::GVT::GVT_FLOAT64;
+		break;
+	}
+	case  ValUtils::GVT::GVT_BOOL:
+	{
+		g.count = 1;
+		g.boolval = (bool)(newval == 0 ? false : true);
+		g.type = ValUtils::GVT::GVT_BOOL;
+		break;
+	}
+	case  ValUtils::GVT::GVT_DATE:
+	{
+		g.count = 1;
+		int * temp = new int[g.count * 3];
+		memset(temp, 0, g.count * 3*sizeof(int));
+		g.pvalue = (void*)temp;
+		*temp = (int)(newval);
+		g.type = ValUtils::GVT::GVT_DATE;
+		break;
+	}
+	case  ValUtils::GVT::GVT_DATETIME:
+	{
+		g.count = 1;
+		int * temp = new int[g.count * 7];
+		memset(temp, 0, g.count * 7*sizeof(int));
+		g.pvalue = (void*)temp;
+		*temp = (int)(newval);
+		g.type = ValUtils::GVT::GVT_DATETIME;
+		break;
+	}
+	default:
+		return false;
+	}
+	return true;
+}
+
+
+template<typename T> //T = double, long long, unsigned long long
+bool  extractValue(ValUtils::VALUE & g, std::vector<T> & v)
+{
+	int n = g.count;
+	int i = 0;
+
+	switch (g.type)
+	{
+	case ValUtils::GVT::GVT_CHAR://c8
+	{
+		v.resize(n);
+		if (g.count > 1) {
+			for (i = 0; i < n; i++) {
+				v[i] = (T)(((char*)(g.pvalue))[i]);
+			}
+		}
+		else {
+			v[0] = (T)(g.c8);
+		}
+		break;
+	}
+	case ValUtils::GVT::GVT_WCHAR://c16
+	{
+		v.resize(n);
+		if (g.count > 1) {
+			for (i = 0; i < n; i++) {
+				v[i] = (T)(((wchar_t*)(g.pvalue))[i]);
+			}
+		}
+		else {
+			v[0] = (T)(g.c16);
+		}
+		break;
+	}
+	case ValUtils::GVT::GVT_INT8://i8
+	{
+		v.resize(n);
+		if (g.count > 1) {
+			for (i = 0; i < n; i++) {
+				v[i] = (T)(((char*)(g.pvalue))[i]);
+			}
+		}
+		else {
+			v[0] = (T)(g.i8);
+		}
+		break;
+	}
+	case ValUtils::GVT::GVT_INT16://i16
+	{
+		v.resize(n);
+		if (g.count > 1) {
+			for (i = 0; i < n; i++) {
+				v[i] = (T)(((short*)(g.pvalue))[i]);
+			}
+		}
+		else {
+			v[0] = (T)(g.i16);
+		}
+		break;
+	}
+	case ValUtils::GVT::GVT_INT32://i32
+	{
+		v.resize(n);
+		if (g.count > 1) {
+			for (i = 0; i < n; i++) {
+				v[i] = (T)(((int*)(g.pvalue))[i]);
+			}
+		}
+		else {
+			v[0] = (T)(g.i32);
+		}
+		break;
+	}
+	case ValUtils::GVT::GVT_INT64://i64
+	{
+		v.resize(n);
+		if (g.count > 1) {
+			for (i = 0; i < n; i++) {
+				v[i] = (T)(((long long*)(g.pvalue))[i]);
+			}
+		}
+		else {
+			v[0] = (T)(g.i64);
+		}
+		break;
+	}
+	case ValUtils::GVT::GVT_UINT8://u8
+	{
+		v.resize(n);
+		if (g.count > 1) {
+			for (i = 0; i < n; i++) {
+				v[i] = (T)(((unsigned char*)(g.pvalue))[i]);
+			}
+		}
+		else {
+			v[0] = (T)(g.u8);
+		}
+		break;
+	}
+	case ValUtils::GVT::GVT_UINT16://u16
+	{
+		v.resize(n);
+		if (g.count > 1) {
+			for (i = 0; i < n; i++) {
+				v[i] = (T)(((unsigned short*)(g.pvalue))[i]);
+			}
+		}
+		else {
+			v[0] = (T)(g.u16);
+		}
+		break;
+	}
+	case ValUtils::GVT::GVT_UINT32://u32
+	{
+		v.resize(n);
+		if (g.count > 1) {
+			for (i = 0; i < n; i++) {
+				v[i] = (T)(((unsigned int*)(g.pvalue))[i]);
+			}
+		}
+		else {
+			v[0] = (T)(g.u32);
+		}
+		break;
+	}
+	case ValUtils::GVT::GVT_UINT64://u64
+	{
+		v.resize(n);
+		if (g.count > 1) {
+			for (i = 0; i < n; i++) {
+				v[i] = (T)(((unsigned long long *)(g.pvalue))[i]);
+			}
+		}
+		else {
+			v[0] = (T)(g.u64);
+		}
+		break;
+	}
+	case ValUtils::GVT::GVT_FLOAT32://f32
+	{
+		v.resize(n);
+		if (g.count > 1) {
+			for (i = 0; i < n; i++) {
+				v[i] = (T)(((float *)(g.pvalue))[i]);
+			}
+		}
+		else {
+			v[0] = (T)(g.f32);
+		}
+		break;
+	}
+	case ValUtils::GVT::GVT_FLOAT64://f64
+	{
+		v.resize(n);
+		if (g.count > 1) {
+			for (i = 0; i < n; i++) {
+				v[i] = (T)(((double *)(g.pvalue))[i]);
+			}
+		}
+		else {
+			v[0] = (T)(g.f64);
+		}
+		break;
+	}
+	case ValUtils::GVT::GVT_BOOL://boolval 
+	{
+		v.resize(n);
+		if (g.count > 1) {
+			for (i = 0; i < n; i++) {
+				v[i] = (T)(((bool *)(g.pvalue))[i] ? 1 : 0);
+			}
+		}
+		else {
+			v[0] = (T)(g.boolval ? 1 : 0);
+		}
+		break;
+	}
+	case ValUtils::GVT::GVT_DATE://DATE 
+	{
+		v.resize(n * 3);
+		if (g.count > 1) {
+			for (i = 0; i < n; i++) {
+				v[i * 3] = (T)(((int *)(g.pvalue))[i * 3]);
+				v[i * 3 + 1] = (T)(((int *)(g.pvalue))[i * 3 + 1]);
+				v[i * 3 + 2] = (T)(((int *)(g.pvalue))[i * 3 + 2]);
+			}
+		}
+		else {
+			v[0] = (T)(g.date[0]);
+			v[1] = (T)(g.date[1]);
+			v[2] = (T)(g.date[2]);
+		}
+		break;
+	}
+	case ValUtils::GVT::GVT_DATETIME://DATETIME 
+	{
+		v.resize(n * 7);
+		if (g.count > 1) {
+			for (i = 0; i < n; i++) {
+				v[i * 7] = (T)(((int *)(g.pvalue))[i * 7]);
+				v[i * 7 + 1] = (T)(((int *)(g.pvalue))[i * 7 + 1]);
+				v[i * 7 + 2] = (T)(((int *)(g.pvalue))[i * 7 + 2]);
+				v[i * 7 + 3] = (T)(((int *)(g.pvalue))[i * 7 + 3]);
+				v[i * 7 + 4] = (T)(((int *)(g.pvalue))[i * 7 + 4]);
+				v[i * 7 + 5] = (T)(((int *)(g.pvalue))[i * 7 + 5]);
+				v[i * 7 + 6] = (T)(((int *)(g.pvalue))[i * 7 + 6]);
+			}
+		}
+		else {
+			v[0] = (T)(g.datetime[0]);
+			v[1] = (T)(g.datetime[1]);
+			v[2] = (T)(g.datetime[2]);
+			v[3] = (T)(g.datetime[3]);
+			v[4] = (T)(g.datetime[4]);
+			v[5] = (T)(g.datetime[5]);
+			v[6] = (T)(g.datetime[6]);
+		}
+		break;
+	}
+	default:
+		return false;
+	}
+	return true;
+}
+
+
+template<typename T> //T = double, long long, unsigned long long
+bool  extractValue(ValUtils::VALUE & g, T & v)
+{
+	if (g.count > 1)
+		return false;
+	switch (g.type)
+	{
+	case ValUtils::GVT::GVT_CHAR://c8
+	{
+		v = (T)(g.c8);
+		break;
+	}
+	case ValUtils::GVT::GVT_WCHAR://c16
+	{
+		v = (T)(g.c16);
+		break;
+	}
+	case ValUtils::GVT::GVT_INT8://i8
+	{
+		v = (T)(g.i8);
+		break;
+	}
+	case ValUtils::GVT::GVT_INT16://i16
+	{
+		v = (T)(g.i16);
+		break;
+	}
+	case ValUtils::GVT::GVT_INT32://i32
+	{
+		v = (T)(g.i32);
+		break;
+	}
+	case ValUtils::GVT::GVT_INT64://i64
+	{
+		v = (T)(g.i64);
+		break;
+	}
+	case ValUtils::GVT::GVT_UINT8://u8
+	{
+		v = (T)(g.u8);
+		break;
+	}
+	case ValUtils::GVT::GVT_UINT16://u16
+	{
+		v = (T)(g.u16);
+		break;
+	}
+	case ValUtils::GVT::GVT_UINT32://u32
+	{
+		v = (T)(g.u32);
+		break;
+	}
+	case ValUtils::GVT::GVT_UINT64://u64
+	{
+		v = (T)(g.u64);
+		break;
+	}
+	case ValUtils::GVT::GVT_FLOAT32://f32
+	{
+		v = (T)(g.f32);
+		break;
+	}
+	case ValUtils::GVT::GVT_FLOAT64://f64
+	{
+		v = (T)(g.f64);
+		break;
+	}
+	case ValUtils::GVT::GVT_BOOL://boolval 
+	{
+		v = (T)(g.boolval ? 1 : 0);
+		break;
+	}
+	case ValUtils::GVT::GVT_DATE://DATE 
+	case ValUtils::GVT::GVT_DATETIME://DATETIME 
+		return false;
+	default:
+		return false;
+	}
+	return true;
+}
 
 end_gdb_namespace
 end_gtl_namespace

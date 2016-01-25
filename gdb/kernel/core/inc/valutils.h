@@ -180,6 +180,8 @@ public:
 	static bool isTime(VALUE & g);
 	static bool isTime(GVT t);
 	static int getTypeSize(GVT t);
+	static std::string getTypeName(GVT t);
+	static std::string getTypeName(GVT t,std::vector<std::string>& names);
 	static int getSize(const VALUE & v);
 	static void copy(VALUE * g, const VALUE & v);
 public:

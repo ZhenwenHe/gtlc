@@ -4,6 +4,209 @@
 
 begin_gtl_namespace
 begin_gdb_namespace
+/*
+返回对应类型的默认名称，全部为小写，类型名称不分大小写
+*/
+std::string ValUtils::getTypeName(GVT t) {
+	std::string sz; 
+	switch (t)
+	{
+	case GVT_CHAR://c8
+		sz="char";
+		break;
+	case GVT_WCHAR://c16
+		sz="wchar_t";
+		break;
+	case GVT_INT8://i8
+		sz="signed char";
+		break;
+	case GVT_INT16://i16
+		sz="short";
+		break;
+	case GVT_INT32://i32
+		sz="int";
+		break;
+	case GVT_INT64://i64
+		sz="long long";
+		break;
+	case GVT_UINT8://u8
+		sz="unsigned char";
+		break;
+	case GVT_UINT16://u16
+		sz="unsigned short";
+		break;
+	case GVT_UINT32://u32
+		sz="unsigned int";
+		break;
+	case GVT_UINT64://u64
+		sz="unsigned long long";
+		break;
+	case GVT_FLOAT32://f32
+		sz="float";
+		break;
+	case GVT_FLOAT64://f64
+		sz="double";
+		break;
+	case GVT_BOOL://boolval 
+		sz="bool";
+		break;
+	case GVT_DATE://DATE 
+		sz="date";
+		break;
+	case GVT_DATETIME://DATETIME 
+		sz="datetime";
+		break;
+	default:
+		sz = "unknown";
+		break;
+	}
+	return sz;
+}
+
+std::string ValUtils::getTypeName(GVT t, std::vector<std::string>& names) {
+	std::string sz;
+	switch (t)
+	{
+		case GVT_CHAR://c8
+		{
+			sz = "char";
+			names.push_back(sz);
+			names.push_back("varchar");
+			names.push_back("character");
+			names.push_back("text");
+			names.push_back("string");
+			names.push_back("char varying");
+			names.push_back("clob");
+			break;
+		}
+		case GVT_WCHAR://c16
+		{
+			sz = "wchar_t"; 
+			names.push_back(sz);
+			names.push_back("wide varchar");
+			names.push_back("wide character");
+			names.push_back("wide text");
+			names.push_back("wide string");
+			names.push_back("wide char varying");
+			names.push_back("wide clob");
+			break;
+		}		
+		case GVT_INT8://i8
+		{
+			sz = "signed char";
+			names.push_back(sz);
+			names.push_back("int8");
+			break;
+		}		
+		case GVT_INT16://i16
+		{
+			sz = "short";
+			names.push_back(sz);
+			names.push_back("int16");
+			break;
+		}
+		case GVT_INT32://i32
+		{
+			sz = "int";
+			names.push_back(sz);
+			names.push_back("int32");
+			names.push_back("integer");
+			names.push_back("long");
+			names.push_back("long int");
+			break;
+		}
+		case GVT_INT64://i64
+		{
+			sz = "long long";
+			names.push_back(sz);
+			names.push_back("int64");
+			break;
+		}
+		case GVT_UINT8://u8
+		{	
+			sz = "unsigned char";
+			names.push_back(sz);
+			names.push_back("uint8");
+			names.push_back("byte");
+			break;
+		}
+		case GVT_UINT16://u16
+		{
+			sz = "unsigned short";
+			names.push_back(sz);
+			names.push_back("uint16");
+			names.push_back("word");
+			break;
+		}
+		case GVT_UINT32://u32
+		{
+			sz = "unsigned int";
+			names.push_back(sz);
+			names.push_back("uint32");
+			names.push_back("unsigned long");
+			names.push_back("dword");
+			break;
+		}
+		case GVT_UINT64://u64
+		{
+			sz = "unsigned long long";
+			names.push_back(sz);
+			names.push_back("uint64");
+			break;
+		}
+		case GVT_FLOAT32://f32
+		{
+			sz = "float";
+			names.push_back(sz);
+			names.push_back("float32");
+			names.push_back("real32");
+			names.push_back("decimal32");
+			break;
+		}
+		case GVT_FLOAT64://f64
+		{
+			sz = "double";
+			names.push_back(sz);
+			names.push_back("float64");
+			names.push_back("real64");
+			names.push_back("decimal64");
+			break;
+		}
+		case GVT_BOOL://boolval 
+		{
+			sz = "bool";
+			names.push_back(sz);
+			names.push_back("boolean");
+			break;
+		}
+		case GVT_DATE://DATE 
+		{
+			sz = "date";
+			names.push_back(sz);//数组中的第一个名称是C++中的类型名称
+			names.push_back("date");//数组中的第二个名称是数据库类型名称
+			names.push_back("int32x3");
+			break;
+		}
+		case GVT_DATETIME://DATETIME 
+		{
+			sz = "datetime";
+			names.push_back(sz);//数组中的第一个名称是C++中的类型名称
+			names.push_back(sz);//数组中的第二个名称是数据库类型名称
+			names.push_back("int32x6");
+			names.push_back("int32x7");
+			break;
+		}
+		default:
+		{
+			sz = "unknown";
+			names.push_back(sz);
+			names.push_back("null");
+			names.push_back("unkn");
+			break;
+		}		
+	}
+	return sz;
+}
 
 bool ValUtils::changeType(VALUE & g, GVT pt){
 	if (pt == g.type)

@@ -145,6 +145,15 @@ void getCurTime(std::string & sz);
 */
 std::string getCurTime();
 
+
+void stringToWString(std::string & s, std::wstring & sd);
+//只有处于同一编码方式的情况下才是正确的，如果编码体系不同，则本函数不能正确的执行
+void wstringToString(std::wstring & s, std::string & sd);
+
+
+bool doubleEqual(double d1, double d2);
+bool floatEqual(float d1, float d2);
+
 /** @} */
 
 

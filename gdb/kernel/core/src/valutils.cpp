@@ -505,31 +505,186 @@ std::wstring ValUtils::toWString(VALUE & g){
 	return wsz;
 }
 int ValUtils::compare(VALUE &  v1, VALUE &v2)  {
-	if (isArray(v1) || isArray(v2)){
-		int vi1 = getTypeSize(v1.type)*v1.count;
-		int vi2 = getTypeSize(v2.type)*v2.count;
-		int i = memcmp(v1.pvalue, v2.pvalue, vi1>vi2?vi2:vi1 /*std::min<int>(vi1, vi2)*/);
-		if (i == 0){
-			if (vi1 > vi2)
-				return 1;
-			else if (vi1<vi2)
-				return -1;
+	if (v1.type == v2.type) {//同类型比较
+		if (v1.count == 1 && v2.count == 1) {//同类型单值
+			switch (v1.type)
+			{
+			case GVT_CHAR://c8
+			case GVT_WCHAR://c16
+			case GVT_INT8://i8
+			case GVT_INT16://i16
+			case GVT_INT32://i32
+			case GVT_INT64://i64
+			case GVT_BOOL://boolval 
+			{
+				if (v1.i64 > v2.i64)
+					return 1;
+				else if (v1.i64 == v2.i64)
+					return 0;
+				else
+					return -1;
+			}
+			case GVT_UINT8://u8
+			case GVT_UINT16://u16
+			case GVT_UINT32://u32
+			case GVT_UINT64://u64
+			{
+				if (v1.u64 > v2.u64)
+					return 1;
+				else if (v1.u64 == v2.u64)
+					return 0;
+				else
+					return -1;
+			}
+			case GVT_FLOAT32://f32
+			{
+				if (v1.f32 > v2.f32)
+					return 1;
+				else if (floatEqual(v1.f32, v2.f32))
+					return 0;
+				else
+					return -1;
+			}
+			case GVT_FLOAT64://f64
+			{
+				if (v1.f64 > v2.f64)
+					return 1;
+				else if (doubleEqual(v1.f64, v2.f64))
+					return 0;
+				else
+					return -1;
+			}
+			case GVT_DATE://DATE 
+			{
+				for (int i = 0; i < 3; i++) {
+					if (v1.date[i] > v2.date[i])
+						return 1;
+					else if (v1.date[i] < v2.date[i])
+						return -1;
+					else
+						continue;
+				}
+				return 0;
+			}
+			case GVT_DATETIME://DATETIME 
+			{
+				for (int i = 0; i < 7; i++) {
+					if (v1.datetime[i] > v2.datetime[i])
+						return 1;
+					else if (v1.datetime[i] < v2.datetime[i])
+						return -1;
+					else
+						continue;
+				}
+				return 0;
+			}
+			default:
+				return 0;
+			}
 		}
-		return i;
+		else if(v1.count>1 && v2.count>1){//同类型数组,比较内存块
+			int vi1 = getTypeSize(v1.type)*v1.count;
+			int vi2 = getTypeSize(v2.type)*v2.count;
+			int i = memcmp(v1.pvalue, v2.pvalue, vi1>vi2 ? vi2 : vi1 /*std::min<int>(vi1, vi2)*/);
+			if (i == 0) {
+				if (vi1 > vi2)
+					return 1;
+				else if (vi1<vi2)
+					return -1;
+			}
+			return i;
+		}
+		else {//同类型，但一个是数组，一个是单值，转换成字符串比较
+			std::wstring sz1, sz2;
+			get(v1, sz1);
+			get(v2, sz2);
+			return wcscmp(sz1.c_str(), sz2.c_str());
+		}
 	}
-	else{
-		double d1;
-		double d2;
-		extractValue<double>(v1, d1);
-		extractValue<double>(v2, d2);
-		if (doubleEqual(d1, d2))
-			return 0;
-		else{
-			if (d1>d2)
-				return 1;
-			else
-				return -1;
+	else {//不同类型比较
+		if (v1.count == 1 && v2.count == 1) {//不同类型的单值
+			if (isNumber(v1.type) && isNumber(v2.type)) {//都是数值类型的单值
+				double d1, d2;
+				extractValue<double>(v1, d1);
+				extractValue<double>(v2, d2);
+				{
+					if (d1 > d2)
+						return 1;
+					else if (doubleEqual(d1, d2))
+						return 0;
+					else
+						return -1;
+				}
+			}
+			else if (isChar(v1.type) && isChar(v2.type)) {//都是字符类型单值,其中一个是宽字符
+				if (v1.type == GVT_CHAR) {
+					if (v1.c8 > v2.c16)
+						return 1;
+					else if (v1.c8 == v2.c16)
+						return 0;
+					else
+						return -1;
+				}
+				else {
+					if (v1.c16 > v2.c8)
+						return 1;
+					else if (v1.c16 == v2.c8)
+						return 0;
+					else
+						return -1;
+				}
+			}
+			else if (isTime(v1.type) && isTime(v2.type)) {//都是时间类型单值,一个DATE,一个是DATETIME
+				//比较年月日；										  
+				for (int i = 0; i < 3; i++) {
+					if (v1.date[i] > v2.date[i])
+						return 1;
+					else if (v1.date[i] < v2.date[i])
+						return -1;
+					else
+						continue;
+				}
+				//年月日相同，接下来比较时间；
+				if (v1.type == GVT_DATE) {					
+					for (int i = 3; i < 7; i++)
+						if (v2.datetime[i] != 0)
+							return -1;
+					//如果都是0，则相等
+					return 0;
+				}
+				else {
+					for (int i = 3; i < 7; i++)
+						if (v1.datetime[i] != 0)
+							return 1;
+					//如果都是0，则相等
+					return 0;
+				}
+			}
+			else {//转换成字符串比较
+				std::wstring sz1, sz2;
+				get(v1, sz1);
+				get(v2, sz2);
+				return wcscmp(sz1.c_str(), sz2.c_str());
+			}
 		}
+		else if (v1.count >1 && v2.count > 1) {//都是数组类型，比较内存块
+			int vi1 = getTypeSize(v1.type)*v1.count;
+			int vi2 = getTypeSize(v2.type)*v2.count;
+			int i = memcmp(v1.pvalue, v2.pvalue, vi1>vi2 ? vi2 : vi1 /*std::min<int>(vi1, vi2)*/);
+			if (i == 0) {
+				if (vi1 > vi2)
+					return 1;
+				else if (vi1<vi2)
+					return -1;
+			}
+			return i;
+		}
+		else {//不同类型，其中一个是数组类型，一个是单质类型，转换成字符串比较
+			std::wstring sz1, sz2;
+			get(v1, sz1);
+			get(v2, sz2);
+			return wcscmp(sz1.c_str(), sz2.c_str());
+		}		
 	}
 }
 int ValUtils::getSize(const VALUE & v){
@@ -631,9 +786,9 @@ void ValUtils::initialInt8(VALUE * pv, signed char  cc) {
 	pv->i8 = cc;
 	//initialChar(pv, &cc, 1);
 }
-void ValUtils::initialUChar(VALUE * pv, unsigned char * cc, int n){
+void ValUtils::initialUInt8(VALUE * pv, unsigned char * cc, int n){
 	if (n == 1)
-		initialUChar(pv, *cc);
+		initialUInt8(pv, *cc);
 	else {
 		pv->type = GVT_UINT8;
 		pv->count = n;
@@ -641,7 +796,7 @@ void ValUtils::initialUChar(VALUE * pv, unsigned char * cc, int n){
 		memcpy(pv->barray, cc, n);
 	}	
 }
-void ValUtils::initialUChar(VALUE * pv, unsigned char  cc){
+void ValUtils::initialUInt8(VALUE * pv, unsigned char  cc){
 	pv->type = GVT_UINT8;
 	pv->count = 1;
 	pv->u8 = cc;
@@ -664,9 +819,9 @@ void ValUtils::initialWChar(VALUE * pv, wchar_t  cc){
 	pv->count = 1;
 }
 
-void ValUtils::initialShort(VALUE * pv, short * cc, int n){
+void ValUtils::initialInt16(VALUE * pv, short * cc, int n){
 	if (n == 1)
-		initialShort(pv, *cc);
+		initialInt16(pv, *cc);
 	else {
 		pv->type = GVT_INT16;
 		pv->count = n;
@@ -674,15 +829,15 @@ void ValUtils::initialShort(VALUE * pv, short * cc, int n){
 		memcpy(pv->pvalue, cc, getSize(*pv));
 	}
 }
-void ValUtils::initialShort(VALUE * pv, short  cc){
+void ValUtils::initialInt16(VALUE * pv, short  cc){
 	pv->type = GVT_INT16;
 	pv->i16 = cc;
 	pv->count = 1;
 }
 
-void ValUtils::initialUShort(VALUE * pv, unsigned short * cc, int n){
+void ValUtils::initialUInt16(VALUE * pv, unsigned short * cc, int n){
 	if(n==1)
-		initialUShort(pv, *cc);
+		initialUInt16(pv, *cc);
 	else {
 		pv->type = GVT_UINT16;
 		pv->count = n;
@@ -690,15 +845,15 @@ void ValUtils::initialUShort(VALUE * pv, unsigned short * cc, int n){
 		memcpy(pv->pvalue, cc, getSize(*pv));
 	}	
 }
-void ValUtils::initialUShort(VALUE * pv, unsigned short  cc){
+void ValUtils::initialUInt16(VALUE * pv, unsigned short  cc){
 	pv->type = GVT_UINT16;
 	pv->count = 1;
 	pv->u16 = cc;
 }
 
-void ValUtils::initialInt(VALUE * pv, int * cc, int n){
+void ValUtils::initialInt32(VALUE * pv, int * cc, int n){
 	if(n==1)
-		initialInt(pv, *cc);
+		initialInt32(pv, *cc);
 	else {
 		pv->type = GVT_INT32;
 		pv->count = n;
@@ -706,15 +861,15 @@ void ValUtils::initialInt(VALUE * pv, int * cc, int n){
 		memcpy(pv->pvalue, cc, getSize(*pv));
 	}
 }
-void ValUtils::initialInt(VALUE * pv, int  cc){
+void ValUtils::initialInt32(VALUE * pv, int  cc){
 	pv->type = GVT_INT32;
 	pv->count = 1;
 	pv->i32 = cc;
 }
 
-void ValUtils::initialUInt(VALUE * pv, unsigned int * cc, int n){
+void ValUtils::initialUInt32(VALUE * pv, unsigned int * cc, int n){
 	if (n == 1)
-		initialUInt(pv, *cc);
+		initialUInt32(pv, *cc);
 	else {
 		pv->type = GVT_UINT32;
 		pv->count = n;
@@ -722,16 +877,16 @@ void ValUtils::initialUInt(VALUE * pv, unsigned int * cc, int n){
 		memcpy(pv->pvalue, cc, getSize(*pv));
 	}	
 }
-void ValUtils::initialUInt(VALUE * pv, unsigned int  cc){
+void ValUtils::initialUInt32(VALUE * pv, unsigned int  cc){
 	pv->type = GVT_UINT32;
 	pv->count = 1;
 	pv->u32 = cc;
 	//initialUInt(pv, &cc, 1);
 }
 
-void ValUtils::initialLong(VALUE * pv, long * cc, int n){
+void ValUtils::initialInt32(VALUE * pv, long * cc, int n){
 	if (n == 1)
-		initialLong(pv, *cc);
+		initialInt32(pv, *cc);
 	else {
 		pv->type = GVT_INT32;
 		pv->count = n;
@@ -741,7 +896,7 @@ void ValUtils::initialLong(VALUE * pv, long * cc, int n){
 		//memcpy(pv->pvalue, cc, getSize(*pv));
 	}	
 }
-void ValUtils::initialLong(VALUE * pv, long  cc){
+void ValUtils::initialInt32(VALUE * pv, long  cc){
 	pv->type = GVT_INT32;
 	pv->count = 1;
 	pv->i32 = cc;
@@ -749,9 +904,9 @@ void ValUtils::initialLong(VALUE * pv, long  cc){
 	//initialLong(pv, &cc, 1);
 }
 
-void ValUtils::initialULong(VALUE * pv, unsigned long * cc, int n){
+void ValUtils::initialUInt32(VALUE * pv, unsigned long * cc, int n){
 	if (n == 1)
-		initialULong(pv, *cc);
+		initialUInt32(pv, *cc);
 	else {
 		pv->type = GVT_UINT32;
 		pv->count = n;
@@ -762,20 +917,20 @@ void ValUtils::initialULong(VALUE * pv, unsigned long * cc, int n){
 		//memcpy(pv->pvalue, cc, getSize(*pv));
 	}
 }
-void ValUtils::initialULong(VALUE * pv, unsigned long  cc){
+void ValUtils::initialUInt32(VALUE * pv, unsigned long  cc){
 	pv->type = GVT_UINT32;
 	pv->count = 1;
 	pv->u32 = cc;
 	//initialULong(pv, &cc, 1);
 }
-void ValUtils::initialULongLong(VALUE * pv, unsigned long long cc){
+void ValUtils::initialUInt64(VALUE * pv, unsigned long long cc){
 	pv->type = GVT_UINT64;
 	pv->count = 1;
 	pv->u64 = cc;
 	//pv->pvalue = (void*) new  unsigned long long[pv->count];
 	//memcpy(pv->pvalue, &cc, getSize(*pv));
 }
-void ValUtils::initialULongLong(VALUE * pv, unsigned long long * cc, int n) {
+void ValUtils::initialUInt64(VALUE * pv, unsigned long long * cc, int n) {
 	if (n == 1) {
 		pv->type = GVT_UINT64;
 		pv->count = 1;
@@ -996,87 +1151,172 @@ void ValUtils::read(Buffer & bs, VALUE & g){
 	}
 }
 
-void ValUtils::stringToWString(std::string & s, std::wstring & sd){
-	sd.clear();
-	sd.resize(s.length());
-	std::wstring::iterator it1 = sd.begin();
-	for (std::string::iterator it = s.begin(); it != s.end(); it++, it1++){
-		*it1 = (wchar_t)(*it);
-	}
-}
-//只有处于同一编码方式的情况下才是正确的，如果编码体系不同，则本函数不能正确的执行
-void ValUtils::wstringToString(std::wstring & s, std::string & sd){
-	sd.clear();
-	for (std::wstring::iterator it = s.begin(); it != s.end(); it++){
-		char h = (char)((*it) >> 8);
-		char l = (char)(*it);
 
-		if (h != 0)
-			sd.append(1, (char)h);
-		sd.append(1, (char)l);
-	}
-}
-
-bool ValUtils::doubleEqual(double d1, double d2){
-	if (fabs(d1 - d2) < TOLERANCE)
-		return true;
-	else
-		return false;
-}
-bool ValUtils::floatEqual(float d1, float d2){
-	if (fabs(d1 - d2) < TOLERANCE)
-		return true;
-	else
-		return false;
-}
-
-bool ValUtils::getNumbers(VALUE & g, std::vector<long long> & v) {
+bool ValUtils::get(VALUE & g, std::vector<long long> & v) {
 	return extractValue<long long>(g, v);
 }
-bool ValUtils::getNumbers(VALUE & g, std::vector<unsigned long long> & v) {
+bool ValUtils::get(VALUE & g, std::vector<unsigned long long> & v) {
 	return extractValue<unsigned long long>(g, v);
 }
-bool ValUtils::getNumbers(VALUE & g, std::vector<double> & v) {
+bool ValUtils::get(VALUE & g, std::vector<double> & v) {
 	return extractValue<double>(g, v);
 }
-bool ValUtils::getNumber(VALUE & g, double & v) {
+bool ValUtils::get(VALUE & g, double & v) {
 	if (g.count > 1)
 		return false;
 	return extractValue<double>(g, v);
 }
-bool ValUtils::getNumber(VALUE & g, long long & v) {
+bool ValUtils::get(VALUE & g, long long & v) {
 	if (g.count > 1)
 		return false;
 	return extractValue<long long>(g, v);
 }
-bool ValUtils::getNumber(VALUE & g, unsigned long long & v) {
+bool ValUtils::get(VALUE & g, unsigned long long & v) {
 	if (g.count > 1)
 		return false;
 	return extractValue<unsigned long long>(g, v);
 }
-
-bool ValUtils::reset(VALUE & g, std::vector<long long> & tv, GVT newtype) {
+bool ValUtils::get(VALUE & g, std::string & sz) {
+	if (g.type == GVT_CHAR || g.type == GVT_INT8) {
+		if(g.count>1)
+			sz.assign(g.carray, g.count);
+		else if(g.count==1)
+			sz.append(1, g.c8);
+		else
+			return false;
+		return true;
+	}
+	else if (g.type == GVT_WCHAR || g.type==GVT_INT16) {
+		std::wstring   wsz;
+		if (get(g, wsz)) {
+			wstringToString(wsz, sz);
+			return true;
+		}
+		else
+			return false;
+	}
+	else {
+		sz = toString(g);
+	}
+	return true;
+}
+bool ValUtils::get(VALUE & g, std::wstring & sz) {
+	if (g.type == GVT_WCHAR || g.type == GVT_INT16) {
+		if (g.count>1)
+			sz.assign((wchar_t*)(g.pvalue), g.count);
+		else if (g.count == 1)
+			sz.append(1, g.c16);
+		else
+			return false;
+		return true;
+	}
+	else if (g.type == GVT_CHAR || g.type == GVT_INT8) {
+		std::string   ssz;
+		if (get(g, ssz)) {
+			stringToWString(ssz, sz);
+			return true;
+		}
+		else
+			return false;
+	}
+	else {
+		sz = toWString(g);
+	}
+	return true;
+}
+bool ValUtils::set(VALUE & g, std::vector<long long> & tv, GVT newtype) {
 	return resetValue<long long>(g, tv, newtype);
 }
 
-bool ValUtils::reset(VALUE & g, std::vector<unsigned long long> & newvals, GVT newtype) {
+bool ValUtils::set(VALUE & g, std::vector<unsigned long long> & newvals, GVT newtype) {
 	return resetValue<unsigned long long>(g, newvals, newtype);
 }
 
-bool ValUtils::reset(VALUE & g, std::vector<double> & newvals, GVT newtype) {
+bool ValUtils::set(VALUE & g, std::vector<double> & newvals, GVT newtype) {
 	return resetValue<double>(g, newvals, newtype);
 }
 
-bool ValUtils::reset(VALUE & g,  long long  tv, GVT newtype) {
+bool ValUtils::set(VALUE & g,  long long  tv, GVT newtype) {
 	return resetValue<long long>(g, tv, newtype);
 }
 
-bool ValUtils::reset(VALUE & g,  unsigned long long  newvals, GVT newtype) {
+bool ValUtils::set(VALUE & g,  unsigned long long  newvals, GVT newtype) {
 	return resetValue<unsigned long long>(g, newvals, newtype);
 }
 
-bool ValUtils::reset(VALUE & g,  double newvals, GVT newtype) {
+bool ValUtils::set(VALUE & g,  double newvals, GVT newtype) {
 	return resetValue<double>(g, newvals, newtype);
+}
+
+bool ValUtils::set(VALUE & g, const char * sz) {
+	clear(g);
+	int n = strlen(sz);
+	if (n >1 ) {
+		g.count = n;
+		g.type = GVT_CHAR;
+		g.carray = new char[n];
+		memcpy(g.carray, sz, n*sizeof(char));
+	}
+	else if (n == 1) {
+		g.count = n;
+		g.type = GVT_CHAR;
+		g.c8 = sz[0];
+	}
+	else
+		return false;
+}
+bool ValUtils::set(VALUE & g, const wchar_t* sz) {
+	clear(g);
+	int n = wcslen(sz);
+	if (n >1) {
+		g.count = n;
+		g.type = GVT_WCHAR;
+		g.pvalue =(void*) new wchar_t[n];
+		memcpy(g.pvalue, sz, n*sizeof(wchar_t));
+	}
+	else if (n == 1) {
+		g.count = n;
+		g.type = GVT_WCHAR;
+		g.c16 = sz[0];
+	}
+	else
+		return false;
+}
+bool ValUtils::set(VALUE & g, std::string & sz) {
+	clear(g);
+	int n = sz.size();
+	if (n >1) {
+		g.count = n;
+		g.type = GVT_CHAR;
+		g.carray = new char[n];
+		const char * csz = sz.c_str();
+		memcpy(g.carray, csz, n*sizeof(char));
+	}
+	else if (n == 1) {
+		g.count = n;
+		g.type = GVT_CHAR;
+		g.c8 = sz[0];
+	}
+	else
+		return false;
+}
+bool ValUtils::set(VALUE & g, std::wstring& sz) {
+	clear(g);
+	int n = sz.size();
+	if (n >1) {
+		g.count = n;
+		g.type = GVT_CHAR;
+		g.pvalue = (void*) new wchar_t[n];
+		const wchar_t * csz = sz.c_str();
+		memcpy(g.pvalue, csz, n*sizeof(wchar_t));
+	}
+	else if (n == 1) {
+		g.count = n;
+		g.type = GVT_WCHAR;
+		g.c16= sz[0];
+	}
+	else
+		return false;
 }
 end_gdb_namespace
 end_gtl_namespace

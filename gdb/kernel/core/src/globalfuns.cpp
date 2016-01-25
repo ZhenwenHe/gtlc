@@ -9,6 +9,42 @@
 begin_gtl_namespace
 begin_gdb_namespace
 
+
+bool doubleEqual(double d1, double d2) {
+	if (fabs(d1 - d2) < TOLERANCE)
+		return true;
+	else
+		return false;
+}
+
+bool floatEqual(float d1, float d2) {
+	if (fabs(d1 - d2) < TOLERANCE)
+		return true;
+	else
+		return false;
+}
+
+void stringToWString(std::string & s, std::wstring & sd) {
+	sd.clear();
+	sd.resize(s.length());
+	std::wstring::iterator it1 = sd.begin();
+	for (std::string::iterator it = s.begin(); it != s.end(); it++, it1++) {
+		*it1 = (wchar_t)(*it);
+	}
+}
+//只有处于同一编码方式的情况下才是正确的，如果编码体系不同，则本函数不能正确的执行
+void wstringToString(std::wstring & s, std::string & sd) {
+	sd.clear();
+	for (std::wstring::iterator it = s.begin(); it != s.end(); it++) {
+		char h = (char)((*it) >> 8);
+		char l = (char)(*it);
+
+		if (h != 0)
+			sd.append(1, (char)h);
+		sd.append(1, (char)l);
+	}
+}
+
 void getCurTime(std::string & sz){
 	time_t now;
 	time(&now);

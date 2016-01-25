@@ -117,6 +117,14 @@ public:
 			int *              date;//3 integer numbers
 			int *              datetime;// 7 integer numbers
 			bool               boolval;//bool
+			/* 以下变量主要为了访问方便*/
+			unsigned char*     pu8;
+			int*               pi32;
+			unsigned int*      pu32;
+			long long*         pi64;
+			unsigned long long*pu64;
+			float             *pf32;
+			double            *pf64;
 		};
 		
 	};
@@ -131,18 +139,25 @@ public:
 	*/
 	static bool changeType(VALUE & g, GVT pt);	
 	static int compare(VALUE &  v1, VALUE &v2);
-	static bool getNumbers(VALUE & g, std::vector<long long> & v);
-	static bool getNumbers(VALUE & g, std::vector<unsigned long long> & v);
-	static bool getNumbers(VALUE & g, std::vector<double> & v);
-	static bool getNumber(VALUE & g, double & v);
-	static bool getNumber(VALUE & g, long long & v);
-	static bool getNumber(VALUE & g, unsigned long long & v);
-	static bool reset(VALUE & g, std::vector<long long> & newvals, GVT newtype);
-	static bool reset(VALUE & g, std::vector<unsigned long long> & newvals, GVT newtype);
-	static bool reset(VALUE & g, std::vector<double> & newvals, GVT newtype);
-	static bool reset(VALUE & g, long long  newvals, GVT newtype);
-	static bool reset(VALUE & g,  unsigned long long  newvals, GVT newtype);
-	static bool reset(VALUE & g,  double  newvals, GVT newtype);
+public:
+	static bool get(VALUE & g, std::vector<long long> & v);
+	static bool get(VALUE & g, std::vector<unsigned long long> & v);
+	static bool get(VALUE & g, std::vector<double> & v);
+	static bool get(VALUE & g, double & v);
+	static bool get(VALUE & g, long long & v);
+	static bool get(VALUE & g, unsigned long long & v);
+	static bool get(VALUE & g, std::string & sz);
+	static bool get(VALUE & g, std::wstring & sz);
+	static bool set(VALUE & g, std::vector<long long> & newvals, GVT newtype);
+	static bool set(VALUE & g, std::vector<unsigned long long> & newvals, GVT newtype);
+	static bool set(VALUE & g, std::vector<double> & newvals, GVT newtype);
+	static bool set(VALUE & g, long long  newvals, GVT newtype);
+	static bool set(VALUE & g,  unsigned long long  newvals, GVT newtype);
+	static bool set(VALUE & g,  double  newvals, GVT newtype);
+	static bool set(VALUE & g, const char * sz);
+	static bool set(VALUE & g, const wchar_t* wsz);
+	static bool set(VALUE & g, std::string & sz);
+	static bool set(VALUE & g, std::wstring& wsz);
 public:
 	static std::string toString(VALUE & g);
 	static std::wstring toWString(VALUE & g);
@@ -170,42 +185,38 @@ public:
 public:
 	static void initialChar(VALUE * pv, char * cc, int n = 1);
 	static void initialChar(VALUE * pv, char  cc);
-	static void initialInt8(VALUE * pv, signed char * cc, int n = 1);
-	static void initialInt8(VALUE * pv, signed char  cc);
-	static void initialUChar(VALUE * pv, unsigned char * cc, int n = 1);
-	static void initialUChar(VALUE * pv, unsigned char  cc);
 	static void initialWChar(VALUE * pv, wchar_t * cc, int n = 1);
 	static void initialWChar(VALUE * pv, wchar_t  cc);
-	static void initialShort(VALUE * pv, short * cc, int n = 1);
-	static void initialShort(VALUE * pv, short  cc);
-	static void initialUShort(VALUE * pv, unsigned short * cc, int n = 1);
-	static void initialUShort(VALUE * pv, unsigned short  cc);
-	static void initialInt(VALUE * pv, int * cc, int n = 1);
-	static void initialInt(VALUE * pv, int  cc);
-	static void initialUInt(VALUE * pv, unsigned int * cc, int n = 1);
-	static void initialUInt(VALUE * pv, unsigned int  cc);
-	static void initialLong(VALUE * pv, long * cc, int n = 1);
-	static void initialLong(VALUE * pv, long  cc);
-	static void initialULong(VALUE * pv, unsigned long * cc, int n = 1);
-	static void initialULong(VALUE * pv, unsigned long cc);
-	static void initialULongLong(VALUE * pv, unsigned long long * cc, int n );
-	static void initialULongLong(VALUE * pv, unsigned long long c);
+
+	static void initialInt8(VALUE * pv, signed char * cc, int n = 1);
+	static void initialInt8(VALUE * pv, signed char  cc);
+	static void initialUInt8(VALUE * pv, unsigned char * cc, int n = 1);
+	static void initialUInt8(VALUE * pv, unsigned char  cc);	
+	static void initialInt16(VALUE * pv, short * cc, int n = 1);
+	static void initialInt16(VALUE * pv, short  cc);
+	static void initialUInt16(VALUE * pv, unsigned short * cc, int n = 1);
+	static void initialUInt16(VALUE * pv, unsigned short  cc);
+	static void initialInt32(VALUE * pv, int * cc, int n = 1);
+	static void initialInt32(VALUE * pv, int  cc);
+	static void initialUInt32(VALUE * pv, unsigned int * cc, int n = 1);
+	static void initialUInt32(VALUE * pv, unsigned int  cc);
+	static void initialInt32(VALUE * pv, long * cc, int n = 1);
+	static void initialInt32(VALUE * pv, long  cc);
+	static void initialUInt32(VALUE * pv, unsigned long * cc, int n = 1);
+	static void initialUInt32(VALUE * pv, unsigned long cc);
+	static void initialUInt64(VALUE * pv, unsigned long long * cc, int n );
+	static void initialUInt64(VALUE * pv, unsigned long long c);
+
 	static void initialFloat(VALUE * pv, float * cc, int n = 1);
 	static void initialFloat(VALUE * pv, float  cc);
 	static void initialDouble(VALUE * pv, double * cc, int n = 1);
 	static void initialDouble(VALUE * pv, double  cc);
+
 	static void initialBoolean(VALUE * pv, bool * cc, int n = 1);
 	static void initialBoolean(VALUE * pv, bool  cc);
+
 	static void initialDate(VALUE * pv, int year, int month, int day);
 	static void initialDateTime(VALUE * pv, int year, int month, int day, int hour, int minute, int second, int millisecond);
-
-	static void stringToWString(std::string & s, std::wstring & sd);
-	//只有处于同一编码方式的情况下才是正确的，如果编码体系不同，则本函数不能正确的执行
-	static void wstringToString(std::wstring & s, std::string & sd);
-
-	static bool doubleEqual(double d1, double d2);
-	static bool floatEqual(float d1, float d2);
-
 };
 /** @} */
 

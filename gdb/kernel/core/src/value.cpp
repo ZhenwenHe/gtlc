@@ -6,103 +6,103 @@ begin_gtl_namespace
 begin_gdb_namespace
 ///////////////////////////////////////////////////////////////////////////////
 Value::Value() {
-	m_data = new ValUtils::VALUE;
+	m_data = new VALUE;
 	_need_release = true;
 	ValUtils::initial(*m_data);
 }
 Value::Value(const char * sz) {
-	m_data = new ValUtils::VALUE;
+	m_data = new VALUE;
 	_need_release = true;
 	ValUtils::initial(*m_data);
 	ValUtils::set(*m_data, sz);
 }
 Value::Value(const wchar_t * sz) {
-	m_data = new ValUtils::VALUE;
+	m_data = new VALUE;
 	_need_release = true;
 	ValUtils::initial(*m_data);
 	ValUtils::set(*m_data, sz);
 }
 Value::Value(signed char i8) {
-	m_data = new ValUtils::VALUE;
+	m_data = new VALUE;
 	_need_release = true;
-	m_data->type = ValUtils::GVT::GVT_INT8;
+	m_data->type = GVT::GVT_INT8;
 	m_data->count = 1;
 	m_data->i8 = i8;
 }
 Value::Value(short i16) {
-	m_data = new ValUtils::VALUE;
+	m_data = new VALUE;
 	_need_release = true;
-	m_data->type = ValUtils::GVT::GVT_INT16;
+	m_data->type = GVT::GVT_INT16;
 	m_data->count = 1;
 	m_data->i16 = i16;
 }
 Value::Value(int i32) {
-	m_data = new ValUtils::VALUE;
+	m_data = new VALUE;
 	_need_release = true;
-	m_data->type = ValUtils::GVT::GVT_INT32;
+	m_data->type = GVT::GVT_INT32;
 	m_data->count = 1;
 	m_data->i32 = i32;
 }
 Value::Value(long long i64) {
-	m_data = new ValUtils::VALUE;
+	m_data = new VALUE;
 	_need_release = true;
-	m_data->type = ValUtils::GVT::GVT_INT64;
+	m_data->type = GVT::GVT_INT64;
 	m_data->count = 1;
 	m_data->i64 = i64;
 }
 Value::Value(unsigned char u8) {
-	m_data = new ValUtils::VALUE;
+	m_data = new VALUE;
 	_need_release = true;
-	m_data->type = ValUtils::GVT::GVT_UINT8;
+	m_data->type = GVT::GVT_UINT8;
 	m_data->count = 1;
 	m_data->u8 = u8;
 }
 Value::Value(unsigned short u16) {
-	m_data = new ValUtils::VALUE;
+	m_data = new VALUE;
 	_need_release = true;
-	m_data->type = ValUtils::GVT::GVT_UINT16;
+	m_data->type = GVT::GVT_UINT16;
 	m_data->count = 1;
 	m_data->u16 = u16;
 }
 Value::Value(unsigned int u32) {
-	m_data = new ValUtils::VALUE;
+	m_data = new VALUE;
 	_need_release = true;
-	m_data->type = ValUtils::GVT::GVT_UINT32;
+	m_data->type = GVT::GVT_UINT32;
 	m_data->count = 1;
 	m_data->u32= u32;
 }
 Value::Value(unsigned long long u64) {
-	m_data = new ValUtils::VALUE;
+	m_data = new VALUE;
 	_need_release = true;
-	m_data->type = ValUtils::GVT::GVT_UINT64;
+	m_data->type = GVT::GVT_UINT64;
 	m_data->count = 1;
 	m_data->u64 = u64;
 }
 Value::Value(float f32) {
-	m_data = new ValUtils::VALUE;
+	m_data = new VALUE;
 	_need_release = true;
-	m_data->type = ValUtils::GVT::GVT_FLOAT32;
+	m_data->type = GVT::GVT_FLOAT32;
 	m_data->count = 1;
 	m_data->f32 = f32;
 }
 Value::Value(double f64) {
-	m_data = new ValUtils::VALUE;
+	m_data = new VALUE;
 	_need_release = true;
-	m_data->type = ValUtils::GVT::GVT_FLOAT64;
+	m_data->type = GVT::GVT_FLOAT64;
 	m_data->count = 1;
 	m_data->f64 = f64;
 }
 Value::Value(bool b) {
-	m_data = new ValUtils::VALUE;
+	m_data = new VALUE;
 	_need_release = true;
-	m_data->type = ValUtils::GVT::GVT_BOOL;
+	m_data->type = GVT::GVT_BOOL;
 	m_data->count = 1;
-	m_data->boolval = b;
+	m_data->bv = b;
 }
 Value::Value(int year, int month, int day) {
-	m_data = new ValUtils::VALUE;
+	m_data = new VALUE;
 	_need_release = true;
-	m_data->type = ValUtils::GVT::GVT_DATE;
+	m_data->type = GVT::GVT_DATE;
 	m_data->count = 1;
 	m_data->date =new int[3];
 	m_data->date[0] = year;
@@ -110,9 +110,9 @@ Value::Value(int year, int month, int day) {
 	m_data->date[2] = day;
 }
 Value::Value(int year, int month, int day, int hour, int minute, int second, int millisecond  ) {
-	m_data = new ValUtils::VALUE;
+	m_data = new VALUE;
 	_need_release = true;
-	m_data->type = ValUtils::GVT::GVT_DATETIME;
+	m_data->type = GVT::GVT_DATETIME;
 	m_data->count = 1;
 	m_data->datetime = new int[7];
 	m_data->datetime[0] = year;
@@ -124,81 +124,81 @@ Value::Value(int year, int month, int day, int hour, int minute, int second, int
 	m_data->datetime[6] = millisecond;
 }
 Value::Value(int* i32s, int n) {
-	m_data = new ValUtils::VALUE;
+	m_data = new VALUE;
 	_need_release = true;
 	ValUtils::initial(*m_data);
-	m_data->type = ValUtils::GVT::GVT_INT32;
+	m_data->type = GVT::GVT_INT32;
 	m_data->count = n;
 	m_data->pi32 = new int[n];
 	std::copy(i32s, i32s + n, m_data->pi32);
 }
 Value::Value(long long * i64s, int n) {
-	m_data = new ValUtils::VALUE;
+	m_data = new VALUE;
 	_need_release = true;
 	ValUtils::initial(*m_data);
-	m_data->type = ValUtils::GVT::GVT_INT64;
+	m_data->type = GVT::GVT_INT64;
 	m_data->count = n;
 	m_data->pi64 = new long long[n];
 	std::copy(i64s, i64s + n, m_data->pi64);
 }
 Value::Value(unsigned char * u8s, int n) {
-	m_data = new ValUtils::VALUE;
+	m_data = new VALUE;
 	_need_release = true;
 	ValUtils::initial(*m_data);
-	m_data->type = ValUtils::GVT::GVT_UINT8;
+	m_data->type = GVT::GVT_UINT8;
 	m_data->count = n;
 	m_data->pu8 = new unsigned char[n];
 	std::copy(u8s, u8s + n, m_data->pu8);
 }
 Value::Value(unsigned int * u32s, int n) {
-	m_data = new ValUtils::VALUE;
+	m_data = new VALUE;
 	_need_release = true;
 	ValUtils::initial(*m_data);
-	m_data->type = ValUtils::GVT::GVT_UINT32;
+	m_data->type = GVT::GVT_UINT32;
 	m_data->count = n;
 	m_data->pu32 = new unsigned int[n];
 	std::copy(u32s, u32s + n, m_data->pu32);
 }
 Value::Value(unsigned long long * u64s, int n) {
-	m_data = new ValUtils::VALUE;
+	m_data = new VALUE;
 	_need_release = true;
 	ValUtils::initial(*m_data);
-	m_data->type = ValUtils::GVT::GVT_UINT64;
+	m_data->type = GVT::GVT_UINT64;
 	m_data->count = n;
 	m_data->pu64 = new unsigned long long [n];
 	std::copy(u64s, u64s + n, m_data->pu64);
 }
 Value::Value(float * f32s, int n) {
-	m_data = new ValUtils::VALUE;
+	m_data = new VALUE;
 	_need_release = true;
 	ValUtils::initial(*m_data);
-	m_data->type = ValUtils::GVT::GVT_FLOAT32;
+	m_data->type = GVT::GVT_FLOAT32;
 	m_data->count = n;
 	m_data->pf32 = new float [n];
 	std::copy(f32s, f32s + n, m_data->pf32);
 }
 Value::Value(double* f64s, int n) {
-	m_data = new ValUtils::VALUE;
+	m_data = new VALUE;
 	_need_release = true;
 	ValUtils::initial(*m_data);
-	m_data->type = ValUtils::GVT::GVT_FLOAT64;
+	m_data->type = GVT::GVT_FLOAT64;
 	m_data->count = n;
 	m_data->pf64 = new double[n];
 	std::copy(f64s, f64s + n, m_data->pf64);
 }
 Value::Value(const Value & v) {
-	m_data = new ValUtils::VALUE;
+	m_data = new VALUE;
 	_need_release = true;
 	ValUtils::initial(*m_data);
 	ValUtils::copy(m_data, *(v.m_data));
 }
-Value::Value(ValUtils::VALUE * pv, bool auto_release) {
+Value::Value(VALUE * pv, bool auto_release) {
 	if (auto_release) {
 		m_data = pv;
 		_need_release = auto_release;
 	}
 	else {
-		m_data = new ValUtils::VALUE;
+		m_data = new VALUE;
 		_need_release = true;
 		ValUtils::initial(*m_data);
 		ValUtils::copy(m_data, *pv);
@@ -218,15 +218,15 @@ void Value::clear() {
 	_need_release = false;
 }
 
-void Value::attach(ValUtils::VALUE * pv) {
+void Value::attach(VALUE * pv) {
 	clear();
 	m_data = pv;
 	_need_release = true;
 }
 
-ValUtils::VALUE * Value::detach() {
-	ValUtils::VALUE * pv = m_data;	
-	m_data = new ValUtils::VALUE;
+VALUE * Value::detach() {
+	VALUE * pv = m_data;	
+	m_data = new VALUE;
 	_need_release = true;
 	ValUtils::initial(*m_data);
 	return pv;
@@ -242,16 +242,16 @@ void Value::read(Buffer & bs){
 
 void Value::copy (const Value & v){
 	clear();
-	m_data = new ValUtils::VALUE;
+	m_data = new VALUE;
 	_need_release = true;
 	ValUtils::initial(*m_data);
 	ValUtils::copy(m_data,* v.m_data);
 }
-void Value::copy (const ValUtils::VALUE & v){
+void Value::copy (const VALUE & v){
 	if(m_data)
 		ValUtils::copy(m_data,v);
 	else{
-		m_data = new ValUtils::VALUE;
+		m_data = new VALUE;
 		_need_release = true;
 		ValUtils::initial(*m_data);
 		ValUtils::copy(m_data,v);

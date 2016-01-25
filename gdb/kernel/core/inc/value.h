@@ -33,11 +33,11 @@ begin_gdb_namespace
 class CORE_API Value
  {
 protected:	
-	ValUtils::VALUE * m_data;
+	VALUE * m_data;
 	/*程序运行期间Value对象销毁的时候，_need_release指示该内存释放是否需要释放，不参与对象存储*/
 	bool _need_release;
 public:
-	typedef ValUtils::VALUE value_type;
+	typedef VALUE value_type;
 public:	
 	Value();
 	Value(const char * sz);
@@ -62,15 +62,15 @@ public:
 	Value(unsigned long long * u64s,int n);
 	Value(float * f32s,int n);
 	Value(double* f64s,int n);
-	Value(ValUtils::VALUE * pv, bool auto_release = true);
+	Value(VALUE * pv, bool auto_release = true);
 	Value(const Value & v);	
 	virtual ~Value();
 
 	void clear();
-	void attach( ValUtils::VALUE * pv);
-	ValUtils::VALUE * detach() ;
+	void attach( VALUE * pv);
+	VALUE * detach() ;
 	void copy(const Value & v);
-	void copy(const ValUtils::VALUE & v);
+	void copy(const VALUE & v);
 	virtual void write(Buffer & bs);
 	virtual void read(Buffer & bs);
 public:
@@ -101,7 +101,7 @@ public:
 	inline int getTypeSize( ){	return ValUtils::getTypeSize(m_data->type);	}
 	inline long getCount(){return m_data->count;}
 	inline long getSize(){ return m_data->count * getTypeSize();}
-	inline ValUtils::VALUE & get(){ return *m_data;}	
+	inline VALUE & get(){ return *m_data;}	
 	inline bool isDecimal(){return ValUtils::isDecimal(m_data->type);}
 	inline bool isInteger(){return ValUtils::isInteger(m_data->type);}
 	inline bool isNumber(){return ValUtils::isNumber(m_data->type);	}

@@ -7,14 +7,14 @@ begin_gdb_namespace
 /*
 返回对应类型的默认名称，全部为小写，类型名称不分大小写
 */
-std::string ValUtils::getTypeName(GVT t) {
+std::string ValUtils::getCTypeName(GVT t) {
 	std::string sz; 
 	switch (t)
 	{
-	case GVT_CHAR://c8
+	case GVT_CHAR8://c8
 		sz="char";
 		break;
-	case GVT_WCHAR://c16
+	case GVT_CHAR16://c16
 		sz="wchar_t";
 		break;
 	case GVT_INT8://i8
@@ -47,14 +47,14 @@ std::string ValUtils::getTypeName(GVT t) {
 	case GVT_FLOAT64://f64
 		sz="double";
 		break;
-	case GVT_BOOL://boolval 
+	case GVT_BOOL://bv 
 		sz="bool";
 		break;
 	case GVT_DATE://DATE 
-		sz="date";
+		sz="int*";
 		break;
 	case GVT_DATETIME://DATETIME 
-		sz="datetime";
+		sz="int*";
 		break;
 	default:
 		sz = "unknown";
@@ -62,15 +62,70 @@ std::string ValUtils::getTypeName(GVT t) {
 	}
 	return sz;
 }
-
+std::string ValUtils::getTypeName(GVT t) {
+	std::string sz;
+	switch (t)
+	{
+	case GVT_CHAR8://c8
+		sz = "char8";
+		break;
+	case GVT_CHAR16://c16
+		sz = "char16";
+		break;
+	case GVT_INT8://i8
+		sz = "int8";
+		break;
+	case GVT_INT16://i16
+		sz = "int16";
+		break;
+	case GVT_INT32://i32
+		sz = "int32";
+		break;
+	case GVT_INT64://i64
+		sz = "int64";
+		break;
+	case GVT_UINT8://u8
+		sz = "uint8";
+		break;
+	case GVT_UINT16://u16
+		sz = "uint16";
+		break;
+	case GVT_UINT32://u32
+		sz = "uint32";
+		break;
+	case GVT_UINT64://u64
+		sz = "uint64";
+		break;
+	case GVT_FLOAT32://f32
+		sz = "float32";
+		break;
+	case GVT_FLOAT64://f64
+		sz = "float64";
+		break;
+	case GVT_BOOL://bv 
+		sz = "bool";
+		break;
+	case GVT_DATE://DATE 
+		sz = "date";
+		break;
+	case GVT_DATETIME://DATETIME 
+		sz = "datetime";
+		break;
+	default:
+		sz = "unkonwn";
+		break;
+	}
+	return sz;
+}
 std::string ValUtils::getTypeName(GVT t, std::vector<std::string>& names) {
 	std::string sz;
 	switch (t)
 	{
-		case GVT_CHAR://c8
+		case GVT_CHAR8://c8
 		{
-			sz = "char";
+			sz = "char8";
 			names.push_back(sz);
+			names.push_back("char");//C++中的类型名称
 			names.push_back("varchar");
 			names.push_back("character");
 			names.push_back("text");
@@ -79,10 +134,11 @@ std::string ValUtils::getTypeName(GVT t, std::vector<std::string>& names) {
 			names.push_back("clob");
 			break;
 		}
-		case GVT_WCHAR://c16
+		case GVT_CHAR16://c16
 		{
-			sz = "wchar_t"; 
+			sz = "char16"; 
 			names.push_back(sz);
+			names.push_back("wchat_t");//C++中的类型名称
 			names.push_back("wide varchar");
 			names.push_back("wide character");
 			names.push_back("wide text");
@@ -93,23 +149,26 @@ std::string ValUtils::getTypeName(GVT t, std::vector<std::string>& names) {
 		}		
 		case GVT_INT8://i8
 		{
-			sz = "signed char";
+			sz = "int8";
 			names.push_back(sz);
+			names.push_back("signed char");//C++中的类型名称
 			names.push_back("int8");
 			break;
 		}		
 		case GVT_INT16://i16
 		{
-			sz = "short";
+			sz = "int16";
 			names.push_back(sz);
-			names.push_back("int16");
+			names.push_back("short"); //C++中的类型名称
+			names.push_back("short int");
+			names.push_back("short integer");
 			break;
 		}
 		case GVT_INT32://i32
 		{
-			sz = "int";
+			sz = "int32";
 			names.push_back(sz);
-			names.push_back("int32");
+			names.push_back("int");//C++中的类型名称
 			names.push_back("integer");
 			names.push_back("long");
 			names.push_back("long int");
@@ -117,81 +176,84 @@ std::string ValUtils::getTypeName(GVT t, std::vector<std::string>& names) {
 		}
 		case GVT_INT64://i64
 		{
-			sz = "long long";
+			sz = "int64";
 			names.push_back(sz);
-			names.push_back("int64");
+			names.push_back("long long");//C++中的类型名称
+			names.push_back("long long int");
 			break;
 		}
 		case GVT_UINT8://u8
 		{	
-			sz = "unsigned char";
+			sz = "uint8";
 			names.push_back(sz);
-			names.push_back("uint8");
+			names.push_back("unsigned char");//C++中的类型名称
 			names.push_back("byte");
 			break;
 		}
 		case GVT_UINT16://u16
 		{
-			sz = "unsigned short";
+			sz = "uint16";
 			names.push_back(sz);
-			names.push_back("uint16");
+			names.push_back("unsigned short");//C++中的类型名称
 			names.push_back("word");
 			break;
 		}
 		case GVT_UINT32://u32
 		{
-			sz = "unsigned int";
+			sz = "uint32";
 			names.push_back(sz);
-			names.push_back("uint32");
+			names.push_back("unsigned int");//C++中的类型名称
 			names.push_back("unsigned long");
 			names.push_back("dword");
 			break;
 		}
 		case GVT_UINT64://u64
 		{
-			sz = "unsigned long long";
+			sz = "uint64";
 			names.push_back(sz);
-			names.push_back("uint64");
+			names.push_back("unsigned long long");//C++中的类型名称
+			names.push_back("uint64_t");
 			break;
 		}
 		case GVT_FLOAT32://f32
 		{
-			sz = "float";
+			sz = "float32";
 			names.push_back(sz);
-			names.push_back("float32");
+			names.push_back("float");//C++中的类型名称
 			names.push_back("real32");
 			names.push_back("decimal32");
 			break;
 		}
 		case GVT_FLOAT64://f64
 		{
-			sz = "double";
+			sz = "float64";
 			names.push_back(sz);
-			names.push_back("float64");
+			names.push_back("double");//C++中的类型名称
 			names.push_back("real64");
 			names.push_back("decimal64");
 			break;
 		}
-		case GVT_BOOL://boolval 
+		case GVT_BOOL://bv 
 		{
 			sz = "bool";
 			names.push_back(sz);
+			names.push_back(sz); //C++中的类型名称
 			names.push_back("boolean");
 			break;
 		}
 		case GVT_DATE://DATE 
 		{
 			sz = "date";
-			names.push_back(sz);//数组中的第一个名称是C++中的类型名称
-			names.push_back("date");//数组中的第二个名称是数据库类型名称
+			names.push_back(sz);
+			names.push_back("int*");//C++中的类型名称
 			names.push_back("int32x3");
 			break;
 		}
 		case GVT_DATETIME://DATETIME 
 		{
 			sz = "datetime";
-			names.push_back(sz);//数组中的第一个名称是C++中的类型名称
-			names.push_back(sz);//数组中的第二个名称是数据库类型名称
+			names.push_back(sz);
+			names.push_back("int*"); //C++中的类型名称
 			names.push_back("int32x6");
 			names.push_back("int32x7");
 			break;
@@ -277,14 +339,14 @@ bool ValUtils::changeType(VALUE & g, GVT pt){
 void ValUtils::initial(VALUE & v){
 	v.type = GVT_UNKN;
 	v.count = 0;
-	v.pvalue = 0;
+	v.pv = 0;
 	v.u64 = 0;
 }
 void ValUtils::clear(VALUE & g){
 	if (g.count > 1) {
-		if (g.pvalue)
-			delete[]((unsigned char*)g.pvalue);
-		g.pvalue = 0;
+		if (g.pv)
+			delete[]((unsigned char*)g.pv);
+		g.pv = 0;
 	}
 	else {
 		if (g.type == GVT_DATE) {
@@ -342,7 +404,18 @@ bool ValUtils::isArray(VALUE & g){
 	else
 		return false;
 }
-
+bool ValUtils::isText(VALUE & g) {
+	if (g.type>GVT_BEGIN_CHAR && g.type < GVT_END_CHAR && g.count>1)
+		return true;
+	else
+		return false;
+}
+bool ValUtils::isBlob(VALUE & g) {
+	if ((!isChar(g.type)) && g.count > 1)
+		return true;
+	else
+		return false;
+}
 bool ValUtils::isBoolean(GVT pt) {
 	if (pt>GVT_BEGIN_BOOLEAN && pt < GVT_END_BOOLEAN)
 		return true;
@@ -366,10 +439,10 @@ int ValUtils::getTypeSize(GVT t){
 	int r = 0;
 	switch (t)
 	{
-	case GVT_CHAR://c8
+	case GVT_CHAR8://c8
 		r=sizeof(char);
 		break;
-	case GVT_WCHAR://c16
+	case GVT_CHAR16://c16
 		r = sizeof(wchar_t);
 		break;
 	case GVT_INT8://i8
@@ -402,7 +475,7 @@ int ValUtils::getTypeSize(GVT t){
 	case GVT_FLOAT64://f64
 		r = sizeof(double);
 		break;
-	case GVT_BOOL://boolval 
+	case GVT_BOOL://bv 
 		r = sizeof(bool);
 		break;
 	case GVT_DATE://DATE 
@@ -420,21 +493,21 @@ std::string ValUtils::toString(VALUE & g){
 	std::string sz;
 	switch (g.type)
 	{
-	case GVT_CHAR://c8
+	case GVT_CHAR8://c8
 	{	
 		if (g.count > 1) {
-			sz.assign(g.carray, g.count);
+			sz.assign(g.pc8, g.count);
 		}
 		else {
 			sz.resize(1, g.c8);
 		}
 		break;
 	}
-	case GVT_WCHAR://c16
+	case GVT_CHAR16://c16
 	{
 		if (g.count > 1) {
 			std::wstring wsz;
-			wsz.assign(g.wcarray, g.count); 
+			wsz.assign(g.pc16, g.count); 
 			wstringToString(wsz, sz);
 		}
 		else {
@@ -449,10 +522,10 @@ std::string ValUtils::toString(VALUE & g){
 		char t[32];
 		if (g.count > 1) {
 			int n = g.count;
-			itoa((int)((g.carray)[0]), (char*)t, 10);
+			itoa((int)((g.pc8)[0]), (char*)t, 10);
 			sz  = ((const char *)t);
 			for (int i = 1; i < n; i++) {
-				itoa((int)((g.carray)[i]),(char*) t, 10);
+				itoa((int)((g.pc8)[i]),(char*) t, 10);
 				sz.append(1, ',');
 				sz += ((const char *)t);
 			}
@@ -468,9 +541,9 @@ std::string ValUtils::toString(VALUE & g){
 		char t[32];
 		if (g.count > 1) {
 			int n = g.count;
-			itoa((int)(((short*)(g.pvalue))[0]), (char*)t, 10);
+			itoa((int)(((short*)(g.pv))[0]), (char*)t, 10);
 			for (int i = 1; i < n; i++) {
-				itoa((int)(((short*)(g.pvalue))[i]), (char*)t, 10);
+				itoa((int)(((short*)(g.pv))[i]), (char*)t, 10);
 				sz.append(1, ',');
 				sz += ((const char *)t);
 			}
@@ -486,9 +559,9 @@ std::string ValUtils::toString(VALUE & g){
 		char t[32];
 		if (g.count > 1) {
 			int n = g.count;
-			itoa((int)(((int*)(g.pvalue))[0]), (char*)t, 10);
+			itoa((int)(((int*)(g.pv))[0]), (char*)t, 10);
 			for (int i = 1; i < n; i++) {
-				itoa((int)(((int*)(g.pvalue))[i]), (char*)t, 10);
+				itoa((int)(((int*)(g.pv))[i]), (char*)t, 10);
 				sz.append(1, ',');
 				sz += ((const char *)t);
 			}
@@ -504,9 +577,9 @@ std::string ValUtils::toString(VALUE & g){
 		char t[64];
 		if (g.count > 1) {
 			int n = g.count;
-			_i64toa((long long)(((long long *)(g.pvalue))[0]), (char*)t, 10);
+			_i64toa((long long)(((long long *)(g.pv))[0]), (char*)t, 10);
 			for (int i = 1; i < n; i++) {
-				_i64toa((long long)(((long long *)(g.pvalue))[i]), (char*)t, 10);
+				_i64toa((long long)(((long long *)(g.pv))[i]), (char*)t, 10);
 				sz.append(1, ',');
 				sz += ((const char *)t);
 			}
@@ -522,9 +595,9 @@ std::string ValUtils::toString(VALUE & g){
 		char t[32];
 		if (g.count > 1) {
 			int n = g.count;
-			ultoa((unsigned long)(((unsigned char *)(g.pvalue))[0]), (char*)t, 10);
+			ultoa((unsigned long)(((unsigned char *)(g.pv))[0]), (char*)t, 10);
 			for (int i = 1; i < n; i++) {
-				ultoa((unsigned long)(((unsigned char *)(g.pvalue))[i]), (char*)t, 10);
+				ultoa((unsigned long)(((unsigned char *)(g.pv))[i]), (char*)t, 10);
 				sz.append(1, ',');
 				sz += ((const char *)t);
 			}
@@ -540,9 +613,9 @@ std::string ValUtils::toString(VALUE & g){
 		char t[32];
 		if (g.count > 1) {
 			int n = g.count;
-			ultoa((unsigned long)(((unsigned short *)(g.pvalue))[0]), (char*)t, 10);
+			ultoa((unsigned long)(((unsigned short *)(g.pv))[0]), (char*)t, 10);
 			for (int i = 1; i < n; i++) {
-				ultoa((unsigned long)(((unsigned short *)(g.pvalue))[i]), (char*)t, 10);
+				ultoa((unsigned long)(((unsigned short *)(g.pv))[i]), (char*)t, 10);
 				sz.append(1, ',');
 				sz += ((const char *)t);
 			}
@@ -558,9 +631,9 @@ std::string ValUtils::toString(VALUE & g){
 		char t[32];
 		if (g.count > 1) {
 			int n = g.count;
-			ultoa((unsigned long)(((unsigned int *)(g.pvalue))[0]), (char*)t, 10);
+			ultoa((unsigned long)(((unsigned int *)(g.pv))[0]), (char*)t, 10);
 			for (int i = 1; i < n; i++) {
-				ultoa((unsigned long)(((unsigned int *)(g.pvalue))[i]), (char*)t, 10);
+				ultoa((unsigned long)(((unsigned int *)(g.pv))[i]), (char*)t, 10);
 				sz.append(1, ',');
 				sz += ((const char *)t);
 			}
@@ -576,9 +649,9 @@ std::string ValUtils::toString(VALUE & g){
 		char t[64];
 		if (g.count > 1) {
 			int n = g.count;
-			ultoa((unsigned long long)(((unsigned long long *)(g.pvalue))[0]), (char*)t, 10);
+			ultoa((unsigned long long)(((unsigned long long *)(g.pv))[0]), (char*)t, 10);
 			for (int i = 1; i < n; i++) {
-				ultoa((unsigned long long)(((unsigned long long *)(g.pvalue))[i]), (char*)t, 10);
+				ultoa((unsigned long long)(((unsigned long long *)(g.pv))[i]), (char*)t, 10);
 				sz.append(1, ',');
 				sz += ((const char *)t);
 			}
@@ -594,9 +667,9 @@ std::string ValUtils::toString(VALUE & g){
 		if (g.count > 1) {
 			int n = g.count;
 			std::basic_ostringstream<char> oss;
-			oss << ((float*)(g.pvalue))[0];
+			oss << ((float*)(g.pv))[0];
 			for (int i = 1; i < n; i++) {
-				oss<<","<< ((float*)(g.pvalue))[i];
+				oss<<","<< ((float*)(g.pv))[i];
 			}
 			sz = oss.str();
 		}
@@ -613,9 +686,9 @@ std::string ValUtils::toString(VALUE & g){
 		if (g.count > 1) {
 			int n = g.count;
 			std::basic_ostringstream<char> oss;
-			oss << ((double*)(g.pvalue))[0];
+			oss << ((double*)(g.pv))[0];
 			for (int i = 1; i < n; i++) {
-				oss << "," << ((double*)(g.pvalue))[i];
+				oss << "," << ((double*)(g.pv))[i];
 			}
 			sz = oss.str();
 		}
@@ -626,20 +699,20 @@ std::string ValUtils::toString(VALUE & g){
 		}
 		break;
 	}
-	case GVT_BOOL://boolval 
+	case GVT_BOOL://bv 
 	{
 		if (g.count > 1) {
 			int n = g.count;
 			std::basic_ostringstream<char> oss;
-			oss << ((bool*)(g.pvalue))[0];
+			oss << ((bool*)(g.pv))[0];
 			for (int i = 1; i < n; i++) {
-				oss << "," << ((bool*)(g.pvalue))[i];
+				oss << "," << ((bool*)(g.pv))[i];
 			}
 			sz = oss.str();
 		}
 		else {
 			std::basic_ostringstream<char> oss;
-			oss << g.boolval;
+			oss << g.bv;
 			sz = oss.str();
 		}
 		break;
@@ -693,9 +766,9 @@ std::string ValUtils::toString(VALUE & g){
 }
 std::wstring ValUtils::toWString(VALUE & g){
 	std::wstring wsz;	 
-	if(g.type== GVT_WCHAR){//c16		
+	if(g.type== GVT_CHAR16){//c16		
 		if (g.count > 1) {			
-			wsz.assign(g.wcarray, g.count); 
+			wsz.assign(g.pc16, g.count); 
 		}
 		else { 
 			wsz.resize(1, g.c16);
@@ -707,189 +780,7 @@ std::wstring ValUtils::toWString(VALUE & g){
 	}
 	return wsz;
 }
-int ValUtils::compare(VALUE &  v1, VALUE &v2)  {
-	if (v1.type == v2.type) {//同类型比较
-		if (v1.count == 1 && v2.count == 1) {//同类型单值
-			switch (v1.type)
-			{
-			case GVT_CHAR://c8
-			case GVT_WCHAR://c16
-			case GVT_INT8://i8
-			case GVT_INT16://i16
-			case GVT_INT32://i32
-			case GVT_INT64://i64
-			case GVT_BOOL://boolval 
-			{
-				if (v1.i64 > v2.i64)
-					return 1;
-				else if (v1.i64 == v2.i64)
-					return 0;
-				else
-					return -1;
-			}
-			case GVT_UINT8://u8
-			case GVT_UINT16://u16
-			case GVT_UINT32://u32
-			case GVT_UINT64://u64
-			{
-				if (v1.u64 > v2.u64)
-					return 1;
-				else if (v1.u64 == v2.u64)
-					return 0;
-				else
-					return -1;
-			}
-			case GVT_FLOAT32://f32
-			{
-				if (v1.f32 > v2.f32)
-					return 1;
-				else if (floatEqual(v1.f32, v2.f32))
-					return 0;
-				else
-					return -1;
-			}
-			case GVT_FLOAT64://f64
-			{
-				if (v1.f64 > v2.f64)
-					return 1;
-				else if (doubleEqual(v1.f64, v2.f64))
-					return 0;
-				else
-					return -1;
-			}
-			case GVT_DATE://DATE 
-			{
-				for (int i = 0; i < 3; i++) {
-					if (v1.date[i] > v2.date[i])
-						return 1;
-					else if (v1.date[i] < v2.date[i])
-						return -1;
-					else
-						continue;
-				}
-				return 0;
-			}
-			case GVT_DATETIME://DATETIME 
-			{
-				for (int i = 0; i < 7; i++) {
-					if (v1.datetime[i] > v2.datetime[i])
-						return 1;
-					else if (v1.datetime[i] < v2.datetime[i])
-						return -1;
-					else
-						continue;
-				}
-				return 0;
-			}
-			default:
-				return 0;
-			}
-		}
-		else if(v1.count>1 && v2.count>1){//同类型数组,比较内存块
-			int vi1 = getTypeSize(v1.type)*v1.count;
-			int vi2 = getTypeSize(v2.type)*v2.count;
-			int i = memcmp(v1.pvalue, v2.pvalue, vi1>vi2 ? vi2 : vi1 /*std::min<int>(vi1, vi2)*/);
-			if (i == 0) {
-				if (vi1 > vi2)
-					return 1;
-				else if (vi1<vi2)
-					return -1;
-			}
-			return i;
-		}
-		else {//同类型，但一个是数组，一个是单值，转换成字符串比较
-			std::wstring sz1, sz2;
-			get(v1, sz1);
-			get(v2, sz2);
-			return wcscmp(sz1.c_str(), sz2.c_str());
-		}
-	}
-	else {//不同类型比较
-		if (v1.count == 1 && v2.count == 1) {//不同类型的单值
-			if (isNumber(v1.type) && isNumber(v2.type)) {//都是数值类型的单值
-				double d1, d2;
-				extractValue<double>(v1, d1);
-				extractValue<double>(v2, d2);
-				{
-					if (d1 > d2)
-						return 1;
-					else if (doubleEqual(d1, d2))
-						return 0;
-					else
-						return -1;
-				}
-			}
-			else if (isChar(v1.type) && isChar(v2.type)) {//都是字符类型单值,其中一个是宽字符
-				if (v1.type == GVT_CHAR) {
-					if (v1.c8 > v2.c16)
-						return 1;
-					else if (v1.c8 == v2.c16)
-						return 0;
-					else
-						return -1;
-				}
-				else {
-					if (v1.c16 > v2.c8)
-						return 1;
-					else if (v1.c16 == v2.c8)
-						return 0;
-					else
-						return -1;
-				}
-			}
-			else if (isTime(v1.type) && isTime(v2.type)) {//都是时间类型单值,一个DATE,一个是DATETIME
-				//比较年月日；										  
-				for (int i = 0; i < 3; i++) {
-					if (v1.date[i] > v2.date[i])
-						return 1;
-					else if (v1.date[i] < v2.date[i])
-						return -1;
-					else
-						continue;
-				}
-				//年月日相同，接下来比较时间；
-				if (v1.type == GVT_DATE) {					
-					for (int i = 3; i < 7; i++)
-						if (v2.datetime[i] != 0)
-							return -1;
-					//如果都是0，则相等
-					return 0;
-				}
-				else {
-					for (int i = 3; i < 7; i++)
-						if (v1.datetime[i] != 0)
-							return 1;
-					//如果都是0，则相等
-					return 0;
-				}
-			}
-			else {//转换成字符串比较
-				std::wstring sz1, sz2;
-				get(v1, sz1);
-				get(v2, sz2);
-				return wcscmp(sz1.c_str(), sz2.c_str());
-			}
-		}
-		else if (v1.count >1 && v2.count > 1) {//都是数组类型，比较内存块
-			int vi1 = getTypeSize(v1.type)*v1.count;
-			int vi2 = getTypeSize(v2.type)*v2.count;
-			int i = memcmp(v1.pvalue, v2.pvalue, vi1>vi2 ? vi2 : vi1 /*std::min<int>(vi1, vi2)*/);
-			if (i == 0) {
-				if (vi1 > vi2)
-					return 1;
-				else if (vi1<vi2)
-					return -1;
-			}
-			return i;
-		}
-		else {//不同类型，其中一个是数组类型，一个是单质类型，转换成字符串比较
-			std::wstring sz1, sz2;
-			get(v1, sz1);
-			get(v2, sz2);
-			return wcscmp(sz1.c_str(), sz2.c_str());
-		}		
-	}
-}
+
 int ValUtils::getSize(const VALUE & v){
 	return v.count * getTypeSize(v.type);
 }
@@ -899,16 +790,16 @@ void ValUtils::copy(VALUE * g, const VALUE & v){
 	g->count = v.count;
 	if (v.count > 1) {
 		int s = getSize(v);
-		g->pvalue = (void*) new char[s];
-		memcpy(g->pvalue, v.pvalue, s);
+		g->pv = (void*) new char[s];
+		memcpy(g->pv, v.pv, s);
 	}
 	else {
 		switch (v.type)
 		{
-		case GVT_CHAR://c8
+		case GVT_CHAR8://c8
 			g->c8 = v.c8;
 			break;
-		case GVT_WCHAR://c16
+		case GVT_CHAR16://c16
 			g->c16 = v.c16;
 			break;
 		case GVT_INT8://i8
@@ -941,8 +832,8 @@ void ValUtils::copy(VALUE * g, const VALUE & v){
 		case GVT_FLOAT64://f64
 			g->f64=v.f64;
 			break;
-		case GVT_BOOL://boolval 
-			g->boolval=v.boolval;
+		case GVT_BOOL://bv 
+			g->bv=v.bv;
 			break;
 		case GVT_DATE://DATE 
 			memcpy(g->date,v.date,sizeof(int)*3);
@@ -960,14 +851,14 @@ void ValUtils::initialChar(VALUE * pv, char * cc, int n){
 	if (n == 1)
 		initialChar(pv, *cc);
 	else {
-		pv->type = GVT_CHAR;
+		pv->type = GVT_CHAR8;
 		pv->count = n;
-		pv->carray=  new char[pv->count];
-		memcpy(pv->carray, cc, n);
+		pv->pc8=  new char[pv->count];
+		memcpy(pv->pc8, cc, n);
 	}	
 }
 void ValUtils::initialChar(VALUE * pv, char  cc){
-	pv->type = GVT_CHAR;
+	pv->type = GVT_CHAR8;
 	pv->count = 1;
 	pv->c8 = cc;
 	//initialChar(pv, &cc, 1);
@@ -979,8 +870,8 @@ void ValUtils::initialInt8(VALUE * pv, signed char * cc, int n) {
 	else {
 		pv->type = GVT_INT8;
 		pv->count = n;
-		pv->pvalue =(void *) new signed char[pv->count];
-		memcpy(pv->pvalue, cc, n);
+		pv->pv =(void *) new signed char[pv->count];
+		memcpy(pv->pv, cc, n);
 	}
 }
 void ValUtils::initialInt8(VALUE * pv, signed char  cc) {
@@ -995,8 +886,8 @@ void ValUtils::initialUInt8(VALUE * pv, unsigned char * cc, int n){
 	else {
 		pv->type = GVT_UINT8;
 		pv->count = n;
-		pv->barray =  new unsigned char[pv->count];
-		memcpy(pv->barray, cc, n);
+		pv->pu8 =  new unsigned char[pv->count];
+		memcpy(pv->pu8, cc, n);
 	}	
 }
 void ValUtils::initialUInt8(VALUE * pv, unsigned char  cc){
@@ -1010,14 +901,14 @@ void ValUtils::initialWChar(VALUE * pv, wchar_t * cc, int n){
 	if (n == 1)
 		initialWChar(pv, *cc);
 	else {
-		pv->type = GVT_WCHAR;
+		pv->type = GVT_CHAR16;
 		pv->count = n;
-		pv->pvalue = (void*) new  wchar_t[pv->count];
-		memcpy(pv->pvalue, cc, getSize(*pv));
+		pv->pv = (void*) new  wchar_t[pv->count];
+		memcpy(pv->pv, cc, getSize(*pv));
 	}	
 }
 void ValUtils::initialWChar(VALUE * pv, wchar_t  cc){
-	pv->type = GVT_WCHAR;
+	pv->type = GVT_CHAR16;
 	pv->c16 = cc;
 	pv->count = 1;
 }
@@ -1028,8 +919,8 @@ void ValUtils::initialInt16(VALUE * pv, short * cc, int n){
 	else {
 		pv->type = GVT_INT16;
 		pv->count = n;
-		pv->pvalue = (void*) new  short[pv->count];
-		memcpy(pv->pvalue, cc, getSize(*pv));
+		pv->pv = (void*) new  short[pv->count];
+		memcpy(pv->pv, cc, getSize(*pv));
 	}
 }
 void ValUtils::initialInt16(VALUE * pv, short  cc){
@@ -1044,8 +935,8 @@ void ValUtils::initialUInt16(VALUE * pv, unsigned short * cc, int n){
 	else {
 		pv->type = GVT_UINT16;
 		pv->count = n;
-		pv->pvalue = (void*) new  unsigned short[pv->count];
-		memcpy(pv->pvalue, cc, getSize(*pv));
+		pv->pv = (void*) new  unsigned short[pv->count];
+		memcpy(pv->pv, cc, getSize(*pv));
 	}	
 }
 void ValUtils::initialUInt16(VALUE * pv, unsigned short  cc){
@@ -1060,8 +951,8 @@ void ValUtils::initialInt32(VALUE * pv, int * cc, int n){
 	else {
 		pv->type = GVT_INT32;
 		pv->count = n;
-		pv->pvalue = (void*) new  int[pv->count];
-		memcpy(pv->pvalue, cc, getSize(*pv));
+		pv->pv = (void*) new  int[pv->count];
+		memcpy(pv->pv, cc, getSize(*pv));
 	}
 }
 void ValUtils::initialInt32(VALUE * pv, int  cc){
@@ -1076,8 +967,8 @@ void ValUtils::initialUInt32(VALUE * pv, unsigned int * cc, int n){
 	else {
 		pv->type = GVT_UINT32;
 		pv->count = n;
-		pv->pvalue = (void*) new  int[pv->count];
-		memcpy(pv->pvalue, cc, getSize(*pv));
+		pv->pv = (void*) new  int[pv->count];
+		memcpy(pv->pv, cc, getSize(*pv));
 	}	
 }
 void ValUtils::initialUInt32(VALUE * pv, unsigned int  cc){
@@ -1096,7 +987,7 @@ void ValUtils::initialInt32(VALUE * pv, long * cc, int n){
 		int * data  =   new  int[pv->count];
 		for (int i = 0; i < n; i++)
 			data[i] = cc[i];
-		//memcpy(pv->pvalue, cc, getSize(*pv));
+		//memcpy(pv->pv, cc, getSize(*pv));
 	}	
 }
 void ValUtils::initialInt32(VALUE * pv, long  cc){
@@ -1116,8 +1007,8 @@ void ValUtils::initialUInt32(VALUE * pv, unsigned long * cc, int n){
 		unsigned int * data = new  unsigned int[pv->count];
 		for (int i = 0; i < n; i++)
 			data[i] = cc[i];
-		pv->pvalue = (void*)data;
-		//memcpy(pv->pvalue, cc, getSize(*pv));
+		pv->pv = (void*)data;
+		//memcpy(pv->pv, cc, getSize(*pv));
 	}
 }
 void ValUtils::initialUInt32(VALUE * pv, unsigned long  cc){
@@ -1130,8 +1021,8 @@ void ValUtils::initialUInt64(VALUE * pv, unsigned long long cc){
 	pv->type = GVT_UINT64;
 	pv->count = 1;
 	pv->u64 = cc;
-	//pv->pvalue = (void*) new  unsigned long long[pv->count];
-	//memcpy(pv->pvalue, &cc, getSize(*pv));
+	//pv->pv = (void*) new  unsigned long long[pv->count];
+	//memcpy(pv->pv, &cc, getSize(*pv));
 }
 void ValUtils::initialUInt64(VALUE * pv, unsigned long long * cc, int n) {
 	if (n == 1) {
@@ -1142,8 +1033,8 @@ void ValUtils::initialUInt64(VALUE * pv, unsigned long long * cc, int n) {
 	else {
 		pv->type = GVT_UINT64;
 		pv->count = n;
-		pv->pvalue = (void*) new  unsigned long long[n];
-		memcpy(pv->pvalue, cc, getSize(*pv));
+		pv->pv = (void*) new  unsigned long long[n];
+		memcpy(pv->pv, cc, getSize(*pv));
 	}
 }
 void ValUtils::initialFloat(VALUE * pv, float * cc, int n){
@@ -1155,8 +1046,8 @@ void ValUtils::initialFloat(VALUE * pv, float * cc, int n){
 	else {
 		pv->type = GVT_FLOAT32;
 		pv->count = n;
-		pv->pvalue = (void*) new  float[pv->count];
-		memcpy(pv->pvalue, cc, getSize(*pv));
+		pv->pv = (void*) new  float[pv->count];
+		memcpy(pv->pv, cc, getSize(*pv));
 	}	
 }
 void ValUtils::initialFloat(VALUE * pv, float  cc){
@@ -1175,8 +1066,8 @@ void ValUtils::initialDouble(VALUE * pv, double * cc, int n){
 	else {
 		pv->type = GVT_FLOAT64;
 		pv->count = n;
-		pv->pvalue = (void*) new  double[pv->count];
-		memcpy(pv->pvalue, cc, getSize(*pv));
+		pv->pv = (void*) new  double[pv->count];
+		memcpy(pv->pv, cc, getSize(*pv));
 	}	
 }
 void ValUtils::initialDouble(VALUE * pv, double  cc){
@@ -1192,19 +1083,19 @@ void ValUtils::initialBoolean(VALUE * pv, bool * cc, int n  ) {
 	if (n == 1) {
 		pv->count = 1;
 		pv->type = GVT_BOOL;
-		pv->boolval = cc;
+		pv->bv = cc;
 	}
 	else {
 		pv->count = n;
 		pv->type = GVT_BOOL;
-		pv->pvalue = (void*) new bool[n];
-		memcpy(pv->pvalue, cc, getSize(*pv));
+		pv->pv = (void*) new bool[n];
+		memcpy(pv->pv, cc, getSize(*pv));
 	}
 }
 void ValUtils::initialBoolean(VALUE * pv, bool  cc) {
 	pv->count = 1;
 	pv->type = GVT_BOOL;
-	pv->boolval = cc;
+	pv->bv = cc;
 }
 void ValUtils::initialDate(VALUE * pv, int year, int month, int day){
 	pv->count = 1;
@@ -1233,15 +1124,15 @@ void ValUtils::write(Buffer & bs, VALUE & g) {
 	t = g.count;
 	bs.write(&t, sizeof(int));
 	if (g.count > 1) {
-		bs.write(g.pvalue, getSize(g));
+		bs.write(g.pv, getSize(g));
 	}
 	else {
 		switch (g.type)
 		{
-		case GVT_CHAR://c8
+		case GVT_CHAR8://c8
 			bs.write((void*)(&(g.c8)), sizeof(char));
 			break;
-		case GVT_WCHAR://c16
+		case GVT_CHAR16://c16
 			bs.write((void*)(&(g.c16)), sizeof(wchar_t));
 			break;
 		case GVT_INT8://i8
@@ -1274,8 +1165,8 @@ void ValUtils::write(Buffer & bs, VALUE & g) {
 		case GVT_FLOAT64://f64
 			bs.write((void*)(&(g.f64)), sizeof(double));
 			break;
-		case GVT_BOOL://boolval 
-			bs.write((void*)(&(g.boolval)), sizeof(bool));
+		case GVT_BOOL://bv 
+			bs.write((void*)(&(g.bv)), sizeof(bool));
 			break;
 		case GVT_DATE://DATE 
 			bs.write((void*)(&(g.date)), sizeof(int)*3);
@@ -1293,20 +1184,20 @@ void ValUtils::read(Buffer & bs, VALUE & g){
 	ValUtils::clear(g);
 	int t = 0;
 	bs.read(&t, sizeof(int));
-	g.type = (ValUtils::GVT)t;
+	g.type = (GVT)t;
 	bs.read(&(g.count), sizeof(int));
 	if (g.count > 1) {
 		int s = getSize(g);
-		g.pvalue = (void*) new char[s];
-		bs.read(g.pvalue, s);
+		g.pv = (void*) new char[s];
+		bs.read(g.pv, s);
 	}
 	else {
 		switch (g.type)
 		{
-		case GVT_CHAR://c8
+		case GVT_CHAR8://c8
 			bs.read((void*)(&(g.c8)), sizeof(char));
 			break;
-		case GVT_WCHAR://c16
+		case GVT_CHAR16://c16
 			bs.read((void*)(&(g.c16)), sizeof(wchar_t));
 			break;
 		case GVT_INT8://i8
@@ -1339,8 +1230,8 @@ void ValUtils::read(Buffer & bs, VALUE & g){
 		case GVT_FLOAT64://f64
 			bs.read((void*)(&(g.f64)), sizeof(double));
 			break;
-		case GVT_BOOL://boolval 
-			bs.read((void*)(&(g.boolval)), sizeof(bool));
+		case GVT_BOOL://bv 
+			bs.read((void*)(&(g.bv)), sizeof(bool));
 			break;
 		case GVT_DATE://DATE 
 			bs.read((void*)(&(g.date)), sizeof(int) * 3);
@@ -1380,16 +1271,16 @@ bool ValUtils::get(VALUE & g, unsigned long long & v) {
 	return extractValue<unsigned long long>(g, v);
 }
 bool ValUtils::get(VALUE & g, std::string & sz) {
-	if (g.type == GVT_CHAR || g.type == GVT_INT8) {
+	if (g.type == GVT_CHAR8 || g.type == GVT_INT8) {
 		if(g.count>1)
-			sz.assign(g.carray, g.count);
+			sz.assign(g.pc8, g.count);
 		else if(g.count==1)
 			sz.append(1, g.c8);
 		else
 			return false;
 		return true;
 	}
-	else if (g.type == GVT_WCHAR || g.type==GVT_INT16) {
+	else if (g.type == GVT_CHAR16 || g.type==GVT_INT16) {
 		std::wstring   wsz;
 		if (get(g, wsz)) {
 			wstringToString(wsz, sz);
@@ -1404,16 +1295,16 @@ bool ValUtils::get(VALUE & g, std::string & sz) {
 	return true;
 }
 bool ValUtils::get(VALUE & g, std::wstring & sz) {
-	if (g.type == GVT_WCHAR || g.type == GVT_INT16) {
+	if (g.type == GVT_CHAR16 || g.type == GVT_INT16) {
 		if (g.count>1)
-			sz.assign((wchar_t*)(g.pvalue), g.count);
+			sz.assign((wchar_t*)(g.pv), g.count);
 		else if (g.count == 1)
 			sz.append(1, g.c16);
 		else
 			return false;
 		return true;
 	}
-	else if (g.type == GVT_CHAR || g.type == GVT_INT8) {
+	else if (g.type == GVT_CHAR8 || g.type == GVT_INT8) {
 		std::string   ssz;
 		if (get(g, ssz)) {
 			stringToWString(ssz, sz);
@@ -1456,13 +1347,13 @@ bool ValUtils::set(VALUE & g, const char * sz) {
 	int n = strlen(sz);
 	if (n >1 ) {
 		g.count = n;
-		g.type = GVT_CHAR;
-		g.carray = new char[n];
-		memcpy(g.carray, sz, n*sizeof(char));
+		g.type = GVT_CHAR8;
+		g.pc8 = new char[n];
+		memcpy(g.pc8, sz, n*sizeof(char));
 	}
 	else if (n == 1) {
 		g.count = n;
-		g.type = GVT_CHAR;
+		g.type = GVT_CHAR8;
 		g.c8 = sz[0];
 	}
 	else
@@ -1473,13 +1364,13 @@ bool ValUtils::set(VALUE & g, const wchar_t* sz) {
 	int n = wcslen(sz);
 	if (n >1) {
 		g.count = n;
-		g.type = GVT_WCHAR;
-		g.pvalue =(void*) new wchar_t[n];
-		memcpy(g.pvalue, sz, n*sizeof(wchar_t));
+		g.type = GVT_CHAR16;
+		g.pv =(void*) new wchar_t[n];
+		memcpy(g.pv, sz, n*sizeof(wchar_t));
 	}
 	else if (n == 1) {
 		g.count = n;
-		g.type = GVT_WCHAR;
+		g.type = GVT_CHAR16;
 		g.c16 = sz[0];
 	}
 	else
@@ -1490,14 +1381,14 @@ bool ValUtils::set(VALUE & g, std::string & sz) {
 	int n = sz.size();
 	if (n >1) {
 		g.count = n;
-		g.type = GVT_CHAR;
-		g.carray = new char[n];
+		g.type = GVT_CHAR8;
+		g.pc8 = new char[n];
 		const char * csz = sz.c_str();
-		memcpy(g.carray, csz, n*sizeof(char));
+		memcpy(g.pc8, csz, n*sizeof(char));
 	}
 	else if (n == 1) {
 		g.count = n;
-		g.type = GVT_CHAR;
+		g.type = GVT_CHAR8;
 		g.c8 = sz[0];
 	}
 	else
@@ -1508,18 +1399,285 @@ bool ValUtils::set(VALUE & g, std::wstring& sz) {
 	int n = sz.size();
 	if (n >1) {
 		g.count = n;
-		g.type = GVT_CHAR;
-		g.pvalue = (void*) new wchar_t[n];
+		g.type = GVT_CHAR8;
+		g.pv = (void*) new wchar_t[n];
 		const wchar_t * csz = sz.c_str();
-		memcpy(g.pvalue, csz, n*sizeof(wchar_t));
+		memcpy(g.pv, csz, n*sizeof(wchar_t));
 	}
 	else if (n == 1) {
 		g.count = n;
-		g.type = GVT_WCHAR;
+		g.type = GVT_CHAR16;
 		g.c16= sz[0];
 	}
 	else
 		return false;
+}
+/*系统采用的排序规则：（参考SQLITE3的规定）
+1、UNKNOWN和NULL存储类型是最低的类型。一个具有NULL存储类型的值比任何其他的值都小，在NULL值之间没有具体的排序规则。
+2、BOOL类型，高于NULL，true>false;
+3、NUMBER类型，包好整数和浮点数，高于BOOL存储类型，它们之间类值相等，内部通过数值比较。
+4、TIME时间类型，高于NUMBER存储类型，两个时间类型之间，按照年月日数值的大小比较，越靠近时间零点，值越小。
+5、字符类型，高于TIME存储类型，数值永远低于字符类型。两个字符类型之间直接比较字符串的方式进行。
+6、数组类型(非字符串)具有最高的类值，相当于BLOB，比较内存块大小。
+*/
+int ValUtils::compare(VALUE &  v1, VALUE &v2) {
+	if (v1.type == v2.type) {//同类型比较
+		return compareBetweenSameTypes(v1, v2);
+	}
+	else {//不同类型比较
+		return compareBetweenDifferentTypes(v1, v2);
+	}
+}
+int ValUtils::compareBetweenSameTypes(VALUE &  v1, VALUE &v2)
+{
+	if (v1.count == 1 && v2.count == 1) {//同类型单值
+		switch (v1.type)
+		{
+		case GVT_CHAR8://c8
+		case GVT_CHAR16://c16
+		case GVT_INT8://i8
+		case GVT_INT16://i16
+		case GVT_INT32://i32
+		case GVT_INT64://i64
+		case GVT_BOOL://bv 
+		{
+			if (v1.i64 > v2.i64)
+				return 1;
+			else if (v1.i64 == v2.i64)
+				return 0;
+			else
+				return -1;
+		}
+		case GVT_UINT8://u8
+		case GVT_UINT16://u16
+		case GVT_UINT32://u32
+		case GVT_UINT64://u64
+		{
+			if (v1.u64 > v2.u64)
+				return 1;
+			else if (v1.u64 == v2.u64)
+				return 0;
+			else
+				return -1;
+		}
+		case GVT_FLOAT32://f32
+		{
+			if (v1.f32 > v2.f32)
+				return 1;
+			else if (floatEqual(v1.f32, v2.f32))
+				return 0;
+			else
+				return -1;
+		}
+		case GVT_FLOAT64://f64
+		{
+			if (v1.f64 > v2.f64)
+				return 1;
+			else if (doubleEqual(v1.f64, v2.f64))
+				return 0;
+			else
+				return -1;
+		}
+		case GVT_DATE://DATE 
+		{
+			for (int i = 0; i < 3; i++) {
+				if (v1.date[i] > v2.date[i])
+					return 1;
+				else if (v1.date[i] < v2.date[i])
+					return -1;
+				else
+					continue;
+			}
+			return 0;
+		}
+		case GVT_DATETIME://DATETIME 
+		{
+			for (int i = 0; i < 7; i++) {
+				if (v1.datetime[i] > v2.datetime[i])
+					return 1;
+				else if (v1.datetime[i] < v2.datetime[i])
+					return -1;
+				else
+					continue;
+			}
+			return 0;
+		}
+		default:
+			return 0;
+		}
+	}
+	else if (v1.count>1 && v2.count>1) {//同类型,都是数组
+		if (v1.type>GVT_BEGIN_CHAR && v1.type<GVT_END_CHAR) {//both are text//比较内存块
+			if (v1.type == GVT_CHAR8)
+				return strcmp(v1.pc8, v2.pc8);
+			else
+				return wcscmp(v1.pc16, v2.pc16);
+		}
+		else {////both are blob, 比较内存块
+			int vi1 = getTypeSize(v1.type)*v1.count;
+			int vi2 = getTypeSize(v2.type)*v2.count;
+			int i = memcmp(v1.pv, v2.pv, vi1>vi2 ? vi2 : vi1 /*std::min<int>(vi1, vi2)*/);
+			if (i == 0) {
+				if (vi1 > vi2)
+					return 1;
+				else if (vi1<vi2)
+					return -1;
+			}
+			return i;
+		}		
+	}
+	else if (v1.count == 1 && v2.count>1) {
+		if (v1.type==GVT_CHAR8) {
+			char temp[2];
+			temp[0] = v1.c8;
+			temp[1] = '\0';
+			return strcmp(temp, v2.pc8);
+		}
+		else if (v1.type == GVT_CHAR16) {
+			wchar_t temp[2];
+			temp[0] = v1.c16;
+			temp[1] = (wchar_t)('\0');
+			return wcscmp(temp, v2.pc16);
+		}
+		else {
+			return -1;
+		}
+	}
+	else if (v1.count > 1 && v2.count==1) {
+		if (v2.type == GVT_CHAR8) {
+			char temp[2];
+			temp[0] = v2.c8;
+			temp[1] = '\0';
+			return strcmp(temp, v1.pc8);
+		}
+		else if (v2.type == GVT_CHAR16) {
+			wchar_t temp[2];
+			temp[0] = v2.c16;
+			temp[1] = (wchar_t)('\0');
+			return wcscmp(temp, v1.pc16);
+		}
+		else {
+			return 1;
+		}
+	}
+	else {//出错，不具有可比性
+		return 0;
+	}
+}
+
+int ValUtils::compareBetweenDifferentTypes(VALUE &  v1, VALUE &v2) {
+	if (isBlob(v1)) {
+		if (isBlob(v2)) {//比较内存块
+			int vi1 = getTypeSize(v1.type)*v1.count;
+			int vi2 = getTypeSize(v2.type)*v2.count;
+			int i = memcmp(v1.pv, v2.pv, vi1>vi2 ? vi2 : vi1 );
+			if (i == 0) {
+				if (vi1 > vi2)
+					return 1;
+				else if (vi1<vi2)
+					return -1;
+			}
+			return i;
+		}
+		else {
+			return 1;
+		}
+	}
+	else if (isChar(v1)) {
+		if (isBlob(v2)) {
+			return -1;
+		}
+		else if (isChar(v2)) {//比较字符串
+			std::wstring sz1 = toWString(v1);
+			std::wstring sz2 = toWString(v2);
+			return wcscmp(sz1.c_str(), sz2.c_str());
+		}
+		else {
+			return 1;
+		}
+	}
+	else if (isTime(v1)) {
+		if (isBlob(v2)) {
+			return -1;
+		}
+		else if (isChar(v2)) {
+			return -1;
+		}
+		else if (isTime(v2)) {//
+			for (int i = 0; i < 3; i++) {
+				if (v1.date[i] > v2.date[i])
+					return 1;
+				else if (v1.date[i] < v2.date[i])
+					return -1;
+				else
+					continue;
+			}
+			if (v1.type = GVT_DATETIME) {
+				for (int i = 3; i < 7; i++)
+					if (v1.datetime[i]>0)
+						return 1;
+				return 0;
+			}
+			else {//v2.type = GVT_DATETIME
+				for (int i = 3; i < 7; i++)
+					if (v2.datetime[i]>0)
+						return -1;
+				return 0;
+			}
+		}
+		else {
+			return 1;
+		}
+	}
+	else if (isNumber(v1)) {
+		if (isBlob(v2))
+			return -1;
+		else if (isChar(v2))
+			return -1;
+		else if (isTime(v2))
+			return -1;
+		else if (isNumber(v2)) {//比较数字类型的单值
+			double d1, d2;
+			extractValue<double>(v1, d1);
+			extractValue<double>(v2, d2);
+			{
+				if (d1 > d2)
+					return 1;
+				else if (doubleEqual(d1, d2))
+					return 0;
+				else
+					return -1;
+			}
+		}
+		else {
+			return 1;
+		}
+	}
+	else {
+		if (isBlob(v2))
+			return -1;
+		else if (isChar(v2))
+			return -1;
+		else if (isTime(v2))
+			return -1;
+		else if (isNumber(v2)) {
+			return -1;
+		}
+		else {
+			if ((int)(v1.bv) > (int)(v2.bv))
+				return 1;
+			else if (v1.bv == v2.bv)
+				return 0;
+			else
+				return -1;
+		}
+	}
+}
+
+VALUE * ValUtils::newValue() {
+	VALUE * p = new VALUE;
+	initial(*p);
+	return p;
 }
 end_gdb_namespace
 end_gtl_namespace

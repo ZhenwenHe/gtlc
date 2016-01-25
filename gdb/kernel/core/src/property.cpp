@@ -102,7 +102,7 @@ void Property::copy(const Property & p){
 Property::Property(const Property & p) :Value((const Value &)p){
 	_name = p._name;
 }
-Property::Property(std::string sz, const ValUtils::VALUE & v) : Value(){
+Property::Property(std::string sz, const VALUE & v) : Value(){
 	ValUtils::copy(m_data, v);
 	_name = sz;
 }

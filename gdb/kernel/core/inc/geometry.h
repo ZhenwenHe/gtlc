@@ -22,6 +22,7 @@
 #include "matrix4x4.h" 
 #include "ray.h"
 #include "frustum.h"
+#include "spatialreference.h"
 
 
 

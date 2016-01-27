@@ -21,6 +21,7 @@
 #include <fstream>
 #include <set>
 #include <list>
+#include <map>
 #include <memory>
 #include <cmath> 
 #include "time.h"
@@ -169,7 +170,18 @@ private:
 private:
 	static unsigned  int cachedBlockNumber;//缓存中网格块的最大个数
 	static unsigned int useSameBlockID4DomDem;//DEM和DOM块的ID是否对应
-private://投影参数
+private:
+	/* 
+	* Special processing for Transverse Mercator with GDAL &gt;= 1.10 and PROJ &gt;= 4.8 :
+	* if the OSR_USE_ETMERC configuration option is set to YES, the PROJ.4
+	* definition built from the SRS will use the 'etmerc' projection method,
+	* rather than the default 'tmerc'. This will give better accuracy (at the
+	* expense of computational speed) when reprojection occurs near the edges
+	* of the validity area for the projection.
+	* 该字符串记录索引的空间参考坐标系统方面的全局设置
+	*/
+	static  std::string srsConfiguration;//RSR_USE_ETMERC=TRUE
+private://可视化时候的投影参数
 	static double fovy;
 	static double zNear;
 	static double zFar;
@@ -219,6 +231,9 @@ public:
 	static unsigned int getStereoMode();
 	static bool isDynamicDispatching();
 	static std::vector<unsigned long long> & getCacheSizes();
+	static std::string & getSpatialReferenceConfiguration();
+	//获取设置的SR的对应字段的值，如果没有则返回默认值
+	static std::string getSRConfigOptionValue(const char * name,const char * defaultValue=0);
 public:
 	enum{//应用程序中固定的操作命令，一般这些命令功能已经由Render封装了
 		APP_COMMAND_UNKNOWN = 0,

@@ -426,6 +426,15 @@
     <ClInclude Include="inc\fielddefinition.h">
       <Filter>inc</Filter>
     </ClInclude>
+    <ClInclude Include="inc\spatialreference.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\srsnode.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\srsapi.h">
+      <Filter>inc</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -849,6 +858,48 @@
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\fielddefinition.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\spatialreference.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\srsnode.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\srsproj4.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\srsxml.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\srsepsg.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\srsesri.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\srsdict.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\config_srs.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\srsvalidate.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\srspci.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\srserm.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\srsozi.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\srspanorama.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\srsusgs.cpp">
       <Filter>src</Filter>
     </ClCompile>
   </ItemGroup>

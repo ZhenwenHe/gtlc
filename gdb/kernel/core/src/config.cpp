@@ -288,6 +288,12 @@ Config::Config(){
 		{
 			(*it) *=1048576;//from MB to BYTE
 		}
+
+		//读写Spatial Reference的配置，为单行文本，键和值成对出现，
+		//两对键值之间用逗号分割，键码与值之间用=或：连接，最长不能超过512
+		iFstreamConfig.getline(path, 512);
+		iFstreamConfig.getline(sz, 512);
+		srsConfiguration = sz;
 	}
 
 	iFstreamConfig.close();
@@ -300,7 +306,6 @@ int Config::getNumberOfAddFeaturesPreframe(){
 }
 
 std::vector<unsigned long long> & Config::getCacheSizes() { return cacheSizes; }
-
 
 static Config  g_Config;
 

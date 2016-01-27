@@ -26,6 +26,24 @@
 
 begin_gtl_namespace
 begin_gdb_namespace
+/*
+ TYPE          NAME      SIZE       C/C++                 RANGE
+GVT_BOOL       bool      1          bool
+GVT_INT8       int8      1          signed char
+GVT_INT16      int16     2          short
+GVT_INT32      int32     4          int
+GVT_INT64      int64     8          long long
+GVT_UINT8      uint8     1          unsigned char
+GVT_UINT16     uint16    2          unsigned short
+GVT_UINT32     uint32    4          unsigned int
+GVT_UINT64     uint64    8          unsigned long long
+GVT_FLOAT32    float32   4          float                 -3.40E+38 ~ +3.40E+38
+GVT_FLOAT64    float64   8          double                -1.79E+308 ~ +1.79E+308
+GVT_DATE       date      4*3=12     int [3]
+GVT_DATETIME   datetime  4*7=28     int [7]
+GVT_CHAR8      char8     1-2GB      char
+GVT_CHAR16     char16    2-2GB      wchar_t
+*/
 // general value type
 enum GVT {
 	GVT_UNKN = 0x0000,   //Î´ÖªÀàÐÍ
@@ -163,6 +181,8 @@ public:
 	static std::wstring toWString(VALUE & g);
 	static void write(Buffer & bs, VALUE & g);
 	static void read(Buffer & bs, VALUE & g);
+	static void write(std::ostream & f, VALUE & g);
+	static void read(std::istream & f, VALUE & g);
 	static void initial(VALUE & v);
 	static VALUE * newValue();
 	static void clear(VALUE & g);
@@ -186,6 +206,7 @@ public:
 	static std::string getTypeName(GVT t);
 	static std::string getCTypeName(GVT t);
 	static std::string getTypeName(GVT t,std::vector<std::string>& names);
+	static int getType(const char * gvt_typename);
 	static int getSize(const VALUE & v);
 	static void copy(VALUE * g, const VALUE & v);
 public:

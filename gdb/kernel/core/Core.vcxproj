@@ -181,6 +181,7 @@
     <ClInclude Include="inc\envelope3d.h" />
     <ClInclude Include="inc\factory.h" />
     <ClInclude Include="inc\feature.h" />
+    <ClInclude Include="inc\fielddefinition.h" />
     <ClInclude Include="inc\frustum.h" />
     <ClInclude Include="inc\geometry.h" />
     <ClInclude Include="inc\geometry2d.h" />
@@ -355,6 +356,12 @@
     <ClCompile Include="src\featureimpl.cpp" />
     <ClCompile Include="src\featureset.cpp" />
     <ClCompile Include="src\featuresetimpl.cpp" />
+    <ClCompile Include="src\fielddefinition.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
     <ClCompile Include="src\frustum.cpp" />
     <ClCompile Include="src\frustumimpl.cpp" />
     <ClCompile Include="src\geometry.cpp" />

@@ -117,6 +117,42 @@ std::string ValUtils::getTypeName(GVT t) {
 	}
 	return sz;
 }
+
+int ValUtils::getType(const char * gvt_typename) {
+	if (strcmp(gvt_typename, "bool") == 0)
+		return GVT::GVT_BOOL;
+	else if(strcmp(gvt_typename, "int8") == 0)
+		return GVT::GVT_INT8;
+	else if (strcmp(gvt_typename, "int16") == 0)
+		return GVT::GVT_INT16;
+	else if (strcmp(gvt_typename, "int32") == 0)
+		return GVT::GVT_INT32;
+	else if (strcmp(gvt_typename, "int64") == 0)
+		return GVT::GVT_INT64;
+	else if (strcmp(gvt_typename, "uint8") == 0)
+		return GVT::GVT_UINT8;
+	else if (strcmp(gvt_typename, "uint16") == 0)
+		return GVT::GVT_UINT16;
+	else if (strcmp(gvt_typename, "uint32") == 0)
+		return GVT::GVT_UINT32;
+	else if (strcmp(gvt_typename, "uint64") == 0)
+		return GVT::GVT_UINT64;
+	else if (strcmp(gvt_typename, "float32") == 0)
+		return GVT::GVT_FLOAT32;
+	else if (strcmp(gvt_typename, "float64") == 0)
+		return GVT::GVT_FLOAT64;
+	else if (strcmp(gvt_typename, "char8") == 0)
+		return GVT::GVT_CHAR8;
+	else if (strcmp(gvt_typename, "char16") == 0)
+		return GVT::GVT_CHAR16;
+	else if (strcmp(gvt_typename, "date") == 0)
+		return GVT::GVT_DATE;
+	else if (strcmp(gvt_typename, "datetime") == 0)
+		return GVT::GVT_DATETIME;
+	else
+		return GVT::GVT_UNKN;
+}
+
 std::string ValUtils::getTypeName(GVT t, std::vector<std::string>& names) {
 	std::string sz;
 	switch (t)
@@ -1244,7 +1280,131 @@ void ValUtils::read(Buffer & bs, VALUE & g){
 		}
 	}
 }
-
+void ValUtils::write(std::ostream & bs, VALUE & g) {
+	int t = g.type;
+	bs.write((const char*)(&t), sizeof(int));
+	t = g.count;
+	bs.write((const char*)(&t), sizeof(int));
+	if (g.count > 1) {
+		bs.write((const char*)(g.pv), getSize(g));
+	}
+	else {
+		switch (g.type)
+		{
+		case GVT_CHAR8://c8
+			bs.write((const char*)(&(g.c8)), sizeof(char));
+			break;
+		case GVT_CHAR16://c16
+			bs.write((const char*)(&(g.c16)), sizeof(wchar_t));
+			break;
+		case GVT_INT8://i8
+			bs.write((const char*)(&(g.i8)), sizeof(signed char));
+			break;
+		case GVT_INT16://i16
+			bs.write((const char*)(&(g.i16)), sizeof(short));
+			break;
+		case GVT_INT32://i32
+			bs.write((const char*)(&(g.i32)), sizeof(int));
+			break;
+		case GVT_INT64://i64
+			bs.write((const char*)(&(g.i64)), sizeof(long long));
+			break;
+		case GVT_UINT8://u8
+			bs.write((const char*)(&(g.u8)), sizeof(unsigned char));
+			break;
+		case GVT_UINT16://u16
+			bs.write((const char*)(&(g.u16)), sizeof(unsigned short));
+			break;
+		case GVT_UINT32://u32
+			bs.write((const char*)(&(g.u32)), sizeof(unsigned int));
+			break;
+		case GVT_UINT64://u64
+			bs.write((const char*)(&(g.u64)), sizeof(unsigned long long));
+			break;
+		case GVT_FLOAT32://f32
+			bs.write((const char*)(&(g.f32)), sizeof(float));
+			break;
+		case GVT_FLOAT64://f64
+			bs.write((const char*)(&(g.f64)), sizeof(double));
+			break;
+		case GVT_BOOL://bv 
+			bs.write((const char*)(&(g.bv)), sizeof(bool));
+			break;
+		case GVT_DATE://DATE 
+			bs.write((const char*)(&(g.date)), sizeof(int) * 3);
+			break;
+		case GVT_DATETIME://DATETIME 
+			bs.write((const char*)(&(g.datetime)), sizeof(int) * 7);
+			break;
+		default:
+			break;
+		}
+	}
+}
+void ValUtils::read(std::istream & bs, VALUE & g) {
+	ValUtils::clear(g);
+	int t = 0;
+	bs.read((char*)(&t), sizeof(int));
+	g.type = (GVT)t;
+	bs.read((char*)(&(g.count)), sizeof(int));
+	if (g.count > 1) {
+		int s = getSize(g);
+		g.pv = (void*) new char[s];
+		bs.read((char*)(g.pv), s);
+	}
+	else {
+		switch (g.type)
+		{
+		case GVT_CHAR8://c8
+			bs.read((char*)(&(g.c8)), sizeof(char));
+			break;
+		case GVT_CHAR16://c16
+			bs.read((char*)(&(g.c16)), sizeof(wchar_t));
+			break;
+		case GVT_INT8://i8
+			bs.read((char*)(&(g.i8)), sizeof(signed char));
+			break;
+		case GVT_INT16://i16
+			bs.read((char*)(&(g.i16)), sizeof(short));
+			break;
+		case GVT_INT32://i32
+			bs.read((char*)(&(g.i32)), sizeof(int));
+			break;
+		case GVT_INT64://i64
+			bs.read((char*)(&(g.i64)), sizeof(long long));
+			break;
+		case GVT_UINT8://u8
+			bs.read((char*)(&(g.u8)), sizeof(unsigned char));
+			break;
+		case GVT_UINT16://u16
+			bs.read((char*)(&(g.u16)), sizeof(unsigned short));
+			break;
+		case GVT_UINT32://u32
+			bs.read((char*)(&(g.u32)), sizeof(unsigned int));
+			break;
+		case GVT_UINT64://u64
+			bs.read((char*)(&(g.u64)), sizeof(unsigned long long));
+			break;
+		case GVT_FLOAT32://f32
+			bs.read((char*)(&(g.f32)), sizeof(float));
+			break;
+		case GVT_FLOAT64://f64
+			bs.read((char*)(&(g.f64)), sizeof(double));
+			break;
+		case GVT_BOOL://bv 
+			bs.read((char*)(&(g.bv)), sizeof(bool));
+			break;
+		case GVT_DATE://DATE 
+			bs.read((char*)(&(g.date)), sizeof(int) * 3);
+			break;
+		case GVT_DATETIME://DATETIME 
+			bs.read((char*)(&(g.datetime)), sizeof(int) * 7);
+			break;
+		default:
+			break;
+		}
+	}
+}
 
 bool ValUtils::get(VALUE & g, std::vector<long long> & v) {
 	return extractValue<long long>(g, v);

@@ -447,6 +447,7 @@ void cslDestroy(CSTRLIST papszStrList)
 		}
 
 		free(papszStrList);
+		papszStrList = 0;
 	}
 }
 

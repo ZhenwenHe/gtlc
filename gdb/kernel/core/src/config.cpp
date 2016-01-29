@@ -172,11 +172,11 @@ Config::Config(){
 	//设置环境为系统环境  
 	_loc = std::locale::global(std::locale(""));
 	char path[512];
-	string sz = gtl::getInstallHome();
+	string sz = gtl::getDataHome();
 #if(USING_OS_TYPE == 0)
-        sz += "\\sde.cfg";
+        sz += "\\gtl.cfg";
 #else
-        sz += "/sde.cfg";
+        sz += "/gtl.cfg";
 #endif
 	
 	ifstream iFstreamConfig;

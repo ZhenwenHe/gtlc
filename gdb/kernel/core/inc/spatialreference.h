@@ -22,6 +22,7 @@
 #include <cstddef>   // ptrdiff_t
 #include <cmath>
 #include "assert.h"
+#include "csv.h"
 #include "srsapi.h"
 #include "srsnode.h"  
 begin_gtl_namespace

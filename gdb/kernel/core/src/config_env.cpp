@@ -11,7 +11,7 @@ std::string getHome(){
     }
     else{
 #if(USING_OS_TYPE==0)
-        return std::string("H:\\git\\gtl");
+        return std::string("H:\\gtl\\gtl");
 #elif(USING_OS_TYPE==1)
         return std::string("/home/vincent/gtl");
 #else

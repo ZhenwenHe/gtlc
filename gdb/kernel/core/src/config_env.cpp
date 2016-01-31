@@ -54,4 +54,98 @@ std::string getInstallHome(){
     }
 }
 
+
+
+#if(USING_OS_TYPE==0)        //windows
+#include <windows.h>
+/*Fetch a function pointer from a shared library / DLL.*/
+void * getFunctionPointer(const char * pszLibrary, const char * pszSymbolName) {
+	void        *pLibrary;
+	void        *pSymbol;
+
+	pLibrary = LoadLibrary(pszLibrary);
+	if (pLibrary == NULL)
+	{
+		LPVOID      lpMsgBuf = NULL;
+		int         nLastError = GetLastError();
+
+		FormatMessage(FORMAT_MESSAGE_ALLOCATE_BUFFER
+			| FORMAT_MESSAGE_FROM_SYSTEM
+			| FORMAT_MESSAGE_IGNORE_INSERTS,
+			NULL, nLastError,
+			MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT),
+			(LPTSTR)&lpMsgBuf, 0, NULL);
+		 
+		return NULL;
+	}
+
+	pSymbol = (void *)GetProcAddress((HINSTANCE)pLibrary, pszSymbolName);
+
+	if (pSymbol == NULL)
+	{ 
+		return NULL;
+	}
+
+	return(pSymbol);
+}
+#elif(USING_OS_TYPE==1) //linux
+#define GOT_GETSYMBOL
+#include <dlfcn.h>
+/*Fetch a function pointer from a shared library / DLL.*/
+void * getFunctionPointer(const char * pszLibrary, const char * pszSymbolName) {
+	void        *pLibrary;
+	void        *pSymbol;
+
+	pLibrary = dlopen(pszLibrary, RTLD_LAZY);
+	if (pLibrary == NULL)
+	{ 
+		return NULL;
+	}
+
+	pSymbol = dlsym(pLibrary, pszSymbolName);
+	if (pSymbol == NULL)
+	{
+		return NULL;
+	}
+
+	return(pSymbol);
+}
+#else                   //macX OS
+/*Fetch a function pointer from a shared library / DLL.*/
+void * getFunctionPointer(const char * pszLibrary, const char * pszSymbolName) {
+	void        *pLibrary;
+	void        *pSymbol;
+
+	pLibrary = dlopen(pszLibrary, RTLD_LAZY);
+	if (pLibrary == NULL)
+	{
+		return NULL;
+	}
+
+	pSymbol = dlsym(pLibrary, pszSymbolName);
+
+#if (defined(__APPLE__) && defined(__MACH__))
+	/* On mach-o systems, C symbols have a leading underscore and depending
+	* on how dlcompat is configured it may or may not add the leading
+	* underscore.  So if dlsym() fails add an underscore and try again.
+	*/
+	if (pSymbol == NULL)
+	{
+		char withUnder[strlen(pszSymbolName) + 2];
+		withUnder[0] = '_'; withUnder[1] = 0;
+		strcat(withUnder, pszSymbolName);
+		pSymbol = dlsym(pLibrary, withUnder);
+	}
+#endif
+
+	if (pSymbol == NULL)
+	{
+		return NULL;
+	}
+
+	return(pSymbol);
+}
+#endif  
+
+
 end_gtl_namespace

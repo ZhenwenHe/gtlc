@@ -5,7 +5,7 @@ begin_gdb_namespace
 all in this file are derived from gdal 1.10 ogr_srs_proj4.cpp
 */
 extern int EPSGGetWGS84Transform(int nGeogCS, double *padfTransform);
-char *OCTProj4Normalize(const char *pszProj4Src) { return 0; }
+extern char *proj4Normalize(const char *pszProj4Src);
 /* -------------------------------------------------------------------- */
 /*      The following list comes from osrs/proj/src/pj_ellps.c          */
 /*      ... please update from time to time.                            */
@@ -361,7 +361,7 @@ bool SpatialReference::importFromProj4(const char * pszProj4)
 	/* -------------------------------------------------------------------- */
 	char *pszNormalized;
 
-	pszNormalized = OCTProj4Normalize(pszCleanCopy);
+	pszNormalized = proj4Normalize(pszCleanCopy);
 	free(pszCleanCopy);
 
 	/* -------------------------------------------------------------------- */

@@ -71,6 +71,13 @@
  */
 #define USING_MESH_TYPE     1
 
+ /*
+ * 0-use proj4 shared libaray/DLL;
+ * 1-use proj4 static libaray/LIB
+ * if you want to use static lib, you need config proj4 yourself.
+ * The proj_api.h should be included and the proj.lib should be added to the core poject.
+ */
+#define USING_PROJ4_STATIC  0
 
 #if(USING_OS_TYPE==0)
 #include "config_windows.h"    

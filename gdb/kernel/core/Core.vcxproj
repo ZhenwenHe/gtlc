@@ -446,6 +446,7 @@
     <ClCompile Include="src\srspanorama.cpp" />
     <ClCompile Include="src\srspci.cpp" />
     <ClCompile Include="src\srsproj4.cpp" />
+    <ClCompile Include="src\srsproj4ct.cpp" />
     <ClCompile Include="src\srsusgs.cpp" />
     <ClCompile Include="src\srsvalidate.cpp" />
     <ClCompile Include="src\srsxml.cpp" />

@@ -502,11 +502,6 @@ public:
 		 double *x,  double *y,  double *z, 
 		int *pabSuccess ) = 0;
 
-
-	virtual int transform(int nCount,
-		const double *x, const double *y, const double *z,
-		double * destX, double* destY, double * destZ,) = 0;
-
 };
 
 end_gdb_namespace

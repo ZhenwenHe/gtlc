@@ -35,7 +35,7 @@ begin_gdb_namespace
 #  define PI 3.14159265358979323846
 #endif
 
-char *OCTProj4Normalize(const char *pszProj4Src);
+extern char *proj4Normalize(const char *pszProj4Src);
 extern void printDouble(char * pszStrBuf, double dfValue);
 
 static const char *papszDatumEquiv[] =
@@ -2279,7 +2279,7 @@ bool SpatialReference::importFromEPSGA(int nCode)
 
 		sprintf(szWrkDefn, "+init=epsg:%d", nCode);
 
-		pszNormalized = OCTProj4Normalize(szWrkDefn);
+		pszNormalized = proj4Normalize(szWrkDefn);
 
 		if (strstr(pszNormalized, "proj=") != NULL)
 			eErr = importFromProj4(pszNormalized);

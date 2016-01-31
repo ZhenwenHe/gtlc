@@ -47,6 +47,8 @@ begin_gtl_namespace
  */
  std::string getDataHome();
 
+ /*Fetch a function pointer from a shared library / DLL.*/
+ void * getFunctionPointer(const char * pszLibrary, const char * pszSymbolName);
 end_gtl_namespace
 #endif /* CONFIG_ENV_H */
 

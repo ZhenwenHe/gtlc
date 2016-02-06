@@ -406,7 +406,7 @@ const char * cslGetString(CSTRLIST papszStrList, int iField)
 * @return the index of the string within the list or -1 on failure.
 */
 
-int cslIFindString(char ** papszList, const char * pszTarget)
+int cslIFindString(CSTRLIST papszList, const char * pszTarget)
 {
 	int         i;
 
@@ -704,6 +704,16 @@ CSTRLIST cslTokenizeString(const char * pszString, const char * pszDelimiters, i
 
 	return cslTokenizeString(pszString, pszDelimiters, nFlags);
 }
+/**********************************************************************
+*                       cslTokenizeString()
+*
+* Tokenizes a string and returns a StringList with one string for
+* each token.
+**********************************************************************/
+CSTRLIST cslTokenizeString(const char *pszString)
+{
+	return cslTokenizeString(pszString, " ", CSLT_HONOURSTRINGS);
+}
 
 bool cslEqualString(const char * s1, const char * s2) {
 	return strcmp(s1, s2) == 0;
@@ -949,7 +959,7 @@ const char *cslFetchNameValue(CSTRLIST papszStrList, const char *pszName)
 	return NULL;
 }
 /**********************************************************************
-*                       CPLParseNameValue()
+*                       cslParseNameValue()
 **********************************************************************/
 
 /**
@@ -1215,6 +1225,34 @@ char* cslReplacePointByLocalePoint(const char* pszNumber, char point)
 }
 
 
+//读取一行，也即遇到13和10停止
+const char * readLine(FILE * fp) {	 
+	std::string result; 
+	if (readLine(fp, result) > 0)
+		return result.c_str();
+	else
+		return 0;
+}
+size_t readLine(FILE * fp, std::string & result) {
+	int c = fgetc(fp);
+	char buf[512];
+	int i = 0;
+	std::string sz;
+	while (c != 10 && c != 13 && !feof(fp)) {
+		buf[i++] = (char)c;
+		if (i == 512) {
+			sz.assign(buf, 512);
+			result = result + sz;
+			i = 0;
+		}
+		c = fgetc(fp);
+	}
+	if (i > 0 && i < 512) {
+		sz.assign(buf, i);
+		result = result + sz;
+	}
+	return result.size();
+}
 /////////////////////////////////////////////////////////////////////
 
 bool doubleEqual(double d1, double d2) {

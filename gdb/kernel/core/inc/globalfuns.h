@@ -179,9 +179,10 @@ bool cslEqualString(const char * s1, const char * s2);
 bool cslIEqualString(const char * s1, const char * s2); 
 bool cslNIEqualString(const char * s1, const char * s2,int n);
 size_t cslConcatenateString(char* desString, const char * srcString, size_t DesSize);
-size_t cslCopyString(char* desString, const char * srcString, int DesSize);
+size_t cslCopyString(char* desString, const char * srcString, size_t DesSize);
 CSTRLIST cslTokenizeString(const char * pszString, const char * pszDelimiters, int nCSLTFlags);
 CSTRLIST cslTokenizeString(const char * pszString, const char * pszDelimiters, int bHonourStrings, int bAllowEmptyTokens);
+CSTRLIST cslTokenizeString(const char *pszString);
 CSTRLIST cslDuplicate(CSTRLIST);
 int cslCount(CSTRLIST sl);
 void cslDestroy(CSTRLIST sl);
@@ -195,7 +196,10 @@ CSTRLIST cslSetNameValue(CSTRLIST papszList, const char *pszName, const char *ps
 const char * cslFetchNameValue(CSTRLIST papszStrList, const char *pszName);
 const char *cslParseNameValue(const char *pszNameValue, char **ppszKey);
 int cslIFindName(CSTRLIST papszStrList, const char *pszName);
-
+//文件读写补充函数
+//读取一行，也即遇到13和10停止
+const char * readLine(FILE * fp); 
+size_t readLine(FILE * fp, std::string & result);
 //C++版本的扩展字符串类
 typedef std::string _gtl_gdb_string;
 class CORE_API String : public _gtl_gdb_string {

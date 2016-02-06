@@ -263,7 +263,7 @@ bool CommaSeparatedValues::load(const char * pathname)
 	nMaxLineCount = 0;
 	for (i = 0; i < nFileLen; i++)
 	{
-		if (pszRawData[i] == 10)
+		if (pszRawData[i] == 10)//»»ÐÐ¼üµÄASCIIÂë
 			nMaxLineCount++;
 	}
 
@@ -278,8 +278,8 @@ bool CommaSeparatedValues::load(const char * pathname)
 	/*      based on line terminators.  Zero terminate the line             */
 	/*      strings.                                                        */
 	/* -------------------------------------------------------------------- */
-	/* skip header line */
-	pszThisLine = findNextLine(pszRawData);
+	/* not skip header line */
+	pszThisLine = pszRawData;//findNextLine(pszRawData);
 	while (pszThisLine != NULL && iLine < nMaxLineCount)
 	{
 		papszLines[iLine++] = pszThisLine;

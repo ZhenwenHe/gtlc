@@ -30,6 +30,7 @@ gtl (GTL_HOME)  // for development
  */
 
 #include <string>
+#include <algorithm>
 
 begin_gtl_namespace
 

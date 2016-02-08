@@ -441,6 +441,9 @@
     <ClInclude Include="inc\error.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
+    <ClInclude Include="inc\csl.h">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -918,6 +921,18 @@
       <Filter>Source Files\src</Filter>
     </ClCompile>
     <ClCompile Include="src\srsproj4ct.cpp">
+      <Filter>Source Files\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\cslencoding.cpp">
+      <Filter>Source Files\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\cslencodingstub.cpp">
+      <Filter>Source Files\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\cslencodingconv.cpp">
+      <Filter>Source Files\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\csl.cpp">
       <Filter>Source Files\src</Filter>
     </ClCompile>
   </ItemGroup>

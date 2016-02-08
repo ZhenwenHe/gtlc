@@ -17,6 +17,7 @@
 #pragma once 
 #include "config.h"
 #include "value.h"
+#include "csl.h"
 
 begin_gtl_namespace
 begin_gdb_namespace
@@ -45,7 +46,7 @@ public:
 	inline int  getFieldCount();
 	inline int getLineCount();
 	inline const char * getFieldName(int c);
-	inline const char ** getFildNames() { return (const char **)papszFieldNames; }
+	inline const char ** getFieldNames() { return (const char **)papszFieldNames; }
 	inline const char * getLine(int r);
 	inline char ** getLine(const char * keyfieldname, const char * keyvalue, CSVCompareCriteria v);
 	inline int indexField(const char* fieldname);

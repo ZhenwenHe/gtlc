@@ -1105,7 +1105,7 @@ static void InitDatumMappingTable()
 	/* -------------------------------------------------------------------- */
 	/*      Figure out what fields we are interested in.                    */
 	/* -------------------------------------------------------------------- */
-	char **papszFieldNames = cslDuplicate((CSTRLIST)(csv.getFildNames()));//CSVReadParseLine(fp);
+	char **papszFieldNames = cslDuplicate((CSTRLIST)(csv.getFieldNames()));//CSVReadParseLine(fp);
 	int  nDatumCodeField = csv.indexField("DATUM_CODE");//CSLFindString(papszFieldNames, "DATUM_CODE");
 	int  nEPSGNameField = csv.indexField("DATUM_NAME");//CSLFindString(papszFieldNames, "DATUM_NAME");
 	int  nESRINameField = csv.indexField("ESRI_DATUM_NAME");//CSLFindString(papszFieldNames, "ESRI_DATUM_NAME");

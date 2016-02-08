@@ -176,6 +176,7 @@
     <ClInclude Include="inc\config_windows.h" />
     <ClInclude Include="inc\connector.h" />
     <ClInclude Include="inc\console.h" />
+    <ClInclude Include="inc\csl.h" />
     <ClInclude Include="inc\csv.h" />
     <ClInclude Include="inc\describablebuffer.h" />
     <ClInclude Include="inc\envelope2d.h" />
@@ -333,6 +334,9 @@
     <ClCompile Include="src\config_srs.cpp" />
     <ClCompile Include="src\connector.cpp" />
     <ClCompile Include="src\console.cpp" />
+    <ClCompile Include="src\csl.cpp" />
+    <ClCompile Include="src\cslencoding.cpp" />
+    <ClCompile Include="src\cslencodingconv.cpp" />
     <ClCompile Include="src\csvfile.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
@@ -359,6 +363,7 @@
     <ClCompile Include="src\domlayerinfo.cpp" />
     <ClCompile Include="src\eclipsemeshimpl.cpp" />
     <ClCompile Include="src\eclipsemeshreader.cpp" />
+    <ClCompile Include="src\cslencodingstub.cpp" />
     <ClCompile Include="src\envelope2d.cpp" />
     <ClCompile Include="src\envelope3d.cpp" />
     <ClCompile Include="src\error.cpp" />

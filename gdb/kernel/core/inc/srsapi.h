@@ -12,6 +12,7 @@
 * about the suitability of this software for any purpose.
 * It is provided "as is" without express or implied warranty.
 */
+//derived from gdal ogr_srs_api.h
 #pragma once
 
 #include <iosfwd>
@@ -25,7 +26,7 @@
 #include "buffer.h"  
 begin_gtl_namespace
 begin_gdb_namespace
-//from gdal ogr_srs_api.h
+
 enum AxisOrientation {
 	AO_Other = 0,
 	AO_North = 1,

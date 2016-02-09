@@ -1,4 +1,5 @@
 #include "spatialreference.h" 
+
 begin_gtl_namespace
 begin_gdb_namespace
 bool  SpatialReference::importFromXML(const char * v) {

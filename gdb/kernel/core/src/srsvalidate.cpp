@@ -1,4 +1,5 @@
 #include "spatialreference.h" 
+//derived from gdal
 begin_gtl_namespace
 begin_gdb_namespace
 

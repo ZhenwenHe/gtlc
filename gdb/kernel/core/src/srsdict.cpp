@@ -1,7 +1,7 @@
 #include "spatialreference.h" 
+//derived from gdal 1.10
 begin_gtl_namespace
 begin_gdb_namespace
-//derived from gdal 1.10
 //程序需要的数据放置在gtl::getDataHome()返回的目录下，所以这里的字典名称只需要数据文件名即可
 //具体的格式参见epsg.wkt,esri_extra.wkt,cubewerx_extra.wkt
 //这些文件中每行最大的字符数<=1024*1024=1Mb

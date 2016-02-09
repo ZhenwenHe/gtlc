@@ -1,9 +1,10 @@
 #include "spatialreference.h" 
-begin_gtl_namespace
-begin_gdb_namespace
 /*
 all in this file are derived from gdal 1.10 ogr_srs_proj4.cpp
 */
+begin_gtl_namespace
+begin_gdb_namespace
+
 extern int EPSGGetWGS84Transform(int nGeogCS, double *padfTransform);
 extern char *proj4Normalize(const char *pszProj4Src);
 /* -------------------------------------------------------------------- */

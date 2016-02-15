@@ -55,13 +55,13 @@ static const char *papszDatumEquiv[] =
 };
 
 /************************************************************************/
-/*                      OGREPSGDatumNameMassage()                       */
+/*                      EPSGDatumNameMassage()                       */
 /*                                                                      */
 /*      Massage an EPSG datum name into WMT format.  Also transform     */
 /*      specific exception cases into WKT versions.                     */
 /************************************************************************/
 
-void OGREPSGDatumNameMassage(char ** ppszDatum)
+void EPSGDatumNameMassage(char ** ppszDatum)
 
 {
 	int         i, j;
@@ -672,7 +672,7 @@ EPSGGetGCSInfo(int nGCSCode, char ** ppszName,
 }
 
 /************************************************************************/
-/*                         OSRGetEllipsoidInfo()                        */
+/*                         getEllipsoidInfo()                        */
 /************************************************************************/
 
 /**
@@ -697,7 +697,7 @@ EPSGGetGCSInfo(int nGCSCode, char ** ppszName,
 **/
 
 bool
-OSRGetEllipsoidInfo(int nCode, char ** ppszName,
+getEllipsoidInfo(int nCode, char ** ppszName,
 	double * pdfSemiMajor, double * pdfInvFlattening)
 
 {
@@ -1278,9 +1278,9 @@ static bool SetEPSGGeogCS(SpatialReference * poSRS, int nGeogCS)
 		return false;
 	}
 
-	OGREPSGDatumNameMassage(&pszDatumName);
+	EPSGDatumNameMassage(&pszDatumName);
 
-	if (OSRGetEllipsoidInfo(nEllipsoidCode, &pszEllipsoidName,
+	if (getEllipsoidInfo(nEllipsoidCode, &pszEllipsoidName,
 		&dfSemiMajor, &dfInvFlattening) != true)
 	{
 		free(pszDatumName);
@@ -1966,7 +1966,7 @@ static bool SetEPSGGeocCS(SpatialReference * poSRS, int nGCSCode)
 	}
 	pszDatumName =
 		cslDuplicateString(papszRecord[idx]);
-	OGREPSGDatumNameMassage(&pszDatumName);
+	EPSGDatumNameMassage(&pszDatumName);
 
 	if ((idx = csv.indexField("ELLIPSOID_CODE")) == -1) {
 		cslDestroy(papszRecord);
@@ -1997,7 +1997,7 @@ static bool SetEPSGGeocCS(SpatialReference * poSRS, int nGCSCode)
 	char *pszEllipsoidName = NULL;
 	double dfSemiMajor, dfInvFlattening;
 
-	if (OSRGetEllipsoidInfo(nEllipsoidCode, &pszEllipsoidName,
+	if (getEllipsoidInfo(nEllipsoidCode, &pszEllipsoidName,
 		&dfSemiMajor, &dfInvFlattening) != true)
 	{
 		free(pszDatumName);

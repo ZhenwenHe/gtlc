@@ -53,8 +53,7 @@ public:
 	inline int indexLine(const char* fieldname, const char * val);
 	inline int indexLine(const char* fieldname, const char * val, CSVCompareCriteria v);
 	inline std::string getValue(const char * keyfieldname, const char * keyvalue, const char * targetfieldname);
-	inline std::string getValue(const char * keyfieldname, const char * keyvalue,
-		CSVCompareCriteria v, const char * targetfieldname);
+	inline std::string getValue(const char * keyfieldname, const char * keyvalue,CSVCompareCriteria v, const char * targetfieldname);
 	inline char getSeparator();
 public: 
 	static char ** tokenizeLine(const char *pszLine, char chDelimiter);

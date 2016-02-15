@@ -50,6 +50,9 @@ begin_gtl_namespace
 
  /*Fetch a function pointer from a shared library / DLL.*/
  void * getFunctionPointer(const char * pszLibrary, const char * pszSymbolName);
+
+ /* get the full path name */
+ std::string getDataFile(const char * filename);
 end_gtl_namespace
 #endif /* CONFIG_ENV_H */
 

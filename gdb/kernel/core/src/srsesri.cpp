@@ -982,7 +982,7 @@ char *DMGetESRIName(int i) { return DM_GET_ESRI_NAME(papszDatumMapping, i); }
 char *DMGetEPSGName(int i) { return DM_GET_EPSG_NAME(papszDatumMapping, i); }
 
 
-void OGREPSGDatumNameMassage(char ** ppszDatum);
+void EPSGDatumNameMassage(char ** ppszDatum);
 
 /************************************************************************/
 /*                           ESRIToUSGSZone()                           */
@@ -1152,7 +1152,7 @@ static void InitDatumMappingTable()
 				cslDuplicateString(papszFields[nESRINameField]);
 			papszDatumMapping[nMappingCount * 3 + 2] =
 				cslDuplicateString(papszFields[nEPSGNameField]);
-			OGREPSGDatumNameMassage(&(papszDatumMapping[nMappingCount * 3 + 2]));
+			EPSGDatumNameMassage(&(papszDatumMapping[nMappingCount * 3 + 2]));
 
 			nMappingCount++;
 		}

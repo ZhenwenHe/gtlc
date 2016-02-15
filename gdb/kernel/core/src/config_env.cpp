@@ -32,6 +32,19 @@ std::string getDataHome(){
     return s;
 }
 
+/* get the full path name */
+std::string getDataFile(const char * filename) {
+	std::string s = getDataHome();
+#if(USING_OS_TYPE==0)
+	s = s + "\\";
+#elif(USING_OS_TYPE==1)
+	s = s + "/";
+#else
+	s = s + "/";
+#endif  
+	s = s + std::string(filename);
+	return s;
+}
 std::string getInstallHome(){
     char * s = getenv("GTL_INSTALL_HOME");
     if(s){

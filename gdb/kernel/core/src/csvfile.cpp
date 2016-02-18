@@ -66,11 +66,13 @@ int CommaSeparatedValues::compare(const char * pszFieldValue, const char * pszTa
 		double i1 = atof(pszFieldValue);
 		double i2 = atof(pszTarget);
 		if (i1 > i2) return 1;
-		else if (doubleEqual(i1,i2))
+		else if (doubleEqual(i1, i2))
 			return 0;
 		else
 			return -1;
 	}
+	else
+		return 0;
 }
 /** Detect which field separator is used.
 *

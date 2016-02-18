@@ -229,6 +229,8 @@ void cslDestroy(CSTRLIST sl);
 double cslStringToNumber(const char *nptr, char **endptr, char point);
 double cslStringToNumber(const char *nptr);
 double cslMultilingualStringToNumber(const char *nptr);
+long cslStringToInteger(const char * pszNumer, int maxLen);
+int cslFillString(char * pszDest, const char * pszSrc, int mexlen, char fillChar = ' ');
 char* cslReplacePointByLocalePoint(const char* pszNumber, char point);
 bool cslTestBoolean(const char * v);
 CSTRLIST cslAddNameValue(CSTRLIST papszStrList, const char *pszName, const char *pszValue);
@@ -260,26 +262,11 @@ public:
 		return p;
 	}
 public:
-	StringList() {
-		_data = 0;
-	}
-	StringList(const StringList & sl) {
-		_data = 0;
-		cslDuplicate(sl._data);
-	}
-	virtual ~StringList() {
-		if (_data)
-			cslDestroy(_data);
-		_data = 0;
-	}
-	StringList operator=(const StringList & sl) {
-		_data = 0;
-		cslDuplicate(sl._data);
-		return *this;
-	}
-	const char * operator[](size_t i) {
-		return (const char *) _data[i];
-	}
+	StringList();
+	StringList(const StringList & sl);
+	virtual ~StringList();
+	StringList operator=(const StringList & sl);
+	const char * operator[](size_t i);
 };
 
 /*
@@ -301,46 +288,39 @@ public:
 			return  cslFetchNameValue(_data, key, insensetive);
 	}
 public:
-	static void parse(const char * key_value, std::pair<std::string, std::string> & p) {
-		char * key=0;
-		p.second  = cslParseNameValue(key_value, &key);
-		p.first = (const char*)key;
-		if (key)
-			free(key);
-	}
-	static std::pair<std::string, std::string> parse(const char * key_value) {
-		std::pair<std::string, std::string> p;
-		char * key = 0;
-		p.second = cslParseNameValue(key_value, &key);
-		p.first = (const char*)key;
-		if (key)
-			free(key);
-		return p;
-	} 
+	static void parse(const char * key_value, std::pair<std::string, std::string> & p);
+	static std::pair<std::string, std::string> parse(const char * key_value);
 public:
-	StringMap() {
-		_data = 0;
-	}
-	StringMap(const StringMap & sl) {
-		_data = 0;
-		cslDuplicate(sl._data);
-	}
-	virtual ~StringMap() {
-		if (_data)
-			cslDestroy(_data);
-		_data = 0;
-	}
-	StringMap operator=(const StringMap & sl) {
-		_data = 0;
-		cslDuplicate(sl._data);
-		return *this;
-	}
+	StringMap();
+	StringMap(const StringMap & sl);
+	virtual ~StringMap();
+	StringMap operator=(const StringMap & sl);
 	//返回的是一个包含key，分隔符号，以及value三部分组成的字符串，可以采用parse函数解析
-	const char * operator[](size_t i) {
-		return (const char *)_data[i];
-	}
+	const char * operator[](size_t i);
 };
+//////////////////////////////////////////////////////////////////////////////////////////////
+class CORE_API StringPrinter {
+public:
+	static int print(String & outString, double v);
+	static int print(String & outString, float v);
 
+	static int print(String & outString, int8_t  v);
+	static int print(String & outString, uint8_t v);
+
+	static int print(String & outString, int16_t v);
+	static int print(String & outString, uint16_t v);
+
+	static int print(String & outString, int32_t v);
+	static int print(String & outString, uint32_t v);
+
+	static int print(String & outString, int64_t v);
+	static int print(String & outString, uint64_t v);
+
+	static int print(char * pszDest, const char * pszSrc, int mexlen, char fillChar);
+	static int print(char * pszDest, const char * pszSrc, int mexlen);
+	static int print(char * pszDest, int32_t v, int mexlen);
+	static int print(char * pszDest, uint64_t v, int mexlen); 
+};
 end_gdb_namespace
 end_gtl_namespace
 

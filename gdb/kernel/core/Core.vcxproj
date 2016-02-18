@@ -337,6 +337,9 @@
     <ClCompile Include="src\csl.cpp" />
     <ClCompile Include="src\cslencoding.cpp" />
     <ClCompile Include="src\cslencodingconv.cpp" />
+    <ClCompile Include="src\cslstring.cpp" />
+    <ClCompile Include="src\cslstringlist.cpp" />
+    <ClCompile Include="src\cslstringmap.cpp" />
     <ClCompile Include="src\csvfile.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
@@ -455,6 +458,12 @@
     <ClCompile Include="src\srsusgs.cpp" />
     <ClCompile Include="src\srsvalidate.cpp" />
     <ClCompile Include="src\srsxml.cpp" />
+    <ClCompile Include="src\cslstringprinter.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
     <ClCompile Include="src\surface3dimpl.cpp" />
     <ClCompile Include="src\temporaryset.cpp" />
     <ClCompile Include="src\terrain.cpp" />

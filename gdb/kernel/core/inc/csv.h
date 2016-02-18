@@ -30,7 +30,7 @@ enum CSVCompareCriteria {
 };
 class CORE_API CommaSeparatedValues {
 	/* Cache for whole file */
-	int         nLineCount;//包含了字段行的数，如果文件后字段名这一行，则第0行为字段名集合
+	int         nLineCount;//包含了字段行的数，如果文件有字段名这一行，则第0行为字段名集合
 	char        **papszFieldNames;//拆分后的字段名数组
 	char        **papszLines;//字符串的指针数组，数组中的每个元素指向每行的开始位置
 	char        *pszRawData;//整个文件的数据存放在这里
@@ -48,6 +48,7 @@ public:
 	inline const char * getFieldName(int c);
 	inline const char ** getFieldNames() { return (const char **)papszFieldNames; }
 	inline const char * getLine(int r);
+	inline char ** parseLine(int r);
 	inline char ** getLine(const char * keyfieldname, const char * keyvalue, CSVCompareCriteria v);
 	inline int indexField(const char* fieldname);
 	inline int indexLine(const char* fieldname, const char * val);
@@ -81,6 +82,13 @@ inline const char * CommaSeparatedValues::getFieldName(int c) {
 inline const char * CommaSeparatedValues::getLine(int r) {
 	if (papszLines && r <= nLineCount)
 		return papszLines[r];
+	else
+		return 0;
+}
+inline char ** CommaSeparatedValues::parseLine(int r) {
+	if (papszLines && r <= nLineCount) {
+		return CommaSeparatedValues::tokenizeLine(papszLines[r], cSeparator); 
+	}
 	else
 		return 0;
 }

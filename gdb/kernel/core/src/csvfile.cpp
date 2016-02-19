@@ -293,6 +293,7 @@ bool CommaSeparatedValues::load(const char * pathname)
 	/*      We should never need the file handle against, so close it.      */
 	/* -------------------------------------------------------------------- */
 	fclose(fp); 
+	return true;
 }
 
 bool CommaSeparatedValues::load(const std::string &  pathname) {

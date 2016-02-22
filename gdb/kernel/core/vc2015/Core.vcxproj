@@ -1,0 +1,430 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{289F515E-40D0-4B5A-B9F5-73913A8483F9}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>Core</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0.10586.0</WindowsTargetPlatformVersion>
+    <ProjectName>core</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>../../../../../sdk</OutDir>
+    <IntDir>../../../../../mid</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>../../../../../sdk</OutDir>
+    <IntDir>../../../../../mid</IntDir>
+    <TargetName>$(ProjectName)d</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>../../../../../sdk</OutDir>
+    <IntDir>../../../../../mid</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>../../../../../sdk</OutDir>
+    <IntDir>../../../../../mid</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;CORE_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>../inc</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>_DEBUG;_WINDOWS;_USRDLL;CORE_EXPORTS;SQLITE_ENABLE_RTREE;SQLITE_ENABLE_JSON1;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>../inc</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
+      <ImportLibrary>$(OutDir)$(TargetName).lib</ImportLibrary>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;CORE_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>../inc</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>NDEBUG;_WINDOWS;_USRDLL;CORE_EXPORTS;SQLITE_ENABLE_RTREE;SQLITE_ENABLE_JSON1;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>../inc</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="inc\bitset.h" />
+    <ClInclude Include="inc\buffer.h" />
+    <ClInclude Include="inc\bufferstream.h" />
+    <ClInclude Include="inc\builder.h" />
+    <ClInclude Include="inc\builders.h" />
+    <ClInclude Include="inc\color.h" />
+    <ClInclude Include="inc\coloredvertex3d.h" />
+    <ClInclude Include="inc\coloredvertex3f.h" />
+    <ClInclude Include="inc\config.h" />
+    <ClInclude Include="inc\config_env.h" />
+    <ClInclude Include="inc\config_linux.h" />
+    <ClInclude Include="inc\config_macxos.h" />
+    <ClInclude Include="inc\config_windows.h" />
+    <ClInclude Include="inc\connector.h" />
+    <ClInclude Include="inc\console.h" />
+    <ClInclude Include="inc\csl.h" />
+    <ClInclude Include="inc\csv.h" />
+    <ClInclude Include="inc\describablebuffer.h" />
+    <ClInclude Include="inc\envelope2d.h" />
+    <ClInclude Include="inc\envelope3d.h" />
+    <ClInclude Include="inc\error.h" />
+    <ClInclude Include="inc\factory.h" />
+    <ClInclude Include="inc\feature.h" />
+    <ClInclude Include="inc\fielddefinition.h" />
+    <ClInclude Include="inc\frustum.h" />
+    <ClInclude Include="inc\geometry.h" />
+    <ClInclude Include="inc\geometry2d.h" />
+    <ClInclude Include="inc\geometry3d.h" />
+    <ClInclude Include="inc\globalfuns.h" />
+    <ClInclude Include="inc\identifier.h" />
+    <ClInclude Include="inc\image.h" />
+    <ClInclude Include="inc\indexbuffer.h" />
+    <ClInclude Include="inc\lock.h" />
+    <ClInclude Include="inc\material.h" />
+    <ClInclude Include="inc\mathex.h" />
+    <ClInclude Include="inc\matrix.h" />
+    <ClInclude Include="inc\matrix3x3.h" />
+    <ClInclude Include="inc\matrix4x4.h" />
+    <ClInclude Include="inc\mesh.h" />
+    <ClInclude Include="inc\meshbuilder.h" />
+    <ClInclude Include="inc\meshproxy.h" />
+    <ClInclude Include="inc\property.h" />
+    <ClInclude Include="inc\proxy.h" />
+    <ClInclude Include="inc\quaternion.h" />
+    <ClInclude Include="inc\ray.h" />
+    <ClInclude Include="inc\render.h" />
+    <ClInclude Include="inc\selector.h" />
+    <ClInclude Include="inc\shadedvertex3d.h" />
+    <ClInclude Include="inc\shadedvertex3f.h" />
+    <ClInclude Include="inc\sharedmodel.h" />
+    <ClInclude Include="inc\spatialreference.h" />
+    <ClInclude Include="inc\sphere3d.h" />
+    <ClInclude Include="inc\sqlite3.h" />
+    <ClInclude Include="inc\sqlite3ext.h" />
+    <ClInclude Include="inc\srsapi.h" />
+    <ClInclude Include="inc\srsnode.h" />
+    <ClInclude Include="inc\temporaryset.h" />
+    <ClInclude Include="inc\terrain.h" />
+    <ClInclude Include="inc\terrainbuilder.h" />
+    <ClInclude Include="inc\terrainproxy.h" />
+    <ClInclude Include="inc\texture.h" />
+    <ClInclude Include="inc\texturedvertex3d.h" />
+    <ClInclude Include="inc\texturedvertex3f.h" />
+    <ClInclude Include="inc\topology.h" />
+    <ClInclude Include="inc\tritool.h" />
+    <ClInclude Include="inc\value.h" />
+    <ClInclude Include="inc\valutils.h" />
+    <ClInclude Include="inc\versatilevertex3d.h" />
+    <ClInclude Include="inc\versatilevertex3f.h" />
+    <ClInclude Include="inc\vertex2d.h" />
+    <ClInclude Include="inc\vertex2f.h" />
+    <ClInclude Include="inc\vertex3d.h" />
+    <ClInclude Include="inc\vertex3f.h" />
+    <ClInclude Include="inc\vertex4d.h" />
+    <ClInclude Include="inc\vertexbuffer.h" />
+    <ClInclude Include="inc\vertexcollection2d.h" />
+    <ClInclude Include="inc\vertexvisitor.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="targetver.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\src\attribute\bitset.cpp" />
+    <ClCompile Include="..\src\attribute\buffer.cpp" />
+    <ClCompile Include="..\src\attribute\csvfile.cpp" />
+    <ClCompile Include="..\src\attribute\fielddefinition.cpp" />
+    <ClCompile Include="..\src\attribute\identifier.cpp" />
+    <ClCompile Include="..\src\attribute\indexbuffer.cpp" />
+    <ClCompile Include="..\src\attribute\property.cpp" />
+    <ClCompile Include="..\src\attribute\sqlite3.c" />
+    <ClCompile Include="..\src\attribute\value.cpp" />
+    <ClCompile Include="..\src\attribute\valutils.cpp" />
+    <ClCompile Include="..\src\config\config.cpp" />
+    <ClCompile Include="..\src\config\config_env.cpp" />
+    <ClCompile Include="..\src\config\config_srs.cpp" />
+    <ClCompile Include="..\src\config\console.cpp" />
+    <ClCompile Include="..\src\config\lock.cpp" />
+    <ClCompile Include="..\src\csl\csl.cpp" />
+    <ClCompile Include="..\src\csl\cslencoding.cpp" />
+    <ClCompile Include="..\src\csl\cslencodingconv.cpp" />
+    <ClCompile Include="..\src\csl\cslencodingstub.cpp" />
+    <ClCompile Include="..\src\csl\cslstring.cpp" />
+    <ClCompile Include="..\src\csl\cslstringlist.cpp" />
+    <ClCompile Include="..\src\csl\cslstringmap.cpp" />
+    <ClCompile Include="..\src\csl\cslstringprinter.cpp" />
+    <ClCompile Include="..\src\csl\error.cpp" />
+    <ClCompile Include="..\src\factory\factory.cpp" />
+    <ClCompile Include="..\src\feature\feature.cpp" />
+    <ClCompile Include="..\src\feature\featureclass.cpp" />
+    <ClCompile Include="..\src\feature\featureclassimpl.cpp" />
+    <ClCompile Include="..\src\feature\featureimpl.cpp" />
+    <ClCompile Include="..\src\feature\featureset.cpp" />
+    <ClCompile Include="..\src\feature\featuresetimpl.cpp" />
+    <ClCompile Include="..\src\feature\layer.cpp" />
+    <ClCompile Include="..\src\feature\layerimpl.cpp" />
+    <ClCompile Include="..\src\feature\project.cpp" />
+    <ClCompile Include="..\src\feature\projectimpl.cpp" />
+    <ClCompile Include="..\src\feature\selector.cpp" />
+    <ClCompile Include="..\src\feature\temporaryset.cpp" />
+    <ClCompile Include="..\src\feature\workspace.cpp" />
+    <ClCompile Include="..\src\feature\workspaceimpl.cpp" />
+    <ClCompile Include="..\src\geometry\aabboximpl.cpp" />
+    <ClCompile Include="..\src\geometry\annotation3dimpl.cpp" />
+    <ClCompile Include="..\src\geometry\block.cpp" />
+    <ClCompile Include="..\src\geometry\cell.cpp" />
+    <ClCompile Include="..\src\geometry\color.cpp" />
+    <ClCompile Include="..\src\geometry\colortable.cpp" />
+    <ClCompile Include="..\src\geometry\complexmaterialimpl.cpp" />
+    <ClCompile Include="..\src\geometry\cube3dimpl.cpp" />
+    <ClCompile Include="..\src\geometry\curve3dimpl.cpp" />
+    <ClCompile Include="..\src\geometry\delaunayimpl.cpp" />
+    <ClCompile Include="..\src\geometry\demblock.cpp" />
+    <ClCompile Include="..\src\geometry\demdatainfo.cpp" />
+    <ClCompile Include="..\src\geometry\demdbinfo.cpp" />
+    <ClCompile Include="..\src\geometry\demgrid.cpp" />
+    <ClCompile Include="..\src\geometry\demgridimpl.cpp" />
+    <ClCompile Include="..\src\geometry\deminfo.cpp" />
+    <ClCompile Include="..\src\geometry\demlayerinfo.cpp" />
+    <ClCompile Include="..\src\geometry\describablebuffer.cpp" />
+    <ClCompile Include="..\src\geometry\domblock.cpp" />
+    <ClCompile Include="..\src\geometry\domdatainfo.cpp" />
+    <ClCompile Include="..\src\geometry\domdbinfo.cpp" />
+    <ClCompile Include="..\src\geometry\domgrid.cpp" />
+    <ClCompile Include="..\src\geometry\domgridimpl.cpp" />
+    <ClCompile Include="..\src\geometry\dominfo.cpp" />
+    <ClCompile Include="..\src\geometry\domlayerinfo.cpp" />
+    <ClCompile Include="..\src\geometry\eclipsemeshimpl.cpp" />
+    <ClCompile Include="..\src\geometry\eclipsemeshreader.cpp" />
+    <ClCompile Include="..\src\geometry\envelope2d.cpp" />
+    <ClCompile Include="..\src\geometry\envelope3d.cpp" />
+    <ClCompile Include="..\src\geometry\frustum.cpp" />
+    <ClCompile Include="..\src\geometry\frustumimpl.cpp" />
+    <ClCompile Include="..\src\geometry\geometry.cpp" />
+    <ClCompile Include="..\src\geometry\geometry2d.cpp" />
+    <ClCompile Include="..\src\geometry\geometry3dimpl.cpp" />
+    <ClCompile Include="..\src\geometry\geometryfactory.cpp" />
+    <ClCompile Include="..\src\geometry\geometryimpl.cpp" />
+    <ClCompile Include="..\src\geometry\group3dimpl.cpp" />
+    <ClCompile Include="..\src\geometry\linearring3dimpl.cpp" />
+    <ClCompile Include="..\src\geometry\linestring3dimpl.cpp" />
+    <ClCompile Include="..\src\geometry\lodinfo.cpp" />
+    <ClCompile Include="..\src\geometry\lodinfoimpl.cpp" />
+    <ClCompile Include="..\src\geometry\material.cpp" />
+    <ClCompile Include="..\src\geometry\materialimpl.cpp" />
+    <ClCompile Include="..\src\geometry\mesh.cpp" />
+    <ClCompile Include="..\src\geometry\multipoint3dimpl.cpp" />
+    <ClCompile Include="..\src\geometry\multipolygon3dimpl.cpp" />
+    <ClCompile Include="..\src\geometry\multipolyline3dimpl.cpp" />
+    <ClCompile Include="..\src\geometry\multisolid3dimpl.cpp" />
+    <ClCompile Include="..\src\geometry\obboximpl.cpp" />
+    <ClCompile Include="..\src\geometry\parameterizedcurve3dimpl.cpp" />
+    <ClCompile Include="..\src\geometry\parameterizedsurface3dimpl.cpp" />
+    <ClCompile Include="..\src\geometry\point3dimpl.cpp" />
+    <ClCompile Include="..\src\geometry\polygon3dimpl.cpp" />
+    <ClCompile Include="..\src\geometry\prism3dimpl.cpp" />
+    <ClCompile Include="..\src\geometry\ray.cpp" />
+    <ClCompile Include="..\src\geometry\rayimpl.cpp" />
+    <ClCompile Include="..\src\geometry\rectangle3dimpl.cpp" />
+    <ClCompile Include="..\src\geometry\reference3dimpl.cpp" />
+    <ClCompile Include="..\src\geometry\semanticactiontopoinfoimpl.cpp" />
+    <ClCompile Include="..\src\geometry\semanticgeometrytopoinfoimpl.cpp" />
+    <ClCompile Include="..\src\geometry\shadedvertex3dvisitorimpl.cpp" />
+    <ClCompile Include="..\src\geometry\shadedvertex3fvisitorimpl.cpp" />
+    <ClCompile Include="..\src\geometry\sharedmodel.cpp" />
+    <ClCompile Include="..\src\geometry\sharedmodelimpl.cpp" />
+    <ClCompile Include="..\src\geometry\simplematerialimpl.cpp" />
+    <ClCompile Include="..\src\geometry\singlepoint3dimpl.cpp" />
+    <ClCompile Include="..\src\geometry\solid3dimpl.cpp" />
+    <ClCompile Include="..\src\geometry\sourcedatainfo.cpp" />
+    <ClCompile Include="..\src\geometry\spatialfuns.cpp" />
+    <ClCompile Include="..\src\geometry\sphere3d.cpp" />
+    <ClCompile Include="..\src\geometry\surface3dimpl.cpp" />
+    <ClCompile Include="..\src\geometry\terrain.cpp" />
+    <ClCompile Include="..\src\geometry\tetrahedron3dimpl.cpp" />
+    <ClCompile Include="..\src\geometry\texture.cpp" />
+    <ClCompile Include="..\src\geometry\texturedvertex3dvisitorimpl.cpp" />
+    <ClCompile Include="..\src\geometry\texturedvertex3fvisitorimpl.cpp" />
+    <ClCompile Include="..\src\geometry\textureimpl.cpp" />
+    <ClCompile Include="..\src\geometry\topoinfo.cpp" />
+    <ClCompile Include="..\src\geometry\topoinfoimpl.cpp" />
+    <ClCompile Include="..\src\geometry\topoitem.cpp" />
+    <ClCompile Include="..\src\geometry\topoitemimpl.cpp" />
+    <ClCompile Include="..\src\geometry\topology.cpp" />
+    <ClCompile Include="..\src\geometry\triangle3dimpl.cpp" />
+    <ClCompile Include="..\src\geometry\trianglemesh3dimpl.cpp" />
+    <ClCompile Include="..\src\geometry\tritool.cpp" />
+    <ClCompile Include="..\src\geometry\versatilevertex3dvisitorimpl.cpp" />
+    <ClCompile Include="..\src\geometry\versatilevertex3fvisitorimpl.cpp" />
+    <ClCompile Include="..\src\geometry\vertex2d.cpp" />
+    <ClCompile Include="..\src\geometry\vertex2f.cpp" />
+    <ClCompile Include="..\src\geometry\vertex3d.cpp" />
+    <ClCompile Include="..\src\geometry\vertex3dvisitorimpl.cpp" />
+    <ClCompile Include="..\src\geometry\vertex3f.cpp" />
+    <ClCompile Include="..\src\geometry\vertex3fvisitorimpl.cpp" />
+    <ClCompile Include="..\src\geometry\vertexbuffer.cpp" />
+    <ClCompile Include="..\src\geometry\vertexcollection2d.cpp" />
+    <ClCompile Include="..\src\geometry\vertexvisitor.cpp" />
+    <ClCompile Include="..\src\geometry\volume3dimpl.cpp" />
+    <ClCompile Include="..\src\geometry\voxel3dimpl.cpp" />
+    <ClCompile Include="..\src\image\image.cpp" />
+    <ClCompile Include="..\src\math\mathex.cpp" />
+    <ClCompile Include="..\src\math\matrix.cpp" />
+    <ClCompile Include="..\src\math\matrix3x3.cpp" />
+    <ClCompile Include="..\src\math\matrix4x4.cpp" />
+    <ClCompile Include="..\src\math\quaternion.cpp" />
+    <ClCompile Include="..\src\misc\globalfuns.cpp" />
+    <ClCompile Include="..\src\render\render.cpp" />
+    <ClCompile Include="..\src\sdei\builder.cpp" />
+    <ClCompile Include="..\src\sdei\builders.cpp" />
+    <ClCompile Include="..\src\sdei\connector.cpp" />
+    <ClCompile Include="..\src\sdei\proxy.cpp" />
+    <ClCompile Include="..\src\srs\spatialreference.cpp" />
+    <ClCompile Include="..\src\srs\srsct.cpp" />
+    <ClCompile Include="..\src\srs\srsdict.cpp" />
+    <ClCompile Include="..\src\srs\srsepsg.cpp" />
+    <ClCompile Include="..\src\srs\srserm.cpp" />
+    <ClCompile Include="..\src\srs\srsesri.cpp" />
+    <ClCompile Include="..\src\srs\srsnode.cpp" />
+    <ClCompile Include="..\src\srs\srsozi.cpp" />
+    <ClCompile Include="..\src\srs\srspanorama.cpp" />
+    <ClCompile Include="..\src\srs\srspci.cpp" />
+    <ClCompile Include="..\src\srs\srsproj4.cpp" />
+    <ClCompile Include="..\src\srs\srsproj4ct.cpp" />
+    <ClCompile Include="..\src\srs\srsusgs.cpp" />
+    <ClCompile Include="..\src\srs\srsvalidate.cpp" />
+    <ClCompile Include="..\src\srs\srsxml.cpp" />
+    <ClCompile Include="dllmain.cpp">
+      <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</CompileAsManaged>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </PrecompiledHeader>
+      <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</CompileAsManaged>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+      </PrecompiledHeader>
+      <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</CompileAsManaged>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </PrecompiledHeader>
+      <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</CompileAsManaged>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+      </PrecompiledHeader>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Makefile" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

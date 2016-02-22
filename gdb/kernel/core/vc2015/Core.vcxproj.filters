@@ -1,0 +1,803 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Source Files\src">
+      <UniqueIdentifier>{2ae1f16e-949b-4a25-8187-dd2be3b009af}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\inc">
+      <UniqueIdentifier>{2c5bd31a-4540-4e15-9edf-66f3dfa2fdf4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\src\attribute">
+      <UniqueIdentifier>{cfaed0ff-509b-41e1-856c-317fb20c17e3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\src\config">
+      <UniqueIdentifier>{57070eea-8f1a-4936-a0a5-9335b2650bc6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\src\geometry">
+      <UniqueIdentifier>{bfb4bc4d-8eb8-427f-bd9f-b3ef167b920f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\src\csl">
+      <UniqueIdentifier>{2afa7783-4b36-4eb8-89be-c44d22196bab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\src\feature">
+      <UniqueIdentifier>{5fa5d43d-cec4-46af-8c72-09b75e6795c8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\src\image">
+      <UniqueIdentifier>{5c0d8e86-01af-42d1-a727-2ccd10eb4d88}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\src\math">
+      <UniqueIdentifier>{f71ec07c-eadf-474b-85b2-bba105bfbdab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\src\srs">
+      <UniqueIdentifier>{fe5c8376-8d3a-468e-b84b-56a65704cb9b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\src\misc">
+      <UniqueIdentifier>{b61d9c70-cb46-486a-91e7-3c0c7b00ec64}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\src\sdei">
+      <UniqueIdentifier>{3c2c1b87-e34a-4ab7-9f62-10f3bd2494dc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\src\factory">
+      <UniqueIdentifier>{7c6ec841-5f8f-4080-aa19-b9fff23932ce}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\src\render">
+      <UniqueIdentifier>{b86d06d7-0264-42e6-80d8-2947c4bcc1f2}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="stdafx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\bitset.h">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\buffer.h">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\bufferstream.h">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\builder.h">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\builders.h">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\color.h">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\coloredvertex3d.h">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\coloredvertex3f.h">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\config.h">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\config_env.h">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\config_linux.h">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\config_macxos.h">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\config_windows.h">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\connector.h">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\console.h">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\describablebuffer.h">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\envelope2d.h">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\envelope3d.h">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\factory.h">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\feature.h">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\frustum.h">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\geometry.h">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\geometry2d.h">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\geometry3d.h">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\globalfuns.h">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\identifier.h">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\image.h">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\indexbuffer.h">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\lock.h">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\material.h">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\mathex.h">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\matrix.h">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\matrix3x3.h">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\matrix4x4.h">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\mesh.h">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\meshbuilder.h">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\meshproxy.h">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\property.h">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\proxy.h">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\quaternion.h">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\ray.h">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\render.h">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\selector.h">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\shadedvertex3d.h">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\shadedvertex3f.h">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\sharedmodel.h">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\sphere3d.h">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\temporaryset.h">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\terrain.h">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\terrainbuilder.h">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\terrainproxy.h">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\texture.h">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\texturedvertex3d.h">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\texturedvertex3f.h">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\topology.h">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\tritool.h">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\value.h">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\valutils.h">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\versatilevertex3d.h">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\versatilevertex3f.h">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\vertex2d.h">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\vertex2f.h">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\vertex3d.h">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\vertex3f.h">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\vertex4d.h">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\vertexbuffer.h">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\vertexcollection2d.h">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\vertexvisitor.h">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\sqlite3.h">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\sqlite3ext.h">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\fielddefinition.h">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\spatialreference.h">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\srsnode.h">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\srsapi.h">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\csv.h">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\error.h">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\csl.h">
+      <Filter>Header Files\inc</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="dllmain.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\attribute\bitset.cpp">
+      <Filter>Source Files\src\attribute</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\attribute\buffer.cpp">
+      <Filter>Source Files\src\attribute</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\attribute\csvfile.cpp">
+      <Filter>Source Files\src\attribute</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\attribute\fielddefinition.cpp">
+      <Filter>Source Files\src\attribute</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\attribute\identifier.cpp">
+      <Filter>Source Files\src\attribute</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\attribute\indexbuffer.cpp">
+      <Filter>Source Files\src\attribute</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\attribute\property.cpp">
+      <Filter>Source Files\src\attribute</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\attribute\sqlite3.c">
+      <Filter>Source Files\src\attribute</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\attribute\value.cpp">
+      <Filter>Source Files\src\attribute</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\attribute\valutils.cpp">
+      <Filter>Source Files\src\attribute</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\config\config.cpp">
+      <Filter>Source Files\src\config</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\config\config_env.cpp">
+      <Filter>Source Files\src\config</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\config\config_srs.cpp">
+      <Filter>Source Files\src\config</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\config\console.cpp">
+      <Filter>Source Files\src\config</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\config\lock.cpp">
+      <Filter>Source Files\src\config</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\geometry\aabboximpl.cpp">
+      <Filter>Source Files\src\geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\geometry\annotation3dimpl.cpp">
+      <Filter>Source Files\src\geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\geometry\block.cpp">
+      <Filter>Source Files\src\geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\geometry\cell.cpp">
+      <Filter>Source Files\src\geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\geometry\color.cpp">
+      <Filter>Source Files\src\geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\geometry\colortable.cpp">
+      <Filter>Source Files\src\geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\geometry\complexmaterialimpl.cpp">
+      <Filter>Source Files\src\geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\geometry\cube3dimpl.cpp">
+      <Filter>Source Files\src\geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\geometry\curve3dimpl.cpp">
+      <Filter>Source Files\src\geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\geometry\delaunayimpl.cpp">
+      <Filter>Source Files\src\geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\geometry\demblock.cpp">
+      <Filter>Source Files\src\geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\geometry\demdatainfo.cpp">
+      <Filter>Source Files\src\geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\geometry\demdbinfo.cpp">
+      <Filter>Source Files\src\geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\geometry\demgrid.cpp">
+      <Filter>Source Files\src\geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\geometry\demgridimpl.cpp">
+      <Filter>Source Files\src\geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\geometry\deminfo.cpp">
+      <Filter>Source Files\src\geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\geometry\demlayerinfo.cpp">
+      <Filter>Source Files\src\geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\geometry\describablebuffer.cpp">
+      <Filter>Source Files\src\geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\geometry\domblock.cpp">
+      <Filter>Source Files\src\geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\geometry\domdatainfo.cpp">
+      <Filter>Source Files\src\geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\geometry\domdbinfo.cpp">
+      <Filter>Source Files\src\geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\geometry\domgrid.cpp">
+      <Filter>Source Files\src\geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\geometry\domgridimpl.cpp">
+      <Filter>Source Files\src\geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\geometry\dominfo.cpp">
+      <Filter>Source Files\src\geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\geometry\domlayerinfo.cpp">
+      <Filter>Source Files\src\geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\geometry\eclipsemeshimpl.cpp">
+      <Filter>Source Files\src\geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\geometry\eclipsemeshreader.cpp">
+      <Filter>Source Files\src\geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\geometry\envelope2d.cpp">
+      <Filter>Source Files\src\geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\geometry\envelope3d.cpp">
+      <Filter>Source Files\src\geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\geometry\frustum.cpp">
+      <Filter>Source Files\src\geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\geometry\frustumimpl.cpp">
+      <Filter>Source Files\src\geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\geometry\geometry.cpp">
+      <Filter>Source Files\src\geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\geometry\geometry2d.cpp">
+      <Filter>Source Files\src\geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\geometry\geometry3dimpl.cpp">
+      <Filter>Source Files\src\geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\geometry\geometryfactory.cpp">
+      <Filter>Source Files\src\geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\geometry\geometryimpl.cpp">
+      <Filter>Source Files\src\geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\geometry\group3dimpl.cpp">
+      <Filter>Source Files\src\geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\geometry\linearring3dimpl.cpp">
+      <Filter>Source Files\src\geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\geometry\linestring3dimpl.cpp">
+      <Filter>Source Files\src\geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\geometry\lodinfo.cpp">
+      <Filter>Source Files\src\geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\geometry\lodinfoimpl.cpp">
+      <Filter>Source Files\src\geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\geometry\material.cpp">
+      <Filter>Source Files\src\geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\geometry\materialimpl.cpp">
+      <Filter>Source Files\src\geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\geometry\mesh.cpp">
+      <Filter>Source Files\src\geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\geometry\multipoint3dimpl.cpp">
+      <Filter>Source Files\src\geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\geometry\multipolygon3dimpl.cpp">
+      <Filter>Source Files\src\geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\geometry\multipolyline3dimpl.cpp">
+      <Filter>Source Files\src\geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\geometry\multisolid3dimpl.cpp">
+      <Filter>Source Files\src\geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\geometry\obboximpl.cpp">
+      <Filter>Source Files\src\geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\geometry\parameterizedcurve3dimpl.cpp">
+      <Filter>Source Files\src\geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\geometry\parameterizedsurface3dimpl.cpp">
+      <Filter>Source Files\src\geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\geometry\point3dimpl.cpp">
+      <Filter>Source Files\src\geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\geometry\polygon3dimpl.cpp">
+      <Filter>Source Files\src\geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\geometry\prism3dimpl.cpp">
+      <Filter>Source Files\src\geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\geometry\ray.cpp">
+      <Filter>Source Files\src\geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\geometry\rayimpl.cpp">
+      <Filter>Source Files\src\geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\geometry\rectangle3dimpl.cpp">
+      <Filter>Source Files\src\geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\geometry\reference3dimpl.cpp">
+      <Filter>Source Files\src\geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\geometry\semanticactiontopoinfoimpl.cpp">
+      <Filter>Source Files\src\geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\geometry\semanticgeometrytopoinfoimpl.cpp">
+      <Filter>Source Files\src\geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\geometry\shadedvertex3dvisitorimpl.cpp">
+      <Filter>Source Files\src\geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\geometry\shadedvertex3fvisitorimpl.cpp">
+      <Filter>Source Files\src\geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\geometry\sharedmodel.cpp">
+      <Filter>Source Files\src\geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\geometry\sharedmodelimpl.cpp">
+      <Filter>Source Files\src\geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\geometry\simplematerialimpl.cpp">
+      <Filter>Source Files\src\geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\geometry\singlepoint3dimpl.cpp">
+      <Filter>Source Files\src\geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\geometry\solid3dimpl.cpp">
+      <Filter>Source Files\src\geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\geometry\sourcedatainfo.cpp">
+      <Filter>Source Files\src\geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\geometry\spatialfuns.cpp">
+      <Filter>Source Files\src\geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\geometry\sphere3d.cpp">
+      <Filter>Source Files\src\geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\geometry\surface3dimpl.cpp">
+      <Filter>Source Files\src\geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\geometry\terrain.cpp">
+      <Filter>Source Files\src\geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\geometry\tetrahedron3dimpl.cpp">
+      <Filter>Source Files\src\geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\geometry\texture.cpp">
+      <Filter>Source Files\src\geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\geometry\texturedvertex3dvisitorimpl.cpp">
+      <Filter>Source Files\src\geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\geometry\texturedvertex3fvisitorimpl.cpp">
+      <Filter>Source Files\src\geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\geometry\textureimpl.cpp">
+      <Filter>Source Files\src\geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\geometry\topoinfo.cpp">
+      <Filter>Source Files\src\geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\geometry\topoinfoimpl.cpp">
+      <Filter>Source Files\src\geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\geometry\topoitem.cpp">
+      <Filter>Source Files\src\geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\geometry\topoitemimpl.cpp">
+      <Filter>Source Files\src\geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\geometry\topology.cpp">
+      <Filter>Source Files\src\geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\geometry\triangle3dimpl.cpp">
+      <Filter>Source Files\src\geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\geometry\trianglemesh3dimpl.cpp">
+      <Filter>Source Files\src\geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\geometry\tritool.cpp">
+      <Filter>Source Files\src\geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\geometry\versatilevertex3dvisitorimpl.cpp">
+      <Filter>Source Files\src\geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\geometry\versatilevertex3fvisitorimpl.cpp">
+      <Filter>Source Files\src\geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\geometry\vertex2d.cpp">
+      <Filter>Source Files\src\geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\geometry\vertex2f.cpp">
+      <Filter>Source Files\src\geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\geometry\vertex3d.cpp">
+      <Filter>Source Files\src\geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\geometry\vertex3dvisitorimpl.cpp">
+      <Filter>Source Files\src\geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\geometry\vertex3f.cpp">
+      <Filter>Source Files\src\geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\geometry\vertex3fvisitorimpl.cpp">
+      <Filter>Source Files\src\geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\geometry\vertexbuffer.cpp">
+      <Filter>Source Files\src\geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\geometry\vertexcollection2d.cpp">
+      <Filter>Source Files\src\geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\geometry\vertexvisitor.cpp">
+      <Filter>Source Files\src\geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\geometry\volume3dimpl.cpp">
+      <Filter>Source Files\src\geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\geometry\voxel3dimpl.cpp">
+      <Filter>Source Files\src\geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\csl\csl.cpp">
+      <Filter>Source Files\src\csl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\csl\cslencoding.cpp">
+      <Filter>Source Files\src\csl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\csl\cslencodingconv.cpp">
+      <Filter>Source Files\src\csl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\csl\cslencodingstub.cpp">
+      <Filter>Source Files\src\csl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\csl\cslstring.cpp">
+      <Filter>Source Files\src\csl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\csl\cslstringlist.cpp">
+      <Filter>Source Files\src\csl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\csl\cslstringmap.cpp">
+      <Filter>Source Files\src\csl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\csl\cslstringprinter.cpp">
+      <Filter>Source Files\src\csl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\csl\error.cpp">
+      <Filter>Source Files\src\csl</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\feature\feature.cpp">
+      <Filter>Source Files\src\feature</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\feature\featureclass.cpp">
+      <Filter>Source Files\src\feature</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\feature\featureclassimpl.cpp">
+      <Filter>Source Files\src\feature</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\feature\featureimpl.cpp">
+      <Filter>Source Files\src\feature</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\feature\featureset.cpp">
+      <Filter>Source Files\src\feature</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\feature\featuresetimpl.cpp">
+      <Filter>Source Files\src\feature</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\feature\layer.cpp">
+      <Filter>Source Files\src\feature</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\feature\layerimpl.cpp">
+      <Filter>Source Files\src\feature</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\feature\project.cpp">
+      <Filter>Source Files\src\feature</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\feature\projectimpl.cpp">
+      <Filter>Source Files\src\feature</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\feature\selector.cpp">
+      <Filter>Source Files\src\feature</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\feature\temporaryset.cpp">
+      <Filter>Source Files\src\feature</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\feature\workspace.cpp">
+      <Filter>Source Files\src\feature</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\feature\workspaceimpl.cpp">
+      <Filter>Source Files\src\feature</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\srs\spatialreference.cpp">
+      <Filter>Source Files\src\srs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\srs\srsct.cpp">
+      <Filter>Source Files\src\srs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\srs\srsdict.cpp">
+      <Filter>Source Files\src\srs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\srs\srsepsg.cpp">
+      <Filter>Source Files\src\srs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\srs\srserm.cpp">
+      <Filter>Source Files\src\srs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\srs\srsesri.cpp">
+      <Filter>Source Files\src\srs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\srs\srsnode.cpp">
+      <Filter>Source Files\src\srs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\srs\srsozi.cpp">
+      <Filter>Source Files\src\srs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\srs\srspanorama.cpp">
+      <Filter>Source Files\src\srs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\srs\srspci.cpp">
+      <Filter>Source Files\src\srs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\srs\srsproj4.cpp">
+      <Filter>Source Files\src\srs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\srs\srsproj4ct.cpp">
+      <Filter>Source Files\src\srs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\srs\srsusgs.cpp">
+      <Filter>Source Files\src\srs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\srs\srsvalidate.cpp">
+      <Filter>Source Files\src\srs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\srs\srsxml.cpp">
+      <Filter>Source Files\src\srs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\sdei\builder.cpp">
+      <Filter>Source Files\src\sdei</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\sdei\builders.cpp">
+      <Filter>Source Files\src\sdei</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\sdei\connector.cpp">
+      <Filter>Source Files\src\sdei</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\sdei\proxy.cpp">
+      <Filter>Source Files\src\sdei</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\math\mathex.cpp">
+      <Filter>Source Files\src\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\math\matrix.cpp">
+      <Filter>Source Files\src\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\math\matrix3x3.cpp">
+      <Filter>Source Files\src\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\math\matrix4x4.cpp">
+      <Filter>Source Files\src\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\math\quaternion.cpp">
+      <Filter>Source Files\src\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\image\image.cpp">
+      <Filter>Source Files\src\image</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\misc\globalfuns.cpp">
+      <Filter>Source Files\src\misc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\factory\factory.cpp">
+      <Filter>Source Files\src\factory</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\render\render.cpp">
+      <Filter>Source Files\src\render</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Makefile">
+      <Filter>Source Files</Filter>
+    </None>
+  </ItemGroup>
+</Project>

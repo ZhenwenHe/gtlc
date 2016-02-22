@@ -1518,6 +1518,8 @@ bool ValUtils::set(VALUE & g, const char * sz) {
 	}
 	else
 		return false;
+
+	return true;
 }
 bool ValUtils::set(VALUE & g, const wchar_t* sz) {
 	clear(g);
@@ -1535,6 +1537,8 @@ bool ValUtils::set(VALUE & g, const wchar_t* sz) {
 	}
 	else
 		return false;
+
+	return true;
 }
 bool ValUtils::set(VALUE & g, std::string & sz) {
 	clear(g);
@@ -1553,6 +1557,8 @@ bool ValUtils::set(VALUE & g, std::string & sz) {
 	}
 	else
 		return false;
+
+	return true;
 }
 bool ValUtils::set(VALUE & g, std::wstring& sz) {
 	clear(g);
@@ -1571,6 +1577,8 @@ bool ValUtils::set(VALUE & g, std::wstring& sz) {
 	}
 	else
 		return false;
+
+	return true;
 }
 /*系统采用的排序规则：（参考SQLITE3的规定）
 1、UNKNOWN和NULL存储类型是最低的类型。一个具有NULL存储类型的值比任何其他的值都小，在NULL值之间没有具体的排序规则。

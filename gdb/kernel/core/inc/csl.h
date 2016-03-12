@@ -19,7 +19,7 @@
 #include <ios>
 #include <istream>
 #include <ostream>
-#include <string>    // char traits            
+#include <string>    // char traits
 #include <cstddef>   // ptrdiff_t
 #include <cmath>
 #include <locale.h>
@@ -103,8 +103,8 @@ public:
 		}
 	}
 
-	String & String::printf(const char *pszFormat, ...);
-	String &String::vprintf(const char *pszFormat, va_list args);
+	String & printf(const char *pszFormat, ...);
+	String & vprintf(const char *pszFormat, va_list args);
 	String & format(double dfValue, const char *pszFormat = NULL);
 	String & trim();
 	String & recode(const char *pszSrcEncoding, const char *pszDstEncoding);
@@ -283,8 +283,8 @@ public:
 	}
 	inline void set(const char *pszKey, const char *pszValue) {
 		_data=cslSetNameValue(_data, pszKey,pszValue);
-	} 
-	inline const char * find(const char * key, bool insensetive = true) {		 
+	}
+	inline const char * find(const char * key, bool insensetive = true) {
 			return  cslFetchNameValue(_data, key, insensetive);
 	}
 public:
@@ -319,7 +319,7 @@ public:
 	static int print(char * pszDest, const char * pszSrc, int mexlen, char fillChar);
 	static int print(char * pszDest, const char * pszSrc, int mexlen);
 	static int print(char * pszDest, int32_t v, int mexlen);
-	static int print(char * pszDest, uint64_t v, int mexlen); 
+	static int print(char * pszDest, uint64_t v, int mexlen);
 };
 end_gdb_namespace
 end_gtl_namespace

@@ -66,235 +66,235 @@
     <ClInclude Include="targetver.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="inc\bitset.h">
+    <ClInclude Include="..\inc\bitset.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\buffer.h">
+    <ClInclude Include="..\inc\buffer.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\bufferstream.h">
+    <ClInclude Include="..\inc\bufferstream.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\builder.h">
+    <ClInclude Include="..\inc\builder.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\builders.h">
+    <ClInclude Include="..\inc\builders.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\color.h">
+    <ClInclude Include="..\inc\color.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\coloredvertex3d.h">
+    <ClInclude Include="..\inc\coloredvertex3d.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\coloredvertex3f.h">
+    <ClInclude Include="..\inc\coloredvertex3f.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\config.h">
+    <ClInclude Include="..\inc\config.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\config_env.h">
+    <ClInclude Include="..\inc\config_env.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\config_linux.h">
+    <ClInclude Include="..\inc\config_linux.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\config_macxos.h">
+    <ClInclude Include="..\inc\config_macxos.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\config_windows.h">
+    <ClInclude Include="..\inc\config_windows.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\connector.h">
+    <ClInclude Include="..\inc\connector.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\console.h">
+    <ClInclude Include="..\inc\console.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\describablebuffer.h">
+    <ClInclude Include="..\inc\csl.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\envelope2d.h">
+    <ClInclude Include="..\inc\csv.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\envelope3d.h">
+    <ClInclude Include="..\inc\describablebuffer.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\factory.h">
+    <ClInclude Include="..\inc\envelope2d.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\feature.h">
+    <ClInclude Include="..\inc\envelope3d.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\frustum.h">
+    <ClInclude Include="..\inc\error.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\geometry.h">
+    <ClInclude Include="..\inc\factory.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\geometry2d.h">
+    <ClInclude Include="..\inc\feature.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\geometry3d.h">
+    <ClInclude Include="..\inc\fielddefinition.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\globalfuns.h">
+    <ClInclude Include="..\inc\frustum.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\identifier.h">
+    <ClInclude Include="..\inc\geometry.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\image.h">
+    <ClInclude Include="..\inc\geometry2d.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\indexbuffer.h">
+    <ClInclude Include="..\inc\geometry3d.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\lock.h">
+    <ClInclude Include="..\inc\globalfuns.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\material.h">
+    <ClInclude Include="..\inc\identifier.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\mathex.h">
+    <ClInclude Include="..\inc\image.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\matrix.h">
+    <ClInclude Include="..\inc\indexbuffer.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\matrix3x3.h">
+    <ClInclude Include="..\inc\lock.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\matrix4x4.h">
+    <ClInclude Include="..\inc\material.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\mesh.h">
+    <ClInclude Include="..\inc\mathex.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\meshbuilder.h">
+    <ClInclude Include="..\inc\matrix.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\meshproxy.h">
+    <ClInclude Include="..\inc\matrix3x3.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\property.h">
+    <ClInclude Include="..\inc\matrix4x4.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\proxy.h">
+    <ClInclude Include="..\inc\mesh.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\quaternion.h">
+    <ClInclude Include="..\inc\meshbuilder.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\ray.h">
+    <ClInclude Include="..\inc\meshproxy.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\render.h">
+    <ClInclude Include="..\inc\property.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\selector.h">
+    <ClInclude Include="..\inc\proxy.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\shadedvertex3d.h">
+    <ClInclude Include="..\inc\quaternion.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\shadedvertex3f.h">
+    <ClInclude Include="..\inc\ray.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\sharedmodel.h">
+    <ClInclude Include="..\inc\render.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\sphere3d.h">
+    <ClInclude Include="..\inc\selector.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\temporaryset.h">
+    <ClInclude Include="..\inc\shadedvertex3d.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\terrain.h">
+    <ClInclude Include="..\inc\shadedvertex3f.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\terrainbuilder.h">
+    <ClInclude Include="..\inc\sharedmodel.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\terrainproxy.h">
+    <ClInclude Include="..\inc\spatialreference.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\texture.h">
+    <ClInclude Include="..\inc\sphere3d.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\texturedvertex3d.h">
+    <ClInclude Include="..\inc\sqlite3.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\texturedvertex3f.h">
+    <ClInclude Include="..\inc\sqlite3ext.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\topology.h">
+    <ClInclude Include="..\inc\srsapi.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\tritool.h">
+    <ClInclude Include="..\inc\srsnode.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\value.h">
+    <ClInclude Include="..\inc\temporaryset.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\valutils.h">
+    <ClInclude Include="..\inc\terrain.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\versatilevertex3d.h">
+    <ClInclude Include="..\inc\terrainbuilder.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\versatilevertex3f.h">
+    <ClInclude Include="..\inc\terrainproxy.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\vertex2d.h">
+    <ClInclude Include="..\inc\texture.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\vertex2f.h">
+    <ClInclude Include="..\inc\texturedvertex3d.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\vertex3d.h">
+    <ClInclude Include="..\inc\texturedvertex3f.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\vertex3f.h">
+    <ClInclude Include="..\inc\topology.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\vertex4d.h">
+    <ClInclude Include="..\inc\tritool.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\vertexbuffer.h">
+    <ClInclude Include="..\inc\value.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\vertexcollection2d.h">
+    <ClInclude Include="..\inc\valutils.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\vertexvisitor.h">
+    <ClInclude Include="..\inc\versatilevertex3d.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\sqlite3.h">
+    <ClInclude Include="..\inc\versatilevertex3f.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\sqlite3ext.h">
+    <ClInclude Include="..\inc\vertex2d.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\fielddefinition.h">
+    <ClInclude Include="..\inc\vertex2f.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\spatialreference.h">
+    <ClInclude Include="..\inc\vertex3d.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\srsnode.h">
+    <ClInclude Include="..\inc\vertex3f.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\srsapi.h">
+    <ClInclude Include="..\inc\vertex4d.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\csv.h">
+    <ClInclude Include="..\inc\vertexbuffer.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\error.h">
+    <ClInclude Include="..\inc\vertexcollection2d.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
-    <ClInclude Include="inc\csl.h">
+    <ClInclude Include="..\inc\vertexvisitor.h">
       <Filter>Header Files\inc</Filter>
     </ClInclude>
   </ItemGroup>

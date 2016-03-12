@@ -178,61 +178,61 @@ static const Identifier ZEROID = Identifier::zero();
 /** @addtogroup Identifier  Identifier类的外部静态符号重载函数集
 *  @{
 */
-static bool operator==(const Identifier & id1, const Identifier & id2){
+bool operator==(const Identifier & id1, const Identifier & id2){
 	return id1._id == id2._id;
 }
 
-static bool operator==(const Identifier & id1, unsigned long long  id2){
+bool operator==(const Identifier & id1, unsigned long long  id2){
 	return id1._id == id2;
 }
 
-static bool operator!=(const Identifier & id1, const Identifier & id2){
+bool operator!=(const Identifier & id1, const Identifier & id2){
 	return id1._id != id2._id;
 }
 
-static bool operator!=(const Identifier & id1, unsigned long long  id2){
+bool operator!=(const Identifier & id1, unsigned long long  id2){
 	return id1._id != id2;
 }
 
-static bool operator>(const Identifier & id1, const Identifier & id2){
+bool operator>(const Identifier & id1, const Identifier & id2){
 	return id1._id>id2._id;
 }
 
-static bool operator>(const Identifier & id1, unsigned long long  id2){
+bool operator>(const Identifier & id1, unsigned long long  id2){
 	return id1._id>id2;
 }
 
-static bool operator<(const Identifier & id1, const Identifier & id2){
+bool operator<(const Identifier & id1, const Identifier & id2){
 	return id1._id<id2._id;
 }
 
-static bool operator<(const Identifier & id1, unsigned long long  id2){
+bool operator<(const Identifier & id1, unsigned long long  id2){
 	return id1._id<id2;
 }
 
-static Identifier operator+(const Identifier & id1, const Identifier & id2){
+Identifier operator+(const Identifier & id1, const Identifier & id2){
 	return Identifier(id1._id + id2._id);
 }
 
-static Identifier operator+(const Identifier & id1, unsigned long long  id2){
+Identifier operator+(const Identifier & id1, unsigned long long  id2){
 	return Identifier(id1._id + id2);
 }
 
-static Identifier operator-(const Identifier & id1, const Identifier & id2){
+Identifier operator-(const Identifier & id1, const Identifier & id2){
 	return Identifier(id1._id - id2._id);
 }
 
-static Identifier operator-(const Identifier & id1, unsigned long long  id2){
+Identifier operator-(const Identifier & id1, unsigned long long  id2){
 	return Identifier(id1._id - id2);
 }
 
 
-static std::ostream & operator <<(std::ostream & s, const Identifier & id1){
+std::ostream & operator <<(std::ostream & s, const Identifier & id1){
 	s << id1._id;
 	return s;
 }
 
-static std::istream & operator >>(std::istream & s, const Identifier & id1){
+std::istream & operator >>(std::istream & s, const Identifier & id1){
 	s >> id1._id;
 	return s;
 }

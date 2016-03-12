@@ -1,0 +1,419 @@
+# depslib dependency file v1.0
+1457707731 source:h:\gtl\gtl\gdb\kernel\core\src\attribute\bitset.cpp
+	"bitset.h"
+
+1457707730 h:\gtl\gtl\gdb\kernel\core\inc\bitset.h
+	<iostream>
+	<string>
+	<memory>
+	<vector>
+	<sstream>
+	<fstream>
+	<algorithm>
+	<set>
+	"time.h"
+	"config.h"
+
+1457707730 h:\gtl\gtl\gdb\kernel\core\inc\config.h
+	<cstring>
+	<iostream>
+	<string>
+	<vector>
+	<sstream>
+	<fstream>
+	<set>
+	<list>
+	<map>
+	<memory>
+	<cmath>
+	"time.h"
+	"assert.h"
+	"config_windows.h"
+	"config_linux.h"
+	"config_macxos.h"
+	"config_env.h"
+	"error.h"
+
+1457707730 h:\gtl\gtl\gdb\kernel\core\inc\config_windows.h
+	"windows.h"
+	"winbase.h"
+	"process.h"
+	"tchar.h"
+
+1457707730 h:\gtl\gtl\gdb\kernel\core\inc\config_linux.h
+
+1457707730 h:\gtl\gtl\gdb\kernel\core\inc\config_macxos.h
+
+1457707730 h:\gtl\gtl\gdb\kernel\core\inc\config_env.h
+	<string>
+	<algorithm>
+
+1457707730 h:\gtl\gtl\gdb\kernel\core\inc\error.h
+	<string>
+
+1457707731 source:h:\gtl\gtl\gdb\kernel\core\src\attribute\buffer.cpp
+	"config.h"
+	"buffer.h"
+
+1457707730 h:\gtl\gtl\gdb\kernel\core\inc\buffer.h
+	<iosfwd>
+	<ios>
+	<istream>
+	<ostream>
+	<string>
+	<cstddef>
+	<cmath>
+	"assert.h"
+	"bufferstream.h"
+	"color.h"
+	"vertex2d.h"
+	"vertex3f.h"
+	"vertex3d.h"
+	"vertex4d.h"
+	"vertexvisitor.h"
+	"vertexcollection2d.h"
+	"sphere3d.h"
+	"globalfuns.h"
+	"quaternion.h"
+	"matrix4x4.h"
+
+1457707730 h:\gtl\gtl\gdb\kernel\core\inc\bufferstream.h
+	<iostream>
+	"config.h"
+
+1457707730 h:\gtl\gtl\gdb\kernel\core\inc\color.h
+	"config.h"
+
+1457707730 h:\gtl\gtl\gdb\kernel\core\inc\vertex2d.h
+	"config.h"
+
+1457707730 h:\gtl\gtl\gdb\kernel\core\inc\vertex3f.h
+	"identifier.h"
+	"assert.h"
+	<cmath>
+
+1458288438 h:\gtl\gtl\gdb\kernel\core\inc\identifier.h
+	<iostream>
+	<string>
+	<memory>
+	<vector>
+	<sstream>
+	<fstream>
+	<algorithm>
+	<set>
+	"time.h"
+	"config.h"
+
+1457707730 h:\gtl\gtl\gdb\kernel\core\inc\vertex3d.h
+	"identifier.h"
+	"assert.h"
+	<cmath>
+	"vertex2f.h"
+	"vertex2d.h"
+
+1457707730 h:\gtl\gtl\gdb\kernel\core\inc\vertex2f.h
+	"config.h"
+
+1457707730 h:\gtl\gtl\gdb\kernel\core\inc\vertex4d.h
+	"identifier.h"
+	"assert.h"
+	<cmath>
+
+1457707730 h:\gtl\gtl\gdb\kernel\core\inc\vertexvisitor.h
+	<memory>
+	"assert.h"
+	<cmath>
+	"config.h"
+	"coloredvertex3f.h"
+	"coloredvertex3d.h"
+	"texturedvertex3f.h"
+	"texturedvertex3d.h"
+	"shadedvertex3f.h"
+	"shadedvertex3d.h"
+	"versatilevertex3d.h"
+	"versatilevertex3f.h"
+
+1457707730 h:\gtl\gtl\gdb\kernel\core\inc\coloredvertex3f.h
+	"config.h"
+	"vertex2f.h"
+	"vertex3f.h"
+
+1457707730 h:\gtl\gtl\gdb\kernel\core\inc\coloredvertex3d.h
+	"config.h"
+	"vertex2d.h"
+	"vertex3d.h"
+	"vertex4d.h"
+	"color.h"
+
+1457707730 h:\gtl\gtl\gdb\kernel\core\inc\texturedvertex3f.h
+	"config.h"
+	"vertex2f.h"
+	"vertex3f.h"
+
+1457707730 h:\gtl\gtl\gdb\kernel\core\inc\texturedvertex3d.h
+	"config.h"
+	"vertex2d.h"
+	"vertex3d.h"
+	"vertex4d.h"
+
+1457707730 h:\gtl\gtl\gdb\kernel\core\inc\shadedvertex3f.h
+	"config.h"
+	"vertex2f.h"
+	"vertex3f.h"
+
+1457707730 h:\gtl\gtl\gdb\kernel\core\inc\shadedvertex3d.h
+	"config.h"
+	"vertex2d.h"
+	"vertex3f.h"
+	"vertex3d.h"
+	"vertex4d.h"
+
+1457707730 h:\gtl\gtl\gdb\kernel\core\inc\versatilevertex3d.h
+	"config.h"
+	"vertex2d.h"
+	"vertex3d.h"
+	"vertex4d.h"
+
+1457707730 h:\gtl\gtl\gdb\kernel\core\inc\versatilevertex3f.h
+	"config.h"
+	"vertex2f.h"
+	"vertex3f.h"
+
+1457707730 h:\gtl\gtl\gdb\kernel\core\inc\vertexcollection2d.h
+	"assert.h"
+	<cmath>
+	"vertex2d.h"
+
+1457707730 h:\gtl\gtl\gdb\kernel\core\inc\sphere3d.h
+	<cmath>
+	"assert.h"
+	"config.h"
+	"vertex2d.h"
+	"vertex3d.h"
+	"envelope3d.h"
+
+1457707730 h:\gtl\gtl\gdb\kernel\core\inc\envelope3d.h
+	<cmath>
+	"assert.h"
+	"config.h"
+	"vertex2d.h"
+	"vertex3d.h"
+	"envelope2d.h"
+
+1457707730 h:\gtl\gtl\gdb\kernel\core\inc\envelope2d.h
+	<cmath>
+	"assert.h"
+	"config.h"
+	"vertex2d.h"
+	"vertex3d.h"
+
+1458288500 h:\gtl\gtl\gdb\kernel\core\inc\globalfuns.h
+	<iosfwd>
+	<ios>
+	<istream>
+	<ostream>
+	<string>
+	<cstddef>
+	<cmath>
+	<locale.h>
+	"config.h"
+	"csl.h"
+
+1458288680 h:\gtl\gtl\gdb\kernel\core\inc\csl.h
+	<iosfwd>
+	<ios>
+	<istream>
+	<ostream>
+	<string>
+	<cstddef>
+	<cmath>
+	<locale.h>
+	"config.h"
+
+1457707730 h:\gtl\gtl\gdb\kernel\core\inc\quaternion.h
+	<iostream>
+	<string>
+	<vector>
+	<sstream>
+	<cmath>
+	"config.h"
+	"vertex3d.h"
+	"vertex4d.h"
+
+1457707730 h:\gtl\gtl\gdb\kernel\core\inc\matrix4x4.h
+	<iostream>
+	<string>
+	<vector>
+	<sstream>
+	<cmath>
+	"vertex3f.h"
+	"vertex4d.h"
+	"matrix3x3.h"
+	"quaternion.h"
+
+1457707730 h:\gtl\gtl\gdb\kernel\core\inc\matrix3x3.h
+	<iostream>
+	<string>
+	<vector>
+	<sstream>
+	<cmath>
+	"matrix.h"
+
+1457707730 h:\gtl\gtl\gdb\kernel\core\inc\matrix.h
+	<iostream>
+	<string>
+	<vector>
+	<sstream>
+	<cmath>
+	"config.h"
+	"vertex3d.h"
+	"mathex.h"
+
+1457707730 h:\gtl\gtl\gdb\kernel\core\inc\mathex.h
+	<iostream>
+	<string>
+	<vector>
+	<sstream>
+	<cmath>
+	"vertex3d.h"
+
+1457707731 source:h:\gtl\gtl\gdb\kernel\core\src\attribute\csvfile.cpp
+	<stdlib.h>
+	<stdio.h>
+	"csv.h"
+	"globalfuns.h"
+
+1457707730 h:\gtl\gtl\gdb\kernel\core\inc\csv.h
+	"config.h"
+	"value.h"
+	"csl.h"
+
+1457707730 h:\gtl\gtl\gdb\kernel\core\inc\value.h
+	<iostream>
+	<string>
+	<vector>
+	<sstream>
+	<limits>
+	<cmath>
+	"identifier.h"
+	"valutils.h"
+
+1458289811 h:\gtl\gtl\gdb\kernel\core\inc\valutils.h
+	<iostream>
+	<string>
+	<vector>
+	<sstream>
+	<limits>
+	<cmath>
+	<cstdlib>
+	<csl.h>
+	<buffer.h>
+
+1457707731 source:h:\gtl\gtl\gdb\kernel\core\src\attribute\fielddefinition.cpp
+	"fielddefinition.h"
+
+1457707730 h:\gtl\gtl\gdb\kernel\core\inc\fielddefinition.h
+	<iostream>
+	<string>
+	<vector>
+	<sstream>
+	<limits>
+	<cmath>
+	"value.h"
+
+1457707731 source:h:\gtl\gtl\gdb\kernel\core\src\attribute\identifier.cpp
+	"stdlib.h"
+	"stdio.h"
+	"identifier.h"
+
+1457707731 source:h:\gtl\gtl\gdb\kernel\core\src\attribute\indexbuffer.cpp
+	"indexbuffer.h"
+
+1457707730 h:\gtl\gtl\gdb\kernel\core\inc\indexbuffer.h
+	<iostream>
+	<string>
+	<vector>
+	<sstream>
+	"describablebuffer.h"
+
+1457707730 h:\gtl\gtl\gdb\kernel\core\inc\describablebuffer.h
+	<iostream>
+	<string>
+	<vector>
+	<sstream>
+	"buffer.h"
+
+1457707731 source:h:\gtl\gtl\gdb\kernel\core\src\attribute\property.cpp
+	"property.h"
+
+1457707730 h:\gtl\gtl\gdb\kernel\core\inc\property.h
+	<iostream>
+	<string>
+	<vector>
+	<sstream>
+	<limits>
+	<cmath>
+	"value.h"
+	"fielddefinition.h"
+
+1457707731 source:h:\gtl\gtl\gdb\kernel\core\src\attribute\sqlite3.c
+	<vxWorks.h>
+	<pthread.h>
+	"mingw.h"
+	"_mingw.h"
+	<stdarg.h>
+	"config.h"
+	<stdint.h>
+	<inttypes.h>
+	<intrin.h>
+	<cmnintrin.h>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<assert.h>
+	<stddef.h>
+	<TargetConditionals.h>
+	<ctype.h>
+	<time.h>
+	<sys/sysctl.h>
+	<malloc/malloc.h>
+	<libkern/OSAtomic.h>
+	<malloc.h>
+	<pthread.h>
+	"windows.h"
+	<sys/cygwin.h>
+	<errno.h>
+	<process.h>
+	<math.h>
+	<sys/types.h>
+	<sys/stat.h>
+	<fcntl.h>
+	<unistd.h>
+	<sys/time.h>
+	<errno.h>
+	<sys/mman.h>
+	<sys/ioctl.h>
+	<sys/file.h>
+	<sys/param.h>
+	<semaphore.h>
+	<limits.h>
+	<sys/mount.h>
+	<utime.h>
+	<sys/dcmd_blk.h>
+	<sys/statvfs.h>
+	<dlfcn.h>
+	<tcl.h>
+	"sqlite3rtree.h"
+	<unicode/utypes.h>
+	<unicode/uregex.h>
+	<unicode/ustring.h>
+	<unicode/ucol.h>
+	<unicode/ubrk.h>
+	<unicode/utf16.h>
+	<ctype.h>
+	<math.h>
+
+1457707731 source:h:\gtl\gtl\gdb\kernel\core\src\attribute\value.cpp
+	"value.h"
+	<limits>
+

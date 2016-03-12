@@ -20,7 +20,8 @@
 #include <limits>
 #include <cmath>
 #include <cstdlib>
-#include "buffer.h"
+#include <csl.h>
+#include <buffer.h>
 
 
 
@@ -125,6 +126,8 @@ struct VALUE {
 		char *             pc8;
 		wchar_t *          pc16;
 		unsigned char *    pu8;
+		short*             pi16;
+		unsigned short *   pu16;
 		int*               pi32;
 		unsigned int*      pu32;
 		long long*         pi64;
@@ -145,9 +148,9 @@ public:
 	GVT_UINT8->GVT_UINT16->GVT_UINT32->GVT_UINT64
 	GVT_FLOAT32->GVT_FLOAT64
 	GVT_CHAR8->GVT_CHAR16
-	GVT_DATE->GVT_DATETIME	
+	GVT_DATE->GVT_DATETIME
 	*/
-	static bool changeType(VALUE & g, GVT pt);	
+	static bool changeType(VALUE & g, GVT pt);
 	/*系统采用的排序规则：（参考SQLITE3的规定）
 	1、UNKNOWN和NULL存储类型是最低的类型。一个具有NULL存储类型的值比任何其他的值都小，在NULL值之间没有具体的排序规则。
 	2、BOOL类型，高于NULL，true>false;
@@ -188,7 +191,7 @@ public:
 	static void clear(VALUE & g);
 public:
 	static bool isDecimal(GVT pt);
-	static bool isInteger(GVT pt); 
+	static bool isInteger(GVT pt);
 	static bool isNumber(GVT pt);
 	static bool isChar(GVT pt);
 	static bool isDecimal(VALUE & g);
@@ -218,7 +221,7 @@ public:
 	static void initialInt8(VALUE * pv, signed char * cc, int n = 1);
 	static void initialInt8(VALUE * pv, signed char  cc);
 	static void initialUInt8(VALUE * pv, unsigned char * cc, int n = 1);
-	static void initialUInt8(VALUE * pv, unsigned char  cc);	
+	static void initialUInt8(VALUE * pv, unsigned char  cc);
 	static void initialInt16(VALUE * pv, short * cc, int n = 1);
 	static void initialInt16(VALUE * pv, short  cc);
 	static void initialUInt16(VALUE * pv, unsigned short * cc, int n = 1);
@@ -252,12 +255,12 @@ protected:
 
 /*
 T = char, wchar_t, unsigned char, short,unsigned short,
-    int , unsigned int, 
+    int , unsigned int,
 	long long, unsigned long long,
 	float, double
 	bool
 */
-template<typename T> 
+template<typename T>
 bool  resetValue(VALUE & g, std::vector<T> & newval, GVT newtype) {
 	if (newval.size() == 1)	{
 		return resetValue<T>(g, newval[0], newtype);
@@ -272,7 +275,7 @@ bool  resetValue(VALUE & g, std::vector<T> & newval, GVT newtype) {
 		g.pv = (void*)temp;
 		for (auto it = newval.begin(); it != newval.end(); it++, temp++) {
 			*temp = (char)(*it);
-		}		
+		}
 		break;
 	}
 	case  GVT::GVT_CHAR16:
@@ -451,7 +454,7 @@ long long, unsigned long long,
 float, double
 bool
 */
-template<typename T>  
+template<typename T>
 bool  resetValue(VALUE & g, T & newval, GVT newtype) {
 	ValUtils::clear(g);
 	switch (newtype)
@@ -738,7 +741,7 @@ bool  extractValue(VALUE & g, std::vector<T> & v)
 		}
 		break;
 	}
-	case GVT::GVT_BOOL://bv 
+	case GVT::GVT_BOOL://bv
 	{
 		v.resize(n);
 		if (g.count > 1) {
@@ -751,7 +754,7 @@ bool  extractValue(VALUE & g, std::vector<T> & v)
 		}
 		break;
 	}
-	case GVT::GVT_DATE://DATE 
+	case GVT::GVT_DATE://DATE
 	{
 		v.resize(n * 3);
 		if (g.count > 1) {
@@ -768,7 +771,7 @@ bool  extractValue(VALUE & g, std::vector<T> & v)
 		}
 		break;
 	}
-	case GVT::GVT_DATETIME://DATETIME 
+	case GVT::GVT_DATETIME://DATETIME
 	{
 		v.resize(n * 7);
 		if (g.count > 1) {
@@ -867,13 +870,13 @@ bool  extractValue(VALUE & g, T & v)
 		v = (T)(g.f64);
 		break;
 	}
-	case GVT::GVT_BOOL://bv 
+	case GVT::GVT_BOOL://bv
 	{
 		v = (T)(g.bv ? 1 : 0);
 		break;
 	}
-	case GVT::GVT_DATE://DATE 
-	case GVT::GVT_DATETIME://DATETIME 
+	case GVT::GVT_DATE://DATE
+	case GVT::GVT_DATETIME://DATETIME
 		return false;
 	default:
 		return false;

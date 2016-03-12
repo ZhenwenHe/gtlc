@@ -1,4 +1,4 @@
-#include "valutils.h" 
+#include "valutils.h"
 
 
 
@@ -8,7 +8,7 @@ begin_gdb_namespace
 返回对应类型的默认名称，全部为小写，类型名称不分大小写
 */
 std::string ValUtils::getCTypeName(GVT t) {
-	std::string sz; 
+	std::string sz;
 	switch (t)
 	{
 	case GVT_CHAR8://c8
@@ -47,13 +47,13 @@ std::string ValUtils::getCTypeName(GVT t) {
 	case GVT_FLOAT64://f64
 		sz="double";
 		break;
-	case GVT_BOOL://bv 
+	case GVT_BOOL://bv
 		sz="bool";
 		break;
-	case GVT_DATE://DATE 
+	case GVT_DATE://DATE
 		sz="int*";
 		break;
-	case GVT_DATETIME://DATETIME 
+	case GVT_DATETIME://DATETIME
 		sz="int*";
 		break;
 	default:
@@ -102,13 +102,13 @@ std::string ValUtils::getTypeName(GVT t) {
 	case GVT_FLOAT64://f64
 		sz = "float64";
 		break;
-	case GVT_BOOL://bv 
+	case GVT_BOOL://bv
 		sz = "bool";
 		break;
-	case GVT_DATE://DATE 
+	case GVT_DATE://DATE
 		sz = "date";
 		break;
-	case GVT_DATETIME://DATETIME 
+	case GVT_DATETIME://DATETIME
 		sz = "datetime";
 		break;
 	default:
@@ -172,7 +172,7 @@ std::string ValUtils::getTypeName(GVT t, std::vector<std::string>& names) {
 		}
 		case GVT_CHAR16://c16
 		{
-			sz = "char16"; 
+			sz = "char16";
 			names.push_back(sz);
 			names.push_back("wchat_t");//C++中的类型名称
 			names.push_back("wide varchar");
@@ -182,7 +182,7 @@ std::string ValUtils::getTypeName(GVT t, std::vector<std::string>& names) {
 			names.push_back("wide char varying");
 			names.push_back("wide clob");
 			break;
-		}		
+		}
 		case GVT_INT8://i8
 		{
 			sz = "int8";
@@ -190,7 +190,7 @@ std::string ValUtils::getTypeName(GVT t, std::vector<std::string>& names) {
 			names.push_back("signed char");//C++中的类型名称
 			names.push_back("int8");
 			break;
-		}		
+		}
 		case GVT_INT16://i16
 		{
 			sz = "int16";
@@ -219,7 +219,7 @@ std::string ValUtils::getTypeName(GVT t, std::vector<std::string>& names) {
 			break;
 		}
 		case GVT_UINT8://u8
-		{	
+		{
 			sz = "uint8";
 			names.push_back(sz);
 			names.push_back("unsigned char");//C++中的类型名称
@@ -269,7 +269,7 @@ std::string ValUtils::getTypeName(GVT t, std::vector<std::string>& names) {
 			names.push_back("decimal64");
 			break;
 		}
-		case GVT_BOOL://bv 
+		case GVT_BOOL://bv
 		{
 			sz = "bool";
 			names.push_back(sz);
@@ -277,7 +277,7 @@ std::string ValUtils::getTypeName(GVT t, std::vector<std::string>& names) {
 			names.push_back("boolean");
 			break;
 		}
-		case GVT_DATE://DATE 
+		case GVT_DATE://DATE
 		{
 			sz = "date";
 			names.push_back(sz);
@@ -285,7 +285,7 @@ std::string ValUtils::getTypeName(GVT t, std::vector<std::string>& names) {
 			names.push_back("int32x3");
 			break;
 		}
-		case GVT_DATETIME://DATETIME 
+		case GVT_DATETIME://DATETIME
 		{
 			sz = "datetime";
 			names.push_back(sz);
@@ -301,7 +301,7 @@ std::string ValUtils::getTypeName(GVT t, std::vector<std::string>& names) {
 			names.push_back("null");
 			names.push_back("unkn");
 			break;
-		}		
+		}
 	}
 	return sz;
 }
@@ -392,7 +392,7 @@ void ValUtils::clear(VALUE & g){
 		else if (g.type == GVT_DATETIME) {
 			delete[](g.datetime);
 			g.datetime = 0;
-		}			
+		}
 	}
 	g.type = GVT_UNKN;
 	g.count = 0;
@@ -511,13 +511,13 @@ int ValUtils::getTypeSize(GVT t){
 	case GVT_FLOAT64://f64
 		r = sizeof(double);
 		break;
-	case GVT_BOOL://bv 
+	case GVT_BOOL://bv
 		r = sizeof(bool);
 		break;
-	case GVT_DATE://DATE 
+	case GVT_DATE://DATE
 		r = sizeof(int)*3;
 		break;
-	case GVT_DATETIME://DATETIME 
+	case GVT_DATETIME://DATETIME
 		r = sizeof(int)*7;
 		break;
 	default:
@@ -530,7 +530,7 @@ std::string ValUtils::toString(VALUE & g){
 	switch (g.type)
 	{
 	case GVT_CHAR8://c8
-	{	
+	{
 		if (g.count > 1) {
 			sz.assign(g.pc8, g.count);
 		}
@@ -543,7 +543,7 @@ std::string ValUtils::toString(VALUE & g){
 	{
 		if (g.count > 1) {
 			std::wstring wsz;
-			wsz.assign(g.pc16, g.count); 
+			wsz.assign(g.pc16, g.count);
 			wstringToString(wsz, sz);
 		}
 		else {
@@ -553,148 +553,188 @@ std::string ValUtils::toString(VALUE & g){
 		}
 		break;
 	}
-	case GVT_INT8://i8	
+	case GVT_INT8://i8
 	{
-		char t[32];
+		//char t[32];
 		if (g.count > 1) {
+            std::string tsz;
 			int n = g.count;
-			itoa((int)((g.pc8)[0]), (char*)t, 10);
-			sz  = ((const char *)t);
+			//itoa((int)((g.pc8)[0]), (char*)t, 10);
+			sz=numberToString<char,int>((int)((g.pc8)[0]));
+			//sz  = ((const char *)t);
 			for (int i = 1; i < n; i++) {
-				itoa((int)((g.pc8)[i]),(char*) t, 10);
+				//itoa((int)((g.pc8)[i]),(char*) t, 10);
+				tsz=numberToString<char,int>((int)((g.pc8)[i]));
 				sz.append(1, ',');
-				sz += ((const char *)t);
+				//sz += ((const char *)t);
+				sz+=tsz;
 			}
 		}
-		else {			
-			itoa((int)(g.i8), t, 10);
-			sz = ((const char *)t);
+		else {
+			//itoa((int)(g.i8), t, 10);
+			//sz = ((const char *)t);
+            sz=numberToString<char,int>((int)(g.i8));
 		}
 		break;
 	}
 	case GVT_INT16://i16
 	{
-		char t[32];
+		//char t[32];
 		if (g.count > 1) {
 			int n = g.count;
-			itoa((int)(((short*)(g.pv))[0]), (char*)t, 10);
+			std::string tsz;
+			//itoa((int)(((short*)(g.pv))[0]), (char*)t, 10);
+			sz=numberToString<char,int>((int)((g.pi16)[0]));
 			for (int i = 1; i < n; i++) {
-				itoa((int)(((short*)(g.pv))[i]), (char*)t, 10);
+				//itoa((int)(((short*)(g.pv))[i]), (char*)t, 10);
+				tsz=numberToString<char,int>((int)((g.pi16)[i]));
 				sz.append(1, ',');
-				sz += ((const char *)t);
+				//sz += ((const char *)t);
+				sz+=tsz;
 			}
 		}
 		else {
-			itoa((int)(g.i16), t, 10);
-			sz = ((const char *)t);
+			//itoa((int)(g.i16), t, 10);
+			//sz = ((const char *)t);
+			sz=numberToString<char,int>((int)(g.i16));
 		}
 		break;
 	}
 	case GVT_INT32://i32
 	{
-		char t[32];
+		//char t[32];
 		if (g.count > 1) {
+            std::string tsz;
 			int n = g.count;
-			itoa((int)(((int*)(g.pv))[0]), (char*)t, 10);
+			//itoa((int)(((int*)(g.pv))[0]), (char*)t, 10);
+			sz=numberToString<char,int>((int)((g.pi32)[0]));
 			for (int i = 1; i < n; i++) {
-				itoa((int)(((int*)(g.pv))[i]), (char*)t, 10);
+				//itoa((int)(((int*)(g.pv))[i]), (char*)t, 10);
+				tsz=numberToString<char,int>((int)((g.pi32)[i]));
 				sz.append(1, ',');
-				sz += ((const char *)t);
+				//sz += ((const char *)t);
+				sz+=tsz;
 			}
 		}
 		else {
-			itoa((int)(g.i32), t, 10);
-			sz = ((const char *)t);
+			//itoa((int)(g.i32), t, 10);
+			//sz = ((const char *)t);
+			sz=numberToString<char,int>((int)(g.i32));
 		}
 		break;
 	}
 	case GVT_INT64://i64
 	{
-		char t[64];
+		//char t[64];
 		if (g.count > 1) {
 			int n = g.count;
-			_i64toa((long long)(((long long *)(g.pv))[0]), (char*)t, 10);
+			std::string tsz;
+			//_i64toa((long long)(((long long *)(g.pv))[0]), (char*)t, 10);
+			sz=numberToString<char,int64_t>((int64_t)((g.pi64)[0]));
 			for (int i = 1; i < n; i++) {
-				_i64toa((long long)(((long long *)(g.pv))[i]), (char*)t, 10);
+				//_i64toa((long long)(((long long *)(g.pv))[i]), (char*)t, 10);
+				tsz=numberToString<char,int64_t>((int64_t)((g.pi64)[i]));
 				sz.append(1, ',');
-				sz += ((const char *)t);
+				//sz += ((const char *)t);
+				sz+=tsz;
 			}
 		}
 		else {
-			_i64toa((long long)(g.i64), t, 10);
-			sz = ((const char *)t);
+			//_i64toa((long long)(g.i64), t, 10);
+			//sz = ((const char *)t);
+			sz=numberToString<char,int64_t>((int64_t)(g.i64));
 		}
 		break;
 	}
 	case GVT_UINT8://u8
 	{
-		char t[32];
+		//char t[32];
 		if (g.count > 1) {
 			int n = g.count;
-			ultoa((unsigned long)(((unsigned char *)(g.pv))[0]), (char*)t, 10);
+			std::string tsz;
+			//ultoa((unsigned long)(((unsigned char *)(g.pv))[0]), (char*)t, 10);
+			sz=numberToString<char,uint32_t>((uint32_t)((g.pu8)[0]));
 			for (int i = 1; i < n; i++) {
-				ultoa((unsigned long)(((unsigned char *)(g.pv))[i]), (char*)t, 10);
+				//ultoa((unsigned long)(((unsigned char *)(g.pv))[i]), (char*)t, 10);
+				tsz=numberToString<char,uint32_t>((uint32_t)((g.pu8)[i]));
 				sz.append(1, ',');
-				sz += ((const char *)t);
+				//sz += ((const char *)t);
+				sz+=tsz;
 			}
 		}
 		else {
-			ultoa((unsigned long)(g.u8), t, 10);
-			sz = ((const char *)t);
+			//ultoa((unsigned long)(g.u8), t, 10);
+			//sz = ((const char *)t);
+			sz=numberToString<char,uint32_t>((uint32_t)(g.u8));
 		}
 		break;
 	}
 	case GVT_UINT16://u16
 	{
-		char t[32];
+		//char t[32];
 		if (g.count > 1) {
 			int n = g.count;
-			ultoa((unsigned long)(((unsigned short *)(g.pv))[0]), (char*)t, 10);
+			std::string tsz;
+			//ultoa((unsigned long)(((unsigned short *)(g.pv))[0]), (char*)t, 10);
+			sz=numberToString<char,uint32_t>((uint32_t)((g.pu16)[0]));
 			for (int i = 1; i < n; i++) {
-				ultoa((unsigned long)(((unsigned short *)(g.pv))[i]), (char*)t, 10);
+				//ultoa((unsigned long)(((unsigned short *)(g.pv))[i]), (char*)t, 10);
+				tsz=numberToString<char,uint32_t>((uint32_t)((g.pu16)[i]));
 				sz.append(1, ',');
-				sz += ((const char *)t);
+				//sz += ((const char *)t);
+				sz+=tsz;
 			}
 		}
 		else {
-			ultoa((unsigned long)(g.u16), t, 10);
-			sz = ((const char *)t);
+			//ultoa((unsigned long)(g.u16), t, 10);
+			//sz = ((const char *)t);
+			sz=numberToString<char,uint32_t>((uint32_t)(g.u16));
 		}
 		break;
 	}
 	case GVT_UINT32://u32
 	{
-		char t[32];
+		//char t[32];
 		if (g.count > 1) {
 			int n = g.count;
-			ultoa((unsigned long)(((unsigned int *)(g.pv))[0]), (char*)t, 10);
+			std::string tsz;
+			//ultoa((unsigned long)(((unsigned int *)(g.pv))[0]), (char*)t, 10);
+			sz=numberToString<char,uint32_t>((uint32_t)((g.pu32)[0]));
 			for (int i = 1; i < n; i++) {
-				ultoa((unsigned long)(((unsigned int *)(g.pv))[i]), (char*)t, 10);
+				//ultoa((unsigned long)(((unsigned int *)(g.pv))[i]), (char*)t, 10);
+				tsz=numberToString<char,uint32_t>((uint32_t)((g.pu32)[0]));
 				sz.append(1, ',');
-				sz += ((const char *)t);
+				//sz += ((const char *)t);
+				sz+=tsz;
 			}
 		}
 		else {
-			ultoa((unsigned long)(g.u32), t, 10);
-			sz = ((const char *)t);
+			//ultoa((unsigned long)(g.u32), t, 10);
+			//sz = ((const char *)t);
+			sz=numberToString<char,uint32_t>((uint32_t)(g.u32));
 		}
 		break;
 	}
 	case GVT_UINT64://u64
 	{
-		char t[64];
+		//char t[64];
 		if (g.count > 1) {
 			int n = g.count;
-			ultoa((unsigned long long)(((unsigned long long *)(g.pv))[0]), (char*)t, 10);
+			std::string tsz;
+			//ultoa((unsigned long long)(((unsigned long long *)(g.pv))[0]), (char*)t, 10);
+			sz=numberToString<char,uint64_t>((uint64_t)((g.pu64)[0]));
 			for (int i = 1; i < n; i++) {
-				ultoa((unsigned long long)(((unsigned long long *)(g.pv))[i]), (char*)t, 10);
+				//ultoa((unsigned long long)(((unsigned long long *)(g.pv))[i]), (char*)t, 10);
+				tsz=numberToString<char,uint64_t>((uint64_t)((g.pu64)[i]));
 				sz.append(1, ',');
-				sz += ((const char *)t);
+				//sz += ((const char *)t);
+				sz+=tsz;
 			}
 		}
 		else {
-			ultoa((unsigned long long)(g.u64), t, 10);
-			sz = ((const char *)t);
+			//ultoa((unsigned long long)(g.u64), t, 10);
+			//sz = ((const char *)t);
+			sz=numberToString<char,uint64_t>((uint64_t)(g.u64));
 		}
 		break;
 	}
@@ -710,11 +750,12 @@ std::string ValUtils::toString(VALUE & g){
 			sz = oss.str();
 		}
 		else {
-			std::basic_ostringstream<char> oss;
-			oss << g.i32;
-			sz = oss.str();
+			//std::basic_ostringstream<char> oss;
+			//oss << g.f32;
+			//sz = oss.str();
+			sz=numberToString<char,float>((float)(g.f32));
 		}
-		
+
 		break;
 	}
 	case GVT_FLOAT64://f64
@@ -729,13 +770,14 @@ std::string ValUtils::toString(VALUE & g){
 			sz = oss.str();
 		}
 		else {
-			std::basic_ostringstream<char> oss;
-			oss << g.i32;
-			sz = oss.str();
+			//std::basic_ostringstream<char> oss;
+			//oss << g.f64;
+			//sz = oss.str();
+			sz=numberToString<char,double>((double)(g.f64));
 		}
 		break;
 	}
-	case GVT_BOOL://bv 
+	case GVT_BOOL://bv
 	{
 		if (g.count > 1) {
 			int n = g.count;
@@ -753,7 +795,7 @@ std::string ValUtils::toString(VALUE & g){
 		}
 		break;
 	}
-	case GVT_DATE://DATE 
+	case GVT_DATE://DATE
 	{
 		if (g.count > 1) {
 			int n = g.count;
@@ -781,7 +823,7 @@ std::string ValUtils::toString(VALUE & g){
 				<< g.datetime[6];
 			for (int i = 1; i < n; i++) {
 				oss << g.datetime[i*7+0] << "-" << g.datetime[i*7+1] << "-" << g.datetime[i*7+2] << " "
-					<< g.datetime[i*7+3] << ":" << g.datetime[i*7+4] << ":" << g.datetime[i*7+5] << " " 
+					<< g.datetime[i*7+3] << ":" << g.datetime[i*7+4] << ":" << g.datetime[i*7+5] << " "
 					<< g.datetime[i*7+6];
 			}
 			sz = oss.str();
@@ -801,14 +843,14 @@ std::string ValUtils::toString(VALUE & g){
 	return sz;
 }
 std::wstring ValUtils::toWString(VALUE & g){
-	std::wstring wsz;	 
-	if(g.type== GVT_CHAR16){//c16		
-		if (g.count > 1) {			
-			wsz.assign(g.pc16, g.count); 
+	std::wstring wsz;
+	if(g.type== GVT_CHAR16){//c16
+		if (g.count > 1) {
+			wsz.assign(g.pc16, g.count);
 		}
-		else { 
+		else {
 			wsz.resize(1, g.c16);
-		}	
+		}
 	}
 	else {
 		std::string sz = toString(g);
@@ -868,19 +910,19 @@ void ValUtils::copy(VALUE * g, const VALUE & v){
 		case GVT_FLOAT64://f64
 			g->f64=v.f64;
 			break;
-		case GVT_BOOL://bv 
+		case GVT_BOOL://bv
 			g->bv=v.bv;
 			break;
-		case GVT_DATE://DATE 
+		case GVT_DATE://DATE
 			memcpy(g->date,v.date,sizeof(int)*3);
 			break;
-		case GVT_DATETIME://DATETIME 
+		case GVT_DATETIME://DATETIME
 			memcpy(g->datetime, v.datetime, sizeof(int) * 7);
 			break;
 		default:
 			break;
 		}
-	}	
+	}
 }
 
 void ValUtils::initialChar(VALUE * pv, char * cc, int n){
@@ -891,7 +933,7 @@ void ValUtils::initialChar(VALUE * pv, char * cc, int n){
 		pv->count = n;
 		pv->pc8=  new char[pv->count];
 		memcpy(pv->pc8, cc, n);
-	}	
+	}
 }
 void ValUtils::initialChar(VALUE * pv, char  cc){
 	pv->type = GVT_CHAR8;
@@ -924,7 +966,7 @@ void ValUtils::initialUInt8(VALUE * pv, unsigned char * cc, int n){
 		pv->count = n;
 		pv->pu8 =  new unsigned char[pv->count];
 		memcpy(pv->pu8, cc, n);
-	}	
+	}
 }
 void ValUtils::initialUInt8(VALUE * pv, unsigned char  cc){
 	pv->type = GVT_UINT8;
@@ -941,7 +983,7 @@ void ValUtils::initialWChar(VALUE * pv, wchar_t * cc, int n){
 		pv->count = n;
 		pv->pv = (void*) new  wchar_t[pv->count];
 		memcpy(pv->pv, cc, getSize(*pv));
-	}	
+	}
 }
 void ValUtils::initialWChar(VALUE * pv, wchar_t  cc){
 	pv->type = GVT_CHAR16;
@@ -973,7 +1015,7 @@ void ValUtils::initialUInt16(VALUE * pv, unsigned short * cc, int n){
 		pv->count = n;
 		pv->pv = (void*) new  unsigned short[pv->count];
 		memcpy(pv->pv, cc, getSize(*pv));
-	}	
+	}
 }
 void ValUtils::initialUInt16(VALUE * pv, unsigned short  cc){
 	pv->type = GVT_UINT16;
@@ -1005,7 +1047,7 @@ void ValUtils::initialUInt32(VALUE * pv, unsigned int * cc, int n){
 		pv->count = n;
 		pv->pv = (void*) new  int[pv->count];
 		memcpy(pv->pv, cc, getSize(*pv));
-	}	
+	}
 }
 void ValUtils::initialUInt32(VALUE * pv, unsigned int  cc){
 	pv->type = GVT_UINT32;
@@ -1024,7 +1066,7 @@ void ValUtils::initialInt32(VALUE * pv, long * cc, int n){
 		for (int i = 0; i < n; i++)
 			data[i] = cc[i];
 		//memcpy(pv->pv, cc, getSize(*pv));
-	}	
+	}
 }
 void ValUtils::initialInt32(VALUE * pv, long  cc){
 	pv->type = GVT_INT32;
@@ -1084,7 +1126,7 @@ void ValUtils::initialFloat(VALUE * pv, float * cc, int n){
 		pv->count = n;
 		pv->pv = (void*) new  float[pv->count];
 		memcpy(pv->pv, cc, getSize(*pv));
-	}	
+	}
 }
 void ValUtils::initialFloat(VALUE * pv, float  cc){
 	pv->type = GVT_FLOAT32;
@@ -1104,7 +1146,7 @@ void ValUtils::initialDouble(VALUE * pv, double * cc, int n){
 		pv->count = n;
 		pv->pv = (void*) new  double[pv->count];
 		memcpy(pv->pv, cc, getSize(*pv));
-	}	
+	}
 }
 void ValUtils::initialDouble(VALUE * pv, double  cc){
 	pv->type = GVT_FLOAT64;
@@ -1201,13 +1243,13 @@ void ValUtils::write(Buffer & bs, VALUE & g) {
 		case GVT_FLOAT64://f64
 			bs.write((void*)(&(g.f64)), sizeof(double));
 			break;
-		case GVT_BOOL://bv 
+		case GVT_BOOL://bv
 			bs.write((void*)(&(g.bv)), sizeof(bool));
 			break;
-		case GVT_DATE://DATE 
+		case GVT_DATE://DATE
 			bs.write((void*)(&(g.date)), sizeof(int)*3);
 			break;
-		case GVT_DATETIME://DATETIME 
+		case GVT_DATETIME://DATETIME
 			bs.write((void*)(&(g.datetime)), sizeof(int) * 7);
 			break;
 		default:
@@ -1266,13 +1308,13 @@ void ValUtils::read(Buffer & bs, VALUE & g){
 		case GVT_FLOAT64://f64
 			bs.read((void*)(&(g.f64)), sizeof(double));
 			break;
-		case GVT_BOOL://bv 
+		case GVT_BOOL://bv
 			bs.read((void*)(&(g.bv)), sizeof(bool));
 			break;
-		case GVT_DATE://DATE 
+		case GVT_DATE://DATE
 			bs.read((void*)(&(g.date)), sizeof(int) * 3);
 			break;
-		case GVT_DATETIME://DATETIME 
+		case GVT_DATETIME://DATETIME
 			bs.read((void*)(&(g.datetime)), sizeof(int) * 7);
 			break;
 		default:
@@ -1327,13 +1369,13 @@ void ValUtils::write(std::ostream & bs, VALUE & g) {
 		case GVT_FLOAT64://f64
 			bs.write((const char*)(&(g.f64)), sizeof(double));
 			break;
-		case GVT_BOOL://bv 
+		case GVT_BOOL://bv
 			bs.write((const char*)(&(g.bv)), sizeof(bool));
 			break;
-		case GVT_DATE://DATE 
+		case GVT_DATE://DATE
 			bs.write((const char*)(&(g.date)), sizeof(int) * 3);
 			break;
-		case GVT_DATETIME://DATETIME 
+		case GVT_DATETIME://DATETIME
 			bs.write((const char*)(&(g.datetime)), sizeof(int) * 7);
 			break;
 		default:
@@ -1391,13 +1433,13 @@ void ValUtils::read(std::istream & bs, VALUE & g) {
 		case GVT_FLOAT64://f64
 			bs.read((char*)(&(g.f64)), sizeof(double));
 			break;
-		case GVT_BOOL://bv 
+		case GVT_BOOL://bv
 			bs.read((char*)(&(g.bv)), sizeof(bool));
 			break;
-		case GVT_DATE://DATE 
+		case GVT_DATE://DATE
 			bs.read((char*)(&(g.date)), sizeof(int) * 3);
 			break;
-		case GVT_DATETIME://DATETIME 
+		case GVT_DATETIME://DATETIME
 			bs.read((char*)(&(g.datetime)), sizeof(int) * 7);
 			break;
 		default:
@@ -1607,7 +1649,7 @@ int ValUtils::compareBetweenSameTypes(VALUE &  v1, VALUE &v2)
 		case GVT_INT16://i16
 		case GVT_INT32://i32
 		case GVT_INT64://i64
-		case GVT_BOOL://bv 
+		case GVT_BOOL://bv
 		{
 			if (v1.i64 > v2.i64)
 				return 1;
@@ -1646,7 +1688,7 @@ int ValUtils::compareBetweenSameTypes(VALUE &  v1, VALUE &v2)
 			else
 				return -1;
 		}
-		case GVT_DATE://DATE 
+		case GVT_DATE://DATE
 		{
 			for (int i = 0; i < 3; i++) {
 				if (v1.date[i] > v2.date[i])
@@ -1658,7 +1700,7 @@ int ValUtils::compareBetweenSameTypes(VALUE &  v1, VALUE &v2)
 			}
 			return 0;
 		}
-		case GVT_DATETIME://DATETIME 
+		case GVT_DATETIME://DATETIME
 		{
 			for (int i = 0; i < 7; i++) {
 				if (v1.datetime[i] > v2.datetime[i])
@@ -1692,7 +1734,7 @@ int ValUtils::compareBetweenSameTypes(VALUE &  v1, VALUE &v2)
 					return -1;
 			}
 			return i;
-		}		
+		}
 	}
 	else if (v1.count == 1 && v2.count>1) {
 		if (v1.type==GVT_CHAR8) {

@@ -18,7 +18,7 @@
 #include <ios>
 #include <istream>
 #include <ostream>
-#include <string>    // char traits            
+#include <string>    // char traits
 #include <cstddef>   // ptrdiff_t
 #include <cmath>
 #include <locale.h>
@@ -45,7 +45,7 @@ bool same(std::vector<T> & vv){
 	if (s == 1) return false;
 
 	for (typename std::vector<T>::iterator it = vv.begin(); it != vv.end() - 1; it++){
-		for (std::vector<T>::iterator it2 = it + 1; it2 != vv.end(); it2++){
+		for (typename std::vector<T>::iterator it2 = it + 1; it2 != vv.end(); it2++){
 			if (*it == *it2)
 				return true;
 		}
@@ -82,7 +82,7 @@ const char *degreeToDMS(double dfAngle, const char * pszAxis, int nPrecision);
 
 //文件读写补充函数
 //读取一行，也即遇到13和10停止
-const char * readLine(FILE * fp); 
+const char * readLine(FILE * fp);
 size_t readLine(FILE * fp, std::string & result);
 
 /** @} */

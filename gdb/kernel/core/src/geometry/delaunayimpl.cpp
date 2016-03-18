@@ -33,7 +33,7 @@ begin_gtl_namespace
 begin_gdb_namespace
 
 
- 
+
 	//#define _DEBUG_MEMALLOC_ZJQ//turn malloc free to new delete
 	//#define _DEBUG_MEMLEAK2_ZJQ//turn trinalge mem allocation of self
 	//=======================Courtesy of TRIANGLE================================
@@ -107,8 +107,7 @@ begin_gdb_namespace
 	template <typename T>
 	bool GetLocalCoords(vector<T> & verts, Vertex3d normal, Vertex3d& ori, Vertex3d& ux, Vertex3d& uy, Vertex3d& uz)
 	{
-		vector<T>::iterator itr;
-		itr = verts.begin();
+		auto itr = verts.begin();
 
 		ux.x = (*itr).x;
 		ux.y = (*itr).y;
@@ -406,6 +405,9 @@ begin_gdb_namespace
 		}
 		else if (out.numberofpoints > in.numberofpoints)
 		{// gen new vertices
+		    Vertex3d curvt;
+		    Vertex3d ptstr, ptend;
+		    Vertex3d v3d1,v3d2,v3d3;
 			//ori
 			for (int i = 0; i<vertscopy.size(); i++)
 			{
@@ -414,7 +416,7 @@ begin_gdb_namespace
 			//new
 			for (int i = in.numberofpoints * 2; i<out.numberofpoints * 2; i += 2)
 			{
-				Vertex3d curvt;
+				curvt.zero();
 				curvt.x = out.pointlist[i];
 				curvt.y = out.pointlist[i + 1];
 				//
@@ -426,7 +428,8 @@ begin_gdb_namespace
 						continue;
 					}
 
-					Vertex3d ptstr, ptend;
+					ptstr.zero();
+					ptend.zero();
 					ptstr.x = in.pointlist[in.segmentlist[i] * 2];
 					ptstr.y = in.pointlist[in.segmentlist[i] * 2 + 1];
 					ptstr.z = dcommonz[in.segmentlist[i]];
@@ -436,7 +439,10 @@ begin_gdb_namespace
 					ptend.z = dcommonz[in.segmentlist[i + 1]];
 
 					//check colinear in xy plane
-					if (1 == IsPointInLineSeg(Vertex3d(curvt.x, curvt.y, 0.0), Vertex3d(ptstr.x, ptstr.y, 0.0), Vertex3d(ptend.x, ptend.y, 0.0), NULL))
+					v3d1.set(curvt.x, curvt.y, 0.0);
+					v3d2.set(ptstr.x, ptstr.y, 0.0);
+					v3d3.set(ptend.x, ptend.y, 0.0);
+					if (1 == IsPointInLineSeg(v3d1, v3d2, v3d3, NULL))
 					{
 						//interpolating using local coordinates
 						InterpolationVertics(curvt, uz, ptstr, ptend);
@@ -1752,7 +1758,7 @@ begin_gdb_namespace
 		else
 			return false;
 	}
-	// fast ear-clipping 
+	// fast ear-clipping
 	bool InsideTriangle(float Ax, float Ay,
 		float Bx, float By,
 		float Cx, float Cy,
@@ -2053,7 +2059,7 @@ begin_gdb_namespace
 	/* If yours is not a Unix system, define the NO_TIMER compiler switch to     */
 	/*   remove the Unix-specific timing code.                                   */
 
-#define NO_TIMER 
+#define NO_TIMER
 
 	/* To insert lots of self-checks for internal errors, define the SELF_CHECK  */
 	/*   symbol.  This will slow down the program significantly.  It is best to  */
@@ -2067,7 +2073,7 @@ begin_gdb_namespace
 	/*   TRILIBRARY symbol.  Read the file triangle.h for details on how to call */
 	/*   the procedure triangulate() that results.                               */
 
-#define TRILIBRARY 
+#define TRILIBRARY
 
 	/* It is possible to generate a smaller version of Triangle using one or     */
 	/*   both of the following symbols.  Define the REDUCED symbol to eliminate  */
@@ -2078,8 +2084,8 @@ begin_gdb_namespace
 	/*   switches.  These reductions are most likely to be useful when           */
 	/*   generating an object library (triangle.o) by defining the TRILIBRARY    */
 	/*   symbol.                                                                 */
-#define REDUCED 
-#define CDT_ONLY 
+#define REDUCED
+#define CDT_ONLY
 
 	/* On some machines, my exact arithmetic routines might be defeated by the   */
 	/*   use of internal extended precision floating-point registers.  The best  */
@@ -2099,7 +2105,7 @@ begin_gdb_namespace
 	/*   Floating-Point Arithmetic and Fast Robust Geometric Predicates" (also   */
 	/*   available as Section 6.6 of my dissertation).                           */
 
-#define CPU86 
+#define CPU86
 	/* #define LINUX */
 
 #define INEXACT /* Nothing */

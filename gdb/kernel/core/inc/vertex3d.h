@@ -22,7 +22,7 @@
 
 
 begin_gtl_namespace
-begin_gdb_namespace 
+begin_gdb_namespace
 
 /** @} */
 /** @addtogroup vertex Vertex3d 坐标点的结构体定义
@@ -34,7 +34,7 @@ public:
 	Vertex3d(double xx, double yy, double zz);
 	Vertex3d();
 	inline void operator*=(double rhd);
-	
+
 
 	Vertex3d operator = (const Vertex3d & c);
 
@@ -80,10 +80,11 @@ public:
 	* @param
 	* @return
 	*/
-	inline void zero()
-	{
-		x = y = z = 0.0;
-	}
+	inline void zero()	{		x = y = z = 0.0;	}
+
+	/**set xyz */
+	inline void set(double xx, double yy , double zz){x=xx;y=yy;z=zz;}
+
 	/** Normalize the vector so that it has length unity.
 	* Returns the previous length of the vector.
 	* If the vector is zero length, it is left unchanged and zero is returned.
@@ -114,8 +115,8 @@ CORE_API const Vertex3d operator^(const Vertex3d& lhv, const Vertex3d& rhv);
 typedef Vertex3d Vertex;
 typedef Vertex3d& Vertex3dRef;
 typedef vector<Vertex3d> Vertex3dVector;
-typedef std::vector<Vertex3d> Vertex3dList; 
-typedef double Vector3d[3]; 
+typedef std::vector<Vertex3d> Vertex3dList;
+typedef double Vector3d[3];
 
 
 inline void Vertex3d::operator*=(double rhd)
@@ -126,7 +127,7 @@ inline void Vertex3d::operator*=(double rhd)
 }
 
 /*distance to another vertex*/
-inline double Vertex3d::distance(const Vertex3d & v) const 
+inline double Vertex3d::distance(const Vertex3d & v) const
 {
 	return (*this - v).length();
 }

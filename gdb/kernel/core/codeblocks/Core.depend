@@ -1,8 +1,8 @@
 # depslib dependency file v1.0
-1457707731 source:h:\gtl\gtl\gdb\kernel\core\src\attribute\bitset.cpp
+1458486309 source:h:\gtl\gtl\gdb\kernel\core\src\attribute\bitset.cpp
 	"bitset.h"
 
-1457707730 h:\gtl\gtl\gdb\kernel\core\inc\bitset.h
+1458486309 h:\gtl\gtl\gdb\kernel\core\inc\bitset.h
 	<iostream>
 	<string>
 	<memory>
@@ -14,7 +14,7 @@
 	"time.h"
 	"config.h"
 
-1457707730 h:\gtl\gtl\gdb\kernel\core\inc\config.h
+1458486309 h:\gtl\gtl\gdb\kernel\core\inc\config.h
 	<cstring>
 	<iostream>
 	<string>
@@ -34,28 +34,28 @@
 	"config_env.h"
 	"error.h"
 
-1457707730 h:\gtl\gtl\gdb\kernel\core\inc\config_windows.h
+1458486309 h:\gtl\gtl\gdb\kernel\core\inc\config_windows.h
 	"windows.h"
 	"winbase.h"
 	"process.h"
 	"tchar.h"
 
-1457707730 h:\gtl\gtl\gdb\kernel\core\inc\config_linux.h
+1458486309 h:\gtl\gtl\gdb\kernel\core\inc\config_linux.h
 
-1457707730 h:\gtl\gtl\gdb\kernel\core\inc\config_macxos.h
+1458486309 h:\gtl\gtl\gdb\kernel\core\inc\config_macxos.h
 
-1457707730 h:\gtl\gtl\gdb\kernel\core\inc\config_env.h
+1458486309 h:\gtl\gtl\gdb\kernel\core\inc\config_env.h
 	<string>
 	<algorithm>
 
-1457707730 h:\gtl\gtl\gdb\kernel\core\inc\error.h
+1458486309 h:\gtl\gtl\gdb\kernel\core\inc\error.h
 	<string>
 
-1457707731 source:h:\gtl\gtl\gdb\kernel\core\src\attribute\buffer.cpp
+1458486309 source:h:\gtl\gtl\gdb\kernel\core\src\attribute\buffer.cpp
 	"config.h"
 	"buffer.h"
 
-1457707730 h:\gtl\gtl\gdb\kernel\core\inc\buffer.h
+1458486309 h:\gtl\gtl\gdb\kernel\core\inc\buffer.h
 	<iosfwd>
 	<ios>
 	<istream>
@@ -77,22 +77,22 @@
 	"quaternion.h"
 	"matrix4x4.h"
 
-1457707730 h:\gtl\gtl\gdb\kernel\core\inc\bufferstream.h
+1458486309 h:\gtl\gtl\gdb\kernel\core\inc\bufferstream.h
 	<iostream>
 	"config.h"
 
-1457707730 h:\gtl\gtl\gdb\kernel\core\inc\color.h
+1458486309 h:\gtl\gtl\gdb\kernel\core\inc\color.h
 	"config.h"
 
-1457707730 h:\gtl\gtl\gdb\kernel\core\inc\vertex2d.h
+1458486309 h:\gtl\gtl\gdb\kernel\core\inc\vertex2d.h
 	"config.h"
 
-1457707730 h:\gtl\gtl\gdb\kernel\core\inc\vertex3f.h
+1458486309 h:\gtl\gtl\gdb\kernel\core\inc\vertex3f.h
 	"identifier.h"
 	"assert.h"
 	<cmath>
 
-1458288438 h:\gtl\gtl\gdb\kernel\core\inc\identifier.h
+1458486309 h:\gtl\gtl\gdb\kernel\core\inc\identifier.h
 	<iostream>
 	<string>
 	<memory>
@@ -104,22 +104,22 @@
 	"time.h"
 	"config.h"
 
-1457707730 h:\gtl\gtl\gdb\kernel\core\inc\vertex3d.h
+1458486309 h:\gtl\gtl\gdb\kernel\core\inc\vertex3d.h
 	"identifier.h"
 	"assert.h"
 	<cmath>
 	"vertex2f.h"
 	"vertex2d.h"
 
-1457707730 h:\gtl\gtl\gdb\kernel\core\inc\vertex2f.h
+1458486309 h:\gtl\gtl\gdb\kernel\core\inc\vertex2f.h
 	"config.h"
 
-1457707730 h:\gtl\gtl\gdb\kernel\core\inc\vertex4d.h
+1458486309 h:\gtl\gtl\gdb\kernel\core\inc\vertex4d.h
 	"identifier.h"
 	"assert.h"
 	<cmath>
 
-1457707730 h:\gtl\gtl\gdb\kernel\core\inc\vertexvisitor.h
+1458486309 h:\gtl\gtl\gdb\kernel\core\inc\vertexvisitor.h
 	<memory>
 	"assert.h"
 	<cmath>
@@ -133,58 +133,58 @@
 	"versatilevertex3d.h"
 	"versatilevertex3f.h"
 
-1457707730 h:\gtl\gtl\gdb\kernel\core\inc\coloredvertex3f.h
+1458486309 h:\gtl\gtl\gdb\kernel\core\inc\coloredvertex3f.h
 	"config.h"
 	"vertex2f.h"
 	"vertex3f.h"
 
-1457707730 h:\gtl\gtl\gdb\kernel\core\inc\coloredvertex3d.h
+1458486309 h:\gtl\gtl\gdb\kernel\core\inc\coloredvertex3d.h
 	"config.h"
 	"vertex2d.h"
 	"vertex3d.h"
 	"vertex4d.h"
 	"color.h"
 
-1457707730 h:\gtl\gtl\gdb\kernel\core\inc\texturedvertex3f.h
+1458486309 h:\gtl\gtl\gdb\kernel\core\inc\texturedvertex3f.h
 	"config.h"
 	"vertex2f.h"
 	"vertex3f.h"
 
-1457707730 h:\gtl\gtl\gdb\kernel\core\inc\texturedvertex3d.h
+1458486309 h:\gtl\gtl\gdb\kernel\core\inc\texturedvertex3d.h
 	"config.h"
 	"vertex2d.h"
 	"vertex3d.h"
 	"vertex4d.h"
 
-1457707730 h:\gtl\gtl\gdb\kernel\core\inc\shadedvertex3f.h
+1458486309 h:\gtl\gtl\gdb\kernel\core\inc\shadedvertex3f.h
 	"config.h"
 	"vertex2f.h"
 	"vertex3f.h"
 
-1457707730 h:\gtl\gtl\gdb\kernel\core\inc\shadedvertex3d.h
+1458486309 h:\gtl\gtl\gdb\kernel\core\inc\shadedvertex3d.h
 	"config.h"
 	"vertex2d.h"
 	"vertex3f.h"
 	"vertex3d.h"
 	"vertex4d.h"
 
-1457707730 h:\gtl\gtl\gdb\kernel\core\inc\versatilevertex3d.h
+1458486908 h:\gtl\gtl\gdb\kernel\core\inc\versatilevertex3d.h
 	"config.h"
 	"vertex2d.h"
 	"vertex3d.h"
 	"vertex4d.h"
 
-1457707730 h:\gtl\gtl\gdb\kernel\core\inc\versatilevertex3f.h
+1458486309 h:\gtl\gtl\gdb\kernel\core\inc\versatilevertex3f.h
 	"config.h"
 	"vertex2f.h"
 	"vertex3f.h"
 
-1457707730 h:\gtl\gtl\gdb\kernel\core\inc\vertexcollection2d.h
+1458486309 h:\gtl\gtl\gdb\kernel\core\inc\vertexcollection2d.h
 	"assert.h"
 	<cmath>
 	"vertex2d.h"
 
-1457707730 h:\gtl\gtl\gdb\kernel\core\inc\sphere3d.h
+1458486309 h:\gtl\gtl\gdb\kernel\core\inc\sphere3d.h
 	<cmath>
 	"assert.h"
 	"config.h"
@@ -192,7 +192,7 @@
 	"vertex3d.h"
 	"envelope3d.h"
 
-1457707730 h:\gtl\gtl\gdb\kernel\core\inc\envelope3d.h
+1458486309 h:\gtl\gtl\gdb\kernel\core\inc\envelope3d.h
 	<cmath>
 	"assert.h"
 	"config.h"
@@ -200,14 +200,14 @@
 	"vertex3d.h"
 	"envelope2d.h"
 
-1457707730 h:\gtl\gtl\gdb\kernel\core\inc\envelope2d.h
+1458486309 h:\gtl\gtl\gdb\kernel\core\inc\envelope2d.h
 	<cmath>
 	"assert.h"
 	"config.h"
 	"vertex2d.h"
 	"vertex3d.h"
 
-1458288500 h:\gtl\gtl\gdb\kernel\core\inc\globalfuns.h
+1458486309 h:\gtl\gtl\gdb\kernel\core\inc\globalfuns.h
 	<iosfwd>
 	<ios>
 	<istream>
@@ -219,7 +219,7 @@
 	"config.h"
 	"csl.h"
 
-1458288680 h:\gtl\gtl\gdb\kernel\core\inc\csl.h
+1458486309 h:\gtl\gtl\gdb\kernel\core\inc\csl.h
 	<iosfwd>
 	<ios>
 	<istream>
@@ -230,7 +230,7 @@
 	<locale.h>
 	"config.h"
 
-1457707730 h:\gtl\gtl\gdb\kernel\core\inc\quaternion.h
+1458486309 h:\gtl\gtl\gdb\kernel\core\inc\quaternion.h
 	<iostream>
 	<string>
 	<vector>
@@ -240,7 +240,7 @@
 	"vertex3d.h"
 	"vertex4d.h"
 
-1457707730 h:\gtl\gtl\gdb\kernel\core\inc\matrix4x4.h
+1458486309 h:\gtl\gtl\gdb\kernel\core\inc\matrix4x4.h
 	<iostream>
 	<string>
 	<vector>
@@ -251,7 +251,7 @@
 	"matrix3x3.h"
 	"quaternion.h"
 
-1457707730 h:\gtl\gtl\gdb\kernel\core\inc\matrix3x3.h
+1458486309 h:\gtl\gtl\gdb\kernel\core\inc\matrix3x3.h
 	<iostream>
 	<string>
 	<vector>
@@ -259,7 +259,7 @@
 	<cmath>
 	"matrix.h"
 
-1457707730 h:\gtl\gtl\gdb\kernel\core\inc\matrix.h
+1458486309 h:\gtl\gtl\gdb\kernel\core\inc\matrix.h
 	<iostream>
 	<string>
 	<vector>
@@ -269,7 +269,7 @@
 	"vertex3d.h"
 	"mathex.h"
 
-1457707730 h:\gtl\gtl\gdb\kernel\core\inc\mathex.h
+1458486309 h:\gtl\gtl\gdb\kernel\core\inc\mathex.h
 	<iostream>
 	<string>
 	<vector>
@@ -277,18 +277,18 @@
 	<cmath>
 	"vertex3d.h"
 
-1457707731 source:h:\gtl\gtl\gdb\kernel\core\src\attribute\csvfile.cpp
+1458486309 source:h:\gtl\gtl\gdb\kernel\core\src\attribute\csvfile.cpp
 	<stdlib.h>
 	<stdio.h>
 	"csv.h"
 	"globalfuns.h"
 
-1457707730 h:\gtl\gtl\gdb\kernel\core\inc\csv.h
+1458486309 h:\gtl\gtl\gdb\kernel\core\inc\csv.h
 	"config.h"
 	"value.h"
 	"csl.h"
 
-1457707730 h:\gtl\gtl\gdb\kernel\core\inc\value.h
+1458486309 h:\gtl\gtl\gdb\kernel\core\inc\value.h
 	<iostream>
 	<string>
 	<vector>
@@ -298,7 +298,7 @@
 	"identifier.h"
 	"valutils.h"
 
-1458289811 h:\gtl\gtl\gdb\kernel\core\inc\valutils.h
+1458486309 h:\gtl\gtl\gdb\kernel\core\inc\valutils.h
 	<iostream>
 	<string>
 	<vector>
@@ -309,10 +309,10 @@
 	<csl.h>
 	<buffer.h>
 
-1457707731 source:h:\gtl\gtl\gdb\kernel\core\src\attribute\fielddefinition.cpp
+1458486309 source:h:\gtl\gtl\gdb\kernel\core\src\attribute\fielddefinition.cpp
 	"fielddefinition.h"
 
-1457707730 h:\gtl\gtl\gdb\kernel\core\inc\fielddefinition.h
+1458486309 h:\gtl\gtl\gdb\kernel\core\inc\fielddefinition.h
 	<iostream>
 	<string>
 	<vector>
@@ -321,32 +321,32 @@
 	<cmath>
 	"value.h"
 
-1457707731 source:h:\gtl\gtl\gdb\kernel\core\src\attribute\identifier.cpp
+1458486309 source:h:\gtl\gtl\gdb\kernel\core\src\attribute\identifier.cpp
 	"stdlib.h"
 	"stdio.h"
 	"identifier.h"
 
-1457707731 source:h:\gtl\gtl\gdb\kernel\core\src\attribute\indexbuffer.cpp
+1458486309 source:h:\gtl\gtl\gdb\kernel\core\src\attribute\indexbuffer.cpp
 	"indexbuffer.h"
 
-1457707730 h:\gtl\gtl\gdb\kernel\core\inc\indexbuffer.h
+1458486309 h:\gtl\gtl\gdb\kernel\core\inc\indexbuffer.h
 	<iostream>
 	<string>
 	<vector>
 	<sstream>
 	"describablebuffer.h"
 
-1457707730 h:\gtl\gtl\gdb\kernel\core\inc\describablebuffer.h
+1458486309 h:\gtl\gtl\gdb\kernel\core\inc\describablebuffer.h
 	<iostream>
 	<string>
 	<vector>
 	<sstream>
 	"buffer.h"
 
-1457707731 source:h:\gtl\gtl\gdb\kernel\core\src\attribute\property.cpp
+1458486309 source:h:\gtl\gtl\gdb\kernel\core\src\attribute\property.cpp
 	"property.h"
 
-1457707730 h:\gtl\gtl\gdb\kernel\core\inc\property.h
+1458486309 h:\gtl\gtl\gdb\kernel\core\inc\property.h
 	<iostream>
 	<string>
 	<vector>
@@ -356,7 +356,7 @@
 	"value.h"
 	"fielddefinition.h"
 
-1457707731 source:h:\gtl\gtl\gdb\kernel\core\src\attribute\sqlite3.c
+1458486309 source:h:\gtl\gtl\gdb\kernel\core\src\attribute\sqlite3.c
 	<vxWorks.h>
 	<pthread.h>
 	"mingw.h"
@@ -413,7 +413,597 @@
 	<ctype.h>
 	<math.h>
 
-1457707731 source:h:\gtl\gtl\gdb\kernel\core\src\attribute\value.cpp
+1458486309 source:h:\gtl\gtl\gdb\kernel\core\src\attribute\value.cpp
 	"value.h"
 	<limits>
+
+1458486309 source:h:\gtl\gtl\gdb\kernel\core\src\attribute\valutils.cpp
+	"valutils.h"
+
+1458486309 source:h:\gtl\gtl\gdb\kernel\core\src\config\config.cpp
+	"config.h"
+	"buffer.h"
+
+1458486309 source:h:\gtl\gtl\gdb\kernel\core\src\config\config_env.cpp
+	<stdlib.h>
+	<stdio.h>
+	"config.h"
+	<windows.h>
+	<dlfcn.h>
+
+1458486309 source:h:\gtl\gtl\gdb\kernel\core\src\config\config_srs.cpp
+	<stdlib.h>
+	<stdio.h>
+	"config.h"
+	"globalfuns.h"
+
+1458486309 source:h:\gtl\gtl\gdb\kernel\core\src\config\console.cpp
+	"console.h"
+
+1458486309 h:\gtl\gtl\gdb\kernel\core\inc\console.h
+	<atomic>
+	<mutex>
+	"feature.h"
+
+1458486309 h:\gtl\gtl\gdb\kernel\core\inc\feature.h
+	<iostream>
+	<string>
+	<vector>
+	<sstream>
+	<map>
+	"property.h"
+	"buffer.h"
+	"geometry2d.h"
+	"geometry3d.h"
+	"topology.h"
+
+1458486309 h:\gtl\gtl\gdb\kernel\core\inc\geometry2d.h
+	<iostream>
+	<string>
+	<vector>
+	<sstream>
+	"buffer.h"
+	"material.h"
+	"matrix4x4.h"
+	"describablebuffer.h"
+	"geometry.h"
+
+1458486309 h:\gtl\gtl\gdb\kernel\core\inc\material.h
+	<iostream>
+	<string>
+	<vector>
+	<sstream>
+	"texture.h"
+
+1458486309 h:\gtl\gtl\gdb\kernel\core\inc\texture.h
+	<iostream>
+	<string>
+	<vector>
+	<sstream>
+	"identifier.h"
+
+1458486309 h:\gtl\gtl\gdb\kernel\core\inc\geometry.h
+	<iostream>
+	<string>
+	<vector>
+	<sstream>
+	"buffer.h"
+	"material.h"
+	"matrix4x4.h"
+	"ray.h"
+	"frustum.h"
+	"spatialreference.h"
+
+1458486309 h:\gtl\gtl\gdb\kernel\core\inc\ray.h
+	<iostream>
+	<string>
+	<vector>
+	<sstream>
+	"material.h"
+	"matrix4x4.h"
+
+1458486309 h:\gtl\gtl\gdb\kernel\core\inc\frustum.h
+	<iostream>
+	<string>
+	<vector>
+	<sstream>
+	"config.h"
+	"matrix4x4.h"
+
+1458486309 h:\gtl\gtl\gdb\kernel\core\inc\spatialreference.h
+	<iosfwd>
+	<ios>
+	<istream>
+	<ostream>
+	<string>
+	<cstddef>
+	<cmath>
+	"assert.h"
+	"csv.h"
+	"srsapi.h"
+	"srsnode.h"
+
+1458486309 h:\gtl\gtl\gdb\kernel\core\inc\srsapi.h
+	<iosfwd>
+	<ios>
+	<istream>
+	<ostream>
+	<string>
+	<cstddef>
+	<cmath>
+	"assert.h"
+	"buffer.h"
+
+1458486309 h:\gtl\gtl\gdb\kernel\core\inc\srsnode.h
+	<iosfwd>
+	<ios>
+	<istream>
+	<ostream>
+	<string>
+	<cstddef>
+	<cmath>
+	"assert.h"
+	"buffer.h"
+
+1458486309 h:\gtl\gtl\gdb\kernel\core\inc\geometry3d.h
+	<iostream>
+	<string>
+	<vector>
+	<sstream>
+	"buffer.h"
+	"material.h"
+	"matrix4x4.h"
+	"indexbuffer.h"
+	"geometry.h"
+	"sharedmodel.h"
+	"identifier.h"
+	"mesh.h"
+	"terrain.h"
+	"vertexvisitor.h"
+
+1458486309 h:\gtl\gtl\gdb\kernel\core\inc\sharedmodel.h
+	"geometry.h"
+
+1458486309 h:\gtl\gtl\gdb\kernel\core\inc\mesh.h
+	<iostream>
+	<string>
+	<vector>
+	<sstream>
+	"bitset.h"
+	"buffer.h"
+	"material.h"
+	"matrix4x4.h"
+	"describablebuffer.h"
+
+1458486309 h:\gtl\gtl\gdb\kernel\core\inc\terrain.h
+	<iostream>
+	<string>
+	<vector>
+	<sstream>
+	"buffer.h"
+	"material.h"
+	"matrix4x4.h"
+	"describablebuffer.h"
+	"connector.h"
+	"image.h"
+
+1458486309 h:\gtl\gtl\gdb\kernel\core\inc\connector.h
+	<iostream>
+	<string>
+	<vector>
+	<sstream>
+	<map>
+	"buffer.h"
+
+1458486309 h:\gtl\gtl\gdb\kernel\core\inc\image.h
+	"buffer.h"
+
+1458486309 h:\gtl\gtl\gdb\kernel\core\inc\topology.h
+	<iostream>
+	<string>
+	<vector>
+	<sstream>
+	"buffer.h"
+	"geometry.h"
+
+1458486309 source:h:\gtl\gtl\gdb\kernel\core\src\config\lock.cpp
+	"config.h"
+
+1458486309 source:h:\gtl\gtl\gdb\kernel\core\src\csl\csl.cpp
+	"csl.h"
+
+1458486309 source:h:\gtl\gtl\gdb\kernel\core\src\csl\cslencoding.cpp
+	"csl.h"
+
+1458486309 source:h:\gtl\gtl\gdb\kernel\core\src\csl\cslencodingconv.cpp
+	"csl.h"
+
+1458486309 source:h:\gtl\gtl\gdb\kernel\core\src\csl\cslencodingstub.cpp
+	"csl.h"
+	<windows.h>
+	<winnls.h>
+	<windows.h>
+
+1458486309 source:h:\gtl\gtl\gdb\kernel\core\src\csl\cslstring.cpp
+	"csl.h"
+
+1458486309 source:h:\gtl\gtl\gdb\kernel\core\src\csl\cslstringlist.cpp
+	"csl.h"
+
+1458486309 source:h:\gtl\gtl\gdb\kernel\core\src\csl\cslstringmap.cpp
+	"csl.h"
+
+1458486309 source:h:\gtl\gtl\gdb\kernel\core\src\csl\cslstringprinter.cpp
+	"csl.h"
+
+1458486309 source:h:\gtl\gtl\gdb\kernel\core\src\csl\error.cpp
+	<stdlib.h>
+	<stdio.h>
+	"config.h"
+
+1458486309 source:h:\gtl\gtl\gdb\kernel\core\src\factory\factory.cpp
+	"factory.h"
+
+1458486309 h:\gtl\gtl\gdb\kernel\core\inc\factory.h
+	<iostream>
+	<string>
+	<vector>
+	<sstream>
+	"buffer.h"
+	"material.h"
+	"matrix4x4.h"
+	"describablebuffer.h"
+	"builder.h"
+	"render.h"
+	"geometry2d.h"
+	"image.h"
+
+1458486309 h:\gtl\gtl\gdb\kernel\core\inc\builder.h
+	<iostream>
+	<string>
+	<vector>
+	<sstream>
+	<map>
+	"connector.h"
+	"proxy.h"
+
+1458486309 h:\gtl\gtl\gdb\kernel\core\inc\proxy.h
+	<iostream>
+	<string>
+	<vector>
+	<sstream>
+	<map>
+	"selector.h"
+	"temporaryset.h"
+
+1458486309 h:\gtl\gtl\gdb\kernel\core\inc\selector.h
+	<iostream>
+	<string>
+	<vector>
+	<sstream>
+	<map>
+	"feature.h"
+
+1458486309 h:\gtl\gtl\gdb\kernel\core\inc\temporaryset.h
+	<iostream>
+	<string>
+	<vector>
+	<sstream>
+	<list>
+	<map>
+	"lock.h"
+	"feature.h"
+
+1458486309 h:\gtl\gtl\gdb\kernel\core\inc\lock.h
+	<atomic>
+	<mutex>
+	<thread>
+	"feature.h"
+
+1458486309 h:\gtl\gtl\gdb\kernel\core\inc\render.h
+	<iostream>
+	<string>
+	<vector>
+	<sstream>
+	"buffer.h"
+	"geometry2d.h"
+	"geometry3d.h"
+	"builders.h"
+
+1458486309 h:\gtl\gtl\gdb\kernel\core\inc\builders.h
+	<iostream>
+	<string>
+	<vector>
+	<sstream>
+	<map>
+	"connector.h"
+	"meshbuilder.h"
+	"terrainbuilder.h"
+	"builder.h"
+
+1458486309 h:\gtl\gtl\gdb\kernel\core\inc\meshbuilder.h
+	<iostream>
+	<string>
+	<vector>
+	<sstream>
+	"bitset.h"
+	"buffer.h"
+	"material.h"
+	"matrix4x4.h"
+	"indexbuffer.h"
+	"meshproxy.h"
+
+1458486309 h:\gtl\gtl\gdb\kernel\core\inc\meshproxy.h
+	<iostream>
+	<string>
+	<vector>
+	<sstream>
+	"bitset.h"
+	"buffer.h"
+	"material.h"
+	"matrix4x4.h"
+	"indexbuffer.h"
+	"connector.h"
+	"mesh.h"
+
+1458486309 h:\gtl\gtl\gdb\kernel\core\inc\terrainbuilder.h
+	<iostream>
+	<string>
+	<vector>
+	<sstream>
+	"buffer.h"
+	"material.h"
+	"matrix4x4.h"
+	"indexbuffer.h"
+	"connector.h"
+	"terrainproxy.h"
+
+1458486309 h:\gtl\gtl\gdb\kernel\core\inc\terrainproxy.h
+	<iostream>
+	<string>
+	<vector>
+	<sstream>
+	"buffer.h"
+	"material.h"
+	"matrix4x4.h"
+	"indexbuffer.h"
+	"connector.h"
+	"terrain.h"
+
+1458486309 source:h:\gtl\gtl\gdb\kernel\core\src\feature\feature.cpp
+	"internal_featureimpl.h"
+
+1458486309 h:\gtl\gtl\gdb\kernel\core\src\feature\internal_featureimpl.h
+	"feature.h"
+
+1458486309 source:h:\gtl\gtl\gdb\kernel\core\src\feature\featureclass.cpp
+	"internal_featureclassimpl.h"
+
+1458486309 h:\gtl\gtl\gdb\kernel\core\src\feature\internal_featureclassimpl.h
+	"feature.h"
+
+1458486309 source:h:\gtl\gtl\gdb\kernel\core\src\feature\featureclassimpl.cpp
+	"internal_featureclassimpl.h"
+
+1458486309 source:h:\gtl\gtl\gdb\kernel\core\src\feature\featureimpl.cpp
+	"internal_featureimpl.h"
+
+1458486309 source:h:\gtl\gtl\gdb\kernel\core\src\feature\featureset.cpp
+	"internal_featuresetimpl.h"
+
+1458486309 h:\gtl\gtl\gdb\kernel\core\src\feature\internal_featuresetimpl.h
+	"feature.h"
+
+1458486309 source:h:\gtl\gtl\gdb\kernel\core\src\feature\featuresetimpl.cpp
+	"internal_featuresetimpl.h"
+
+1458486309 source:h:\gtl\gtl\gdb\kernel\core\src\feature\layer.cpp
+	"internal_layerimpl.h"
+
+1458486309 h:\gtl\gtl\gdb\kernel\core\src\feature\internal_layerimpl.h
+	"feature.h"
+
+1458486309 source:h:\gtl\gtl\gdb\kernel\core\src\feature\layerimpl.cpp
+	"internal_layerimpl.h"
+
+1458486309 source:h:\gtl\gtl\gdb\kernel\core\src\feature\project.cpp
+	"internal_projectimpl.h"
+
+1458486309 h:\gtl\gtl\gdb\kernel\core\src\feature\internal_projectimpl.h
+	"feature.h"
+
+1458486309 source:h:\gtl\gtl\gdb\kernel\core\src\feature\projectimpl.cpp
+	"internal_projectimpl.h"
+
+1458486309 source:h:\gtl\gtl\gdb\kernel\core\src\feature\selector.cpp
+	"selector.h"
+
+1458486309 source:h:\gtl\gtl\gdb\kernel\core\src\feature\temporaryset.cpp
+	"temporaryset.h"
+
+1458486309 source:h:\gtl\gtl\gdb\kernel\core\src\feature\workspace.cpp
+	"internal_workspaceimpl.h"
+
+1458486309 h:\gtl\gtl\gdb\kernel\core\src\feature\internal_workspaceimpl.h
+	"feature.h"
+
+1458486309 source:h:\gtl\gtl\gdb\kernel\core\src\feature\workspaceimpl.cpp
+	"internal_workspaceimpl.h"
+
+1458486309 source:h:\gtl\gtl\gdb\kernel\core\src\geometry\aabboximpl.cpp
+	"internal_aabboximpl.h"
+	"internal_spatialfuns.h"
+
+1458486309 h:\gtl\gtl\gdb\kernel\core\src\geometry\internal_aabboximpl.h
+	"envelope3d.h"
+	"mathex.h"
+	"matrix4x4.h"
+	"internal_obboximpl.h"
+
+1458486309 h:\gtl\gtl\gdb\kernel\core\src\geometry\internal_obboximpl.h
+	"envelope3d.h"
+	"mathex.h"
+	"matrix4x4.h"
+
+1458486309 h:\gtl\gtl\gdb\kernel\core\src\geometry\internal_spatialfuns.h
+	"quaternion.h"
+	"matrix4x4.h"
+	"mathex.h"
+	"internal_frustumimpl.h"
+	"internal_rayimpl.h"
+	"internal_aabboximpl.h"
+	<vector>
+	<algorithm>
+	<limits>
+	<deque>
+	<set>
+
+1458486309 h:\gtl\gtl\gdb\kernel\core\src\geometry\internal_frustumimpl.h
+	"frustum.h"
+	"quaternion.h"
+
+1458486309 h:\gtl\gtl\gdb\kernel\core\src\geometry\internal_rayimpl.h
+	"ray.h"
+
+1458486309 source:h:\gtl\gtl\gdb\kernel\core\src\geometry\annotation3dimpl.cpp
+	"internal_annotation3dimpl.h"
+	"internal_spatialfuns.h"
+
+1458486309 h:\gtl\gtl\gdb\kernel\core\src\geometry\internal_annotation3dimpl.h
+	"quaternion.h"
+	"geometry3d.h"
+	"internal_point3dimpl.h"
+
+1458486309 h:\gtl\gtl\gdb\kernel\core\src\geometry\internal_point3dimpl.h
+	"internal_geometry3dimpl.h"
+	"shadedvertex3d.h"
+
+1458486309 h:\gtl\gtl\gdb\kernel\core\src\geometry\internal_geometry3dimpl.h
+	"geometry3d.h"
+	"internal_geometryimpl.h"
+	"internal_rayimpl.h"
+	"internal_frustumimpl.h"
+
+1458486309 h:\gtl\gtl\gdb\kernel\core\src\geometry\internal_geometryimpl.h
+	"geometry.h"
+	"internal_obboximpl.h"
+	"internal_aabboximpl.h"
+
+1458486309 source:h:\gtl\gtl\gdb\kernel\core\src\geometry\block.cpp
+	"mesh.h"
+
+1458486309 source:h:\gtl\gtl\gdb\kernel\core\src\geometry\cell.cpp
+	"mesh.h"
+
+1458486309 source:h:\gtl\gtl\gdb\kernel\core\src\geometry\color.cpp
+	"color.h"
+
+1458486309 source:h:\gtl\gtl\gdb\kernel\core\src\geometry\colortable.cpp
+	<limits>
+	"color.h"
+
+1458486309 source:h:\gtl\gtl\gdb\kernel\core\src\geometry\complexmaterialimpl.cpp
+	"internal_complexmaterialimpl.h"
+
+1458486309 h:\gtl\gtl\gdb\kernel\core\src\geometry\internal_complexmaterialimpl.h
+	"internal_materialimpl.h"
+
+1458486309 h:\gtl\gtl\gdb\kernel\core\src\geometry\internal_materialimpl.h
+	"material.h"
+	"internal_textureimpl.h"
+
+1458486309 h:\gtl\gtl\gdb\kernel\core\src\geometry\internal_textureimpl.h
+	"texture.h"
+
+1458486309 source:h:\gtl\gtl\gdb\kernel\core\src\geometry\cube3dimpl.cpp
+	"internal_cube3dimpl.h"
+	"mathex.h"
+	"internal_spatialfuns.h"
+
+1458486309 h:\gtl\gtl\gdb\kernel\core\src\geometry\internal_cube3dimpl.h
+	"internal_voxel3dimpl.h"
+
+1458486309 h:\gtl\gtl\gdb\kernel\core\src\geometry\internal_voxel3dimpl.h
+	"internal_volume3dimpl.h"
+
+1458486309 h:\gtl\gtl\gdb\kernel\core\src\geometry\internal_volume3dimpl.h
+	"internal_geometry3dimpl.h"
+
+1458486309 source:h:\gtl\gtl\gdb\kernel\core\src\geometry\curve3dimpl.cpp
+	"internal_curve3dimpl.h"
+
+1458486309 h:\gtl\gtl\gdb\kernel\core\src\geometry\internal_curve3dimpl.h
+	"geometry3d.h"
+	"internal_geometry3dimpl.h"
+
+1458488007 source:h:\gtl\gtl\gdb\kernel\core\src\geometry\delaunayimpl.cpp
+	"internal_delaunayimpl.h"
+	"internal_spatialfuns.h"
+	<cfloat>
+	<map>
+	<stdlib.h>
+	<crtdbg.h>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<math.h>
+	<sys/time.h>
+	<float.h>
+	<fpu_control.h>
+
+1458486309 h:\gtl\gtl\gdb\kernel\core\src\geometry\internal_delaunayimpl.h
+	"internal_linearring3dimpl.h"
+	"internal_trianglemesh3dimpl.h"
+
+1458486309 h:\gtl\gtl\gdb\kernel\core\src\geometry\internal_linearring3dimpl.h
+	"geometry3d.h"
+	"internal_curve3dimpl.h"
+	"internal_rayimpl.h"
+	"internal_frustumimpl.h"
+
+1458486309 h:\gtl\gtl\gdb\kernel\core\src\geometry\internal_trianglemesh3dimpl.h
+	<deque>
+	"geometry3d.h"
+	"internal_surface3dimpl.h"
+	"internal_linearring3dimpl.h"
+
+1458486309 h:\gtl\gtl\gdb\kernel\core\src\geometry\internal_surface3dimpl.h
+	"identifier.h"
+	"internal_materialimpl.h"
+	"internal_geometry3dimpl.h"
+	"internal_simplematerialimpl.h"
+	"internal_complexmaterialimpl.h"
+
+1458486309 h:\gtl\gtl\gdb\kernel\core\src\geometry\internal_simplematerialimpl.h
+	"internal_textureimpl.h"
+	"internal_materialimpl.h"
+
+1458486309 source:h:\gtl\gtl\gdb\kernel\core\src\geometry\demblock.cpp
+	"config.h"
+	"terrain.h"
+
+1458486309 source:h:\gtl\gtl\gdb\kernel\core\src\geometry\demdatainfo.cpp
+	"config.h"
+	"terrain.h"
+
+1458486309 source:h:\gtl\gtl\gdb\kernel\core\src\geometry\demdbinfo.cpp
+	"config.h"
+	"terrain.h"
+
+1458488182 source:h:\gtl\gtl\gdb\kernel\core\src\geometry\demgrid.cpp
+	"config.h"
+	"terrain.h"
+	"factory.h"
+	"internal_demgridimpl.h"
+
+1458486309 h:\gtl\gtl\gdb\kernel\core\src\geometry\internal_demgridimpl.h
+	"terrain.h"
+
+1458486309 source:h:\gtl\gtl\gdb\kernel\core\src\geometry\demgridimpl.cpp
+	"internal_demgridimpl.h"
+	"mathex.h"
+
+1458486309 source:h:\gtl\gtl\gdb\kernel\core\src\geometry\deminfo.cpp
+	"config.h"
+	"terrain.h"
 

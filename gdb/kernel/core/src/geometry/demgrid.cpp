@@ -1,5 +1,5 @@
 #include "config.h"
-#include "terrain.h" 
+#include "terrain.h"
 #include "factory.h"
 #include "internal_demgridimpl.h"
 
@@ -34,7 +34,7 @@ void DEMGrid::fillDEMGrid(DEMGrid::DEM & _dem, DEMGridSharedPtr & grid){
 	//设置坐标单位
 	grid->setUnit(1);
 	grid->setCellSize(max(_dem._DX, _dem._DY));
-	if (_dem._Nodata != DBL_MAX)
+	if (_dem._Nodata != std::numeric_limits<double>::max())//DBL_MAX
 		grid->setInvalidValue(_dem._Nodata);
 	else
 		grid->setInvalidValue(DEMGrid::getDefaultInvalidValue());
@@ -52,9 +52,9 @@ void DEMGrid::initial(DEMGrid::DEM & _dem){
 	_dem._DX = 1;
 	_dem._DY = 1;
 	_dem._HZoom = 0;
-	_dem._MaxV = -DBL_MAX;
-	_dem._MinV = DBL_MAX;
-	_dem._Nodata = DBL_MAX;
+	_dem._MaxV = - std::numeric_limits<double>::max();//-DBL_MAX;
+	_dem._MinV = std::numeric_limits<double>::max();//DBL_MAX;
+	_dem._Nodata = std::numeric_limits<double>::max();//DBL_MAX;
 	_dem._Unit = "M";
 	_dem._ValueType = "Double";
 	_dem._Version = "1.0";
@@ -73,9 +73,9 @@ void DEMGrid::initial(DEMGrid::DEM & _dem, long rows, long cols){
 	_dem._DX = 1;
 	_dem._DY = 1;
 	_dem._HZoom = 0;
-	_dem._MaxV = -DBL_MAX;
-	_dem._MinV = DBL_MAX;
-	_dem._Nodata = DBL_MAX;
+	_dem._MaxV = -std::numeric_limits<double>::max();//-DBL_MAX;
+	_dem._MinV = std::numeric_limits<double>::max();//DBL_MAX;
+	_dem._Nodata = std::numeric_limits<double>::max();//DBL_MAX;
 	_dem._Unit = "M";
 	_dem._ValueType = "Double";
 	_dem._Version = "1.0";

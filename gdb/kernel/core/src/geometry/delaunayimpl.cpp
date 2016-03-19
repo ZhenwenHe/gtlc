@@ -15,6 +15,7 @@
 */
 #include "internal_delaunayimpl.h"
 #include "internal_spatialfuns.h"
+#include <cfloat>
 #include <map>
 #ifdef _DEBUG
 #define DEBUG_CLIENTBLOCK   new( _CLIENT_BLOCK, __FILE__, __LINE__)
@@ -668,6 +669,10 @@ begin_gdb_namespace
 		}
 		else if (out.numberofpoints > in.numberofpoints)
 		{// gen new vertices
+		    VersatileVertex3d curvt;
+		    VersatileVertex3d ptstr, ptend;
+		    Vertex3d tempvt;
+		    Vertex3d v1,v2,v3;
 			//ori
 			for (int i = 0; i<vertscopy.size(); i++)
 			{
@@ -676,9 +681,11 @@ begin_gdb_namespace
 			//new
 			for (int i = in.numberofpoints * 2; i<out.numberofpoints * 2; i += 2)
 			{
-				VersatileVertex3d curvt;
+				//VersatileVertex3d curvt;
+				curvt.zero();
 				curvt.x = out.pointlist[i];
 				curvt.y = out.pointlist[i + 1];
+
 				//
 				//interpolate new point's Value by original segment
 				for (int j = 0; j<in.numberofsegments * 2; j += 2)
@@ -688,7 +695,9 @@ begin_gdb_namespace
 						continue;
 					}
 
-					VersatileVertex3d ptstr, ptend;
+					//VersatileVertex3d ptstr, ptend;
+					ptstr.zero();
+					ptend.zero();
 					//str
 					ptstr.x = in.pointlist[in.segmentlist[j] * 2];
 					ptstr.y = in.pointlist[in.segmentlist[j] * 2 + 1];
@@ -714,13 +723,16 @@ begin_gdb_namespace
 					ptend.cB = vertscopy[in.segmentlist[j + 1]].cB;
 
 					//in xy plane
-					if (1 == IsPointInLineSeg(Vertex3d(curvt.x, curvt.y, 0.0), Vertex3d(ptstr.x, ptstr.y, 0.0), Vertex3d(ptend.x, ptend.y, 0.0), NULL))
+					v1.set(curvt.x, curvt.y, 0.0);
+					v2.set(ptstr.x, ptstr.y, 0.0);
+					v3.set(ptend.x, ptend.y, 0.0);
+					if (1 == IsPointInLineSeg(v1, v2, v3, NULL))
 					{
 						InterpolationVertics(curvt, uz, ptstr, ptend);
 						break;
 					}
 				}
-				Vertex3d tempvt = Vertex3d(curvt.x, curvt.y, curvt.z);
+                tempvt.set(curvt.x, curvt.y, curvt.z);
 				ChangeXYZAxisReverse(tempvt, ori, ux, uy, uz);
 				curvt.x = tempvt.x;
 				curvt.y = tempvt.y;
@@ -1869,6 +1881,7 @@ begin_gdb_namespace
 	template <typename T>
 	void eliminateRedundantVerts(LinearRing3dImpl* ring, double TOL)
 	{
+	    Vertex3d vi,vj;
 		vector<int> index;
 		T* verts = NULL;
 		long vertNum = 0;
@@ -1877,7 +1890,9 @@ begin_gdb_namespace
 		{
 			for (int j = i + 1; j<vertNum; j++)
 			{
-				if (DPointToPoint(Vertex3d(verts[i].x, verts[i].y, verts[i].z), Vertex3d(verts[j].x, verts[j].y, verts[j].z))<TOL)
+			    vi.set(verts[i].x, verts[i].y, verts[i].z);
+			    vj.set(verts[j].x, verts[j].y, verts[j].z);
+				if (DPointToPoint(vi,vj)<TOL)
 				{
 					index.push_back(j);
 				}

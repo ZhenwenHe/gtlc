@@ -1,5 +1,5 @@
 #include "config.h"
-#include "terrain.h" 
+#include "terrain.h"
 #include "terrainbuilder.h"
 
 
@@ -58,7 +58,7 @@ DEMLayerInfo DEMLayerInfo::operator=(const DEMLayerInfo &other )
 bool DEMLayerInfo::operator == ( DEMLayerInfo &other )
 {
 	if( xBlocksNumber == other.xBlocksNumber && yBlocksNumber == other.yBlocksNumber
-		&& rowsPreblock == other.rowsPreblock && colsPreblock == other.colsPreblock 
+		&& rowsPreblock == other.rowsPreblock && colsPreblock == other.colsPreblock
 		&& fabs( blockSize - other.blockSize ) < 0.001 && scale == other.scale )
 		return true;
 	else
@@ -68,7 +68,7 @@ bool DEMLayerInfo::operator == ( DEMLayerInfo &other )
 bool DEMLayerInfo::operator != ( DEMLayerInfo &other )
 {
 	if( xBlocksNumber != other.xBlocksNumber || yBlocksNumber != other.yBlocksNumber
-		|| rowsPreblock != other.rowsPreblock || colsPreblock != other.colsPreblock 
+		|| rowsPreblock != other.rowsPreblock || colsPreblock != other.colsPreblock
 		|| fabs( blockSize - other.blockSize ) > 0.001 && scale == other.scale )
 		return true;
 	else
@@ -100,7 +100,7 @@ void DEMLayerInfo::calculateBlockNumbers(long & rowBlockNumber, long &colBlockNu
 	rowBlockNumber = long(dyn);
 	rowBlockNumber = rowBlockNumber+(dyn-rowBlockNumber>0?1:0);
 }
-	
+
 Envelope2d DEMLayerInfo::calcualteBlockEnvelope(unsigned int block_row_in_layer,unsigned int block_col_in_layer){
 	return Envelope2d (layerScope.minx+block_col_in_layer*blockSize,
 		layerScope.minx+(block_col_in_layer+1)*blockSize,
@@ -113,9 +113,9 @@ Envelope2d DEMLayerInfo::calcualteBlockEnvelope(unsigned int block_row_in_layer,
 */
 double DEMLayerInfo::calcualteCellSize() {return blockSize/(colsPreblock-1);}
 /** 根据图层范围和块的大小，计算块的所有节点坐标
-    * @param  [in] block_row_in_layer 数据块在图层行索引 
-	* @param  [in] block_col_in_layer 数据块在图层列索引 
-    * @return  
+    * @param  [in] block_row_in_layer 数据块在图层行索引
+	* @param  [in] block_col_in_layer 数据块在图层列索引
+    * @return
 */
 void DEMLayerInfo::calculateBlockVertices(unsigned int block_row_in_layer,unsigned int block_col_in_layer,std::vector<Vertex3d> & vv){
 	Envelope2d e2d = calcualteBlockEnvelope(block_row_in_layer,block_col_in_layer);
@@ -133,10 +133,10 @@ void DEMLayerInfo::calculateBlockVertices(unsigned int block_row_in_layer,unsign
 	}
 }
 /** 创建一个新的数据块
-* @param  [in] block_row_in_layer 数据块在图层行索引 
-* @param  [in] block_col_in_layer 数据块在图层列索引 
-* @param  [in] vv 数据块对应的节点坐标数组 
-* @return  
+* @param  [in] block_row_in_layer 数据块在图层行索引
+* @param  [in] block_col_in_layer 数据块在图层列索引
+* @param  [in] vv 数据块对应的节点坐标数组
+* @return
 */
 DEMBlockSharedPtr DEMLayerInfo::createDEMBlock(unsigned int block_row_in_layer,
 	unsigned int block_col_in_layer,
@@ -154,10 +154,10 @@ DEMBlockSharedPtr DEMLayerInfo::createDEMBlock(unsigned int block_row_in_layer,
 }
 
 /** 创建一个新的数据块
-    * @param  [in] block_row_in_layer 数据块在图层行索引 
-	* @param  [in] block_col_in_layer 数据块在图层列索引 
-	* @param  [in] rawData 数据块对应的节点坐标数组 
-    * @return  
+    * @param  [in] block_row_in_layer 数据块在图层行索引
+	* @param  [in] block_col_in_layer 数据块在图层列索引
+	* @param  [in] rawData 数据块对应的节点坐标数组
+    * @return
 */
 DEMBlockSharedPtr DEMLayerInfo::createDEMBlock(unsigned int block_row_in_layer,unsigned int block_col_in_layer,const float * rawData,const unsigned int pointNumber)
 {
@@ -174,7 +174,7 @@ DEMBlockSharedPtr DEMLayerInfo::createDEMBlock(unsigned int block_row_in_layer,u
 
 	demblock->rawData = new float[demblock->pointNumber];
 
-	unsigned int s = min(demblock->pointNumber,pointNumber);
+	unsigned int s = demblock->pointNumber<pointNumber ? demblock->pointNumber: pointNumber;//min(demblock->pointNumber,pointNumber);
 	//memcpy(demblock->rawData,rawData,sizeof(float)*s);
 
 	demblock->minZ=rawData[0];

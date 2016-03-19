@@ -12,8 +12,8 @@
 * about the suitability of this software for any purpose.
 * It is provided "as is" without express or implied warranty.
 */
-#pragma once 
-#include "config.h" 
+#pragma once
+#include "config.h"
 #include "vertex2d.h"
 #include "vertex3d.h"
 #include "vertex4d.h"
@@ -21,12 +21,12 @@
 
 
 begin_gtl_namespace
-begin_gdb_namespace 
+begin_gdb_namespace
 
 class VersatileVertex3d : public Vertex3d
-{ 
+{
 public:
-	 
+
 	/** ·¨Ïß */
 	double nx, ny, nz;
 
@@ -120,7 +120,18 @@ public:
 		cR = vClr.x;
 		cG = vClr.y;
 		cB = vClr.z;
-	} 
+	}
+
+	inline void zero() {
+	    cR = 0;
+		cG = 0;
+		cB = 0;
+		u=0;
+		v=0;
+		x=0;
+		y=0;
+		z=0;
+	}
 };
 end_gdb_namespace
 end_gtl_namespace

@@ -16,7 +16,7 @@ static unsigned long global_number_id=0;
 
 Identifier::Identifier(){//采用随机用户ID生成Identifier
 	_id = 0;
-	
+
 	global_number_id=global_number_id % 0xffffff;
 	ULONGNumber n;
 	n.ns=global_number_id++;
@@ -25,8 +25,17 @@ Identifier::Identifier(){//采用随机用户ID生成Identifier
 	_sid.numbers[2]=n.bs[2];
 	_sid.time_stamp = (unsigned long) ::time(NULL);
 
-	srand(GetTickCount() );		
-	_sid.user_id = rand()%255;		
+#if(USING_OS_TYPE==0)
+	srand(GetTickCount());
+#else
+    {
+        struct timeval tv1;
+        gettimeofday(&tv1, NULL);
+        srand(tv1.tv_usec);
+    }
+#endif
+
+	_sid.user_id = rand()%255;
 }
 
 Identifier::raw_type  Identifier::generate() {
@@ -35,8 +44,8 @@ Identifier::raw_type  Identifier::generate() {
 }
 Identifier::Identifier(unsigned char user_id/*=0*/){
 	_id = 0;
-	_sid.user_id = user_id;		
-	
+	_sid.user_id = user_id;
+
 	global_number_id=global_number_id % 0xffffff;
 	ULONGNumber n;
 	n.ns=global_number_id++;
@@ -46,28 +55,28 @@ Identifier::Identifier(unsigned char user_id/*=0*/){
 	_sid.time_stamp = (unsigned long) ::time(NULL);
 }
 
-Identifier::Identifier(const Identifier & ids){	
+Identifier::Identifier(const Identifier & ids){
 	_id = ids._id;
 }
 
-Identifier Identifier::operator= (const Identifier & ids) { 
-	_id = ids._id; 
+Identifier Identifier::operator= (const Identifier & ids) {
+	_id = ids._id;
 	return *this;
 }
 Identifier Identifier::operator = (unsigned long long  ids){
-	_id = ids; 
+	_id = ids;
 	return *this;
 }
 Identifier Identifier::operator = (int  ids){
-	_id = ids; 
+	_id = ids;
 	return *this;
 }
 Identifier Identifier::operator = (unsigned long  ids){
-	_id = ids; 
+	_id = ids;
 	return *this;
 }
 Identifier Identifier::operator = (unsigned int  ids){
-	_id = ids; 
+	_id = ids;
 	return *this;
 }
 void  Identifier::write(std::ostream & f){

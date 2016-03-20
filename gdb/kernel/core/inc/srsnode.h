@@ -19,14 +19,14 @@
 #include <ios>
 #include <istream>
 #include <ostream>
-#include <string>    // char traits            
+#include <string>    // char traits
 #include <cstddef>   // ptrdiff_t
 #include <cmath>
 #include "assert.h"
-#include "buffer.h"  
+#include "buffer.h"
 begin_gtl_namespace
 begin_gdb_namespace
- 
+
 
 class SRSNode
 {
@@ -72,7 +72,7 @@ public:
 		char **papszSrcValues,
 		char **papszDstValues,
 		int nStepSize = 1,
-		int bChildOfHit = FALSE);
+		int bChildOfHit = 0);
 };
 
 end_gdb_namespace

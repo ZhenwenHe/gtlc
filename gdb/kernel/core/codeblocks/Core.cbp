@@ -16,6 +16,7 @@
 				<Compiler>
 					<Add option="-std=c++11" />
 					<Add option="-g" />
+					<Add option="-fpermissive" />
 					<Add option="-DCORE_EXPORTS" />
 					<Add directory="../inc" />
 				</Compiler>

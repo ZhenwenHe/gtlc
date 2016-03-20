@@ -1,5 +1,5 @@
 #include <stdlib.h>
-#include <stdio.h> 
+#include <stdio.h>
 #include "csv.h"
 #include "globalfuns.h"
 
@@ -83,7 +83,7 @@ int CommaSeparatedValues::compare(const char * pszFieldValue, const char * pszTa
 */
 char CommaSeparatedValues::detectSeperator(const char* pszLine)
 {
-	int     bInString = FALSE;
+	int     bInString = 0;
 	char    chDelimiter = '\0';
 
 	for (; *pszLine != '\0'; pszLine++)
@@ -138,7 +138,7 @@ char ** CommaSeparatedValues::tokenizeLine(const char *pszString, char chDelimit
 
 	while (pszString != NULL && *pszString != '\0')
 	{
-		int     bInString = FALSE;
+		int     bInString = 0;
 
 		nTokenLen = 0;
 
@@ -292,7 +292,7 @@ bool CommaSeparatedValues::load(const char * pathname)
 	/* -------------------------------------------------------------------- */
 	/*      We should never need the file handle against, so close it.      */
 	/* -------------------------------------------------------------------- */
-	fclose(fp); 
+	fclose(fp);
 	return true;
 }
 

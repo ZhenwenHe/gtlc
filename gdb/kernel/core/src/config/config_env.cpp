@@ -1,5 +1,5 @@
 #include <stdlib.h>
-#include <stdio.h> 
+#include <stdio.h>
 #include "config.h"
 
 begin_gtl_namespace
@@ -16,7 +16,7 @@ std::string getHome(){
         return std::string("/home/vincent/gtl");
 #else
         return std::string("/home/vincent/gtl");
-#endif        
+#endif
     }
 }
 
@@ -28,7 +28,7 @@ std::string getDataHome(){
     s=s+"/data";
 #else
     s=s+"/data";
-#endif   
+#endif
     return s;
 }
 
@@ -41,7 +41,7 @@ std::string getDataFile(const char * filename) {
 	s = s + "/";
 #else
 	s = s + "/";
-#endif  
+#endif
 	s = s + std::string(filename);
 	return s;
 }
@@ -57,18 +57,25 @@ std::string getInstallHome(){
 	int size = ::GetModuleFileName(NULL,path,512);
 	std::string szModPath = string(path,size);
 	size_t pos = szModPath.find_last_of("\\");
-	sz = szModPath.substr(0,pos);        
+	sz = szModPath.substr(0,pos);
 #elif(USING_OS_TYPE==1) //linux
         sz=sz+"/sdk";
 #else                   //macX OS
         sz=sz+"/sdk";
-#endif        
+#endif
         return sz;
     }
 }
 
 
-
+#if(USING_UI_TYPE==1)//Qt : use Qt QLibrary
+/*Fetch a function pointer from a shared library / DLL.*/
+void * getFunctionPointer(const char * pszLibrary, const char * pszSymbolName) {
+	void        *pSymbol=0;
+	//pSymbol = (void *)QLibrary::revolve(pszLibrary, pszSymbolName);
+	return pSymbol;
+}
+#else
 #if(USING_OS_TYPE==0)        //windows
 #include <windows.h>
 /*Fetch a function pointer from a shared library / DLL.*/
@@ -88,14 +95,14 @@ void * getFunctionPointer(const char * pszLibrary, const char * pszSymbolName) {
 			NULL, nLastError,
 			MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT),
 			(LPTSTR)&lpMsgBuf, 0, NULL);
-		 
+
 		return NULL;
 	}
 
 	pSymbol = (void *)GetProcAddress((HINSTANCE)pLibrary, pszSymbolName);
 
 	if (pSymbol == NULL)
-	{ 
+	{
 		return NULL;
 	}
 
@@ -111,7 +118,7 @@ void * getFunctionPointer(const char * pszLibrary, const char * pszSymbolName) {
 
 	pLibrary = dlopen(pszLibrary, RTLD_LAZY);
 	if (pLibrary == NULL)
-	{ 
+	{
 		return NULL;
 	}
 
@@ -158,7 +165,8 @@ void * getFunctionPointer(const char * pszLibrary, const char * pszSymbolName) {
 
 	return(pSymbol);
 }
-#endif  
+#endif
 
+#endif
 
 end_gtl_namespace

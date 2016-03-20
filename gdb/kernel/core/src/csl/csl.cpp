@@ -1,4 +1,4 @@
-#include "csl.h" 
+#include "csl.h"
 
 begin_gtl_namespace
 begin_gdb_namespace
@@ -295,8 +295,8 @@ CSTRLIST cslTokenizeString(const char * pszString, const char * pszDelimiters, i
 
 	while (pszString != NULL && *pszString != '\0')
 	{
-		int     bInString = FALSE;
-		int     bStartString = TRUE;
+		int     bInString = 0;
+		int     bStartString = 1;
 
 		nTokenLen = 0;
 
@@ -324,12 +324,12 @@ CSTRLIST cslTokenizeString(const char * pszString, const char * pszDelimiters, i
 
 				if (bInString)
 				{
-					bInString = FALSE;
+					bInString = 0;
 					continue;
 				}
 				else
 				{
-					bInString = TRUE;
+					bInString = 1;
 					continue;
 				}
 			}
@@ -360,7 +360,7 @@ CSTRLIST cslTokenizeString(const char * pszString, const char * pszDelimiters, i
 				&& bStartString && isspace((unsigned char)*pszString))
 				continue;
 
-			bStartString = FALSE;
+			bStartString = 0;
 
 			/*
 			* Extend token buffer if we are running close to its end.
@@ -407,7 +407,7 @@ CSTRLIST cslTokenizeString(const char * pszString, const char * pszDelimiters, i
 
 	if (oRetList == NULL)
 	{
-		// we prefer to return empty lists as a pointer to 
+		// we prefer to return empty lists as a pointer to
 		// a null pointer since some client code might depend on this.
 		oRetList = (char**)calloc(sizeof(char**), 1);
 	}
@@ -981,9 +981,9 @@ bool cslTestBoolean(const char *pszValue)
 		|| cslIEqualString(pszValue, "F")
 		|| cslIEqualString(pszValue, "OFF")
 		|| cslIEqualString(pszValue, "0"))
-		return FALSE;
+		return 0;
 	else
-		return TRUE;
+		return 1;
 }
 /************************************************************************/
 /*                      cslReplacePointByLocalePoint()                  */

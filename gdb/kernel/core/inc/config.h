@@ -9,7 +9,7 @@
 * provided that the above copyright notice appear in all copies and
 * that both that copyright notice and this permission notice appear
 * in supporting documentation.  Zhenwen He  makes no  representations
-* about the suitability of this software for any purpose. 
+* about the suitability of this software for any purpose.
 * It is provided "as is" without express or implied warranty.
 */
 #pragma once
@@ -23,7 +23,7 @@
 #include <list>
 #include <map>
 #include <memory>
-#include <cmath> 
+#include <cmath>
 #include "time.h"
 #include "assert.h"
 
@@ -32,19 +32,19 @@
  * 1-linux, include config_linux.h
  * 2-maxcos, include config_maxcos.h
  */
-#define USING_OS_TYPE  0 //0-windows 1-linux 2-macxos
+#define USING_OS_TYPE  1 //0-windows 1-linux 2-macxos
 
 /*
- * 1-enable console window and display information 
+ * 1-enable console window and display information
  * 0-disable
  */
-#define ENABLE_CONSOLE_OUTPUT 0 
+#define ENABLE_CONSOLE_OUTPUT 0
 /*
  * 0-MFC , the USING_OS_TYPE must be 0
- * 1-Qt 
+ * 1-Qt
  * 2-wxWidget
  */
-#define USING_UI_TYPE  0 
+#define USING_UI_TYPE  1
 /*
  * If the ui library is 0, the os type must be 0.
  */
@@ -80,18 +80,18 @@
 #define USING_PROJ4_STATIC  0
 
 #if(USING_OS_TYPE==0)
-#include "config_windows.h"    
+#include "config_windows.h"
 #elif(USING_OS_TYPE==1)
-#include "config_linux.h"          
+#include "config_linux.h"
 #else //MacX OS
-#include "config_macxos.h"        
+#include "config_macxos.h"
 #endif //USING_OS_TYPE
-        
+
 #ifdef CORE_EXPORTS
     #ifdef _USRDLL
         #define CORE_API __declspec(dllexport)
     #else
-        #define CORE_API  
+        #define CORE_API
     #endif
 #else
     #define CORE_API __declspec(dllimport)
@@ -114,16 +114,16 @@
 
 #define begin_sve_namespace namespace sve{
 #define end_sve_namespace }
-#define using_sve_namespace using namespace sve; 
+#define using_sve_namespace using namespace sve;
 
 
-#define begin_plugin_namespace namespace plugin{   
-#define end_plugin_namespace                   }   
-#define useing_plugin_namespace using namespace plugin ;  
+#define begin_plugin_namespace namespace plugin{
+#define end_plugin_namespace                   }
+#define useing_plugin_namespace using namespace plugin ;
 
 
-#define begin_details_namespace namespace details{   
-#define end_details_namespace                   }   
+#define begin_details_namespace namespace details{
+#define end_details_namespace                   }
 #define useing_details_namespace using namespace details ;
 
 using namespace std;
@@ -167,7 +167,7 @@ private:
 private:
 	static Envelope3d defaultQueryEnvelope;
 	static double unloadDistance;//大于unloadDistance距离的时候，从内存中卸载；
-	static double loadDistance;//小于loadDistance距离的时候，不从内存中卸载；	
+	static double loadDistance;//小于loadDistance距离的时候，不从内存中卸载；
 	static unsigned int  numberOfAddFeaturesPreframe;//每一帧回调加入场景中的最大要素个数
 	static unsigned int cachedTexturesOfRender;//渲染引擎中的纹理缓存大小，单位为纹理个数
 	static unsigned int cachedSharedModelsOfRender;//渲染引擎中的共享模型缓存大小，单位为纹理个数
@@ -178,7 +178,7 @@ private:
 	static unsigned  int cachedBlockNumber;//缓存中网格块的最大个数
 	static unsigned int useSameBlockID4DomDem;//DEM和DOM块的ID是否对应
 private:
-	/* 
+	/*
 	* Special processing for Transverse Mercator with GDAL &gt;= 1.10 and PROJ &gt;= 4.8 :
 	* if the OSR_USE_ETMERC configuration option is set to YES, the PROJ.4
 	* definition built from the SRS will use the 'etmerc' projection method,
@@ -193,7 +193,7 @@ private://可视化时候的投影参数
 	static double zNear;
 	static double zFar;
 private://Display Mode
-	static unsigned int stereo;//0-disable 1-enable	 
+	static unsigned int stereo;//0-disable 1-enable
 	/*QUAD_BUFFER=0,
 	ANAGLYPHIC=1,
 	HORIZONTAL_SPLIT=2,
@@ -209,7 +209,7 @@ private://Dynamic Dispaching
 public:
 	static int cameraLightStatus;
 private:
-	static unsigned int currentCommand;//当前按钮的ID	
+	static unsigned int currentCommand;//当前按钮的ID
 public:
 	Config();
 public:

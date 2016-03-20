@@ -21,13 +21,13 @@
 #include <ios>
 #include <istream>
 #include <ostream>
-#include <string>    // char traits            
+#include <string>    // char traits
 #include <cstddef>   // ptrdiff_t
 #include <cmath>
 #include "assert.h"
 #include "csv.h"
 #include "srsapi.h"
-#include "srsnode.h"  
+#include "srsnode.h"
 begin_gtl_namespace
 begin_gdb_namespace
 
@@ -75,7 +75,7 @@ public:
 
 	void      dumpReadable();
 	bool      exportToWkt(char **) const;
-	bool      exportToPrettyWkt(char **, int = FALSE) const;
+	bool      exportToPrettyWkt(char **, int = 0) const;
 	bool      exportToProj4(char **) const;
 	bool      exportToPCI(char **, char **, double **) const;
 	bool      exportToUSGS(long *, long *, double **, long *) const;
@@ -92,7 +92,7 @@ public:
 	bool      importFromPCI(const char *, const char * v1= NULL,
 		double * v2= NULL);
 #define USGS_ANGLE_DECIMALDEGREES 0
-#define USGS_ANGLE_PACKEDDMS      TRUE /* 1 */
+#define USGS_ANGLE_PACKEDDMS      1 /* 1 */
 #define USGS_ANGLE_RADIANS        2
 	bool      importFromUSGS(long iProjSys, long iZone,
 		double *padfPrjParams, long iDatum,
@@ -433,7 +433,7 @@ public:
 		double dfFalseEasting, double dfFalseNorthing);
 
 	/** Universal Transverse Mercator */
-	bool    setUTM(int nZone, int bNorth = TRUE);
+	bool    setUTM(int nZone, int bNorth = 1);
 	int         getUTMZone(int *pbNorth = NULL) const;
 
 	/** Wagner I -- VII */
@@ -441,7 +441,7 @@ public:
 		double dfFalseEasting, double dfFalseNorthing);
 
 	/** State Plane */
-	bool     setStatePlane(int nZone, int bNAD83 = TRUE,
+	bool     setStatePlane(int nZone, int bNAD83 = 1,
 		const char *pszOverrideUnitName = NULL,
 		double dfOverrideUnit = 0.0);
 
@@ -454,19 +454,19 @@ public:
 };
 
 
-class CORE_API CoordinateTransformer { 
+class CORE_API CoordinateTransformer {
 public:
 	virtual ~CoordinateTransformer() {}
 
 	static void destroy(CoordinateTransformer* poCT);
 	static CoordinateTransformer* create(SpatialReference * sourceCS, SpatialReference * targetCS);
- 
+
 	/** Fetch internal source coordinate system. */
 	virtual SpatialReference *getSourceCS() = 0;
 
 	/** Fetch internal target coordinate system. */
 	virtual SpatialReference *getTargetCS() = 0;
- 
+
 	/**
 	* Transform points from source to destination space.
 	*
@@ -500,9 +500,9 @@ public:
 	* @return TRUE if some or all points transform successfully, or FALSE if
 	* if none transform.
 	*/
-	
+
 	virtual int transform(int nCount,
-		 double *x,  double *y,  double *z, 
+		 double *x,  double *y,  double *z,
 		int *pabSuccess ) = 0;
 
 };

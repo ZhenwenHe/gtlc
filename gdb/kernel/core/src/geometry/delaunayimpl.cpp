@@ -2120,8 +2120,11 @@ begin_gdb_namespace
 	/*   Floating-Point Arithmetic and Fast Robust Geometric Predicates" (also   */
 	/*   available as Section 6.6 of my dissertation).                           */
 
+#if (USING_OS_TYPE==0)
 #define CPU86
-	/* #define LINUX */
+#else
+#define LINUX
+#endif
 
 #define INEXACT /* Nothing */
 	/* #define INEXACT volatile */

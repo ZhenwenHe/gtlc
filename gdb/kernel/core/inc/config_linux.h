@@ -9,7 +9,7 @@
 * provided that the above copyright notice appear in all copies and
 * that both that copyright notice and this permission notice appear
 * in supporting documentation.  Zhenwen He  makes no  representations
-* about the suitability of this software for any purpose. 
+* about the suitability of this software for any purpose.
 * It is provided "as is" without express or implied warranty.
 */
 
@@ -36,6 +36,8 @@
             PALETTEENTRY        palPalEntry[1];
     } LOGPALETTE, *PLOGPALETTE;
     #endif // !_LOGPALETTE_DEFINED
+
+    #include <sys/time.h>
 
 #endif /* CONFIG_LINUX_H */
 

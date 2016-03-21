@@ -32,7 +32,7 @@
  * 1-linux, include config_linux.h
  * 2-maxcos, include config_maxcos.h
  */
-#define USING_OS_TYPE  1 //0-windows 1-linux 2-macxos
+#define USING_OS_TYPE  0 //0-windows 1-linux 2-macxos
 
 /*
  * 1-enable console window and display information
@@ -87,6 +87,15 @@
 #include "config_macxos.h"
 #endif //USING_OS_TYPE
 
+
+#if(USING_UI_TYPE==1)     //Qt
+#include <QtCore/qglobal.h>
+#if defined(CORE_EXPORTS)
+#  define CORE_API Q_DECL_EXPORT
+#else
+#  define CORE_API Q_DECL_IMPORT
+#endif
+#elif(USING_UI_TYPE==0)  //MFC
 #ifdef CORE_EXPORTS
     #ifdef _USRDLL
         #define CORE_API __declspec(dllexport)
@@ -96,6 +105,21 @@
 #else
     #define CORE_API __declspec(dllimport)
 #endif
+#else                   //wxWidgets
+#ifdef CORE_EXPORTS
+    #ifdef _USRDLL
+        #define CORE_API __declspec(dllexport)
+    #else
+        #define CORE_API
+    #endif
+#else
+    #define CORE_API __declspec(dllimport)
+#endif
+#endif
+
+
+
+
 
 
 #define begin_gtl_namespace namespace gtl{

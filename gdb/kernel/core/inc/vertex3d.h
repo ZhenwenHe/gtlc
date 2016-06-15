@@ -1,4 +1,4 @@
-/*
+ï»¿/*
 * Geosciences Template Library
 *
 * Copyright (c) 2008
@@ -25,7 +25,7 @@ begin_gtl_namespace
 begin_gdb_namespace
 
 /** @} */
-/** @addtogroup vertex Vertex3d ×ø±êµãµÄ½á¹¹Ìå¶¨Òå
+/** @addtogroup vertex Vertex3d åæ ‡ç‚¹çš„ç»“æ„ä½“å®šä¹‰
 *  @{
 */
 class CORE_API Vertex3d{
@@ -38,32 +38,32 @@ public:
 
 	Vertex3d operator = (const Vertex3d & c);
 
-	/** ÄÚÁªº¯Êı¡£ÖØÔØ¶şÔª²Ù×÷·û"^="£¬ÓÃÓÚ¶ÔÏòÁ¿µÄ¸´ºÏ¸³Öµ£¨²æ³Ë£©
-	* @param [in] vt3d	µ±Ç°ÓÃÓÚ¸´ºÏ¸³ÖµµÄÏòÁ¿
+	/** å†…è”å‡½æ•°ã€‚é‡è½½äºŒå…ƒæ“ä½œç¬¦"^="ï¼Œç”¨äºå¯¹å‘é‡çš„å¤åˆèµ‹å€¼ï¼ˆå‰ä¹˜ï¼‰
+	* @param [in] vt3d	å½“å‰ç”¨äºå¤åˆèµ‹å€¼çš„å‘é‡
 	* @return
 	*/
 	inline void operator^=(const Vertex3d& vt3d);
 
-	/** ÄÚÁªº¯Êı¡£ÖØÔØ¶şÔª²Ù×÷·û"+="£¬ÓÃÓÚ¶ÔÏòÁ¿µÄ¸´ºÏ¸³Öµ£¨¼Ó·¨£©¡£
-	* @param [in] vt3d	µ±Ç°ÓÃÓÚ¸´ºÏ¸³ÖµµÄÏòÁ¿
+	/** å†…è”å‡½æ•°ã€‚é‡è½½äºŒå…ƒæ“ä½œç¬¦"+="ï¼Œç”¨äºå¯¹å‘é‡çš„å¤åˆèµ‹å€¼ï¼ˆåŠ æ³•ï¼‰ã€‚
+	* @param [in] vt3d	å½“å‰ç”¨äºå¤åˆèµ‹å€¼çš„å‘é‡
 	* @return
 	*/
 	inline void operator+=(const Vertex3d& vt3d);
 
-	/** ÄÚÁªº¯Êı¡£ÖØÔØ¶şÔª²Ù×÷·û"-="£¬ÓÃÓÚ¶ÔÏòÁ¿µÄ¸´ºÏ¸³Öµ£¨¼õ·¨£©
-	* @param [in] vt3d	µ±Ç°ÓÃÓÚ¸´ºÏ¸³ÖµµÄÏòÁ¿
+	/** å†…è”å‡½æ•°ã€‚é‡è½½äºŒå…ƒæ“ä½œç¬¦"-="ï¼Œç”¨äºå¯¹å‘é‡çš„å¤åˆèµ‹å€¼ï¼ˆå‡æ³•ï¼‰
+	* @param [in] vt3d	å½“å‰ç”¨äºå¤åˆèµ‹å€¼çš„å‘é‡
 	* @return
 	*/
 	inline void operator-=(const Vertex3d& vt3d);
-	/** ÄÚÁªº¯Êı¡£ÖØÔØ¶şÔª²Ù×÷·û"/="£¬ÓÃÓÚ¶ÔÏòÁ¿µÄ¸´ºÏ¸³Öµ£¨µã³Ë£©¡£
-	* @param [in] rhd	µ±Ç°ÓÃÓÚ¸´ºÏ¸³ÖµµÄ³ıÊı
+	/** å†…è”å‡½æ•°ã€‚é‡è½½äºŒå…ƒæ“ä½œç¬¦"/="ï¼Œç”¨äºå¯¹å‘é‡çš„å¤åˆèµ‹å€¼ï¼ˆç‚¹ä¹˜ï¼‰ã€‚
+	* @param [in] rhd	å½“å‰ç”¨äºå¤åˆèµ‹å€¼çš„é™¤æ•°
 	* @return
 	*/
 	void operator/=(double rhd);
 
-	/** ÄÚÁªº¯Êı¡£ÖØÔØÒ»Ôª²Ù×÷·û"-"£¬ÓÃÓÚÈ¡µÃÏòÁ¿»ò×ø±êµÄÏà·´Öµ¡£
+	/** å†…è”å‡½æ•°ã€‚é‡è½½ä¸€å…ƒæ“ä½œç¬¦"-"ï¼Œç”¨äºå–å¾—å‘é‡æˆ–åæ ‡çš„ç›¸åå€¼ã€‚
 	* @param
-	* @return ÏòÁ¿»ò×ø±êµÄÏà·´Öµ
+	* @return å‘é‡æˆ–åæ ‡çš„ç›¸åå€¼
 	*/
 	inline Vertex3d operator-() const;
 
@@ -76,7 +76,7 @@ public:
 	/*distance to another vertex*/
 	inline double distance(const Vertex3d & v)const ;
 
-	/** ¶ÔÏòÁ¿ÖÃ¿Õ
+	/** å¯¹å‘é‡ç½®ç©º
 	* @param
 	* @return
 	*/
@@ -132,8 +132,8 @@ inline double Vertex3d::distance(const Vertex3d & v) const
 	return (*this - v).length();
 }
 
-/** ÄÚÁªº¯Êı¡£ÖØÔØ¶şÔª²Ù×÷·û"^="£¬ÓÃÓÚ¶ÔÏòÁ¿µÄ¸´ºÏ¸³Öµ£¨²æ³Ë£©
-* @param [in] vt3d	µ±Ç°ÓÃÓÚ¸´ºÏ¸³ÖµµÄÏòÁ¿
+/** å†…è”å‡½æ•°ã€‚é‡è½½äºŒå…ƒæ“ä½œç¬¦"^="ï¼Œç”¨äºå¯¹å‘é‡çš„å¤åˆèµ‹å€¼ï¼ˆå‰ä¹˜ï¼‰
+* @param [in] vt3d	å½“å‰ç”¨äºå¤åˆèµ‹å€¼çš„å‘é‡
 * @return
 */
 inline void Vertex3d::operator^=(const Vertex3d& vt3d)
@@ -144,8 +144,8 @@ inline void Vertex3d::operator^=(const Vertex3d& vt3d)
 	dTempZ = x * vt3d.y - y * vt3d.x;
 	x = dTempX; y = dTempY; z = dTempZ;
 }
-/** ÄÚÁªº¯Êı¡£ÖØÔØ¶şÔª²Ù×÷·û"+="£¬ÓÃÓÚ¶ÔÏòÁ¿µÄ¸´ºÏ¸³Öµ£¨¼Ó·¨£©¡£
-* @param [in] vt3d	µ±Ç°ÓÃÓÚ¸´ºÏ¸³ÖµµÄÏòÁ¿
+/** å†…è”å‡½æ•°ã€‚é‡è½½äºŒå…ƒæ“ä½œç¬¦"+="ï¼Œç”¨äºå¯¹å‘é‡çš„å¤åˆèµ‹å€¼ï¼ˆåŠ æ³•ï¼‰ã€‚
+* @param [in] vt3d	å½“å‰ç”¨äºå¤åˆèµ‹å€¼çš„å‘é‡
 * @return
 */
 inline void Vertex3d::operator+=(const Vertex3d& vt3d)
@@ -155,8 +155,8 @@ inline void Vertex3d::operator+=(const Vertex3d& vt3d)
 	z += vt3d.z;
 }
 
-/** ÄÚÁªº¯Êı¡£ÖØÔØ¶şÔª²Ù×÷·û"-="£¬ÓÃÓÚ¶ÔÏòÁ¿µÄ¸´ºÏ¸³Öµ£¨¼õ·¨£©
-* @param [in] vt3d	µ±Ç°ÓÃÓÚ¸´ºÏ¸³ÖµµÄÏòÁ¿
+/** å†…è”å‡½æ•°ã€‚é‡è½½äºŒå…ƒæ“ä½œç¬¦"-="ï¼Œç”¨äºå¯¹å‘é‡çš„å¤åˆèµ‹å€¼ï¼ˆå‡æ³•ï¼‰
+* @param [in] vt3d	å½“å‰ç”¨äºå¤åˆèµ‹å€¼çš„å‘é‡
 * @return
 */
 inline void Vertex3d::operator-=(const Vertex3d& vt3d)
@@ -166,9 +166,9 @@ inline void Vertex3d::operator-=(const Vertex3d& vt3d)
 	z -= vt3d.z;
 }
 
-/** ÄÚÁªº¯Êı¡£ÖØÔØÒ»Ôª²Ù×÷·û"-"£¬ÓÃÓÚÈ¡µÃÏòÁ¿»ò×ø±êµÄÏà·´Öµ¡£
+/** å†…è”å‡½æ•°ã€‚é‡è½½ä¸€å…ƒæ“ä½œç¬¦"-"ï¼Œç”¨äºå–å¾—å‘é‡æˆ–åæ ‡çš„ç›¸åå€¼ã€‚
 * @param
-* @return ÏòÁ¿»ò×ø±êµÄÏà·´Öµ
+* @return å‘é‡æˆ–åæ ‡çš„ç›¸åå€¼
 */
 inline Vertex3d Vertex3d::operator-() const
 {
@@ -212,15 +212,15 @@ inline Vertex3d  Vertex3d::crossProduct(const Vertex3d& rkVector) const
 	return kCross;
 }
 
-// ÔÚvVecÉÏµÄÍ¶Ó°³¤¶È
+// åœ¨vVecä¸Šçš„æŠ•å½±é•¿åº¦
 inline double Vertex3d::getProjectLength(Vertex3d& vVec) const
 {
-	// ÔÚvVecÉÏµÄÍ¶Ó°³¤¶È
+	// åœ¨vVecä¸Šçš„æŠ•å½±é•¿åº¦
 	if (vVec == Vertex3d(0, 0, 0))
 		return 0;
 	return ((*this) *vVec) / vVec.length();
 }
-// ÔÚvVecÉÏµÄÍ¶Ó°Height¶È
+// åœ¨vVecä¸Šçš„æŠ•å½±Heightåº¦
 inline double Vertex3d::getProjectHeight(Vertex3d& vVec) const
 {
 	double dHeightEx = 0.0;

@@ -1,4 +1,4 @@
-/*
+ï»¿/*
 * Geosciences Template Library
 *
 * Copyright (c) 2008
@@ -27,10 +27,10 @@ begin_gdb_namespace
 class CORE_API IndexBuffer :public DescribableBuffer {
 public:
 	IndexBuffer();
-	IndexBuffer(unsigned int * pi, size_t number, bool b_alloc = false);//¹¹Ôìº¯Êı£¬Èç¹ûb_allocÎªÕæ£¬Ôò»áĞÂÉêÇëÒ»¿é´óĞ¡ÎªsµÄÄÚ´æ¿é£¬²¢¸´ÖÆdµÄÄÚÈİ£¬·´Ö®£¬ÔòÖ¸Ïòd
-	void copy(const IndexBuffer & b);//¿½±´Bufferº¯Êı£¬Èç¹ûbµÄ_alloc³ÉÔ±Îª¼Ù£¬Ôò¿½±´ºóµÄBuffer¶ÔÏóÓëb¹«ÓÃÒ»¸öÄÚ´æ¿é£¬·ñÔòÎªÄÚ´æ¿é¿½±´
-	IndexBuffer(const IndexBuffer & b);//¿½±´¹¹Ôìº¯Êı
-	IndexBuffer operator = (const IndexBuffer & b);//µÈºÅ¸³Öµ²Ù×÷
+	IndexBuffer(unsigned int * pi, size_t number, bool b_alloc = false);//æ„é€ å‡½æ•°ï¼Œå¦‚æœb_allocä¸ºçœŸï¼Œåˆ™ä¼šæ–°ç”³è¯·ä¸€å—å¤§å°ä¸ºsçš„å†…å­˜å—ï¼Œå¹¶å¤åˆ¶dçš„å†…å®¹ï¼Œåä¹‹ï¼Œåˆ™æŒ‡å‘d
+	void copy(const IndexBuffer & b);//æ‹·è´Bufferå‡½æ•°ï¼Œå¦‚æœbçš„_allocæˆå‘˜ä¸ºå‡ï¼Œåˆ™æ‹·è´åçš„Bufferå¯¹è±¡ä¸bå…¬ç”¨ä¸€ä¸ªå†…å­˜å—ï¼Œå¦åˆ™ä¸ºå†…å­˜å—æ‹·è´
+	IndexBuffer(const IndexBuffer & b);//æ‹·è´æ„é€ å‡½æ•°
+	IndexBuffer operator = (const IndexBuffer & b);//ç­‰å·èµ‹å€¼æ“ä½œ
 
 	void add(unsigned int i);
 	void add(unsigned int i, unsigned int j);

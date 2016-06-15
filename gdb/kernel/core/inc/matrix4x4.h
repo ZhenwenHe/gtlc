@@ -1,4 +1,4 @@
-/*
+ï»¿/*
 * Geosciences Template Library
 *
 * Copyright (c) 2008
@@ -38,37 +38,37 @@ class CORE_API Matrix4x4 : public Matrix
 {
 public:
 
-	/** @name ÊôĞÔ£¨³ÉÔ±±äÁ¿£©
+	/** @name å±æ€§ï¼ˆæˆå‘˜å˜é‡ï¼‰
 	* @{
 	*/
 
-	/** µ¥Î»¾ØÕó */
+	/** å•ä½çŸ©é˜µ */
 	static const Matrix4x4 IDENTITY4X4;
 
-	/** @} */ // ÊôĞÔ½áÎ²
+	/** @} */ // å±æ€§ç»“å°¾
 
 public:
 
-	/** @name ¹¹ÔìÓëÎö¹¹º¯Êı
+	/** @name æ„é€ ä¸ææ„å‡½æ•°
 	*  @{
 	*/
 
-	/** ¹¹Ôìº¯Êı1£º´ø²Î¹¹Ôìº¯Êı£¨³õÊ¼»¯ÁĞ±í£©
+	/** æ„é€ å‡½æ•°1ï¼šå¸¦å‚æ„é€ å‡½æ•°ï¼ˆåˆå§‹åŒ–åˆ—è¡¨ï¼‰
 	*/
 	Matrix4x4(double* const pData) :Matrix(4, pData){}
 
-	/** ¹¹Ôìº¯Êı1£º´ø²Î¹¹Ôìº¯Êı£¨³õÊ¼»¯ÁĞ±í£©
+	/** æ„é€ å‡½æ•°1ï¼šå¸¦å‚æ„é€ å‡½æ•°ï¼ˆåˆå§‹åŒ–åˆ—è¡¨ï¼‰
 	*/
 	Matrix4x4() :Matrix(4, NULL)
 	{
 		operator=(IDENTITY4X4);
 	}
 
-	/** ¹¹Ôìº¯Êı2£º¿½±´¹¹Ôìº¯Êı£¨³õÊ¼»¯ÁĞ±í,ÓÃÁíÍâÒ»¸ö4*4Î¬¾ØÕóÀ´³õÊ¼»¯£©
+	/** æ„é€ å‡½æ•°2ï¼šæ‹·è´æ„é€ å‡½æ•°ï¼ˆåˆå§‹åŒ–åˆ—è¡¨,ç”¨å¦å¤–ä¸€ä¸ª4*4ç»´çŸ©é˜µæ¥åˆå§‹åŒ–ï¼‰
 	*/
 	Matrix4x4(const Matrix4x4& rv) :Matrix(rv){}
 
-	/** ¹¹Ôìº¯Êı3£º´ø²Î¹¹Ôìº¯Êı£¨³õÊ¼»¯ÁĞ±í,ÓÃ16¸ödoubleÊı¾İÀ´³õÊ¼»¯£©
+	/** æ„é€ å‡½æ•°3ï¼šå¸¦å‚æ„é€ å‡½æ•°ï¼ˆåˆå§‹åŒ–åˆ—è¡¨,ç”¨16ä¸ªdoubleæ•°æ®æ¥åˆå§‹åŒ–ï¼‰
 	*/
 	Matrix4x4(double fEntry00, double fEntry01, double fEntry02, double fEntry03,
 		double fEntry10, double fEntry11, double fEntry12, double fEntry13,
@@ -81,7 +81,7 @@ public:
 		m_dData[12] = fEntry30;	m_dData[13] = fEntry31;  m_dData[14] = fEntry32;  m_dData[15] = fEntry33;
 	}
 
-	/** ¹¹Ôìº¯Êı4£º´ø²Î¹¹Ôìº¯Êı£¨³õÊ¼»¯ÁĞ±í,ÓÃ4¸ödoubleĞÍÊı¾İÀ´³õÊ¼»¯£©
+	/** æ„é€ å‡½æ•°4ï¼šå¸¦å‚æ„é€ å‡½æ•°ï¼ˆåˆå§‹åŒ–åˆ—è¡¨,ç”¨4ä¸ªdoubleå‹æ•°æ®æ¥åˆå§‹åŒ–ï¼‰
 	*/
 	Matrix4x4(double fEntry0[4], double fEntry1[4], double fEntry2[4], double fEntry3[4]) :Matrix(4)
 	{
@@ -91,7 +91,7 @@ public:
 		m_dData[12] = fEntry3[0];	m_dData[13] = fEntry3[1];  m_dData[14] = fEntry3[2];  m_dData[15] = fEntry3[3];
 	}
 
-	/** ¹¹Ôìº¯Êı5£º´ø²Î¹¹Ôìº¯Êı£¨³õÊ¼»¯ÁĞ±í,ÓÃ3*3Î¬¾ØÕóÀ´³õÊ¼»¯£©
+	/** æ„é€ å‡½æ•°5ï¼šå¸¦å‚æ„é€ å‡½æ•°ï¼ˆåˆå§‹åŒ–åˆ—è¡¨,ç”¨3*3ç»´çŸ©é˜µæ¥åˆå§‹åŒ–ï¼‰
 	*/
 	inline Matrix4x4(const Matrix3x3& m3x3) :Matrix(4)
 	{
@@ -99,14 +99,14 @@ public:
 		operator=(m3x3);
 	}
 
-	/** @} */ // ¹¹ÔìÓëÎö¹¹º¯Êı½áÎ²
+	/** @} */ // æ„é€ ä¸ææ„å‡½æ•°ç»“å°¾
 
-	/** @name Êı¾İ²Ù×÷
+	/** @name æ•°æ®æ“ä½œ
 	*  @{
 	*/
 
-	/** ¸³Öµ²Ù×÷,½«3*3Î¬µÄ¾ØÕó¸³Öµ¸ø4*4¾ØÕó
-	* @param[in] mat3 3*3Î¬µÄ¾ØÕó
+	/** èµ‹å€¼æ“ä½œ,å°†3*3ç»´çš„çŸ©é˜µèµ‹å€¼ç»™4*4çŸ©é˜µ
+	* @param[in] mat3 3*3ç»´çš„çŸ©é˜µ
 	* @return
 	*/
 	inline void operator = (const Matrix3x3& mat3)
@@ -124,8 +124,8 @@ public:
 		return (*this);
 	}
 
-	/** ÌáÈ¡²Ù×÷,½«4*4Î¬µÄ¾ØÕó¸³Öµ¸ø3*3¾ØÕó
-	* @param[out] mat3 3*3Î¬µÄ¾ØÕó
+	/** æå–æ“ä½œ,å°†4*4ç»´çš„çŸ©é˜µèµ‹å€¼ç»™3*3çŸ©é˜µ
+	* @param[out] mat3 3*3ç»´çš„çŸ©é˜µ
 	* @return
 	*/
 	inline void extract3x3Matrix(Matrix3x3& m3x3) const
@@ -143,24 +143,24 @@ public:
 
 
 
-	/** ¹¹½¨×ª»»¾ØÕó,Ê×ÏÈÉèÖÃ¾ØÕóÎªµ¥Î»¾ØÕó
-	* @param[out] v 3Î¬ÏòÁ¿
+	/** æ„å»ºè½¬æ¢çŸ©é˜µ,é¦–å…ˆè®¾ç½®çŸ©é˜µä¸ºå•ä½çŸ©é˜µ
+	* @param[out] v 3ç»´å‘é‡
 	* @return
 	*/
 	void buildTranslateMatrix(const Vertex3d& v);
 	void buildTranslateMatrix(double dx, double dy, double dz);
 	void buildTranslateMatrix(Vertex3d & d);
 
-	/** ¹¹½¨±ÈÀı³ß¾ØÕó,Ê×ÏÈÉèÖÃ¾ØÕóÎªµ¥Î»¾ØÕó
-	* @param[out] scaleVec 3Î¬ÏòÁ¿
-	* @param[out] center 3Î¬ÏòÁ¿
+	/** æ„å»ºæ¯”ä¾‹å°ºçŸ©é˜µ,é¦–å…ˆè®¾ç½®çŸ©é˜µä¸ºå•ä½çŸ©é˜µ
+	* @param[out] scaleVec 3ç»´å‘é‡
+	* @param[out] center 3ç»´å‘é‡
 	* @return
 	*/
 	void buildScaleMatrix(const Vertex3d& scaleVec, const Vertex3d& center);
 
-	/** ¹¹½¨Ğı×ª¾ØÕó,Ê×ÏÈÉèÖÃ¾ØÕóÎªµ¥Î»¾ØÕó
-	* @param[out] m3x3 3Î¬ÏòÁ¿
-	* @param[out] center 3Î¬ÏòÁ¿
+	/** æ„å»ºæ—‹è½¬çŸ©é˜µ,é¦–å…ˆè®¾ç½®çŸ©é˜µä¸ºå•ä½çŸ©é˜µ
+	* @param[out] m3x3 3ç»´å‘é‡
+	* @param[out] center 3ç»´å‘é‡
 	* @return
 	*/
 	void buildRotateMatrix(const Matrix3x3& m3x3, const Vertex3d& center);
@@ -168,8 +168,8 @@ public:
 	
 	void buildTransformMatrix(const Vertex3d& position, const Vertex3d& scale, const Quaternion& orientation,
 		const Vertex3d& scaleCenter, const Vertex3d& rotateCenter);
-	/** ¹¹½¨×ª»»¾ØÕó
-	* @param[out] v 3Î¬ÏòÁ¿
+	/** æ„å»ºè½¬æ¢çŸ©é˜µ
+	* @param[out] v 3ç»´å‘é‡
 	* @return
 	*/
 	inline void setTranslateVector(const Vertex3d& v)
@@ -179,8 +179,8 @@ public:
 		(*this)[3][2] = v.z;
 	}
 
-	/** »ñÈ¡×ª»»¾ØÕó
-	* @return ÈıÎ¬ÏòÁ¿
+	/** è·å–è½¬æ¢çŸ©é˜µ
+	* @return ä¸‰ç»´å‘é‡
 	*/
 	inline Vertex3d getTranslateVector() const
 	{
@@ -191,9 +191,9 @@ public:
 		return v;
 	}
 
-	/** ¹¹½¨±ÈÀı³ß¾ØÕó
-	* @param[out] scaleVec 3Î¬ÏòÁ¿
-	* @param[out] center 3Î¬ÏòÁ¿
+	/** æ„å»ºæ¯”ä¾‹å°ºçŸ©é˜µ
+	* @param[out] scaleVec 3ç»´å‘é‡
+	* @param[out] center 3ç»´å‘é‡
 	* @return
 	*/
 	inline void setScaleVector(const Vertex3d& v)
@@ -203,8 +203,8 @@ public:
 		(*this)[2][2] = v.z;
 	}
 
-	/** »ñÈ¡±ÈÀı³ß¾ØÕó
-	* @return ÈıÎ¬ÏòÁ¿
+	/** è·å–æ¯”ä¾‹å°ºçŸ©é˜µ
+	* @return ä¸‰ç»´å‘é‡
 	*/
 	inline Vertex3d getScaleVector() const
 	{
@@ -215,17 +215,17 @@ public:
 		return v;
 	}
 
-	/** ¹¹½¨Ğı×ª¾ØÕó
-	* @param[out] m3x3 3Î¬ÏòÁ¿
-	* @param[out] center 3Î¬ÏòÁ¿
+	/** æ„å»ºæ—‹è½¬çŸ©é˜µ
+	* @param[out] m3x3 3ç»´å‘é‡
+	* @param[out] center 3ç»´å‘é‡
 	* @return
 	*/
 	inline void setRotateMatrix(const Matrix3x3& m3x3)
 	{
 		operator=(m3x3);
 	}
-	/** ÉèÖÃĞı×ªËÄÔªÊı
-	* @param[out] rot ËÄÔªÊı
+	/** è®¾ç½®æ—‹è½¬å››å…ƒæ•°
+	* @param[out] rot å››å…ƒæ•°
 	* @return
 	*/
 	inline void setRotateQuaternion(const Quaternion& rot)

@@ -742,7 +742,7 @@ int   AddParamBasedOnPrjName(SpatialReference* pOgr,
 	const char* pszProjectionName, char **mappingTable);
 int   RemapGeogCSName(SpatialReference* pOgr, const char *pszGeogCSName);
 
-static int   findCodeFromDict(const char* pszDictFile, const char* CSName, char* code);
+static bool   findCodeFromDict(const char* pszDictFile, const char* CSName, char* code);
 
 static const char *apszProjMapping[] = {
 	"Albers", SRS_PT_ALBERS_CONIC_EQUAL_AREA,
@@ -1251,7 +1251,7 @@ static double OSR_GDV(char **papszNV, const char * pszField,
 	{
 		for (iLine = 0;
 		papszNV[iLine] != NULL &&
-			!cslNIEqualString(papszNV[iLine], pszField, strlen(pszField));
+			!cslNIEqualString(papszNV[iLine], pszField, (int)strlen(pszField));
 			iLine++) {
 		}
 
@@ -1277,7 +1277,7 @@ static String OSR_GDS(char **papszNV, const char * pszField,
 
 	for (iLine = 0;
 	papszNV[iLine] != NULL &&
-		!cslNIEqualString(papszNV[iLine], pszField, strlen(pszField));
+		!cslNIEqualString(papszNV[iLine], pszField, (int)strlen(pszField));
 		iLine++) {
 	}
 
@@ -2013,7 +2013,7 @@ bool SpatialReference::morphToESRI()
 		const char * dfValue = poSpheroidChild->getValue();
 		for (int i = 0; apszInvFlatteningMapping[i] != NULL; i += 2)
 		{
-			if (cslNIEqualString(apszInvFlatteningMapping[i], dfValue, strlen(apszInvFlatteningMapping[i])))
+			if (cslNIEqualString(apszInvFlatteningMapping[i], dfValue, (int)strlen(apszInvFlatteningMapping[i])))
 			{
 				poSpheroidChild->setValue(apszInvFlatteningMapping[i + 1]);
 				break;
@@ -2657,14 +2657,14 @@ int RemapNamesBasedOnTwo(SpatialReference* pOgr, const char* name1, const char* 
 	long iIndex = -1;
 	for (i = 0; mappingTable[i] != NULL; i += nTableStepSize)
 	{
-		n = strlen(name1);
-		n1 = strlen(mappingTable[i]);
+		n =(long) strlen(name1);
+		n1 =(long) strlen(mappingTable[i]);
 		if (cslNIEqualString(name1, mappingTable[i], n1 <= n ? n1 : n))
 		{
 			long j = i;
 			while (mappingTable[j] != NULL && cslIEqualString(mappingTable[i], mappingTable[j]))
 			{
-				if (cslNIEqualString(name2, mappingTable[j + 1], strlen(mappingTable[j + 1])))
+				if (cslNIEqualString(name2, mappingTable[j + 1], (int)strlen(mappingTable[j + 1])))
 				{
 					iIndex = j;
 					break;
@@ -2704,7 +2704,7 @@ int RemapPValuesBasedOnProjCSAndPName(SpatialReference* pOgr, const char* pszPro
 	SRSNode *poPROJCS = pOgr->getAttrNode("PROJCS");
 	for (int i = 0; mappingTable[i] != NULL; i += 4)
 	{
-		while (mappingTable[i] != NULL && cslNIEqualString(pszProgCSName, mappingTable[i], strlen(mappingTable[i])))
+		while (mappingTable[i] != NULL && cslNIEqualString(pszProgCSName, mappingTable[i], (int)strlen(mappingTable[i])))
 		{
 			SRSNode *poParm;
 			const char* pszParamName = mappingTable[i + 1];
@@ -2716,7 +2716,7 @@ int RemapPValuesBasedOnProjCSAndPName(SpatialReference* pOgr, const char* pszPro
 				if (cslIEqualString(poParm->getValue(), "PARAMETER")
 					&& poParm->getChildCount() == 2
 					&& cslIEqualString(poParm->getChild(0)->getValue(), pszParamName)
-					&& cslNIEqualString(poParm->getChild(1)->getValue(), pszParamValue, strlen(pszParamValue)))
+					&& cslNIEqualString(poParm->getChild(1)->getValue(), pszParamValue, (int) strlen(pszParamValue)))
 				{
 					poParm->getChild(1)->setValue(mappingTable[i + 3]);
 					break;
@@ -2744,7 +2744,7 @@ int RemapPNamesBasedOnProjCSAndPName(SpatialReference* pOgr, const char* pszProg
 	SRSNode *poPROJCS = pOgr->getAttrNode("PROJCS");
 	for (int i = 0; mappingTable[i] != NULL; i += 3)
 	{
-		while (mappingTable[i] != NULL && cslNIEqualString(pszProgCSName, mappingTable[i], strlen(mappingTable[i])))
+		while (mappingTable[i] != NULL && cslNIEqualString(pszProgCSName, mappingTable[i], (int) strlen(mappingTable[i])))
 		{
 			SRSNode *poParm;
 			const char* pszParamName = mappingTable[i + 1];
@@ -2780,7 +2780,7 @@ int DeleteParamBasedOnPrjName(SpatialReference* pOgr, const char* pszProjectionN
 	long iIndex = -1, ret = -1;
 	for (int i = 0; mappingTable[i] != NULL; i += 2)
 	{
-		if (cslNIEqualString(pszProjectionName, mappingTable[i], strlen(mappingTable[i])))
+		if (cslNIEqualString(pszProjectionName, mappingTable[i], (int)strlen(mappingTable[i])))
 		{
 			SRSNode *poPROJCS = pOgr->getAttrNode("PROJCS");
 			SRSNode *poParm;
@@ -2819,7 +2819,7 @@ int AddParamBasedOnPrjName(SpatialReference* pOgr, const char* pszProjectionName
 	SRSNode *poPROJCS = pOgr->getAttrNode("PROJCS");
 	for (int i = 0; mappingTable[i] != NULL; i += 3)
 	{
-		if (cslNIEqualString(pszProjectionName, mappingTable[i], strlen(mappingTable[i])))
+		if (cslNIEqualString(pszProjectionName, mappingTable[i], (int) strlen(mappingTable[i])))
 		{
 			SRSNode *poParm;
 			int exist = 0;
@@ -3038,7 +3038,7 @@ bool SpatialReference::importFromESRIWisconsinWKT(const char* prjName, double ce
 /*                                                                      */
 /*      Find the code from a dict file.                                 */
 /************************************************************************/
-static int findCodeFromDict(const char* pszDictFile, const char* CSName, char* code)
+static bool findCodeFromDict(const char* pszDictFile, const char* CSName, char* code)
 {
 	const char *pszFilename;
 	FILE *fp;

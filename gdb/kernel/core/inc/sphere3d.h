@@ -1,4 +1,4 @@
-/*
+ï»¿/*
 * Geosciences Template Library
 *
 * Copyright (c) 2008
@@ -32,13 +32,13 @@ typedef Sphere3d& Sphere3dRef;
 typedef Sphere3d* Sphere3dPtr;
 typedef std::shared_ptr<Sphere3d> Sphere3dSharedPtr;
 
-/** @defgroup Sphere3d Sphere3d-ÈıÎ¬Çò
+/** @defgroup Sphere3d Sphere3d-ä¸‰ç»´çƒ
 *  @{
 */
 class CORE_API Sphere3d{
-	/*breif ÇòĞÄ */
+	/*breif çƒå¿ƒ */
 	Vertex3d _center;
-	/*breif °ë¾¶ */
+	/*breif åŠå¾„ */
 	double   _radius;
 public:
 	Sphere3d(const Vertex3d & c, double r);
@@ -61,17 +61,17 @@ public:
 	inline void moveTo(Vertex3d & v){ moveTo(v.x, v.y, v.z); }
 public:
 	/*
-	* 0-±íÊ¾Á½¸öÇòÏàÀë
-	* 1-±íÊ¾Á½¸öÇòÏàÇĞ
-	* 2-±íÊ¾Á½¸öÇòÏà½»
-	* 3-±íÊ¾ÇòaÔÚbÖĞ
-	* 4-±íÊ¾ÇòbÔÚaÖĞ
+	* 0-è¡¨ç¤ºä¸¤ä¸ªçƒç›¸ç¦»
+	* 1-è¡¨ç¤ºä¸¤ä¸ªçƒç›¸åˆ‡
+	* 2-è¡¨ç¤ºä¸¤ä¸ªçƒç›¸äº¤
+	* 3-è¡¨ç¤ºçƒaåœ¨bä¸­
+	* 4-è¡¨ç¤ºçƒbåœ¨aä¸­
 	*/
 	static int test(const Sphere3d&  a, const Sphere3d&  b);
 	/*
-	* 0-±íÊ¾µãÔÚÇòÍâ
-	* 1-±íÊ¾µãÔÚÇòÄÚ
-	* 2-±íÊ¾µãÔÚÇòÉÏ
+	* 0-è¡¨ç¤ºç‚¹åœ¨çƒå¤–
+	* 1-è¡¨ç¤ºç‚¹åœ¨çƒå†…
+	* 2-è¡¨ç¤ºç‚¹åœ¨çƒä¸Š
 	*/
 	static int test(const Sphere3d&  a, const Vertex3d&  v);
 };

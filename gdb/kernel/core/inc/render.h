@@ -1,4 +1,4 @@
-/*
+ï»¿/*
 * Geosciences Template Library
 *
 * Copyright (c) 2008
@@ -26,7 +26,7 @@
 
 begin_gtl_namespace
 begin_gdb_namespace
-/** @defgroup Render Render-äÖÈ¾ÒıÇæ  
+/** @defgroup Render Render-æ¸²æŸ“å¼•æ“  
 *  @{
 */
 class CORE_API GraphicsDevice{
@@ -42,7 +42,7 @@ typedef std::shared_ptr<GraphicsDevice> GraphicsDeviceSharedPtr;
 /** @} */ 
 
 
-/** @addtogroup Render Camera-Ïà»úÀà  
+/** @addtogroup Render Camera-ç›¸æœºç±»  
 *  @{
 */
 class CORE_API Camera{
@@ -68,7 +68,7 @@ typedef std::shared_ptr<Render2d> Render2dSharedPtr;
 typedef Render3d* Render3dPtr;
 typedef std::shared_ptr<Render3d> Render3dSharedPtr;
 
-/** @addtogroup Render Render-äÖÈ¾ÒıÇæÀà  
+/** @addtogroup Render Render-æ¸²æŸ“å¼•æ“ç±»  
 *  @{
 */
 class  CORE_API Render 
@@ -79,7 +79,7 @@ protected:
 	GeometrySharedPtr _geometricTrack;
 protected:
 	BuildersSharedPtr  _builders;
-	Vertex3d          _origin;//Ö÷ÒªÓÃÓÚ½«´óÊı¾İ´¦Àí³ÉĞ¡Êı¾İ£¬Ä¬ÈÏÎª0
+	Vertex3d          _origin;//ä¸»è¦ç”¨äºå°†å¤§æ•°æ®å¤„ç†æˆå°æ•°æ®ï¼Œé»˜è®¤ä¸º0
 	
 public:
 	virtual void setGeometricTrack(GeometrySharedPtr p) =0;
@@ -119,14 +119,14 @@ public:
 	virtual gdb::SelectorRef  select(const gdb::Vertex3f &   mouse_point_in_viewport ) = 0;
 	virtual gdb::SelectorRef  select(const gdb::Vertex3f &  mouse_point_left_bottom_in_viewport,
 		const gdb::Vertex3f &  mouse_point_right_top_in_viewport) = 0;
-	/** Çå¿ÕÑ¡Ôñ¼¯, ²¢×Ô¶¯»Ö¸´Ô­×´Ì¬
-	* @param [in] ÎŞ
-	* @return ÎŞ
+	/** æ¸…ç©ºé€‰æ‹©é›†, å¹¶è‡ªåŠ¨æ¢å¤åŸçŠ¶æ€
+	* @param [in] æ— 
+	* @return æ— 
 	*/
 	virtual void clearSelector()=0;
-	/** Ç¿ÖÆÖØĞÂ»æÖÆ³¡¾°
-	* @param [in] dynymic_loading_data  »æÖÆ¹ı³ÌÖĞ¶¯Ì¬µ÷¶ÈÊı¾İµÄÄ£Ê½£¬0Îª²»µ÷¶È
-	* @return ÎŞ
+	/** å¼ºåˆ¶é‡æ–°ç»˜åˆ¶åœºæ™¯
+	* @param [in] dynymic_loading_data  ç»˜åˆ¶è¿‡ç¨‹ä¸­åŠ¨æ€è°ƒåº¦æ•°æ®çš„æ¨¡å¼ï¼Œ0ä¸ºä¸è°ƒåº¦
+	* @return æ— 
 	*/
 	virtual void requestRedraw(int dynymic_loading_data=0)=0;
 
@@ -139,14 +139,14 @@ public:
 
 /** @} */
 
-/** @addtogroup Render Render3d-äÖÈ¾ÒıÇæÀà  
+/** @addtogroup Render Render3d-æ¸²æŸ“å¼•æ“ç±»  
 *  @{
 */
 class  CORE_API Render3d : public Render 
 {
 public:
 	Render3d();
-public://Ïà»úÏà¹ØµÄ²Ù×÷
+public://ç›¸æœºç›¸å…³çš„æ“ä½œ
 	virtual void home()=0;
 	
 		
@@ -173,14 +173,14 @@ public:
 
 
 
-/** @addtogroup Render  Coordsys2d-×ø±êÏµÍ³»»Ëã
+/** @addtogroup Render  Coordsys2d-åæ ‡ç³»ç»Ÿæ¢ç®—
 *  @{
 */
 class Coordsys2d
 {
 public:
 
-	/** @name WPTOLP×ª»»µÄÀàĞÍ
+	/** @name WPTOLPè½¬æ¢çš„ç±»å‹
 	*  @{
 	*/
 	enum WptoLpConvertMode
@@ -202,7 +202,7 @@ public:
 	/** @}*/
 
 
-	/** @name WPTOLP×ª»»µÄÀàĞÍ
+	/** @name WPTOLPè½¬æ¢çš„ç±»å‹
 	*  @{
 	*/
 	enum LptoWpConvertMode
@@ -215,18 +215,18 @@ public:
 	};
 	/** @}*/
 
-	/** @name ×ø±êÏµÍ³»»Ëã
+	/** @name åæ ‡ç³»ç»Ÿæ¢ç®—
 	*  @{
 	*/
-	enum  enum_GEO_WORLD_MAP_MODE//ÊÀ½ç×ø±êºÍÍ¼Ö½×ø±êÖ®¼äµÄÓ³Éä¹ØÏµ
+	enum  enum_GEO_WORLD_MAP_MODE//ä¸–ç•Œåæ ‡å’Œå›¾çº¸åæ ‡ä¹‹é—´çš„æ˜ å°„å…³ç³»
 	{
-		WMM_NORMAL=0X0000,        //µ¥¶ÀÊ¹ÓÃ£¬
-		WMM_X_AXIS_REVERSE=0X0001,//¿ÉÒÔµ¥¶ÀÊ¹ÓÃ£¬Ò²¿ÉÒÔÓëWMM_Y_AXIS_REVERSEÁªºÏÊ¹ÓÃ£¬Ğ§¹ûµÈÍ¬ÓÚWMM_XY_AXIS_REVERSE
-		WMM_Y_AXIS_REVERSE=0X0002,//¿ÉÒÔµ¥¶ÀÊ¹ÓÃ£¬Ò²¿ÉÒÔÓëWMM_X_AXIS_REVERSEÁªºÏÊ¹ÓÃ£¬Ğ§¹ûµÈÍ¬ÓÚWMM_XY_AXIS_REVERSE
-		WMM_XY_AXIS_REVERSE=0X0003,//µ¥¶ÀÊ¹ÓÃ
-		WMM_AXIS_ROTATE=0X0004     //µ¥¶ÀÊ¹ÓÃ
+		WMM_NORMAL=0X0000,        //å•ç‹¬ä½¿ç”¨ï¼Œ
+		WMM_X_AXIS_REVERSE=0X0001,//å¯ä»¥å•ç‹¬ä½¿ç”¨ï¼Œä¹Ÿå¯ä»¥ä¸WMM_Y_AXIS_REVERSEè”åˆä½¿ç”¨ï¼Œæ•ˆæœç­‰åŒäºWMM_XY_AXIS_REVERSE
+		WMM_Y_AXIS_REVERSE=0X0002,//å¯ä»¥å•ç‹¬ä½¿ç”¨ï¼Œä¹Ÿå¯ä»¥ä¸WMM_X_AXIS_REVERSEè”åˆä½¿ç”¨ï¼Œæ•ˆæœç­‰åŒäºWMM_XY_AXIS_REVERSE
+		WMM_XY_AXIS_REVERSE=0X0003,//å•ç‹¬ä½¿ç”¨
+		WMM_AXIS_ROTATE=0X0004     //å•ç‹¬ä½¿ç”¨
 	};
-	enum enum_GEO_MAP_PROJECTION_TYPE//Í¶Ó°ÀàĞÍ
+	enum enum_GEO_MAP_PROJECTION_TYPE//æŠ•å½±ç±»å‹
 	{
 		MPT_UNKNOWN=0,
 		MPT_GAUSS=1,
@@ -236,7 +236,7 @@ public:
 		MPT_MAX
 	};
 
-	enum enum_GEO_COORDSYS_TYPE//×ø±êÏµÍ³ÀàĞÍ
+	enum enum_GEO_COORDSYS_TYPE//åæ ‡ç³»ç»Ÿç±»å‹
 	{
 		CST_UNKNOWN=0,
 		CST_BEIJING54=1,
@@ -245,21 +245,21 @@ public:
 		CST_MAX
 	};
 
-	enum enum_GEO_ELLIPSIOD_TYPE//ÍÖÇòÌåÀàĞÍ
+	enum enum_GEO_ELLIPSIOD_TYPE//æ¤­çƒä½“ç±»å‹
 	{
 		ET_UNKNOWN=0,
 		ET_KLSFSJ=1,
 		ET_IUGG75,
 		ET_WGS84,
-		ET_USERDEF,//ÓÃ»§×Ô¶¨ÒåÍÖÇò
+		ET_USERDEF,//ç”¨æˆ·è‡ªå®šä¹‰æ¤­çƒ
 		ET_MAX
 	};
 	/** @}*/
 
 public:
-	/** ÊÀ½ç×ø±ê ==>  Âß¼­×ø±ê 
-	* @param [in] wx,wy,ÊÀ½ç×ø±ê
-	* @param [out] nx,ny,lx,ly,dx,dy:Âß¼­×ø±ê 
+	/** ä¸–ç•Œåæ ‡ ==>  é€»è¾‘åæ ‡ 
+	* @param [in] wx,wy,ä¸–ç•Œåæ ‡
+	* @param [out] nx,ny,lx,ly,dx,dy:é€»è¾‘åæ ‡ 
 	* @return 
 	*/
 	virtual void WP2VP(double wx,double wy,int *nx,   int *ny   ) = 0;
@@ -268,20 +268,20 @@ public:
 	virtual void WP2VP(double wx,double wy,double *dx,double *dy) = 0;
 
 
-	/**  »ñÈ¡ÏÔÊ¾±ÈÀı
-	* @return ÏÔÊ¾±ÈÀı
+	/**  è·å–æ˜¾ç¤ºæ¯”ä¾‹
+	* @return æ˜¾ç¤ºæ¯”ä¾‹
 	*/
 	virtual double getDisplayScale()=0;
 
-	/**  »ñÈ¡ÏÔÊ¾±ÈÀı
-	* @param [in] ds ÏÔÊ¾±ÈÀı
+	/**  è·å–æ˜¾ç¤ºæ¯”ä¾‹
+	* @param [in] ds æ˜¾ç¤ºæ¯”ä¾‹
 	* @return 
 	*/
 	virtual void setDisplayScale(double ds) = 0;
 
-	/** WP2VP×ø±ê×ª»»½Ó¿Ú
-	* @param [in] srcPtr: ÊÀ½ç×ø±êÏÂµã
-	* @param [in]   convertModeÄ£Ê½ÈçÏÂ
+	/** WP2VPåæ ‡è½¬æ¢æ¥å£
+	* @param [in] srcPtr: ä¸–ç•Œåæ ‡ä¸‹ç‚¹
+	* @param [in]   convertModeæ¨¡å¼å¦‚ä¸‹
 	* 				WPTOLP_ENVELOPE3D_TO_CRECT,
 	* 				WPTOLP_ENVELOPE3D_TO_GDIPLUS_RECT ,
 	* 				WPTOLP_ENVELOPE3D_TO_GDIPLUS_RECTF ,
@@ -293,336 +293,336 @@ public:
 	* 				WPTOLP_VERTEXCOLLECTION2D_TO_POINTS ,
 	* 				WPTOLP_VERTEXCOLLECTION2D_TO_GDIPLUS_POINTS ,
 	* 				WPTOLP_VERTEXCOLLECTION2D_TO_GDIPLUS_POINTFS 
-	* @param [out] tgtPtr: Âß¼­×ø±êÏÂµã
+	* @param [out] tgtPtr: é€»è¾‘åæ ‡ä¸‹ç‚¹
 	* @return 
 	*/
 	virtual void WP2VP(void* srcPtr, void* tgtPtr, int convertMode) = 0;
 
-	/** Âß¼­×ø±ê ==>  ÊÀ½ç×ø±ê 
-	* @param [in] x,y,lx,ly:Âß¼­×ø±ê
-	* @param [out] wx,wy,ÊÀ½ç×ø±ê 
+	/** é€»è¾‘åæ ‡ ==>  ä¸–ç•Œåæ ‡ 
+	* @param [in] x,y,lx,ly:é€»è¾‘åæ ‡
+	* @param [out] wx,wy,ä¸–ç•Œåæ ‡ 
 	* @return 
 	*/
 	virtual void VP2WP(long x,    long y,    double * wx, double *wy) = 0;	
 	virtual void VP2WP(double lx, double ly, double * wx, double *wy) = 0;
 
-	/** VP2WP×ø±ê×ª»»½Ó¿Ú
-	* @param [in] srcPtr: Âß¼­×ø±êÏÂµã
-	* @param [in]   convertModeÄ£Ê½ÈçÏÂ
+	/** VP2WPåæ ‡è½¬æ¢æ¥å£
+	* @param [in] srcPtr: é€»è¾‘åæ ‡ä¸‹ç‚¹
+	* @param [in]   convertModeæ¨¡å¼å¦‚ä¸‹
 	* 				LPTOWP_POINT_TO_VERTEX2D = 0 ,
 	* 				LPTOWP_CPOINT_TO_VERTEX2D ,
 	* 				LPTOWP_GDIPLUS_POINT_TO_VERTEX2D ,
 	* 				LPTOWP_GDIPLUS_POINTF_TO_VERTEX2D ,
 	* 				LPTOWP_CRECT_TO_ENVELOPE3D,
-	* @param [out] tgtPtr: ÊÀ½ç×ø±êÏÂµã
+	* @param [out] tgtPtr: ä¸–ç•Œåæ ‡ä¸‹ç‚¹
 	* @return 
 	*/	
 	virtual void VP2WP(void* srcPtr, void* tgtPtr, int convertMode) = 0;
 
-	/** WindowsµÄÂß¼­³¤¶ÈÏòÊÀ½ç³¤¶È×ª»¯ 
-	* @param [in] lLenÂß¼­³¤¶È
-	* @return ÊÀ½ç³¤¶È
+	/** Windowsçš„é€»è¾‘é•¿åº¦å‘ä¸–ç•Œé•¿åº¦è½¬åŒ– 
+	* @param [in] lLené€»è¾‘é•¿åº¦
+	* @return ä¸–ç•Œé•¿åº¦
 	*/
 	virtual double LLtoWL(double lLen) = 0;	
 
-	/** ÊÀ½ç³¤¶ÈÏòWindowsµÄÂß¼­³¤¶È×ª»¯ 
-	* @param [in] fLenÊÀ½ç³¤¶È
-	* @return Âß¼­³¤¶È
+	/** ä¸–ç•Œé•¿åº¦å‘Windowsçš„é€»è¾‘é•¿åº¦è½¬åŒ– 
+	* @param [in] fLenä¸–ç•Œé•¿åº¦
+	* @return é€»è¾‘é•¿åº¦
 	*/
 	virtual double WLtoLL(double fLen) = 0;
 
-	/** Í¼Ö½³¤¶È£¨µ¥Î»£ºµ±Ç°×ø±êÏµµ¥Î»£¬Ã×¡¢¹«Àï¡¢»òºÁÃ×£© => Âß¼­³¤¶È 
-	* @param [in] m Í¼Ö½³¤¶È
-	* @return Âß¼­³¤¶È
+	/** å›¾çº¸é•¿åº¦ï¼ˆå•ä½ï¼šå½“å‰åæ ‡ç³»å•ä½ï¼Œç±³ã€å…¬é‡Œã€æˆ–æ¯«ç±³ï¼‰ => é€»è¾‘é•¿åº¦ 
+	* @param [in] m å›¾çº¸é•¿åº¦
+	* @return é€»è¾‘é•¿åº¦
 	*/
 	virtual double mapLengthtoLL(double m) = 0;
 
-	/** Âß¼­³¤¶È => Í¼Ö½³¤¶È£¨µ¥Î»£ºµ±Ç°×ø±êÏµµ¥Î»£¬Ã×¡¢¹«Àï¡¢»òºÁÃ×£© 
-	* @param [in] m Âß¼­³¤¶È
-	* @return Í¼Ö½³¤¶È
+	/** é€»è¾‘é•¿åº¦ => å›¾çº¸é•¿åº¦ï¼ˆå•ä½ï¼šå½“å‰åæ ‡ç³»å•ä½ï¼Œç±³ã€å…¬é‡Œã€æˆ–æ¯«ç±³ï¼‰ 
+	* @param [in] m é€»è¾‘é•¿åº¦
+	* @return å›¾çº¸é•¿åº¦
 	*/
 	virtual double LLtoMapLength(double m) = 0;
 
-	/** WindowsµÄÂß¼­³¤¶È×ª»»³ÉºÁÃ×³¤¶È 
-	* @param [in] lLenÂß¼­³¤¶È
-	* @return ºÁÃ×³¤¶È
+	/** Windowsçš„é€»è¾‘é•¿åº¦è½¬æ¢æˆæ¯«ç±³é•¿åº¦ 
+	* @param [in] lLené€»è¾‘é•¿åº¦
+	* @return æ¯«ç±³é•¿åº¦
 	*/
 	virtual double LLtoMM(double lLen) = 0;
 
-	/** ºÁÃ×³¤¶È×ª»»³ÉWindowsµÄÂß¼­³¤¶È 
-	* @param [in] fLenºÁÃ×³¤¶È
-	* @return Âß¼­³¤¶È
+	/** æ¯«ç±³é•¿åº¦è½¬æ¢æˆWindowsçš„é€»è¾‘é•¿åº¦ 
+	* @param [in] fLenæ¯«ç±³é•¿åº¦
+	* @return é€»è¾‘é•¿åº¦
 	*/
 	virtual double MMtoLL(double fLen) = 0;
 
-	/** ÔÚ±ÈÀı³ßscale (±ÈÀı³ß·ÖÄ¸)ÏÂ£¬ mm ºÁÃ×Ö½ÉÏµ¥Î»³¤¶ÈËù¶ÔÓ¦µÄÊÀ½ç×ø±ê
-	* ×¢Òâ£º´Ë×ª»»ÓëÍ¼ĞÎµÄÏÔÊ¾±ÈÀıÎŞ¹Ø 
-	* @param [in] mmºÁÃ×Ö½ÉÏµ¥Î»³¤¶È
-	* @return ÊÀ½ç×ø±ê³¤¶È
+	/** åœ¨æ¯”ä¾‹å°ºscale (æ¯”ä¾‹å°ºåˆ†æ¯)ä¸‹ï¼Œ mm æ¯«ç±³çº¸ä¸Šå•ä½é•¿åº¦æ‰€å¯¹åº”çš„ä¸–ç•Œåæ ‡
+	* æ³¨æ„ï¼šæ­¤è½¬æ¢ä¸å›¾å½¢çš„æ˜¾ç¤ºæ¯”ä¾‹æ— å…³ 
+	* @param [in] mmæ¯«ç±³çº¸ä¸Šå•ä½é•¿åº¦
+	* @return ä¸–ç•Œåæ ‡é•¿åº¦
 	*/
 	virtual double MMtoWL(double mm) = 0;
 
-	/** ÔÚ±ÈÀı³ßdMapScale (±ÈÀı³ß·ÖÄ¸)ÏÂ£¬ mm ºÁÃ×Ö½ÉÏµ¥Î»³¤¶ÈËù¶ÔÓ¦µÄÊÀ½ç×ø±ê 
-	* @param [in] mm:ºÁÃ×Ö½ÉÏµ¥Î»³¤¶È, dMapScale:±ÈÀı³ß
-	* @return ÊÀ½ç×ø±ê³¤¶È
+	/** åœ¨æ¯”ä¾‹å°ºdMapScale (æ¯”ä¾‹å°ºåˆ†æ¯)ä¸‹ï¼Œ mm æ¯«ç±³çº¸ä¸Šå•ä½é•¿åº¦æ‰€å¯¹åº”çš„ä¸–ç•Œåæ ‡ 
+	* @param [in] mm:æ¯«ç±³çº¸ä¸Šå•ä½é•¿åº¦, dMapScale:æ¯”ä¾‹å°º
+	* @return ä¸–ç•Œåæ ‡é•¿åº¦
 	*/
 	virtual double MMtoWL(double mm, double dMapScale) = 0;
 
-	/** ¸ù¾İÍ¼ĞÎÏÔÊ¾±ÈÀı£¬¼ÆËãmm ºÁÃ×Ö½ÉÏµ¥Î»³¤¶ÈËù¶ÔÓ¦µÄÊÀ½ç×ø±ê 
-	* @param [in] mm:ºÁÃ×Ö½ÉÏµ¥Î»³¤¶È
-	* @return ÊÀ½ç×ø±ê³¤¶È
+	/** æ ¹æ®å›¾å½¢æ˜¾ç¤ºæ¯”ä¾‹ï¼Œè®¡ç®—mm æ¯«ç±³çº¸ä¸Šå•ä½é•¿åº¦æ‰€å¯¹åº”çš„ä¸–ç•Œåæ ‡ 
+	* @param [in] mm:æ¯«ç±³çº¸ä¸Šå•ä½é•¿åº¦
+	* @return ä¸–ç•Œåæ ‡é•¿åº¦
 	*/
 	virtual double MMtoWL_ByDisplayScale(double mm) = 0;
 
-	/** ¸ù¾İÍ¼ĞÎÏÔÊ¾±ÈÀı£¬ÔÚ±ÈÀı³ßdMapScale (±ÈÀı³ß·ÖÄ¸)ÏÂ£¬mm ºÁÃ×Ö½ÉÏµ¥Î»³¤¶ÈËù¶ÔÓ¦µÄÊÀ½ç×ø±ê 
-	* @param [in] mm:ºÁÃ×Ö½ÉÏµ¥Î»³¤¶È, dMapScale:±ÈÀı³ß
-	* @return ÊÀ½ç×ø±ê³¤¶È
+	/** æ ¹æ®å›¾å½¢æ˜¾ç¤ºæ¯”ä¾‹ï¼Œåœ¨æ¯”ä¾‹å°ºdMapScale (æ¯”ä¾‹å°ºåˆ†æ¯)ä¸‹ï¼Œmm æ¯«ç±³çº¸ä¸Šå•ä½é•¿åº¦æ‰€å¯¹åº”çš„ä¸–ç•Œåæ ‡ 
+	* @param [in] mm:æ¯«ç±³çº¸ä¸Šå•ä½é•¿åº¦, dMapScale:æ¯”ä¾‹å°º
+	* @return ä¸–ç•Œåæ ‡é•¿åº¦
 	*/
 	virtual double MMtoWL_ByDisplayScale(double mm,double dMapScale) = 0;
 
-	/** ÔÚ±ÈÀı³ßscale (±ÈÀı³ß·ÖÄ¸)ÏÂ£¬ ÊÀ½ç×ø±ê³¤¶ÈwlËù¶ÔÓ¦µÄÖ½ÉÏµ¥Î»³¤¶È(mm ºÁÃ×)
-	* ×¢Òâ£º´Ë×ª»»ÓëÍ¼ĞÎµÄÏÔÊ¾±ÈÀıÎŞ¹Ø 
-	* @param [in] wl:ÊÀ½ç×ø±ê³¤¶È
-	* @return Ö½ÉÏµ¥Î»³¤¶È(mm ºÁÃ×)
+	/** åœ¨æ¯”ä¾‹å°ºscale (æ¯”ä¾‹å°ºåˆ†æ¯)ä¸‹ï¼Œ ä¸–ç•Œåæ ‡é•¿åº¦wlæ‰€å¯¹åº”çš„çº¸ä¸Šå•ä½é•¿åº¦(mm æ¯«ç±³)
+	* æ³¨æ„ï¼šæ­¤è½¬æ¢ä¸å›¾å½¢çš„æ˜¾ç¤ºæ¯”ä¾‹æ— å…³ 
+	* @param [in] wl:ä¸–ç•Œåæ ‡é•¿åº¦
+	* @return çº¸ä¸Šå•ä½é•¿åº¦(mm æ¯«ç±³)
 	*/
 	virtual double WLtoMM(double wl) = 0;
 
-	/** ÔÚ±ÈÀı³ßdMapScale (±ÈÀı³ß·ÖÄ¸)ÏÂ£¬ ÊÀ½ç×ø±ê³¤¶ÈwlËù¶ÔÓ¦µÄÖ½ÉÏµ¥Î»³¤¶È(mm ºÁÃ×) 
-	* @param [in] wl:ÊÀ½ç×ø±ê³¤¶È, dMapScale:±ÈÀı³ß
-	* @return Ö½ÉÏµ¥Î»³¤¶È(mm ºÁÃ×)
+	/** åœ¨æ¯”ä¾‹å°ºdMapScale (æ¯”ä¾‹å°ºåˆ†æ¯)ä¸‹ï¼Œ ä¸–ç•Œåæ ‡é•¿åº¦wlæ‰€å¯¹åº”çš„çº¸ä¸Šå•ä½é•¿åº¦(mm æ¯«ç±³) 
+	* @param [in] wl:ä¸–ç•Œåæ ‡é•¿åº¦, dMapScale:æ¯”ä¾‹å°º
+	* @return çº¸ä¸Šå•ä½é•¿åº¦(mm æ¯«ç±³)
 	*/
 	virtual double WLtoMM(double wl, double dMapScale) = 0;
 
-	/** ¸ù¾İÍ¼ĞÎÏÔÊ¾±ÈÀı£¬¼ÆËãÊÀ½ç×ø±ê³¤¶ÈwlËù¶ÔÓ¦µÄÖ½ÉÏµ¥Î»³¤¶È(mm ºÁÃ×) 
-	* @param [in] wl:ÊÀ½ç×ø±ê³¤¶È
-	* @return Ö½ÉÏµ¥Î»³¤¶È(mm ºÁÃ×)
+	/** æ ¹æ®å›¾å½¢æ˜¾ç¤ºæ¯”ä¾‹ï¼Œè®¡ç®—ä¸–ç•Œåæ ‡é•¿åº¦wlæ‰€å¯¹åº”çš„çº¸ä¸Šå•ä½é•¿åº¦(mm æ¯«ç±³) 
+	* @param [in] wl:ä¸–ç•Œåæ ‡é•¿åº¦
+	* @return çº¸ä¸Šå•ä½é•¿åº¦(mm æ¯«ç±³)
 	*/
 	virtual double WLtoMM_ByDisplayScale(double wl) = 0;
 
-	/** ¸ù¾İÍ¼ĞÎÏÔÊ¾±ÈÀı£¬ÔÚ±ÈÀı³ßdMapScale (±ÈÀı³ß·ÖÄ¸)ÏÂ£¬¼ÆËãÊÀ½ç×ø±ê³¤¶ÈwlËù¶ÔÓ¦µÄÖ½ÉÏµ¥Î»³¤¶È(mm ºÁÃ×)
-	* @param [in] wl:ÊÀ½ç×ø±ê³¤¶È, dMapScale:±ÈÀı³ß
-	* @return Ö½ÉÏµ¥Î»³¤¶È(mm ºÁÃ×)
+	/** æ ¹æ®å›¾å½¢æ˜¾ç¤ºæ¯”ä¾‹ï¼Œåœ¨æ¯”ä¾‹å°ºdMapScale (æ¯”ä¾‹å°ºåˆ†æ¯)ä¸‹ï¼Œè®¡ç®—ä¸–ç•Œåæ ‡é•¿åº¦wlæ‰€å¯¹åº”çš„çº¸ä¸Šå•ä½é•¿åº¦(mm æ¯«ç±³)
+	* @param [in] wl:ä¸–ç•Œåæ ‡é•¿åº¦, dMapScale:æ¯”ä¾‹å°º
+	* @return çº¸ä¸Šå•ä½é•¿åº¦(mm æ¯«ç±³)
 	*/
 	virtual double WLtoMM_ByDisplayScale(double wl,double dMapScale) = 0;
 
-	/** »ñÈ¡ÏµÍ³µ¥Î»¶ÔÓ¦µÄÖĞÎÄÃû³Æ£º0-Ã×,1-ÀåÃ×,2-ºÁÃ×,3-Ó¢´ç,4-Ç§Ã×£¬5£­¶È·ÖÃë, 6-¶È 
-	* @return ÏµÍ³µ¥Î»¶ÔÓ¦µÄÖĞÎÄÃû³Æ
+	/** è·å–ç³»ç»Ÿå•ä½å¯¹åº”çš„ä¸­æ–‡åç§°ï¼š0-ç±³,1-å˜ç±³,2-æ¯«ç±³,3-è‹±å¯¸,4-åƒç±³ï¼Œ5ï¼åº¦åˆ†ç§’, 6-åº¦ 
+	* @return ç³»ç»Ÿå•ä½å¯¹åº”çš„ä¸­æ–‡åç§°
 	*/
 	virtual std::string getUnitNameCHS() = 0;
 
-	/** ·ûºÅÄÚ²¿×ø±êÏµ  ==> Éè±¸×ø±êÏµ 
-	* @param [in] orgX,orgY: Ô­µã×ø±ê
-	* @param [in] dScaleX,dScaleY: X¡¢YÖáµÄËõ·Å±ÈÀı
-	* @param [in] dAngRad:Ğı×ª½Ç¶È£¨»¡¶Èµ¥Î»£©
-	* @param [in] apX,apY: ·ûºÅÄÚ²¿×ø±êÏµ×ø±ê
-	* @param [out] dpX, dpY: Éè±¸×ø±êÏµ×ø±ê
+	/** ç¬¦å·å†…éƒ¨åæ ‡ç³»  ==> è®¾å¤‡åæ ‡ç³» 
+	* @param [in] orgX,orgY: åŸç‚¹åæ ‡
+	* @param [in] dScaleX,dScaleY: Xã€Yè½´çš„ç¼©æ”¾æ¯”ä¾‹
+	* @param [in] dAngRad:æ—‹è½¬è§’åº¦ï¼ˆå¼§åº¦å•ä½ï¼‰
+	* @param [in] apX,apY: ç¬¦å·å†…éƒ¨åæ ‡ç³»åæ ‡
+	* @param [out] dpX, dpY: è®¾å¤‡åæ ‡ç³»åæ ‡
 	* @return 
 	*/
 	virtual void APtoDP(double orgX,double orgY, double dScaleX,double dScaleY,
 		double dAngRad,double apX,double apY,double &dpX, double &dpY) = 0;
 
-	/** Éè±¸×ø±êÏµ  ==> ·ûºÅÄÚ²¿ÄÚ²¿×ø±êÏµ 
-	* @param [in] orgX,orgY: Ô­µã×ø±ê
-	* @param [in] dScaleX,dScaleY: X¡¢YÖáµÄËõ·Å±ÈÀı
-	* @param [in] dAngRad:Ğı×ª½Ç¶È£¨»¡¶Èµ¥Î»£©
-	* @param [in] dpX, dpY: Éè±¸×ø±êÏµ×ø±ê
-	* @param [out] apX,apY: ·ûºÅ×ø±êÏµ×ø±ê
+	/** è®¾å¤‡åæ ‡ç³»  ==> ç¬¦å·å†…éƒ¨å†…éƒ¨åæ ‡ç³» 
+	* @param [in] orgX,orgY: åŸç‚¹åæ ‡
+	* @param [in] dScaleX,dScaleY: Xã€Yè½´çš„ç¼©æ”¾æ¯”ä¾‹
+	* @param [in] dAngRad:æ—‹è½¬è§’åº¦ï¼ˆå¼§åº¦å•ä½ï¼‰
+	* @param [in] dpX, dpY: è®¾å¤‡åæ ‡ç³»åæ ‡
+	* @param [out] apX,apY: ç¬¦å·åæ ‡ç³»åæ ‡
 	* @return 
 	*/
 	virtual void DPtoAP(double orgX,double orgY, double dScaleX,double dScaleY,
 		double dAngRad,double dpX, double dpY,double &apX,double &apY) = 0;
 
 public:
-	/** Âß¼­×ø±êÏµÄÚ½øĞĞÆ½ÒÆ
-	* @param [in] dOffX,dOffY: X¡¢YÖáµÄÆ«ÒÆÁ¿
+	/** é€»è¾‘åæ ‡ç³»å†…è¿›è¡Œå¹³ç§»
+	* @param [in] dOffX,dOffY: Xã€Yè½´çš„åç§»é‡
 	* @return 
 	*/
 	virtual void translateInVp(double dOffX, double dOffY) = 0;
 
-	/** ÊÀ½ç×ø±êÏµÄÚ½øĞĞÆ½ÒÆ
-	* @param [in] dOffX,dOffY: X¡¢YÖáµÄÆ«ÒÆÁ¿
+	/** ä¸–ç•Œåæ ‡ç³»å†…è¿›è¡Œå¹³ç§»
+	* @param [in] dOffX,dOffY: Xã€Yè½´çš„åç§»é‡
 	* @return 
 	*/
 	virtual void translateInWp(double dOffX, double dOffY) = 0;
 
-	/** ÉèÖÃÎª1:1ÏÔÊ¾ 
-	* @param [in] dMinX, dMinY,dMaxX,dMaxY: Ö¸¶¨ÏÔÊ¾·¶Î§
+	/** è®¾ç½®ä¸º1:1æ˜¾ç¤º 
+	* @param [in] dMinX, dMinY,dMaxX,dMaxY: æŒ‡å®šæ˜¾ç¤ºèŒƒå›´
 	* @param [out] 
 	* @return 
 	*/
 	virtual void make11Display(double dMinX, double dMinY,double dMaxX,double dMaxY) = 0;
 
-	/** ÒÔÖ¸¶¨µãÎªÖĞĞÄ£¨ÊÓ¿ÚÂß¼­×ø±ê£©£¬·Å´ó»òËõĞ¡Í¼ĞÎ£¬dZoomFactor>1Îª·Å´ó£¬Ğ¡ÓÚ1ÎªËõĞ¡ 
-	* @param [in] vpCenterX, vpCenterY: ÖĞĞÄµã×ø±ê£» dZoomFactor£ºËõ·ÅÒò×Ó
+	/** ä»¥æŒ‡å®šç‚¹ä¸ºä¸­å¿ƒï¼ˆè§†å£é€»è¾‘åæ ‡ï¼‰ï¼Œæ”¾å¤§æˆ–ç¼©å°å›¾å½¢ï¼ŒdZoomFactor>1ä¸ºæ”¾å¤§ï¼Œå°äº1ä¸ºç¼©å° 
+	* @param [in] vpCenterX, vpCenterY: ä¸­å¿ƒç‚¹åæ ‡ï¼› dZoomFactorï¼šç¼©æ”¾å› å­
 	* @return 
 	*/
 	virtual void zoomVp(double vpCenterX, double vpCenterY, double dZoomFactor ) = 0;
 	
-	/** ÒÔÖ¸¶¨µãÎªÖĞĞÄ£¬·Å´ó»òËõĞ¡Í¼ĞÎ£¬dZoomFactor>1Îª·Å´ó£¬Ğ¡ÓÚ1ÎªËõĞ¡
-	* @param [in] ptCenterX, ptCenterY£¬Ëõ·ÅÖĞĞÄµã
-	* @param [in] dZoomFactor£¬Ëõ·ÅÒò×Ó
+	/** ä»¥æŒ‡å®šç‚¹ä¸ºä¸­å¿ƒï¼Œæ”¾å¤§æˆ–ç¼©å°å›¾å½¢ï¼ŒdZoomFactor>1ä¸ºæ”¾å¤§ï¼Œå°äº1ä¸ºç¼©å°
+	* @param [in] ptCenterX, ptCenterYï¼Œç¼©æ”¾ä¸­å¿ƒç‚¹
+	* @param [in] dZoomFactorï¼Œç¼©æ”¾å› å­
 	* @return 
 	*/
 	virtual void zoomWp(double wpCenterX, double wpCenterY, double dZoomFactor ) = 0;
 
-	/** ½«¾ØĞÎ·¶Î§ÄÚµÄÍ¼ĞÎÏÔÊ¾ÔÚViewÊÓÍ¼ÖĞ, ²¢×Ô¶¯½øĞĞÏàÓ¦µÄËõ·Å 
-	* @param [in] pRect: ¾ØĞÎ·¶Î§
+	/** å°†çŸ©å½¢èŒƒå›´å†…çš„å›¾å½¢æ˜¾ç¤ºåœ¨Viewè§†å›¾ä¸­, å¹¶è‡ªåŠ¨è¿›è¡Œç›¸åº”çš„ç¼©æ”¾ 
+	* @param [in] pRect: çŸ©å½¢èŒƒå›´
 	* @return 
 	*/
 	virtual void displayWpRangeInCurView(Envelope3d* pRect) = 0;
 
-	/** ½«¾ØĞÎ·¶Î§ÄÚµÄÍ¼ĞÎÏÔÊ¾ÔÚViewÊÓÍ¼ÖĞ, ²¢×Ô¶¯½øĞĞÏàÓ¦µÄËõ·Å 
-	* @param [in]  dMinX, dMinY,dMaxX,dMaxY: ¾ØĞÎ·¶Î§
+	/** å°†çŸ©å½¢èŒƒå›´å†…çš„å›¾å½¢æ˜¾ç¤ºåœ¨Viewè§†å›¾ä¸­, å¹¶è‡ªåŠ¨è¿›è¡Œç›¸åº”çš„ç¼©æ”¾ 
+	* @param [in]  dMinX, dMinY,dMaxX,dMaxY: çŸ©å½¢èŒƒå›´
 	* @return 
 	*/
 	virtual void displayWpRangeInCurView(double dMinX, double dMinY,double dMaxX,double dMaxY) = 0;
 
-	/** ½«Ö¸¶¨·¶Î§rctBoundÄÚµÄÍ¼ĞÎÏÔÊ¾µ½Ö¸¶¨µÄÂß¼­×ø±ê·¶Î§rctLogÄÚ
-	* @param [in] rctBound: Ö¸¶¨µÄÊÀ½ç×ø±ê·¶Î§
-	* @param [in] rctLogX,rctLogY,rctLogCX,rctLogCY: ½ç¶¨Âß¼­×ø±ê·¶Î§
-	* @param [in] visiableWndRectÎªÖ¸¶¨µÄ¿É¼û´°¿Ú¾ØĞÎ£¨Âß¼­×ø±ê£©£¬ËüµÄ´óĞ¡Ó°Ïìµ½Æä·¶Î§ÄÚµÄ¶ÔÏóÊÇ·ñ¿É¼û
-	* @param [in] visbRctX,visbRctY,visbRctCX,visbRctCY: ½ç¶¨¿É¼û´°¿Ú·¶Î§ 
+	/** å°†æŒ‡å®šèŒƒå›´rctBoundå†…çš„å›¾å½¢æ˜¾ç¤ºåˆ°æŒ‡å®šçš„é€»è¾‘åæ ‡èŒƒå›´rctLogå†…
+	* @param [in] rctBound: æŒ‡å®šçš„ä¸–ç•Œåæ ‡èŒƒå›´
+	* @param [in] rctLogX,rctLogY,rctLogCX,rctLogCY: ç•Œå®šé€»è¾‘åæ ‡èŒƒå›´
+	* @param [in] visiableWndRectä¸ºæŒ‡å®šçš„å¯è§çª—å£çŸ©å½¢ï¼ˆé€»è¾‘åæ ‡ï¼‰ï¼Œå®ƒçš„å¤§å°å½±å“åˆ°å…¶èŒƒå›´å†…çš„å¯¹è±¡æ˜¯å¦å¯è§
+	* @param [in] visbRctX,visbRctY,visbRctCX,visbRctCY: ç•Œå®šå¯è§çª—å£èŒƒå›´ 
 	* @return 
 	*/
 	virtual void displayWpRangeInVpRect(Envelope3d& rctBound,
 		double rctLogX, double rctLogY, double rctLogCX, double rctLogCY,
 		double visbRctX, double visbRctY, double visbRctCX, double visbRctCY) = 0;
 
-	/** »ñÈ¡µ¥Î»ÀàĞÍ 
-	* @return µ¥Î»ÀàĞÍ 
+	/** è·å–å•ä½ç±»å‹ 
+	* @return å•ä½ç±»å‹ 
 	*/
 	virtual int getUnitType()const = 0;
 
-	/** ÉèÖÃµ¥Î»ÀàĞÍ 
-	* @param [in] it µ¥Î»ÀàĞÍ
+	/** è®¾ç½®å•ä½ç±»å‹ 
+	* @param [in] it å•ä½ç±»å‹
 	* @return 
 	*/
 	virtual void setUnitType(int it) = 0;
 
-	/** ÉèÖÃÃ¿Ã×µÄÂß¼­µ¥Î» 
-	* @param [in] x,y: XÖáºÍYÖá·½ÏòÏÂÃ¿Ã×µÄÂß¼­µ¥Î»
+	/** è®¾ç½®æ¯ç±³çš„é€»è¾‘å•ä½ 
+	* @param [in] x,y: Xè½´å’ŒYè½´æ–¹å‘ä¸‹æ¯ç±³çš„é€»è¾‘å•ä½
 	* @return 
 	*/
 	virtual void setLogicalUnitsPtrMeter(double x,double y) = 0;
 
-	/** »ñÈ¡Ã¿Ã×µÄÂß¼­µ¥Î» 
-	* @param [out] x,y: XÖáºÍYÖá·½ÏòÏÂÃ¿Ã×µÄÂß¼­µ¥Î»
+	/** è·å–æ¯ç±³çš„é€»è¾‘å•ä½ 
+	* @param [out] x,y: Xè½´å’ŒYè½´æ–¹å‘ä¸‹æ¯ç±³çš„é€»è¾‘å•ä½
 	* @return 
 	*/
 	virtual void getLogicalUnitsPtrMeter(double &x,double &y) = 0;
 
-	/** ÉèÖÃXÖáÃ¿Ó¢´çµÄÏñËØÊı 
-	* @param [in] XÖáÃ¿Ó¢´çµÄÏñËØÊı
+	/** è®¾ç½®Xè½´æ¯è‹±å¯¸çš„åƒç´ æ•° 
+	* @param [in] Xè½´æ¯è‹±å¯¸çš„åƒç´ æ•°
 	* @return 
 	*/
 	virtual void setDpiX(double x) = 0;
 
-	/** ÉèÖÃYÖáÃ¿Ó¢´çµÄÏñËØÊı 
-	* @param [in] YÖáÃ¿Ó¢´çµÄÏñËØÊı
+	/** è®¾ç½®Yè½´æ¯è‹±å¯¸çš„åƒç´ æ•° 
+	* @param [in] Yè½´æ¯è‹±å¯¸çš„åƒç´ æ•°
 	* @return 
 	*/
 	virtual void setDpiY(double y) = 0;
 
-	/** »ñÈ¡XÖáÃ¿Ó¢´çµÄÏñËØÊı 
-	* @return XÖáÃ¿Ó¢´çµÄÏñËØÊı
+	/** è·å–Xè½´æ¯è‹±å¯¸çš„åƒç´ æ•° 
+	* @return Xè½´æ¯è‹±å¯¸çš„åƒç´ æ•°
 	*/
 	virtual double getDpiX() = 0;
 
-	/** »ñÈ¡YÖáÃ¿Ó¢´çµÄÏñËØÊı 
-	* @return YÖáÃ¿Ó¢´çµÄÏñËØÊı 
+	/** è·å–Yè½´æ¯è‹±å¯¸çš„åƒç´ æ•° 
+	* @return Yè½´æ¯è‹±å¯¸çš„åƒç´ æ•° 
 	*/
 	virtual double getDpiY() = 0;
 
 public:
-	/** »ñÈ¡»æÍ¼Ä£Ê½ 
-	* @return »æÍ¼Ä£Ê½
+	/** è·å–ç»˜å›¾æ¨¡å¼ 
+	* @return ç»˜å›¾æ¨¡å¼
 	*/
 	virtual int getMapMode() = 0;
 
-	/** ÉèÖÃ»æÍ¼Ä£Ê½ 
-	* @param [in] newMapMode: »æÍ¼Ä£Ê½
+	/** è®¾ç½®ç»˜å›¾æ¨¡å¼ 
+	* @param [in] newMapMode: ç»˜å›¾æ¨¡å¼
 	* @return 
 	*/
 	virtual void setMapMode(int newMapMode) = 0;
 
-	/** »ñÈ¡´°¿ÚµÄÎ»ÖÃĞÅÏ¢ 
-	* @param [out] x,y: ´°¿ÚµÄÆğÊ¼µã×ø±ê
-	* @param [out] cx,cy: ´°¿ÚµÄ¿íºÍ¸ß
+	/** è·å–çª—å£çš„ä½ç½®ä¿¡æ¯ 
+	* @param [out] x,y: çª—å£çš„èµ·å§‹ç‚¹åæ ‡
+	* @param [out] cx,cy: çª—å£çš„å®½å’Œé«˜
 	* @return 
 	*/
 	virtual void getViewport(long &x,long &y,long &cx,long &cy) = 0;
 
-	/** ÉèÖÃ´°¿ÚµÄÎ»ÖÃ 
-	* @param [in] x,y: ´°¿ÚµÄÆğÊ¼µã×ø±ê
-	* @param [in] cx,cy: ´°¿ÚµÄ¿íºÍ¸ß
+	/** è®¾ç½®çª—å£çš„ä½ç½® 
+	* @param [in] x,y: çª—å£çš„èµ·å§‹ç‚¹åæ ‡
+	* @param [in] cx,cy: çª—å£çš„å®½å’Œé«˜
 	* @return 
 	*/
 	virtual void setViewport(long x,long y,long cx,long cy) = 0;
 
-	/** »ñÈ¡´°¿ÚµÄÆğÊ¼µã 
-	* @param [out] x,y: ´°¿ÚµÄÆğÊ¼µã
+	/** è·å–çª—å£çš„èµ·å§‹ç‚¹ 
+	* @param [out] x,y: çª—å£çš„èµ·å§‹ç‚¹
 	* @return 
 	*/
 	virtual void getStartOfViewport(long & x,long & y) = 0;
 
-	/** ÉèÖÃ´°¿ÚµÄÆğÊ¼µã 
-	* @param [in] xNew,yNew: ´°¿ÚµÄÆğÊ¼µã
+	/** è®¾ç½®çª—å£çš„èµ·å§‹ç‚¹ 
+	* @param [in] xNew,yNew: çª—å£çš„èµ·å§‹ç‚¹
 	* @return 
 	*/
 	virtual void setStartOfViewport(long xNew,long yNew) = 0;
 
-	/** »ñÈ¡´°¿Ú³ß´ç´óĞ¡ 
-	* @param [out] cx, cy: ´°¿ÚµÄ¿íºÍ¸ß
+	/** è·å–çª—å£å°ºå¯¸å¤§å° 
+	* @param [out] cx, cy: çª—å£çš„å®½å’Œé«˜
 	* @return 
 	*/
 	virtual void  getViewportSize(int &cx, int &cy) = 0;
 
-	/** ÉèÖÃ´°¿Ú³ß´ç´óĞ¡ 
-	* @param [in] cx, cy: ´°¿ÚµÄ¿íºÍ¸ß
+	/** è®¾ç½®çª—å£å°ºå¯¸å¤§å° 
+	* @param [in] cx, cy: çª—å£çš„å®½å’Œé«˜
 	* @return 
 	*/
 	virtual void  setViewportSize(int cx, int cy) = 0;
 
-	/** ÉèÖÃÊÀ½ç×ø±êÏµÆğµã 
-	* @param [in] sxNew,syNew: ÊÀ½ç×ø±êÏµÆğµã
+	/** è®¾ç½®ä¸–ç•Œåæ ‡ç³»èµ·ç‚¹ 
+	* @param [in] sxNew,syNew: ä¸–ç•Œåæ ‡ç³»èµ·ç‚¹
 	* @return 
 	*/
 	virtual void setStartOfWp(double sxNew,double syNew) = 0; 
 
-	/** »ñÈ¡ÊÀ½ç×ø±êÏµÆğµã 
-	* @param [out] sxNew,syNew: ÊÀ½ç×ø±êÏµÆğµã
+	/** è·å–ä¸–ç•Œåæ ‡ç³»èµ·ç‚¹ 
+	* @param [out] sxNew,syNew: ä¸–ç•Œåæ ‡ç³»èµ·ç‚¹
 	* @return 
 	*/
 	virtual void getStartOfWp(double & sxNew,double & syNew) = 0;
 
-	/** »ñÈ¡ÊÀ½ç×ø±êÏµÆğµãX 
-	* @return ÊÀ½ç×ø±êÏµÆğµãX
+	/** è·å–ä¸–ç•Œåæ ‡ç³»èµ·ç‚¹X 
+	* @return ä¸–ç•Œåæ ‡ç³»èµ·ç‚¹X
 	*/
 	virtual double getStartOfWpX() = 0;
 
-	/** »ñÈ¡ÊÀ½ç×ø±êÏµÆğµãY 
-	* @return ÊÀ½ç×ø±êÏµÆğµãY 
+	/** è·å–ä¸–ç•Œåæ ‡ç³»èµ·ç‚¹Y 
+	* @return ä¸–ç•Œåæ ‡ç³»èµ·ç‚¹Y 
 	*/
 	virtual double getStartOfWpY() = 0;
 
-	/** ÉèÖÃĞı×ª½Ç¶È£¨½Ç¶Èµ¥Î»£© 
-	* @param [in] dAngle:Ğı×ª½Ç¶È£¨½Ç¶Èµ¥Î»£© 
+	/** è®¾ç½®æ—‹è½¬è§’åº¦ï¼ˆè§’åº¦å•ä½ï¼‰ 
+	* @param [in] dAngle:æ—‹è½¬è§’åº¦ï¼ˆè§’åº¦å•ä½ï¼‰ 
 	* @return 
 	*/
 	virtual void   setRotateAngle(double dAngle) = 0; 
 
-	/** »ñÈ¡Ğı×ª½Ç¶È £¨½Ç¶Èµ¥Î»£© 
-	* @return Ğı×ª½Ç¶È £¨½Ç¶Èµ¥Î»£© 
+	/** è·å–æ—‹è½¬è§’åº¦ ï¼ˆè§’åº¦å•ä½ï¼‰ 
+	* @return æ—‹è½¬è§’åº¦ ï¼ˆè§’åº¦å•ä½ï¼‰ 
 	*/
 	virtual double getRotateAngle() const  = 0;
 
-	/** »ñÈ¡ÊÀ½çµØÍ¼Ä£Ê½ 
-	* @return ÊÀ½çµØÍ¼Ä£Ê½
+	/** è·å–ä¸–ç•Œåœ°å›¾æ¨¡å¼ 
+	* @return ä¸–ç•Œåœ°å›¾æ¨¡å¼
 	*/
 	virtual unsigned int getWpMapMode()const = 0 ;
 
-	/** ÉèÖÃÊÀ½çµØÍ¼Ä£Ê½ 
-	* @param [in] wWorldMapMode:ÊÀ½çµØÍ¼Ä£Ê½
+	/** è®¾ç½®ä¸–ç•Œåœ°å›¾æ¨¡å¼ 
+	* @param [in] wWorldMapMode:ä¸–ç•Œåœ°å›¾æ¨¡å¼
 	* @return 
 	*/
 	virtual void setWpMapMode(unsigned int  wWorldMapMode) = 0;
@@ -631,17 +631,17 @@ public:
 /** @}*/
 
 
-/** @addtogroup Render  ¶şÎ¬ÏÔÊ¾¿âÀàĞÍ
+/** @addtogroup Render  äºŒç»´æ˜¾ç¤ºåº“ç±»å‹
 *  @{
 */
 enum Render2dType
 {
-	RENDER_TYPE_2D_GDI_PLUS,	//GdiplusÏÔÊ¾¿â
-	RENDER_TYPE_2D_GDI			//GdiÏÔÊ¾¿â
+	RENDER_TYPE_2D_GDI_PLUS,	//Gdiplusæ˜¾ç¤ºåº“
+	RENDER_TYPE_2D_GDI			//Gdiæ˜¾ç¤ºåº“
 };
 /** @}*/
 
-/** @addtogroup Render Rect2d-Âß¼­×ø±êÏÂµÄ¾ØĞÎ·¶Î§½á¹¹Ìå
+/** @addtogroup Render Rect2d-é€»è¾‘åæ ‡ä¸‹çš„çŸ©å½¢èŒƒå›´ç»“æ„ä½“
 *  @{
 */
 struct Rect2d
@@ -654,7 +654,7 @@ struct Rect2d
 /** @}*/
 
 
-/** @addtogroup Render  ¶şÎ¬ÏÔÊ¾½Ó¿Ú
+/** @addtogroup Render  äºŒç»´æ˜¾ç¤ºæ¥å£
 *  @{
 */
 class CORE_API Render2d : public Render
@@ -663,192 +663,192 @@ public:
 	Render2d();
 public:
 
-	/** @name ¶şÎ¬¼¸ºÎ¶ÔÏóµÄÏÔÊ¾Ä£Ê½
+	/** @name äºŒç»´å‡ ä½•å¯¹è±¡çš„æ˜¾ç¤ºæ¨¡å¼
 	*  @{
 	*/
 	enum GeometryDisplayMode2d
 	{
-		RENDER2D_GEOMETRY_DISPLAY_MODE_NORMAL,		//Õı³£ÏÔÊ¾
-		RENDER2D_GEOMETRY_DISPLAY_MODE_DEFINE_COLOR	//Ö¸¶¨ÑÕÉ«ÏÔÊ¾
+		RENDER2D_GEOMETRY_DISPLAY_MODE_NORMAL,		//æ­£å¸¸æ˜¾ç¤º
+		RENDER2D_GEOMETRY_DISPLAY_MODE_DEFINE_COLOR	//æŒ‡å®šé¢œè‰²æ˜¾ç¤º
 	};
 	/** @}*/
 
-	/** @name ¶şÎ¬Í¼·ùµÄÈ«¾ÖÏÔÊ¾Ä£Ê½
+	/** @name äºŒç»´å›¾å¹…çš„å…¨å±€æ˜¾ç¤ºæ¨¡å¼
 	*  @{
 	*/
 	enum GV2dGlobalDisplayMode2d
 	{
-		RENDER2D_GLOBAL_DISPLAY_MODE_REAL,	//Õı³£ÏÔÊ¾£¬ÏÔÊ¾ËùÓĞÕæÊµµÄÏßĞÍÓë»¨ÎÆ
-		RENDER2D_GLOBAL_DISPLAY_MODE_EDIT	//±à¼­Ä£Ê½£¬Ö»ÏÔÊ¾ÏµÍ³ÏßĞÍ£¬´¿É«Ìî³ä
+		RENDER2D_GLOBAL_DISPLAY_MODE_REAL,	//æ­£å¸¸æ˜¾ç¤ºï¼Œæ˜¾ç¤ºæ‰€æœ‰çœŸå®çš„çº¿å‹ä¸èŠ±çº¹
+		RENDER2D_GLOBAL_DISPLAY_MODE_EDIT	//ç¼–è¾‘æ¨¡å¼ï¼Œåªæ˜¾ç¤ºç³»ç»Ÿçº¿å‹ï¼Œçº¯è‰²å¡«å……
 	};
 	/** @}*/
 
-	/** @name ÏÔÊ¾µÄÖÊÁ¿
+	/** @name æ˜¾ç¤ºçš„è´¨é‡
 	*  @{
 	*/
 	enum GV2dGlobalDisplayQuality2d
 	{
-		RENDER2D_GLOBAL_DISPLAY_QUALITY_LOW,	//µÍÖÊÁ¿ÏÔÊ¾£¬ËÙ¶ÈÓÅÏÈ
-		RENDER2D_GLOBAL_DISPLAY_QUALITY_HIGH	//¸ßÖÊÁ¿ÏÔÊ¾£¬»­ÖÊÓÅÏÈ
+		RENDER2D_GLOBAL_DISPLAY_QUALITY_LOW,	//ä½è´¨é‡æ˜¾ç¤ºï¼Œé€Ÿåº¦ä¼˜å…ˆ
+		RENDER2D_GLOBAL_DISPLAY_QUALITY_HIGH	//é«˜è´¨é‡æ˜¾ç¤ºï¼Œç”»è´¨ä¼˜å…ˆ
 	};
 	/** @}*/
 
-	/** @name Ë¢ĞÂÊÓÍ¼Ê±£¬Êı¾İµ÷¶ÈµÄÄ£Ê½
+	/** @name åˆ·æ–°è§†å›¾æ—¶ï¼Œæ•°æ®è°ƒåº¦çš„æ¨¡å¼
 	*  @{
 	*/
 	enum GV2dScheduleDataMode2d
 	{
-		RENDER2D_SCHEDULE_DATA_NO,					//²»µ÷¶ÈÊı¾İ
-		RENDER2D_SCHEDULE_DATA_WITH_CHANGED_BOX,	//×Ô¶¯¸ù¾İµ±Ç°ÊÓ¿Ú£¬Ç°´ÎÊÓ¿Ú£¬¼ÆËã³öÀ´µÄ±ä»¯°üÎ§ºĞÀ´µ÷¶È
-		RENDER2D_SCHEDULE_DATA_WITH_CURRENT_BOX		//Ö±½Ó¸ù¾İµ±Ç°µÄÊÓ¿Ú£¬½øĞĞµ÷¶È
+		RENDER2D_SCHEDULE_DATA_NO,					//ä¸è°ƒåº¦æ•°æ®
+		RENDER2D_SCHEDULE_DATA_WITH_CHANGED_BOX,	//è‡ªåŠ¨æ ¹æ®å½“å‰è§†å£ï¼Œå‰æ¬¡è§†å£ï¼Œè®¡ç®—å‡ºæ¥çš„å˜åŒ–åŒ…å›´ç›’æ¥è°ƒåº¦
+		RENDER2D_SCHEDULE_DATA_WITH_CURRENT_BOX		//ç›´æ¥æ ¹æ®å½“å‰çš„è§†å£ï¼Œè¿›è¡Œè°ƒåº¦
 	};
 	/** @}*/
 	
 public:	
 
-	/** ÒÔÓÃ»§×Ô¶¨ÒåµÄ·½Ê½£¬ÖØĞÂ»æÖÆµ±Ç°ÊÓ¿ÚÖĞµÄ¼¸ºÎ¶ÔÏó£¬
-	* Èç¹ûµ±Ç°µÄÊÓ¿Ú·¢Éú±ä»¯£¬»á¸ù¾İ¸Ä±äµÄ¾ØĞÎ,×Ô¶¯ÓÃµ÷¶ÈÀà¸üĞÂÏÔÊ¾µÄ»º´æ
-	* @param [in] nDispMode-ÏÔÊ¾Ä£Ê½£º
-	*			  RENDER2D_GEOMETRY_DISPLAY_MODE_NORMAL,         Õı³£ÏÔÊ¾
-	*			  RENDER2D_GEOMETRY_DISPLAY_MODE_DEFINE_COLOR    Ö¸¶¨ÑÕÉ«ÏÔÊ¾ 
-	* @param [in] pColor: ×Ô¶¨ÒåÑÕÉ«
-	* @param [in] drawGeometricTrack: ÊÇ·ñĞèÒª»æÖÆ¹ì¼£Ïß£¨ÏğÆ¤½îÏß£©
-	* @param [in] scheduleDataMode: Ë¢ĞÂÊÓÍ¼Ê±£¬Êı¾İµ÷¶ÈµÄÄ£Ê½:GV2dScheduleDataMode2d
-	* RENDER2D_SCHEDULE_DATA_NO,				//²»µ÷¶ÈÊı¾İ
-	* RENDER2D_SCHEDULE_DATA_WITH_CHANGED_BOX,	//×Ô¶¯¸ù¾İµ±Ç°ÊÓ¿Ú£¬Ç°´ÎÊÓ¿Ú£¬¼ÆËã³öÀ´µÄ±ä»¯°üÎ§ºĞÀ´µ÷¶È
-	* RENDER2D_SCHEDULE_DATA_WITH_CURRENT_BOX	//Ö±½Ó¸ù¾İµ±Ç°µÄÊÓ¿Ú£¬½øĞĞµ÷¶È
-	* @return ÎŞ
+	/** ä»¥ç”¨æˆ·è‡ªå®šä¹‰çš„æ–¹å¼ï¼Œé‡æ–°ç»˜åˆ¶å½“å‰è§†å£ä¸­çš„å‡ ä½•å¯¹è±¡ï¼Œ
+	* å¦‚æœå½“å‰çš„è§†å£å‘ç”Ÿå˜åŒ–ï¼Œä¼šæ ¹æ®æ”¹å˜çš„çŸ©å½¢,è‡ªåŠ¨ç”¨è°ƒåº¦ç±»æ›´æ–°æ˜¾ç¤ºçš„ç¼“å­˜
+	* @param [in] nDispMode-æ˜¾ç¤ºæ¨¡å¼ï¼š
+	*			  RENDER2D_GEOMETRY_DISPLAY_MODE_NORMAL,         æ­£å¸¸æ˜¾ç¤º
+	*			  RENDER2D_GEOMETRY_DISPLAY_MODE_DEFINE_COLOR    æŒ‡å®šé¢œè‰²æ˜¾ç¤º 
+	* @param [in] pColor: è‡ªå®šä¹‰é¢œè‰²
+	* @param [in] drawGeometricTrack: æ˜¯å¦éœ€è¦ç»˜åˆ¶è½¨è¿¹çº¿ï¼ˆæ©¡çš®ç­‹çº¿ï¼‰
+	* @param [in] scheduleDataMode: åˆ·æ–°è§†å›¾æ—¶ï¼Œæ•°æ®è°ƒåº¦çš„æ¨¡å¼:GV2dScheduleDataMode2d
+	* RENDER2D_SCHEDULE_DATA_NO,				//ä¸è°ƒåº¦æ•°æ®
+	* RENDER2D_SCHEDULE_DATA_WITH_CHANGED_BOX,	//è‡ªåŠ¨æ ¹æ®å½“å‰è§†å£ï¼Œå‰æ¬¡è§†å£ï¼Œè®¡ç®—å‡ºæ¥çš„å˜åŒ–åŒ…å›´ç›’æ¥è°ƒåº¦
+	* RENDER2D_SCHEDULE_DATA_WITH_CURRENT_BOX	//ç›´æ¥æ ¹æ®å½“å‰çš„è§†å£ï¼Œè¿›è¡Œè°ƒåº¦
+	* @return æ— 
 	*/
 	virtual void redrawView(int nDispMode,Color4f* pColor,bool drawGeometricTrack,int scheduleDataMode) = 0;
 
-	/** ÒÔÓÃ»§×Ô¶¨ÒåµÄ·½Ê½£¬ÖØĞÂ»æÖÆµ±Ç°ÊÓ¿ÚÖĞµÄ¼¸ºÎ¶ÔÏó
-	* ´Ëº¯Êı»á¸ù¾İµ±Ç°µÄÊÓ¿Ú·¶Î§£¬Ç¿ÖÆµ÷¶ÈÀàÖØĞÂ¸üĞÂÏÔÊ¾»º´æ
-	* @param [in] nDispMode-ÏÔÊ¾Ä£Ê½£º
-	*			  RENDER2D_GEOMETRY_DISPLAY_MODE_NORMAL,         Õı³£ÏÔÊ¾
-	*			  RENDER2D_GEOMETRY_DISPLAY_MODE_DEFINE_COLOR    Ö¸¶¨ÑÕÉ«ÏÔÊ¾ 
-	* @param [in] pColor: ×Ô¶¨ÒåÑÕÉ«
-	* @param [in] drawGeometricTrack: ÊÇ·ñĞèÒª»æÖÆ¹ì¼£Ïß£¨ÏğÆ¤½îÏß£©
-	* @return ÎŞ
+	/** ä»¥ç”¨æˆ·è‡ªå®šä¹‰çš„æ–¹å¼ï¼Œé‡æ–°ç»˜åˆ¶å½“å‰è§†å£ä¸­çš„å‡ ä½•å¯¹è±¡
+	* æ­¤å‡½æ•°ä¼šæ ¹æ®å½“å‰çš„è§†å£èŒƒå›´ï¼Œå¼ºåˆ¶è°ƒåº¦ç±»é‡æ–°æ›´æ–°æ˜¾ç¤ºç¼“å­˜
+	* @param [in] nDispMode-æ˜¾ç¤ºæ¨¡å¼ï¼š
+	*			  RENDER2D_GEOMETRY_DISPLAY_MODE_NORMAL,         æ­£å¸¸æ˜¾ç¤º
+	*			  RENDER2D_GEOMETRY_DISPLAY_MODE_DEFINE_COLOR    æŒ‡å®šé¢œè‰²æ˜¾ç¤º 
+	* @param [in] pColor: è‡ªå®šä¹‰é¢œè‰²
+	* @param [in] drawGeometricTrack: æ˜¯å¦éœ€è¦ç»˜åˆ¶è½¨è¿¹çº¿ï¼ˆæ©¡çš®ç­‹çº¿ï¼‰
+	* @return æ— 
 	*/
 	//virtual void redrawViewForceRefreshScene(int nDispMode,Color4f* pColor,bool drawGeometricTrack) = 0;
 	
-	/** ÓÃ»º´æµÄÎ»Í¼£¬Ë¢ĞÂµ±Ç°ÊÓ¿Ú£¬ÆäÓà²¿·Ö£¬ÓÃ±³¾°É«Ìî³ä£¬´Ëº¯Êı×¨ÓÃÓÚÒÆÆÁÊ±µÄË¢ĞÂ
-	* @param [in] offX,offY: Î»Í¼×óÏÂ½ÇµãµÄ×ø±ê
-	* @param [in] bmpWidth,bmpHeight: Î»Í¼µÄ¿íºÍ¸ß
-	* @param [in] drawGeometricTrack: ÊÇ·ñĞèÒª»æÖÆ¹ì¼£Ïß£¨ÏğÆ¤½îÏß£©
+	/** ç”¨ç¼“å­˜çš„ä½å›¾ï¼Œåˆ·æ–°å½“å‰è§†å£ï¼Œå…¶ä½™éƒ¨åˆ†ï¼Œç”¨èƒŒæ™¯è‰²å¡«å……ï¼Œæ­¤å‡½æ•°ä¸“ç”¨äºç§»å±æ—¶çš„åˆ·æ–°
+	* @param [in] offX,offY: ä½å›¾å·¦ä¸‹è§’ç‚¹çš„åæ ‡
+	* @param [in] bmpWidth,bmpHeight: ä½å›¾çš„å®½å’Œé«˜
+	* @param [in] drawGeometricTrack: æ˜¯å¦éœ€è¦ç»˜åˆ¶è½¨è¿¹çº¿ï¼ˆæ©¡çš®ç­‹çº¿ï¼‰
 	* @return 
 	*/
 	virtual void redrawViewWithCachedBmp(double vpx, double vpy, double vpBmpWidth, double vpBbmpHeight, bool drawGeometricTrack) = 0;
  
 	
-	/** ¸ù¾İµ±Ç°´°¿ÚºÍ¾ÉµÄ´°¿ÚÎ»ÖÃ£¬¼ÆËã¸Ä±äµÄ¾ØĞÎ,²¢ÓÃµ÷¶ÈÀà¸üĞÂÏÔÊ¾µÄ»º´æ
-	* @return ÎŞ
+	/** æ ¹æ®å½“å‰çª—å£å’Œæ—§çš„çª—å£ä½ç½®ï¼Œè®¡ç®—æ”¹å˜çš„çŸ©å½¢,å¹¶ç”¨è°ƒåº¦ç±»æ›´æ–°æ˜¾ç¤ºçš„ç¼“å­˜
+	* @return æ— 
 	*/
 	virtual void refreshSceneWithChangedBox() = 0;
 
-	/** ¸ù¾İµ±Ç°µÄÊÓ¿Ú·¶Î§£¬Ç¿ÖÆµ÷¶ÈÀàÖØĞÂ¸üĞÂÏÔÊ¾»º´æ
-	* @return ÎŞ
+	/** æ ¹æ®å½“å‰çš„è§†å£èŒƒå›´ï¼Œå¼ºåˆ¶è°ƒåº¦ç±»é‡æ–°æ›´æ–°æ˜¾ç¤ºç¼“å­˜
+	* @return æ— 
 	*/
 	virtual void refreshSceneWithCurrentWndBox() = 0;
 
-	/** ¸ù¾İ´«ÈëµÄ¸üĞÂ¾ØĞÎ£¬Ë¢ĞÂ³¡¾°ÖĞµÄÊı¾İ
-	* @param [in] changedBoxes:¸üĞÂ¾ØĞÎÁĞ±í
-	* @return ÎŞ
+	/** æ ¹æ®ä¼ å…¥çš„æ›´æ–°çŸ©å½¢ï¼Œåˆ·æ–°åœºæ™¯ä¸­çš„æ•°æ®
+	* @param [in] changedBoxes:æ›´æ–°çŸ©å½¢åˆ—è¡¨
+	* @return æ— 
 	*/
 	virtual void refreshScence(std::list<Envelope3d> & changedBoxes) = 0;
 	
-	/** ÉèÖÃÏÔÊ¾µÄÖÊÁ¿
-	* @param [in] nQuality:ÏÔÊ¾ÖÊÁ¿
-	* RENDER2D_GLOBAL_DISPLAY_QUALITY_LOW,	//µÍÖÊÁ¿ÏÔÊ¾£¬ËÙ¶ÈÓÅÏÈ
-	* RENDER2D_GLOBAL_DISPLAY_QUALITY_HIGH	//¸ßÖÊÁ¿ÏÔÊ¾£¬»­ÖÊÓÅÏÈ
-	* @return ÎŞ
+	/** è®¾ç½®æ˜¾ç¤ºçš„è´¨é‡
+	* @param [in] nQuality:æ˜¾ç¤ºè´¨é‡
+	* RENDER2D_GLOBAL_DISPLAY_QUALITY_LOW,	//ä½è´¨é‡æ˜¾ç¤ºï¼Œé€Ÿåº¦ä¼˜å…ˆ
+	* RENDER2D_GLOBAL_DISPLAY_QUALITY_HIGH	//é«˜è´¨é‡æ˜¾ç¤ºï¼Œç”»è´¨ä¼˜å…ˆ
+	* @return æ— 
 	*/
 	virtual void setRenderQuality(int nQuality) = 0;
 
-	/** ÖØĞÂ¸ù¾İµ±Ç°ÊÓ¿Ú·¶Î§£¬ÖØĞÂ´Ó»º´æÖĞ»ñÈ¡Êı¾İ£¬²¢¸´Î»ÊÓÍ¼£¬È«Í¼ÏÔÊ¾
-	* @param [in] curViewRange:µ±Ç°ÊÓ¿Ú·¶Î§
-	* @return ÎŞ
+	/** é‡æ–°æ ¹æ®å½“å‰è§†å£èŒƒå›´ï¼Œé‡æ–°ä»ç¼“å­˜ä¸­è·å–æ•°æ®ï¼Œå¹¶å¤ä½è§†å›¾ï¼Œå…¨å›¾æ˜¾ç¤º
+	* @param [in] curViewRange:å½“å‰è§†å£èŒƒå›´
+	* @return æ— 
 	*/
 	virtual void home(Envelope3d& curViewRange) = 0;
 
-	/** ÉèÖÃ×ø±êÏµÍ³ 
-	* @param [in] pCoorSys:×ø±êÏµÍ³
+	/** è®¾ç½®åæ ‡ç³»ç»Ÿ 
+	* @param [in] pCoorSys:åæ ‡ç³»ç»Ÿ
 	* @return 
 	*/
 	virtual void setCoordsys(Coordsys2dSharedPtr& pCoorSys) = 0;
 
-	/** ÉèÖÃ±³¾°ÑÕÉ« 
-	* @param [in] cr:±³¾°ÑÕÉ« 
+	/** è®¾ç½®èƒŒæ™¯é¢œè‰² 
+	* @param [in] cr:èƒŒæ™¯é¢œè‰² 
 	* @return 
 	*/
 	virtual void setBackgroundColor(Color4f& cr) = 0;
 
-	/** »ñÈ¡±³¾°ÑÕÉ« 
-	* @param [out] cr:±³¾°ÑÕÉ« 
+	/** è·å–èƒŒæ™¯é¢œè‰² 
+	* @param [out] cr:èƒŒæ™¯é¢œè‰² 
 	* @return 
 	*/
 	virtual void getBackgroundColor(Color4f& cr) = 0;
 
-	/** »ñÈ¡ÓÃÓÚÏÔÊ¾µÄ£¬»º´æµÄÎ»Í¼Ö¸Õë
-	* @param [out] gdiplusBitmap:»º´æµÄÎ»Í¼Ö¸Õë,Gdiplus::BitmapÀàĞÍ
+	/** è·å–ç”¨äºæ˜¾ç¤ºçš„ï¼Œç¼“å­˜çš„ä½å›¾æŒ‡é’ˆ
+	* @param [out] gdiplusBitmap:ç¼“å­˜çš„ä½å›¾æŒ‡é’ˆ,Gdiplus::Bitmapç±»å‹
 	* @return 
 	*/
 	virtual void getCachedBitmap(void ** gdiplusBitmap) = 0;
 
-	/** »ñÈ¡×ø±êÏµÍ³ 
-	* @return ×ø±êÏµÍ³Ö¸Õë
+	/** è·å–åæ ‡ç³»ç»Ÿ 
+	* @return åæ ‡ç³»ç»ŸæŒ‡é’ˆ
 	*/
 	virtual Coordsys2dSharedPtr& getCoordsys() = 0;
 
-	/** ÏÔÊ¾¶şÎ¬Í¼ĞÎ¶ÔÏó¡£ 
-	* @param [in] pObj:¶şÎ¬Í¼ĞÎ¶ÔÏó
-	* @param [in] env: Éè±¸»·¾³
-	* @param [in] nDispMode-ÏÔÊ¾Ä£Ê½£º
-	*			  RENDER2D_GEOMETRY_DISPLAY_MODE_NORMAL,         Õı³£ÏÔÊ¾
-	*			  RENDER2D_GEOMETRY_DISPLAY_MODE_DEFINE_COLOR    Ö¸¶¨ÑÕÉ«ÏÔÊ¾ 
-	* @param [in] pColor: ×Ô¶¨ÒåÑÕÉ«
+	/** æ˜¾ç¤ºäºŒç»´å›¾å½¢å¯¹è±¡ã€‚ 
+	* @param [in] pObj:äºŒç»´å›¾å½¢å¯¹è±¡
+	* @param [in] env: è®¾å¤‡ç¯å¢ƒ
+	* @param [in] nDispMode-æ˜¾ç¤ºæ¨¡å¼ï¼š
+	*			  RENDER2D_GEOMETRY_DISPLAY_MODE_NORMAL,         æ­£å¸¸æ˜¾ç¤º
+	*			  RENDER2D_GEOMETRY_DISPLAY_MODE_DEFINE_COLOR    æŒ‡å®šé¢œè‰²æ˜¾ç¤º 
+	* @param [in] pColor: è‡ªå®šä¹‰é¢œè‰²
 	* @return 
 	*/	
 	virtual void display2DGeometry(GeometrySharedPtr& pObj,GraphicsDevice& env,int nDispMode,Color4f* pColor) = 0;
 
-	/** ÉèÖÃ´òÓ¡×´Ì¬ 
-	* @param [in] bPrinting: ÊÇ·ñ´¦ÓÚ´òÓ¡×´Ì¬
+	/** è®¾ç½®æ‰“å°çŠ¶æ€ 
+	* @param [in] bPrinting: æ˜¯å¦å¤„äºæ‰“å°çŠ¶æ€
 	* @return 
 	*/
 	virtual void setPrintingStatus(bool bPrinting) = 0;
 
-	/** »ñÈ¡ÊÇ·ñ´¦ÓÚ´òÓ¡×´Ì¬ 
-	* @return ÊÇ·ñ´¦ÓÚ´òÓ¡×´Ì¬ 
+	/** è·å–æ˜¯å¦å¤„äºæ‰“å°çŠ¶æ€ 
+	* @return æ˜¯å¦å¤„äºæ‰“å°çŠ¶æ€ 
 	*/
 	virtual bool getPrintingStatus() = 0;
 
-	/** ÉèÖÃÏßÌõµÄÁ¬½Ó·½Ê½ 
-	* @param [in] mode:ÏßÌõµÄÁ¬½Ó·½Ê½
+	/** è®¾ç½®çº¿æ¡çš„è¿æ¥æ–¹å¼ 
+	* @param [in] mode:çº¿æ¡çš„è¿æ¥æ–¹å¼
 	* @return 
 	*/
 	virtual void setLineJoinMode(int mode) = 0;
 
-	/** »ñÈ¡ÏßÌõµÄÁ¬½Ó·½Ê½ 
-	* @return ÏßÌõµÄÁ¬½Ó·½Ê½
+	/** è·å–çº¿æ¡çš„è¿æ¥æ–¹å¼ 
+	* @return çº¿æ¡çš„è¿æ¥æ–¹å¼
 	*/
 	virtual int  getLineJoinMode() = 0;
 
-	/** ÉèÖÃ Í¼ĞÎµÄÈ«¾ÖÏÔÊ¾Ä£Ê½ 
-	* @param [in] mode: Í¼ĞÎµÄÈ«¾ÖÏÔÊ¾Ä£Ê½
-	*			  RENDER2D_GLOBAL_DISPLAY_MODE_REAL:ÏÔÊ¾ÕæÊµÏßĞÍ¡¢»¨ÎÆ
-	*			  RENDER2D_GLOBAL_DISPLAY_MODE_EDIT:Í¼ĞÎ±à¼­Ä£Ê½£¬²»ÏÔÊ¾ÏßĞÍ¡¢Ìî³ä»¨ÎÆ
+	/** è®¾ç½® å›¾å½¢çš„å…¨å±€æ˜¾ç¤ºæ¨¡å¼ 
+	* @param [in] mode: å›¾å½¢çš„å…¨å±€æ˜¾ç¤ºæ¨¡å¼
+	*			  RENDER2D_GLOBAL_DISPLAY_MODE_REAL:æ˜¾ç¤ºçœŸå®çº¿å‹ã€èŠ±çº¹
+	*			  RENDER2D_GLOBAL_DISPLAY_MODE_EDIT:å›¾å½¢ç¼–è¾‘æ¨¡å¼ï¼Œä¸æ˜¾ç¤ºçº¿å‹ã€å¡«å……èŠ±çº¹
 	* @return 
 	*/
 	virtual void setMapGlobalDisplayMode(int mode) = 0;
 
-	/** »ñÈ¡£¬ÉèÖÃ Í¼ĞÎµÄÈ«¾ÖÏÔÊ¾Ä£Ê½ 
-	* @return mode: Í¼ĞÎµÄÈ«¾ÖÏÔÊ¾Ä£Ê½
-	*   RENDER2D_GLOBAL_DISPLAY_MODE_REAL:ÏÔÊ¾ÕæÊµÏßĞÍ¡¢»¨ÎÆ
-	*   RENDER2D_GLOBAL_DISPLAY_MODE_EDIT:Í¼ĞÎ±à¼­Ä£Ê½£¬²»ÏÔÊ¾ÏßĞÍ¡¢Ìî³ä»¨ÎÆ 
+	/** è·å–ï¼Œè®¾ç½® å›¾å½¢çš„å…¨å±€æ˜¾ç¤ºæ¨¡å¼ 
+	* @return mode: å›¾å½¢çš„å…¨å±€æ˜¾ç¤ºæ¨¡å¼
+	*   RENDER2D_GLOBAL_DISPLAY_MODE_REAL:æ˜¾ç¤ºçœŸå®çº¿å‹ã€èŠ±çº¹
+	*   RENDER2D_GLOBAL_DISPLAY_MODE_EDIT:å›¾å½¢ç¼–è¾‘æ¨¡å¼ï¼Œä¸æ˜¾ç¤ºçº¿å‹ã€å¡«å……èŠ±çº¹ 
 	*/
 	virtual int  getMapGlobalDisplayMode() = 0;
 
-	/** ¼ÆËãÊÀ½ç×ø±êÏµÏÂ£¬µ±Ç°´°¿ÚµÄ·¶Î§ 
+	/** è®¡ç®—ä¸–ç•Œåæ ‡ç³»ä¸‹ï¼Œå½“å‰çª—å£çš„èŒƒå›´ 
 	* @return 
 	*/
 	virtual void calculateWpWndRange() = 0;
@@ -859,149 +859,149 @@ public:
 /** @}*/
 
 
-/** @addtogroup Render  ¶şÎ¬·ûºÅÏÔÊ¾½Ó¿Ú
+/** @addtogroup Render  äºŒç»´ç¬¦å·æ˜¾ç¤ºæ¥å£
 *  @{
 */
 class GdiplusRenderSymbol2d
 {
 public:
-	/** ÉèÖÃ×ø±êÏµ  
-	* @param [in] pCoordSys:×ø±êÏµ
+	/** è®¾ç½®åæ ‡ç³»  
+	* @param [in] pCoordSys:åæ ‡ç³»
 	* @return 
 	*/
 	virtual void setCoordSys(Coordsys2dSharedPtr& pCoordSys) = 0;
 
-	/**ÊÇ·ñÏÔÊ¾µã·ûºÅµÄ²åÈëµã  
-	* @return ÊÇ·ñÏÔÊ¾µã·ûºÅµÄ²åÈëµã
+	/**æ˜¯å¦æ˜¾ç¤ºç‚¹ç¬¦å·çš„æ’å…¥ç‚¹  
+	* @return æ˜¯å¦æ˜¾ç¤ºç‚¹ç¬¦å·çš„æ’å…¥ç‚¹
 	*/
 	virtual bool isDisplaySymPointInsertPt() = 0;
 
-	/**ÉèÖÃÊÇ·ñÏÔÊ¾µã·ûºÅµÄ²åÈëµã  
-	* @param [in] b:ÊÇ·ñÏÔÊ¾µã·ûºÅµÄ²åÈëµã
+	/**è®¾ç½®æ˜¯å¦æ˜¾ç¤ºç‚¹ç¬¦å·çš„æ’å…¥ç‚¹  
+	* @param [in] b:æ˜¯å¦æ˜¾ç¤ºç‚¹ç¬¦å·çš„æ’å…¥ç‚¹
 	* @return 
 	*/
 	virtual void setDisplaySymPointInsertPt(bool b) = 0;
 
-	/**ÊÇ·ñÏÔÊ¾ÕæÊµµÄÏß¿í  
-	* @return ÊÇ·ñÏÔÊ¾ÕæÊµµÄÏß¿í 
+	/**æ˜¯å¦æ˜¾ç¤ºçœŸå®çš„çº¿å®½  
+	* @return æ˜¯å¦æ˜¾ç¤ºçœŸå®çš„çº¿å®½ 
 	*/
 	virtual bool isDisplayRealLineWidth() = 0;
 
-	/**ÉèÖÃÊÇ·ñÏÔÊ¾ÕæÊµµÄÏß¿í  
-	* @param [in] b ÊÇ·ñÏÔÊ¾ÕæÊµµÄÏß¿í
+	/**è®¾ç½®æ˜¯å¦æ˜¾ç¤ºçœŸå®çš„çº¿å®½  
+	* @param [in] b æ˜¯å¦æ˜¾ç¤ºçœŸå®çš„çº¿å®½
 	* @return 
 	*/
 	virtual void setDisplayRealLineWidth(bool b) = 0;
 
-	/**Ïß¿íÊÇ·ñ¸ù¾İÏÔÊ¾µÄ±ÈÀı½øĞĞÏàÓ¦µÄ·Å´ó»òËõĞ¡ 
-	* @return Ïß¿íÊÇ·ñ¸ù¾İÏÔÊ¾µÄ±ÈÀı½øĞĞÏàÓ¦µÄ·Å´ó»òËõĞ¡
+	/**çº¿å®½æ˜¯å¦æ ¹æ®æ˜¾ç¤ºçš„æ¯”ä¾‹è¿›è¡Œç›¸åº”çš„æ”¾å¤§æˆ–ç¼©å° 
+	* @return çº¿å®½æ˜¯å¦æ ¹æ®æ˜¾ç¤ºçš„æ¯”ä¾‹è¿›è¡Œç›¸åº”çš„æ”¾å¤§æˆ–ç¼©å°
 	*/
 	virtual bool isLineWidthFitToScale() = 0;
 
-	/**Ïß¿íÊÇ·ñ¸ù¾İÏÔÊ¾µÄ±ÈÀı½øĞĞÏàÓ¦µÄ·Å´ó»òËõĞ¡ 
-	* @param [in] bÏß¿íÊÇ·ñ¸ù¾İÏÔÊ¾µÄ±ÈÀı½øĞĞÏàÓ¦µÄ·Å´ó»òËõĞ¡
+	/**çº¿å®½æ˜¯å¦æ ¹æ®æ˜¾ç¤ºçš„æ¯”ä¾‹è¿›è¡Œç›¸åº”çš„æ”¾å¤§æˆ–ç¼©å° 
+	* @param [in] bçº¿å®½æ˜¯å¦æ ¹æ®æ˜¾ç¤ºçš„æ¯”ä¾‹è¿›è¡Œç›¸åº”çš„æ”¾å¤§æˆ–ç¼©å°
 	* @return 
 	*/
 	virtual void setLineWidthFitToScale(bool b) = 0;
 
-	/**ÊÇ·ñ´¦ÓÚ´òÓ¡×´Ì¬  
-	* @return ÊÇ·ñ´¦ÓÚ´òÓ¡×´Ì¬ 
+	/**æ˜¯å¦å¤„äºæ‰“å°çŠ¶æ€  
+	* @return æ˜¯å¦å¤„äºæ‰“å°çŠ¶æ€ 
 	*/
 	virtual bool isPrinting() = 0;
 
-	/**ÉèÖÃÊÇ·ñ´¦ÓÚ´òÓ¡×´Ì¬  
-	* @param [in] b ÊÇ·ñ´¦ÓÚ´òÓ¡×´Ì¬
+	/**è®¾ç½®æ˜¯å¦å¤„äºæ‰“å°çŠ¶æ€  
+	* @param [in] b æ˜¯å¦å¤„äºæ‰“å°çŠ¶æ€
 	* @return 
 	*/
 	virtual void setPrinting(bool b) = 0;
 
-	/**ÊÇ·ñºáÏò´òÓ¡  
-	* @return ÊÇ·ñºáÏò´òÓ¡  
+	/**æ˜¯å¦æ¨ªå‘æ‰“å°  
+	* @return æ˜¯å¦æ¨ªå‘æ‰“å°  
 	*/
 	virtual bool isTransversePrinting() = 0;
 
-	/**ÉèÖÃÊÇ·ñºáÏò´òÓ¡  
-	* @param [in] b ÊÇ·ñºáÏò´òÓ¡
+	/**è®¾ç½®æ˜¯å¦æ¨ªå‘æ‰“å°  
+	* @param [in] b æ˜¯å¦æ¨ªå‘æ‰“å°
 	* @return 
 	*/
 	virtual void setTransversePrinting(bool b) = 0;
 
-	/**ÏÔÊ¾µã·ûºÅ
-	* @param [in] pPoint: µã·ûºÅ¶ÔÏóÖ¸Õë
-	* @param [in] env: Éè±¸»·¾³
-	* @param [in] nSpecialMode: ÏÔÊ¾Ä£Ê½
-	*			  RENDER2D_GEOMETRY_DISPLAY_MODE_NORMAL-´ú±íÕı³£ÏÔÊ¾£¬´ËÊ±pColorÎª¿Õ
-	*			  RENDER2D_GEOMETRY_DISPLAY_MODE_DEFINE_COLOR-ÒÔÌØÊâÑÕÉ«ÏÔÊ¾£¬´ËÊ±pColor²»ÄÜÎª¿Õ
-	* @param [in] pColor - Ö¸¶¨ÑÕÉ«
-	* @param [in] orgX,orgY - ²åÈëµãÉè±¸×ø±ê
-	* @param [in] dZoomFactor - Ö¸¶¨µã·ûºÅÏÔÊ¾±ÈÀı
-	* @param [in] dAngRad - ·ûºÅĞı×ª½Ç¶È£¨»¡¶Èµ¥Î»£©
+	/**æ˜¾ç¤ºç‚¹ç¬¦å·
+	* @param [in] pPoint: ç‚¹ç¬¦å·å¯¹è±¡æŒ‡é’ˆ
+	* @param [in] env: è®¾å¤‡ç¯å¢ƒ
+	* @param [in] nSpecialMode: æ˜¾ç¤ºæ¨¡å¼
+	*			  RENDER2D_GEOMETRY_DISPLAY_MODE_NORMAL-ä»£è¡¨æ­£å¸¸æ˜¾ç¤ºï¼Œæ­¤æ—¶pColorä¸ºç©º
+	*			  RENDER2D_GEOMETRY_DISPLAY_MODE_DEFINE_COLOR-ä»¥ç‰¹æ®Šé¢œè‰²æ˜¾ç¤ºï¼Œæ­¤æ—¶pColorä¸èƒ½ä¸ºç©º
+	* @param [in] pColor - æŒ‡å®šé¢œè‰²
+	* @param [in] orgX,orgY - æ’å…¥ç‚¹è®¾å¤‡åæ ‡
+	* @param [in] dZoomFactor - æŒ‡å®šç‚¹ç¬¦å·æ˜¾ç¤ºæ¯”ä¾‹
+	* @param [in] dAngRad - ç¬¦å·æ—‹è½¬è§’åº¦ï¼ˆå¼§åº¦å•ä½ï¼‰
 	* @return 
 	*/
 	virtual void drawSymbolPoint( Symbol2dSharedPtr& pPoint, GraphicsDevice& env,int nSpecialMode,
 		Color4f *pColor, double orgX, double orgY, double dZoomFactor, double dAngRad ) = 0;
 	
-	/**	½«µã·ûºÅ»æÖÆµ½Ö¸¶¨µÄ¾ØĞÎÇøÓòÖĞ, rct: Éè±¸×ø±ê
-	* @param [in] pPoint: µã·ûºÅ¶ÔÏóÖ¸Õë
-	* @param [in] env: Éè±¸»·¾³
-	* @param [in] nSpecialMode: ÏÔÊ¾Ä£Ê½
-	*			  RENDER2D_GEOMETRY_DISPLAY_MODE_NORMAL-´ú±íÕı³£ÏÔÊ¾£¬´ËÊ±pColorÎª¿Õ
-	*			  RENDER2D_GEOMETRY_DISPLAY_MODE_DEFINE_COLOR-ÒÔÌØÊâÑÕÉ«ÏÔÊ¾£¬´ËÊ±pColor²»ÄÜÎª¿Õ
-	* @param [in] pColor - Ö¸¶¨ÑÕÉ«
-	* @param [in] rct: Éè±¸×ø±êÏÂµÄ¾ØĞÎÇøÓò
+	/**	å°†ç‚¹ç¬¦å·ç»˜åˆ¶åˆ°æŒ‡å®šçš„çŸ©å½¢åŒºåŸŸä¸­, rct: è®¾å¤‡åæ ‡
+	* @param [in] pPoint: ç‚¹ç¬¦å·å¯¹è±¡æŒ‡é’ˆ
+	* @param [in] env: è®¾å¤‡ç¯å¢ƒ
+	* @param [in] nSpecialMode: æ˜¾ç¤ºæ¨¡å¼
+	*			  RENDER2D_GEOMETRY_DISPLAY_MODE_NORMAL-ä»£è¡¨æ­£å¸¸æ˜¾ç¤ºï¼Œæ­¤æ—¶pColorä¸ºç©º
+	*			  RENDER2D_GEOMETRY_DISPLAY_MODE_DEFINE_COLOR-ä»¥ç‰¹æ®Šé¢œè‰²æ˜¾ç¤ºï¼Œæ­¤æ—¶pColorä¸èƒ½ä¸ºç©º
+	* @param [in] pColor - æŒ‡å®šé¢œè‰²
+	* @param [in] rct: è®¾å¤‡åæ ‡ä¸‹çš„çŸ©å½¢åŒºåŸŸ
 	* @return 
 	*/
 	virtual void drawSymbolPointInRect( Symbol2dSharedPtr& pPoint,
 		GraphicsDevice& env,int nSpecialMode,Color4f *pColor,Rect2d &rct) = 0;
 	
-	/**ÔÚÖ¸¶¨µÄ×ø±ê,»æÖÆµ¥¸öµÄÇø·ûºÅ£¬»òÏß·ûºÅ£¬(ÀàËÆÓÚµã·ûºÅµÄ»æÖÆ)
-	* @param [in] pRgn: Çø·ûºÅ£¬»òÏß·ûºÅ¶ÔÏóÖ¸Õë
-	* @param [in] env: Éè±¸»·¾³
-	* @param [in] nSpecialMode: ÏÔÊ¾Ä£Ê½
-	*			  RENDER2D_GEOMETRY_DISPLAY_MODE_NORMAL-´ú±íÕı³£ÏÔÊ¾£¬´ËÊ±pColorÎª¿Õ
-	*			  RENDER2D_GEOMETRY_DISPLAY_MODE_DEFINE_COLOR-ÒÔÌØÊâÑÕÉ«ÏÔÊ¾£¬´ËÊ±pColor²»ÄÜÎª¿Õ
-	* @param [in] pColor - Ö¸¶¨ÑÕÉ«
-	* @param [in] orgX,orgY - ²åÈëµãÉè±¸×ø±ê
-	* @param [in] dZoomFactor - Ö¸¶¨µã·ûºÅÏÔÊ¾±ÈÀı
-	* @param [in] dAngRad - ·ûºÅĞı×ª½Ç¶È£¨»¡¶Èµ¥Î»£©
+	/**åœ¨æŒ‡å®šçš„åæ ‡,ç»˜åˆ¶å•ä¸ªçš„åŒºç¬¦å·ï¼Œæˆ–çº¿ç¬¦å·ï¼Œ(ç±»ä¼¼äºç‚¹ç¬¦å·çš„ç»˜åˆ¶)
+	* @param [in] pRgn: åŒºç¬¦å·ï¼Œæˆ–çº¿ç¬¦å·å¯¹è±¡æŒ‡é’ˆ
+	* @param [in] env: è®¾å¤‡ç¯å¢ƒ
+	* @param [in] nSpecialMode: æ˜¾ç¤ºæ¨¡å¼
+	*			  RENDER2D_GEOMETRY_DISPLAY_MODE_NORMAL-ä»£è¡¨æ­£å¸¸æ˜¾ç¤ºï¼Œæ­¤æ—¶pColorä¸ºç©º
+	*			  RENDER2D_GEOMETRY_DISPLAY_MODE_DEFINE_COLOR-ä»¥ç‰¹æ®Šé¢œè‰²æ˜¾ç¤ºï¼Œæ­¤æ—¶pColorä¸èƒ½ä¸ºç©º
+	* @param [in] pColor - æŒ‡å®šé¢œè‰²
+	* @param [in] orgX,orgY - æ’å…¥ç‚¹è®¾å¤‡åæ ‡
+	* @param [in] dZoomFactor - æŒ‡å®šç‚¹ç¬¦å·æ˜¾ç¤ºæ¯”ä¾‹
+	* @param [in] dAngRad - ç¬¦å·æ—‹è½¬è§’åº¦ï¼ˆå¼§åº¦å•ä½ï¼‰
 	* @return 
 	*/
 	virtual void drawSymbol( Symbol2dSharedPtr& pRgn, GraphicsDevice& env,int nSpecialMode,
 		Color4f *pColor, double orgX, double orgY, double dZoomFactor, double dAngRad ) = 0;
 	
-	/**	½«ÇøÌî³ä·ûºÅ£¬»òÏß·ûºÅ, »æÖÆµ½Ö¸¶¨µÄ¾ØĞÎÇøÓòÖĞ(³äÂúÕû¸öÇøÓò), rct: Éè±¸×ø±ê
-	* @param [in] pRgn: ÇøÌî³ä·ûºÅ£¬»òÏß·ûºÅ¶ÔÏóÖ¸Õë
-	* @param [in] env: Éè±¸»·¾³
-	* @param [in] rct: Éè±¸×ø±êÏÂµÄ¾ØĞÎÇøÓò
-	* @param [in] bKeepHZScale: ÊÇ·ñ±£³Öºá×İ±ÈÀı£¬Èç¹ûÎªFALSE£¬Ôò³äÂúÇøÓò
+	/**	å°†åŒºå¡«å……ç¬¦å·ï¼Œæˆ–çº¿ç¬¦å·, ç»˜åˆ¶åˆ°æŒ‡å®šçš„çŸ©å½¢åŒºåŸŸä¸­(å……æ»¡æ•´ä¸ªåŒºåŸŸ), rct: è®¾å¤‡åæ ‡
+	* @param [in] pRgn: åŒºå¡«å……ç¬¦å·ï¼Œæˆ–çº¿ç¬¦å·å¯¹è±¡æŒ‡é’ˆ
+	* @param [in] env: è®¾å¤‡ç¯å¢ƒ
+	* @param [in] rct: è®¾å¤‡åæ ‡ä¸‹çš„çŸ©å½¢åŒºåŸŸ
+	* @param [in] bKeepHZScale: æ˜¯å¦ä¿æŒæ¨ªçºµæ¯”ä¾‹ï¼Œå¦‚æœä¸ºFALSEï¼Œåˆ™å……æ»¡åŒºåŸŸ
 	* @return 
 	*/
 	virtual void drawSymbolInRect( Symbol2dSharedPtr& pRgn, GraphicsDevice& env, Rect2d &rct,bool bKeepHZScale) = 0;
 	
-	/**	»æÖÆ¾ßÓĞptCount¸öµãµÄµãÕópts ×é³ÉµÄ±ß½çµÄÌî³äÇø, ´Ëº¯Êı²»»æÖÆÇø±ß½ç, ´Ë´¦ÓÃµ½»¨ÎÆĞı×ª
-	* @param [in] pRgn: Çø·ûºÅ£¬»òÏß·ûºÅ¶ÔÏóÖ¸Õë
-	* @param [in] env: Éè±¸»·¾³
-	* @param [in] pts: µãÕóÊı×éµÄÊ×µØÖ·
-	* @param [in] ptCount: µãÕóµÄ¸öÊı
-	* @param [in] pcrBK:Ìî³äÇø±³¾°É«£¬Èç¹û²»ĞèÒª±³¾°Ìî³ä£¬ÔòpcrBKÖ¸ÕëÎª¿Õ
-	* @param [in] dZoomFactor - Ö¸¶¨µã·ûºÅÏÔÊ¾±ÈÀı
-	* @param [in] dAngDeg-Ìî³ä½Ç¶È£¬µ¥Î»Îª¶È
+	/**	ç»˜åˆ¶å…·æœ‰ptCountä¸ªç‚¹çš„ç‚¹é˜µpts ç»„æˆçš„è¾¹ç•Œçš„å¡«å……åŒº, æ­¤å‡½æ•°ä¸ç»˜åˆ¶åŒºè¾¹ç•Œ, æ­¤å¤„ç”¨åˆ°èŠ±çº¹æ—‹è½¬
+	* @param [in] pRgn: åŒºç¬¦å·ï¼Œæˆ–çº¿ç¬¦å·å¯¹è±¡æŒ‡é’ˆ
+	* @param [in] env: è®¾å¤‡ç¯å¢ƒ
+	* @param [in] pts: ç‚¹é˜µæ•°ç»„çš„é¦–åœ°å€
+	* @param [in] ptCount: ç‚¹é˜µçš„ä¸ªæ•°
+	* @param [in] pcrBK:å¡«å……åŒºèƒŒæ™¯è‰²ï¼Œå¦‚æœä¸éœ€è¦èƒŒæ™¯å¡«å……ï¼Œåˆ™pcrBKæŒ‡é’ˆä¸ºç©º
+	* @param [in] dZoomFactor - æŒ‡å®šç‚¹ç¬¦å·æ˜¾ç¤ºæ¯”ä¾‹
+	* @param [in] dAngDeg-å¡«å……è§’åº¦ï¼Œå•ä½ä¸ºåº¦
 	* @return 
 	*/
 	virtual void fillPathWithSymbol( Symbol2dSharedPtr& pRgn, GraphicsDevice& env, 
 		Vertex2d* pts, long ptCount, Color4f* pcrBK,double dZoomFactor,double dAngDeg ) = 0;
 	
-	/** ÏÔÊ¾×é³É·ûºÅµÄÔ­×Ó 
-	* @param [in] geom: ·ûºÅµÄÔ­×Ó¶ÔÏóÖ¸Õë
-	* @param [in] env: Éè±¸»·¾³
-	* @param [in] nSpecialMode: ÏÔÊ¾Ä£Ê½
-	*			  RENDER2D_GEOMETRY_DISPLAY_MODE_NORMAL-´ú±íÕı³£ÏÔÊ¾£¬´ËÊ±pColorÎª¿Õ
-	*			  RENDER2D_GEOMETRY_DISPLAY_MODE_DEFINE_COLOR-ÒÔÌØÊâÑÕÉ«ÏÔÊ¾£¬´ËÊ±pColor²»ÄÜÎª¿Õ
-	* @param [in] pColor - Ö¸¶¨ÑÕÉ«
-	* @param [in] orgX,orgY - ²åÈëµãÉè±¸×ø±ê
-	* @param [in] dScaleX - Ö¸¶¨µã·ûºÅXÖáÏÔÊ¾±ÈÀı
-	* @param [in] dScaleY - Ö¸¶¨µã·ûºÅYÖáÏÔÊ¾±ÈÀı
-	* @param [in] dAngRad - ·ûºÅĞı×ª½Ç¶È£¨»¡¶Èµ¥Î»£©
+	/** æ˜¾ç¤ºç»„æˆç¬¦å·çš„åŸå­ 
+	* @param [in] geom: ç¬¦å·çš„åŸå­å¯¹è±¡æŒ‡é’ˆ
+	* @param [in] env: è®¾å¤‡ç¯å¢ƒ
+	* @param [in] nSpecialMode: æ˜¾ç¤ºæ¨¡å¼
+	*			  RENDER2D_GEOMETRY_DISPLAY_MODE_NORMAL-ä»£è¡¨æ­£å¸¸æ˜¾ç¤ºï¼Œæ­¤æ—¶pColorä¸ºç©º
+	*			  RENDER2D_GEOMETRY_DISPLAY_MODE_DEFINE_COLOR-ä»¥ç‰¹æ®Šé¢œè‰²æ˜¾ç¤ºï¼Œæ­¤æ—¶pColorä¸èƒ½ä¸ºç©º
+	* @param [in] pColor - æŒ‡å®šé¢œè‰²
+	* @param [in] orgX,orgY - æ’å…¥ç‚¹è®¾å¤‡åæ ‡
+	* @param [in] dScaleX - æŒ‡å®šç‚¹ç¬¦å·Xè½´æ˜¾ç¤ºæ¯”ä¾‹
+	* @param [in] dScaleY - æŒ‡å®šç‚¹ç¬¦å·Yè½´æ˜¾ç¤ºæ¯”ä¾‹
+	* @param [in] dAngRad - ç¬¦å·æ—‹è½¬è§’åº¦ï¼ˆå¼§åº¦å•ä½ï¼‰
 	* @return 
 	*/
 	virtual void drawAtom( GeometrySharedPtr& geom, GraphicsDevice& env,int nSpecialMode,Color4f *pColor,

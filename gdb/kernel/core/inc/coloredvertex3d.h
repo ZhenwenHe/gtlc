@@ -1,4 +1,4 @@
-/*
+ï»¿/*
 * Geosciences Template Library
 *
 * Copyright (c) 2008
@@ -20,16 +20,17 @@
 #include "color.h"
 
 
+
 begin_gtl_namespace
 begin_gdb_namespace
 class ColoredVertex3d
 { 
 
 public:	 
-	/** ¿Õ¼ä×ø±ê */
+	/** ç©ºé—´åæ ‡ */
 	double x, y, z;
 
-	/** ÑÕÉ« */
+	/** é¢œè‰² */
 	double cR, cG, cB; 
 };
 

@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Geosciences Template Library
 *
 * Copyright (c) 2008
@@ -27,6 +27,27 @@
 #include "time.h"
 #include "assert.h"
 
+
+typedef __int64  int64;
+typedef int      int32;
+typedef short    int16;
+typedef char     int8;
+
+typedef unsigned __int64  uint64;
+typedef unsigned int      uint32;
+typedef unsigned short    uint16;
+typedef unsigned char     uint8;
+
+
+//#pragma warning  (disable:4244)
+//#pragma warning  (disable:4819)
+//#pragma warning  (disable:4305)
+//#pragma warning  (disable:4267)
+//#pragma warning  (disable:4819)
+//#pragma warning  (disable:4250)
+//#pragma warning  (disable:4800)
+
+
 /*
  * 0-windows, include config_windows.h
  * 1-linux, include config_linux.h
@@ -44,7 +65,7 @@
  * 1-Qt
  * 2-wxWidget
  */
-#define USING_UI_TYPE  1
+#define USING_UI_TYPE  0
 /*
  * If the ui library is 0, the os type must be 0.
  */
@@ -174,6 +195,9 @@ const double  PI        =  3.141592653589793238462643383279502884197169399375105
 #ifndef SMALL_NUMBER
 #define SMALL_NUMBER 0.0000001
 #endif
+
+
+
 
 
 class Envelope3d;

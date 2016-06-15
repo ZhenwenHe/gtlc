@@ -1,4 +1,4 @@
-/*
+ï»¿/*
 * Geosciences Template Library
 *
 * Copyright (c) 2008
@@ -33,52 +33,52 @@ class CORE_API Matrix3x3 : public Matrix
 
 public:
 
-	/** @name ÊôĞÔ£¨³ÉÔ±±äÁ¿£©
+	/** @name å±æ€§ï¼ˆæˆå‘˜å˜é‡ï¼‰
 	* @{
 	*/
 
-	/** µ¥Î»¾ØÕó */
+	/** å•ä½çŸ©é˜µ */
 	static const Matrix3x3 IDENTITY3X3;
 
-	/** @} */ // ÊôĞÔ½áÎ²
+	/** @} */ // å±æ€§ç»“å°¾
 
 public:
 
-	/** @name Vertex3d²Ù×÷º¯Êı
+	/** @name Vertex3dæ“ä½œå‡½æ•°
 	*  @{
 	*/
 
-	// ¹¹Ôìº¯Êı1 £ºÄ¬ÈÏ¹¹Ôìº¯ÊıÎŞ
+	// æ„é€ å‡½æ•°1 ï¼šé»˜è®¤æ„é€ å‡½æ•°æ— 
 
-	// ¹¹Ôìº¯Êı2 £º´ø²Î¹¹Ôìº¯Êı£¨³õÊ¼»¯ÁĞ±í£©
+	// æ„é€ å‡½æ•°2 ï¼šå¸¦å‚æ„é€ å‡½æ•°ï¼ˆåˆå§‹åŒ–åˆ—è¡¨ï¼‰
 	Matrix3x3(double* const pData);
 
-	/** ¹¹Ôìº¯Êı1£º´ø²Î¹¹Ôìº¯Êı£¨³õÊ¼»¯ÁĞ±í£©
+	/** æ„é€ å‡½æ•°1ï¼šå¸¦å‚æ„é€ å‡½æ•°ï¼ˆåˆå§‹åŒ–åˆ—è¡¨ï¼‰
 	*/
 	Matrix3x3();
 
-	// ¹¹Ôìº¯Êı3 £º¿½±´¹¹Ôìº¯Êı£¨³õÊ¼»¯ÁĞ±í£©
+	// æ„é€ å‡½æ•°3 ï¼šæ‹·è´æ„é€ å‡½æ•°ï¼ˆåˆå§‹åŒ–åˆ—è¡¨ï¼‰
 	Matrix3x3(const Matrix3x3& rv);
 
-	// ¹¹Ôìº¯Êı4
+	// æ„é€ å‡½æ•°4
 	Matrix3x3(double fEntry00, double fEntry01, double fEntry02,
 		double fEntry10, double fEntry11, double fEntry12,
 		double fEntry20, double fEntry21, double fEntry22);
 
-	// ¹¹Ôìº¯Êı5
+	// æ„é€ å‡½æ•°5
 	Matrix3x3(const Vertex3d& rowV1, const Vertex3d& rowV2, const Vertex3d& rowV3);
 	/** @} */
 
 
-	/** @name ¸¨Öú²Ù×÷
+	/** @name è¾…åŠ©æ“ä½œ
 	*  @{
 	*/
 	// The matrix must be orthonormal.  The decomposition is yaw*pitch*roll
 	// where yaw is rotation about the Up vector, pitch is rotation about the
 	// Right axis, and roll is rotation about the Direction axis.
 	// The range of three angles need to be paid attention to:
-	// yaw: -180 - 180 ; pitch: -90 - 90¡ã ; roll: -180 -180
-	// ÓëÅ·À­½ÇµÄ×ª»»¹ØÏµ
+	// yaw: -180 - 180 ; pitch: -90 - 90Â° ; roll: -180 -180
+	// ä¸æ¬§æ‹‰è§’çš„è½¬æ¢å…³ç³»
 	int toEulerAnglesXYZ(double& rfYAngle, double& rfPAngle,
 		double& rfRAngle) const;
 	int toEulerAnglesXZY(double& rfYAngle, double& rfPAngle,
@@ -92,7 +92,7 @@ public:
 	int toEulerAnglesZYX(double& rfYAngle, double& rfPAngle,
 		double& rfRAngle) const;
 
-	// ´ÓÅ·À­½Ç×ª»¯Îª±ä»»¾ØÕó£¨Õı½»¾ØÕó£©  ÓÉÓÚÅ·À­½ÇµÄË³Ğò¿ÉÒÔ¶¨ÒåÎªÈÆ²»Í¬µÄÖáµÄĞı×ª
+	// ä»æ¬§æ‹‰è§’è½¬åŒ–ä¸ºå˜æ¢çŸ©é˜µï¼ˆæ­£äº¤çŸ©é˜µï¼‰  ç”±äºæ¬§æ‹‰è§’çš„é¡ºåºå¯ä»¥å®šä¹‰ä¸ºç»•ä¸åŒçš„è½´çš„æ—‹è½¬
 	void fromEulerAnglesXYZ(double fYAngle, double fPAngle, double fRAngle);
 	void fromEulerAnglesXZY(double fYAngle, double fPAngle, double fRAngle);
 	void fromEulerAnglesYXZ(double fYAngle, double fPAngle, double fRAngle);
@@ -105,7 +105,7 @@ public:
 	void fromAxisAngle(const Vertex3d& rkAxis, const double& fRadians);
 	void fromAxes(const Vertex3d& xAxis, const Vertex3d& yAxis, const Vertex3d& zAxis);
 
-	// µ¥Î»Õı½»»¯
+	// å•ä½æ­£äº¤åŒ–
 	void orthonormalize();
 
 	inline Matrix3x3& operator=(const Matrix3x3& rhm)
@@ -116,7 +116,7 @@ public:
 		return (*this);
 	}
 
-	// ±È½ÏÌØÊâ£¬×¢ÒâÃ»ÓĞ*= ²Ù×÷·ûÖØÔØ
+	// æ¯”è¾ƒç‰¹æ®Šï¼Œæ³¨æ„æ²¡æœ‰*= æ“ä½œç¬¦é‡è½½
 	const Vertex3d operator*(const Vertex3d& rhv) const
 	{
 		Matrix3x3 mRes = *this;
@@ -124,9 +124,9 @@ public:
 	}
 
 
-	/** ÄÚÁªº¯Êı¡£»ñµÃµ±Ç°¾ØÕóµÄÖ¸¶¨ĞĞÏòÁ¿
-	* @param [in] nRow	Ö¸¶¨ĞĞ
-	* @return µ±Ç°¾ØÕóµÄÖ¸¶¨ĞĞÏòÁ¿
+	/** å†…è”å‡½æ•°ã€‚è·å¾—å½“å‰çŸ©é˜µçš„æŒ‡å®šè¡Œå‘é‡
+	* @param [in] nRow	æŒ‡å®šè¡Œ
+	* @return å½“å‰çŸ©é˜µçš„æŒ‡å®šè¡Œå‘é‡
 	*/
 	inline Vertex3d getRowVector(int nRow) const
 	{
@@ -134,9 +134,9 @@ public:
 		return Vertex3d((*this)[nRow][0], (*this)[nRow][1], (*this)[nRow][2]);
 	}
 
-	/** ÄÚÁªº¯Êı¡£»ñµÃµ±Ç°¾ØÕóµÄÖ¸¶¨ÁĞÏòÁ¿
-	* @param [in] nRow	Ö¸¶¨ÁĞ
-	* @return µ±Ç°¾ØÕóµÄÖ¸¶¨ÁĞÏòÁ¿
+	/** å†…è”å‡½æ•°ã€‚è·å¾—å½“å‰çŸ©é˜µçš„æŒ‡å®šåˆ—å‘é‡
+	* @param [in] nRow	æŒ‡å®šåˆ—
+	* @return å½“å‰çŸ©é˜µçš„æŒ‡å®šåˆ—å‘é‡
 	*/
 	inline Vertex3d getColVector(int nCol) const
 	{
@@ -145,9 +145,9 @@ public:
 	}
 
 
-	/** ÄÚÁªº¯Êı¡£Éè¶¨µ±Ç°¾ØÕóµÄÖ¸¶¨ĞĞÏòÁ¿
-	* @param [in] nRow	Ö¸¶¨ĞĞ
-	* @param [in] vRow	Ö¸¶¨ĞĞÏòÁ¿
+	/** å†…è”å‡½æ•°ã€‚è®¾å®šå½“å‰çŸ©é˜µçš„æŒ‡å®šè¡Œå‘é‡
+	* @param [in] nRow	æŒ‡å®šè¡Œ
+	* @param [in] vRow	æŒ‡å®šè¡Œå‘é‡
 	* @return
 	*/
 	inline void setRowVector(int nRow, const Vertex3d& vRow)
@@ -159,9 +159,9 @@ public:
 	}
 
 
-	/** ÄÚÁªº¯Êı¡£Éè¶¨µ±Ç°¾ØÕóµÄÖ¸¶¨ĞĞÏòÁ¿
-	* @param [in] nRow	Ö¸¶¨ĞĞ
-	* @param [in] vRow	Ö¸¶¨ĞĞÏòÁ¿
+	/** å†…è”å‡½æ•°ã€‚è®¾å®šå½“å‰çŸ©é˜µçš„æŒ‡å®šè¡Œå‘é‡
+	* @param [in] nRow	æŒ‡å®šè¡Œ
+	* @param [in] vRow	æŒ‡å®šè¡Œå‘é‡
 	* @return
 	*/
 	inline void setRowVector(int nRow, double dEntry0, double dEntry1, double dEntry2)
@@ -170,8 +170,8 @@ public:
 	}
 
 
-	/** ÄÚÁªº¯Êı¡£Éè¶¨µ±Ç°¾ØÕóµÄÖ¸¶¨Î»ÖÃµÄÖµ
-	* @param [in] nCol	Ö¸¶¨ÁĞ nRow	Ö¸¶¨ĞĞ [double] dvalue ½«Éè¶¨µÄÖµ
+	/** å†…è”å‡½æ•°ã€‚è®¾å®šå½“å‰çŸ©é˜µçš„æŒ‡å®šä½ç½®çš„å€¼
+	* @param [in] nCol	æŒ‡å®šåˆ— nRow	æŒ‡å®šè¡Œ [double] dvalue å°†è®¾å®šçš„å€¼
 	* @return
 	*/
 	inline void setColVector(int nCol, int nRow, const double& dvalue)
@@ -181,8 +181,8 @@ public:
 	}
 
 
-	/** ÄÚÁªº¯Êı¡£Éè¶¨µ±Ç°¾ØÕóµÄÖ¸¶¨Î»ÖÃµÄÖµ
-	* @param [in] Ö¸¶¨Î»ÖÃ [double] dvalue ½«Éè¶¨µÄÖµ
+	/** å†…è”å‡½æ•°ã€‚è®¾å®šå½“å‰çŸ©é˜µçš„æŒ‡å®šä½ç½®çš„å€¼
+	* @param [in] æŒ‡å®šä½ç½® [double] dvalue å°†è®¾å®šçš„å€¼
 	* @return
 	*/
 	inline void setColVector(int location, const double& dvalue)
@@ -192,9 +192,9 @@ public:
 	}
 
 
-	/** ÄÚÁªº¯Êı¡£Éè¶¨µ±Ç°¾ØÕóµÄÖ¸¶¨ÁĞÏòÁ¿
-	* @param [in] nCol	Ö¸¶¨ÁĞ
-	* @param [in] vCol	Ö¸¶¨ÁĞÏòÁ¿
+	/** å†…è”å‡½æ•°ã€‚è®¾å®šå½“å‰çŸ©é˜µçš„æŒ‡å®šåˆ—å‘é‡
+	* @param [in] nCol	æŒ‡å®šåˆ—
+	* @param [in] vCol	æŒ‡å®šåˆ—å‘é‡
 	* @return
 	*/
 	inline void setColVector(int nCol, const Vertex3d& vCol)
@@ -210,12 +210,12 @@ public:
 		setColVector(nCol, Vertex3d(dEntry0, dEntry1, dEntry2));
 	}
 
-	/** @}*/  // ¸¨Öú²Ù×÷×é½áÎ²
+	/** @}*/  // è¾…åŠ©æ“ä½œç»„ç»“å°¾
 };
-/** @} */ // Ä£¿é½áÎ²
+/** @} */ // æ¨¡å—ç»“å°¾
 
 
-/** @addtogroup math  Matrix3x3È«¾Ö·ûºÅÖØÔØ
+/** @addtogroup math  Matrix3x3å…¨å±€ç¬¦å·é‡è½½
 *  @{
 */
 CORE_API Vertex3d operator*(const Vertex3d& lhv, const Matrix3x3& rhm);

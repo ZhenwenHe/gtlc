@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Geosciences Template Library
 *
 * Copyright (c) 2008
@@ -31,6 +31,7 @@ gtl (GTL_HOME)  // for development
 
 #include <string>
 #include <algorithm>
+#include <limits>
 
 begin_gtl_namespace
 
@@ -53,6 +54,8 @@ begin_gtl_namespace
 
  /* get the full path name */
  std::string getDataFile(const char * filename);
+
+
 end_gtl_namespace
 #endif /* CONFIG_ENV_H */
 

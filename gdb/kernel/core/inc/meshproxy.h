@@ -1,4 +1,4 @@
-/*
+ï»¿/*
 * Geosciences Template Library
 *
 * Copyright (c) 2008
@@ -34,7 +34,7 @@ begin_gdb_namespace
 class MeshProxy;
 typedef std::shared_ptr<MeshProxy> MeshProxySharedPtr;
 
-/** @addtogroup Mesh MeshBuilder-MeshBuilderÍø¸ñÉú³É¹ÜÀí
+/** @addtogroup Mesh MeshBuilder-MeshBuilderç½‘æ ¼ç”Ÿæˆç®¡ç†
 *  @{
 */
 class CORE_API MeshProxy {

@@ -203,7 +203,7 @@ void Buffer::read(void * cdata, size_t count)
 }
 
 void Buffer::write(const std::string & sz){
-	int s = sz.size();
+	int s = (int) sz.size();
 	write((void*)&s,sizeof(int));
 	if(s>0){
 		const char * sc = sz.c_str();
@@ -259,7 +259,7 @@ void Buffer::write(Vertex3dList & vl){
 	size_t s = 3*vl.size()*sizeof(double)+sizeof(int) ;
 	char * pc  = new char [s];
 	int * pi = (int*)pc;
-	*pi = vl.size();
+	*pi = (int)vl.size();
 	pi++;
 	double * p =(double*) pi;
 	for(Vertex3dList::iterator it = vl.begin();it!=vl.end();it++){
@@ -291,7 +291,7 @@ void Buffer::write(Color3bList & vl){
 	size_t s = 3*vl.size()*sizeof(unsigned char)+sizeof(int) ;
 	char * pc  = new char [s];
 	int * pi = (int*)pc;
-	*pi = vl.size();
+	*pi = (int) vl.size();
 	pi++;
 	unsigned char * p =(unsigned char*) pi;
 	for(Color3bList::iterator it = vl.begin();it!=vl.end();it++){

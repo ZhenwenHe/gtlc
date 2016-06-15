@@ -1,4 +1,4 @@
-/*
+ï»¿/*
 * Geosciences Template Library
 *
 * Copyright (c) 2008
@@ -33,7 +33,7 @@ begin_gdb_namespace
 class Factory;
 
 typedef std::shared_ptr<Factory>  FactorySharedPtr;
-/** @defgroup Factory  Factory-Àà¹¤³§»ùÀà 
+/** @defgroup Factory  Factory-ç±»å·¥å‚åŸºç±» 
 *  @{
 */
 class CORE_API Factory{
@@ -41,24 +41,24 @@ protected:
 	int _type;
 public:
 	enum {
-		FACTORYTYPE_2D_GEOMETRY,//¶şÎ¬¼¸ºÎ¿â
-		FACTORYTYPE_2D_RENDER,  //¶şÎ¬ÏÔÊ¾¿â
-		FACTORYTYPE_3D_GEOMETRY,//ÈıÎ¬¼¸ºÎ¿â
-		FACTORYTYPE_FDB_BUILDER,//ÎÄ¼şÊı¾İ¿â
-		FACTORYTYPE_RDB_BUILDER,//¹ØÏµÊı¾İ¿â
-		FACTORYTYPE_CDB_BUILDER,//¼¯ÈºÊı¾İ¿â
-		FACTORYTYPE_DDB_BUILDER,//·Ö²¼Ê½²¢ĞĞÊı¾İ¿â
+		FACTORYTYPE_2D_GEOMETRY,//äºŒç»´å‡ ä½•åº“
+		FACTORYTYPE_2D_RENDER,  //äºŒç»´æ˜¾ç¤ºåº“
+		FACTORYTYPE_3D_GEOMETRY,//ä¸‰ç»´å‡ ä½•åº“
+		FACTORYTYPE_FDB_BUILDER,//æ–‡ä»¶æ•°æ®åº“
+		FACTORYTYPE_RDB_BUILDER,//å…³ç³»æ•°æ®åº“
+		FACTORYTYPE_CDB_BUILDER,//é›†ç¾¤æ•°æ®åº“
+		FACTORYTYPE_DDB_BUILDER,//åˆ†å¸ƒå¼å¹¶è¡Œæ•°æ®åº“
 		FACTORYTYPE_3D_RENDER,
-		FACTORYTYPE_MESH,//Íø¸ñ¿â
-		FACTORYTYPE_FMESH_BUILDER,//ÎÄ¼şÍø¸ñÊı¾İ¿â
-		FACTORYTYPE_RMESH_BUILDER,//»ùÓÚ¹ØÏµÊı¾İ¿âµÄÍø¸ñÊı¾İ¿â
-		FACTORYTYPE_CMESH_BUILDER,//»ùÓÚ¼¯ÈºµÄÍø¸ñÊı¾İ¿â
-		FACTORYTYPE_DMESH_BUILDER,//»ùÓÚ·Ö²¼Ê½Êı¾İ¿âµÄÍø¸ñÊı¾İ¿â
+		FACTORYTYPE_MESH,//ç½‘æ ¼åº“
+		FACTORYTYPE_FMESH_BUILDER,//æ–‡ä»¶ç½‘æ ¼æ•°æ®åº“
+		FACTORYTYPE_RMESH_BUILDER,//åŸºäºå…³ç³»æ•°æ®åº“çš„ç½‘æ ¼æ•°æ®åº“
+		FACTORYTYPE_CMESH_BUILDER,//åŸºäºé›†ç¾¤çš„ç½‘æ ¼æ•°æ®åº“
+		FACTORYTYPE_DMESH_BUILDER,//åŸºäºåˆ†å¸ƒå¼æ•°æ®åº“çš„ç½‘æ ¼æ•°æ®åº“
 
-		FACTORYTYPE_FTERRAIN_BUILDER,//ÎÄ¼şµØĞÎÊı¾İ¿â
-		FACTORYTYPE_RTERRAIN_BUILDER,//»ùÓÚ¹ØÏµÊı¾İ¿âµÄµØĞÎÊı¾İ¿â
-		FACTORYTYPE_CTERRAIN_BUILDER,//»ùÓÚ¼¯ÈºµÄµØĞÎÊı¾İ¿â
-		FACTORYTYPE_DTERRAIN_BUILDER,//»ùÓÚ·Ö²¼Ê½Êı¾İ¿âµÄµØĞÎÊı¾İ¿â
+		FACTORYTYPE_FTERRAIN_BUILDER,//æ–‡ä»¶åœ°å½¢æ•°æ®åº“
+		FACTORYTYPE_RTERRAIN_BUILDER,//åŸºäºå…³ç³»æ•°æ®åº“çš„åœ°å½¢æ•°æ®åº“
+		FACTORYTYPE_CTERRAIN_BUILDER,//åŸºäºé›†ç¾¤çš„åœ°å½¢æ•°æ®åº“
+		FACTORYTYPE_DTERRAIN_BUILDER,//åŸºäºåˆ†å¸ƒå¼æ•°æ®åº“çš„åœ°å½¢æ•°æ®åº“
 
 		FACTORYTYPE_IMAGE
 	};
@@ -75,7 +75,7 @@ public:
 };
 /** @} */
 
-/** @addtogroup Factory  Geometry2DFactory-2D¼¸ºÎ¹¤³§Àà 
+/** @addtogroup Factory  Geometry2DFactory-2Då‡ ä½•å·¥å‚ç±» 
 *  @{
 */
 class CORE_API Geometry2dFactory: public Factory
@@ -86,76 +86,76 @@ public:
 		_type = FACTORYTYPE_2D_GEOMETRY;
 	}
 public:
-	/** ¸ù¾İÀàĞÍ£¬´´½¨ Element2d
-	* @param [in] type: ÔªËØÀàĞÍ
-	* @return Element2d¶ÔÏóÖ¸Õë
+	/** æ ¹æ®ç±»å‹ï¼Œåˆ›å»º Element2d
+	* @param [in] type: å…ƒç´ ç±»å‹
+	* @return Element2då¯¹è±¡æŒ‡é’ˆ
 	*/	
 	virtual  GeometrySharedPtr newGeometry(int signal)=0; 
-	/** ¸ù¾İBuffer£¬´´½¨ Element2d
-	* @param [in] buf: ÔªËØ¶ÔÏóµÄ»º³åÇø
-	* @return Element2d¶ÔÏóÖ¸Õë
+	/** æ ¹æ®Bufferï¼Œåˆ›å»º Element2d
+	* @param [in] buf: å…ƒç´ å¯¹è±¡çš„ç¼“å†²åŒº
+	* @return Element2då¯¹è±¡æŒ‡é’ˆ
 	*/		
 	virtual  GeometrySharedPtr newGeometry( Buffer & buf)=0; 
 	
-	/** ¸ù¾İÀàĞÍ£¬´´½¨ Element2d
-	* @param [in] type: ÔªËØÀàĞÍ
-	* @return Element2d¶ÔÏóÖ¸Õë
+	/** æ ¹æ®ç±»å‹ï¼Œåˆ›å»º Element2d
+	* @param [in] type: å…ƒç´ ç±»å‹
+	* @return Element2då¯¹è±¡æŒ‡é’ˆ
 	*/	
 	virtual Element2dSharedPtr newElement( int type ) = 0;
 
-	/** ¸ù¾İBuffer£¬´´½¨ Element2d
-	* @param [in] buf: ÔªËØ¶ÔÏóµÄ»º³åÇø
-	* @return Element2d¶ÔÏóÖ¸Õë
+	/** æ ¹æ®Bufferï¼Œåˆ›å»º Element2d
+	* @param [in] buf: å…ƒç´ å¯¹è±¡çš„ç¼“å†²åŒº
+	* @return Element2då¯¹è±¡æŒ‡é’ˆ
 	*/	
 	virtual Element2dSharedPtr newElement( Buffer & buf) = 0;
 
-	/** ´´½¨ ElementCollection2d
-	* @return ElementCollection2dÖ¸Õë
+	/** åˆ›å»º ElementCollection2d
+	* @return ElementCollection2dæŒ‡é’ˆ
 	*/	
 	virtual ElementCollection2dSharedPtr newElementCollection( ) = 0;
 
-	/** ´´½¨ GeometryCollection2d
-	* @return GeometryCollection2dÖ¸Õë
+	/** åˆ›å»º GeometryCollection2d
+	* @return GeometryCollection2dæŒ‡é’ˆ
 	*/	
 	virtual GeometryCollection2dSharedPtr newGeometryCollection( ) = 0;
 
-	/** ´´½¨ Pen2d
-	* @return Pen2dÖ¸Õë
+	/** åˆ›å»º Pen2d
+	* @return Pen2dæŒ‡é’ˆ
 	*/	
 	virtual Pen2dSharedPtr newPen( ) = 0;
 
-	/** ´´½¨ Symbol2d */	
+	/** åˆ›å»º Symbol2d */	
 	virtual Symbol2dSharedPtr newSymbol( double width, double height ) = 0;
 
-	/** ´´½¨ SymbolLibrary2d */	
+	/** åˆ›å»º SymbolLibrary2d */	
 	virtual SymbolLibrary2dSharedPtr newSymbolLibrary( ) = 0;
 
-	/** ´´½¨ SymbolManager2d */	
+	/** åˆ›å»º SymbolManager2d */	
 	virtual SymbolManager2dSharedPtr newSymbolManager( int nType ) = 0;
 
-	/** ´´½¨ GeometrySelectManager2d */	
+	/** åˆ›å»º GeometrySelectManager2d */	
 	virtual GeometrySelectManager2dSharedPtr newGeometrySelectManager2d() = 0;
 
-	/** ´´½¨ÉäÏß Ray */	
+	/** åˆ›å»ºå°„çº¿ Ray */	
 	virtual RaySharedPtr  newRay(const Vertex3d& o, const Vertex3d & d) = 0;
 
-	/** ´´½¨×µÌå Frustum */	
+	/** åˆ›å»ºæ¤ä½“ Frustum */	
 	virtual FrustumSharedPtr  newFrustum() = 0;
 
-	/** ´´½¨Â·¾¶ */	
+	/** åˆ›å»ºè·¯å¾„ */	
 	virtual Path2dSharedPtr  newPath() = 0;
-	/** ´´½¨Â·¾¶¼¯ºÏ */	
+	/** åˆ›å»ºè·¯å¾„é›†åˆ */	
 	virtual PathCollection2dSharedPtr  newPathCollection() = 0;
-	/** ´´½¨»· */	
+	/** åˆ›å»ºç¯ */	
 	virtual Ring2dSharedPtr  newRing() = 0;
-	/** ´´½¨»·¼¯ºÏ */	
+	/** åˆ›å»ºç¯é›†åˆ */	
 	virtual RingCollection2dSharedPtr  newRinghCollection() = 0;
 };
 /** @} */
 
 
 
-/** @addtogroup Factory  Render2dFactory-2DÏÔÊ¾¹¤³§Àà 
+/** @addtogroup Factory  Render2dFactory-2Dæ˜¾ç¤ºå·¥å‚ç±» 
 *  @{
 */
 class CORE_API Render2dFactory: public Factory
@@ -167,18 +167,18 @@ public:
 	}
 
 public:
-	/** ´´½¨ Render2d
-	* @param [in] type: ÔªËØÀàĞÍ
+	/** åˆ›å»º Render2d
+	* @param [in] type: å…ƒç´ ç±»å‹
 	* @param [out] 
-	* @return Render2d¶ÔÏóÖ¸Õë
+	* @return Render2då¯¹è±¡æŒ‡é’ˆ
 	*/	
 	virtual  Render2dSharedPtr newRender(int signal)=0; 
 	
 	
-	/** ´´½¨ Coordsys2d
-	* @param [in] type: ÔªËØÀàĞÍ
+	/** åˆ›å»º Coordsys2d
+	* @param [in] type: å…ƒç´ ç±»å‹
 	* @param [out] 
-	* @return Coordsys2d¶ÔÏóÖ¸Õë
+	* @return Coordsys2då¯¹è±¡æŒ‡é’ˆ
 	*/	
 	virtual  Coordsys2dSharedPtr newCoordsys()=0; 
 };
@@ -186,7 +186,7 @@ public:
 
 
 
-/** @addtogroup Factory  Geometry3dFactory-3D¼¸ºÎ¹¤³§Àà 
+/** @addtogroup Factory  Geometry3dFactory-3Då‡ ä½•å·¥å‚ç±» 
 *  @{
 */
 class CORE_API Geometry3dFactory: public Factory{
@@ -211,7 +211,7 @@ public:
 
 
 
-/** @addtogroup Factory  ImageFactory-Í¼Ïñ¹¤³§Àà 
+/** @addtogroup Factory  ImageFactory-å›¾åƒå·¥å‚ç±» 
 *  @{
 */
 class CORE_API ImageFactory: public Factory{
@@ -228,7 +228,7 @@ public:
 
 
 
-/** @addtogroup Factory  FDBBuilderFactory-ÎÄ¼şÊı¾İ¿â¹¤³§Àà 
+/** @addtogroup Factory  FDBBuilderFactory-æ–‡ä»¶æ•°æ®åº“å·¥å‚ç±» 
 *  @{
 */
 class CORE_API FDBBuilderFactory: public Factory{
@@ -243,7 +243,7 @@ public:
 
 
 
-/** @addtogroup Factory  RDBBuilderFactory-¹ØÏµÊı¾İ¿â¹¤³§Àà 
+/** @addtogroup Factory  RDBBuilderFactory-å…³ç³»æ•°æ®åº“å·¥å‚ç±» 
 *  @{
 */
 class CORE_API RDBBuilderFactory: public Factory{
@@ -258,10 +258,10 @@ public:
 
 
 
-/** @addtogroup Factory  CDBBuilderFactory-¼¯ÈºÊı¾İ¿â¹¤³§Àà 
+/** @addtogroup Factory  CDBBuilderFactory-é›†ç¾¤æ•°æ®åº“å·¥å‚ç±» 
 *  @{
 */
-class CORE_API CDBBuilderFactory: public Factory{//¼¯ÈºÊı¾İ¿â
+class CORE_API CDBBuilderFactory: public Factory{//é›†ç¾¤æ•°æ®åº“
 public:
 	CDBBuilderFactory(){
 		_type = FACTORYTYPE_CDB_BUILDER;
@@ -273,7 +273,7 @@ public:
 
 
 
-/** @addtogroup Factory  CDBBuilderFactory-·Ö²¼Ê½Êı¾İ¿â¹¤³§Àà 
+/** @addtogroup Factory  CDBBuilderFactory-åˆ†å¸ƒå¼æ•°æ®åº“å·¥å‚ç±» 
 *  @{
 */
 class CORE_API DDBBuilderFactory: public Factory{ 
@@ -288,7 +288,7 @@ public:
 
 
 
-/** @addtogroup Factory  Render3dFactory-3DäÖÈ¾¹¤³§Àà 
+/** @addtogroup Factory  Render3dFactory-3Dæ¸²æŸ“å·¥å‚ç±» 
 *  @{
 */
 class CORE_API Render3dFactory : public gdb::Factory {
@@ -303,7 +303,7 @@ public:
 typedef std::shared_ptr<Render3dFactory> Render3dFactorySharedPtr;
 
 
-/** @addtogroup Factory  MeshFactory-Íø¸ñ¹¤³§Àà 
+/** @addtogroup Factory  MeshFactory-ç½‘æ ¼å·¥å‚ç±» 
 *  @{
 */
 class CORE_API MeshFactory : public gdb::Factory {
@@ -316,7 +316,7 @@ public:
 /** @} */
 typedef std::shared_ptr<MeshFactory> MeshFactorySharedPtr;
 
-/** @addtogroup Factory  FMeshBuilderFactory-ÎÄ¼ş°æÍø¸ñ¿â¹¤³§Àà 
+/** @addtogroup Factory  FMeshBuilderFactory-æ–‡ä»¶ç‰ˆç½‘æ ¼åº“å·¥å‚ç±» 
 *  @{
 */
 class CORE_API FMeshBuilderFactory: public Factory{
@@ -328,7 +328,7 @@ public:
 	virtual  MeshBuilderSharedPtr newBuilder()=0;
 };
 /** @} */
-/** @addtogroup Factory  RMeshBuilderFactory-¹ØÏµÊı¾İ¿â°æÍø¸ñ¿â¹¤³§Àà 
+/** @addtogroup Factory  RMeshBuilderFactory-å…³ç³»æ•°æ®åº“ç‰ˆç½‘æ ¼åº“å·¥å‚ç±» 
 *  @{
 */
 class CORE_API RMeshBuilderFactory: public Factory{
@@ -340,7 +340,7 @@ public:
 	virtual  MeshBuilderSharedPtr newBuilder()=0;
 };
 /** @} */
-/** @addtogroup Factory  CMeshBuilderFactory-¼¯Èº°æÍø¸ñ¿â¹¤³§Àà 
+/** @addtogroup Factory  CMeshBuilderFactory-é›†ç¾¤ç‰ˆç½‘æ ¼åº“å·¥å‚ç±» 
 *  @{
 */
 class CORE_API CMeshBuilderFactory: public Factory{
@@ -352,10 +352,10 @@ public:
 	virtual  MeshBuilderSharedPtr newBuilder()=0;
 };
 /** @} */
-/** @addtogroup Factory  DMeshBuilderFactory-·Ö²¼Ê½°æÍø¸ñ¿â¹¤³§Àà 
+/** @addtogroup Factory  DMeshBuilderFactory-åˆ†å¸ƒå¼ç‰ˆç½‘æ ¼åº“å·¥å‚ç±» 
 *  @{
 */
-class CORE_API DMeshBuilderFactory: public Factory{//¼¯ÈºÊı¾İ¿â
+class CORE_API DMeshBuilderFactory: public Factory{//é›†ç¾¤æ•°æ®åº“
 public:
 	DMeshBuilderFactory(){
 		_type = FACTORYTYPE_DMESH_BUILDER;
@@ -365,7 +365,7 @@ public:
 };
 /** @} */
 
-/** @addtogroup Factory  FTerrainBuilderFactory-ÎÄ¼ş°æµØĞÎ¿â¹¤³§Àà 
+/** @addtogroup Factory  FTerrainBuilderFactory-æ–‡ä»¶ç‰ˆåœ°å½¢åº“å·¥å‚ç±» 
 *  @{
 */
 class CORE_API FTerrainBuilderFactory: public Factory{
@@ -377,7 +377,7 @@ public:
 	virtual  TerrainBuilderSharedPtr newBuilder()=0;
 };
 /** @} */
-/** @addtogroup Factory  RTerrainBuilderFactory-¹ØÏµÊı¾İ¿â°æµØĞÎ¿â¹¤³§Àà 
+/** @addtogroup Factory  RTerrainBuilderFactory-å…³ç³»æ•°æ®åº“ç‰ˆåœ°å½¢åº“å·¥å‚ç±» 
 *  @{
 */
 class CORE_API RTerrainBuilderFactory: public Factory{
@@ -389,7 +389,7 @@ public:
 	virtual  TerrainBuilderSharedPtr newBuilder()=0;
 };
 /** @} */
-/** @addtogroup Factory  CTerrainBuilderFactory-¼¯Èº°æµØĞÎ¿â¹¤³§Àà 
+/** @addtogroup Factory  CTerrainBuilderFactory-é›†ç¾¤ç‰ˆåœ°å½¢åº“å·¥å‚ç±» 
 *  @{
 */
 class CORE_API CTerrainBuilderFactory: public Factory{
@@ -401,7 +401,7 @@ public:
 	virtual  TerrainBuilderSharedPtr newBuilder()=0;
 };
 /** @} */
-/** @addtogroup Factory  DTerrainBuilderFactory-·Ö²¼Ê½°æµØĞÎ¿â¹¤³§Àà 
+/** @addtogroup Factory  DTerrainBuilderFactory-åˆ†å¸ƒå¼ç‰ˆåœ°å½¢åº“å·¥å‚ç±» 
 *  @{
 */
 class CORE_API DTerrainBuilderFactory: public Factory{

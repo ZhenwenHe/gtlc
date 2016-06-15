@@ -1,4 +1,4 @@
-/*
+ï»¿/*
 * Geosciences Template Library
 *
 * Copyright (c) 2008
@@ -24,10 +24,10 @@ begin_gdb_namespace
 class  ShadedVertex3f : public Vertex3f
 { 
 public:  
-	/** ·¨Ïß */
+	/** æ³•çº¿ */
 	float nx, ny, nz;
 
-	/** ÑÕÉ« */
+	/** é¢œè‰² */
 	float cR, cG, cB; 
 
 public: 

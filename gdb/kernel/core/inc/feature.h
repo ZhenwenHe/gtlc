@@ -1,4 +1,4 @@
-/*
+ï»¿/*
 * Geosciences Template Library
 *
 * Copyright (c) 2008
@@ -12,7 +12,7 @@
 * about the suitability of this software for any purpose. 
 * It is provided "as is" without express or implied warranty.
 */
-//Ö±½ÓÔÚGV3dCoreÖĞÊµÏÖ
+//ç›´æ¥åœ¨GV3dCoreä¸­å®ç°
 #pragma once
 #include <iostream>
 #include <string>
@@ -31,25 +31,25 @@ begin_gtl_namespace
 begin_gdb_namespace
 
 #ifndef POINTRADIUS
-/** °üÎ§ºĞµÄ×îĞ¡ÓĞĞ§Öµ  */
+/** åŒ…å›´ç›’çš„æœ€å°æœ‰æ•ˆå€¼  */
 #define  POINTRADIUS 0.000001 
 #endif
 
 
-// ÕâĞ©ĞÅÏ¢´æ´¢ÔÚÖ÷ÎÄ¼şµÄ¸½ÊôÎÄ¼şÖĞ£¬¿ÉÒÔ¹©½¨Á¢Ë÷ÒıºÍÌí¼ÓÊı¾İÊ¹ÓÃ
+// è¿™äº›ä¿¡æ¯å­˜å‚¨åœ¨ä¸»æ–‡ä»¶çš„é™„å±æ–‡ä»¶ä¸­ï¼Œå¯ä»¥ä¾›å»ºç«‹ç´¢å¼•å’Œæ·»åŠ æ•°æ®ä½¿ç”¨
 struct FeatureIndexItem{
-	FID    _fid; //¶ÔÏóµÄID
-	FCLSID _fclsid; //¶ÔÏó
-	int    _state; //±êÊ¾¼ÇÂ¼¼ÇÂ¼µÄ×´Ì¬£º0Ô­Ê¼Êı¾İ£»1É¾³ı±êÊ¾£»2¸üĞÂ±êÊ¾
-	unsigned long _offset; //¼ÇÂ¼ÎÄ¼şÖ¸ÕëµÄÆğÊ¼Î»ÖÃ:Ïà¶ÔÓÚÎÄ¼şÍ·½øĞĞÆ«ÒÆµÄ³¤¶È
-	unsigned long _bufLength; //¼ÇÂ¼¸Ã¿ébufµÄ³¤¶È
-	unsigned long _bufLengthNoPro;//¼ÇÂ¼featureÃ»ÓĞÊôĞÔĞÅÏ¢µÄ³¤¶È
-	GDBTIME  _writeTime;	//¼ÇÂ¼ÎÄ¼şĞ´ÈëµÄÊ±¼ä
-	GDBTIME  _updateTime;	//¼ÇÂ¼ÎÄ¼şĞ´ÈëµÄÊ±¼ä
-	double _bound[6];//¶ÔÏóµÄ°üÎ§ºĞ:¹©½¨Á¢Ë÷ÒıÊ¹ÓÃ
+	FID    _fid; //å¯¹è±¡çš„ID
+	FCLSID _fclsid; //å¯¹è±¡
+	int    _state; //æ ‡ç¤ºè®°å½•è®°å½•çš„çŠ¶æ€ï¼š0åŸå§‹æ•°æ®ï¼›1åˆ é™¤æ ‡ç¤ºï¼›2æ›´æ–°æ ‡ç¤º
+	unsigned long _offset; //è®°å½•æ–‡ä»¶æŒ‡é’ˆçš„èµ·å§‹ä½ç½®:ç›¸å¯¹äºæ–‡ä»¶å¤´è¿›è¡Œåç§»çš„é•¿åº¦
+	unsigned long _bufLength; //è®°å½•è¯¥å—bufçš„é•¿åº¦
+	unsigned long _bufLengthNoPro;//è®°å½•featureæ²¡æœ‰å±æ€§ä¿¡æ¯çš„é•¿åº¦
+	GDBTIME  _writeTime;	//è®°å½•æ–‡ä»¶å†™å…¥çš„æ—¶é—´
+	GDBTIME  _updateTime;	//è®°å½•æ–‡ä»¶å†™å…¥çš„æ—¶é—´
+	double _bound[6];//å¯¹è±¡çš„åŒ…å›´ç›’:ä¾›å»ºç«‹ç´¢å¼•ä½¿ç”¨
 };
 
-//²éÕÒVectorÖĞÊÇ·ñÒÑ¾­´æÔÚ¸ø¶¨µÄÒªËØ¶ÔÏó  [HZW, 2009-8-18]
+//æŸ¥æ‰¾Vectorä¸­æ˜¯å¦å·²ç»å­˜åœ¨ç»™å®šçš„è¦ç´ å¯¹è±¡  [HZW, 2009-8-18]
 struct FeatureItemExist 
 { 
 	FeatureIndexItem Target; 
@@ -62,7 +62,7 @@ struct FeatureItemExist
 
 
 
-/** @defgroup Feature Feature-ÒªËØÏà¹ØÀà 
+/** @defgroup Feature Feature-è¦ç´ ç›¸å…³ç±» 
 *  @{
 */
 class  Project;
@@ -114,24 +114,24 @@ typedef Identifier::raw_type LAYERID;
 */
 class CORE_API LODInfo {
 public:
-	/**LOD½á¹¹Ìå*/
+	/**LODç»“æ„ä½“*/
 	struct LOD_PARAM{
-		int			nDrawFlag;		//[ÊÇ·ñÓÃswitch¾àÀë£¬ÒÔºÎÖÖ·½Ê½»æÖÆ]
-		double		dSwitchIn;		//¸ÃLOD²ã´ÎµÄ×î½ü¿ÉÊÓ¾àÀë
-		double		dSwitchOut;		//¸ÃLOD²ã´ÎµÄ×îÔ¶¿ÉÊÓ¾àÀë
-		double		nDataSize;		//¸ÃLOD²ã´ÎµÄ¼¸ºÎÊı¾İÊı¾İÁ¿
-		int			nTriangleNum;	//¸ÃLOD²ã´ÎµÄ¼¸ºÎÊı¾İÈı½ÇÃæÆ¬¸öÊı
-		int			nVertexNum;		//¸ÃLOD²ã´ÎµÄ¼¸ºÎÊı¾İ¶¥µãÊı
-		double		reserve[4];		//±£Áô×Ö¶Î
+		int			nDrawFlag;		//[æ˜¯å¦ç”¨switchè·ç¦»ï¼Œä»¥ä½•ç§æ–¹å¼ç»˜åˆ¶]
+		double		dSwitchIn;		//è¯¥LODå±‚æ¬¡çš„æœ€è¿‘å¯è§†è·ç¦»
+		double		dSwitchOut;		//è¯¥LODå±‚æ¬¡çš„æœ€è¿œå¯è§†è·ç¦»
+		double		nDataSize;		//è¯¥LODå±‚æ¬¡çš„å‡ ä½•æ•°æ®æ•°æ®é‡
+		int			nTriangleNum;	//è¯¥LODå±‚æ¬¡çš„å‡ ä½•æ•°æ®ä¸‰è§’é¢ç‰‡ä¸ªæ•°
+		int			nVertexNum;		//è¯¥LODå±‚æ¬¡çš„å‡ ä½•æ•°æ®é¡¶ç‚¹æ•°
+		double		reserve[4];		//ä¿ç•™å­—æ®µ
 	};
 
-	/**LODÃèÊöĞÅÏ¢£¨LOD BLOB´æ´¢µÄĞÅÏ¢£©*/
+	/**LODæè¿°ä¿¡æ¯ï¼ˆLOD BLOBå­˜å‚¨çš„ä¿¡æ¯ï¼‰*/
 	struct LOD_INFO {
-		int			lodLevel;		//LODµÄ¼¶±ğ
-		LOD_PARAM	lodparam;		//LODÃèÊöĞÅÏ¢
+		int			lodLevel;		//LODçš„çº§åˆ«
+		LOD_PARAM	lodparam;		//LODæè¿°ä¿¡æ¯
 	};
 
-	typedef std::pair<LOD_INFO/*¿ÉÊÓ¾àÀë*/,GeometrySharedPtr> Info;	
+	typedef std::pair<LOD_INFO/*å¯è§†è·ç¦»*/,GeometrySharedPtr> Info;	
 	typedef std::vector<Info>   InfoArray;
 public:
 	virtual  int getCurLevel()=0;
@@ -208,27 +208,27 @@ public:
 	virtual  void setID(FID id)=0 ;
 
 	virtual FID getID()=0;
-    // »ñÈ¡ÒªËØ¶ÔÏóÃû³Æ
+    // è·å–è¦ç´ å¯¹è±¡åç§°
 
 	virtual std::string getName()=0;
-    // ÉèÖÃÒªËØ¶ÔÏóÃû³Æ
+    // è®¾ç½®è¦ç´ å¯¹è±¡åç§°
 
 	virtual void setName(
-        // ÒªËØ¶ÔÏóµÄÃû³Æ
+        // è¦ç´ å¯¹è±¡çš„åç§°
         std::string name)=0;
 
 	virtual REGID getWorkspaceID()=0;
-	/** ÉèÖÃÒªËØ·ÖÇøID
-	* @param  [in] v ÒªËØ·ÖÇøID
-	* @return ÎŞ
+	/** è®¾ç½®è¦ç´ åˆ†åŒºID
+	* @param  [in] v è¦ç´ åˆ†åŒºID
+	* @return æ— 
 	*/
 	virtual void setWorkspaceID(REGID v)=0;
 
 	virtual void setCode(std::string szCode)=0;
 
 	virtual std::string getCode()=0;
-	/** Í¼ĞÎµÄ×´Ì¬Öµ,³õÊ¼»¯ÖµÎª 0x0000;//0Î»£º Îª1-±íÊ¾Âß¼­É¾³ı //1Î»£º Îª1-±íÊ¾Òş²Ø	//2Î»£º Îª1-±íÊ¾Ñ¡ÖĞ*/	
-	/** 3Î»£º Îª1-±íÊ¾ÏÔÊ¾µã//7Î»£º Îª1-±íÊ¾ÏÔÊ¾·½Ïò£¬·ñÔòÉèÎª0 //8Î»£º Îª1-±íÊ¾¾ßÓĞÓïÒåÍØÆËĞÅÏ¢£¬·ñÔòÉèÎª0//9£­15Î» £º±£Áô*/
+	/** å›¾å½¢çš„çŠ¶æ€å€¼,åˆå§‹åŒ–å€¼ä¸º 0x0000;//0ä½ï¼š ä¸º1-è¡¨ç¤ºé€»è¾‘åˆ é™¤ //1ä½ï¼š ä¸º1-è¡¨ç¤ºéšè—	//2ä½ï¼š ä¸º1-è¡¨ç¤ºé€‰ä¸­*/	
+	/** 3ä½ï¼š ä¸º1-è¡¨ç¤ºæ˜¾ç¤ºç‚¹//7ä½ï¼š ä¸º1-è¡¨ç¤ºæ˜¾ç¤ºæ–¹å‘ï¼Œå¦åˆ™è®¾ä¸º0 //8ä½ï¼š ä¸º1-è¡¨ç¤ºå…·æœ‰è¯­ä¹‰æ‹“æ‰‘ä¿¡æ¯ï¼Œå¦åˆ™è®¾ä¸º0//9ï¼15ä½ ï¼šä¿ç•™*/
 	virtual int getStatus()=0;
 
 	virtual void setStatus(int v)=0;
@@ -283,14 +283,14 @@ public:
 
 	virtual void readBuffer(const Buffer & buf)=0;
 
-	/** »ñÈ¡ÒªËØµÄBuffer´óĞ¡£¬´Ëº¯Êı¹©»º´æÊ¹ÓÃ£¬±ÜÃâÃ¿´Î¼ÆËã£¬Ìá¸ßËÙ¶È
-	* @param  ÎŞ 
-	* @return ÒªËØµÄBuffer³¤¶È
+	/** è·å–è¦ç´ çš„Bufferå¤§å°ï¼Œæ­¤å‡½æ•°ä¾›ç¼“å­˜ä½¿ç”¨ï¼Œé¿å…æ¯æ¬¡è®¡ç®—ï¼Œæé«˜é€Ÿåº¦
+	* @param  æ—  
+	* @return è¦ç´ çš„Bufferé•¿åº¦
 	*/
 	virtual unsigned long getBufferSize()=0;
-	/** ÉèÖÃÒªËØµÄBuffer´óĞ¡£¬´Ëº¯Êı¹©»º´æÊ¹ÓÃ£¬±ÜÃâÃ¿´Î¼ÆËã£¬Ìá¸ßËÙ¶È
-	* @param  [in]  Buffer´óĞ¡
-	* @return ÎŞ
+	/** è®¾ç½®è¦ç´ çš„Bufferå¤§å°ï¼Œæ­¤å‡½æ•°ä¾›ç¼“å­˜ä½¿ç”¨ï¼Œé¿å…æ¯æ¬¡è®¡ç®—ï¼Œæé«˜é€Ÿåº¦
+	* @param  [in]  Bufferå¤§å°
+	* @return æ— 
 	*/
 	virtual void  setBufferSize(unsigned long buffersize )=0;
 
@@ -307,51 +307,51 @@ public:
 	virtual void setUpdateTime(GDBTIME v)=0;
 
 
-	/** »ñÈ¡ÒªËØ³ıÊôĞÔĞÅÏ¢ºóµÄBuffer´óĞ¡
-	* @param  ÎŞ
-	* @return Buffer´óĞ¡
+	/** è·å–è¦ç´ é™¤å±æ€§ä¿¡æ¯åçš„Bufferå¤§å°
+	* @param  æ— 
+	* @return Bufferå¤§å°
 	*/
 	virtual size_t sizeBufferNoProp()=0;
-	/**½«featureÈ¥³ıÊôĞÔĞÅÏ¢ºóµÄÄÚÈİĞ´ÈëBuffer
+	/**å°†featureå»é™¤å±æ€§ä¿¡æ¯åçš„å†…å®¹å†™å…¥Buffer
 	* @param  [in] buf
-	* @return  ÎŞ
+	* @return  æ— 
 	*/
 	virtual void writeBufferEndProp(Buffer & buf)=0;
-	/**¶ÁÈ¡featureÈ¥³ıÊôĞÔĞÅÏ¢ºóµÄBuffer
-	* @param  [in,out] bufferĞÅÏ¢
-	* @return  ÎŞ
+	/**è¯»å–featureå»é™¤å±æ€§ä¿¡æ¯åçš„Buffer
+	* @param  [in,out] bufferä¿¡æ¯
+	* @return  æ— 
 	*/
 	virtual void readBufferNoProp(const Buffer & buf)=0;
 
 public:
-	/** @name ¾²Ì¬³ÉÔ±º¯ÊıËµÃ÷  
+	/** @name é™æ€æˆå‘˜å‡½æ•°è¯´æ˜  
 	*  @{
 	*/
-	/** ´´½¨ÒªËØ¶ÔÏó
-	* @param  ÎŞ
-	* @return feature Ö¸Õë
+	/** åˆ›å»ºè¦ç´ å¯¹è±¡
+	* @param  æ— 
+	* @return feature æŒ‡é’ˆ
 	*/
 	static FeatureSharedPtr create();
-	/** ÉèÖÃÒªËØµÄID
-	* @param  [in] fc  ÒªËØÀàÖ¸Õë
-	* @param  [in] id1  ÒªËØID
-	* @param  [in] name ÒªËØÃû³Æ
-	* @param  [in] lod   lodÊı
-	* @param  [in] regid  ÇøÓòID
-	* @param  [in] state  ÒªËØ×´Ì¬
-	* @param  [in] pg      ¼¸ºÎĞÅÏ¢
-	* @param  [in] creatTime ´´½¨Ê±¼ä
-	* @param  [in] updateTime ¸üĞÂÊ±¼ä 
-	* @param  [in] buffersize  buffer´óĞ¡
-	* @return ÎŞ
+	/** è®¾ç½®è¦ç´ çš„ID
+	* @param  [in] fc  è¦ç´ ç±»æŒ‡é’ˆ
+	* @param  [in] id1  è¦ç´ ID
+	* @param  [in] name è¦ç´ åç§°
+	* @param  [in] lod   lodæ•°
+	* @param  [in] regid  åŒºåŸŸID
+	* @param  [in] state  è¦ç´ çŠ¶æ€
+	* @param  [in] pg      å‡ ä½•ä¿¡æ¯
+	* @param  [in] creatTime åˆ›å»ºæ—¶é—´
+	* @param  [in] updateTime æ›´æ–°æ—¶é—´ 
+	* @param  [in] buffersize  bufferå¤§å°
+	* @return æ— 
 	*/
 	static FeatureSharedPtr create(FeatureClassSharedPtr fc,FID id1, std::string name, int lod, REGID regid, int state=0, GeometrySharedPtr pg =GeometrySharedPtr(), 
 		GDBTIME createTime=0 ,GDBTIME updateTime=0,unsigned long buffersize = 0);	
 	static FeatureSharedPtr create(FCLSID fclsid,FID id1, std::string name, int lod, REGID regid, int state=0, GeometrySharedPtr pg =GeometrySharedPtr(), 
 		GDBTIME createTime=0 ,GDBTIME updateTime=0,unsigned long buffersize = 0);
-	/** ´´½¨ÒªËØ¶ÔÏó
-	* @param  [in] f ÒªËØ¶ÔÏó
-	* @return feature Ö¸Õë
+	/** åˆ›å»ºè¦ç´ å¯¹è±¡
+	* @param  [in] f è¦ç´ å¯¹è±¡
+	* @return feature æŒ‡é’ˆ
 	*/
 	static FeatureSharedPtr create (FeatureRef f);
 	/** @} */ 
@@ -388,31 +388,31 @@ public:
 	virtual void read(std::istream & f)=0;
 
 public:
-	/**´´½¨ÒªËØ¶ÔÏó£¬²¢Ìí¼Óµ½ÒªËØ¼¯ºÏÖĞ
-	* @param [in] id  ÒªËØID
-	* @param [in] name  ÒªËØÃû³Æ
-	* @param [in] lod  ÒªËØLod
-	* @param [in] regid  ÒªËØÒªËØ·ÖÇøID
-	* @param [in] state  ÒªËØÍ¼ĞÎµÄ×´Ì¬Öµ
-	* @param [in] pg  ÒªËØ¼¸ºÎĞÅÏ¢
-	* @param [in] createTime  ÒªËØ´´½¨Ê±¼ä
-	* @param [in] updateTime  ÒªËØ¸üĞÂÊ±¼ä
+	/**åˆ›å»ºè¦ç´ å¯¹è±¡ï¼Œå¹¶æ·»åŠ åˆ°è¦ç´ é›†åˆä¸­
+	* @param [in] id  è¦ç´ ID
+	* @param [in] name  è¦ç´ åç§°
+	* @param [in] lod  è¦ç´ Lod
+	* @param [in] regid  è¦ç´ è¦ç´ åˆ†åŒºID
+	* @param [in] state  è¦ç´ å›¾å½¢çš„çŠ¶æ€å€¼
+	* @param [in] pg  è¦ç´ å‡ ä½•ä¿¡æ¯
+	* @param [in] createTime  è¦ç´ åˆ›å»ºæ—¶é—´
+	* @param [in] updateTime  è¦ç´ æ›´æ–°æ—¶é—´
 	* @return  Feature
 	*/
 	virtual FeatureSharedPtr createFeature(FID id, std::string name, int lod, REGID regid, int state=0, GeometrySharedPtr pg=GeometrySharedPtr() ,GDBTIME createTime=0 ,GDBTIME updateTime=0)=0;
-	/**´´½¨ÒªËØ¶ÔÏó£¬²¢Ìí¼Óµ½ÒªËØ¼¯ºÏÖĞ
-	* @param [in] name  ÒªËØÃû³Æ
-	* @param [in] lod  ÒªËØLod
-	* @param [in] regid  ÒªËØÒªËØ·ÖÇøID
-	* @param [in] state  ÒªËØÍ¼ĞÎµÄ×´Ì¬Öµ
-	* @param [in] pg  ÒªËØ¼¸ºÎĞÅÏ¢
-	* @param [in] createTime  ÒªËØ´´½¨Ê±¼ä
-	* @param [in] updateTime  ÒªËØ¸üĞÂÊ±¼ä
+	/**åˆ›å»ºè¦ç´ å¯¹è±¡ï¼Œå¹¶æ·»åŠ åˆ°è¦ç´ é›†åˆä¸­
+	* @param [in] name  è¦ç´ åç§°
+	* @param [in] lod  è¦ç´ Lod
+	* @param [in] regid  è¦ç´ è¦ç´ åˆ†åŒºID
+	* @param [in] state  è¦ç´ å›¾å½¢çš„çŠ¶æ€å€¼
+	* @param [in] pg  è¦ç´ å‡ ä½•ä¿¡æ¯
+	* @param [in] createTime  è¦ç´ åˆ›å»ºæ—¶é—´
+	* @param [in] updateTime  è¦ç´ æ›´æ–°æ—¶é—´
 	* @return  Feature
 	*/
 	virtual FeatureSharedPtr createFeature(std::string name, int lod, REGID regid, int state=0, GeometrySharedPtr pg=GeometrySharedPtr() ,/*C3DSemanticTopology * pt=0 ,*/GDBTIME createTime=0 ,GDBTIME updateTime=0)=0;
-	/**¸´ÖÆ¹¹ÔìÒªËØ¶ÔÏó£¬²¢Ìí¼Óµ½ÒªËØ¼¯ºÏÖĞ
-	* @param [in] f ÒªËØ¶ÔÏó	
+	/**å¤åˆ¶æ„é€ è¦ç´ å¯¹è±¡ï¼Œå¹¶æ·»åŠ åˆ°è¦ç´ é›†åˆä¸­
+	* @param [in] f è¦ç´ å¯¹è±¡	
 	* @return  Feature
 	*/
 	virtual FeatureSharedPtr createFeature(FeatureRef f )=0;
@@ -429,133 +429,133 @@ public:
 class CORE_API Layer {
 public:
 	/** @} */ 
-	/** @name ¿½±´¹¹ÔìÓë¸³Öµ¹¹Ôìº¯Êı 
+	/** @name æ‹·è´æ„é€ ä¸èµ‹å€¼æ„é€ å‡½æ•° 
 	*  @{
 	*/
 	virtual void copy(const LayerRef lf )=0;
 	/** @} */ 
 
-	/** @name ÊôĞÔÉèÖÃ»ñµÃ²Ù×÷¼¯ 
+	/** @name å±æ€§è®¾ç½®è·å¾—æ“ä½œé›† 
 	*  @{
 	*/
 
-	/**»ñÈ¡Í¼²ãID
-	* @param  ÎŞ
-	* @return   Í¼²ãID
+	/**è·å–å›¾å±‚ID
+	* @param  æ— 
+	* @return   å›¾å±‚ID
 	*/
 	virtual LYRID getID()=0;
-	/**ÉèÖÃÍ¼²ãID
-	* @param [in] layid Í¼²ãID
-	* @return ÎŞ
+	/**è®¾ç½®å›¾å±‚ID
+	* @param [in] layid å›¾å±‚ID
+	* @return æ— 
 	*/
 	virtual void  setID(LYRID layid )=0;
 
-	/**»ñÈ¡Í¼²ãÃû³Æ
-	* @param ÎŞ
-	* @return  Í¼²ãÃû³Æ
+	/**è·å–å›¾å±‚åç§°
+	* @param æ— 
+	* @return  å›¾å±‚åç§°
 	*/
 	virtual std::string getName()=0;
-	/**ÉèÖÃÍ¼²ãÃû³Æ
-	* @param [in] s Í¼²ãÃû³Æ
+	/**è®¾ç½®å›¾å±‚åç§°
+	* @param [in] s å›¾å±‚åç§°
 	* @return  
 	*/
 	virtual void setName(std::string s)=0;
 
 
-	/**»ñÈ¡Í¼²ãÀàĞÍËùÔÚ¹¤³Ì
-	* @param ÎŞ
-	* @return  prjID ¹¤³ÌID
+	/**è·å–å›¾å±‚ç±»å‹æ‰€åœ¨å·¥ç¨‹
+	* @param æ— 
+	* @return  prjID å·¥ç¨‹ID
 	*/
 	virtual PRJID getProjectID()=0;
-	/**ÉèÖÃÍ¼²ãÀàĞÍËùÔÚµÄ¹¤³Ì
-	* @param [in] prjID ¹¤³ÌID
+	/**è®¾ç½®å›¾å±‚ç±»å‹æ‰€åœ¨çš„å·¥ç¨‹
+	* @param [in] prjID å·¥ç¨‹ID
 	* @return  
 	*/
 	virtual void  setProjectID(PRJID prjID )=0;
 
-	/**»ñÈ¡Í¼²ã¶ÔÓ¦µÄÒªËØÀàĞÍID¼¯ºÏ
-	* @param ÎŞ
-	* @return  Í¼²ã¶ÔÓ¦µÄÒªËØÀàĞÍID¼¯ºÏ
+	/**è·å–å›¾å±‚å¯¹åº”çš„è¦ç´ ç±»å‹IDé›†åˆ
+	* @param æ— 
+	* @return  å›¾å±‚å¯¹åº”çš„è¦ç´ ç±»å‹IDé›†åˆ
 	*/
 	virtual vector<FCLSID>& getFeatureClassIDs()=0;
-	/**ÉèÖÃÍ¼²ã¶ÔÓ¦µÄÒªËØÀàĞÍID¼¯ºÏ
-	* @param [in] fclsids  ÒªËØÀàĞÍID¼¯ºÏ
-	* @return  ÎŞ
+	/**è®¾ç½®å›¾å±‚å¯¹åº”çš„è¦ç´ ç±»å‹IDé›†åˆ
+	* @param [in] fclsids  è¦ç´ ç±»å‹IDé›†åˆ
+	* @return  æ— 
 	*/
 	virtual void setFeatureClassIDs(vector<FCLSID>& fclsids)=0;
 
-	/** »ñÈ¡Í¼²ã¶ÔÓ¦µÄÒªËØ¼¯ºÏ 
-	* @param ÎŞ
-	* @return  Í¼²ã¶ÔÓ¦µÄÒªËØ¼¯ºÏ
+	/** è·å–å›¾å±‚å¯¹åº”çš„è¦ç´ é›†åˆ 
+	* @param æ— 
+	* @return  å›¾å±‚å¯¹åº”çš„è¦ç´ é›†åˆ
 	*/
 	virtual std::vector<FeatureSetSharedPtr> & getFeatureSetVector()=0;
-	/** »ñÈ¡Í¼²ã¶ÔÓ¦µÄµ±Ç°ÒªËØ 
-	* @param ÎŞ
-	* @return  Í¼²ã¶ÔÓ¦µÄµ±Ç°ÒªËØ
+	/** è·å–å›¾å±‚å¯¹åº”çš„å½“å‰è¦ç´  
+	* @param æ— 
+	* @return  å›¾å±‚å¯¹åº”çš„å½“å‰è¦ç´ 
 	*/
 	virtual FeatureSetSharedPtr getCurrentFeatureSet()=0;
-	/** ÉèÖÃÍ¼²ã¶ÔÓ¦µÄµ±Ç°ÒªËØ 
-	* @param [in] s µ±Ç°ÒªËØ¼¯ºÏË÷Òı
-	* @return  ÎŞ
+	/** è®¾ç½®å›¾å±‚å¯¹åº”çš„å½“å‰è¦ç´  
+	* @param [in] s å½“å‰è¦ç´ é›†åˆç´¢å¼•
+	* @return  æ— 
 	*/
 	virtual void setCurrentFeatureSet(size_t s)=0;
 	/** @} */ 
 
-	/** @name ÆäËü²Ù×÷º¯Êı¼¯  
+	/** @name å…¶å®ƒæ“ä½œå‡½æ•°é›†  
 	*  @{
 	*/
-	/** ÔÚÍ¼²ãµÄÒªËØÀàĞÍID¼¯ºÏÖĞÌí¼ÓÖ¸¶¨ÒªËØÀàĞÍID
-	* @param [in] fclsid ÒªËØÀàĞÍID
-	* @return  ÎŞ
+	/** åœ¨å›¾å±‚çš„è¦ç´ ç±»å‹IDé›†åˆä¸­æ·»åŠ æŒ‡å®šè¦ç´ ç±»å‹ID
+	* @param [in] fclsid è¦ç´ ç±»å‹ID
+	* @return  æ— 
 	*/
 	virtual void addFeatureClassID(FCLSID fclsid) =0;
 
-	/** ÔÚÍ¼²ãµÄÒªËØÀàĞÍID¼¯ºÏÖĞÉ¾³ıÖ¸¶¨ÒªËØÀàĞÍID
-	* @param [in] fclsid ÒªËØÀàĞÍID
+	/** åœ¨å›¾å±‚çš„è¦ç´ ç±»å‹IDé›†åˆä¸­åˆ é™¤æŒ‡å®šè¦ç´ ç±»å‹ID
+	* @param [in] fclsid è¦ç´ ç±»å‹ID
 	*/
 	virtual void eraseFeatureClassID(FCLSID fclsid)=0;
 
 
-	/** »ñÈ¡Ö¸¶¨ÒªËØIDµÄÒªËØËùÔÚÒªËØ¼¯ºÏË÷Òı 
-	* @param [in] id ÒªËØID
-	* @return  Ê§°Ü -1,³É¹¦ËùÔÚÒªËØ¼¯ºÏË÷Òı
+	/** è·å–æŒ‡å®šè¦ç´ IDçš„è¦ç´ æ‰€åœ¨è¦ç´ é›†åˆç´¢å¼• 
+	* @param [in] id è¦ç´ ID
+	* @return  å¤±è´¥ -1,æˆåŠŸæ‰€åœ¨è¦ç´ é›†åˆç´¢å¼•
 	*/
 	virtual size_t indexFeatureSet(FSID id)=0;
 
-	/** ´´½¨Ò»¸öÖ¸¶¨ÒªËØÀàµÄÒªËØ¼¯
-	* @param [in] fc Ö¸¶¨ÒªËØÊı¾İ
-	* @return ÒªËØ¼¯Ö¸Õë
+	/** åˆ›å»ºä¸€ä¸ªæŒ‡å®šè¦ç´ ç±»çš„è¦ç´ é›†
+	* @param [in] fc æŒ‡å®šè¦ç´ æ•°æ®
+	* @return è¦ç´ é›†æŒ‡é’ˆ
 	*/
 	virtual FeatureSetSharedPtr createFeatureSet(const FeatureClassRef fc)=0;
-	/** ÏòÍ¼²ãÖĞÔö¼ÓÒ»¸öÒªËØ¼¯ºÏÊı¾İ
-	* @param [in] p ÒªËØÊı¾İÖ¸Õë
-	* return ÒªËØÊı¾İÖ¸Õë
+	/** å‘å›¾å±‚ä¸­å¢åŠ ä¸€ä¸ªè¦ç´ é›†åˆæ•°æ®
+	* @param [in] p è¦ç´ æ•°æ®æŒ‡é’ˆ
+	* return è¦ç´ æ•°æ®æŒ‡é’ˆ
 	*/
 	virtual FeatureSetSharedPtr addFeatureSet(FeatureSetSharedPtr fs)=0;
-	/** ÔÚÍ¼²ãµÄÒªËØ¼¯ºÏÖĞÉ¾³ıÖ¸¶¨ÒªËØ¼¯ºÏIDµÄÒªËØ¼¯ºÏÊı¾İ
-	* @param [in] fid ÒªËØID
-	* return ÎŞ
+	/** åœ¨å›¾å±‚çš„è¦ç´ é›†åˆä¸­åˆ é™¤æŒ‡å®šè¦ç´ é›†åˆIDçš„è¦ç´ é›†åˆæ•°æ®
+	* @param [in] fid è¦ç´ ID
+	* return æ— 
 	*/
 	virtual void eraseFeatureSet(FSID fsid)=0;
-	/** ²éÑ¯Í¼²ãÒªËØ¼¯ºÏ´óĞ¡
-	* @param ÎŞ
-	* return Í¼²ãÒªËØ¼¯ºÏ´óĞ¡
+	/** æŸ¥è¯¢å›¾å±‚è¦ç´ é›†åˆå¤§å°
+	* @param æ— 
+	* return å›¾å±‚è¦ç´ é›†åˆå¤§å°
 	*/
 	virtual size_t  size() const=0;
 
-	/** ÉèÖÃÍ¼²ãËùÔÚµÄ¹¤×÷ÇøIDµÄÒªËØ¼¯ºÏÊı¾İ
-	* @param [in] pws µ±Ç°¹¤×÷ÇøÖ¸Õë
+	/** è®¾ç½®å›¾å±‚æ‰€åœ¨çš„å·¥ä½œåŒºIDçš„è¦ç´ é›†åˆæ•°æ®
+	* @param [in] pws å½“å‰å·¥ä½œåŒºæŒ‡é’ˆ
 	*/
 	virtual void setLocalWorkspace(WorkspaceSharedPtr pws)=0;
-	/** »ñÈ¡Í¼²ãËùÔÚµÄ¹¤×÷Çø
+	/** è·å–å›¾å±‚æ‰€åœ¨çš„å·¥ä½œåŒº
 	* @param [in] 
-	* @return »ñÈ¡Í¼²ãËùÔÚµÄ¹¤×÷Çø
+	* @return è·å–å›¾å±‚æ‰€åœ¨çš„å·¥ä½œåŒº
 	*/
 	virtual WorkspaceSharedPtr getLocalWorkspace()=0;
 
-	/** Çå¿ÕÍ¼²ã¶ÔÓ¦µÄÒªËØ¼¯ºÏ 
-	* @param ÎŞ 
-	* @return ÎŞ
+	/** æ¸…ç©ºå›¾å±‚å¯¹åº”çš„è¦ç´ é›†åˆ 
+	* @param æ—  
+	* @return æ— 
 	*/
 	virtual void clear()=0;
 
@@ -563,28 +563,28 @@ public:
 	/** @} */ 
 
 
-	/** @name ÎÄ¼şIO²Ù×÷º¯Êı¼¯  
+	/** @name æ–‡ä»¶IOæ“ä½œå‡½æ•°é›†  
 	*  @{
 	*/
 public:
-	/** Ğ´ÎÄ¼ş
-	* @param [in] fÊä³öÁ÷
-	* @return ÎŞ
+	/** å†™æ–‡ä»¶
+	* @param [in] fè¾“å‡ºæµ
+	* @return æ— 
 	*/
 	virtual void write(std::ostream & f)=0;
-	/** ¶ÁÎÄ¼ş
-	* @param [in] fÊäÈëÁ÷
-	* @return ÎŞ
+	/** è¯»æ–‡ä»¶
+	* @param [in] fè¾“å…¥æµ
+	* @return æ— 
 	*/
 	virtual void read(std::istream & f)=0;
-	/** ¼ÓÔØÎÄ¼ş
-	* @param [in] szÎÄ¼şÂ·¾¶
-	* @return ÎŞ
+	/** åŠ è½½æ–‡ä»¶
+	* @param [in] szæ–‡ä»¶è·¯å¾„
+	* @return æ— 
 	*/
 	virtual void load(std::string & sz)=0;
-	/** ±£´æÎÄ¼ş
-	* @param [in] szÎÄ¼şÂ·¾¶
-	* @return ÎŞ
+	/** ä¿å­˜æ–‡ä»¶
+	* @param [in] szæ–‡ä»¶è·¯å¾„
+	* @return æ— 
 	*/
 	virtual void save(std::string & sz)=0; 
 	/** @} */ 

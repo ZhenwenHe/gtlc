@@ -1,4 +1,4 @@
-/*
+ï»¿/*
 * Geosciences Template Library
 *
 * Copyright (c) 2008
@@ -26,7 +26,7 @@ begin_gtl_namespace
 begin_gdb_namespace
 
 
-/** @defgroup Connector Connector-¿Õ¼äÊı¾İ¿âÁ¬½Ó½Ó¿Ú  
+/** @defgroup Connector Connector-ç©ºé—´æ•°æ®åº“è¿æ¥æ¥å£  
 *  @{
 */
 class CORE_API Connector  {	
@@ -36,72 +36,72 @@ class CORE_API Connector  {
 	std::string _password;
 	std::string _dbname;
 	std::string _svrname;
-	std::string _port;//¶Ë¿ÚºÅ
+	std::string _port;//ç«¯å£å·
 public:
 	enum{
-		FDB_CONNECTOR,//ÎÄ¼şÏµÍ³ÀàĞÍ 
-		RDB_CONNECTOR,//¹ØÏµÊı¾İ¿âÏµÍ³ÀàĞÍ
-		DDB_CONNECTOR,//·Ö²¼Ê½Êı¾İ¿âÏµÍ³ÀàĞÍ
-		UNKNOW_CONNECTOR//Î´ÖªÀàĞÍ
+		FDB_CONNECTOR,//æ–‡ä»¶ç³»ç»Ÿç±»å‹ 
+		RDB_CONNECTOR,//å…³ç³»æ•°æ®åº“ç³»ç»Ÿç±»å‹
+		DDB_CONNECTOR,//åˆ†å¸ƒå¼æ•°æ®åº“ç³»ç»Ÿç±»å‹
+		UNKNOW_CONNECTOR//æœªçŸ¥ç±»å‹
 	};
-	/** »ñÈ¡Á¬½Ó¶ÔÏóµÄÀàĞÍ£¬FDB_CONNECTOR±íÊ¾ÎÄ¼şÏµÍ³ÀàĞÍ£¬RDB_CONNECTOR±íÊ¾¹ØÏµÊı¾İ¿âÏµÍ³ÀàĞÍ£¬
-	DDB_CONNECTOR·Ö²¼Ê½Êı¾İ¿âÏµÍ³ÀàĞÍ,UNKNOW_CONNECTOR±íÊ¾Î´ÖªÀàĞÍ
-	* @return Á¬½Ó¶ÔÏóµÄÀàĞÍ
+	/** è·å–è¿æ¥å¯¹è±¡çš„ç±»å‹ï¼ŒFDB_CONNECTORè¡¨ç¤ºæ–‡ä»¶ç³»ç»Ÿç±»å‹ï¼ŒRDB_CONNECTORè¡¨ç¤ºå…³ç³»æ•°æ®åº“ç³»ç»Ÿç±»å‹ï¼Œ
+	DDB_CONNECTORåˆ†å¸ƒå¼æ•°æ®åº“ç³»ç»Ÿç±»å‹,UNKNOW_CONNECTORè¡¨ç¤ºæœªçŸ¥ç±»å‹
+	* @return è¿æ¥å¯¹è±¡çš„ç±»å‹
 	*/
 	inline int getType() { return _type;}
 public:
-	/** Ä¬ÈÏ¹¹Ôìº¯Êı
+	/** é»˜è®¤æ„é€ å‡½æ•°
 	*/
 	Connector();
-	/** ¹¹Ôìº¯Êı£¬Í¨¹ı´«ÈëÂ·¾¶¹¹½¨Á¬½Ó¶ÔÏó£¬¹¹½¨µÄÊÇÎÄ¼şÏµÍ³ÀàĞÍµÄÊı¾İÁ¬½Ó
-	* @param [in] pathName  Â·¾¶Ãû³Æ
+	/** æ„é€ å‡½æ•°ï¼Œé€šè¿‡ä¼ å…¥è·¯å¾„æ„å»ºè¿æ¥å¯¹è±¡ï¼Œæ„å»ºçš„æ˜¯æ–‡ä»¶ç³»ç»Ÿç±»å‹çš„æ•°æ®è¿æ¥
+	* @param [in] pathName  è·¯å¾„åç§°
 	* @return 
 	*/
 	Connector(std::string pathName);
-	/** ¹¹Ôìº¯Êı£¬Í¨¹ı´«ÈëÊı¾İ¿âµÄÁ¬½ÓĞÅÏ¢¹¹½¨Á¬½Ó¶ÔÏó£¬¹¹½¨µÄÊÇÎÄ¼şÏµÍ³ÀàĞÍµÄÊı¾İÁ¬½Ó
-	* @param [in] user      Êı¾İ¿âÓÃ»§Ãû
-	* @param [in] password  Êı¾İ¿âÓÃ»§ÃÜÂë
-	* @param [in] dbname    Êı¾İ¿â
-	* @param [in] svr       Êı¾İ¿â·şÎñÆ÷
+	/** æ„é€ å‡½æ•°ï¼Œé€šè¿‡ä¼ å…¥æ•°æ®åº“çš„è¿æ¥ä¿¡æ¯æ„å»ºè¿æ¥å¯¹è±¡ï¼Œæ„å»ºçš„æ˜¯æ–‡ä»¶ç³»ç»Ÿç±»å‹çš„æ•°æ®è¿æ¥
+	* @param [in] user      æ•°æ®åº“ç”¨æˆ·å
+	* @param [in] password  æ•°æ®åº“ç”¨æˆ·å¯†ç 
+	* @param [in] dbname    æ•°æ®åº“
+	* @param [in] svr       æ•°æ®åº“æœåŠ¡å™¨
 	* @return 
 	*/
 	Connector(std::string user,std::string password,std::string dbname,std::string svr);
-	/** ¹¹Ôìº¯Êı£¬Í¨¹ı´«ÈëÊı¾İ¿âµÄÁ¬½ÓĞÅÏ¢¹¹½¨Á¬½Ó¶ÔÏó£¬¹¹½¨µÄÊÇÎÄ¼şÏµÍ³ÀàĞÍµÄÊı¾İÁ¬½Ó
-	* @param [in] user      Êı¾İ¿âÓÃ»§Ãû
-	* @param [in] password  Êı¾İ¿âÓÃ»§ÃÜÂë
-	* @param [in] dbname    Êı¾İ¿â
-	* @param [in] svrIP     Êı¾İ¿â·şÎñÆ÷
-	* @param [in] port      Êı¾İ¿â·şÎñÆ÷¶Ë¿ÚºÅ
+	/** æ„é€ å‡½æ•°ï¼Œé€šè¿‡ä¼ å…¥æ•°æ®åº“çš„è¿æ¥ä¿¡æ¯æ„å»ºè¿æ¥å¯¹è±¡ï¼Œæ„å»ºçš„æ˜¯æ–‡ä»¶ç³»ç»Ÿç±»å‹çš„æ•°æ®è¿æ¥
+	* @param [in] user      æ•°æ®åº“ç”¨æˆ·å
+	* @param [in] password  æ•°æ®åº“ç”¨æˆ·å¯†ç 
+	* @param [in] dbname    æ•°æ®åº“
+	* @param [in] svrIP     æ•°æ®åº“æœåŠ¡å™¨
+	* @param [in] port      æ•°æ®åº“æœåŠ¡å™¨ç«¯å£å·
 	* @return 
 	*/
 	Connector(std::string user,std::string password,std::string dbname,std::string svrIP,std::string port);
 
-	/** ¿½±´¹¹Ôìº¯Êı
-	* @param [in] c      Á¬½Ó¶ÔÏó
+	/** æ‹·è´æ„é€ å‡½æ•°
+	* @param [in] c      è¿æ¥å¯¹è±¡
 	* @return 
 	*/
 	Connector(const Connector & c);
-	/** ¿½±´º¯Êı
-	* @param [in] c      Á¬½Ó¶ÔÏó
+	/** æ‹·è´å‡½æ•°
+	* @param [in] c      è¿æ¥å¯¹è±¡
 	* @return 
 	*/
 	void copy(const Connector & c);
-	/** µÈºÅ¸³Öµº¯Êı
-	* @param [in] c      Á¬½Ó¶ÔÏó
+	/** ç­‰å·èµ‹å€¼å‡½æ•°
+	* @param [in] c      è¿æ¥å¯¹è±¡
 	* @return 
 	*/
 	Connector operator = (const Connector & c);
-	/** »ñÈ¡Á¬½Ó×Ö·û´®£¬Èç¹ûÀàĞÍÊÇFDB_CONNECTOR£¬·µ»ØµÄÊÇ¹¤³ÌÎÄ¼şµÄÂ·¾¶£¬Èç¹ûÀàĞÍÊÇRDB_CONNECTOR·µ»ØµÄÊÇ°üÀ¨¹ØÏµÊı¾İ¿âµÄÁ¬½Ó×Ö·û´®
-	* @param [in] pBlock    ÄÚ´æ¿éÊ×µØÖ·Ö¸Õë
-	* @param [in] blockSize ÄÚ´æ¿é´óĞ¡£¬µ¥Î»Îª×Ö½Ú
-	* @return std::string Á¬½Ó¶ÔÏóÁ¬½Ó×Ö·û´®
+	/** è·å–è¿æ¥å­—ç¬¦ä¸²ï¼Œå¦‚æœç±»å‹æ˜¯FDB_CONNECTORï¼Œè¿”å›çš„æ˜¯å·¥ç¨‹æ–‡ä»¶çš„è·¯å¾„ï¼Œå¦‚æœç±»å‹æ˜¯RDB_CONNECTORè¿”å›çš„æ˜¯åŒ…æ‹¬å…³ç³»æ•°æ®åº“çš„è¿æ¥å­—ç¬¦ä¸²
+	* @param [in] pBlock    å†…å­˜å—é¦–åœ°å€æŒ‡é’ˆ
+	* @param [in] blockSize å†…å­˜å—å¤§å°ï¼Œå•ä½ä¸ºå­—èŠ‚
+	* @return std::string è¿æ¥å¯¹è±¡è¿æ¥å­—ç¬¦ä¸²
 	*/
 	std::string getConnectString();
 
-	/** »ñÈ¡Á¬½Ó×Ö·û´®£¬Èç¹ûÀàĞÍÊÇFDB_CONNECTOR£¬·µ»ØµÄÊÇ¹¤³ÌÎÄ¼şµÄÂ·¾¶£¬Èç¹ûÀàĞÍÊÇRDB_CONNECTOR·µ»ØµÄÊÇ°üÀ¨¹ØÏµÊı¾İ¿âµÄÁ¬½Ó×Ö·û´®
-	* @param [in] pBlock    ÄÚ´æ¿éÊ×µØÖ·Ö¸Õë
-	* @param [in] blockSize ÄÚ´æ¿é´óĞ¡£¬µ¥Î»Îª×Ö½Ú
-	* @return std::string Á¬½Ó¶ÔÏóÁ¬½Ó×Ö·û´®
+	/** è·å–è¿æ¥å­—ç¬¦ä¸²ï¼Œå¦‚æœç±»å‹æ˜¯FDB_CONNECTORï¼Œè¿”å›çš„æ˜¯å·¥ç¨‹æ–‡ä»¶çš„è·¯å¾„ï¼Œå¦‚æœç±»å‹æ˜¯RDB_CONNECTORè¿”å›çš„æ˜¯åŒ…æ‹¬å…³ç³»æ•°æ®åº“çš„è¿æ¥å­—ç¬¦ä¸²
+	* @param [in] pBlock    å†…å­˜å—é¦–åœ°å€æŒ‡é’ˆ
+	* @param [in] blockSize å†…å­˜å—å¤§å°ï¼Œå•ä½ä¸ºå­—èŠ‚
+	* @return std::string è¿æ¥å¯¹è±¡è¿æ¥å­—ç¬¦ä¸²
 	*/
 	const std::string getConnectString() const;
 

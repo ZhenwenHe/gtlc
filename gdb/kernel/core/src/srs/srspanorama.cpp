@@ -731,7 +731,7 @@ bool SpatialReference::exportToPanorama(long *piProjSys, long *piDatum,
 					&& doubleEqual(dfSemiMajor, dfSM)
 					&& doubleEqual(dfInvFlattening, dfIF))
 				{
-					*piEllips = i;
+					*piEllips = (long) i;
 					break;
 				}
 			}

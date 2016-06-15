@@ -1,4 +1,4 @@
-/*
+ï»¿/*
 * Geosciences Template Library
 *
 * Copyright (c) 2008
@@ -27,147 +27,147 @@ class Buffer;
 class VertexCollection2d;
 typedef std::shared_ptr< VertexCollection2d >  VertexCollection2dSharedPtr;
 
-/** @addtogroup vertex  VertexCollection2d-µã¼¯Àà£¬¿ÉÒÔÓÃÀ´¹ÜÀíµãÔªËØ¼¯
+/** @addtogroup vertex  VertexCollection2d-ç‚¹é›†ç±»ï¼Œå¯ä»¥ç”¨æ¥ç®¡ç†ç‚¹å…ƒç´ é›†
 *  @{
 */
 class CORE_API VertexCollection2d
 {
 public:
-	/** ¹¹Ôìº¯Êı
-	* @param [in] ÎŞ
+	/** æ„é€ å‡½æ•°
+	* @param [in] æ— 
 	* @return
 	*/
 	VertexCollection2d(void);
 
-	/** ¿½±´¹¹Ôì
+	/** æ‹·è´æ„é€ 
 	* @param [in] obj
-	* @return ÎŞ
+	* @return æ— 
 	*/
 	VertexCollection2d(VertexCollection2d& obj);
 
 
-	/**Îö¹¹º¯Êı
+	/**ææ„å‡½æ•°
 	* @param [in]
 	* @return
 	*/
 	~VertexCollection2d(void);
 
-	/**½«±¾ÀàµÄĞÅÏ¢Ğ´ÈëÊä³öÁ÷ÖĞ£¬±ãÓÚÎÄ¼ş¶ÁĞ´»ò»º³åÇøĞ´²Ù×÷
-	* @param  [in,out] f  std::ostream &£¬±ê×¼Êä³öÁ÷¶ÔÏóÒıÓÃ
-	* @return ³É¹¦·µ»Øtrue£¬·ñÔò·µ»Øfalse
+	/**å°†æœ¬ç±»çš„ä¿¡æ¯å†™å…¥è¾“å‡ºæµä¸­ï¼Œä¾¿äºæ–‡ä»¶è¯»å†™æˆ–ç¼“å†²åŒºå†™æ“ä½œ
+	* @param  [in,out] f  std::ostream &ï¼Œæ ‡å‡†è¾“å‡ºæµå¯¹è±¡å¼•ç”¨
+	* @return æˆåŠŸè¿”å›trueï¼Œå¦åˆ™è¿”å›false
 	*/
 	void write(std::ostream & f);
 
-	/**´Ó±ê×¼ÊäÈëÁ÷ÖĞÌáÈ¡±¾ÀàµÄĞÅÏ¢
-	* @param  [in,out] f  std::istream &£¬±ê×¼ÊäÈëÁ÷¶ÔÏóÒıÓÃ
-	* @return ³É¹¦·µ»Øtrue£¬·ñÔò·µ»Øfalse
+	/**ä»æ ‡å‡†è¾“å…¥æµä¸­æå–æœ¬ç±»çš„ä¿¡æ¯
+	* @param  [in,out] f  std::istream &ï¼Œæ ‡å‡†è¾“å…¥æµå¯¹è±¡å¼•ç”¨
+	* @return æˆåŠŸè¿”å›trueï¼Œå¦åˆ™è¿”å›false
 	*/
 	void read(std::istream & f);
 
-	/*´ÓBufferÖĞ¶ÁÈ¡ĞÅÏ¢Ìî³ä±¾¼¸ºÎ¶ÔÏó
-	* @param  [in,out] buf Buffer & £¬»º³åÇø¶ÔÏóÒıÓÃ
-	* @return ³É¹¦·µ»Øtrue£¬·ñÔò·µ»Øfalse
+	/*ä»Bufferä¸­è¯»å–ä¿¡æ¯å¡«å……æœ¬å‡ ä½•å¯¹è±¡
+	* @param  [in,out] buf Buffer & ï¼Œç¼“å†²åŒºå¯¹è±¡å¼•ç”¨
+	* @return æˆåŠŸè¿”å›trueï¼Œå¦åˆ™è¿”å›false
 	*/
 	bool writeBuffer(Buffer &buf);
 
-	/*´ÓBufferÖĞ¶ÁÈ¡ĞÅÏ¢Ìî³ä±¾¼¸ºÎ¶ÔÏó
-	* @param  [in,out] buf Buffer & £¬»º³åÇø¶ÔÏóÒıÓÃ
-	* @return ³É¹¦·µ»Øtrue£¬·ñÔò·µ»Øfalse
+	/*ä»Bufferä¸­è¯»å–ä¿¡æ¯å¡«å……æœ¬å‡ ä½•å¯¹è±¡
+	* @param  [in,out] buf Buffer & ï¼Œç¼“å†²åŒºå¯¹è±¡å¼•ç”¨
+	* @return æˆåŠŸè¿”å›trueï¼Œå¦åˆ™è¿”å›false
 	*/
 	bool readBuffer(Buffer &buf);
 
-	/** »ñÈ¡¶ÔÏóĞ´Èëµ½BufferÖĞËùÕ¼ÓÃµÄ×Ö½ÚÊı
-	* @param ÎŞ
-	* @return »ñÈ¡µ½µÄbuffer×Ö½ÚÊı
+	/** è·å–å¯¹è±¡å†™å…¥åˆ°Bufferä¸­æ‰€å ç”¨çš„å­—èŠ‚æ•°
+	* @param æ— 
+	* @return è·å–åˆ°çš„bufferå­—èŠ‚æ•°
 	*/
 	size_t sizeBuffer();
 
-	/** Ìí¼ÓÔªËØµ½ÔªËØ¼¯ÖĞ
-	* Èç¹ûbefore, after¶¼Îª¿Õ£¬ÔòÌí¼Óµ½ÔªËØ¼¯µÄÄ©Î²
-	* @param [in] pt£¬Òª²åÈëµÄÔªËØ
-	* @param [in] before£¬ÔÚ´ËË÷ÒıÖ®Ç°²åÈë
-	* @param [in] after£¬ÔÚ´ËË÷ÒıÖ®ºó²åÈë
+	/** æ·»åŠ å…ƒç´ åˆ°å…ƒç´ é›†ä¸­
+	* å¦‚æœbefore, afteréƒ½ä¸ºç©ºï¼Œåˆ™æ·»åŠ åˆ°å…ƒç´ é›†çš„æœ«å°¾
+	* @param [in] ptï¼Œè¦æ’å…¥çš„å…ƒç´ 
+	* @param [in] beforeï¼Œåœ¨æ­¤ç´¢å¼•ä¹‹å‰æ’å…¥
+	* @param [in] afterï¼Œåœ¨æ­¤ç´¢å¼•ä¹‹åæ’å…¥
 	* @return
 	*/
 	void addPoint(double x, double y, int* before = NULL, int* after = NULL);
 	void addPointPtr(Vertex2d* obj, int* before = NULL, int* after = NULL);
 
-	/** ½«Ä¿±êÔªËØ¼¯ÖĞµÄÔªËØÌí¼Óµ½µ±Ç°ÔªËØ¼¯µÄÄ©Î²
-	* @param [in] newElements£¬Ä¿±êÔªËØ¼¯
-	* @return Ìí¼ÓÊÇ·ñ³É¹¦
+	/** å°†ç›®æ ‡å…ƒç´ é›†ä¸­çš„å…ƒç´ æ·»åŠ åˆ°å½“å‰å…ƒç´ é›†çš„æœ«å°¾
+	* @param [in] newElementsï¼Œç›®æ ‡å…ƒç´ é›†
+	* @return æ·»åŠ æ˜¯å¦æˆåŠŸ
 	*/
 	bool addCollection(VertexCollection2dSharedPtr& newElements);
 
-	/** ½«Ä¿±êÔªËØ¼¯ÖĞµÄÔªËØ²åÈëµ½µ±Ç°ÔªËØ¼¯ÖĞ
-	* @param [in] index£¬²åÈëÎ»ÖÃ
-	* @param [in] newElements£¬Ä¿±êÔªËØ¼¯
-	* @return Ìí¼ÓÊÇ·ñ³É¹¦
+	/** å°†ç›®æ ‡å…ƒç´ é›†ä¸­çš„å…ƒç´ æ’å…¥åˆ°å½“å‰å…ƒç´ é›†ä¸­
+	* @param [in] indexï¼Œæ’å…¥ä½ç½®
+	* @param [in] newElementsï¼Œç›®æ ‡å…ƒç´ é›†
+	* @return æ·»åŠ æ˜¯å¦æˆåŠŸ
 	*/
 	bool insertCollection(long index, VertexCollection2dSharedPtr& newElements);
 
-	/** »ñÈ¡Ö¸¶¨Ë÷ÒıµÄÔªËØ
-	* @param [in] index: Òª»ñÈ¡µÄÔªËØµÄË÷Òı
-	* @return: »ñÈ¡µ½µÄÔªËØµÄÖ¸Õë£¬»ñÈ¡Ê§°ÜÔò·µ»ØNULL
+	/** è·å–æŒ‡å®šç´¢å¼•çš„å…ƒç´ 
+	* @param [in] index: è¦è·å–çš„å…ƒç´ çš„ç´¢å¼•
+	* @return: è·å–åˆ°çš„å…ƒç´ çš„æŒ‡é’ˆï¼Œè·å–å¤±è´¥åˆ™è¿”å›NULL
 	*/
 	Vertex2d* getPointPtr(long index);
 	virtual const Vertex2d & getPoint(long index);
 	virtual void getPoint(long index, Vertex2d & outPoint);
 	virtual void getPoint(long index, double &x, double &y);
 
-	/** ÉèÖÃÖ¸¶¨Ë÷ÒıµÄÔªËØ×ø±ê
-	* @param [in] index: ÒªÖ¸¶¨µÄÔªËØµÄË÷Òı
+	/** è®¾ç½®æŒ‡å®šç´¢å¼•çš„å…ƒç´ åæ ‡
+	* @param [in] index: è¦æŒ‡å®šçš„å…ƒç´ çš„ç´¢å¼•
 	* @return:
 	*/
 	virtual void setPoint(long index, const Vertex2d &pPoint);
 	virtual void setPoint(long index, double x, double y);
 
-	/** »ñÈ¡ÔªËØµÄ¸öÊı
-	* @return: ÔªËØµÄ¸öÊı
+	/** è·å–å…ƒç´ çš„ä¸ªæ•°
+	* @return: å…ƒç´ çš„ä¸ªæ•°
 	*/
 	long getCount();
 
-	/** ½»»»ÔªËØ¼¯ÖĞµÄÁ½¸öÔªËØ
-	* @param [in] index1,index2: Òª½»»»µÄÔªËØÔÚÊı×éÖĞµÄË÷Òı
-	* @return: ½»»»³É¹¦·µ»Øtrue£¬·ñÔò·µ»Øfalse
+	/** äº¤æ¢å…ƒç´ é›†ä¸­çš„ä¸¤ä¸ªå…ƒç´ 
+	* @param [in] index1,index2: è¦äº¤æ¢çš„å…ƒç´ åœ¨æ•°ç»„ä¸­çš„ç´¢å¼•
+	* @return: äº¤æ¢æˆåŠŸè¿”å›trueï¼Œå¦åˆ™è¿”å›false
 	*/
 	bool swap(long index1, long index2);
 
-	/** ´ÓÔªËØ¼¯ÖĞÒÆ³ıÖ¸¶¨Ë÷ÒıµÄÔªËØ£¬²¢·µ»ØÒÆ³ıµÄÔªËØ
-	* @param [in] index: ÒªÒÆ³ıµÄÔªËØµÄË÷Òı
-	* @return: ÒÆ³ıµÄÔªËØµÄÖ¸Õë£¬Ê§°ÜÔò·µ»ØNULL
+	/** ä»å…ƒç´ é›†ä¸­ç§»é™¤æŒ‡å®šç´¢å¼•çš„å…ƒç´ ï¼Œå¹¶è¿”å›ç§»é™¤çš„å…ƒç´ 
+	* @param [in] index: è¦ç§»é™¤çš„å…ƒç´ çš„ç´¢å¼•
+	* @return: ç§»é™¤çš„å…ƒç´ çš„æŒ‡é’ˆï¼Œå¤±è´¥åˆ™è¿”å›NULL
 	*/
 	Vertex2d * removePointPtr(long index);
 
-	/** ´ÓÔªËØ¼¯ÖĞÉ¾³ıÖ¸¶¨Ë÷ÒıµÄÔªËØ
-	* @param [in] index: ÒªÉ¾³ıµÄÔªËØµÄË÷Òı
-	* @return: É¾³ıÊ§°ÜÔò·µ»Øfalse
+	/** ä»å…ƒç´ é›†ä¸­åˆ é™¤æŒ‡å®šç´¢å¼•çš„å…ƒç´ 
+	* @param [in] index: è¦åˆ é™¤çš„å…ƒç´ çš„ç´¢å¼•
+	* @return: åˆ é™¤å¤±è´¥åˆ™è¿”å›false
 	*/
 	bool deletePoint(long index);
 
-	/** ´ÓÔªËØ¼¯ÖĞÉ¾³ıÎŞĞ§µÄµã£¨Èç¹ûÏàÁÚµã×ø±êÏàÍ¬£¬ÔòÉ¾³ı£©
+	/** ä»å…ƒç´ é›†ä¸­åˆ é™¤æ— æ•ˆçš„ç‚¹ï¼ˆå¦‚æœç›¸é‚»ç‚¹åæ ‡ç›¸åŒï¼Œåˆ™åˆ é™¤ï¼‰
 	* @param [in]
-	* @return: Çå³ıÎŞĞ§µãºó£¬µãÕóµÄµãµÄ¸öÊı
+	* @return: æ¸…é™¤æ— æ•ˆç‚¹åï¼Œç‚¹é˜µçš„ç‚¹çš„ä¸ªæ•°
 	*/
 	int deleteInvalidPoint();
 
-	/** Çå¿Õµ±Ç°ÔªËØ¼¯
+	/** æ¸…ç©ºå½“å‰å…ƒç´ é›†
 	* @return
 	*/
 	void clear();
 
-	/** @ ½«Ä¿±êÊı×é g ÖĞµÄ¿½±´µ½ µ±Ç°Êı×éÖĞ
-	* @param  [in] g , ElementCollection2d *, Ö¸Ïò´ı¿½±´µÄÊı×éµÄÖ¸Õë
-	* @return ÊÇ·ñ¿½±´³É¹¦
+	/** @ å°†ç›®æ ‡æ•°ç»„ g ä¸­çš„æ‹·è´åˆ° å½“å‰æ•°ç»„ä¸­
+	* @param  [in] g , ElementCollection2d *, æŒ‡å‘å¾…æ‹·è´çš„æ•°ç»„çš„æŒ‡é’ˆ
+	* @return æ˜¯å¦æ‹·è´æˆåŠŸ
 	*/
 	bool copy(const VertexCollection2dSharedPtr& g);
 
-	/** »ñÈ¡Ïß³¤¶È
-	* @param ÎŞ
-	* @return Ïß³¤¶È
+	/** è·å–çº¿é•¿åº¦
+	* @param æ— 
+	* @return çº¿é•¿åº¦
 	*/
 	double getLength();
 
-	/** »ñÈ¡µãÕó°üÎ§ºĞ
+	/** è·å–ç‚¹é˜µåŒ…å›´ç›’
 	* @param [out] envp
 	* @return
 	*/

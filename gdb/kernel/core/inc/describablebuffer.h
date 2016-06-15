@@ -1,4 +1,4 @@
-/*
+ï»¿/*
 * Geosciences Template Library
 *
 * Copyright (c) 2008
@@ -71,22 +71,22 @@ protected:
 	DBF  _type;
 public:
 	static int sizeType(DBF t );
-	inline int numberElements() {return size()/sizeType(_type);}
+	inline int numberElements() {return int(size()/sizeType(_type));}
 	inline DBF getType() const { return _type;}
 
 public:
 	DescribableBuffer();
-	DescribableBuffer(void * d,size_t s,DBF t = DBF_VOID,bool b_alloc=false);//¹¹Ôìº¯Êı£¬Èç¹ûb_allocÎªÕæ£¬Ôò»áĞÂÉêÇëÒ»¿é´óĞ¡ÎªsµÄÄÚ´æ¿é£¬²¢¸´ÖÆdµÄÄÚÈİ£¬·´Ö®£¬ÔòÖ¸Ïòd
-	void copy(const DescribableBuffer & b);//¿½±´Bufferº¯Êı£¬Èç¹ûbµÄ_alloc³ÉÔ±Îª¼Ù£¬Ôò¿½±´ºóµÄBuffer¶ÔÏóÓëb¹«ÓÃÒ»¸öÄÚ´æ¿é£¬·ñÔòÎªÄÚ´æ¿é¿½±´
-	DescribableBuffer(const DescribableBuffer & b);//¿½±´¹¹Ôìº¯Êı
-	DescribableBuffer operator = (const DescribableBuffer & b);//µÈºÅ¸³Öµ²Ù×÷
+	DescribableBuffer(void * d,size_t s,DBF t = DBF_VOID,bool b_alloc=false);//æ„é€ å‡½æ•°ï¼Œå¦‚æœb_allocä¸ºçœŸï¼Œåˆ™ä¼šæ–°ç”³è¯·ä¸€å—å¤§å°ä¸ºsçš„å†…å­˜å—ï¼Œå¹¶å¤åˆ¶dçš„å†…å®¹ï¼Œåä¹‹ï¼Œåˆ™æŒ‡å‘d
+	void copy(const DescribableBuffer & b);//æ‹·è´Bufferå‡½æ•°ï¼Œå¦‚æœbçš„_allocæˆå‘˜ä¸ºå‡ï¼Œåˆ™æ‹·è´åçš„Bufferå¯¹è±¡ä¸bå…¬ç”¨ä¸€ä¸ªå†…å­˜å—ï¼Œå¦åˆ™ä¸ºå†…å­˜å—æ‹·è´
+	DescribableBuffer(const DescribableBuffer & b);//æ‹·è´æ„é€ å‡½æ•°
+	DescribableBuffer operator = (const DescribableBuffer & b);//ç­‰å·èµ‹å€¼æ“ä½œ
 	bool changeType(DBF t);
 	void get(std::vector<double> & dv);
-	void get(int * pc, double ** pp);//ĞèÒªÓÃ»§×Ô¼ºÊÍ·Å*pp
+	void get(int * pc, double ** pp);//éœ€è¦ç”¨æˆ·è‡ªå·±é‡Šæ”¾*pp
 	void get(std::vector<float> & fv);
-	void get(int * pc, float ** pp);//ĞèÒªÓÃ»§×Ô¼ºÊÍ·Å*pp
+	void get(int * pc, float ** pp);//éœ€è¦ç”¨æˆ·è‡ªå·±é‡Šæ”¾*pp
 	void get(std::vector<int> & fv);
-	void get(int * pc, int ** pp);//ĞèÒªÓÃ»§×Ô¼ºÊÍ·Å*pp
+	void get(int * pc, int ** pp);//éœ€è¦ç”¨æˆ·è‡ªå·±é‡Šæ”¾*pp
 };
 end_gdb_namespace
 end_gtl_namespace

@@ -120,7 +120,7 @@ public:
 	* @param [in] s 当前要素集合索引
 	* @return  无
 	*/
-	inline void setCurrentFeatureSet(size_t s){ _cur_index = s; }
+	inline void setCurrentFeatureSet(size_t s){ _cur_index = (int)s; }
 	/** @} */
 
 	/** @name 其它操作函数集

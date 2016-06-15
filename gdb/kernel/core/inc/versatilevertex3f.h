@@ -1,4 +1,4 @@
-/*
+ï»¿/*
 * Geosciences Template Library
 *
 * Copyright (c) 2008
@@ -26,18 +26,18 @@ class VersatileVertex3f : public Vertex3f
 {
 	
 public:
-	/** ·¨Ïß */
+	/** æ³•çº¿ */
 	float nx, ny, nz;
 
-	/** ÎÆÀí×ø±ê */
+	/** çº¹ç†åæ ‡ */
 	float u, v;
 
-	/** ÑÕÉ« */
+	/** é¢œè‰² */
 	float cR, cG, cB;
 
 public:
 
-	/** ¹¹Ôìº¯Êı1
+	/** æ„é€ å‡½æ•°1
 	*/
 	VersatileVertex3f(float fx = 0.0, float fy = 0.0, float fz = 0.0, float fnx = 0.0, float fny = 0.0, float fnz = 0.0, float fu = 0.0, float fv = 0.0, float fcr = 0.0, float fcg = 0.0, float fcb = 0.0) 
 		:Vertex3f(fx, fy, fz), nx(fnx), ny(fny), nz(fnz), u(fu), v(fv), cR(fcr), cG(fcg), cB(fcb)
@@ -45,7 +45,7 @@ public:
 
 	}
 
-	/** ¹¹Ôìº¯Êı2
+	/** æ„é€ å‡½æ•°2
 	*/
 	VersatileVertex3f(Vertex3f& vPos, Vertex3f& vNor, float fu, float fv, float fcr, float fcg, float fcb) :
 		Vertex3f(vPos), nx(vNor.x), ny(vNor.y), nz(vNor.z), u(fu), v(fv), cR(fcr), cG(fcg), cB(fcb)
@@ -53,7 +53,7 @@ public:
 
 	}
 
-	/** ¹¹Ôìº¯Êı3
+	/** æ„é€ å‡½æ•°3
 	*/
 	VersatileVertex3f(Vertex3f& vPos, Vertex3f& vNor, Vertex2f& vTex, Vertex3f& vClr) :
 		Vertex3f(vPos), nx(vNor.x), ny(vNor.y), nz(vNor.z), u(vTex.x), v(vTex.y), cR(vClr.x), cG(vClr.y), cB(vClr.z)
@@ -62,17 +62,17 @@ public:
 	}
 
   
-	/** »ñµÃ¶¥µã·¨ÏòÁ¿
+	/** è·å¾—é¡¶ç‚¹æ³•å‘é‡
 	* @param
-	* @return ¶¥µã·¨ÏòÁ¿
+	* @return é¡¶ç‚¹æ³•å‘é‡
 	*/
 	Vertex3f getNormal() const
 	{
 		return Vertex3f(nx, ny, nz);
 	}
 
-	/** ÉèÖÃ¶¥µã·¨ÏòÁ¿
-	* @param [in]  vNor ¶¥µã·¨ÏòÁ¿
+	/** è®¾ç½®é¡¶ç‚¹æ³•å‘é‡
+	* @param [in]  vNor é¡¶ç‚¹æ³•å‘é‡
 	* @return
 	*/
 	void setNormal(const Vertex3f& vNor)
@@ -82,17 +82,17 @@ public:
 		nz = vNor.z;
 	}
 
-	/** »ñµÃ¶¥µãÎÆÀí×ø±ê
+	/** è·å¾—é¡¶ç‚¹çº¹ç†åæ ‡
 	* @param
-	* @return ¶¥µãÎÆÀí×ø±ê
+	* @return é¡¶ç‚¹çº¹ç†åæ ‡
 	*/
 	Vertex2f getTexCoor() const
 	{
 		return Vertex2f(u, v);
 	}
 
-	/** ÉèÖÃ¶¥µãÎÆÀí×ø±ê
-	* @param [in] vTex ¶¥µãÎÆÀí×ø±ê
+	/** è®¾ç½®é¡¶ç‚¹çº¹ç†åæ ‡
+	* @param [in] vTex é¡¶ç‚¹çº¹ç†åæ ‡
 	* @return
 	*/
 	void setTexCoor(const Vertex2f& vTex)
@@ -101,9 +101,9 @@ public:
 		v = vTex.y;
 	}
 
-	/** »ñµÃ¶¥µãÑÕÉ«
+	/** è·å¾—é¡¶ç‚¹é¢œè‰²
 	* @param
-	* @return ¶¥µãÑÕÉ«
+	* @return é¡¶ç‚¹é¢œè‰²
 	*/
 	Vertex3f getColor() const
 	{
@@ -111,8 +111,8 @@ public:
 	}
 
 
-	/** ÉèÖÃ¶¥µãÑÕÉ«
-	* @param [in] vClr	 ¶¥µãÑÕÉ«
+	/** è®¾ç½®é¡¶ç‚¹é¢œè‰²
+	* @param [in] vClr	 é¡¶ç‚¹é¢œè‰²
 	* @return
 	*/
 	void setColor(const Vertex3f& vClr)

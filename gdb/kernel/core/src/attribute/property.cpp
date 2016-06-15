@@ -113,7 +113,7 @@ Property Property::operator = (const Property & p){
 
 
 void Property::write(Buffer & bs){
-	int len = _name.size();
+	int len = (int) _name.size();
 	bs.write(&len, sizeof(int));
 	bs.write((void*)_name.c_str(), len*sizeof(char));
 	Value::write(bs);

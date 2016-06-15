@@ -12,7 +12,64 @@ begin_gdb_namespace
 ////////////////////////////////////////////////////////////////////////
 static unsigned long global_number_id=0;
 
+bool operator==(const Identifier & id1, const Identifier & id2) {
+	return id1._id == id2._id;
+}
 
+bool operator==(const Identifier & id1, unsigned long long  id2) {
+	return id1._id == id2;
+}
+
+bool operator!=(const Identifier & id1, const Identifier & id2) {
+	return id1._id != id2._id;
+}
+
+bool operator!=(const Identifier & id1, unsigned long long  id2) {
+	return id1._id != id2;
+}
+
+bool operator>(const Identifier & id1, const Identifier & id2) {
+	return id1._id>id2._id;
+}
+
+bool operator>(const Identifier & id1, unsigned long long  id2) {
+	return id1._id>id2;
+}
+
+bool operator<(const Identifier & id1, const Identifier & id2) {
+	return id1._id<id2._id;
+}
+
+bool operator<(const Identifier & id1, unsigned long long  id2) {
+	return id1._id<id2;
+}
+
+Identifier operator+(const Identifier & id1, const Identifier & id2) {
+	return Identifier(id1._id + id2._id);
+}
+
+Identifier operator+(const Identifier & id1, unsigned long long  id2) {
+	return Identifier(id1._id + id2);
+}
+
+Identifier operator-(const Identifier & id1, const Identifier & id2) {
+	return Identifier(id1._id - id2._id);
+}
+
+Identifier operator-(const Identifier & id1, unsigned long long  id2) {
+	return Identifier(id1._id - id2);
+}
+
+
+std::ostream & operator <<(std::ostream & s, const Identifier & id1) {
+	s << id1._id;
+	return s;
+}
+
+std::istream & operator >> (std::istream & s, const Identifier & id1) {
+	s >> id1._id;
+	return s;
+}
 
 Identifier::Identifier(){//采用随机用户ID生成Identifier
 	_id = 0;

@@ -110,7 +110,7 @@
       </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>_DEBUG;_WINDOWS;_USRDLL;CORE_EXPORTS;SQLITE_ENABLE_RTREE;SQLITE_ENABLE_JSON1;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_DEBUG;_WINDOWS;_USRDLL;CORE_EXPORTS;SQLITE_ENABLE_RTREE;SQLITE_ENABLE_JSON1;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>../inc;../inc/index</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
@@ -146,7 +146,7 @@
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>NDEBUG;_WINDOWS;_USRDLL;CORE_EXPORTS;SQLITE_ENABLE_RTREE;SQLITE_ENABLE_JSON1;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>NDEBUG;_WINDOWS;_USRDLL;CORE_EXPORTS;SQLITE_ENABLE_RTREE;SQLITE_ENABLE_JSON1;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>../inc;../inc/index</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>

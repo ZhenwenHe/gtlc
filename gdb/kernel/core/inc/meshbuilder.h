@@ -1,4 +1,4 @@
-/*
+ï»¿/*
 * Geosciences Template Library
 *
 * Copyright (c) 2008
@@ -31,35 +31,35 @@ begin_gdb_namespace
 
 class MeshBuilder;
 typedef std::shared_ptr<MeshBuilder> MeshBuilderSharedPtr;
-/** @addtogroup Mesh MeshBuilder-MeshBuilderÍø¸ñÉú³É¹ÜÀí
+/** @addtogroup Mesh MeshBuilder-MeshBuilderç½‘æ ¼ç”Ÿæˆç®¡ç†
 *  @{
 */
 class CORE_API MeshBuilder {
 protected:
-	/** ²éÑ¯½Ó¿ÚÖ¸Õë */
+	/** æŸ¥è¯¢æ¥å£æŒ‡é’ˆ */
 	MeshProxySharedPtr _proxySptr;
-	/** ·Ö²ãÊı */
+	/** åˆ†å±‚æ•° */
 	unsigned long long _layerNumber;
-	/** X¡¢Y¡¢Z·½ÏòÉÏÃ¿¸ö¿éÖĞµÄµ¥Ôª¸ñÊı */
+	/** Xã€Yã€Zæ–¹å‘ä¸Šæ¯ä¸ªå—ä¸­çš„å•å…ƒæ ¼æ•° */
 	unsigned long long _cellNumberPreBlock[3];
 
 	Envelope3d   _totalEnvelope;
 
-	unsigned long long         _propNumberPreCell;//Ã¿¸öµ¥ÔªµÄÊôĞÔ¸öÊı
-	std::vector<std::string>   _propNames;//Ã¿¸öÊôĞÔµÄÃû³Æ£¬Êı×éÖĞÔªËØ¸öÊıµÈÓÚ_propNumberPreCell
-	std::vector<double>        _propRanges;//¼ÇÂ¼Ã¿¸öÊôĞÔµÄ×îĞ¡ÖµºÍ×î´óÖµ£¬Êı×éµÄ¸öÊıÎª2*_propNumberPreCell;
+	unsigned long long         _propNumberPreCell;//æ¯ä¸ªå•å…ƒçš„å±æ€§ä¸ªæ•°
+	std::vector<std::string>   _propNames;//æ¯ä¸ªå±æ€§çš„åç§°ï¼Œæ•°ç»„ä¸­å…ƒç´ ä¸ªæ•°ç­‰äº_propNumberPreCell
+	std::vector<double>        _propRanges;//è®°å½•æ¯ä¸ªå±æ€§çš„æœ€å°å€¼å’Œæœ€å¤§å€¼ï¼Œæ•°ç»„çš„ä¸ªæ•°ä¸º2*_propNumberPreCell;
 
-protected://×ª»»ºÍÏÔÊ¾Íø¸ñ×¨ÓÃµÄÒ»Ğ©±äÁ¿
-	int                        _indexOfProp4Color;//²ÉÓÃÄÄ¸öÊôĞÔÀ´È·¶¨ÑÕÉ« 
-	ColorSeries                _colorSeries;//ÏÔÊ¾Íø¸ñÓÃµÄÉ«Ïµ 
+protected://è½¬æ¢å’Œæ˜¾ç¤ºç½‘æ ¼ä¸“ç”¨çš„ä¸€äº›å˜é‡
+	int                        _indexOfProp4Color;//é‡‡ç”¨å“ªä¸ªå±æ€§æ¥ç¡®å®šé¢œè‰² 
+	ColorSeries                _colorSeries;//æ˜¾ç¤ºç½‘æ ¼ç”¨çš„è‰²ç³» 
 public:
 	virtual bool open(const Connector& conn) = 0;
 	virtual bool create(const Connector& conn) = 0;
-	virtual bool append(MeshSharedPtr msp) = 0;//Ìí¼ÓÍø¸ñµ½Íø¸ñÊı¾İ¿â
+	virtual bool append(MeshSharedPtr msp) = 0;//æ·»åŠ ç½‘æ ¼åˆ°ç½‘æ ¼æ•°æ®åº“
 	virtual void close() = 0;
-	/**  ÅĞ¶Ï¹¤³ÌÊÇ·ñÎª¿Õ
-	* @param ÎŞ
-	* @return Èç¹ûÎª¿Õ·µ»Øtrue£¬·ñÔò·µ»Øfalse
+	/**  åˆ¤æ–­å·¥ç¨‹æ˜¯å¦ä¸ºç©º
+	* @param æ— 
+	* @return å¦‚æœä¸ºç©ºè¿”å›trueï¼Œå¦åˆ™è¿”å›false
 	*/
 	virtual bool isEmpty() = 0;
 

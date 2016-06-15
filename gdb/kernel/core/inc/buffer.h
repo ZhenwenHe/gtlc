@@ -1,4 +1,4 @@
-/*
+ï»¿/*
 * Geosciences Template Library
 *
 * Copyright (c) 2008
@@ -38,19 +38,18 @@
 #include "matrix4x4.h"
 
 
-
 begin_gtl_namespace
 begin_gdb_namespace
 
-/** @defgroup Buffer Buffer-ÄÚ´æ»º³åÇø¹ÜÀíÀà
-*  BufferÊÇÒ»¸öÄÚ´æ»º³åÇø¹ÜÀíÀà,Ö÷ÒªÓÃÓÚ±íÊ¾Ò»¿éÄÚ´æ¿é¡£ÔÚ¿Õ¼äĞÅÏ¢Èë¿â¹ı³ÌÖĞÒª¾­³£ÓÃµ½´ËÀà¡£
-* ¸ÃÀàºÍ´¿ĞéÀàIBufferIOÒ»Æğ¹¹½¨ÁË¶ÔÏóµ½ÄÚ´æ»º³åÇøµÄ¶ÁĞ´»úÖÆ¡£ËùÓĞĞèÒªĞ´ÈëÊı¾İ¿âµÄ¶ÔÏó£¬¾ùĞèÒªÊµÏÖIBufferIO¡£
-* ÈçËùÓĞ¼¸ºÎ¶ÔÏóGeometryĞèÒªÊµÏÖIBufferIO¡£ÔÚÊı¾İ¿âÖĞGeometryµÄ¶ÁĞ´²Ù×÷¹ı³ÌÈçÏÂ:
+/** @defgroup Buffer Buffer-å†…å­˜ç¼“å†²åŒºç®¡ç†ç±»
+*  Bufferæ˜¯ä¸€ä¸ªå†…å­˜ç¼“å†²åŒºç®¡ç†ç±»,ä¸»è¦ç”¨äºè¡¨ç¤ºä¸€å—å†…å­˜å—ã€‚åœ¨ç©ºé—´ä¿¡æ¯å…¥åº“è¿‡ç¨‹ä¸­è¦ç»å¸¸ç”¨åˆ°æ­¤ç±»ã€‚
+* è¯¥ç±»å’Œçº¯è™šç±»IBufferIOä¸€èµ·æ„å»ºäº†å¯¹è±¡åˆ°å†…å­˜ç¼“å†²åŒºçš„è¯»å†™æœºåˆ¶ã€‚æ‰€æœ‰éœ€è¦å†™å…¥æ•°æ®åº“çš„å¯¹è±¡ï¼Œå‡éœ€è¦å®ç°IBufferIOã€‚
+* å¦‚æ‰€æœ‰å‡ ä½•å¯¹è±¡Geometryéœ€è¦å®ç°IBufferIOã€‚åœ¨æ•°æ®åº“ä¸­Geometryçš„è¯»å†™æ“ä½œè¿‡ç¨‹å¦‚ä¸‹:
 * Buffer buf;
 * Geometry g;
 * g.writeBuffer(buf);
-* writeBlob(buf);//Ğ´ÈëÊı¾İ¿â
-* ¶Á³ö¹ı³Ì£º
+* writeBlob(buf);//å†™å…¥æ•°æ®åº“
+* è¯»å‡ºè¿‡ç¨‹ï¼š
 * buf.clear();
 * readBlob(buf);
 * g.readBuffer(buf);  
@@ -58,75 +57,75 @@ begin_gdb_namespace
 */
 class CORE_API Buffer{
 protected:
-	/*breif Ö¸ÏòÄÚ´æ¿éÍ·µØÖ· */
+	/*breif æŒ‡å‘å†…å­˜å—å¤´åœ°å€ */
 	void * _data;
-	/*breif Ê¹ÓÃ¹ıµÄÄÚ´æ¿é´óĞ¡ */
+	/*breif ä½¿ç”¨è¿‡çš„å†…å­˜å—å¤§å° */
 	size_t _size;
-	/*breif ÄÚ´æ¿é´óĞ¡ */
+	/*breif å†…å­˜å—å¤§å° */
 	size_t _capacity;
-	/*breif ÄÚ´æÔö³¤´óĞ¡ */
+	/*breif å†…å­˜å¢é•¿å¤§å° */
 	size_t _growth;
-	/*breif ÊÇ·ñÊÇBufferÀà×Ô¼º·ÖÅäµÄÄÚ´æ£¬Èç¹ûÊÇÔòÎªÕæ£¬·´Ö®Îª¼Ù */
+	/*breif æ˜¯å¦æ˜¯Bufferç±»è‡ªå·±åˆ†é…çš„å†…å­˜ï¼Œå¦‚æœæ˜¯åˆ™ä¸ºçœŸï¼Œåä¹‹ä¸ºå‡ */
 	bool _alloc;
-	/*breif µ±Ç°Î»ÖÃ£¬Ä¬ÈÏÎª0 */
+	/*breif å½“å‰ä½ç½®ï¼Œé»˜è®¤ä¸º0 */
 	size_t _curpos;
 public:
-	/** »ñÈ¡ÄÚ´æ¿éµÄÍ·µØÖ·
-	* @return ÄÚ´æ¿éµÄÍ·µØÖ·Ö¸Õë
+	/** è·å–å†…å­˜å—çš„å¤´åœ°å€
+	* @return å†…å­˜å—çš„å¤´åœ°å€æŒ‡é’ˆ
 	*/
 	inline  void const *  data() const {return _data;}
-	/** »ñÈ¡ÄÚ´æ¿éµÄÍ·µØÖ·
-	* @return ÄÚ´æ¿éµÄÍ·µØÖ·Ö¸Õë
+	/** è·å–å†…å­˜å—çš„å¤´åœ°å€
+	* @return å†…å­˜å—çš„å¤´åœ°å€æŒ‡é’ˆ
 	*/
 	inline void *  data(){return _data;}
-	/** »ñÈ¡ÄÚ´æ¿é´óĞ¡
-	* @return ÄÚ´æ¿éµÄ´óĞ¡£¬µ¥Î»Îª×Ö½Ú
+	/** è·å–å†…å­˜å—å¤§å°
+	* @return å†…å­˜å—çš„å¤§å°ï¼Œå•ä½ä¸ºå­—èŠ‚
 	*/
 	inline size_t size() const {return _size;}
 public:
-	/** Ä¬ÈÏ¹¹Ôìº¯Êı
-	* @return ÎŞ
+	/** é»˜è®¤æ„é€ å‡½æ•°
+	* @return æ— 
 	*/
 	Buffer(size_t size=0,size_t growth=512);
 	
-	/** Çå¿ÕBuffer
-	* @return ÎŞ
+	/** æ¸…ç©ºBuffer
+	* @return æ— 
 	*/
 	void clear();
-	/** Ä¬ÈÏÎö¹¹º¯Êı
-	* @return ÎŞ
+	/** é»˜è®¤ææ„å‡½æ•°
+	* @return æ— 
 	*/
 	~Buffer();
-	/** ¹¹Ôìº¯Êı£¬Èç¹ûallocÎªÕæ£¬Ôò»áĞÂÉêÇëÒ»¿é´óĞ¡ÎªsizeµÄÄÚ´æ¿é£¬²¢¸´ÖÆdataµÄÄÚÈİ£¬·´Ö®£¬ÔòÖ¸Ïòdata
-	* @param [in] data ÄÚ´æ¿éµÄÊ×µØÖ·Ö¸Õë  
-	* @param [in] size ½«±»Ğ´ÈëµÄÊı¾İ´óĞ¡
-	* @param [in] alloc ÊÇ·ñĞèÒª·ÖÅäĞÂµÄÄÚ´æ
-	* @return ÎŞ
+	/** æ„é€ å‡½æ•°ï¼Œå¦‚æœallocä¸ºçœŸï¼Œåˆ™ä¼šæ–°ç”³è¯·ä¸€å—å¤§å°ä¸ºsizeçš„å†…å­˜å—ï¼Œå¹¶å¤åˆ¶dataçš„å†…å®¹ï¼Œåä¹‹ï¼Œåˆ™æŒ‡å‘data
+	* @param [in] data å†…å­˜å—çš„é¦–åœ°å€æŒ‡é’ˆ  
+	* @param [in] size å°†è¢«å†™å…¥çš„æ•°æ®å¤§å°
+	* @param [in] alloc æ˜¯å¦éœ€è¦åˆ†é…æ–°çš„å†…å­˜
+	* @return æ— 
 	*/
 	Buffer(void * data,size_t size,bool alloc=false,size_t growth=512);
-	/** ¿½±´¹¹Ôìº¯Êı
-	* @return ÎŞ
+	/** æ‹·è´æ„é€ å‡½æ•°
+	* @return æ— 
 	*/
 	Buffer(const Buffer & b);
-	/** µÈºÅ¸³Öµ²Ù×÷
-	* @return ÎŞ
+	/** ç­‰å·èµ‹å€¼æ“ä½œ
+	* @return æ— 
 	*/
 	Buffer operator = (const Buffer & b);
-	/** /¿½±´Bufferº¯Êı£¬Èç¹ûbµÄ_alloc³ÉÔ±Îª¼Ù£¬Ôò¿½±´ºóµÄBuffer¶ÔÏóÓëb¹«ÓÃÒ»¸öÄÚ´æ¿é£¬·ñÔòÎªÄÚ´æ¿é¿½±´
+	/** /æ‹·è´Bufferå‡½æ•°ï¼Œå¦‚æœbçš„_allocæˆå‘˜ä¸ºå‡ï¼Œåˆ™æ‹·è´åçš„Bufferå¯¹è±¡ä¸bå…¬ç”¨ä¸€ä¸ªå†…å­˜å—ï¼Œå¦åˆ™ä¸ºå†…å­˜å—æ‹·è´
 	* @param [in] buf Buffer 
-	* @return ÎŞ
+	* @return æ— 
 	*/
 	void copy(const Buffer & buf);	
-	/** //ÉèÖÃ»º³åÇø£¬Èç¹ûallocÎªÕæ£¬Ôò»áĞÂÉêÇëÒ»¿é´óĞ¡ÎªsizeµÄÄÚ´æ¿é£¬²¢¸´ÖÆdataµÄÄÚÈİ£¬·´Ö®£¬ÔòÖ¸Ïòdata
-	* @param [in] data ÄÚ´æ¿éµÄÊ×µØÖ·Ö¸Õë  
-	* @param [in] size ½«±»Ğ´ÈëµÄÊı¾İ´óĞ¡
-	* @param [in] alloc ÊÇ·ñĞèÒª·ÖÅäĞÂµÄÄÚ´æ
-	* @return ÎŞ
+	/** //è®¾ç½®ç¼“å†²åŒºï¼Œå¦‚æœallocä¸ºçœŸï¼Œåˆ™ä¼šæ–°ç”³è¯·ä¸€å—å¤§å°ä¸ºsizeçš„å†…å­˜å—ï¼Œå¹¶å¤åˆ¶dataçš„å†…å®¹ï¼Œåä¹‹ï¼Œåˆ™æŒ‡å‘data
+	* @param [in] data å†…å­˜å—çš„é¦–åœ°å€æŒ‡é’ˆ  
+	* @param [in] size å°†è¢«å†™å…¥çš„æ•°æ®å¤§å°
+	* @param [in] alloc æ˜¯å¦éœ€è¦åˆ†é…æ–°çš„å†…å­˜
+	* @return æ— 
 	*/
 	void set(void * data, size_t ss,bool b_alloc=false);
-	/** ÉèÖÃ»º³åÇøÖĞµ±Ç°Ö¸ÕëÎ»ÖÃ
-	* @param [in] pos ÄÚ´æ¿éµÄÖ¸ÕëÎ»ÖÃ£¬´ÓÍ·µØÖ·¿ªÊ¼¼ÆËã£¬µ¥Î»Îª×Ö½Ú
-	* @return ÎŞ
+	/** è®¾ç½®ç¼“å†²åŒºä¸­å½“å‰æŒ‡é’ˆä½ç½®
+	* @param [in] pos å†…å­˜å—çš„æŒ‡é’ˆä½ç½®ï¼Œä»å¤´åœ°å€å¼€å§‹è®¡ç®—ï¼Œå•ä½ä¸ºå­—èŠ‚
+	* @return æ— 
 	*/
 	inline void setPos(size_t pos){	
 		if(_size>0){
@@ -134,101 +133,101 @@ public:
 			assert(pos < _size && pos >= 0);
 		}			
 	}
-	/** »ñÈ¡»º³åÇøÖĞµ±Ç°Ö¸ÕëÎ»ÖÃ
-	* @param ÎŞ
-	* @return ÄÚ´æ¿éµÄÖ¸ÕëÎ»ÖÃ£¬´ÓÍ·µØÖ·¿ªÊ¼¼ÆËã£¬µ¥Î»Îª×Ö½Ú
+	/** è·å–ç¼“å†²åŒºä¸­å½“å‰æŒ‡é’ˆä½ç½®
+	* @param æ— 
+	* @return å†…å­˜å—çš„æŒ‡é’ˆä½ç½®ï¼Œä»å¤´åœ°å€å¼€å§‹è®¡ç®—ï¼Œå•ä½ä¸ºå­—èŠ‚
 	*/
 	inline size_t getPos() {	return _curpos;	}
-	/** »ñÈ¡µ±Ç°Î»ÖÃÖ¸Õë
-	* @param ÎŞ
-	* @return ÄÚ´æ¿éµÄµ±Ç°¶ÁĞ´Ö¸Õë
+	/** è·å–å½“å‰ä½ç½®æŒ‡é’ˆ
+	* @param æ— 
+	* @return å†…å­˜å—çš„å½“å‰è¯»å†™æŒ‡é’ˆ
 	*/
 	inline void * getCurPtr() { return (void*)(((char *)_data)+_curpos);}
-	/** ÖØĞÂÉèÖÃBuffer´óĞ¡
-	* @param [in] newsize    ĞÂµÄBuffer´óĞ¡
+	/** é‡æ–°è®¾ç½®Bufferå¤§å°
+	* @param [in] newsize    æ–°çš„Bufferå¤§å°
 	* @return 
 	*/
 	void resize(size_t newsize);
-	/** ½«ÒÑ¾­´æÔÚµÄÄÚ´æ¿é½»¸¶¸øBufferÀ´½øĞĞ¹ÜÀí£¬Íâ²¿²»ÄÜ¶ÔÕâ¸öÄÚ´æ¿é½øĞĞÏú»Ù
-	* @param [in] pBlock    ÄÚ´æ¿éÊ×µØÖ·Ö¸Õë
-	* @param [in] blockSize ÄÚ´æ¿é´óĞ¡£¬µ¥Î»Îª×Ö½Ú
+	/** å°†å·²ç»å­˜åœ¨çš„å†…å­˜å—äº¤ä»˜ç»™Bufferæ¥è¿›è¡Œç®¡ç†ï¼Œå¤–éƒ¨ä¸èƒ½å¯¹è¿™ä¸ªå†…å­˜å—è¿›è¡Œé”€æ¯
+	* @param [in] pBlock    å†…å­˜å—é¦–åœ°å€æŒ‡é’ˆ
+	* @param [in] blockSize å†…å­˜å—å¤§å°ï¼Œå•ä½ä¸ºå­—èŠ‚
 	* @return 
 	*/
 	void attach(void *pBlock,size_t blockSize);
-	/** ½«Buffer¹ÜÀíµÄÄÚ´æ¿éµÄ¹ÜÀíÈ¨ÏŞÊÍ·Å³öÀ´£¬£¬ÓÃÍêºóĞèÒª×ÔĞĞÊÍ·ÅÄÚ´æ
-	* @param [out] s ·µ»ØÄÚ´æ¿éµÄ´óĞ¡£¬µ¥Î»·µ»Ø¸ÃÄÚ´æ¿éµÄÖ¸ÕëÎª×Ö½Ú
-	* @return ·µ»Ø¸ÃÄÚ´æ¿éµÄÖ¸Õë
+	/** å°†Bufferç®¡ç†çš„å†…å­˜å—çš„ç®¡ç†æƒé™é‡Šæ”¾å‡ºæ¥ï¼Œï¼Œç”¨å®Œåéœ€è¦è‡ªè¡Œé‡Šæ”¾å†…å­˜
+	* @param [out] s è¿”å›å†…å­˜å—çš„å¤§å°ï¼Œå•ä½è¿”å›è¯¥å†…å­˜å—çš„æŒ‡é’ˆä¸ºå­—èŠ‚
+	* @return è¿”å›è¯¥å†…å­˜å—çš„æŒ‡é’ˆ
 	*/
 	void* detach(size_t & s);
-	/** ÉèÖÃÄÚ´æÖµ£¬ÔÚÖ¸¶¨µÄÎ»ÖÃbeginpos´¦ÏòºóĞ´Èëcount¸ö×Ö·û
-	* @param [in] beginpos ÆğÊ¼Ğ´ÈëÎ»ÖÃ  
-	* @param [in] cdata ½«±»Ğ´ÈëµÄÊı¾İÖ¸Õë
-	* @param [in] count ½«±»Ğ´ÈëµÄÊı¾İ´óĞ¡
+	/** è®¾ç½®å†…å­˜å€¼ï¼Œåœ¨æŒ‡å®šçš„ä½ç½®beginposå¤„å‘åå†™å…¥countä¸ªå­—ç¬¦
+	* @param [in] beginpos èµ·å§‹å†™å…¥ä½ç½®  
+	* @param [in] cdata å°†è¢«å†™å…¥çš„æ•°æ®æŒ‡é’ˆ
+	* @param [in] count å°†è¢«å†™å…¥çš„æ•°æ®å¤§å°
 	* @return
 	*/
 	void write(size_t beginpos,void * cdata,size_t count);
 
-	/** ÉèÖÃÄÚ´æÖµ£¬ÔÚBuffer¶ÔÏóÄ¬ÈÏµÄÎ»ÖÃ£¬ÏòºóĞ´Èëcount¸ö×Ö·û
-	* Ğ´Èë²Ù×÷ºó£¬µ±Ç°Ö¸ÕëÏà¶ÔÄÚ´æ¿éÍ·µÄÎ»ÖÃ×Ô¶¯ÏòºóÒÆ¶¯countÎ»
-	* @param [in] cdata ½«±»Ğ´ÈëµÄÊı¾İÖ¸Õë
-	* @param [in] count ½«±»Ğ´ÈëµÄÊı¾İ´óĞ¡
+	/** è®¾ç½®å†…å­˜å€¼ï¼Œåœ¨Bufferå¯¹è±¡é»˜è®¤çš„ä½ç½®ï¼Œå‘åå†™å…¥countä¸ªå­—ç¬¦
+	* å†™å…¥æ“ä½œåï¼Œå½“å‰æŒ‡é’ˆç›¸å¯¹å†…å­˜å—å¤´çš„ä½ç½®è‡ªåŠ¨å‘åç§»åŠ¨countä½
+	* @param [in] cdata å°†è¢«å†™å…¥çš„æ•°æ®æŒ‡é’ˆ
+	* @param [in] count å°†è¢«å†™å…¥çš„æ•°æ®å¤§å°
 	* @return
 	*/
 	void write(void * cdata, size_t count);
 
-	/** »ñÈ¡ÄÚ´æÖµ£¬ÔÚBuffer¶ÔÏóÄ¬ÈÏµÄÎ»ÖÃ£¬Ïòºó»ñÈ¡count¸ö×Ö·û
-	* »ñÈ¡²Ù×÷ºó£¬µ±Ç°Ö¸ÕëÏà¶ÔÄÚ´æ¿éÍ·µÄÎ»ÖÃ×Ô¶¯ÏòºóÒÆ¶¯countÎ»
-	* @param [in] cdata ½«±»¸³ÖµµÄÊı¾İÖ¸Õë
-	* @param [in] count	½«»ñÈ¡µÄÊı¾İ´óĞ¡
+	/** è·å–å†…å­˜å€¼ï¼Œåœ¨Bufferå¯¹è±¡é»˜è®¤çš„ä½ç½®ï¼Œå‘åè·å–countä¸ªå­—ç¬¦
+	* è·å–æ“ä½œåï¼Œå½“å‰æŒ‡é’ˆç›¸å¯¹å†…å­˜å—å¤´çš„ä½ç½®è‡ªåŠ¨å‘åç§»åŠ¨countä½
+	* @param [in] cdata å°†è¢«èµ‹å€¼çš„æ•°æ®æŒ‡é’ˆ
+	* @param [in] count	å°†è·å–çš„æ•°æ®å¤§å°
 	* @return
 	*/
 	void read(void* cdata, size_t count);
-	/** ÔÚBuffer¶ÔÏóÄ¬ÈÏµÄÎ»ÖÃ£¬ÏòºóĞ´Èë×Ö·û´®
-	* @param [in] sz ½«±»Ğ´ÈëµÄ×Ö·û´®
+	/** åœ¨Bufferå¯¹è±¡é»˜è®¤çš„ä½ç½®ï¼Œå‘åå†™å…¥å­—ç¬¦ä¸²
+	* @param [in] sz å°†è¢«å†™å…¥çš„å­—ç¬¦ä¸²
 	* @return
 	*/
 	void write(const std::string & sz);
-	/** ÔÚBuffer¶ÔÏóÄ¬ÈÏµÄÎ»ÖÃ£¬¶Á³ö×Ö·û´®
-	* @param [in] sz ½«±»Ğ´ÈëµÄ×Ö·û´®
+	/** åœ¨Bufferå¯¹è±¡é»˜è®¤çš„ä½ç½®ï¼Œè¯»å‡ºå­—ç¬¦ä¸²
+	* @param [in] sz å°†è¢«å†™å…¥çš„å­—ç¬¦ä¸²
 	* @return
 	*/
 	void read(std::string & sz);
-	/** ÔÚBuffer¶ÔÏóÄ¬ÈÏµÄÎ»ÖÃ£¬¶Á³ö×Ö·û´®
-	* @return ×Ö·û´®
+	/** åœ¨Bufferå¯¹è±¡é»˜è®¤çš„ä½ç½®ï¼Œè¯»å‡ºå­—ç¬¦ä¸²
+	* @return å­—ç¬¦ä¸²
 	*/
 	std::string readString();
-	/** ÔÚBuffer¶ÔÏóÄ¬ÈÏµÄÎ»ÖÃ£¬Ğ´ÈëÒ»¸öEnvelope3d¶ÔÏó
-	* @param [in] envelope ±»Ğ´ÈëµÄEnvelope3d
+	/** åœ¨Bufferå¯¹è±¡é»˜è®¤çš„ä½ç½®ï¼Œå†™å…¥ä¸€ä¸ªEnvelope3då¯¹è±¡
+	* @param [in] envelope è¢«å†™å…¥çš„Envelope3d
 	* @return
 	*/
 	void write(Envelope3d & envelope );
-	/** ÔÚBuffer¶ÔÏóÄ¬ÈÏµÄÎ»ÖÃ£¬¶Á³öÒ»¸öEnvelope3d¶ÔÏó
-	* @param [in] envelope ¶Á³öµÄEnvelope3d
+	/** åœ¨Bufferå¯¹è±¡é»˜è®¤çš„ä½ç½®ï¼Œè¯»å‡ºä¸€ä¸ªEnvelope3då¯¹è±¡
+	* @param [in] envelope è¯»å‡ºçš„Envelope3d
 	* @return
 	*/
 	void read(Envelope3d & envelope );
-	/** ÔÚBuffer¶ÔÏóÄ¬ÈÏµÄÎ»ÖÃ£¬Ğ´ÈëÒ»¸öVertex3dList¶ÔÏó
-	* @param [in] vlist ±»Ğ´ÈëµÄVertex3dList
+	/** åœ¨Bufferå¯¹è±¡é»˜è®¤çš„ä½ç½®ï¼Œå†™å…¥ä¸€ä¸ªVertex3dListå¯¹è±¡
+	* @param [in] vlist è¢«å†™å…¥çš„Vertex3dList
 	* @return
 	*/
 	void write(Vertex3dList & vlist );
-	/** ÔÚBuffer¶ÔÏóÄ¬ÈÏµÄÎ»ÖÃ£¬¶Á³öÒ»¸öVertex3dList¶ÔÏó
-	* @param [in] vlist ¶Á³öµÄVertex3dList
+	/** åœ¨Bufferå¯¹è±¡é»˜è®¤çš„ä½ç½®ï¼Œè¯»å‡ºä¸€ä¸ªVertex3dListå¯¹è±¡
+	* @param [in] vlist è¯»å‡ºçš„Vertex3dList
 	* @return
 	*/
 	void read(Vertex3dList & vlist );
-	/** ÔÚBuffer¶ÔÏóÄ¬ÈÏµÄÎ»ÖÃ£¬Ğ´ÈëÒ»¸öColor3bList¶ÔÏó
-	* @param [in] clist ±»Ğ´ÈëµÄColor3bList
+	/** åœ¨Bufferå¯¹è±¡é»˜è®¤çš„ä½ç½®ï¼Œå†™å…¥ä¸€ä¸ªColor3bListå¯¹è±¡
+	* @param [in] clist è¢«å†™å…¥çš„Color3bList
 	* @return
 	*/
 	void write(Color3bList & clist );
-	/** ÔÚBuffer¶ÔÏóÄ¬ÈÏµÄÎ»ÖÃ£¬¶Á³öÒ»¸öColor3bList¶ÔÏó
-	* @param [in] clist ¶Á³öµÄColor3bList
+	/** åœ¨Bufferå¯¹è±¡é»˜è®¤çš„ä½ç½®ï¼Œè¯»å‡ºä¸€ä¸ªColor3bListå¯¹è±¡
+	* @param [in] clist è¯»å‡ºçš„Color3bList
 	* @return
 	*/
 	void read(Color3bList & clist );	
-	/** ½«Ö¸¶¨µÄÎÄ¼şÄÚÈİ¶ÁÈëBufferÖĞ
-	* @param [in] pathName ÎÄ¼şÈ«Ãû
+	/** å°†æŒ‡å®šçš„æ–‡ä»¶å†…å®¹è¯»å…¥Bufferä¸­
+	* @param [in] pathName æ–‡ä»¶å…¨å
 	* @return
 	*/
 	bool loadFile(const string & pathName);

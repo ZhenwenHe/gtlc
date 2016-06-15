@@ -1,4 +1,4 @@
-/*
+ï»¿/*
 * Geosciences Template Library
 *
 * Copyright (c) 2008
@@ -25,25 +25,25 @@ begin_gdb_namespace
 class  TexturedVertex3d : public Vertex3d
 {
 public: 
-	/** ÎÆÀí×ø±ê */
+	/** çº¹ç†åæ ‡ */
 	double u, v; 
 public: 
 
-	/** ¹¹Ôìº¯Êı1
+	/** æ„é€ å‡½æ•°1
 	*/
 	TexturedVertex3d(double dx = 0.0, double dy = 0.0, double dz = 0.0, double du = 0.0, double dv = 0.0) :Vertex3d(dx, dy, dz), u(du), v(dv)
 	{
 
 	}
 
-	/** ¹¹Ôìº¯Êı2
+	/** æ„é€ å‡½æ•°2
 	*/
 	TexturedVertex3d(Vertex3d& vVertex, double du = 0.0, double dv = 0.0) :Vertex3d(vVertex), u(du), v(dv)
 	{
 
 	}
 
-	/** ¹¹Ôìº¯Êı3
+	/** æ„é€ å‡½æ•°3
 	*/
 	TexturedVertex3d(Vertex3d& vVertex, Vertex2d& vText) :Vertex3d(vVertex), u(vText.x), v(vText.y)
 	{

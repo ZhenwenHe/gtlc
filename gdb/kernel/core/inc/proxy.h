@@ -1,4 +1,4 @@
-/*
+ï»¿/*
 * Geosciences Template Library
 *
 * Copyright (c) 2008
@@ -31,12 +31,12 @@ begin_gdb_namespace
 
 class QResult;
 
-/** @defgroup proxy Proxy-Êı¾İ²éÑ¯½Ó¿Ú  
+/** @defgroup proxy Proxy-æ•°æ®æŸ¥è¯¢æ¥å£  
     *  @{
     */
 class CORE_API Proxy {	
 	
-	/** @name ¹¹ÔìÓëÎö¹¹º¯Êı 
+	/** @name æ„é€ ä¸ææ„å‡½æ•° 
 		*  @{
 		*/
 protected:	
@@ -44,357 +44,357 @@ protected:
 public:
 	virtual ~Proxy();
 	/** @} */ 
-	/** @name ±£»¤³ÉÔ±±äÁ¿ËµÃ÷  
+	/** @name ä¿æŠ¤æˆå‘˜å˜é‡è¯´æ˜  
 	*  @{
 	*/
 protected:
-	/** ÁÙÊ±²ãÖ¸Õë */
+	/** ä¸´æ—¶å±‚æŒ‡é’ˆ */
 	TemporarySets * _tempsets;
 	/** @} */ 
 
 protected:
-	/** @name ±£»¤³ÉÔ±º¯ÊıËµÃ÷  
+	/** @name ä¿æŠ¤æˆå‘˜å‡½æ•°è¯´æ˜  
 	*  @{
 	*/
 
 public:
 	virtual void setTemporarySets(TemporarySets * p) {_tempsets = p;}
 
-	/** »ñÈ¡ÁÙÊ±ÒªËØ¼¯
-	* @param  ÎŞ
-	* @return tempSets ÁÙÊ±ÒªËØ¼¯µÄÒıÓÃ
+	/** è·å–ä¸´æ—¶è¦ç´ é›†
+	* @param  æ— 
+	* @return tempSets ä¸´æ—¶è¦ç´ é›†çš„å¼•ç”¨
 	*/	
 	virtual TemporarySets& getTemporarySets()  { return * _tempsets;}
 	/** @} */ 
 
-		/** @name ËùÓĞµÄ²éÑ¯²Ù×÷º¯Êı 
+		/** @name æ‰€æœ‰çš„æŸ¥è¯¢æ“ä½œå‡½æ•° 
 	*  @{
 	*/
-	/** ²éÑ¯Ö¸¶¨°üÎ§ºĞÄÚµÄËùÓĞÒªËØ¶ÔÏó
-	* @param  [in] bound °üÎ§ºĞ·¶Î§
-	* @param  [in] fcid ÒªËØÀàID¼¯ºÏ
-	* @param  [out] objs ²éÑ¯µ½µÄËùÓĞÒªËØ¶ÔÏó¼¯ºÏ
-	* @param  [in] readProps ÊÇ·ñ¶ÁÈ¡ÒªËØ¶ÔÏóµÄÊôĞÔ
-	* @param  [in] r ¹ıÂË°ë¾¶£¬Èç¹û¶ÔÏóµÄ°üÎ§ºĞ°ë¾¶Ğ¡ÓÚrÔò²»µ÷¶È
-	* @param  [in] removes°üº¬ÔÚÊı×éÖĞµÄFID²»ĞèÒª½øĞĞµ÷¶È
-	* @return Èç¹û²éÑ¯³É¹¦£¬·µ»Øtrue£¬·ñÔò·µ»Øfalse
+	/** æŸ¥è¯¢æŒ‡å®šåŒ…å›´ç›’å†…çš„æ‰€æœ‰è¦ç´ å¯¹è±¡
+	* @param  [in] bound åŒ…å›´ç›’èŒƒå›´
+	* @param  [in] fcid è¦ç´ ç±»IDé›†åˆ
+	* @param  [out] objs æŸ¥è¯¢åˆ°çš„æ‰€æœ‰è¦ç´ å¯¹è±¡é›†åˆ
+	* @param  [in] readProps æ˜¯å¦è¯»å–è¦ç´ å¯¹è±¡çš„å±æ€§
+	* @param  [in] r è¿‡æ»¤åŠå¾„ï¼Œå¦‚æœå¯¹è±¡çš„åŒ…å›´ç›’åŠå¾„å°äºråˆ™ä¸è°ƒåº¦
+	* @param  [in] removesåŒ…å«åœ¨æ•°ç»„ä¸­çš„FIDä¸éœ€è¦è¿›è¡Œè°ƒåº¦
+	* @return å¦‚æœæŸ¥è¯¢æˆåŠŸï¼Œè¿”å›trueï¼Œå¦åˆ™è¿”å›false
 	*/
 	virtual bool queryByBox(const Envelope3dRef bound, 		
 		const std::vector<FCLSID> & fcid,
 		std::vector<FeatureSharedPtr> & objs,
 		const bool readProps = true,const double &r = 0.0,std::vector<FID> * removes=0)=0;
 
-	/** ²éÑ¯Ö¸¶¨°üÎ§ºĞÄÚµÄËùÓĞÒªËØ¶ÔÏó
-	* @param  [in] bound °üÎ§ºĞ·¶Î§
-	* @param  [in] fcid ÒªËØÀàID¼¯ºÏ
-	* @param  [in] readProps ÊÇ·ñ¶ÁÈ¡ÒªËØ¶ÔÏóµÄÊôĞÔ
-	* @return ²éÑ¯½á¹ûµÄ¹²ÏíÖ¸Õë
+	/** æŸ¥è¯¢æŒ‡å®šåŒ…å›´ç›’å†…çš„æ‰€æœ‰è¦ç´ å¯¹è±¡
+	* @param  [in] bound åŒ…å›´ç›’èŒƒå›´
+	* @param  [in] fcid è¦ç´ ç±»IDé›†åˆ
+	* @param  [in] readProps æ˜¯å¦è¯»å–è¦ç´ å¯¹è±¡çš„å±æ€§
+	* @return æŸ¥è¯¢ç»“æœçš„å…±äº«æŒ‡é’ˆ
 	*/
 	virtual std::shared_ptr<QResult> queryByBox(const Envelope3dRef bound, 		
 		const std::vector<FCLSID> & fcid, const bool readProps = true)=0;
 
-	/** ²éÑ¯Ö¸¶¨µãÑ¡µÄËùÓĞÒªËØ¶ÔÏó
-	* @param  [in] point Ñ¡ÔñµÄ¶¥µã
-	* @param  [in] fcid ÒªËØÀàID¼¯ºÏ
-	* @param  [out] objs ²éÑ¯µ½µÄËùÓĞÒªËØ¶ÔÏó¼¯ºÏ
-	* @param  [in] readProps ÊÇ·ñ¶ÁÈ¡ÒªËØ¶ÔÏóµÄÊôĞÔ
-	* @return Èç¹û²éÑ¯³É¹¦£¬·µ»Øtrue£¬·ñÔò·µ»Øfalse
+	/** æŸ¥è¯¢æŒ‡å®šç‚¹é€‰çš„æ‰€æœ‰è¦ç´ å¯¹è±¡
+	* @param  [in] point é€‰æ‹©çš„é¡¶ç‚¹
+	* @param  [in] fcid è¦ç´ ç±»IDé›†åˆ
+	* @param  [out] objs æŸ¥è¯¢åˆ°çš„æ‰€æœ‰è¦ç´ å¯¹è±¡é›†åˆ
+	* @param  [in] readProps æ˜¯å¦è¯»å–è¦ç´ å¯¹è±¡çš„å±æ€§
+	* @return å¦‚æœæŸ¥è¯¢æˆåŠŸï¼Œè¿”å›trueï¼Œå¦åˆ™è¿”å›false
 	*/
 	virtual bool queryByPoint(const Vertex3dRef point, 
 		const std::vector<FCLSID> & fcid, 
 		std::vector<FeatureSharedPtr> & objs, const bool readProps = true)=0;	
 
-	/** ²éÑ¯ÏßÍ¨¹ıµÄËùÓĞÒªËØ¶ÔÏó
-	* @param  [in] mpline Ñ¡ÔñµÄÏß
-	* @param  [in] fcid ÒªËØÀàID¼¯ºÏ
-	* @param  [out] objs ²éÑ¯µ½µÄËùÓĞÒªËØ¶ÔÏó¼¯ºÏ
-	* @param  [in] readProps ÊÇ·ñ¶ÁÈ¡ÒªËØ¶ÔÏóµÄÊôĞÔ
-	* @return Èç¹û²éÑ¯³É¹¦£¬·µ»Øtrue£¬·ñÔò·µ»Øfalse
+	/** æŸ¥è¯¢çº¿é€šè¿‡çš„æ‰€æœ‰è¦ç´ å¯¹è±¡
+	* @param  [in] mpline é€‰æ‹©çš„çº¿
+	* @param  [in] fcid è¦ç´ ç±»IDé›†åˆ
+	* @param  [out] objs æŸ¥è¯¢åˆ°çš„æ‰€æœ‰è¦ç´ å¯¹è±¡é›†åˆ
+	* @param  [in] readProps æ˜¯å¦è¯»å–è¦ç´ å¯¹è±¡çš„å±æ€§
+	* @return å¦‚æœæŸ¥è¯¢æˆåŠŸï¼Œè¿”å›trueï¼Œå¦åˆ™è¿”å›false
 	*/	
 	virtual bool queryByLine(const Vertex3dVector & mpline ,
 		const std::vector<FCLSID> & fcid, 
 		std::vector<FeatureSharedPtr> & objs, const bool readProps = true)=0;
 
-	/** ²éÑ¯ÏßÍ¨¹ıµÄËùÓĞÒªËØ¶ÔÏó
-	* @param  [in] mpline Ñ¡ÔñµÄÏß
-	* @param  [in] fcid ÒªËØÀàID¼¯ºÏ
-	* @param  [in] readProps ÊÇ·ñ¶ÁÈ¡ÒªËØ¶ÔÏóµÄÊôĞÔ
-	* @return ²éÑ¯½á¹ûµÄ¹²ÏíÖ¸Õë
+	/** æŸ¥è¯¢çº¿é€šè¿‡çš„æ‰€æœ‰è¦ç´ å¯¹è±¡
+	* @param  [in] mpline é€‰æ‹©çš„çº¿
+	* @param  [in] fcid è¦ç´ ç±»IDé›†åˆ
+	* @param  [in] readProps æ˜¯å¦è¯»å–è¦ç´ å¯¹è±¡çš„å±æ€§
+	* @return æŸ¥è¯¢ç»“æœçš„å…±äº«æŒ‡é’ˆ
 	*/
 	virtual std::shared_ptr<QResult> queryByLine(const Vertex3dVector & mpline ,
 		const std::vector<FCLSID> & fcid, const bool readProps = true)=0;
 
-	/** ²éÑ¯Ö¸¶¨¶à±ßĞÎ·¶Î§ÄÚµÄËùÓĞÒªËØ¶ÔÏó
-	* @param  [in] mpgon Ñ¡ÔñµÄ¶à±ßĞÎ·¶Î§
-	* @param  [in] fcid ÒªËØÀàID¼¯ºÏ
-	* @param  [out] objs ²éÑ¯µ½µÄËùÓĞÒªËØ¶ÔÏó¼¯ºÏ
-	* @param  [in] readProps ÊÇ·ñ¶ÁÈ¡ÒªËØ¶ÔÏóµÄÊôĞÔ
-	* @return Èç¹û²éÑ¯³É¹¦£¬·µ»Øtrue£¬·ñÔò·µ»Øfalse
+	/** æŸ¥è¯¢æŒ‡å®šå¤šè¾¹å½¢èŒƒå›´å†…çš„æ‰€æœ‰è¦ç´ å¯¹è±¡
+	* @param  [in] mpgon é€‰æ‹©çš„å¤šè¾¹å½¢èŒƒå›´
+	* @param  [in] fcid è¦ç´ ç±»IDé›†åˆ
+	* @param  [out] objs æŸ¥è¯¢åˆ°çš„æ‰€æœ‰è¦ç´ å¯¹è±¡é›†åˆ
+	* @param  [in] readProps æ˜¯å¦è¯»å–è¦ç´ å¯¹è±¡çš„å±æ€§
+	* @return å¦‚æœæŸ¥è¯¢æˆåŠŸï¼Œè¿”å›trueï¼Œå¦åˆ™è¿”å›false
 	*/
 	virtual bool queryByPolygon(const Vertex3dVector & mpgon,
 		const std::vector<FCLSID> & fcid, 
 		std::vector<FeatureSharedPtr> & objs, const bool readProps = true)=0;
 
-	/** ²éÑ¯Ö¸¶¨¶à±ßĞÎ·¶Î§ÄÚµÄËùÓĞÒªËØ¶ÔÏó
-	* @param  [in] mpgon Ñ¡ÔñµÄ¶à±ßĞÎ·¶Î§
-	* @param  [in] fcid ÒªËØÀàID¼¯ºÏ
-	* @param  [in] readProps ÊÇ·ñ¶ÁÈ¡ÒªËØ¶ÔÏóµÄÊôĞÔ
-	* @return ²éÑ¯½á¹ûµÄ¹²ÏíÖ¸Õë
+	/** æŸ¥è¯¢æŒ‡å®šå¤šè¾¹å½¢èŒƒå›´å†…çš„æ‰€æœ‰è¦ç´ å¯¹è±¡
+	* @param  [in] mpgon é€‰æ‹©çš„å¤šè¾¹å½¢èŒƒå›´
+	* @param  [in] fcid è¦ç´ ç±»IDé›†åˆ
+	* @param  [in] readProps æ˜¯å¦è¯»å–è¦ç´ å¯¹è±¡çš„å±æ€§
+	* @return æŸ¥è¯¢ç»“æœçš„å…±äº«æŒ‡é’ˆ
 	*/
 	virtual std::shared_ptr<QResult> queryByPolygon(const Vertex3dVector & mpgon,
 		const std::vector<FCLSID> & fcid, const bool readProps = true)=0;
 
-	/** ¸ù¾İ¶ÔÏóµÄ FID ²éÑ¯Ö¸¶¨¶ÔÏó
-	* @param  [in] fid ĞèÒª²éÕÒ¶ÔÏóµÄFID
-	* @param  [in] fcid ĞèÒª²éÕÒ¶ÔÏóµÄÒªËØÀàµÄFCLSID
-	* @param  [out] obj ²éÑ¯µÃµ½µÄÒªËØ¶ÔÏó
-	* @param  [in] readProps ÊÇ·ñ¶ÁÈ¡ÒªËØ¶ÔÏóµÄÊôĞÔ
-	* @return Èç¹û²éÑ¯³É¹¦£¬·µ»Øtrue£¬·ñÔò·µ»Øfalse
+	/** æ ¹æ®å¯¹è±¡çš„ FID æŸ¥è¯¢æŒ‡å®šå¯¹è±¡
+	* @param  [in] fid éœ€è¦æŸ¥æ‰¾å¯¹è±¡çš„FID
+	* @param  [in] fcid éœ€è¦æŸ¥æ‰¾å¯¹è±¡çš„è¦ç´ ç±»çš„FCLSID
+	* @param  [out] obj æŸ¥è¯¢å¾—åˆ°çš„è¦ç´ å¯¹è±¡
+	* @param  [in] readProps æ˜¯å¦è¯»å–è¦ç´ å¯¹è±¡çš„å±æ€§
+	* @return å¦‚æœæŸ¥è¯¢æˆåŠŸï¼Œè¿”å›trueï¼Œå¦åˆ™è¿”å›false
 	*/
 	virtual bool queryByFeatureID(const FID &fid, const FCLSID &fcid,  FeatureSharedPtr & obj, const bool readProps = true)=0; 
 
-	/** ¸ù¾İ¶à¸ö¶ÔÏóµÄfids²éÑ¯¶à¸ö¶ÔÏó
-	* @param  [in] fids ĞèÒª²éÕÒ¶ÔÏóËùÓĞFID¼¯ºÏ
-	* @param  [in] fcid ĞèÒª²éÕÒ¶ÔÏóµÄ¸ÃÒªËØÀàµÄFCLSID
-	* @param  [out] objs ²éÑ¯µÃµ½µÄÒªËØ¶ÔÏó
-	* @param  [in] readProps ÊÇ·ñ¶ÁÈ¡ÒªËØ¶ÔÏóµÄÊôĞÔ
-	* @return Èç¹û²éÑ¯³É¹¦£¬·µ»Øtrue£¬·ñÔò·µ»Øfalse
+	/** æ ¹æ®å¤šä¸ªå¯¹è±¡çš„fidsæŸ¥è¯¢å¤šä¸ªå¯¹è±¡
+	* @param  [in] fids éœ€è¦æŸ¥æ‰¾å¯¹è±¡æ‰€æœ‰FIDé›†åˆ
+	* @param  [in] fcid éœ€è¦æŸ¥æ‰¾å¯¹è±¡çš„è¯¥è¦ç´ ç±»çš„FCLSID
+	* @param  [out] objs æŸ¥è¯¢å¾—åˆ°çš„è¦ç´ å¯¹è±¡
+	* @param  [in] readProps æ˜¯å¦è¯»å–è¦ç´ å¯¹è±¡çš„å±æ€§
+	* @return å¦‚æœæŸ¥è¯¢æˆåŠŸï¼Œè¿”å›trueï¼Œå¦åˆ™è¿”å›false
 	*/
 	virtual bool queryByFeatureIDs(const std::vector<FID> &fids,const FCLSID &fcid,
 		vector <FeatureSharedPtr> &objs, const bool readProps = true)=0;
 
-	/** ¸ù¾İÒªËØÀà»ñÈ¡ID
-	* @param  [in] fcid ĞèÒª²éÕÒµÄÒªËØÀàµÄFCLSID
-	* @param  [out] obj µÃµ½µÄÒªËØ¶ÔÏó
-	* @param  [in] readProps ÊÇ·ñ¶ÁÈ¡ÒªËØ¶ÔÏóµÄÊôĞÔ
-	* @return Èç¹û²éÑ¯³É¹¦£¬·µ»Øtrue£¬·ñÔò·µ»Øfalse
+	/** æ ¹æ®è¦ç´ ç±»è·å–ID
+	* @param  [in] fcid éœ€è¦æŸ¥æ‰¾çš„è¦ç´ ç±»çš„FCLSID
+	* @param  [out] obj å¾—åˆ°çš„è¦ç´ å¯¹è±¡
+	* @param  [in] readProps æ˜¯å¦è¯»å–è¦ç´ å¯¹è±¡çš„å±æ€§
+	* @return å¦‚æœæŸ¥è¯¢æˆåŠŸï¼Œè¿”å›trueï¼Œå¦åˆ™è¿”å›false
 	*/
 	virtual bool queryByFeatureClassID(const FCLSID &fcid, vector<FeatureSharedPtr> & obj,const bool readProps = true)=0; 
 
-	/** ¸ù¾İÒªËØÀàID»ñÈ¡¶ÔÏóID¼¯ºÏ
-	* @param  [in] fcid ĞèÒª²éÕÒµÄÒªËØÀàµÄFCLSID
-	* @param  [out] fids ²éÑ¯µÃµ½µÄÒªËØ¶ÔÏóID¼¯ºÏ
-	* @return Èç¹û²éÑ¯³É¹¦£¬·µ»Øtrue£¬·ñÔò·µ»Øfalse
+	/** æ ¹æ®è¦ç´ ç±»IDè·å–å¯¹è±¡IDé›†åˆ
+	* @param  [in] fcid éœ€è¦æŸ¥æ‰¾çš„è¦ç´ ç±»çš„FCLSID
+	* @param  [out] fids æŸ¥è¯¢å¾—åˆ°çš„è¦ç´ å¯¹è±¡IDé›†åˆ
+	* @return å¦‚æœæŸ¥è¯¢æˆåŠŸï¼Œè¿”å›trueï¼Œå¦åˆ™è¿”å›false
 	*/
 	virtual bool queryFeatureIDsByFeatureClassID(const FCLSID &fcid, vector<FID> & fids)=0; 
 
-	/** ²éÑ¯Ö¸¶¨ÒªËØIDµÄÖ¸¶¨LOD¼¶±ğµÄÒªËØ¶ÔÏó
-	* @param  [in] fid ĞèÒª²éÕÒµÄÒªËØ¶ÔÏóid
-	* @param  [in] flod ĞèÒª²éÕÒµÄÒªËØ¶ÔÏóµÄÖ¸¶¨LOD¼¶±ğ
-	* @param  [in] fcid ĞèÒª²éÕÒµÄÒªËØ¶ÔÏóËùÔÚÒªËØÀàµÄFCLSID
-	* @return ²éÕÒµ½µÄÒªËØ¶ÔÏó
+	/** æŸ¥è¯¢æŒ‡å®šè¦ç´ IDçš„æŒ‡å®šLODçº§åˆ«çš„è¦ç´ å¯¹è±¡
+	* @param  [in] fid éœ€è¦æŸ¥æ‰¾çš„è¦ç´ å¯¹è±¡id
+	* @param  [in] flod éœ€è¦æŸ¥æ‰¾çš„è¦ç´ å¯¹è±¡çš„æŒ‡å®šLODçº§åˆ«
+	* @param  [in] fcid éœ€è¦æŸ¥æ‰¾çš„è¦ç´ å¯¹è±¡æ‰€åœ¨è¦ç´ ç±»çš„FCLSID
+	* @return æŸ¥æ‰¾åˆ°çš„è¦ç´ å¯¹è±¡
 	*/
 	virtual FeatureSharedPtr loadLOD( const FID &fid, const FLOD &flod, const FCLSID &fcid)=0;
 	
-	/** ²éÑ¯Ö¸¶¨ÒªËØIDµÄÖ¸¶¨LOD¼¶±ğµÄÒªËØ¶ÔÏó
-	* @param  [in] fid ĞèÒª²éÕÒµÄÒªËØ¶ÔÏóid
-	* @param  [in] flod ĞèÒª²éÕÒµÄÒªËØ¶ÔÏóµÄÖ¸¶¨LOD¼¶±ğ
-	* @param  [in] fcid ĞèÒª²éÕÒµÄÒªËØ¶ÔÏóËùÔÚÒªËØÀàµÄFCLSID
-	* @param  [out] obj ²éÕÒµ½µÄÒªËØ¶ÔÏó
-	* @return ÎŞ
+	/** æŸ¥è¯¢æŒ‡å®šè¦ç´ IDçš„æŒ‡å®šLODçº§åˆ«çš„è¦ç´ å¯¹è±¡
+	* @param  [in] fid éœ€è¦æŸ¥æ‰¾çš„è¦ç´ å¯¹è±¡id
+	* @param  [in] flod éœ€è¦æŸ¥æ‰¾çš„è¦ç´ å¯¹è±¡çš„æŒ‡å®šLODçº§åˆ«
+	* @param  [in] fcid éœ€è¦æŸ¥æ‰¾çš„è¦ç´ å¯¹è±¡æ‰€åœ¨è¦ç´ ç±»çš„FCLSID
+	* @param  [out] obj æŸ¥æ‰¾åˆ°çš„è¦ç´ å¯¹è±¡
+	* @return æ— 
 	*/
 	virtual void loadLOD( const FID &fid, const FLOD &flod, const FCLSID &fcid, FeatureSharedPtr & obj)=0;
 
-	/** ²éÑ¯Ö¸¶¨ÒªËØIDµÄÖ¸¶¨LOD¼¶±ğµÄÒªËØ¶ÔÏó¼¯ºÏ(flod±ØĞëÎªconstÀàĞÍ)
-	* @param  [in] fid ĞèÒª²éÕÒµÄÒªËØ¶ÔÏóid¼¯ºÏ
-	* @param  [in] flod ĞèÒª²éÕÒµÄÒªËØ¶ÔÏóµÄÖ¸¶¨LOD¼¶±ğ
-	* @param  [in] fcid ĞèÒª²éÕÒµÄÒªËØ¶ÔÏóËùÔÚÒªËØÀàµÄFCLSID
-	* @param  [out] objs ²éÕÒµ½µÄÒªËØ¶ÔÏó¼¯ºÏ
-	* @return ÎŞ
+	/** æŸ¥è¯¢æŒ‡å®šè¦ç´ IDçš„æŒ‡å®šLODçº§åˆ«çš„è¦ç´ å¯¹è±¡é›†åˆ(flodå¿…é¡»ä¸ºconstç±»å‹)
+	* @param  [in] fid éœ€è¦æŸ¥æ‰¾çš„è¦ç´ å¯¹è±¡idé›†åˆ
+	* @param  [in] flod éœ€è¦æŸ¥æ‰¾çš„è¦ç´ å¯¹è±¡çš„æŒ‡å®šLODçº§åˆ«
+	* @param  [in] fcid éœ€è¦æŸ¥æ‰¾çš„è¦ç´ å¯¹è±¡æ‰€åœ¨è¦ç´ ç±»çš„FCLSID
+	* @param  [out] objs æŸ¥æ‰¾åˆ°çš„è¦ç´ å¯¹è±¡é›†åˆ
+	* @return æ— 
 	*/
 	virtual void loadLOD( const std::vector<FID> & fid, const FLOD & flod, const FCLSID &fcid,
 		std::vector<FeatureSharedPtr> &objs)=0;
 
-	/** ²éÑ¯Ö¸¶¨ÒªËØÀàĞÍIDµÄÖ¸¶¨LOD¼¶±ğµÄÒªËØ¶ÔÏó¼¯ºÏ(flod±ØĞëÎª·ÇconstÀàĞÍ)
-	* @param  [in] fcid ĞèÒª²éÕÒµÄÒªËØ¶ÔÏóËùÔÚÒªËØÀàµÄFCLSID¼¯ºÏ
-	* @param  [in] flod ĞèÒª²éÕÒµÄÒªËØ¶ÔÏóµÄÖ¸¶¨LOD¼¶±ğ
-	* @param  [out] objs ²éÕÒµ½µÄÒªËØ¶ÔÏó¼¯ºÏ
-	* @return ÎŞ
+	/** æŸ¥è¯¢æŒ‡å®šè¦ç´ ç±»å‹IDçš„æŒ‡å®šLODçº§åˆ«çš„è¦ç´ å¯¹è±¡é›†åˆ(flodå¿…é¡»ä¸ºéconstç±»å‹)
+	* @param  [in] fcid éœ€è¦æŸ¥æ‰¾çš„è¦ç´ å¯¹è±¡æ‰€åœ¨è¦ç´ ç±»çš„FCLSIDé›†åˆ
+	* @param  [in] flod éœ€è¦æŸ¥æ‰¾çš„è¦ç´ å¯¹è±¡çš„æŒ‡å®šLODçº§åˆ«
+	* @param  [out] objs æŸ¥æ‰¾åˆ°çš„è¦ç´ å¯¹è±¡é›†åˆ
+	* @return æ— 
 	*/
 	virtual void loadLOD( const std::vector<FCLSID> & fcid,
 		const FLOD & flod, 
 		std::vector<FeatureSharedPtr> &objs)=0;
 
-	/** ²éÑ¯Ö¸¶¨ÒªËØ¶ÔÏó¼¯ºÏ
-	* @param  [in] objs ²éÕÒµ½µÄÒªËØ¶ÔÏó¼¯ºÏ
-	* @return ÎŞ
+	/** æŸ¥è¯¢æŒ‡å®šè¦ç´ å¯¹è±¡é›†åˆ
+	* @param  [in] objs æŸ¥æ‰¾åˆ°çš„è¦ç´ å¯¹è±¡é›†åˆ
+	* @return æ— 
 	*/
 	virtual void loadLOD( std::vector<FeatureSharedPtr> &objs)=0;
 
-	/** »ñÈ¡¹¤³ÌÄÚËùÓĞµÄÒªËØÀàĞÍ¼¯ºÏ
-	* @param  [out] fcls_set ²éÕÒµ½µÄËùÓĞÒªËØÀàĞÍ¼¯ºÏ
-	* @return ÎŞ
+	/** è·å–å·¥ç¨‹å†…æ‰€æœ‰çš„è¦ç´ ç±»å‹é›†åˆ
+	* @param  [out] fcls_set æŸ¥æ‰¾åˆ°çš„æ‰€æœ‰è¦ç´ ç±»å‹é›†åˆ
+	* @return æ— 
 	*/
 	virtual void getAllFeatureClass(std::vector<FeatureClassSharedPtr> & fcls_set)=0;
 
-	/** ¸ù¾İÒªËØÀàID»ñÈ¡ÒªËØÀà
-	* @param  [in] fcid ĞèÒª²éÕÒµÄÒªËØÀàĞÍID
-	* @param  [out] fcls ²éÕÒµ½µÄÒªËØÀàĞÍ
-	* @return Èç¹û²éÑ¯³É¹¦£¬Ôò·µ»Øtrue£¬·ñÔò·µ»Øfalse
+	/** æ ¹æ®è¦ç´ ç±»IDè·å–è¦ç´ ç±»
+	* @param  [in] fcid éœ€è¦æŸ¥æ‰¾çš„è¦ç´ ç±»å‹ID
+	* @param  [out] fcls æŸ¥æ‰¾åˆ°çš„è¦ç´ ç±»å‹
+	* @return å¦‚æœæŸ¥è¯¢æˆåŠŸï¼Œåˆ™è¿”å›trueï¼Œå¦åˆ™è¿”å›false
 	*/
 	virtual bool getFeatureClass(const FCLSID &fcid, FeatureClassSharedPtr &fcls)=0; 
 
-	/** ´ÓÎÆÀí¿âÖĞ»ñÈ¡ÎÆÀí¶ÔÏó
-	* @param  [in] texid ĞèÒª²éÕÒµÄÎÆÀíID
-	* @return ²éÕÒµ½µÄÎÆÀí¶ÔÏó
+	/** ä»çº¹ç†åº“ä¸­è·å–çº¹ç†å¯¹è±¡
+	* @param  [in] texid éœ€è¦æŸ¥æ‰¾çš„çº¹ç†ID
+	* @return æŸ¥æ‰¾åˆ°çš„çº¹ç†å¯¹è±¡
 	*/
 	virtual TextureSharedPtr getTexture(const TEXID &texid ,int iLevel = 0 )=0;
 
-	/** ´ÓÎÆÀí¿âÖĞ»ñÈ¡ÎÆÀí¶ÔÏó
-	* @param  [in] texids ĞèÒª²éÕÒµÄËùÓĞÎÆÀíID¼¯ºÏ
-	* @param  [out] Textures ²éÕÒµ½µÄÎÆÀí
-	* @return ÎŞ
+	/** ä»çº¹ç†åº“ä¸­è·å–çº¹ç†å¯¹è±¡
+	* @param  [in] texids éœ€è¦æŸ¥æ‰¾çš„æ‰€æœ‰çº¹ç†IDé›†åˆ
+	* @param  [out] Textures æŸ¥æ‰¾åˆ°çš„çº¹ç†
+	* @return æ— 
 	*/
 	virtual void getTexture(const vector<TEXID> &texids , vector<TextureSharedPtr> &Textures,int iLevel = 0 )=0;
 	
-	/** ´Ó²ÄÖÊ¿âÖĞ»ñÈ¡²ÄÖÊ¶ÔÏó
-	* @param  [in] matid ĞèÒª²éÕÒµÄÎÆÀíID
-	* @return ²éÕÒµ½µÄ²ÄÖÊ¶ÔÏó
+	/** ä»æè´¨åº“ä¸­è·å–æè´¨å¯¹è±¡
+	* @param  [in] matid éœ€è¦æŸ¥æ‰¾çš„çº¹ç†ID
+	* @return æŸ¥æ‰¾åˆ°çš„æè´¨å¯¹è±¡
 	*/
 	virtual MaterialSharedPtr getMaterial(const MATID &matid )=0;
 
-	/** ´Ó²ÄÖÊ¿âÖĞ»ñÈ¡²ÄÖÊ¶ÔÏó
-	* @param  [in] matids ĞèÒª²éÕÒµÄËùÓĞ²ÄÖÊID¼¯ºÏ
-	* @param  [out] Mats ²éÕÒµ½µÄÎÆÀí¼¯ºÏ
-	* @return ÎŞ
+	/** ä»æè´¨åº“ä¸­è·å–æè´¨å¯¹è±¡
+	* @param  [in] matids éœ€è¦æŸ¥æ‰¾çš„æ‰€æœ‰æè´¨IDé›†åˆ
+	* @param  [out] Mats æŸ¥æ‰¾åˆ°çš„çº¹ç†é›†åˆ
+	* @return æ— 
 	*/
 	virtual void getMaterial(const vector<MATID> &matids , vector<MaterialSharedPtr> &Mats )=0;
 
-	/** ´Ó¹²ÏíÄ£ĞÍ¿âÖĞ»ñÈ¡¹²ÏíÄ£ĞÍĞÅÏ¢
-	* @param  [in] mdlid ĞèÒª²éÕÒµÄ¹²ÏíÄ£ĞÍID
-	* @return ²éÕÒµ½µÄ¹²ÏíÄ£ĞÍ
+	/** ä»å…±äº«æ¨¡å‹åº“ä¸­è·å–å…±äº«æ¨¡å‹ä¿¡æ¯
+	* @param  [in] mdlid éœ€è¦æŸ¥æ‰¾çš„å…±äº«æ¨¡å‹ID
+	* @return æŸ¥æ‰¾åˆ°çš„å…±äº«æ¨¡å‹
 	*/
 	virtual SharedModelSharedPtr getSharedModel(const MDLID  &mdlid)=0;
 
-	/** ´Ó¹²ÏíÄ£ĞÍ¿âÖĞ»ñÈ¡¹²ÏíÄ£ĞÍĞÅÏ¢
-	* @param  [in] Modleids ĞèÒª²éÕÒµÄËùÓĞ¹²ÏíÄ£ĞÍID¼¯ºÏ
-	* @param  [out] Modles ²éÕÒµ½µÄÎÆÀí¼¯ºÏ
-	* @return ÎŞ
+	/** ä»å…±äº«æ¨¡å‹åº“ä¸­è·å–å…±äº«æ¨¡å‹ä¿¡æ¯
+	* @param  [in] Modleids éœ€è¦æŸ¥æ‰¾çš„æ‰€æœ‰å…±äº«æ¨¡å‹IDé›†åˆ
+	* @param  [out] Modles æŸ¥æ‰¾åˆ°çš„çº¹ç†é›†åˆ
+	* @return æ— 
 	*/
 	virtual void getSharedModel(const vector<MDLID> &Modleids , vector<SharedModelSharedPtr> &Modles )=0;
 
-	/** ÅĞ¶ÏÖ¸¶¨µÄÊ±¼äÒÔºó£¬Ö¸¶¨µÄFIDÒªËØ¶ÔÏóÊÇ·ñ¸Ä±ä£¬Èç¹û¸Ä±ä·µ»ØTRUE£¬²¢ÇÒ·µ»ØÒ»¸öĞÂµÄÒªËØ¶ÔÏó£¬·ñÔò·µ»ØFALSE£¬µÚÈı¸ö²ÎÊıÎª¿Õ	
-	* @param  [in] t Ö¸¶¨µÄÊ±¼ä
-	* @param  [in] fid Ö¸¶¨ÒªËØ¶ÔÏóID
-	* @param  [in] outpf »ñÈ¡µÄÒÑ¾­¸üĞÂµÄÒªËØ¶ÔÏó
-	* @return Èç¹û²Ù×÷³É¹¦£¬Ôò·µ»Øtrue£¬·ñÔò·µ»Øfalse
+	/** åˆ¤æ–­æŒ‡å®šçš„æ—¶é—´ä»¥åï¼ŒæŒ‡å®šçš„FIDè¦ç´ å¯¹è±¡æ˜¯å¦æ”¹å˜ï¼Œå¦‚æœæ”¹å˜è¿”å›TRUEï¼Œå¹¶ä¸”è¿”å›ä¸€ä¸ªæ–°çš„è¦ç´ å¯¹è±¡ï¼Œå¦åˆ™è¿”å›FALSEï¼Œç¬¬ä¸‰ä¸ªå‚æ•°ä¸ºç©º	
+	* @param  [in] t æŒ‡å®šçš„æ—¶é—´
+	* @param  [in] fid æŒ‡å®šè¦ç´ å¯¹è±¡ID
+	* @param  [in] outpf è·å–çš„å·²ç»æ›´æ–°çš„è¦ç´ å¯¹è±¡
+	* @return å¦‚æœæ“ä½œæˆåŠŸï¼Œåˆ™è¿”å›trueï¼Œå¦åˆ™è¿”å›false
 	*/
 	virtual bool isUpdated(const time_t &t , const FID &fid,FeatureSharedPtr & outpf)=0;
 
 	
-	/** »ñÈ¡ËùÓĞtextureµÄID
-	* @param  [in] g_texID »ñÈ¡µ½µÄËùÓĞtextureµÄID
-	* @return Èç¹û²Ù×÷³É¹¦£¬Ôò·µ»Øtrue£¬·ñÔò·µ»Øfalse
+	/** è·å–æ‰€æœ‰textureçš„ID
+	* @param  [in] g_texID è·å–åˆ°çš„æ‰€æœ‰textureçš„ID
+	* @return å¦‚æœæ“ä½œæˆåŠŸï¼Œåˆ™è¿”å›trueï¼Œå¦åˆ™è¿”å›false
 	*/
 	virtual bool getAllTextureID( std::vector<TEXID> &g_texID)=0;
 
-	/** »ñÈ¡ËùÓĞmaterialµÄID
-	* @param [in]  g_matID »ñÈ¡µ½µÄËùÓĞmaterialµÄID
-	* @return Èç¹û²Ù×÷³É¹¦£¬Ôò·µ»Øtrue£¬·ñÔò·µ»Øfalse
+	/** è·å–æ‰€æœ‰materialçš„ID
+	* @param [in]  g_matID è·å–åˆ°çš„æ‰€æœ‰materialçš„ID
+	* @return å¦‚æœæ“ä½œæˆåŠŸï¼Œåˆ™è¿”å›trueï¼Œå¦åˆ™è¿”å›false
 	*/
 	virtual bool getAllMaterialID( std::vector<MATID> &g_matID) = 0;
 
-	/** »ñÈ¡ËùÓĞ¹²ÏíÄ£ĞÍID
-	* @param [in]  g_mdlID »ñÈ¡µ½µÄËùÓĞ¹²ÏíÄ£ĞÍµÄID
-	* @return Èç¹û²Ù×÷³É¹¦£¬Ôò·µ»Øtrue£¬·ñÔò·µ»Øfalse
+	/** è·å–æ‰€æœ‰å…±äº«æ¨¡å‹ID
+	* @param [in]  g_mdlID è·å–åˆ°çš„æ‰€æœ‰å…±äº«æ¨¡å‹çš„ID
+	* @return å¦‚æœæ“ä½œæˆåŠŸï¼Œåˆ™è¿”å›trueï¼Œå¦åˆ™è¿”å›false
 	*/
 	virtual bool getAllSharedModelID( std::vector<MDLID> &g_mdlID) = 0;
 
-	/** Í¨¹ıSQLÓï¾ä²éÑ¯ÒªËØ¶ÔÏó
-	* @param [in]  fclsid ËùĞèÒª²éÕÒµÄÒªËØ¶ÔÏóÀàĞÍID
-	* @param [in]  sql ²éÑ¯¶ÔÏóµÄSQLÓï¾ä
-	* @param [out]  fResult »ñÈ¡µ½µÄËùÓĞÒªËØ¶ÔÏó¼¯ºÏ
-	* @return Èç¹û²Ù×÷³É¹¦£¬Ôò·µ»Øtrue£¬·ñÔò·µ»Øfalse
+	/** é€šè¿‡SQLè¯­å¥æŸ¥è¯¢è¦ç´ å¯¹è±¡
+	* @param [in]  fclsid æ‰€éœ€è¦æŸ¥æ‰¾çš„è¦ç´ å¯¹è±¡ç±»å‹ID
+	* @param [in]  sql æŸ¥è¯¢å¯¹è±¡çš„SQLè¯­å¥
+	* @param [out]  fResult è·å–åˆ°çš„æ‰€æœ‰è¦ç´ å¯¹è±¡é›†åˆ
+	* @return å¦‚æœæ“ä½œæˆåŠŸï¼Œåˆ™è¿”å›trueï¼Œå¦åˆ™è¿”å›false
 	*/
 	virtual bool queryBySQL(const FCLSID &fclsid,std::string sql,std::vector<FeatureSharedPtr> &fResult) = 0;
 
-	/** »ñÈ¡¹¤³Ì×î´ó°üÎ§ºĞ
-	* @param ÎŞ
-	* @return »ñÈ¡µÄ¹¤³Ì°üÎ§ºĞ
+	/** è·å–å·¥ç¨‹æœ€å¤§åŒ…å›´ç›’
+	* @param æ— 
+	* @return è·å–çš„å·¥ç¨‹åŒ…å›´ç›’
 	*/
 	virtual Envelope3d getEnvelope()= 0;
 
-	/**  ¸ù¾İ´«ÈëµÄFCLSIDµÄÖµ»ñÈ¡ËùÓĞfeaturesµÄ¸öÊı
-	 *	 @param [in]      fclsid   ÒªËØÀàĞÍµÄÎ¨Ò»ID
-	 *   @return »ñÈ¡Ö¸¶¨ÀàĞÍµÄÒªËØ¶ÔÏó¸öÊı    
+	/**  æ ¹æ®ä¼ å…¥çš„FCLSIDçš„å€¼è·å–æ‰€æœ‰featuresçš„ä¸ªæ•°
+	 *	 @param [in]      fclsid   è¦ç´ ç±»å‹çš„å”¯ä¸€ID
+	 *   @return è·å–æŒ‡å®šç±»å‹çš„è¦ç´ å¯¹è±¡ä¸ªæ•°    
 	 */
 	virtual int getFeatureCount(const FCLSID &fclsid) = 0;
 
-	/**  »ñÈ¡¹¤³ÌÏÂËùÓĞÄ£ĞÍÊı¾İÍ³¼ÆĞÅÏ¢
-	*	 @param [in]      info    ¿Õ¼äÊı¾İ¿âÍ³¼ÆĞÅÏ¢£»               
-	*                     info[0] ÒªËØÀàĞÍÖÖÀà¸öÊıÎª m
-	*                     info[1] ÒªËØÀàĞÍ1µÄÒªËØ¸öÊı
-	*                     info[2] ÒªËØÀàĞÍ2µÄÒªËØ¸öÊı
+	/**  è·å–å·¥ç¨‹ä¸‹æ‰€æœ‰æ¨¡å‹æ•°æ®ç»Ÿè®¡ä¿¡æ¯
+	*	 @param [in]      info    ç©ºé—´æ•°æ®åº“ç»Ÿè®¡ä¿¡æ¯ï¼›               
+	*                     info[0] è¦ç´ ç±»å‹ç§ç±»ä¸ªæ•°ä¸º m
+	*                     info[1] è¦ç´ ç±»å‹1çš„è¦ç´ ä¸ªæ•°
+	*                     info[2] è¦ç´ ç±»å‹2çš„è¦ç´ ä¸ªæ•°
 	*                     ...... 
-	*                     info[m] ÒªËØÀàĞÍmµÄÒªËØ¸öÊı
-	*                     info[m+1] ¶¥µãÊı£»
-	*                               ¶¥µãµÄÓĞĞ§ÎÆÀí×ø±êÊı£»
-	*                               ¶¥µãµÄÓĞĞ§ÑÕÉ«Êı£»
-	*								Ãæ¶ÔÏóÊı£»
-	*                               ·¨ÏòÊı£»
-	*                               ×ª»¯ÎªµÈ¼ÛÈı½ÇÃæÆ¬Êı£»
-	*                               ²ÄÖÊÊı
-	*								ÎÆÀíÊı
-	*   @return ·µ»ØÍ³¼ÆĞÅÏ¢    
+	*                     info[m] è¦ç´ ç±»å‹mçš„è¦ç´ ä¸ªæ•°
+	*                     info[m+1] é¡¶ç‚¹æ•°ï¼›
+	*                               é¡¶ç‚¹çš„æœ‰æ•ˆçº¹ç†åæ ‡æ•°ï¼›
+	*                               é¡¶ç‚¹çš„æœ‰æ•ˆé¢œè‰²æ•°ï¼›
+	*								é¢å¯¹è±¡æ•°ï¼›
+	*                               æ³•å‘æ•°ï¼›
+	*                               è½¬åŒ–ä¸ºç­‰ä»·ä¸‰è§’é¢ç‰‡æ•°ï¼›
+	*                               æè´¨æ•°
+	*								çº¹ç†æ•°
+	*   @return è¿”å›ç»Ÿè®¡ä¿¡æ¯    
 	*/
 	virtual int getStatisticsInfo(std::vector<unsigned long long > & info) = 0;
 	/** @} */ 
 
 
-	/** @name ÍØÆË²Ù×÷Ïà¹Øº¯Êı
+	/** @name æ‹“æ‰‘æ“ä½œç›¸å…³å‡½æ•°
 	*  @{
 	*/	
-	/** »ñÈ¡ËùÓĞTOPO½Úµã£¬ÎªÈë¿â³ö¿âËùÓÃ
-	* @param  [out] nodes ÓïÒåÍØÆËµÄ½áµã
-	* @return 0 -- ±íÊ¾Ê§°Ü£¬1 -- ±íÊ¾·µ»Ø³É¹¦
+	/** è·å–æ‰€æœ‰TOPOèŠ‚ç‚¹ï¼Œä¸ºå…¥åº“å‡ºåº“æ‰€ç”¨
+	* @param  [out] nodes è¯­ä¹‰æ‹“æ‰‘çš„ç»“ç‚¹
+	* @return 0 -- è¡¨ç¤ºå¤±è´¥ï¼Œ1 -- è¡¨ç¤ºè¿”å›æˆåŠŸ
 	*/
 	virtual int getAllTopos(std::vector<TopoItemSharedPtr>& nodes) = 0;
 
-	/** »ñÈ¡ËùÓĞTOPOÓïÒåĞÅÏ¢£¬ÎªÈë¿â³ö¿âËùÓÃ
-	* @param  [out] infos ÓïÒåÍØÆËĞÅÏ¢
-	* @return 0 -- ±íÊ¾Ê§°Ü£¬1 -- ±íÊ¾·µ»Ø³É¹¦
+	/** è·å–æ‰€æœ‰TOPOè¯­ä¹‰ä¿¡æ¯ï¼Œä¸ºå…¥åº“å‡ºåº“æ‰€ç”¨
+	* @param  [out] infos è¯­ä¹‰æ‹“æ‰‘ä¿¡æ¯
+	* @return 0 -- è¡¨ç¤ºå¤±è´¥ï¼Œ1 -- è¡¨ç¤ºè¿”å›æˆåŠŸ
 	*/
 	virtual int getAllTopos(std::vector<TopoInfoSharedPtr>&infos) = 0;
 	
-	/** ²éÑ¯Ö¸¶¨ÒªËØIDºÍÖ¸¶¨ÓïÒåÍØÆËÀàĞÍµÄÓïÒåÍØÆË½áµã¼¯ºÏ
-	* @param [in]		fid			ÒªËØID
-	* @param [in]		type		ÓïÒåÍØÆË²éÑ¯ÀàĞÍ, Îª0Ê±±íÊ¾ËùÓĞÀàĞÍ
-	* @param [in]		fclsids		ĞèÒª²éÑ¯µÄÓĞÓïÒåÍØÆË¹ØÏµµÄÒªËØÀàĞÍ
-	* @param [out]	 topologyItems	·µ»ØµÄÓïÒåÍØÆËµÄ½áµã
-	* @param [in]		queryFlag	²éÑ¯±êÊ¶
-	* @return  0 -- ±íÊ¾Ê§°Ü£¬1 -- ±íÊ¾·µ»Ø³É¹¦
+	/** æŸ¥è¯¢æŒ‡å®šè¦ç´ IDå’ŒæŒ‡å®šè¯­ä¹‰æ‹“æ‰‘ç±»å‹çš„è¯­ä¹‰æ‹“æ‰‘ç»“ç‚¹é›†åˆ
+	* @param [in]		fid			è¦ç´ ID
+	* @param [in]		type		è¯­ä¹‰æ‹“æ‰‘æŸ¥è¯¢ç±»å‹, ä¸º0æ—¶è¡¨ç¤ºæ‰€æœ‰ç±»å‹
+	* @param [in]		fclsids		éœ€è¦æŸ¥è¯¢çš„æœ‰è¯­ä¹‰æ‹“æ‰‘å…³ç³»çš„è¦ç´ ç±»å‹
+	* @param [out]	 topologyItems	è¿”å›çš„è¯­ä¹‰æ‹“æ‰‘çš„ç»“ç‚¹
+	* @param [in]		queryFlag	æŸ¥è¯¢æ ‡è¯†
+	* @return  0 -- è¡¨ç¤ºå¤±è´¥ï¼Œ1 -- è¡¨ç¤ºè¿”å›æˆåŠŸ
 	*/	
 	virtual long queryTopos(const FID &fid, const int &type, const vector<FCLSID>& fclsids, vector<TopoItemSharedPtr>& topologyItems, int queryFlag = 0) = 0;
 	
-	/** ²éÑ¯Ö¸¶¨ÒªËØIDºÍÖ¸¶¨ÓïÒåÍØÆËÀàĞÍµÄÓïÒåÍØÆË½áµã¼¯ºÏ
-	* @param [in]		fid			ÒªËØID
-	* @param [in]		type		ÓïÒåÍØÆË²éÑ¯ÀàĞÍ, Îª0Ê±±íÊ¾ËùÓĞÀàĞÍ
-	* @param [out]	topologyItems	·µ»ØµÄÓïÒåÍØÆËµÄ½áµã
-	* @param [in]		queryFlag	²éÑ¯±êÊ¶
-	* @return  0 -- ±íÊ¾Ê§°Ü£¬1 -- ±íÊ¾·µ»Ø³É¹¦
+	/** æŸ¥è¯¢æŒ‡å®šè¦ç´ IDå’ŒæŒ‡å®šè¯­ä¹‰æ‹“æ‰‘ç±»å‹çš„è¯­ä¹‰æ‹“æ‰‘ç»“ç‚¹é›†åˆ
+	* @param [in]		fid			è¦ç´ ID
+	* @param [in]		type		è¯­ä¹‰æ‹“æ‰‘æŸ¥è¯¢ç±»å‹, ä¸º0æ—¶è¡¨ç¤ºæ‰€æœ‰ç±»å‹
+	* @param [out]	topologyItems	è¿”å›çš„è¯­ä¹‰æ‹“æ‰‘çš„ç»“ç‚¹
+	* @param [in]		queryFlag	æŸ¥è¯¢æ ‡è¯†
+	* @return  0 -- è¡¨ç¤ºå¤±è´¥ï¼Œ1 -- è¡¨ç¤ºè¿”å›æˆåŠŸ
 	*/	
 	virtual long queryTopos(const FID& fid, const int &type, vector<TopoItemSharedPtr>& topologyItems, int queryFlag = 0) = 0;
 	
-	/** ²éÑ¯Ö¸¶¨ÒªËØIDºÍÖ¸¶¨ÀàĞÍµÄÓïÒåÍØÆËĞÅÏ¢Êı¾İ
-	* @param [in]		fid			ÒªËØID
-	* @param [in]		type		ÓïÒåÍØÆËĞÅÏ¢ÀàĞÍ
-	* @param [out]	topologyInfo		·µ»ØµÄÓïÒåÍØÆËĞÅÏ¢¶ÔÏó
-	* @return  0 -- ±íÊ¾Ê§°Ü£¬1 -- ±íÊ¾·µ»Ø³É¹¦
+	/** æŸ¥è¯¢æŒ‡å®šè¦ç´ IDå’ŒæŒ‡å®šç±»å‹çš„è¯­ä¹‰æ‹“æ‰‘ä¿¡æ¯æ•°æ®
+	* @param [in]		fid			è¦ç´ ID
+	* @param [in]		type		è¯­ä¹‰æ‹“æ‰‘ä¿¡æ¯ç±»å‹
+	* @param [out]	topologyInfo		è¿”å›çš„è¯­ä¹‰æ‹“æ‰‘ä¿¡æ¯å¯¹è±¡
+	* @return  0 -- è¡¨ç¤ºå¤±è´¥ï¼Œ1 -- è¡¨ç¤ºè¿”å›æˆåŠŸ
 	*/	
 	virtual long queryTopo(const FID &fid, const int &type, TopoInfoSharedPtr& topologyInfo) = 0;
 	
 
-	/** ²éÑ¯Ö¸¶¨ÒªËØIDºÍÖ¸¶¨ÓïÒåÍØÆËÀàĞÍµÄÓïÒåÍØÆË½áµã¼¯ºÏ
-	* @param [in]		fids		ÒªËØID¼¯ºÏ
-	* @param [in]		type		ÓïÒåÍØÆË²éÑ¯ÀàĞÍ
-	* @param [out]	topologyInfos	·µ»ØµÄÓïÒåÍØÆËĞÅÏ¢¶ÔÏó¼¯ºÏ
-	* @return  0 -- ±íÊ¾Ê§°Ü£¬1 -- ±íÊ¾·µ»Ø³É¹¦
+	/** æŸ¥è¯¢æŒ‡å®šè¦ç´ IDå’ŒæŒ‡å®šè¯­ä¹‰æ‹“æ‰‘ç±»å‹çš„è¯­ä¹‰æ‹“æ‰‘ç»“ç‚¹é›†åˆ
+	* @param [in]		fids		è¦ç´ IDé›†åˆ
+	* @param [in]		type		è¯­ä¹‰æ‹“æ‰‘æŸ¥è¯¢ç±»å‹
+	* @param [out]	topologyInfos	è¿”å›çš„è¯­ä¹‰æ‹“æ‰‘ä¿¡æ¯å¯¹è±¡é›†åˆ
+	* @return  0 -- è¡¨ç¤ºå¤±è´¥ï¼Œ1 -- è¡¨ç¤ºè¿”å›æˆåŠŸ
 	*/	
 	virtual long queryTopos(const vector<FID>& fids,const  int &type, vector<TopoInfoSharedPtr>& topologyInfos) = 0;
-	/** »ñÈ¡ÎÆÀíµÄËùÓĞ¼¶±ğ£¬ÄÚ²¿µ÷ÓÃ  
-	* @param  [in] fid ´ı»ñÈ¡ÎÆÀí¶ÔÏóID
-	* @param  [out] levelSet ÎÆÀí¼¶±ğ¼¯ºÏ
-	* @return true  ³É¹¦,false Ê§°Ü
+	/** è·å–çº¹ç†çš„æ‰€æœ‰çº§åˆ«ï¼Œå†…éƒ¨è°ƒç”¨  
+	* @param  [in] fid å¾…è·å–çº¹ç†å¯¹è±¡ID
+	* @param  [out] levelSet çº¹ç†çº§åˆ«é›†åˆ
+	* @return true  æˆåŠŸ,false å¤±è´¥
 	*/
 	virtual bool getAllTextureLevel(const TEXID &texid,std::set<int> &levelSet) = 0;
 
@@ -404,17 +404,17 @@ public:
 	virtual void getMaterilIDs( GeometrySharedPtr pGeom,std::vector<MATID> &)=0;
 	/** @} */ 
 
-	/** @name ±£»¤³ÉÔ±º¯ÊıËµÃ÷  
+	/** @name ä¿æŠ¤æˆå‘˜å‡½æ•°è¯´æ˜  
 	*  @{
 	*/
 protected:      
 
-	/** ²éÑ¯Ö¸¶¨°üÎ§ºĞÄÚµÄËùÓĞ²»ÔÚ»º´æÀïµÄ¶ÔÏó 
-	* @param  [in] bound Òª²éÑ¯µÄ°üÎ§ºĞ
-	* @param  [in] fcid ÒªÌí¼ÓµÄFeatureClass¹²ÏíÖ¸Õë¶ÔÏó
-	* @param  [out] objs ²éÑ¯µ½µÄËùÓĞÒªËØ¶ÔÏó
-	* @param  [in] readProps ÊÇ·ñ¶ÁÈ¡ÊôĞÔ
-	* @return Èç¹ûÖ´ĞĞ³É¹¦Ôò·µ»Øtrue,·ñÔò·µ»Øfalse
+	/** æŸ¥è¯¢æŒ‡å®šåŒ…å›´ç›’å†…çš„æ‰€æœ‰ä¸åœ¨ç¼“å­˜é‡Œçš„å¯¹è±¡ 
+	* @param  [in] bound è¦æŸ¥è¯¢çš„åŒ…å›´ç›’
+	* @param  [in] fcid è¦æ·»åŠ çš„FeatureClasså…±äº«æŒ‡é’ˆå¯¹è±¡
+	* @param  [out] objs æŸ¥è¯¢åˆ°çš„æ‰€æœ‰è¦ç´ å¯¹è±¡
+	* @param  [in] readProps æ˜¯å¦è¯»å–å±æ€§
+	* @return å¦‚æœæ‰§è¡ŒæˆåŠŸåˆ™è¿”å›true,å¦åˆ™è¿”å›false
 	*/
 	virtual bool queryByBound(const Envelope3dRef bound, 	
 		const std::vector<FCLSID> & fcid,
@@ -426,30 +426,30 @@ protected:
 /** @} */  
 
 
-/** @addtogroup proxy QResult-²éÑ¯½á¹û,¸ÃÀà½öÔÚProxyÄÚ²¿½øĞĞ´´½¨£¬Íâ²¿²»ÄÜ´´½¨,Ö»ÄÜÊ¹ÓÃÆäÖ¸Õë
+/** @addtogroup proxy QResult-æŸ¥è¯¢ç»“æœ,è¯¥ç±»ä»…åœ¨Proxyå†…éƒ¨è¿›è¡Œåˆ›å»ºï¼Œå¤–éƒ¨ä¸èƒ½åˆ›å»º,åªèƒ½ä½¿ç”¨å…¶æŒ‡é’ˆ
 *  @{
 */
 class CORE_API QResult{	
-	/** @name Ë½ÓĞ³ÉÔ±±äÁ¿ËµÃ÷  
+	/** @name ç§æœ‰æˆå‘˜å˜é‡è¯´æ˜  
 	*  @{
 	*/
-	/** ÀàProxy */
+	/** ç±»Proxy */
 	Proxy * _proxy;
     /** @} */ 
 
 protected:
-	/** @name ±£»¤³ÉÔ±±äÁ¿ËµÃ÷  
+	/** @name ä¿æŠ¤æˆå‘˜å˜é‡è¯´æ˜  
 	*  @{
 	*/
-	/** ÓÉÓÚ»º´æ´óĞ¡ÏŞÖÆ£¬Ê£ÓàµÄ²éÑ¯µÄÒªËØ¶ÔÏóID¼¯ºÏ */
+	/** ç”±äºç¼“å­˜å¤§å°é™åˆ¶ï¼Œå‰©ä½™çš„æŸ¥è¯¢çš„è¦ç´ å¯¹è±¡IDé›†åˆ */
 	std::vector<pair<FID,FCLSID> > _remainder;
-	/** µ±Ç°Ë÷ÒıÖµ */
+	/** å½“å‰ç´¢å¼•å€¼ */
 	size_t                         _cur_index;
-	/** ·µ»ØµÄÒªËØ¶ÔÏóÁĞ±í */
+	/** è¿”å›çš„è¦ç´ å¯¹è±¡åˆ—è¡¨ */
 	std::vector<FeatureSharedPtr>  _result;
 	/** @} */ 
 public:
-	/** @name ¹¹ÔìÓëÎö¹¹º¯Êı 
+	/** @name æ„é€ ä¸ææ„å‡½æ•° 
 	*  @{
 	*/
 	QResult(Proxy * p){
@@ -462,12 +462,12 @@ public:
 	}
 	/** @} */
 
-	/** @name ½á¹ûÀàÖĞµÄËùÓĞº¯Êı  
+	/** @name ç»“æœç±»ä¸­çš„æ‰€æœ‰å‡½æ•°  
 	*  @{
 	*/	  
-	/** Öğ¸ö»ñÈ¡´ı»ñÈ¡µÄÊı¾İ
-	* @param  ÎŞ
-	* @return »ñÈ¡µÄÒªËØ¶ÔÏó
+	/** é€ä¸ªè·å–å¾…è·å–çš„æ•°æ®
+	* @param  æ— 
+	* @return è·å–çš„è¦ç´ å¯¹è±¡
 	*/
 	FeatureSharedPtr next(){
 		size_t s1=_result.size();
@@ -477,12 +477,12 @@ public:
 			return feaSptr;
 		_cur_index++;
 
-		if(_cur_index<s1){//ÔÚÄÚ´æÖĞ
+		if(_cur_index<s1){//åœ¨å†…å­˜ä¸­
 			return _result[_cur_index];
 		}
 		else if(_cur_index>=s1 && _cur_index<s1+s2){
 			std::vector<pair<FID,FCLSID> >::iterator  _itrCur = _remainder.begin()+(_cur_index-s1);
-			//ÊäÈë²ÎÊı£¬µ÷¶ÈÖ¸¶¨µÄÊı¾İ
+			//è¾“å…¥å‚æ•°ï¼Œè°ƒåº¦æŒ‡å®šçš„æ•°æ®
 			_proxy->queryByFeatureID(_itrCur->first, _itrCur->second, feaSptr);
 			return 			feaSptr;
 		}
@@ -491,15 +491,15 @@ public:
 		}
 	}
 
-	/** »ñÈ¡´ı»ñÈ¡Êı¾İµÄÊı¾İ´óĞ¡
-	* @param  ÎŞ
-	* @return »ñÈ¡µÄÒªËØ¶ÔÏóÊı¾İµÄ´óĞ¡
+	/** è·å–å¾…è·å–æ•°æ®çš„æ•°æ®å¤§å°
+	* @param  æ— 
+	* @return è·å–çš„è¦ç´ å¯¹è±¡æ•°æ®çš„å¤§å°
 	*/
 	inline size_t size(){return _result.size()+_remainder.size();}
 
-	/** Çå¿Õ½á¹ûÀà
-	* @param  ÎŞ
-	* @return ÎŞ
+	/** æ¸…ç©ºç»“æœç±»
+	* @param  æ— 
+	* @return æ— 
 	*/
 	inline void clear(){
 		_remainder.clear();
@@ -507,30 +507,30 @@ public:
 		_cur_index=-1;
 	}
 
-	/** ÉèÖÃÒÑ¾­»ñÈ¡µÄÊı¾İ£¬ÄÚ²¿µ÷ÓÃ
-	* @param  [in] ResultIn ²éÑ¯µ½µÄÒªËØ¶ÔÏó¼¯ºÏ
-	* @return ÎŞ
+	/** è®¾ç½®å·²ç»è·å–çš„æ•°æ®ï¼Œå†…éƒ¨è°ƒç”¨
+	* @param  [in] ResultIn æŸ¥è¯¢åˆ°çš„è¦ç´ å¯¹è±¡é›†åˆ
+	* @return æ— 
 	*/
 	void setResult(std::vector<FeatureSharedPtr> & ResultIn){ 
-		//ÏÈÇå¿ÕÒÔÇ°µÄÊı¾İ  [sunka, 2009-9-22]
+		//å…ˆæ¸…ç©ºä»¥å‰çš„æ•°æ®  [sunka, 2009-9-22]
 		_result.clear();
 		_result.resize(ResultIn.size());
-		//ÉèÖÃĞÂÊı¾İ
+		//è®¾ç½®æ–°æ•°æ®
 		std::copy(ResultIn.begin(),ResultIn.end(),_result.begin());
 	}
 
 	
-	/** Ìí¼Ó´ı»ñÈ¡µÄÊı¾İ£¬ÄÚ²¿µ÷ÓÃ  
-	* @param  [in] fid ´ı»ñÈ¡ÒªËØ¶ÔÏóID
-	* @param  [in] fclsid ´ı»ñÈ¡ÒªËØÀàID
-	* @return ÎŞ
+	/** æ·»åŠ å¾…è·å–çš„æ•°æ®ï¼Œå†…éƒ¨è°ƒç”¨  
+	* @param  [in] fid å¾…è·å–è¦ç´ å¯¹è±¡ID
+	* @param  [in] fclsid å¾…è·å–è¦ç´ ç±»ID
+	* @return æ— 
 	*/
 	void addRemainder(FID fid,FCLSID fclsid){
 		_remainder.push_back(pair<FID,FCLSID>(fid,fclsid));
 	};
 	
 public:
-	/** ÓÑÔªÀàproxy */
+	/** å‹å…ƒç±»proxy */
 	friend class Proxy;
 	/** @} */ 
 };

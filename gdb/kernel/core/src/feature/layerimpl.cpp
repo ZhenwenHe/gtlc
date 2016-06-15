@@ -77,7 +77,7 @@ FeatureSetSharedPtr LayerImpl::createFeatureSet(const FeatureClassRef fc)
 	p->setLayerID(_layid);
 	_set.push_back(p);
 	if (_cur_index<0)
-		_cur_index = _set.size() - 1;
+		_cur_index =(int)( _set.size() - 1);
 	return p;
 }
 
@@ -131,11 +131,11 @@ void LayerImpl::write(std::ostream & f)
 {
 	f.write((char*)(&_layid), sizeof(LYRID));
 
-	int s = _name.size();
+	int s = (int)(_name.size());
 	f.write((char*)(&s), sizeof(int));
 	f.write((char*)(_name.c_str()), s);
 
-	s = _set.size();
+	s = (int)(_set.size());
 	f.write((char*)(&s), sizeof(int));
 	for (std::vector<FeatureSetSharedPtr>::iterator it = _set.begin(); it != _set.end(); it++){
 		(*it)->write(f);

@@ -1,4 +1,4 @@
-/*
+ï»¿/*
 * Geosciences Template Library
 *
 * Copyright (c) 2008
@@ -30,20 +30,20 @@ class TopoItem;
 
 typedef std::shared_ptr<TopoItem>  TopoItemSharedPtr;
 typedef std::shared_ptr<TopoInfo>  TopoInfoSharedPtr;
-/** @defgroup topology SEMAN_TOPO_TYPE-ÓïÒåÍØÆË¹ØÏµÀàÐÍ 
+/** @defgroup topology SEMAN_TOPO_TYPE-è¯­ä¹‰æ‹“æ‰‘å…³ç³»ç±»åž‹ 
 *  @{
 */
 enum SEMAN_TOPO_TYPE
 {
-	SEMANTOPOTYPE_COPOSITION = 1,			//×é³É¹ØÏµ
-	SEMANTOPOTYPE_CONNECTIVITY,			//Á¬Í¨¹ØÏµ
-	SEMANTOPOTYPE_INCLUSION,			//°üº¬¹ØÏµ
-	SEMANTOPOTYPE_SYNTOPY,				//ÁÚ½Ó¹ØÏµ
-	SEMANTOPOTYPE_ASSOCIATION,			//¹ØÁª¹ØÏµ
-	SEMANTOPOTYPE_INTERSECTION,			//Ïà½»¹ØÏµ
+	SEMANTOPOTYPE_COPOSITION = 1,			//ç»„æˆå…³ç³»
+	SEMANTOPOTYPE_CONNECTIVITY,			//è¿žé€šå…³ç³»
+	SEMANTOPOTYPE_INCLUSION,			//åŒ…å«å…³ç³»
+	SEMANTOPOTYPE_SYNTOPY,				//é‚»æŽ¥å…³ç³»
+	SEMANTOPOTYPE_ASSOCIATION,			//å…³è”å…³ç³»
+	SEMANTOPOTYPE_INTERSECTION,			//ç›¸äº¤å…³ç³»
 };
 /** @} */ 
-/** @addtogroup topology TopoItem-A - BÓïÒåÍØÆË¹ØÏµ 
+/** @addtogroup topology TopoItem-A - Bè¯­ä¹‰æ‹“æ‰‘å…³ç³» 
 *  @{
 */
 class CORE_API TopoItem{
@@ -75,13 +75,13 @@ public:
 	static TopoItemSharedPtr newTopoItem( int topoType, FID fidMain, FCLSID fclsidMain, FID fidSub, FCLSID fclsidSub);
 };
 /** @} */ 
-/** @addtogroup topology TOPO_INFO_TYPE-A-BÓïÒåÍØÆËÐÅÏ¢ÀàÐÍ 
+/** @addtogroup topology TOPO_INFO_TYPE-A-Bè¯­ä¹‰æ‹“æ‰‘ä¿¡æ¯ç±»åž‹ 
 *  @{
 */
 enum TOPO_INFO_TYPE
 {
-	TOPOINFOTYPE_SEMATIC_GEOMETRY = 1,	//ÓïÒå¼¸ºÎ
-	TOPOINFOTYPE_SEMATIC_ACTION,				//ÓïÒå¶¯×÷
+	TOPOINFOTYPE_SEMATIC_GEOMETRY = 1,	//è¯­ä¹‰å‡ ä½•
+	TOPOINFOTYPE_SEMATIC_ACTION,				//è¯­ä¹‰åŠ¨ä½œ
 };
 /** @} */ 
 /** @addtogroup topology TopoInfo 
@@ -110,17 +110,17 @@ public:
 	virtual void read(std::istream & f) = 0;
 public:
 
-	/** ¾²Ì¬º¯ÊýÓÃÓÚ´´½¨Ö¸¶¨ÀàÐÍµÄÍØÆË¶ÔÏó
-	*  ¸ù¾Ý´«ÈëµÄ¶ÔÏóÀàÐÍ£¬ÐÂ½¨Ò»¸öÏàÓ¦ÓïÒåÍØÆËÐÅÏ¢µÄÖ¸Õë£¬²¢¿ª±Ù¿Õ¼ä
+	/** é™æ€å‡½æ•°ç”¨äºŽåˆ›å»ºæŒ‡å®šç±»åž‹çš„æ‹“æ‰‘å¯¹è±¡
+	*  æ ¹æ®ä¼ å…¥çš„å¯¹è±¡ç±»åž‹ï¼Œæ–°å»ºä¸€ä¸ªç›¸åº”è¯­ä¹‰æ‹“æ‰‘ä¿¡æ¯çš„æŒ‡é’ˆï¼Œå¹¶å¼€è¾Ÿç©ºé—´
 	* @param [in] signal	
-	* -1	TOPOINFOTYPE_SEMATIC_GEOMETRY,			//ÓïÒå¼¸ºÎ
-	* -2	TOPOINFOTYPE_SEMATIC_ACTION,			//ÓïÒå¶¯×÷
+	* -1	TOPOINFOTYPE_SEMATIC_GEOMETRY,			//è¯­ä¹‰å‡ ä½•
+	* -2	TOPOINFOTYPE_SEMATIC_ACTION,			//è¯­ä¹‰åŠ¨ä½œ
 	*/
 	static TopoInfoSharedPtr newTopoInfo(int signal); 
 
-	/** ÐÂ½¨ÍØÆË¶ÔÏó£¨¸ù¾ÝBufferÖÐµÄtypeÊµÏÖ¶ÔÏóÖ¸ÕëµÄ´´½¨¼°ÄÚ´æµÄ¿ª±Ù£©
-	*´ÓBufferÖÐ¶ÁÈ¡Êý¾Ý£¬ÐÂ½¨Ò»¸öÍØÆË¶ÔÏó,µ÷ÓÃreadBufferÊµÏÖ¸ø¶¨ÄÚ´æ°üµ½´´½¨¶ÔÏóµÄ¿½±´
-	* @return ¶ÔÏóµÄÖ¸Õë
+	/** æ–°å»ºæ‹“æ‰‘å¯¹è±¡ï¼ˆæ ¹æ®Bufferä¸­çš„typeå®žçŽ°å¯¹è±¡æŒ‡é’ˆçš„åˆ›å»ºåŠå†…å­˜çš„å¼€è¾Ÿï¼‰
+	*ä»ŽBufferä¸­è¯»å–æ•°æ®ï¼Œæ–°å»ºä¸€ä¸ªæ‹“æ‰‘å¯¹è±¡,è°ƒç”¨readBufferå®žçŽ°ç»™å®šå†…å­˜åŒ…åˆ°åˆ›å»ºå¯¹è±¡çš„æ‹·è´
+	* @return å¯¹è±¡çš„æŒ‡é’ˆ
 	*/
 	static TopoInfoSharedPtr newTopoInfo( Buffer & buf);
 
@@ -133,27 +133,27 @@ typedef std::shared_ptr<TopoItem> TopoItemSharedPtr;
 */
 class CORE_API SemanticGeometryTopoInfo: virtual public TopoInfo {
 public:
-	/** »ñµÃ¶ÔÏóµÄÓïÒåÐÅÏ¢	
+	/** èŽ·å¾—å¯¹è±¡çš„è¯­ä¹‰ä¿¡æ¯	
 	* @param 
-	* @return ¶ÔÏóµÄÓïÒåÐÅÏ¢	
+	* @return å¯¹è±¡çš„è¯­ä¹‰ä¿¡æ¯	
 	*/
 	virtual string getSemanticName() const=0;
 
-	/** ÉèÖÃ¶ÔÏóµÄÓïÒåÐÅÏ¢	
-	* @param name ¶ÔÏóµÄÓïÒåÐÅÏ¢
+	/** è®¾ç½®å¯¹è±¡çš„è¯­ä¹‰ä¿¡æ¯	
+	* @param name å¯¹è±¡çš„è¯­ä¹‰ä¿¡æ¯
 	* @return 	
 	*/
 	virtual void setSemanticName(const string name)=0;
 
-	/** ÉèÖÃ¶ÔÏóµÄÍØÆË¼¸ºÎ
-	* @param [in]  geo ¶ÔÏóµÄÍØÆË¼¸ºÎ
+	/** è®¾ç½®å¯¹è±¡çš„æ‹“æ‰‘å‡ ä½•
+	* @param [in]  geo å¯¹è±¡çš„æ‹“æ‰‘å‡ ä½•
 	* @return void
 	*/
 	virtual void setGeometry( GeometrySharedPtr   geo)=0;
 
-	/** »ñµÃ¶ÔÏóµÄÍØÆË¼¸ºÎ
+	/** èŽ·å¾—å¯¹è±¡çš„æ‹“æ‰‘å‡ ä½•
 	* @param 
-	* @return ¶ÔÏóµÄÍØÆË¼¸ºÎ
+	* @return å¯¹è±¡çš„æ‹“æ‰‘å‡ ä½•
 	*/
 	virtual GeometrySharedPtr getGeometry() =0;
 };

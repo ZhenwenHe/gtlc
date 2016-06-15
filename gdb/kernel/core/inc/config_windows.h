@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Geosciences Template Library
 *
 * Copyright (c) 2008
@@ -15,6 +15,7 @@
 
 #ifndef CONFIG_WINDOWS_H
 #define CONFIG_WINDOWS_H
+
 
 #if(USING_UILIB_TYPE==0)//MFC	
     #ifndef WINVER                     

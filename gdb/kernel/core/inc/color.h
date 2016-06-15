@@ -1,4 +1,4 @@
-/*
+ï»¿/*
 * Geosciences Template Library
 *
 * Copyright (c) 2008
@@ -21,7 +21,7 @@
 begin_gtl_namespace
 begin_gdb_namespace
 
-/** @defgroup ColorStruct ³£ÓÃÑÕÉ«½á¹¹Ìå¶¨Òå
+/** @defgroup ColorStruct å¸¸ç”¨é¢œè‰²ç»“æž„ä½“å®šä¹‰
 *  @{
 */
 struct Color3b{

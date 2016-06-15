@@ -1,4 +1,4 @@
-#pragma once
+Ôªø#pragma once
 #include <iostream>
 #include <string>
 #include <vector>
@@ -10,7 +10,7 @@
 
 begin_gtl_namespace
 begin_gdb_namespace
-/** @addtogroup Geometry Ray-…‰œﬂ¿‡
+/** @addtogroup Geometry Ray-Â∞ÑÁ∫øÁ±ª
 *  @{
 */
 class CORE_API Ray{

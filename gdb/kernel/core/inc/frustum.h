@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Geosciences Template Library
 *
 * Copyright (c) 2008

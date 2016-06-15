@@ -1,4 +1,4 @@
-/*
+ï»¿/*
 * Geosciences Template Library
 *
 * Copyright (c) 2008
@@ -28,7 +28,7 @@ begin_gdb_namespace
 class Envelope2d;
 typedef Envelope2d& Envelope2dRef;
 
-/** @addtogroup Envelope Envelope2d-°üÎ§±ß½ç½á¹¹Ìå¶¨Òå
+/** @addtogroup Envelope Envelope2d-åŒ…å›´è¾¹ç•Œç»“æ„ä½“å®šä¹‰
 *  @{
 */
 class CORE_API Envelope2d{
@@ -53,10 +53,10 @@ public:
 	inline double lengthY(){ return maxy - miny; }
 public:
 	/*
-	* 0-±íÊ¾Á½¸ö°üÎ§ºĞÏàÀë
-	* 1-±íÊ¾Á½¸ö°üÎ§ºĞaºÍbÏà½»
-	* 2-±íÊ¾°üÎ§ºĞaÔÚbÖĞ
-	* 3-±íÊ¾°üÎ§ºĞbÔÚaÖĞ
+	* 0-è¡¨ç¤ºä¸¤ä¸ªåŒ…å›´ç›’ç›¸ç¦»
+	* 1-è¡¨ç¤ºä¸¤ä¸ªåŒ…å›´ç›’aå’Œbç›¸äº¤
+	* 2-è¡¨ç¤ºåŒ…å›´ç›’aåœ¨bä¸­
+	* 3-è¡¨ç¤ºåŒ…å›´ç›’båœ¨aä¸­
 	*/
 	static int test(Envelope2d & a, Envelope2d & b);
 public:

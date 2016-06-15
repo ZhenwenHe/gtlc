@@ -1,4 +1,4 @@
-/*
+ï»¿/*
 * Geosciences Template Library
 *
 * Copyright (c) 2008
@@ -50,7 +50,7 @@ protected:
 
 typedef std::shared_ptr<Image> ImageSharedPtr;
 
-/** @defgroup Image Image-Í¼Ïñ½Ó¿Ú
+/** @defgroup Image Image-å›¾åƒæ¥å£
 *  @{
 */
 class CORE_API Image{
@@ -118,163 +118,163 @@ public:
 	/** 
 	* @param [in] lpszPathName
 	* @param [in] flag
-	* @return Ö´ĞĞ³É¹¦·µ»Øtrue£¬·ñÔò·µ»Øfalse
+	* @return æ‰§è¡ŒæˆåŠŸè¿”å›trueï¼Œå¦åˆ™è¿”å›false
 	*/
 	virtual bool load(const char* lpszPathName,int flag=0)=0;
 	/** 
 	* @param [in] filename
 	* @param [in] flags
-	* @return Ö´ĞĞ³É¹¦·µ»Øtrue£¬·ñÔò·µ»Øfalse
+	* @return æ‰§è¡ŒæˆåŠŸè¿”å›trueï¼Œå¦åˆ™è¿”å›false
 	*/
 	virtual bool save( const char *filename,int flag=0)=0;
 
 	virtual void  clear() =0;
 
 	/**
-	·µ»ØÓ°ÏñÏñËØ¿í¶È
-	@²é¿´ FreeImage_GetWidth
+	è¿”å›å½±åƒåƒç´ å®½åº¦
+	@æŸ¥çœ‹ FreeImage_GetWidth
 	*/
 	virtual unsigned int getWidth() const=0;
 	
 	/**
-	·µ»ØÓ°ÏñÏñËØ¸ß¶È
-	@²é¿´ FreeImage_GetHeight
+	è¿”å›å½±åƒåƒç´ é«˜åº¦
+	@æŸ¥çœ‹ FreeImage_GetHeight
 	*/
 	virtual unsigned int getHeight() const=0;
 	
 	/**
-	·µ»ØÉ¨Ãè×î½ü¶ÔÆë·½Ê½µÄ×Ö½Ú¿í¶È
-	@²é¿´ FreeImage_GetPitch
+	è¿”å›æ‰«ææœ€è¿‘å¯¹é½æ–¹å¼çš„å­—èŠ‚å®½åº¦
+	@æŸ¥çœ‹ FreeImage_GetPitch
 	*/
 	virtual unsigned int getScanWidth() const=0;
 	/**
-	 @brief ·µ»ØÖ¸¶¨É¨ÃèĞĞµÄÊı¾İµÄÆğÊ¼µØÖ·
-	* @param [in] line ÊäÈëÖ¸¶¨µÄĞĞ
-	* @return Ö´ĞĞ³É¹¦·µ»ØÖ¸¶¨É¨ÃèĞĞµÄÊı¾İµÄÆğÊ¼µØÖ·
-	@²é¿´ FreeImage_GetScanLine, FreeImage documentation
+	 @brief è¿”å›æŒ‡å®šæ‰«æè¡Œçš„æ•°æ®çš„èµ·å§‹åœ°å€
+	* @param [in] line è¾“å…¥æŒ‡å®šçš„è¡Œ
+	* @return æ‰§è¡ŒæˆåŠŸè¿”å›æŒ‡å®šæ‰«æè¡Œçš„æ•°æ®çš„èµ·å§‹åœ°å€
+	@æŸ¥çœ‹ FreeImage_GetScanLine, FreeImage documentation
 	*/
 	virtual unsigned char * getScanLine(unsigned int line) const =0;
 
 	/**
-	·µ»ØX·½ÏòµÄ·Ö±æÂÊ,µ¥Î»£ºÏñËØ/ÀåÃ×
-	@²é¿´ FreeImage_GetDotsPerMeterX
+	è¿”å›Xæ–¹å‘çš„åˆ†è¾¨ç‡,å•ä½ï¼šåƒç´ /å˜ç±³
+	@æŸ¥çœ‹ FreeImage_GetDotsPerMeterX
 	*/
 	virtual double getHorizontalResolution() const =0;
 	
 	/**
-	·µ»ØY·½ÏòµÄ·Ö±æÂÊ,µ¥Î»£ºÏñËØ/ÀåÃ×
-	@²é¿´ FreeImage_GetDotsPerMeterY
+	è¿”å›Yæ–¹å‘çš„åˆ†è¾¨ç‡,å•ä½ï¼šåƒç´ /å˜ç±³
+	@æŸ¥çœ‹ FreeImage_GetDotsPerMeterY
 	*/
 	virtual double getVerticalResolution() const =0;
 	
 
-	/** ÈôÓ°Ïñ·ÖÅäÁËÄÚ´æ£¬Ö´ĞĞ³É¹¦·µ»Øtrue£¬·ñÔò·µ»Øfalse*/
+	/** è‹¥å½±åƒåˆ†é…äº†å†…å­˜ï¼Œæ‰§è¡ŒæˆåŠŸè¿”å›trueï¼Œå¦åˆ™è¿”å›false*/
 	virtual bool isValid() const=0;
 	 
 	/**
-	·µ»ØÓ°Ïñ×Ö½ÚÉî¶È. <br>
-	µ±Ó°ÏñÀàĞÍÎª FIT_BITMAP, ÓĞĞ§×Ö½ÚÉî¶È¿ÉÄÜÊÇ 1, 4, 8, 16, 24 »ò 32.
-	@²é¿´ FreeImage_GetBPP, getImageType
+	è¿”å›å½±åƒå­—èŠ‚æ·±åº¦. <br>
+	å½“å½±åƒç±»å‹ä¸º FIT_BITMAP, æœ‰æ•ˆå­—èŠ‚æ·±åº¦å¯èƒ½æ˜¯ 1, 4, 8, 16, 24 æˆ– 32.
+	@æŸ¥çœ‹ FreeImage_GetBPP, getImageType
 	*/
 	virtual unsigned int getBitsPerPixel() const=0;
 
-	/**»ñÈ¡Ö¸¶¨ĞĞÁĞµÄÏñËØÑÕÉ«
-	* @param [in] x        Ö¸¶¨xÖá·½ÏòµÄµÚx¸öÏñËØ
-	* @param [in] y        Ö¸¶¨yÖá·½ÏòµÄµÚy¸öÏñËØ
-	* @param [in,out] c    Ö¸¶¨ÊäÈëÊä³öµÄÏñËØÑÕÉ«
-	* @return Ö´ĞĞ³É¹¦·µ»Øtrue£¬·ñÔò·µ»Ø¿ÕµÄfalse
+	/**è·å–æŒ‡å®šè¡Œåˆ—çš„åƒç´ é¢œè‰²
+	* @param [in] x        æŒ‡å®šxè½´æ–¹å‘çš„ç¬¬xä¸ªåƒç´ 
+	* @param [in] y        æŒ‡å®šyè½´æ–¹å‘çš„ç¬¬yä¸ªåƒç´ 
+	* @param [in,out] c    æŒ‡å®šè¾“å…¥è¾“å‡ºçš„åƒç´ é¢œè‰²
+	* @return æ‰§è¡ŒæˆåŠŸè¿”å›trueï¼Œå¦åˆ™è¿”å›ç©ºçš„false
 	*/
 	virtual bool getPixel(unsigned int x, unsigned int y, Color4f & c)=0;
 
-	/**»ñÈ¡ËùÓĞµÄÏñËØÑÕÉ«Öµ
-	* @param [in,out] data   Ö¸¶¨ÊäÈëÊä³öµÄBuffer
-	* @return Ö´ĞĞ³É¹¦·µ»Øtrue£¬·ñÔò·µ»Ø¿ÕµÄfalse
+	/**è·å–æ‰€æœ‰çš„åƒç´ é¢œè‰²å€¼
+	* @param [in,out] data   æŒ‡å®šè¾“å…¥è¾“å‡ºçš„Buffer
+	* @return æ‰§è¡ŒæˆåŠŸè¿”å›trueï¼Œå¦åˆ™è¿”å›ç©ºçš„false
 	*/
 	virtual bool getPixels(Buffer & data)=0;
-	/**»ñÈ¡ËùÓĞµÄÏñËØÑÕÉ«Öµ
-	* @return Ö´ĞĞ³É¹¦·µ»ØÏñËØÖµÊ×µØÖ·£¬·ñÔò·µ»Ø0
+	/**è·å–æ‰€æœ‰çš„åƒç´ é¢œè‰²å€¼
+	* @return æ‰§è¡ŒæˆåŠŸè¿”å›åƒç´ å€¼é¦–åœ°å€ï¼Œå¦åˆ™è¿”å›0
 	*/
 	virtual unsigned char * getPixels( ) const =0;
 	/**
-	* @param [in] left   Ö¸¶¨¸´ÖÆ¾ØĞÎ×ó±ß×ø±ê
-	* @param [in] top    Ö¸¶¨¸´ÖÆ¾ØĞÎÉÏ±ß×ø±ê
-	* @param [in] right  Ö¸¶¨¸´ÖÆ¾ØĞÎÓÒ±ß×ø±ê
-	* @param [in] bottom Ö¸¶¨¸´ÖÆ¾ØĞÎÏÂ±ß×ø±ê
-	* @return Ö´ĞĞ³É¹¦·µ»ØImageSharedPtr£¬·ñÔò·µ»Ø¿ÕµÄImageSharedPtr
+	* @param [in] left   æŒ‡å®šå¤åˆ¶çŸ©å½¢å·¦è¾¹åæ ‡
+	* @param [in] top    æŒ‡å®šå¤åˆ¶çŸ©å½¢ä¸Šè¾¹åæ ‡
+	* @param [in] right  æŒ‡å®šå¤åˆ¶çŸ©å½¢å³è¾¹åæ ‡
+	* @param [in] bottom æŒ‡å®šå¤åˆ¶çŸ©å½¢ä¸‹è¾¹åæ ‡
+	* @return æ‰§è¡ŒæˆåŠŸè¿”å›ImageSharedPtrï¼Œå¦åˆ™è¿”å›ç©ºçš„ImageSharedPtr
 	*/
 	virtual ImageSharedPtr copy( int  left, int top, int right, int bottom)const=0 ;
 	/**
-	* @param [in] left Ö¸¶¨Õ³ÌùµÄ×ó±ßµÄ×ø±ê
-	* @param [in] top  Ö¸¶¨Õ³ÌùµÄÉÏ±ßµÄ×ø±ê
-	* @param [in] alpha Alpha ÈÚºÏ
-	* @return Ö´ĞĞ³É¹¦·µ»Øtrue£¬·ñÔò·µ»Ø¿ÕµÄfalse
+	* @param [in] left æŒ‡å®šç²˜è´´çš„å·¦è¾¹çš„åæ ‡
+	* @param [in] top  æŒ‡å®šç²˜è´´çš„ä¸Šè¾¹çš„åæ ‡
+	* @param [in] alpha Alpha èåˆ
+	* @return æ‰§è¡ŒæˆåŠŸè¿”å›trueï¼Œå¦åˆ™è¿”å›ç©ºçš„false
 	*/
 	virtual bool paste(const ImageSharedPtr & src, int left, int top, int alpha = 256)=0;
 	/**
-	* @param [in] left   Ö¸¶¨²Ã¼ô¾ØĞÎ×ó±ß×ø±ê
-	* @param [in] top    Ö¸¶¨²Ã¼ô¾ØĞÎÉÏ±ß×ø±ê
-	* @param [in] right  Ö¸¶¨²Ã¼ô¾ØĞÎÓÒ±ß×ø±ê
-	* @param [in] bottom Ö¸¶¨²Ã¼ô¾ØĞÎÏÂ±ß×ø±ê
-	* @return Ö´ĞĞ³É¹¦·µ»ØImageSharedPtr£¬·ñÔò·µ»Ø¿ÕµÄImageSharedPtr
+	* @param [in] left   æŒ‡å®šè£å‰ªçŸ©å½¢å·¦è¾¹åæ ‡
+	* @param [in] top    æŒ‡å®šè£å‰ªçŸ©å½¢ä¸Šè¾¹åæ ‡
+	* @param [in] right  æŒ‡å®šè£å‰ªçŸ©å½¢å³è¾¹åæ ‡
+	* @param [in] bottom æŒ‡å®šè£å‰ªçŸ©å½¢ä¸‹è¾¹åæ ‡
+	* @return æ‰§è¡ŒæˆåŠŸè¿”å›ImageSharedPtrï¼Œå¦åˆ™è¿”å›ç©ºçš„ImageSharedPtr
 	*/
 	virtual bool crop(int  left, int top, int right, int bottom)=0 ;
 	
 	/**
-	* @param [in] new_width   Ö¸¶¨ÖØ²ÉÑùµÄ¿í¶È
-	* @param [in] new_height  Ö¸¶¨ÖØ²ÉÑùµÄ¸ß¶È
-	* @param [in] filter      Ö¸¶¨ÖØ²ÉÑùµÄ·½·¨
-	* @return Ö´ĞĞ³É¹¦·µ»Øtrue£¬·ñÔò·µ»Ø¿ÕµÄfalse
+	* @param [in] new_width   æŒ‡å®šé‡é‡‡æ ·çš„å®½åº¦
+	* @param [in] new_height  æŒ‡å®šé‡é‡‡æ ·çš„é«˜åº¦
+	* @param [in] filter      æŒ‡å®šé‡é‡‡æ ·çš„æ–¹æ³•
+	* @return æ‰§è¡ŒæˆåŠŸè¿”å›trueï¼Œå¦åˆ™è¿”å›ç©ºçš„false
 	*/
 	virtual bool rescale(unsigned new_width, unsigned new_height, ImageFilter& filter)=0;
 	/**
-	* @param [in] x       Ö¸¶¨ÒªÉè¶¨Ó°ÏñµÄx
-	* @param [in] y       Ö¸¶¨ÒªÉè¶¨Ó°ÏñµÄy
-	* @param [in] value   Ö¸¶¨ÒªÉè¶¨Ó°ÏñµÄvalue
-	* @return Ö´ĞĞ³É¹¦·µ»Øtrue£¬·ñÔò·µ»Ø¿ÕµÄfalse
+	* @param [in] x       æŒ‡å®šè¦è®¾å®šå½±åƒçš„x
+	* @param [in] y       æŒ‡å®šè¦è®¾å®šå½±åƒçš„y
+	* @param [in] value   æŒ‡å®šè¦è®¾å®šå½±åƒçš„value
+	* @return æ‰§è¡ŒæˆåŠŸè¿”å›trueï¼Œå¦åˆ™è¿”å›ç©ºçš„false
 	*/
 	virtual bool setPixelColor(unsigned x, unsigned y, unsigned char *value)=0;
-	/**ÖØÖÃÍ¼Ïñ´óĞ¡ºÍBPP
-	* @param [in] width        ÒªÉè¶¨Ó°ÏñµÄ¿í¶È
-	* @param [in] height       ÒªÉè¶¨Ó°ÏñµÄ¸ß¶È
-	* @param [in] bpp          Ó°ÏñµÄBPPÖµ
-	* @return Ö´ĞĞ³É¹¦·µ»Øtrue£¬·ñÔò·µ»Ø¿ÕµÄfalse
+	/**é‡ç½®å›¾åƒå¤§å°å’ŒBPP
+	* @param [in] width        è¦è®¾å®šå½±åƒçš„å®½åº¦
+	* @param [in] height       è¦è®¾å®šå½±åƒçš„é«˜åº¦
+	* @param [in] bpp          å½±åƒçš„BPPå€¼
+	* @return æ‰§è¡ŒæˆåŠŸè¿”å›trueï¼Œå¦åˆ™è¿”å›ç©ºçš„false
 	*/
 	virtual bool reset(unsigned width, unsigned height, unsigned bpp)=0;
 
-	/**ÓÃÍ¼ÏñpÌæ»»±¾Í¼ÏñµÄÊı¾İ£¬Ìæ»»ºópÖĞµÄÊı¾İ½«×ªÒÆµ½±¾Í¼ÏñÖĞ£¬p³ÉÎªÒ»¸ö¿ÕÍ¼Ïñ
-	* @param [in] p        Ô´Í¼Ïñ¹²ÏíÖ¸Õë
-	* @return Ö´ĞĞ³É¹¦·µ»Øtrue£¬·ñÔò·µ»Ø¿ÕµÄfalse
+	/**ç”¨å›¾åƒpæ›¿æ¢æœ¬å›¾åƒçš„æ•°æ®ï¼Œæ›¿æ¢åpä¸­çš„æ•°æ®å°†è½¬ç§»åˆ°æœ¬å›¾åƒä¸­ï¼Œpæˆä¸ºä¸€ä¸ªç©ºå›¾åƒ
+	* @param [in] p        æºå›¾åƒå…±äº«æŒ‡é’ˆ
+	* @return æ‰§è¡ŒæˆåŠŸè¿”å›trueï¼Œå¦åˆ™è¿”å›ç©ºçš„false
 	*/
 	virtual bool transfer(const ImageSharedPtr & p)=0;
 
-	/**½«Í¼ÏñĞ´ÈëBuffer£¬ÒÔ´Ë·Ö±ğÎªunsinged int µÄwidth,height,bppºÍwidth*height*bpp/8µÄ×Ö·ûÊı×é
-	* @param [in,out] buf      »º³åÇø
-	* @return Ö´ĞĞ³É¹¦·µ»Øtrue£¬·ñÔò·µ»Ø¿ÕµÄfalse
+	/**å°†å›¾åƒå†™å…¥Bufferï¼Œä»¥æ­¤åˆ†åˆ«ä¸ºunsinged int çš„width,height,bppå’Œwidth*height*bpp/8çš„å­—ç¬¦æ•°ç»„
+	* @param [in,out] buf      ç¼“å†²åŒº
+	* @return æ‰§è¡ŒæˆåŠŸè¿”å›trueï¼Œå¦åˆ™è¿”å›ç©ºçš„false
 	*/
 	virtual bool write(Buffer& buf)=0;
-	/**½«Í¼ÏñÖÃ¿Õ£¬´ÓBuffer·Ö±ğ¶ÁÈ¡unsinged intÀàĞÍµÄwidth,height,bppºÍwidth*height*bpp/8µÄ×Ö·ûÊı×é£¬¹¹½¨ĞÂµÄÍ¼Ïñ
-	* @param [in,out] buf      »º³åÇø
-	* @return Ö´ĞĞ³É¹¦·µ»Øtrue£¬·ñÔò·µ»Ø¿ÕµÄfalse
+	/**å°†å›¾åƒç½®ç©ºï¼Œä»Bufferåˆ†åˆ«è¯»å–unsinged intç±»å‹çš„width,height,bppå’Œwidth*height*bpp/8çš„å­—ç¬¦æ•°ç»„ï¼Œæ„å»ºæ–°çš„å›¾åƒ
+	* @param [in,out] buf      ç¼“å†²åŒº
+	* @return æ‰§è¡ŒæˆåŠŸè¿”å›trueï¼Œå¦åˆ™è¿”å›ç©ºçš„false
 	*/
 	virtual bool read(const Buffer& buf)=0;
 
 	virtual bool write(int imageFormat, Buffer & fout, int flags=0)=0;
 public:
 	/** 
-	* @return ¾²Ì¬º¯Êı·µ»ØÒ»¸öÓ°Ïñ¹²ÏíÖ¸ÕëÊµÀı
+	* @return é™æ€å‡½æ•°è¿”å›ä¸€ä¸ªå½±åƒå…±äº«æŒ‡é’ˆå®ä¾‹
 	*/
 	static ImageSharedPtr create();
-	/**´´½¨Ò»¸öĞÂÍ¼Ïñ
-	* @param [in] width        ÒªÉè¶¨Ó°ÏñµÄ¿í¶È
-	* @param [in] height       ÒªÉè¶¨Ó°ÏñµÄ¸ß¶È
-	* @param [in] bpp          Ó°ÏñµÄBPPÖµ
-	* @param [in] pdata        ÏñËØÊı¾İ£¬°´ĞĞÅÅÁĞ£¬´óĞ¡Îªwidth*height*bpp/8¸ö×Ö½Ú
-	* @return Í¼Ïñ¹²ÏíÖ¸Õë
+	/**åˆ›å»ºä¸€ä¸ªæ–°å›¾åƒ
+	* @param [in] width        è¦è®¾å®šå½±åƒçš„å®½åº¦
+	* @param [in] height       è¦è®¾å®šå½±åƒçš„é«˜åº¦
+	* @param [in] bpp          å½±åƒçš„BPPå€¼
+	* @param [in] pdata        åƒç´ æ•°æ®ï¼ŒæŒ‰è¡Œæ’åˆ—ï¼Œå¤§å°ä¸ºwidth*height*bpp/8ä¸ªå­—èŠ‚
+	* @return å›¾åƒå…±äº«æŒ‡é’ˆ
 	*/
 	static ImageSharedPtr create(unsigned width, unsigned height, unsigned bpp, void * pdata);
-	/**´´½¨Ò»¸öĞÂÍ¼Ïñ,£¬²¢¿½±´pÖĞµÄÊı¾İ
-	* @param [in] p        Ô´Í¼Ïñ
-	* @return Í¼Ïñ¹²ÏíÖ¸Õë
+	/**åˆ›å»ºä¸€ä¸ªæ–°å›¾åƒ,ï¼Œå¹¶æ‹·è´pä¸­çš„æ•°æ®
+	* @param [in] p        æºå›¾åƒ
+	* @return å›¾åƒå…±äº«æŒ‡é’ˆ
 	*/
 	static ImageSharedPtr create(const ImageSharedPtr & p);
 

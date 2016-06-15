@@ -1,4 +1,4 @@
-/*
+ï»¿/*
 * Geosciences Template Library
 *
 * Copyright (c) 2008
@@ -24,7 +24,7 @@ begin_gdb_namespace
 class   TexturedVertex3f : public Vertex3f
 { 
 public:	 
-	/** ÎÆÀí×ø±ê */
+	/** çº¹ç†åæ ‡ */
 	float u, v; 
 public:
  	TexturedVertex3f(float dx = 0.0, float dy = 0.0, float dz = 0.0, float du = 0.0, float dv = 0.0) :Vertex3f(dx, dy, dz), u(du), v(dv)

@@ -1,4 +1,4 @@
-/*
+ï»¿/*
 * Geosciences Template Library
 *
 * Copyright (c) 2008
@@ -59,7 +59,7 @@ wchar_t  *cslRecodeToWChar(const char *pszSource,
 int  cslIsUTF8(const char* pabyData, int nLen);
 char  *cslForceToASCII(const char* pabyData, int nLen, char chReplacementChar);
 
-//C++°æ±¾µÄÀ©Õ¹×Ö·û´®Àà
+//C++ç‰ˆæœ¬çš„æ‰©å±•å­—ç¬¦ä¸²ç±»
 typedef std::string _gtl_string;
 class CORE_API String : public _gtl_string {
 public:
@@ -116,15 +116,15 @@ public:
 	String &  tolower(void);
 };
 
-/** ×Ö·û´®²Ã¼ôº¯Êı
-* @param [in,out] str ×Ö·û´®¶ÔÏó
-* @param [in] c Ö¸¶¨µÄ²Ã¼ô×Ö·û
-* @return ÎŞ
+/** å­—ç¬¦ä¸²è£å‰ªå‡½æ•°
+* @param [in,out] str å­—ç¬¦ä¸²å¯¹è±¡
+* @param [in] c æŒ‡å®šçš„è£å‰ªå­—ç¬¦
+* @return æ— 
 */
 template<typename CharT>
 void trim(std::basic_string<CharT>  & str, CharT c)
 {
-	//É¾³ıµôÁ½¶ËµÄÖ¸¶¨×Ö·û
+	//åˆ é™¤æ‰ä¸¤ç«¯çš„æŒ‡å®šå­—ç¬¦
 	//std::basic_string<CharT>::size_type pos = str.find_last_not_of(c);
 	auto pos = str.find_last_not_of(c);
 	if (pos != std::basic_string<CharT>::npos)
@@ -136,7 +136,7 @@ void trim(std::basic_string<CharT>  & str, CharT c)
 	}
 	else
 		str.erase(str.begin(), str.end());
-	//É¾³ıÖĞ¼äµÄÖ¸¶¨×Ö·û
+	//åˆ é™¤ä¸­é—´çš„æŒ‡å®šå­—ç¬¦
 	pos = str.find_first_of(c);
 	while (pos != std::basic_string<CharT>::npos) {
 		str.erase(str.begin() + pos);
@@ -144,25 +144,25 @@ void trim(std::basic_string<CharT>  & str, CharT c)
 	}
 }
 
-/** ½«Êı×Ö×ª»»³É×Ö·û´®
-* @param [in,out] num   ĞèÒª×ª»»µÄÊı×Ö
-@return ×ª»»µÃµ½µÄ×Ö·û´®
+/** å°†æ•°å­—è½¬æ¢æˆå­—ç¬¦ä¸²
+* @param [in,out] num   éœ€è¦è½¬æ¢çš„æ•°å­—
+@return è½¬æ¢å¾—åˆ°çš„å­—ç¬¦ä¸²
 */
 template<typename CharT, typename NumericT>
 std::basic_string<CharT> numberToString(NumericT num)
 {
 	std::basic_ostringstream<CharT> oss;
 	oss << (NumericT)num;
-	if (oss.str().find_first_of(',') != std::basic_string<CharT>::npos) {//º¬ÓĞ¸ñÊ½·ûºÅ
+	if (oss.str().find_first_of(',') != std::basic_string<CharT>::npos) {//å«æœ‰æ ¼å¼ç¬¦å·
 		std::basic_string<CharT> sz = oss.str();
 		trim<CharT>(sz, ',');
 		return sz;
 	}
-	/* ´¦ÀíÖĞÎÄ×Ö·û¸ñÊ½µÄ¶ººÅ£¬LinuxÏÂ±àÒë²»Í¨,VCÏÂ¿ÉÒÔ±àÒëÍ¨¹ı£¬ËùÒÔÕâ¶Î´úÂëÔİÊ±Ö»ÊµÏÖVCÏÂµÄ*/
+	/* å¤„ç†ä¸­æ–‡å­—ç¬¦æ ¼å¼çš„é€—å·ï¼ŒLinuxä¸‹ç¼–è¯‘ä¸é€š,VCä¸‹å¯ä»¥ç¼–è¯‘é€šè¿‡ï¼Œæ‰€ä»¥è¿™æ®µä»£ç æš‚æ—¶åªå®ç°VCä¸‹çš„*/
 #ifdef _MSC_VER
-	/*else if (oss.str().find_first_of('£¬') != std::basic_string<CharT>::npos){
+	/*else if (oss.str().find_first_of('ï¼Œ') != std::basic_string<CharT>::npos){
 	std::basic_string<CharT> sz = oss.str();
-	trim<CharT>(sz, '£¬');
+	trim<CharT>(sz, 'ï¼Œ');
 	return sz;
 	}*/
 #endif //_MSC_VER
@@ -171,9 +171,9 @@ std::basic_string<CharT> numberToString(NumericT num)
 	}
 }
 
-/** ×Ö·û´®×ª»»³ÉÊı×Ö
-* @param [in,out] str ×Ö·û´®
-* @return ×ª»»µÃµ½µÄÊı×Ö
+/** å­—ç¬¦ä¸²è½¬æ¢æˆæ•°å­—
+* @param [in,out] str å­—ç¬¦ä¸²
+* @return è½¬æ¢å¾—åˆ°çš„æ•°å­—
 */
 template<typename NumericT, typename CharT>
 NumericT stringToNumber(const std::basic_string<CharT> &str)
@@ -184,9 +184,9 @@ NumericT stringToNumber(const std::basic_string<CharT> &str)
 	iss >> result;
 	return result;
 }
-/** ½«×Ö·û´®×ª»»³ÉÊı×Ö
-@param [in,out] str ×Ö·û´®Ö¸Õë
-@return ×ª»»µÃµ½µÄÊı×Ö
+/** å°†å­—ç¬¦ä¸²è½¬æ¢æˆæ•°å­—
+@param [in,out] str å­—ç¬¦ä¸²æŒ‡é’ˆ
+@return è½¬æ¢å¾—åˆ°çš„æ•°å­—
 */
 template<typename NumericT, typename CharT>
 NumericT stringToNumber(const CharT * str)
@@ -198,10 +198,10 @@ NumericT stringToNumber(const CharT * str)
 }
 
 void stringToWString(std::string & s, std::wstring & sd);
-//Ö»ÓĞ´¦ÓÚÍ¬Ò»±àÂë·½Ê½µÄÇé¿öÏÂ²ÅÊÇÕıÈ·µÄ£¬Èç¹û±àÂëÌåÏµ²»Í¬£¬Ôò±¾º¯Êı²»ÄÜÕıÈ·µÄÖ´ĞĞ
+//åªæœ‰å¤„äºåŒä¸€ç¼–ç æ–¹å¼çš„æƒ…å†µä¸‹æ‰æ˜¯æ­£ç¡®çš„ï¼Œå¦‚æœç¼–ç ä½“ç³»ä¸åŒï¼Œåˆ™æœ¬å‡½æ•°ä¸èƒ½æ­£ç¡®çš„æ‰§è¡Œ
 void wstringToString(std::wstring & s, std::string & sd);
 
-//CÓïÑÔ°æ±¾µÄ×Ö·û´®ºÍ×Ö·û´®ÁĞ±í²Ù×÷º¯Êı
+//Cè¯­è¨€ç‰ˆæœ¬çš„å­—ç¬¦ä¸²å’Œå­—ç¬¦ä¸²åˆ—è¡¨æ“ä½œå‡½æ•°
 typedef char** CSTRLIST;//c style StringList
 #define CSLT_HONOURSTRINGS      0x0001
 #define CSLT_ALLOWEMPTYTOKENS   0x0002
@@ -270,10 +270,10 @@ public:
 };
 
 /*
-* Óëstd::map<std::string,std::string> ¹¦ÄÜÀàËÆ
-* µ«StringMapÊÇÒ»¸ö×Ö·û´®Êı×é£¬Ã¿¸öÔªËØÎªÒ»¸ö
-* ×Ö·û´®£»Ò»¸ö×Ö·û´®ÓÉkey¡¢alueÒÔ¼°·Ö¸ô·ûÈı²¿·Ö×é³É£»
-* keyÓëvalueÖ®¼ä²ÉÓÃ:»ò=·Ö¸î
+* ä¸std::map<std::string,std::string> åŠŸèƒ½ç±»ä¼¼
+* ä½†StringMapæ˜¯ä¸€ä¸ªå­—ç¬¦ä¸²æ•°ç»„ï¼Œæ¯ä¸ªå…ƒç´ ä¸ºä¸€ä¸ª
+* å­—ç¬¦ä¸²ï¼›ä¸€ä¸ªå­—ç¬¦ä¸²ç”±keyã€alueä»¥åŠåˆ†éš”ç¬¦ä¸‰éƒ¨åˆ†ç»„æˆï¼›
+* keyä¸valueä¹‹é—´é‡‡ç”¨:æˆ–=åˆ†å‰²
 */
 class CORE_API StringMap {
 	CSTRLIST _data;
@@ -295,7 +295,7 @@ public:
 	StringMap(const StringMap & sl);
 	virtual ~StringMap();
 	StringMap operator=(const StringMap & sl);
-	//·µ»ØµÄÊÇÒ»¸ö°üº¬key£¬·Ö¸ô·ûºÅ£¬ÒÔ¼°valueÈı²¿·Ö×é³ÉµÄ×Ö·û´®£¬¿ÉÒÔ²ÉÓÃparseº¯Êı½âÎö
+	//è¿”å›çš„æ˜¯ä¸€ä¸ªåŒ…å«keyï¼Œåˆ†éš”ç¬¦å·ï¼Œä»¥åŠvalueä¸‰éƒ¨åˆ†ç»„æˆçš„å­—ç¬¦ä¸²ï¼Œå¯ä»¥é‡‡ç”¨parseå‡½æ•°è§£æ
 	const char * operator[](size_t i);
 };
 //////////////////////////////////////////////////////////////////////////////////////////////

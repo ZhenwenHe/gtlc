@@ -1,4 +1,4 @@
-/*
+ï»¿/*
 * Geosciences Template Library
 *
 * Copyright (c) 2008
@@ -24,77 +24,77 @@ class SharedModel;
 typedef std::shared_ptr<SharedModel> SharedModelSharedPtr;
 typedef SharedModel* SharedModelPtr;
 
-/** @addtogroup Geometry SharedModel-¹²ÏíÄ£ĞÍÀà
+/** @addtogroup Geometry SharedModel-å…±äº«æ¨¡å‹ç±»
 *  @{
 */
 class CORE_API SharedModel{
 public:
-	/** »ñÈ¡¹ØÁªÄ£ĞÍID
-	* @return ¹ØÁªÄ£ĞÍID
+	/** è·å–å…³è”æ¨¡å‹ID
+	* @return å…³è”æ¨¡å‹ID
 	*/
 	virtual Identifier::raw_type getID() = 0;
 
-	/** ÉèÖÃ¹ØÁªÄ£ĞÍID
-	* @param [in] mdlid ¹ØÁªÄ£ĞÍID
+	/** è®¾ç½®å…³è”æ¨¡å‹ID
+	* @param [in] mdlid å…³è”æ¨¡å‹ID
 	*/
 	virtual void setID(Identifier::raw_type mdlid) = 0;
 
-	/** »ñÈ¡¹ØÁªÄ£ĞÍÃû³Æ
-	* @return ¹ØÁªÄ£ĞÍÃû³Æ
+	/** è·å–å…³è”æ¨¡å‹åç§°
+	* @return å…³è”æ¨¡å‹åç§°
 	*/
 	virtual string getName() = 0;
 
-	/** ÉèÖÃ¹ØÁªÄ£ĞÍÃû³Æ
-	* @param [in] mdlname ¹ØÁªÄ£ĞÍÃû³Æ
+	/** è®¾ç½®å…³è”æ¨¡å‹åç§°
+	* @param [in] mdlname å…³è”æ¨¡å‹åç§°
 	* @return void
 	*/
 	virtual void setName(string mdlname) = 0;
 
-	/** »ñÈ¡¹ØÁªÄ£ĞÍÀàĞÍ
-	* @return int: ¹ØÁªÄ£ĞÍÀàĞÍ
+	/** è·å–å…³è”æ¨¡å‹ç±»å‹
+	* @return int: å…³è”æ¨¡å‹ç±»å‹
 	*/
 	virtual int getType() = 0;
 
-	/** ÉèÖÃ¹ØÁªÄ£ĞÍÀàĞÍ
-	* @param [in] mdltype ¹ØÁªÄ£ĞÍÀàĞÍ
+	/** è®¾ç½®å…³è”æ¨¡å‹ç±»å‹
+	* @param [in] mdltype å…³è”æ¨¡å‹ç±»å‹
 	*/
 	virtual void setType(int mdltype) = 0;
 
-	/** »ñÈ¡¹ØÁªÄ£ĞÍ¹ØÁªµÄ²ÄÖÊID
-	* @return ¹ØÁªÄ£ĞÍ¹ØÁªµÄ²ÄÖÊID
+	/** è·å–å…³è”æ¨¡å‹å…³è”çš„æè´¨ID
+	* @return å…³è”æ¨¡å‹å…³è”çš„æè´¨ID
 	*/
 	virtual vector<Identifier::raw_type>& getMaterialIDs() = 0;
 
-	/** ÉèÖÃ¹ØÁªÄ£ĞÍ¹ØÁªµÄ²ÄÖÊID
-	* @param [in] linkmatids ¹ØÁªÄ£ĞÍ¹ØÁªµÄ²ÄÖÊID
+	/** è®¾ç½®å…³è”æ¨¡å‹å…³è”çš„æè´¨ID
+	* @param [in] linkmatids å…³è”æ¨¡å‹å…³è”çš„æè´¨ID
 	*/
 	virtual void setMaterialIDs(vector<Identifier::raw_type>& linkmatids) = 0;
 
-	/** ÉèÖÃ¹ØÁªÄ£ĞÍµÄ¼¸ºÎÊı¾İ
-	* @param [in] p ¹ØÁªÄ£ĞÍ¹ØÁªµÄ¼¸ºÎÊı¾İ
+	/** è®¾ç½®å…³è”æ¨¡å‹çš„å‡ ä½•æ•°æ®
+	* @param [in] p å…³è”æ¨¡å‹å…³è”çš„å‡ ä½•æ•°æ®
 	*/
 	virtual void setGeometry(GeometrySharedPtr p) = 0;
 
-	/** »ñÈ¡¹ØÁªÄ£ĞÍµÄ¼¸ºÎÊı¾İ
-	* @return C3DGeometryµÄÒıÓÃ,¹ØÁªÄ£ĞÍ¹ØÁªµÄ¼¸ºÎÊı¾İ
+	/** è·å–å…³è”æ¨¡å‹çš„å‡ ä½•æ•°æ®
+	* @return C3DGeometryçš„å¼•ç”¨,å…³è”æ¨¡å‹å…³è”çš„å‡ ä½•æ•°æ®
 	*/
 	virtual GeometrySharedPtr getGeometry() const = 0;
 
-	/** ½«¶ÔÏóĞ´Èë»º´æ
-	* @param [in] buf »º´æ
-	* @return Ğ´Èë³É¹¦Óë·ñ
+	/** å°†å¯¹è±¡å†™å…¥ç¼“å­˜
+	* @param [in] buf ç¼“å­˜
+	* @return å†™å…¥æˆåŠŸä¸å¦
 	*/
 	virtual bool writeBuffer(Buffer& buf) = 0;
 
-	/** ´Ó»º´æ¶ÁÈ¡¶ÔÏó¼ÇÂ¼
-	* @param [in] pBuffer »º´æ
-	* @return ¶ÁÈ¡³É¹¦Óë·ñ
+	/** ä»ç¼“å­˜è¯»å–å¯¹è±¡è®°å½•
+	* @param [in] pBuffer ç¼“å­˜
+	* @return è¯»å–æˆåŠŸä¸å¦
 	*/
 	virtual bool readBuffer(Buffer& buf) = 0;
 
-	/** ¼ÆËã¶ÔÏóËùÕ¼ÄÚ´æ×Ö½ÚÊı
+	/** è®¡ç®—å¯¹è±¡æ‰€å å†…å­˜å­—èŠ‚æ•°
 	* @param
-	* @return ·µ»ØÀàµÄ²ÎÊım_nSize
+	* @return è¿”å›ç±»çš„å‚æ•°m_nSize
 	*/
 	virtual size_t sizeBuffer() = 0;
 public:

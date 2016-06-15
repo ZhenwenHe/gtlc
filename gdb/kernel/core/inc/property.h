@@ -1,4 +1,4 @@
-/*
+ï»¿/*
 * Geosciences Template Library
 *
 * Copyright (c) 2008
@@ -26,21 +26,21 @@
 begin_gtl_namespace
 begin_gdb_namespace
 
-/** @addtogroup value PROPTYPES ÏµÍ³Ö§³ÖµÄÊôĞÔÀàĞÍ
+/** @addtogroup value PROPTYPES ç³»ç»Ÿæ”¯æŒçš„å±æ€§ç±»å‹
 *  @{
 */
 static const char*  PROPTYPES[] = {
-	/** ÕûÊıÀàĞÍ£¬°üÀ¨ÈÎºÎÕûÊıÀàĞÍ */
+	/** æ•´æ•°ç±»å‹ï¼ŒåŒ…æ‹¬ä»»ä½•æ•´æ•°ç±»å‹ */
 	"PROP_TYPE_INTEGER",
-	/**  ¸¡µãÊı¾İÀàĞÍ£¬°üÀ¨Ë«¾«¶ÈºÍµ¥¾«¶È */
+	/**  æµ®ç‚¹æ•°æ®ç±»å‹ï¼ŒåŒ…æ‹¬åŒç²¾åº¦å’Œå•ç²¾åº¦ */
 	"PROP_TYPE_DECIMAL",
-	/** ¶¨³¤×Ö·û¼°×Ö·û´®ÀàĞÍ */
+	/** å®šé•¿å­—ç¬¦åŠå­—ç¬¦ä¸²ç±»å‹ */
 	"PROP_TYPE_CHAR",
-	/** ±ä³¤×Ö·ûºÍ×Ö·û´®ÀàĞÍ */
+	/** å˜é•¿å­—ç¬¦å’Œå­—ç¬¦ä¸²ç±»å‹ */
 	"PROP_TYPE_VARCHAR",
-	/** ÈÕÆÚºÍÊ±¼äÀàĞÍ */
+	/** æ—¥æœŸå’Œæ—¶é—´ç±»å‹ */
 	"PROP_TYPE_DATE",
-	/** ´ó¶ş½øÖÆÀàĞÍ */
+	/** å¤§äºŒè¿›åˆ¶ç±»å‹ */
 	"PROP_TYPE_BLOB"
 };
 /** @} */
@@ -50,31 +50,31 @@ static const char*  PROPTYPES[] = {
 */
 class CORE_API Property :public Value{
 public:
-	/** @addtogroup value PropType ÊôĞÔÀàĞÍ¶ÔÏó
+	/** @addtogroup value PropType å±æ€§ç±»å‹å¯¹è±¡
 	*  @{
 	*/
 	class Type{
 	protected:
-		/** @name ÊôĞÔ³ÉÔ±±äÁ¿
+		/** @name å±æ€§æˆå‘˜å˜é‡
 		*  @{
 		*/
-		/** ÊôĞÔÀàĞÍÃû³Æ */
+		/** å±æ€§ç±»å‹åç§° */
 		std::string _name;
-		/** ÊôĞÔÀàĞÍ±àÂë */
+		/** å±æ€§ç±»å‹ç¼–ç  */
 		std::string _code;
-		/** ÊôĞÔÀàĞÍµÄÀàĞÍ×Ö·û´®£¬±ØĞëÊÇPROPTYPESÊı×éÖĞµÄÖµ */
+		/** å±æ€§ç±»å‹çš„ç±»å‹å­—ç¬¦ä¸²ï¼Œå¿…é¡»æ˜¯PROPTYPESæ•°ç»„ä¸­çš„å€¼ */
 		std::string _type;
-		/** ÊôĞÔÀàĞÍ³¤¶È£¬°´ÕÕ×Ö½Ú½øĞĞ¼ÆËã£¬Ë«×Ö½Ú¼ÇÎªÁ½¸ö×Ö½Ú */
+		/** å±æ€§ç±»å‹é•¿åº¦ï¼ŒæŒ‰ç…§å­—èŠ‚è¿›è¡Œè®¡ç®—ï¼ŒåŒå­—èŠ‚è®°ä¸ºä¸¤ä¸ªå­—èŠ‚ */
 		int         _length;
-		/** ÊôĞÔÀàĞÍµÄĞ¡ÊıµãÎ»Êı£¬±¾×Ö¶ÎÖ»ÓĞÔÚÊôĞÔÀàĞÍÎªG3D_TYPE_DECIMAL²ÅÓĞĞ§ */
+		/** å±æ€§ç±»å‹çš„å°æ•°ç‚¹ä½æ•°ï¼Œæœ¬å­—æ®µåªæœ‰åœ¨å±æ€§ç±»å‹ä¸ºG3D_TYPE_DECIMALæ‰æœ‰æ•ˆ */
 		int         _decimal;
-		/** ÊôĞÔÀàĞÍÊÇ·ñ¿ÉÒÔÎª¿Õ£¬true±íÊ¾¿ÉÒÔÎª¿Õ£¬false±íÊ¾²»ÄÜÎª¿Õ */
+		/** å±æ€§ç±»å‹æ˜¯å¦å¯ä»¥ä¸ºç©ºï¼Œtrueè¡¨ç¤ºå¯ä»¥ä¸ºç©ºï¼Œfalseè¡¨ç¤ºä¸èƒ½ä¸ºç©º */
 		bool        _nullable;
 		VALUE    *  _defaultValue;
 		/** @} */
 
 	public:
-		/** @name ¹¹Ôìº¯ÊıÓëÎö¹¹º¯Êı
+		/** @name æ„é€ å‡½æ•°ä¸ææ„å‡½æ•°
 		*  @{
 		*/
 		Type(){
@@ -96,7 +96,7 @@ public:
 		Type(const Type & t){ copy(t); }
 		/** @} */
 
-		/** @name ¸´ÖÆÓëµÈºÅ¸³ÖµÖØÔØ
+		/** @name å¤åˆ¶ä¸ç­‰å·èµ‹å€¼é‡è½½
 		*  @{
 		*/
 		void copy(const Property::Type & t){
@@ -130,7 +130,7 @@ public:
 		}
 		/** @} */
 
-		/** @name ¶ÔÏó³ÉÔ±±äÁ¿»ñÈ¡ÓëÉèÖÃ²Ù×÷º¯Êı¼¯
+		/** @name å¯¹è±¡æˆå‘˜å˜é‡è·å–ä¸è®¾ç½®æ“ä½œå‡½æ•°é›†
 		*  @{
 		*/
 		inline std::string getName(){ return _name; }
@@ -153,9 +153,9 @@ public:
 		/** @} */
 
 	public:
-		/**  ÅĞ¶ÏÊôĞÔÀàĞÍÊÇ·ñÎªÊı×ÖÀàĞÍ
-		*	 @param ÎŞ
-		*   @return Èç¹ûÊôĞÔÀàĞÍÊÇÊı×ÖÀàĞÍ£¬Ôò·µ»Øtrue£¬·ñÔò·µ»Øfalse
+		/**  åˆ¤æ–­å±æ€§ç±»å‹æ˜¯å¦ä¸ºæ•°å­—ç±»å‹
+		*	 @param æ— 
+		*   @return å¦‚æœå±æ€§ç±»å‹æ˜¯æ•°å­—ç±»å‹ï¼Œåˆ™è¿”å›trueï¼Œå¦åˆ™è¿”å›false
 		*/
 		bool isNumber(){
 			if (strcmp(_type.c_str(), PROPTYPES[0]) == 0 || strcmp(_type.c_str(), PROPTYPES[1]) == 0)
@@ -164,22 +164,22 @@ public:
 				return false;
 		}
 	public:
-		/**  ½«ÊôĞÔÀàĞÍ¶ÔÏóĞ´ÈëÁ÷¶ÔÏó
-		*	 @param [in,out]  f Á÷¶ÔÏó
+		/**  å°†å±æ€§ç±»å‹å¯¹è±¡å†™å…¥æµå¯¹è±¡
+		*	 @param [in,out]  f æµå¯¹è±¡
 		*   @return void
 		*/
 		virtual void  write(std::ostream & f)
 		{
 
-			int s = _name.size();
+			int s =(int) _name.size();
 			f.write((char*)(&s), sizeof(int));
 			f.write((char*)(_name.c_str()), s);
 
-			s = _code.size();
+			s = (int) _code.size();
 			f.write((char*)(&s), sizeof(int));
 			f.write((char*)(_code.c_str()), s);
 
-			s = _type.size();
+			s = (int) _type.size();
 			f.write((char*)(&s), sizeof(int));
 			f.write((char*)(_type.c_str()), s);
 
@@ -187,11 +187,11 @@ public:
 
 			f.write((char*)(&_decimal), sizeof(int));
 
-			s = _nullable ? 1 : 0;
+			s =(int)(_nullable ? 1 : 0);
 			f.write((char*)(&s), sizeof(int));
 		}
-		/**  ´ÓÁ÷¶ÔÏóÖĞ¶ÁÈ¡ÊôĞÔÀàĞÍ¶ÔÏó
-		*	 @param [in,out]  f Á÷¶ÔÏó
+		/**  ä»æµå¯¹è±¡ä¸­è¯»å–å±æ€§ç±»å‹å¯¹è±¡
+		*	 @param [in,out]  f æµå¯¹è±¡
 		*   @return void
 		*/
 		virtual void  read(std::istream & f){

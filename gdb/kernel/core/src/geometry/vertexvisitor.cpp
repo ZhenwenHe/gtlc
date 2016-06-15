@@ -14,7 +14,7 @@
 
 begin_gtl_namespace
 begin_gdb_namespace
-class VertexVisitorDeletor;
+struct VertexVisitorDeletor;
 struct VertexVisitorDeletor{
 	void operator()(VertexVisitor* p){
 		switch (p->getType()){

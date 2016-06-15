@@ -1,4 +1,4 @@
-/*
+ï»¿/*
 * Geosciences Template Library
 *
 * Copyright (c) 2008
@@ -25,10 +25,10 @@ class ColoredVertex3f
 {	
 public: 
 
-	/** ¿Õ¼ä×ø±ê */
+	/** ç©ºé—´åæ ‡ */
 	float x, y, z;
 
-	/** ÑÕÉ« */
+	/** é¢œè‰² */
 	float cR, cG, cB; 
 };
 end_gdb_namespace

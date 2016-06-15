@@ -1,4 +1,4 @@
-/*
+ï»¿/*
 * Geosciences Template Library
 *
 * Copyright (c) 2008
@@ -26,15 +26,15 @@ begin_gdb_namespace
 class ShadedVertex3d : public Vertex3d
 { 
 public: 
-	/** ·¨Ïß */
+	/** æ³•çº¿ */
 	double nx, ny, nz;
 
-	/** ÑÕÉ« */
+	/** é¢œè‰² */
 	float cR, cG, cB; 
 public:
 	  
 
-	/** ¹¹Ôìº¯Êý1
+	/** æž„é€ å‡½æ•°1
 	*/
 	ShadedVertex3d(double fx = 0.0, double fy = 0.0, double fz = 0.0, double fnx = 0.0, double fny = 0.0, double fnz = 0.0, float r = 0.0, float g = 0.0, float b = 0.0)
 		:Vertex3d(fx, fy, fz), nx(fnx), ny(fny), nz(fnz), cR(r), cG(g), cB(b)
@@ -42,7 +42,7 @@ public:
 
 	}
 
-	/** ¹¹Ôìº¯Êý2
+	/** æž„é€ å‡½æ•°2
 	*/
 	ShadedVertex3d(Vertex3d& vPos, Vertex3d& vNor, Vertex3f& vColor) :Vertex3d(vPos), nx(vNor.x), ny(vNor.y), nz(vNor.z), cR(vColor.x), cG(vColor.y), cB(vColor.z)
 	{

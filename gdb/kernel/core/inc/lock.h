@@ -1,4 +1,4 @@
-/*
+ï»¿/*
 * Geosciences Template Library
 *
 * Copyright (c) 2008
@@ -25,7 +25,7 @@ begin_gdb_namespace
 typedef   std::mutex                         Mutex;
 typedef   std::unique_lock<std::mutex>  UniqueLock;
 
-/** @defgroup Thread  Thread-¶àÏß³ÌÏà¹ØÀà
+/** @defgroup Thread  Thread-å¤šçº¿ç¨‹ç›¸å…³ç±»
 *  @{
 */
 class CORE_API Lock{

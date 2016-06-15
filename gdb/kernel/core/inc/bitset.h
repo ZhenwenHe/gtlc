@@ -25,7 +25,6 @@
 #include "config.h"
 
 
-
 begin_gtl_namespace
 begin_gdb_namespace
 

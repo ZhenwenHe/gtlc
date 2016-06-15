@@ -1,4 +1,4 @@
-/*
+ï»¿/*
 * Geosciences Template Library
 *
 * Copyright (c) 2008
@@ -31,274 +31,274 @@ begin_gdb_namespace
 
 class  TerrainBuilder;
 typedef std::shared_ptr<TerrainBuilder>  TerrainBuilderSharedPtr;
-/** @addtogroup terrain TerrainBuilder-µØĞÎÊı¾İ¿â¹ÜÀíÖ¸Õë¡¡
+/** @addtogroup terrain TerrainBuilder-åœ°å½¢æ•°æ®åº“ç®¡ç†æŒ‡é’ˆã€€
 *  @{
 */
 class CORE_API TerrainBuilder
 {
 protected:
-	/** ´ò¿ªDEMÊı¾İ¿â
-	* @param [in]  dbinfo		DEMÊı¾İ¿âµÇÂ¼ĞÅÏ¢£¨ÎÄ¼şÏµÍ³ÎªÎÄ¼şµÄÂ·¾¶£»Êı¾İ¿âÏµÍ³ÎªµÇÂ¼µÄÓÃ»§ÃûÂ¼¼°Êı¾İ¿âÃû³ÆµÈ£©
+	/** æ‰“å¼€DEMæ•°æ®åº“
+	* @param [in]  dbinfo		DEMæ•°æ®åº“ç™»å½•ä¿¡æ¯ï¼ˆæ–‡ä»¶ç³»ç»Ÿä¸ºæ–‡ä»¶çš„è·¯å¾„ï¼›æ•°æ®åº“ç³»ç»Ÿä¸ºç™»å½•çš„ç”¨æˆ·åå½•åŠæ•°æ®åº“åç§°ç­‰ï¼‰
 	* @return
 	*/
 	virtual bool openDEMDB(const Connector & conn) = 0;
 
 
-	/** ´ò¿ªDOMÊı¾İ¿â
-	* @param [in]  dbinfo		DOMÊı¾İ¿âµÇÂ¼ĞÅÏ¢£¨ÎÄ¼şÏµÍ³ÎªÎÄ¼şµÄÂ·¾¶£»Êı¾İ¿âÏµÍ³ÎªµÇÂ¼µÄÓÃ»§ÃûÂ¼¼°Êı¾İ¿âÃû³ÆµÈ£©
+	/** æ‰“å¼€DOMæ•°æ®åº“
+	* @param [in]  dbinfo		DOMæ•°æ®åº“ç™»å½•ä¿¡æ¯ï¼ˆæ–‡ä»¶ç³»ç»Ÿä¸ºæ–‡ä»¶çš„è·¯å¾„ï¼›æ•°æ®åº“ç³»ç»Ÿä¸ºç™»å½•çš„ç”¨æˆ·åå½•åŠæ•°æ®åº“åç§°ç­‰ï¼‰
 	* @return
 	*/
 	virtual bool openDOMDB(const Connector & conn) = 0;
 
 
-	/** ¹Ø±ÕDEMÊı¾İ¿â
-	* @param [in]  demid		DEMÊı¾İ¿âID
+	/** å…³é—­DEMæ•°æ®åº“
+	* @param [in]  demid		DEMæ•°æ®åº“ID
 	* @return
 	*/
 	virtual bool closeDEMDB() = 0;
 
 
-	/** ¹Ø±ÕDOMÊı¾İ¿â
-	* @param [in]  domid		DOMÊı¾İ¿âID
+	/** å…³é—­DOMæ•°æ®åº“
+	* @param [in]  domid		DOMæ•°æ®åº“ID
 	* @return
 	*/
 	virtual bool closeDOMDB() = 0;
 
-	/** ´´½¨DEMÊı¾İ¿â
-	* @param [in]  demDBName 		DEMÊı¾İ¿âÃû³Æ
-	* @param [in]  demDatainfo 		DEMÊı¾İÃèÊöĞÅÏ¢
-	* @param [in]  scope 			DEMÊı¾İ¿â·¶Î§
+	/** åˆ›å»ºDEMæ•°æ®åº“
+	* @param [in]  demDBName 		DEMæ•°æ®åº“åç§°
+	* @param [in]  demDatainfo 		DEMæ•°æ®æè¿°ä¿¡æ¯
+	* @param [in]  scope 			DEMæ•°æ®åº“èŒƒå›´
 	* @return
 	*/
 	virtual bool createDEMDB(const Connector & conn, DEMDBInfoSharedPtr demdbinfo) = 0;
 
-	/** ´´½¨DOMÊı¾İ¿â
-	* @param [in]  domDBName 		DOMÊı¾İ¿âÃû³Æ
-	* @param [in]  domDatainfo 		DOMÊı¾İÃèÊöĞÅÏ¢
-	* @param [in]  scope 			DOMÊı¾İ¿â·¶Î§
+	/** åˆ›å»ºDOMæ•°æ®åº“
+	* @param [in]  domDBName 		DOMæ•°æ®åº“åç§°
+	* @param [in]  domDatainfo 		DOMæ•°æ®æè¿°ä¿¡æ¯
+	* @param [in]  scope 			DOMæ•°æ®åº“èŒƒå›´
 	* @return
 	*/
 	virtual bool createDOMDB(const Connector & conn, DOMDBInfoSharedPtr domdbinfo) = 0;
 
-	/** ´´½¨DEMĞÂ½ğ×ÖËş²ã
-	* @param [in]  nLayerID			DEM½ğ×ÖËş²ãID
-	* @param [in]  szLayerName		DEM²ãÃû³Æ
-	* @param [in]  LayerInfo		DEM²ãĞÅÏ¢
+	/** åˆ›å»ºDEMæ–°é‡‘å­—å¡”å±‚
+	* @param [in]  nLayerID			DEMé‡‘å­—å¡”å±‚ID
+	* @param [in]  szLayerName		DEMå±‚åç§°
+	* @param [in]  LayerInfo		DEMå±‚ä¿¡æ¯
 	* @return
 	*/
 	virtual bool newDEMLayer(Identifier::raw_type  nLayerID, DEMLayerInfoSharedPtr LayerInfo, int indexPosition = -1) = 0;
 
 
-	/** ´´½¨DOMĞÂ½ğ×ÖËş²ã
-	* @param [in]  nLayerID			DOM½ğ×ÖËş²ãID
-	* @param [in]  szLayerName		DOM²ãÃû³Æ
-	* @param [in]  LayerInfo		DOM²ãĞÅÏ¢
+	/** åˆ›å»ºDOMæ–°é‡‘å­—å¡”å±‚
+	* @param [in]  nLayerID			DOMé‡‘å­—å¡”å±‚ID
+	* @param [in]  szLayerName		DOMå±‚åç§°
+	* @param [in]  LayerInfo		DOMå±‚ä¿¡æ¯
 	* @return
 	*/
 	virtual bool newDOMLayer(Identifier::raw_type  nLayerID, DOMLayerInfoSharedPtr LayerInfo, int indexPosition = -1) = 0;
 
-	/**Çå¿ÕDEMÊı¾İ¿â
-	* @param [in]  demid			DEMÊı¾İ¿âID
+	/**æ¸…ç©ºDEMæ•°æ®åº“
+	* @param [in]  demid			DEMæ•°æ®åº“ID
 	* @return
 	*/
 	virtual bool clearDEMDBData() = 0;
 
-	/**Çå¿ÕDOMÊı¾İ¿â
-	* @param [in]  domdbid			DOMÊı¾İ¿âID
+	/**æ¸…ç©ºDOMæ•°æ®åº“
+	* @param [in]  domdbid			DOMæ•°æ®åº“ID
 	* @return
 	*/
 	virtual bool clearDOMDBData() = 0;
 
-	/** É¾³ıDEMÊı¾İ¿â
-	* @param [in]  demid			DEMÊı¾İ¿âID
+	/** åˆ é™¤DEMæ•°æ®åº“
+	* @param [in]  demid			DEMæ•°æ®åº“ID
 	* @return
 	*/
 	virtual bool deleteDEMDB() = 0;
 
-	/** É¾³ıDOMÊı¾İ¿â
-	* @param [in]  domid			DOMÊı¾İ¿âID
+	/** åˆ é™¤DOMæ•°æ®åº“
+	* @param [in]  domid			DOMæ•°æ®åº“ID
 	* @return
 	*/
 	virtual bool deleteDOMDB() = 0;
 
 
 
-	/** Æ½ÒÆDEMÊı¾İ¿â
-	* @param [in]	x		x·½ÏòÆ½ÒÆ³¤¶È
-	* @param [in]	y		y·½ÏòÆ½ÒÆ³¤¶È
+	/** å¹³ç§»DEMæ•°æ®åº“
+	* @param [in]	x		xæ–¹å‘å¹³ç§»é•¿åº¦
+	* @param [in]	y		yæ–¹å‘å¹³ç§»é•¿åº¦
 	* @return
 	*/
 	virtual bool translateDEMDB(double x, double y) = 0;
 
-	/** Æ½ÒÆDOMÊı¾İ¿â
-	* @param [in]	x		x·½ÏòÆ½ÒÆ³¤¶È
-	* @param [in]	y		y·½ÏòÆ½ÒÆ³¤¶È
+	/** å¹³ç§»DOMæ•°æ®åº“
+	* @param [in]	x		xæ–¹å‘å¹³ç§»é•¿åº¦
+	* @param [in]	y		yæ–¹å‘å¹³ç§»é•¿åº¦
 	* @return
 	*/
 	virtual bool translateDOMDB(double x, double y) = 0;
 
 
 public:
-	/**  ÅĞ¶Ï¹¤³ÌÊÇ·ñÎª¿Õ
-	* @param ÎŞ
-	* @return Èç¹ûÎª¿Õ·µ»Øtrue£¬·ñÔò·µ»Øfalse
+	/**  åˆ¤æ–­å·¥ç¨‹æ˜¯å¦ä¸ºç©º
+	* @param æ— 
+	* @return å¦‚æœä¸ºç©ºè¿”å›trueï¼Œå¦åˆ™è¿”å›false
 	*/
 	virtual bool isEmpty() = 0;
 
-	/** »ñÈ¡µ±Ç°²ãµÄID
-	* @param [in]  ÎŞ
-	* @return µ±Ç°²ãµÄID
+	/** è·å–å½“å‰å±‚çš„ID
+	* @param [in]  æ— 
+	* @return å½“å‰å±‚çš„ID
 	*/
 	virtual Identifier::raw_type getCurrentLayerID() = 0;
 
-	/** ÉèÖÃµ±Ç°²ãµÄID
+	/** è®¾ç½®å½“å‰å±‚çš„ID
 	* @param [in]  int layerID
 	* @return
 	*/
 	virtual bool setCurrentLayerID(Identifier::raw_type layerID) = 0;
 
-	/** ¹Ø±ÕÊı¾İ¿â
-	* @param [in]  ÎŞ
+	/** å…³é—­æ•°æ®åº“
+	* @param [in]  æ— 
 	* @return
 	*/
 	virtual bool close() = 0;
 
-	/** ´ò¿ªÊı¾İ¿â
+	/** æ‰“å¼€æ•°æ®åº“
 	* @param [in]  Connector: conn
 	* @return
 	*/
 	virtual bool open(const Connector &) = 0;
 
-	/** ´´½¨Êı¾İ¿â
+	/** åˆ›å»ºæ•°æ®åº“
 	* @param [in]  Connector: conn
 	* @return
 	*/
 	virtual bool create(const Connector &, DEMDBInfoSharedPtr &, DOMDBInfoSharedPtr &) = 0;
-	/** ´´½¨DEMÊı¾İ¿â
+	/** åˆ›å»ºDEMæ•°æ®åº“
 	* @param [in]  Connector: conn
 	* @return
 	*/
 	virtual bool create(const Connector &, DEMDBInfoSharedPtr &) = 0;
 
-	/** ´´½¨DOMÊı¾İ¿â
+	/** åˆ›å»ºDOMæ•°æ®åº“
 	* @param [in]  Connector: conn
 	* @return
 	*/
 	virtual bool create(const Connector &, DOMDBInfoSharedPtr &) = 0;
 
-	/** »ñÈ¡µØĞÎ²éÑ¯Ö¸Õë¶ÔÏó
+	/** è·å–åœ°å½¢æŸ¥è¯¢æŒ‡é’ˆå¯¹è±¡
 	* @return
 	*/
 	virtual TerrainProxySharedPtr getProxy() = 0;
 
 
 
-	/** »ñÈ¡DEMÊı¾İ¿âĞÅÏ¢
-	* @param [out]  demdbinfo 		DEMÊı¾İ¿âĞÅÏ¢
+	/** è·å–DEMæ•°æ®åº“ä¿¡æ¯
+	* @param [out]  demdbinfo 		DEMæ•°æ®åº“ä¿¡æ¯
 	* @return
 	*/
 	virtual DEMDBInfoSharedPtr getDEMDBInfo() = 0;
 
-	/** »ñÈ¡DEMÊı¾İ¿âĞÅÏ¢
-	* @param [out]  domdbinfo 		DOMÊı¾İ¿âĞÅÏ¢
+	/** è·å–DEMæ•°æ®åº“ä¿¡æ¯
+	* @param [out]  domdbinfo 		DOMæ•°æ®åº“ä¿¡æ¯
 	* @return
 	*/
 	virtual DOMDBInfoSharedPtr getDOMDBInfo() = 0;
 
-	/** É¾³ıÒ»¸ö½ğ×ÖËş²ã
-	* @param [in]  nLayerID			½ğ×ÖËş²ãID
+	/** åˆ é™¤ä¸€ä¸ªé‡‘å­—å¡”å±‚
+	* @param [in]  nLayerID			é‡‘å­—å¡”å±‚ID
 	* @return
 	*/
 	virtual bool deleteLayer(Identifier::raw_type  nLayerID) = 0;
 
 
-	/** Ìá½»µ¥¸öDEMÊı¾İÊı¾İ¿é
-	* @param [in]  blkdata			DEMÊı¾İ
-	* @param [in]  bEnd				ÊÇ·ñ×îºóÒ»¸öÊı¾İ¿é
+	/** æäº¤å•ä¸ªDEMæ•°æ®æ•°æ®å—
+	* @param [in]  blkdata			DEMæ•°æ®
+	* @param [in]  bEnd				æ˜¯å¦æœ€åä¸€ä¸ªæ•°æ®å—
 	* @return
 	*/
 	virtual bool submitDEMBlock(DEMBlockSharedPtr blkdata) = 0;
 
 
-	/** Ìá½»¶à¸öDEMÊı¾İÊı¾İ¿é
-	* @param [in]  nLayerID			DEM½ğ×ÖËş²ãID
-	* @param [in]  blkdatas			DEMÊı¾İ¼¯ºÏ
+	/** æäº¤å¤šä¸ªDEMæ•°æ®æ•°æ®å—
+	* @param [in]  nLayerID			DEMé‡‘å­—å¡”å±‚ID
+	* @param [in]  blkdatas			DEMæ•°æ®é›†åˆ
 	* @return
 	*/
 	virtual bool submitDEMBlocks(Identifier::raw_type  nLayerID, std::vector<DEMBlockSharedPtr>& blkdatas) = 0;
 
 
-	/** Ìá½»DEMÊı¾İ
-	* @param [in]  szFileName		µ±Ç°µİ½»µÄDEMÎÄ¼şÂ·¾¶¼°Ãû³Æ£¬ÓÃÓÚ¼ÇÂ¼Ô­Ê¼DEMÊı¾İÀ´Ô´
-	* @param [in]  demObject		µ±Ç°µİ½»µÄDEMÊı¾İ
-	* @param [in]  nUpdateType		ĞÂµİ½»Êı¾İÓë¿âÖĞÔ­ÓĞÊı¾İÓĞÖØµşÊ±µÄ´¦Àí·½Ê½0:¸üĞÂÎªĞÂÖµ £»1:ºÍÒÑÓĞÖµÈÚºÏ; 2²»Ìæ»»£¬±£ÁôÒÑÓĞÖµ
+	/** æäº¤DEMæ•°æ®
+	* @param [in]  szFileName		å½“å‰é€’äº¤çš„DEMæ–‡ä»¶è·¯å¾„åŠåç§°ï¼Œç”¨äºè®°å½•åŸå§‹DEMæ•°æ®æ¥æº
+	* @param [in]  demObject		å½“å‰é€’äº¤çš„DEMæ•°æ®
+	* @param [in]  nUpdateType		æ–°é€’äº¤æ•°æ®ä¸åº“ä¸­åŸæœ‰æ•°æ®æœ‰é‡å æ—¶çš„å¤„ç†æ–¹å¼0:æ›´æ–°ä¸ºæ–°å€¼ ï¼›1:å’Œå·²æœ‰å€¼èåˆ; 2ä¸æ›¿æ¢ï¼Œä¿ç•™å·²æœ‰å€¼
 	* @return
 	*/
 	virtual bool submitDEM(DEMGridSharedPtr demObj) = 0;
 
-	/** Ìá½»µ¥¸öDOMÊı¾İÊı¾İ¿é
-	* @param [in]  blkdata			DOMÊı¾İ
+	/** æäº¤å•ä¸ªDOMæ•°æ®æ•°æ®å—
+	* @param [in]  blkdata			DOMæ•°æ®
 	* @return
 	*/
 	virtual bool submitDOMBlock(DOMBlockSharedPtr blkdata) = 0;
 
-	/** Ìá½»¶à¸öDOMÊı¾İÊı¾İ¿é
-	* @param [in]  nLayerID			DOM½ğ×ÖËş²ãID
-	* @param [in]  blkdatas			DOMÊı¾İ¼¯ºÏ
+	/** æäº¤å¤šä¸ªDOMæ•°æ®æ•°æ®å—
+	* @param [in]  nLayerID			DOMé‡‘å­—å¡”å±‚ID
+	* @param [in]  blkdatas			DOMæ•°æ®é›†åˆ
 	* @return
 	*/
 	virtual bool submitDOMBlocks(Identifier::raw_type  nLayerID, std::vector<DOMBlockSharedPtr>& blkdatas) = 0;
 
 
-	/** Ìá½»DOMÊı¾İ
-	* @param [in]  nLayerID			DOM½ğ×ÖËş²ãID
-	* @param [in]  szFileName		µ±Ç°µİ½»µÄDOMÎÄ¼şÂ·¾¶¼°Ãû³Æ
-	* @param [in]  imageData			µ±Ç°µİ½»µÄDOMÊı¾İÖ¸Õë
-	* @param [in]  DomInfo			µ±Ç°µİ½»µÄDOMÊı¾İĞÅÏ¢
-	* @param [in]  scope			µ±Ç°µİ½»µÄDOM·¶Î§
-	* @param [in]  nUpdateType		ĞÂµİ½»Êı¾İÓë¿âÖĞÔ­ÓĞÊı¾İÓĞÖØµşÊ±µÄ´¦Àí·½Ê½0:¸üĞÂÎªĞÂÖµ £»1:ºÍÒÑÓĞÖµÈÚºÏ; 2²»Ìæ»»£¬±£ÁôÒÑÓĞÖµ
+	/** æäº¤DOMæ•°æ®
+	* @param [in]  nLayerID			DOMé‡‘å­—å¡”å±‚ID
+	* @param [in]  szFileName		å½“å‰é€’äº¤çš„DOMæ–‡ä»¶è·¯å¾„åŠåç§°
+	* @param [in]  imageData			å½“å‰é€’äº¤çš„DOMæ•°æ®æŒ‡é’ˆ
+	* @param [in]  DomInfo			å½“å‰é€’äº¤çš„DOMæ•°æ®ä¿¡æ¯
+	* @param [in]  scope			å½“å‰é€’äº¤çš„DOMèŒƒå›´
+	* @param [in]  nUpdateType		æ–°é€’äº¤æ•°æ®ä¸åº“ä¸­åŸæœ‰æ•°æ®æœ‰é‡å æ—¶çš„å¤„ç†æ–¹å¼0:æ›´æ–°ä¸ºæ–°å€¼ ï¼›1:å’Œå·²æœ‰å€¼èåˆ; 2ä¸æ›¿æ¢ï¼Œä¿ç•™å·²æœ‰å€¼
 	* @return
 	*/
 	virtual bool submitDOM(DOMGridSharedPtr domObj) = 0;
 
-	/** µ÷ÕûDEMÊı¾İ¿â·¶Î§ÎªÕı·½ĞÎ
-	* @param [in]	srcDemScope			Ô­Ê¼DEMÊı¾İ¿â·¶Î§
-	* @param [out]	adjustDemScope		µ÷ÕûºóµÄDEMÊı¾İ¿â·¶Î§
+	/** è°ƒæ•´DEMæ•°æ®åº“èŒƒå›´ä¸ºæ­£æ–¹å½¢
+	* @param [in]	srcDemScope			åŸå§‹DEMæ•°æ®åº“èŒƒå›´
+	* @param [out]	adjustDemScope		è°ƒæ•´åçš„DEMæ•°æ®åº“èŒƒå›´
 	* @return
 	*/
 	virtual bool adjustDEMDBScopeToMinSquare(const Envelope2d& srcDemScope, const Envelope2d& adjustDemScope) = 0;
 
-	/** µ÷ÕûDEMµÄ¸ñÍø¼ä¾à£¬Ê¹DEMÊı¾İ¿âµÄ±ß³¤¶¥µãÊıÎª2N+1
-	* @param [in]	adjustDemScope		µ÷ÕûºóµÄDEMÊı¾İ¿â·¶Î§
-	* @param [in]	srcCellsize			Ô­Ê¼DEMÊı¾İ¿â¸ñÍø¼ä¾à
-	* @param [out]	adjustCellsize		µ÷ÕûºóµÄDEMÊı¾İ¿â¸ñÍø¼ä¾à
+	/** è°ƒæ•´DEMçš„æ ¼ç½‘é—´è·ï¼Œä½¿DEMæ•°æ®åº“çš„è¾¹é•¿é¡¶ç‚¹æ•°ä¸º2N+1
+	* @param [in]	adjustDemScope		è°ƒæ•´åçš„DEMæ•°æ®åº“èŒƒå›´
+	* @param [in]	srcCellsize			åŸå§‹DEMæ•°æ®åº“æ ¼ç½‘é—´è·
+	* @param [out]	adjustCellsize		è°ƒæ•´åçš„DEMæ•°æ®åº“æ ¼ç½‘é—´è·
 	* @return
 	*/
 	virtual bool adjustDEMCellSizeTo2N(const Envelope2d& adjustScope, double srcCellsize, double& adjustCellsize) = 0;
 
-	/** µ÷ÕûDEMµÄ·¶Î§£¬Ê¹DEMÊı¾İ¿âµÄ±ß³¤¶¥µãÊıÎª2N+1
-	* @param [in]	srcCellsize			Ô­Ê¼DEMÊı¾İ¿â¸ñÍø¼ä¾à
-	* @param [in]	srcDemScope			µ÷ÕûºóµÄDEMÊı¾İ¿â·¶Î§
-	* @param [out]	adjustDemScope		µ÷ÕûºóµÄDEMÊı¾İ¿â·¶Î§
+	/** è°ƒæ•´DEMçš„èŒƒå›´ï¼Œä½¿DEMæ•°æ®åº“çš„è¾¹é•¿é¡¶ç‚¹æ•°ä¸º2N+1
+	* @param [in]	srcCellsize			åŸå§‹DEMæ•°æ®åº“æ ¼ç½‘é—´è·
+	* @param [in]	srcDemScope			è°ƒæ•´åçš„DEMæ•°æ®åº“èŒƒå›´
+	* @param [out]	adjustDemScope		è°ƒæ•´åçš„DEMæ•°æ®åº“èŒƒå›´
 	* @return
 	*/
 	virtual bool adjustDEMDBScopeTo2NSquare(double cellsize, const Envelope2d& srcDemScope, const Envelope2d& adjustDemScope) = 0;
 
-	/** µ÷ÕûÖ¸¶¨½ğ×ÖËş²ã·¶Î§
-	* @param [in]  nLayerID			DEM½ğ×ÖËş²ãID
-	* @param [out] demLayerScope	µ÷ÕûºóµÄ·¶Î§
+	/** è°ƒæ•´æŒ‡å®šé‡‘å­—å¡”å±‚èŒƒå›´
+	* @param [in]  nLayerID			DEMé‡‘å­—å¡”å±‚ID
+	* @param [out] demLayerScope	è°ƒæ•´åçš„èŒƒå›´
 	* @return
 	*/
 	virtual bool adjustLayerScope(Identifier::raw_type  nLayerID, const Envelope2d& demLayerScope, int& colNum, int& rowNum) = 0;
-	/** µÃµ½connector
+	/** å¾—åˆ°connector
 	* @return
 	*/
 	virtual  Connector & getConnector() = 0;
 public:
-	//ÓÃÓÚÅĞ¶ÏDEM»òDOMÄ³²ãÊÇ·ñÓĞÊı¾İ
+	//ç”¨äºåˆ¤æ–­DEMæˆ–DOMæŸå±‚æ˜¯å¦æœ‰æ•°æ®
 	virtual bool isDOMLayerEmpty(Identifier::raw_type layid) = 0;
 	virtual bool isDEMLayerEmpty(Identifier::raw_type layid) = 0;
-	//´´½¨DEM½ğ×ÖËş
+	//åˆ›å»ºDEMé‡‘å­—å¡”
 	virtual bool createDEMPyramid() = 0;
 	virtual bool createDOMPyramid() = 0;
 
@@ -313,10 +313,10 @@ public:
 	virtual DOMBlockSharedPtr getDOMBlock(Identifier::raw_type layid, int rowBlock, int colBlock) = 0;
 	virtual DEMBlockSharedPtr getDEMBlock(Identifier::raw_type layid, Identifier::raw_type blockid) = 0;
 	virtual DOMBlockSharedPtr getDOMBlock(Identifier::raw_type layid, Identifier::raw_type blockid) = 0;
-	/** Í¨¹ıÊı¾İ¿éÔÚÕû¸öÊı¾İ¿âÖĞµÄĞĞºÅºÍÁĞºÅ£¬¼ÆËãÊı¾İ¿éµÄÎ¨Ò»ID
-	* @param [in]	block_row			Êı¾İ¿éÔÚÕû¸öÊı¾İ¿âÖĞµÄĞĞºÅ
-	* @param [in]	block_col			Êı¾İ¿éÔÚÕû¸öÊı¾İ¿âÖĞµÄÁĞºÅ
-	* @return Êı¾İ¿éµÄÎ¨Ò»ID
+	/** é€šè¿‡æ•°æ®å—åœ¨æ•´ä¸ªæ•°æ®åº“ä¸­çš„è¡Œå·å’Œåˆ—å·ï¼Œè®¡ç®—æ•°æ®å—çš„å”¯ä¸€ID
+	* @param [in]	block_row			æ•°æ®å—åœ¨æ•´ä¸ªæ•°æ®åº“ä¸­çš„è¡Œå·
+	* @param [in]	block_col			æ•°æ®å—åœ¨æ•´ä¸ªæ•°æ®åº“ä¸­çš„åˆ—å·
+	* @return æ•°æ®å—çš„å”¯ä¸€ID
 	*/
 	static unsigned long long calculate(int block_row, int block_col)
 	{
@@ -326,10 +326,10 @@ public:
 		id += block_col;
 		return id;
 	}
-	/** Í¨¹ıÊı¾İ¿éµÄÎ¨Ò»ID£¬¼ÆËãÊı¾İ¿éÔÚÕû¸öÊı¾İ¿âÖĞµÄĞĞºÅºÍÁĞºÅ
-	* @param [in]	id      			Êı¾İ¿éµÄÎ¨Ò»ID
-	* @param [in]	block_row			Êı¾İ¿éÔÚÕû¸öÊı¾İ¿âÖĞµÄĞĞºÅ
-	* @param [in]	block_col			Êı¾İ¿éÔÚÕû¸öÊı¾İ¿âÖĞµÄÁĞºÅ
+	/** é€šè¿‡æ•°æ®å—çš„å”¯ä¸€IDï¼Œè®¡ç®—æ•°æ®å—åœ¨æ•´ä¸ªæ•°æ®åº“ä¸­çš„è¡Œå·å’Œåˆ—å·
+	* @param [in]	id      			æ•°æ®å—çš„å”¯ä¸€ID
+	* @param [in]	block_row			æ•°æ®å—åœ¨æ•´ä¸ªæ•°æ®åº“ä¸­çš„è¡Œå·
+	* @param [in]	block_col			æ•°æ®å—åœ¨æ•´ä¸ªæ•°æ®åº“ä¸­çš„åˆ—å·
 	* @return
 	*/
 	static void calculate(unsigned long long id, int & block_row, int & block_col)
@@ -337,14 +337,14 @@ public:
 		block_col = (int)id;
 		block_row = (int)(id >> 32);
 	}
-	/** Í¨¹ıÄ³¸öµãÔÚÕû¸öÊı¾İ¿âÖĞµÄµ¥Ôª¸ñĞĞºÅºÍÁĞºÅ£¬Ã¿¸öÊı¾İ¿é°üº¬µÄµ¥Ôª¸ñĞĞÊıºÍÁĞÊı£¬¼ÆËãÆäËùÔÚÊı¾İ¿éµÄÎ¨Ò»ID£¬²¢¸ÃµãÔÚÊı¾İ¿éÖĞµÄĞĞºÅºÍÁĞºÅ
-	* @param [in]	row      			Ä³µãÔÚÊı¾İ¿âÖĞĞĞºÅ
-	* @param [in]	col      			Ä³µãÔÚÊı¾İ¿âÖĞÁĞºÅ
-	* @param [in]	rowsPreblock      	Ã¿¸öÊı¾İ¿é°üº¬µÄµ¥Ôª¸ñĞĞÊı
-	* @param [in]	colsPreblock      	Ã¿¸öÊı¾İ¿é°üº¬µÄµ¥Ôª¸ñÁĞÊı
-	* @param [in,out]	block_id      		Êı¾İ¿éµÄÎ¨Ò»ID
-	* @param [in,out]	row_in_block		Ä³µãÔÚÊı¾İ¿éÖĞµÄĞĞºÅ
-	* @param [in,out]	col_in_block		Ä³µãÔÚÊı¾İ¿éÖĞµÄÁĞºÅ
+	/** é€šè¿‡æŸä¸ªç‚¹åœ¨æ•´ä¸ªæ•°æ®åº“ä¸­çš„å•å…ƒæ ¼è¡Œå·å’Œåˆ—å·ï¼Œæ¯ä¸ªæ•°æ®å—åŒ…å«çš„å•å…ƒæ ¼è¡Œæ•°å’Œåˆ—æ•°ï¼Œè®¡ç®—å…¶æ‰€åœ¨æ•°æ®å—çš„å”¯ä¸€IDï¼Œå¹¶è¯¥ç‚¹åœ¨æ•°æ®å—ä¸­çš„è¡Œå·å’Œåˆ—å·
+	* @param [in]	row      			æŸç‚¹åœ¨æ•°æ®åº“ä¸­è¡Œå·
+	* @param [in]	col      			æŸç‚¹åœ¨æ•°æ®åº“ä¸­åˆ—å·
+	* @param [in]	rowsPreblock      	æ¯ä¸ªæ•°æ®å—åŒ…å«çš„å•å…ƒæ ¼è¡Œæ•°
+	* @param [in]	colsPreblock      	æ¯ä¸ªæ•°æ®å—åŒ…å«çš„å•å…ƒæ ¼åˆ—æ•°
+	* @param [in,out]	block_id      		æ•°æ®å—çš„å”¯ä¸€ID
+	* @param [in,out]	row_in_block		æŸç‚¹åœ¨æ•°æ®å—ä¸­çš„è¡Œå·
+	* @param [in,out]	col_in_block		æŸç‚¹åœ¨æ•°æ®å—ä¸­çš„åˆ—å·
 	* @return
 	*/
 	static void calculate(unsigned long long row, unsigned long long col,
@@ -357,15 +357,15 @@ public:
 		row_in_block = row % (rowsPreblock - 1);
 		col_in_block = col % (colsPreblock - 1);
 	}
-	/** Í¨¹ıÄ³¸öµãµÄ×ø±êÖµ¼ÆËãËüÔÚÕû¸öÊı¾İ¿âÖĞµÄµ¥Ôª¸ñĞĞºÅºÍÁĞºÅ
-	* @param [in]	edb2d        	Êı¾İ¿âµÄ·¶Î§
-	* @param [in]	cal2d     	    ÓÃÓÚ¼ÆËãÔÚÊı¾İ¿âÖĞÆğÊ¼ºÍÖÕÖ¹ĞĞÁĞµÄº¯Êı
-	* @param [in]	cellSize      	µ¥Ôª¸ñ´óĞ¡
-	* @param [int,out]	beg_row      			ÔÚÊı¾İ¿âÖĞĞĞºÅ
-	* @param [int,out]	beg_col      			ÔÚÊı¾İ¿âÖĞÁĞºÅ
-	* @param [int,out]	end_row      			ÔÚÊı¾İ¿âÖĞĞĞºÅ
-	* @param [int,out]	end_col      			ÔÚÊı¾İ¿âÖĞÁĞºÅ
-	* @return                           ³É¹¦·µ»Øtrue·ñÔò·µ»Øfalse
+	/** é€šè¿‡æŸä¸ªç‚¹çš„åæ ‡å€¼è®¡ç®—å®ƒåœ¨æ•´ä¸ªæ•°æ®åº“ä¸­çš„å•å…ƒæ ¼è¡Œå·å’Œåˆ—å·
+	* @param [in]	edb2d        	æ•°æ®åº“çš„èŒƒå›´
+	* @param [in]	cal2d     	    ç”¨äºè®¡ç®—åœ¨æ•°æ®åº“ä¸­èµ·å§‹å’Œç»ˆæ­¢è¡Œåˆ—çš„å‡½æ•°
+	* @param [in]	cellSize      	å•å…ƒæ ¼å¤§å°
+	* @param [int,out]	beg_row      			åœ¨æ•°æ®åº“ä¸­è¡Œå·
+	* @param [int,out]	beg_col      			åœ¨æ•°æ®åº“ä¸­åˆ—å·
+	* @param [int,out]	end_row      			åœ¨æ•°æ®åº“ä¸­è¡Œå·
+	* @param [int,out]	end_col      			åœ¨æ•°æ®åº“ä¸­åˆ—å·
+	* @return                           æˆåŠŸè¿”å›trueå¦åˆ™è¿”å›false
 	*/
 	static bool  calculate(Envelope2d &edb2d, Envelope2d &cal2d, int cellSize, int & beg_row, int & beg_col,
 		int & end_row, int & end_col){

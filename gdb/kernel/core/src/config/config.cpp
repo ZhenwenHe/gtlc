@@ -1,4 +1,4 @@
-#include "config.h"
+﻿#include "config.h"
 #include "buffer.h"
 
 begin_gtl_namespace

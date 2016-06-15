@@ -1,4 +1,4 @@
-/*
+ï»¿/*
 * Geosciences Template Library
 *
 * Copyright (c) 2008
@@ -34,7 +34,7 @@ class CORE_API Value
  {
 protected:	
 	VALUE * m_data;
-	/*³ÌĞòÔËĞĞÆÚ¼äValue¶ÔÏóÏú»ÙµÄÊ±ºò£¬_need_releaseÖ¸Ê¾¸ÃÄÚ´æÊÍ·ÅÊÇ·ñĞèÒªÊÍ·Å£¬²»²ÎÓë¶ÔÏó´æ´¢*/
+	/*ç¨‹åºè¿è¡ŒæœŸé—´Valueå¯¹è±¡é”€æ¯çš„æ—¶å€™ï¼Œ_need_releaseæŒ‡ç¤ºè¯¥å†…å­˜é‡Šæ”¾æ˜¯å¦éœ€è¦é‡Šæ”¾ï¼Œä¸å‚ä¸å¯¹è±¡å­˜å‚¨*/
 	bool _need_release;
 public:
 	typedef VALUE value_type;

@@ -1,4 +1,4 @@
-/*
+ï»¿/*
 * Geosciences Template Library
 *
 * Copyright (c) 2008
@@ -30,7 +30,7 @@ class Envelope3d;
 typedef Envelope3d Bound6d;
 typedef Envelope3d& Envelope3dRef;
 
-/** @defgroup Envelope Envelope3d-°üÎ§±ß½ç½á¹¹Ìå¶¨Òå
+/** @defgroup Envelope Envelope3d-åŒ…å›´è¾¹ç•Œç»“æ„ä½“å®šä¹‰
 *  @{
 */
 class CORE_API Envelope3d{
@@ -85,7 +85,7 @@ public:
 	inline void getCorner(unsigned int i, Vertex3d & v) const;
 	inline Vertex3d getCorner(unsigned int i);
 	inline Vertex3d center();
-	//»ñÈ¡¶Ô½ÇÏß³¤¶È
+	//è·å–å¯¹è§’çº¿é•¿åº¦
 	inline double getDiagonal();
 	inline void setMin(const Vertex3d   v);
 	inline void setMax(const Vertex3d   v);
@@ -111,10 +111,10 @@ public:
 	virtual int test(const Envelope3d &)const;
 	virtual int test(const Envelope3d& inBox, char proAxis, Envelope3d * intersectBox) const;
 	/*
-	* 0-±íÊ¾Á½¸ö°üÎ§ºĞÏàÀë
-	* 1-±íÊ¾Á½¸ö°üÎ§ºĞaºÍbÏà½»
-	* 2-±íÊ¾°üÎ§ºĞaÔÚbÖĞ
-	* 3-±íÊ¾°üÎ§ºĞbÔÚaÖĞ
+	* 0-è¡¨ç¤ºä¸¤ä¸ªåŒ…å›´ç›’ç›¸ç¦»
+	* 1-è¡¨ç¤ºä¸¤ä¸ªåŒ…å›´ç›’aå’Œbç›¸äº¤
+	* 2-è¡¨ç¤ºåŒ…å›´ç›’aåœ¨bä¸­
+	* 3-è¡¨ç¤ºåŒ…å›´ç›’båœ¨aä¸­
 	*/
 	static int test(Envelope3d & a, Envelope3d & b);
 };

@@ -1,4 +1,4 @@
-/*
+ï»¿/*
 * Geosciences Template Library
 *
 * Copyright (c) 2008
@@ -24,100 +24,100 @@
 begin_gtl_namespace
 begin_gdb_namespace
 
-/** @defgroup material  ÎÆÀí²ÄÖÊÏà¹ØÀà  
+/** @defgroup material  çº¹ç†æè´¨ç›¸å…³ç±»  
     *  @{
     */
 
 // flag :
-#define TEXTURE_FLAG_TEXTURE        1//ÎÆÀíÓĞĞ§
-#define TEXTURE_FLAG_MATERIAL       2//²ÄÖÊÓĞĞ§
-#define TEXTURE_FLAG_COLOR          4//ÑÕÉ«ÓĞĞ§
+#define TEXTURE_FLAG_TEXTURE        1//çº¹ç†æœ‰æ•ˆ
+#define TEXTURE_FLAG_MATERIAL       2//æè´¨æœ‰æ•ˆ
+#define TEXTURE_FLAG_COLOR          4//é¢œè‰²æœ‰æ•ˆ
 
 // transparent: 
-#define TEXTURE_TRANSPARENT_DISABLE 0 //²»Í¸Ã÷
-#define TEXTURE_TRANSPARENT_ENABLE  1 //Í¸Ã÷£¬½«ºÍ±³¾°×ö»ìºÏ£¨Èç²£Á§£©, ²ÎÊı alpha
-#define TEXTURE_TRANSPARENT_SPECIAL 2 //¹ıÂËÖ¸¶¨²¿·Ö£¨Èç»­Ê÷ÂËµôÎÆÀíÖĞ·ÇÊ÷µÄ²¿·Ö£©
+#define TEXTURE_TRANSPARENT_DISABLE 0 //ä¸é€æ˜
+#define TEXTURE_TRANSPARENT_ENABLE  1 //é€æ˜ï¼Œå°†å’ŒèƒŒæ™¯åšæ··åˆï¼ˆå¦‚ç»ç’ƒï¼‰, å‚æ•° alpha
+#define TEXTURE_TRANSPARENT_SPECIAL 2 //è¿‡æ»¤æŒ‡å®šéƒ¨åˆ†ï¼ˆå¦‚ç”»æ ‘æ»¤æ‰çº¹ç†ä¸­éæ ‘çš„éƒ¨åˆ†ï¼‰
 
 //cullface :
-#define TEXTURE_CULLFACE_BACK		0//È±Ê¡£¬±³ÃæÌŞ³ı
-#define TEXTURE_CULLFACE_DISABLE	1//²»ÌŞ³ı(Ë«Ãæ¿ÉÊÓ)
-#define TEXTURE_CULLFACE_FRONT		2//ÕıÃæÌŞ³ı
+#define TEXTURE_CULLFACE_BACK		0//ç¼ºçœï¼ŒèƒŒé¢å‰”é™¤
+#define TEXTURE_CULLFACE_DISABLE	1//ä¸å‰”é™¤(åŒé¢å¯è§†)
+#define TEXTURE_CULLFACE_FRONT		2//æ­£é¢å‰”é™¤
 
-//depth:(Éî¶È¼ì²â)
-#define TEXTURE_DEPTH_ENABLE		0//È±Ê¡£¬Ê¹ÓÃÈ±Ê¡Éî¶È¼ì²â·½Ê½
-#define TEXTURE_DEPTH_DISABLE		1//²»ÆôÓÃÉî¶È¼ì²â
-#define TEXTURE_DEPTH_ALWAYS		2//Éî¶È±È½Ï×ÜÊÇÍ¨¹ı
-#define TEXTURE_DEPTH_WRITEDISABLE	4//Éî¶È»º³åÖ»¶Á
+//depth:(æ·±åº¦æ£€æµ‹)
+#define TEXTURE_DEPTH_ENABLE		0//ç¼ºçœï¼Œä½¿ç”¨ç¼ºçœæ·±åº¦æ£€æµ‹æ–¹å¼
+#define TEXTURE_DEPTH_DISABLE		1//ä¸å¯ç”¨æ·±åº¦æ£€æµ‹
+#define TEXTURE_DEPTH_ALWAYS		2//æ·±åº¦æ¯”è¾ƒæ€»æ˜¯é€šè¿‡
+#define TEXTURE_DEPTH_WRITEDISABLE	4//æ·±åº¦ç¼“å†²åªè¯»
 /** @} */  
 
-/** @addtogroup material  MAT_PARAM-ÎÆÀí²ÎÊıÊı¾İ½á¹¹ 
+/** @addtogroup material  MAT_PARAM-çº¹ç†å‚æ•°æ•°æ®ç»“æ„ 
     *  @{
     */
 struct MAT_PARAM
 {
-	/** @name ÊôĞÔ£¨³ÉÔ±±äÁ¿£©
+	/** @name å±æ€§ï¼ˆæˆå‘˜å˜é‡ï¼‰
 	* @{
 	*/
 	
-	/** ±êÖ¾Î»(ÎÆÀí¡¢²ÄÖÊ¡¢ÑÕÉ«) */
+	/** æ ‡å¿—ä½(çº¹ç†ã€æè´¨ã€é¢œè‰²) */
 	unsigned char		flag;               
-	/** Í¸Ã÷µÄ·½Ê½ 
+	/** é€æ˜çš„æ–¹å¼ 
 	* -TEXTURE_TRANSPARENT_DISABLE
 	* -TEXTURE_TRANSPARENT_ENABLE
 	* -TEXTURE_TRANSPARENT_SPECIAL
     */
 	unsigned char		transparent;        
-	/** ÃæÌŞ³ı·½Ê½ 
+	/** é¢å‰”é™¤æ–¹å¼ 
 	* -TEXTURE_CULLFACE_BACK
 	* -TEXTURE_CULLFACE_DISABLE
 	* -TEXTURE_CULLFACE_FRONT
 	*/
 	unsigned char		cullface;		
 	
-	/** Éî¶È¼ì²â */
+	/** æ·±åº¦æ£€æµ‹ */
 	unsigned char		depth;	
 	
-	/** ±£Áô*/
+	/** ä¿ç•™*/
 	unsigned char		reserve[4];			
 
-    /** Í¸Ã÷¶È  [ 0.0 (²»Í¸Ã÷)  ~  1.0 (ÍêÈ«Í¸Ã÷) ] */
+    /** é€æ˜åº¦  [ 0.0 (ä¸é€æ˜)  ~  1.0 (å®Œå…¨é€æ˜) ] */
 	float		alpha;              
 	
-	/** »·¾³¹â */
+	/** ç¯å¢ƒå…‰ */
 	unsigned long	ambient;	
 	
-	/** Âş·´Éä */
+	/** æ¼«åå°„ */
 	unsigned long	diffuse;			
 
-	/** ¾µÃæ·´Éä */
+	/** é•œé¢åå°„ */
 	unsigned long	specular;			
 
-	/** ÑÕÉ« */
+	/** é¢œè‰² */
 	unsigned long	color;				
 
-	/** ÎÆÀíÆ½ÒÆ²ÎÊı */
+	/** çº¹ç†å¹³ç§»å‚æ•° */
 	float		uOffset, vOffset;	
 
-	/** ÎÆÀíĞı×ª²ÎÊı£¨µ¥Î»Îª¶È£¬Ğı×ªÖáÎª (0, 0, 1)£© */
+	/** çº¹ç†æ—‹è½¬å‚æ•°ï¼ˆå•ä½ä¸ºåº¦ï¼Œæ—‹è½¬è½´ä¸º (0, 0, 1)ï¼‰ */
 	float		rotAngle;			
 
-	/** ¸ß¹â*/
+	/** é«˜å…‰*/
 	float		shininess;			
-	/** ¹âÕÕÄ£ĞÍ */
+	/** å…‰ç…§æ¨¡å‹ */
 	float		illumination;
-	/** @} */ // ÊôĞÔ½áÎ²
+	/** @} */ // å±æ€§ç»“å°¾
  
-	/** @name ¹¹ÔìÓëÎö¹¹º¯Êı
+	/** @name æ„é€ ä¸ææ„å‡½æ•°
 	*  @{
 	*/
 
-	/** ¹¹Ôìº¯Êı
+	/** æ„é€ å‡½æ•°
 	*/
 	MAT_PARAM()
 	{
 		memset(this, 0, sizeof(MAT_PARAM));
 	}
-	 /** @} */ // ¹¹ÔìÓëÎö¹¹º¯Êı½áÎ²
+	 /** @} */ // æ„é€ ä¸ææ„å‡½æ•°ç»“å°¾
 	
 };
 typedef MAT_PARAM*   LPMAT_PARAM;
@@ -132,7 +132,7 @@ typedef Material* MaterialPtr;
 class CORE_API Material  
 {
 public:
-	/*0-¼òµ¥ÎÆÀí£¬1-¸´ÔÓÎÆÀí*/
+	/*0-ç®€å•çº¹ç†ï¼Œ1-å¤æ‚çº¹ç†*/
 	virtual int getType() const =0;
 	virtual Identifier::raw_type getID()=0;
 	virtual void setID(Identifier::raw_type)=0;
@@ -165,45 +165,45 @@ public:
 struct COMMAT_ITEM
 {
 
-	/** @name ÊôĞÔ£¨³ÉÔ±±äÁ¿£©
+	/** @name å±æ€§ï¼ˆæˆå‘˜å˜é‡ï¼‰
 	* @{
 	*/
 	
-	/** ²ÄÖÊÀàĞÍ */
+	/** æè´¨ç±»å‹ */
 	long matType;
-	/** ÎÆÀíID */
+	/** çº¹ç†ID */
 	int textureID;
-	/** Ç¿¶È */
+	/** å¼ºåº¦ */
 	float intensity;
-	/** ÑÕÉ« */
+	/** é¢œè‰² */
 	unsigned long color;
-	/** ÔÚ u ÎÆÀí·½ÏòÉÏÖØ¸´µÄ´ÎÊı */
+	/** åœ¨ u çº¹ç†æ–¹å‘ä¸Šé‡å¤çš„æ¬¡æ•° */
 	double  uRepeat;	
-	/** ÔÚ v ÎÆÀí·½ÏòÉÏÖØ¸´µÄ´ÎÊı */
+	/** åœ¨ v çº¹ç†æ–¹å‘ä¸Šé‡å¤çš„æ¬¡æ•° */
 	double  vRepeat;	
-    /** ÎÆÀíÆ½ÒÆ */
+    /** çº¹ç†å¹³ç§» */
 	float	uOffset;	
-	/** ÎÆÀíÆ½ÒÆ */
+	/** çº¹ç†å¹³ç§» */
 	float	vOffset;	
-	/** ÎÆÀíĞı×ª */
+	/** çº¹ç†æ—‹è½¬ */
 	float	rotAngle;	
-	/** Í¸Ã÷¶È  [ 0.0 (²»Í¸Ã÷)  ~  1.0 (ÍêÈ«Í¸Ã÷) ] */
+	/** é€æ˜åº¦  [ 0.0 (ä¸é€æ˜)  ~  1.0 (å®Œå…¨é€æ˜) ] */
 	float	alpha;      
 
-	/** @} */ // ÊôĞÔ½áÎ²
+	/** @} */ // å±æ€§ç»“å°¾
 
 	
-	/** @name ¹¹ÔìÓëÎö¹¹º¯Êı
+	/** @name æ„é€ ä¸ææ„å‡½æ•°
 	*  @{
 	*/
 
-	/** ¹¹Ôìº¯Êı
+	/** æ„é€ å‡½æ•°
 	*/
 	COMMAT_ITEM()
 	{
 		memset(this, 0, sizeof(COMMAT_ITEM));
 	}
-    /** @} */ // ¹¹ÔìÓëÎö¹¹º¯Êı½áÎ²
+    /** @} */ // æ„é€ ä¸ææ„å‡½æ•°ç»“å°¾
 
 };
 /** @} */
@@ -213,7 +213,7 @@ struct COMMAT_ITEM
     */
 class CORE_API ComplexMaterial:virtual public Material {
 public:
-	/** ¸´ÔÓ²ÄÖÊ²ÎÊı */
+	/** å¤æ‚æè´¨å‚æ•° */
 	virtual std::vector<COMMAT_ITEM> & getMaterialItems() =0;
 };
 /** @} */

@@ -1,4 +1,4 @@
-/*
+ï»¿/*
 * Geosciences Template Library
 *
 * Copyright (c) 2008
@@ -25,7 +25,7 @@
 begin_gtl_namespace
 begin_gdb_namespace
 
-/** @defgroup math  Math-ÊıÑ§¿â
+/** @defgroup math  Math-æ•°å­¦åº“
 *  @{
 */
 
@@ -34,11 +34,11 @@ class CORE_API MathEx
 public:
 
 
-	/** @name ÊôĞÔ£¨³ÉÔ±±äÁ¿£©
+	/** @name å±æ€§ï¼ˆæˆå‘˜å˜é‡ï¼‰
 	* @{
 	*/
 
-	/** ³ÉÔ±±äÁ¿ */
+	/** æˆå‘˜å˜é‡ */
 	static const double  TOL;
 	static const double	 TOL_F;
 	static const double  ONE_PI;
@@ -49,79 +49,79 @@ public:
 	static const double  dDoubleMax;
 	static const double  dDoubleMin;
 
-	/** @} */ // ÊôĞÔ½áÎ²
+	/** @} */ // å±æ€§ç»“å°¾
 
 
 
-	/** @name ¹¹ÔìÓëÎö¹¹º¯Êı
+	/** @name æ„é€ ä¸ææ„å‡½æ•°
 	*  @{
 	*/
 protected:
-	/** ¹¹Ôìº¯Êı
+	/** æ„é€ å‡½æ•°
 	*/
 	MathEx(void);
-	/** Îö¹¹º¯Êı
+	/** ææ„å‡½æ•°
 	*/
 	~MathEx(void);
 	/** @} */
 
-	/** @name ¼ÆËã²Ù×÷
+	/** @name è®¡ç®—æ“ä½œ
 	*  @{
 	*/
 public:
 
-	/** ÅĞ¶Ï·ûºÅ
-	* @param [in] iValue ÊäÈëÊıÖµ
-	* @return Õı¸º
+	/** åˆ¤æ–­ç¬¦å·
+	* @param [in] iValue è¾“å…¥æ•°å€¼
+	* @return æ­£è´Ÿ
 	*/
 	static inline int isign(int iValue){ return (iValue > 0 ? +1 : (iValue < 0 ? -1 : 0)); }
-	/** ÅĞ¶Ï·ûºÅ
-	* @param [in] dValue ÊäÈëÊıÖµ
-	* @return Õı¸º
-	* -1 ±íÊ¾ÎªÕı
-	* --1 ±íÊ¾Îª¸º
-	* -0 ±íÊ¾Îª0
+	/** åˆ¤æ–­ç¬¦å·
+	* @param [in] dValue è¾“å…¥æ•°å€¼
+	* @return æ­£è´Ÿ
+	* -1 è¡¨ç¤ºä¸ºæ­£
+	* --1 è¡¨ç¤ºä¸ºè´Ÿ
+	* -0 è¡¨ç¤ºä¸º0
 	*/
 	static double sign(double dValue);
-	/** ¼ÆËã·´ÓàÏÒÖµ
-	* @param [in] fValue ÊäÈëÊı¾İ
-	* @return ½Ç¶È
+	/** è®¡ç®—åä½™å¼¦å€¼
+	* @param [in] fValue è¾“å…¥æ•°æ®
+	* @return è§’åº¦
 	*/
 	static double acos(double fValue);
 
-	/** ¼ÆËã·´ÕıÏÒÖµ
-	* @param [in] fValue ÊäÈëÊı¾İ
-	* @return ½Ç¶È
+	/** è®¡ç®—åæ­£å¼¦å€¼
+	* @param [in] fValue è¾“å…¥æ•°æ®
+	* @return è§’åº¦
 	*/
 	static double asin(double fValue);
 
-	/** ¼ÆËã·´ÕıÇĞÖµ
-	* @param [in] dValue ÊäÈëÊı¾İ
-	* @return ½Ç¶È
+	/** è®¡ç®—åæ­£åˆ‡å€¼
+	* @param [in] dValue è¾“å…¥æ•°æ®
+	* @return è§’åº¦
 	*/
 	static inline double atan(double fValue) { return (::atan(fValue)); }
 
-	/** ¼ÆËãÕıÏÒº¯Êı
-	* @param [in] dValue Êı¾İ
-	* @return ÕıÏÒÖµ
+	/** è®¡ç®—æ­£å¼¦å‡½æ•°
+	* @param [in] dValue æ•°æ®
+	* @return æ­£å¼¦å€¼
 	*/
 	static inline double atan2(double fY, double fX) { return (::atan2(fY, fX)); }
 
-	/** ¼ÆËãÕıÏÒº¯Êı
-	* @param [in] dValue Êı¾İ
-	* @return ÕıÏÒÖµ
+	/** è®¡ç®—æ­£å¼¦å‡½æ•°
+	* @param [in] dValue æ•°æ®
+	* @return æ­£å¼¦å€¼
 	*/
 	static  double radianToDegree(double angle);
 
-	/** ¼ÆËãÕıÏÒº¯Êı
-	* @param [in] dValue Êı¾İ
-	* @return ÕıÏÒÖµ
+	/** è®¡ç®—æ­£å¼¦å‡½æ•°
+	* @param [in] dValue æ•°æ®
+	* @return æ­£å¼¦å€¼
 	*/
 	static double degreeToRadian(double angle);
 
-	/** Ê¹ÓÃ±ê×¼Ä£°æ¿â£¨STL£©µÄ·ºĞÍÊ½¿ìËÙÅÅĞò£¬À´Ô´ÓÚwikipedia
-	* @param BidirectionalIterator:	ÁĞ±íµÄµü´úÆ÷ÀàĞÍ
-	* @param Compare:Á½¸ö¶ÔÏóµÄ±È½Ïº¯Êı
+	/** ä½¿ç”¨æ ‡å‡†æ¨¡ç‰ˆåº“ï¼ˆSTLï¼‰çš„æ³›å‹å¼å¿«é€Ÿæ’åºï¼Œæ¥æºäºwikipedia
+	* @param BidirectionalIterator:	åˆ—è¡¨çš„è¿­ä»£å™¨ç±»å‹
+	* @param Compare:ä¸¤ä¸ªå¯¹è±¡çš„æ¯”è¾ƒå‡½æ•°
 	* @return
 	*/
 	template< typename BidirectionalIterator, typename Compare >
@@ -150,8 +150,8 @@ public:
 			quick_sortEx(right, last, cmp);
 		}
 	}
-	/** Ê¹ÓÃ±ê×¼Ä£°æ¿â£¨STL£©µÄ·ºĞÍÊ½¿ìËÙÅÅĞò£¬À´Ô´ÓÚwikipedia
-	* @param BidirectionalIterator:	ÁĞ±íµÄµü´úÆ÷
+	/** ä½¿ç”¨æ ‡å‡†æ¨¡ç‰ˆåº“ï¼ˆSTLï¼‰çš„æ³›å‹å¼å¿«é€Ÿæ’åºï¼Œæ¥æºäºwikipedia
+	* @param BidirectionalIterator:	åˆ—è¡¨çš„è¿­ä»£å™¨
 	* @return
 	*/
 	template< typename BidirectionalIterator >

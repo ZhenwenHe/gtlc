@@ -1,4 +1,4 @@
-/*
+ï»¿/*
 * Geosciences Template Library
 *
 * Copyright (c) 2008
@@ -51,11 +51,11 @@ public:
 
 public:
 	VertexBuffer(VBF t = VBF_3FLOAT_XYZ);
-	VertexBuffer(void * d, size_t s, VBF t = VBF_3FLOAT_XYZ, bool b_alloc = false);//¹¹Ôìº¯Êı£¬Èç¹ûb_allocÎªÕæ£¬Ôò»áĞÂÉêÇëÒ»¿é´óĞ¡ÎªsµÄÄÚ´æ¿é£¬²¢¸´ÖÆdµÄÄÚÈİ£¬·´Ö®£¬ÔòÖ¸Ïòd
-	void copy(const VertexBuffer & b);//¿½±´Bufferº¯Êı£¬Èç¹ûbµÄ_alloc³ÉÔ±Îª¼Ù£¬Ôò¿½±´ºóµÄBuffer¶ÔÏóÓëb¹«ÓÃÒ»¸öÄÚ´æ¿é£¬·ñÔòÎªÄÚ´æ¿é¿½±´
-	VertexBuffer(const VertexBuffer & b);//¿½±´¹¹Ôìº¯Êı
-	VertexBuffer operator = (const VertexBuffer & b);//µÈºÅ¸³Öµ²Ù×÷
-	void set(void * d, size_t s, VBF t, bool b_alloc);//¹¹Ôìº¯Êı£¬Èç¹ûb_allocÎªÕæ£¬Ôò»áĞÂÉêÇëÒ»¿é´óĞ¡ÎªsµÄÄÚ´æ¿é£¬²¢¸´ÖÆdµÄÄÚÈİ£¬·´Ö®£¬ÔòÖ¸Ïòd
+	VertexBuffer(void * d, size_t s, VBF t = VBF_3FLOAT_XYZ, bool b_alloc = false);//æ„é€ å‡½æ•°ï¼Œå¦‚æœb_allocä¸ºçœŸï¼Œåˆ™ä¼šæ–°ç”³è¯·ä¸€å—å¤§å°ä¸ºsçš„å†…å­˜å—ï¼Œå¹¶å¤åˆ¶dçš„å†…å®¹ï¼Œåä¹‹ï¼Œåˆ™æŒ‡å‘d
+	void copy(const VertexBuffer & b);//æ‹·è´Bufferå‡½æ•°ï¼Œå¦‚æœbçš„_allocæˆå‘˜ä¸ºå‡ï¼Œåˆ™æ‹·è´åçš„Bufferå¯¹è±¡ä¸bå…¬ç”¨ä¸€ä¸ªå†…å­˜å—ï¼Œå¦åˆ™ä¸ºå†…å­˜å—æ‹·è´
+	VertexBuffer(const VertexBuffer & b);//æ‹·è´æ„é€ å‡½æ•°
+	VertexBuffer operator = (const VertexBuffer & b);//ç­‰å·èµ‹å€¼æ“ä½œ
+	void set(void * d, size_t s, VBF t, bool b_alloc);//æ„é€ å‡½æ•°ï¼Œå¦‚æœb_allocä¸ºçœŸï¼Œåˆ™ä¼šæ–°ç”³è¯·ä¸€å—å¤§å°ä¸ºsçš„å†…å­˜å—ï¼Œå¹¶å¤åˆ¶dçš„å†…å®¹ï¼Œåä¹‹ï¼Œåˆ™æŒ‡å‘d
 
 	void add(double  x, double y, double z);
 	void add(double  x, double y, double z, double w);

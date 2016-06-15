@@ -21,7 +21,7 @@
 begin_gtl_namespace
 begin_gdb_namespace
 
-class ComplexMaterialImpl : virtual public ComplexMaterial, virtual public MaterialImpl
+class ComplexMaterialImpl : public MaterialImpl,virtual public ComplexMaterial
 {
 	 
 public:

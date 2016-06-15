@@ -19,7 +19,8 @@
 
 begin_gtl_namespace
 begin_gdb_namespace
-class Solid3dImpl : virtual public Solid3d,virtual public Volume3dImpl
+class Solid3dImpl :  public Volume3dImpl,
+	virtual public Solid3d
 {
 	/** @defgroup Solid3dImpl Solid3dImpl-ИэО¬КµМе
 	*  @{

@@ -6,7 +6,7 @@
 begin_gtl_namespace
 begin_gdb_namespace
 
-class   SematicGeometryTopoInfoImpl : virtual public TopoInfoImpl, virtual public SemanticGeometryTopoInfo
+class   SematicGeometryTopoInfoImpl : public TopoInfoImpl, virtual public SemanticGeometryTopoInfo
 {
 	/** @defgroup SematicGeometryTopoInfoImpl  SematicGeometryTopoInfoImpl-语义几何信息对象类
 	*  @{

@@ -27,7 +27,7 @@ typedef SharedModelSharedPtr LinkModelSharedPtr;
 
 #endif//高于VC6的版本
 
-class  Reference3dImpl :virtual public Reference3d, virtual public Point3dImpl 
+class  Reference3dImpl :public Point3dImpl ,virtual public Reference3d
 {
 	/** @defgroup Reference3dImpl Reference3dImpl-三维参照图元
 	*  @{

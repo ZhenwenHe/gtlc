@@ -22,7 +22,7 @@
 
 begin_gtl_namespace
 begin_gdb_namespace
-class Surface3dImpl : virtual public Surface3d, virtual public  Geometry3dImpl
+class Surface3dImpl : public Geometry3dImpl , virtual public Surface3d
 {
 	/** @defgroup Surface3dImpl Surface3dImpl-三维曲面（抽象基类）
 	*  @{

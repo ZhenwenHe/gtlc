@@ -24,7 +24,7 @@
 begin_gtl_namespace
 begin_gdb_namespace
 
-class Geometry3dImpl 	: virtual public GeometryImpl
+class Geometry3dImpl : public GeometryImpl
 {
 	/** @defgroup Geometry3dImpl Geometry3dImpl-三维几何（抽象基类）
 	*  @{

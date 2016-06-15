@@ -19,7 +19,7 @@
 begin_gtl_namespace
 begin_gdb_namespace
 class  Cube3dImpl
-	: virtual public Cube3d, public Voxel3dImpl
+	: public Voxel3dImpl,  virtual public Cube3d
 {
 	/** @defgroup Cube3dImpl Cube3dImpl-ÈýÎ¬·½ºÐ
 	*  @{

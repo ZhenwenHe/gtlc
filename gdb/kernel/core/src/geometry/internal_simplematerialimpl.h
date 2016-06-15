@@ -19,7 +19,7 @@
 
 begin_gtl_namespace
 begin_gdb_namespace
-class SimpleMaterialImpl : virtual public  SimpleMaterial, virtual public MaterialImpl
+class SimpleMaterialImpl : public  MaterialImpl , virtual public SimpleMaterial
 { 
 protected:
 

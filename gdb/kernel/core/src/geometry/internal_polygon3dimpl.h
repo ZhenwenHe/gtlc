@@ -41,7 +41,7 @@ typedef struct tagRINGTOPOLOGY //it's a kind of red-black tree
 }RINGTOP;
 typedef std::vector<RINGTOP*> _vectorRINGTOP;
 
-class Polygon3dImpl : virtual public Polygon3d, virtual public Surface3dImpl
+class Polygon3dImpl :  public Surface3dImpl, virtual public Polygon3d
 {
 	/** @defgroup Polygon3dImpl Polygon3dImpl-ÈýÎ¬¶à±ßÐÎ
 	*  @{

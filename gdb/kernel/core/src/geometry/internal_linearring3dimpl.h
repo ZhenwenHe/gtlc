@@ -21,7 +21,7 @@
 
 begin_gtl_namespace
 begin_gdb_namespace
-class LinearRing3dImpl :virtual public LinearRing3d, virtual public Curve3dImpl 
+class LinearRing3dImpl :public Curve3dImpl , virtual public LinearRing3d
 {
 	/** @defgroup LinearRing3dImpl LinearRing3dImpl-Ïß»·
 	*  @{

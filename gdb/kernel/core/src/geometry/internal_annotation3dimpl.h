@@ -20,7 +20,7 @@
 
 begin_gtl_namespace
 begin_gdb_namespace
-class Annotation3dImpl : public Point3dImpl, public Annotation3d
+class Annotation3dImpl : public Point3dImpl, virtual public Annotation3d
 {
 public:
 

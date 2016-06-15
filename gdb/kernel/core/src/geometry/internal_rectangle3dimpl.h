@@ -19,7 +19,7 @@
 begin_gtl_namespace
 begin_gdb_namespace
 class Polygon3dImpl;
-class  Rectangle3dImpl : virtual public Rectangle3d, virtual public Surface3dImpl
+class  Rectangle3dImpl :public Surface3dImpl, virtual public Rectangle3d
 {
 	/** @defgroup Rectangle3dImpl Rectangle3dImpl-ÈýÎ¬¾ØÐÎ
 	*  @{

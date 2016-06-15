@@ -28,7 +28,7 @@ enum
 
  
  
-class Voxel3dImpl : virtual public Voxel3d, virtual public Volume3dImpl
+class Voxel3dImpl :  public Volume3dImpl, virtual public Voxel3d
 {
 	/** @defgroup Voxel3dImpl Voxel3dImpl-三维体元（基类）
 	*  @{

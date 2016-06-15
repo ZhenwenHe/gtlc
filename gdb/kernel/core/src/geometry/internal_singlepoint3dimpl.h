@@ -19,7 +19,7 @@
 
 begin_gtl_namespace
 begin_gdb_namespace
-class  SinglePoint3dImpl : virtual public SinglePoint3d, virtual public  Point3dImpl
+class  SinglePoint3dImpl : public Point3dImpl, virtual public   SinglePoint3d
 {
 
 public:

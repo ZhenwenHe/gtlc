@@ -5,7 +5,7 @@
 begin_gtl_namespace
 begin_gdb_namespace
 
-class SemanticActionTopoInfoImpl :virtual public TopoInfoImpl, virtual public SemanticActionTopoInfo
+class SemanticActionTopoInfoImpl :  public TopoInfoImpl, virtual public SemanticActionTopoInfo
 {
 public:
 	explicit SemanticActionTopoInfoImpl(FIDITEM fiditem) :

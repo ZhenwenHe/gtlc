@@ -5,7 +5,7 @@
 
 begin_gtl_namespace
 begin_gdb_namespace
-class Point3dImpl :virtual public Point3d, virtual public Geometry3dImpl
+class Point3dImpl : public Geometry3dImpl, virtual public Point3d
 {
 	/** @defgroup Point3dImpl Point3dImpl-ÈýÎ¬µã
 	*  @{

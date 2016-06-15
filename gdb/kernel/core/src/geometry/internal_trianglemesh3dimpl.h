@@ -23,7 +23,7 @@ begin_gtl_namespace
 begin_gdb_namespace
 class Polygon3dImpl;
 class TriangleMesh3dImpl
-	: virtual public TriangleMesh3d, virtual public Surface3dImpl
+	:  public Surface3dImpl, virtual public TriangleMesh3d
 {
 	/** @defgroup TriangleMesh3dImpl TriangleMesh3dImpl-Èý½ÇÐÎÍø¸ñ
 	*  @{

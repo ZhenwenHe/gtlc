@@ -24,7 +24,7 @@ begin_gdb_namespace
 //纹理坐标的偏移量,  S 方向绕转方式, T 方向绕转方式,纹理模式, 
 // 放大滤镜, 缩小滤镜,
 //##ModelId=49E347250222
-class MultiSolid3dImpl : virtual public MultiSolid3d,virtual  public Volume3dImpl
+class MultiSolid3dImpl :  public Volume3dImpl, virtual public MultiSolid3d
 {
 	/** @defgroup MultiSolid3dImpl MultiSolid3dImpl-三维多体
 	*  @{

@@ -35,7 +35,7 @@ public:
 };
 
 
-class GeometryImpl:virtual public Geometry {
+class GeometryImpl: virtual public Geometry {
 protected:
 	int _id;
 	int _type;
@@ -73,6 +73,8 @@ Geometry * Geometry::create() {
 
 	return dynamic_cast<Geometry*>(m);
 }
+
+
 int main()
 {
 	Geometry * g = Geometry::create();

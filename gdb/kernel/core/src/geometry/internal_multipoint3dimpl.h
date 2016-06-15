@@ -20,7 +20,7 @@
 
 begin_gtl_namespace
 begin_gdb_namespace
-class MultiPoint3dImpl :virtual public MultiPoint3d, virtual public Point3dImpl
+class MultiPoint3dImpl :public Point3dImpl, virtual public MultiPoint3d
 {
 public:
 	/**  获取点位置坐标列

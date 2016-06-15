@@ -20,7 +20,7 @@
 begin_gtl_namespace
 begin_gdb_namespace
 
-class Curve3dImpl : virtual public Curve3d, virtual public Geometry3dImpl
+class Curve3dImpl : public Geometry3dImpl,virtual public Curve3d
 {
 public:
 	/** @defgroup Curve3dImpl Curve3dImpl-ÈıÎ¬ÇúÏß

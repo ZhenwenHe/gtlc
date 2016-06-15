@@ -21,7 +21,7 @@
 begin_gtl_namespace
 begin_gdb_namespace
 
-class LineString3dImpl : virtual public LineString3d, virtual public Curve3dImpl
+class LineString3dImpl : public Curve3dImpl, virtual public LineString3d
 {
 public:
 

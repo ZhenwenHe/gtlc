@@ -19,7 +19,7 @@
 
 begin_gtl_namespace
 begin_gdb_namespace
-class Triangle3dImpl : virtual public Triangle3d, virtual public Surface3dImpl
+class Triangle3dImpl :  public Surface3dImpl, virtual public Triangle3d
 {
 public:
 	/**  查询对象接口

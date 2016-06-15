@@ -33,7 +33,7 @@ enum
 };
 
 //##ModelId=49E347280109
-class ParameterizedSurface3dImpl :virtual public ParameterizedSurface3d, virtual public Surface3dImpl
+class ParameterizedSurface3dImpl :public Surface3dImpl, virtual public ParameterizedSurface3d
 {
 	/** @defgroup ParameterizedSurface3dImpl ParameterizedSurface3dImpl-三维参数曲面
 	*  @{

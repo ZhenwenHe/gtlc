@@ -22,7 +22,7 @@ begin_gdb_namespace
 
 class TriangleMesh3dImpl;
 
-class MultiPolygon3dImpl : virtual public MultiPolygon3d, virtual public Surface3dImpl
+class MultiPolygon3dImpl : public Surface3dImpl, virtual public MultiPolygon3d
 {
 	/** @defgroup MultiPolygon3dImpl MultiPolygon3dImpl-ÈýÎ¬¶àÃæ
 	*  @{

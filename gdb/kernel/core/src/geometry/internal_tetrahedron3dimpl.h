@@ -20,7 +20,7 @@ begin_gtl_namespace
 begin_gdb_namespace
 
 class Tetrahedron3dImpl
-	: virtual public Tetrahedron3d, virtual public Voxel3dImpl
+	: public Voxel3dImpl, virtual public  Tetrahedron3d
 {
 	/** @defgroup Tetrahedron3dImpl Tetrahedron3dImpl-ËÄÃæÌå
 	*  @{

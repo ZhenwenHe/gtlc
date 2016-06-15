@@ -18,7 +18,7 @@
 
 begin_gtl_namespace
 begin_gdb_namespace
-class  Group3dImpl : virtual public Group3d, virtual public Geometry3dImpl
+class  Group3dImpl :  public Geometry3dImpl, virtual public Group3d
 {
 	/** @defgroup Group3dImpl Group3dImpl-几何组合体
 	*  @{

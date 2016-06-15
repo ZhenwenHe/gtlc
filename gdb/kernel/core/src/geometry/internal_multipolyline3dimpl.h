@@ -20,7 +20,7 @@
 
 begin_gtl_namespace
 begin_gdb_namespace
-class MultiPolyline3dImpl : virtual public MultiPolyline3d, virtual public Curve3dImpl
+class MultiPolyline3dImpl :  public Curve3dImpl, virtual public MultiPolyline3d
 {
 	/** @defgroup MultiPolyline3dImpl MultiPolyline3dImpl-ÈıÎ¬¶àÏß
 	*  @{

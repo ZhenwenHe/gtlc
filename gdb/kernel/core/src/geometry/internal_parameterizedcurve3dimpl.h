@@ -29,7 +29,7 @@ enum
 	PARAMETERIZEDCURVE_CATMULLROM,
 };
 //##ModelId=49E3472700AB
-class  ParameterizedCurve3dImpl : virtual public ParameterizedCurve3d, virtual public Curve3dImpl
+class  ParameterizedCurve3dImpl : public Curve3dImpl, virtual public ParameterizedCurve3d
 {
 	/** @defgroup ParameterizedCurve3dImpl ParameterizedCurve3dImpl-三维参数曲线
 	*  @{

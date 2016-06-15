@@ -28,16 +28,16 @@
 #include "assert.h"
 
 
-typedef __int64  int64;
-typedef int      int32;
-typedef short    int16;
-typedef char     int8;
 
-typedef unsigned __int64  uint64;
-typedef unsigned int      uint32;
-typedef unsigned short    uint16;
-typedef unsigned char     uint8;
-
+//typedef __int64  int64;
+//typedef int      int32;
+//typedef short    int16;
+//typedef char     int8;
+//
+//typedef unsigned __int64  uint64;
+//typedef unsigned int      uint32;
+//typedef unsigned short    uint16;
+//typedef unsigned char     uint8;
 
 //#pragma warning  (disable:4244)
 //#pragma warning  (disable:4819)
@@ -197,8 +197,12 @@ const double  PI        =  3.141592653589793238462643383279502884197169399375105
 #endif
 
 
+<<<<<<< HEAD
 
 
+=======
+ 
+>>>>>>> 28123464db98145e07eace0c0b0b13abad361ae1
 
 class Envelope3d;
 /** @defgroup Config  Config-全局配置类

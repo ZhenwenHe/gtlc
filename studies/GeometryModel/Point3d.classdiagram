@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="378c8b9c-d38e-4040-bb28-e49be264ed44" name="UMLClassDiagram1" linkedPackageId="082dc85c-6f11-48b0-9b3f-29cd7879ef9c" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
+  <profileInstances>
+    <packageHasProfileInstances Id="3dfd0297-76ad-47da-a1e4-3fb4cc9bf220">
+      <profileInstance Id="7dc9036d-a2e6-41b6-ac7e-75445a53b79a" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="27eaf076-67ce-4528-894b-fd684c2849b6">
+      <profileInstance Id="a4a7c735-d954-49c6-b170-32af4571e9ae" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="c46a338e-2e46-47cc-9ecb-1ca8bb8539de" name="Geometry" isAbstract="true" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="d6a7d38b-f22b-41c1-8322-a6cc6f688622" />
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="4b65e6bd-3b76-4daf-b900-cb8d4bab4efe" name="Geometry3d" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="a955f1a5-ed94-48b6-8f7f-20dc9501b78b" />
+        <generalsInternal>
+          <generalization Id="52b0cb5f-a014-4f63-9bfa-8eea3f6dd10b" isSubstitutable="false">
+            <classMoniker Id="c46a338e-2e46-47cc-9ecb-1ca8bb8539de" LastKnownName="Geometry" />
+            <elementDefinition Id="59ea3ac0-af72-4714-baf8-a052ec311804" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="0a62992a-bafa-4d51-944e-4359e798c2c9" name="Geometry3dImpl" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="ffd25f72-c369-4710-8a3e-08f2072b268e" />
+        <generalsInternal>
+          <generalization Id="467637e6-5b49-4dfe-8a38-3fea0aeb2a2e" isSubstitutable="false">
+            <classMoniker Id="4b65e6bd-3b76-4daf-b900-cb8d4bab4efe" LastKnownName="Geometry3d" />
+            <elementDefinition Id="ee2d1157-4b0f-46d9-a441-79d3a8deb235" />
+          </generalization>
+          <generalization Id="993e191a-35b6-4744-9648-9fa5054b4664" isSubstitutable="false">
+            <classMoniker Id="bf3ce583-e42d-448f-83c5-8a98bed1677e" LastKnownName="GeometryImpl" />
+            <elementDefinition Id="736a8110-90ba-4683-81b1-b39aa134a05b" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="6adb7291-82c8-465d-a622-b12f2963938a" name="Point3d" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="603bc0d3-651d-4bc0-8331-69c6f92a35c2" />
+        <generalsInternal>
+          <generalization Id="ac5ecf3f-b82d-44c3-a994-3b92b832245b" isSubstitutable="false">
+            <classMoniker Id="4b65e6bd-3b76-4daf-b900-cb8d4bab4efe" LastKnownName="Geometry3d" />
+            <elementDefinition Id="4db96e90-5908-478b-8416-5faa1b18bae9" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="39a46094-e4bc-433d-86dd-239a5e6ff275" name="Point3dImpl" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="01f13c1a-b001-4000-9be5-fe2c00263352" />
+        <generalsInternal>
+          <generalization Id="b615df2d-593a-4b6c-90ca-63f8b07a7276" isSubstitutable="false">
+            <classMoniker Id="6adb7291-82c8-465d-a622-b12f2963938a" LastKnownName="Point3d" />
+            <elementDefinition Id="17ed7bc6-efa7-490a-95eb-a85de26d692b" />
+          </generalization>
+          <generalization Id="2b63e3be-925b-4d05-97b1-ce757835164c" isSubstitutable="false">
+            <classMoniker Id="0a62992a-bafa-4d51-944e-4359e798c2c9" LastKnownName="Geometry3dImpl" />
+            <elementDefinition Id="a313e900-649c-4c51-bfa2-117a97a276ef" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="1ac63e64-9f38-4ff9-81af-15a9fdf76793" name="MultiPoint3d" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="1f13c789-d455-442e-99fa-62eb2bcefddc" />
+        <generalsInternal>
+          <generalization Id="46b281c3-e68e-4521-975e-e7333c2eb737" isSubstitutable="false">
+            <classMoniker Id="6adb7291-82c8-465d-a622-b12f2963938a" LastKnownName="Point3d" />
+            <elementDefinition Id="5e9c9c7b-230b-4a94-b3c4-f430a5539440" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="18674108-f77a-47c3-8a31-55fa0a1c2448" name="MultiPoint3dImpl" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="e70fff30-07d1-422f-8685-088f0493f914" />
+        <generalsInternal>
+          <generalization Id="df2ab54c-2f0a-4ec9-ac25-3b511315294c" isSubstitutable="false">
+            <classMoniker Id="1ac63e64-9f38-4ff9-81af-15a9fdf76793" LastKnownName="MultiPoint3d" />
+            <elementDefinition Id="76e97447-0778-4c0b-b698-4e78571666ad" />
+          </generalization>
+          <generalization Id="fdb6d05d-fe33-470b-94f5-e3886ff0add7" isSubstitutable="false">
+            <classMoniker Id="39a46094-e4bc-433d-86dd-239a5e6ff275" LastKnownName="Point3dImpl" />
+            <elementDefinition Id="5f0a665f-9a83-47fb-8766-a6068ca48297" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="bf3ce583-e42d-448f-83c5-8a98bed1677e" name="GeometryImpl" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="a8865572-ef9f-4f1a-bd08-3dc8a957eb42" />
+        <generalsInternal>
+          <generalization Id="e5c93903-4fa2-449e-a52e-2168ba9740bc" isSubstitutable="false">
+            <classMoniker Id="c46a338e-2e46-47cc-9ecb-1ca8bb8539de" LastKnownName="Geometry" />
+            <elementDefinition Id="bd7830af-e5f8-4fd2-91a9-3bcc638a215b" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+  </packagedElements>
+  <package Id="082dc85c-6f11-48b0-9b3f-29cd7879ef9c" name="GeometryModel">
+    <elementDefinition Id="e29aadf6-df9c-4159-952c-a865b44ce460" />
+  </package>
+</logicalClassDesignerModel>

@@ -1,4 +1,4 @@
-/*
+ï»¿/*
 * Geosciences Template Library
 *
 * Copyright (c) 2008
@@ -26,18 +26,18 @@ begin_gdb_namespace
 
 class FieldDefinition {
 protected:
-	/** @name ÊôĞÔ³ÉÔ±±äÁ¿
+	/** @name å±æ€§æˆå‘˜å˜é‡
 	*  @{
 	*/
-	/** ÊôĞÔÁĞÃû³Æ,ÔÚÒ»¸öÊı¾İ±íÖĞÒªÇó¾ßÓĞÎ¨Ò»ĞÔ */
+	/** å±æ€§åˆ—åç§°,åœ¨ä¸€ä¸ªæ•°æ®è¡¨ä¸­è¦æ±‚å…·æœ‰å”¯ä¸€æ€§ */
 	std::string _name;
-	/** ÊôĞÔÁĞ±àÂë */
+	/** å±æ€§åˆ—ç¼–ç  */
 	std::string _code;
-	/**ÊôĞÔÁĞ±êÌâ*/
+	/**å±æ€§åˆ—æ ‡é¢˜*/
 	std::string _caption;
-	/** ÊôĞÔÀàĞÍµÄÀàĞÍ×Ö·û´®£¬GVTÖĞµÄÓĞĞ§ÀàĞÍ */
+	/** å±æ€§ç±»å‹çš„ç±»å‹å­—ç¬¦ä¸²ï¼ŒGVTä¸­çš„æœ‰æ•ˆç±»å‹ */
 	GVT         _type;
-	/** ÊôĞÔÀàĞÍ³¤¶È£¬°´ÕÕ×Ö½Ú½øĞĞ¼ÆËã£¬Ë«×Ö½Ú¼ÇÎªÁ½¸ö×Ö½Ú,<=0±íÊ¾²»ĞèÒªÕâ¸ö±äÁ¿¼ÇÂ¼µÄ³¤¶È
+	/** å±æ€§ç±»å‹é•¿åº¦ï¼ŒæŒ‰ç…§å­—èŠ‚è¿›è¡Œè®¡ç®—ï¼ŒåŒå­—èŠ‚è®°ä¸ºä¸¤ä¸ªå­—èŠ‚,<=0è¡¨ç¤ºä¸éœ€è¦è¿™ä¸ªå˜é‡è®°å½•çš„é•¿åº¦
 	bool-     1
 	int8      1
 	int16     2
@@ -53,37 +53,37 @@ protected:
 	datetime  4*7=28
 	char8     1-2GB
 	char16    2-2GB
-	_lengthÖ»ÄÜÎªÉÏÊö¶ÔÓ¦ÀàĞÍµÄÕûÊı±¶n£¬µ±n>1µÄÊ±ºò£¬±íÊ¾Îª×Ö·û´®»òÆäËûÀàĞÍµÄÊı×é
+	_lengthåªèƒ½ä¸ºä¸Šè¿°å¯¹åº”ç±»å‹çš„æ•´æ•°å€nï¼Œå½“n>1çš„æ—¶å€™ï¼Œè¡¨ç¤ºä¸ºå­—ç¬¦ä¸²æˆ–å…¶ä»–ç±»å‹çš„æ•°ç»„
 	*/
 	int         _length;
-	/** ÊôĞÔÀàĞÍµÄĞ¡ÊıµãÎ»Êı,ÖµÎª¸ºÊıµÄÊ±ºòÎªÎŞĞ§Öµ
-	*   Ö»ÓĞµ±ÀàĞÍÎªfloat32ºÍfloat64µÄÊ±ºòÆğ×÷ÓÃ£¬
-	*   float32µÄÓĞĞ§Î»ÊıÎª7£¬ËùÒÔ_decimal[0-6]
-	*   float64µÄÓĞĞ§Î»ÊıÎª16£¬ËùÒÔ_decimal[0-15]
+	/** å±æ€§ç±»å‹çš„å°æ•°ç‚¹ä½æ•°,å€¼ä¸ºè´Ÿæ•°çš„æ—¶å€™ä¸ºæ— æ•ˆå€¼
+	*   åªæœ‰å½“ç±»å‹ä¸ºfloat32å’Œfloat64çš„æ—¶å€™èµ·ä½œç”¨ï¼Œ
+	*   float32çš„æœ‰æ•ˆä½æ•°ä¸º7ï¼Œæ‰€ä»¥_decimal[0-6]
+	*   float64çš„æœ‰æ•ˆä½æ•°ä¸º16ï¼Œæ‰€ä»¥_decimal[0-15]
 	*/
 	int         _decimal;
-	/** ÊôĞÔÀàĞÍÊÇ·ñ¿ÉÒÔÎª¿Õ£¬1-true±íÊ¾¿ÉÒÔÎª¿Õ£¬0-false±íÊ¾²»ÄÜÎª¿Õ */
+	/** å±æ€§ç±»å‹æ˜¯å¦å¯ä»¥ä¸ºç©ºï¼Œ1-trueè¡¨ç¤ºå¯ä»¥ä¸ºç©ºï¼Œ0-falseè¡¨ç¤ºä¸èƒ½ä¸ºç©º */
 	int        _nullable;
-	/** Ä¬ÈÏÖµ*/
+	/** é»˜è®¤å€¼*/
 	VALUE    *  _defaultValue;
 	/**Display justification for field values,OJUndefined = 0, OJLeft = 1, OJRight = 2*/
 	int         _justification;
-	/**ÊÇ·ñºöÂÔ£¬1-true,0-false,default=0*/
+	/**æ˜¯å¦å¿½ç•¥ï¼Œ1-true,0-false,default=0*/
 	int         _ignore;
 	/** @} */
 
 public:
-	/** @name ¹¹Ôìº¯ÊıÓëÎö¹¹º¯Êı
+	/** @name æ„é€ å‡½æ•°ä¸ææ„å‡½æ•°
 	*  @{
 	*/
 	FieldDefinition();
 	/**
-	ÕâÊÇÒ»¸ö¼ò»¯µÄ¹¹Ôìº¯Êı£¬Ö»ĞèÒªÊäÈë×Ö¶ÎÃû³Æ£¬×Ö¶ÎÀàĞÍºÍ¸öÊı£¬º¯Êı×Ô¶¯¼ÆËãlengthµÄÖµ
-	ÀıÈç£ºFieldDefinition£¨"Field1",GVT_CHAR8,50£©¹¹½¨50¸ö×Ö·û¿í¶ÈµÄÎÄ±¾ÁĞ£¬length=50
-	FieldDefinition£¨"Field2",GVT_CHAR16,50£©¹¹½¨50¸ö×Ö·û¿í¶ÈµÄ¿íÎÄ±¾ÁĞ£¬length=100
-	FieldDefinition£¨"Field3",GVT_INT64,1£©¹¹½¨64BITSµÄÕûÊıÁĞ£¬length=8
-	FieldDefinition£¨"Field4",GVT_INT64,10£©¹¹½¨64BITSµÄÕûÊıÊı×éÁĞ£¬length=80
-	FieldDefinition£¨"Field5",GVT_DATETIME,1£©¹¹½¨datetimeÁĞ£¬length=28
+	è¿™æ˜¯ä¸€ä¸ªç®€åŒ–çš„æ„é€ å‡½æ•°ï¼Œåªéœ€è¦è¾“å…¥å­—æ®µåç§°ï¼Œå­—æ®µç±»å‹å’Œä¸ªæ•°ï¼Œå‡½æ•°è‡ªåŠ¨è®¡ç®—lengthçš„å€¼
+	ä¾‹å¦‚ï¼šFieldDefinitionï¼ˆ"Field1",GVT_CHAR8,50ï¼‰æ„å»º50ä¸ªå­—ç¬¦å®½åº¦çš„æ–‡æœ¬åˆ—ï¼Œlength=50
+	FieldDefinitionï¼ˆ"Field2",GVT_CHAR16,50ï¼‰æ„å»º50ä¸ªå­—ç¬¦å®½åº¦çš„å®½æ–‡æœ¬åˆ—ï¼Œlength=100
+	FieldDefinitionï¼ˆ"Field3",GVT_INT64,1ï¼‰æ„å»º64BITSçš„æ•´æ•°åˆ—ï¼Œlength=8
+	FieldDefinitionï¼ˆ"Field4",GVT_INT64,10ï¼‰æ„å»º64BITSçš„æ•´æ•°æ•°ç»„åˆ—ï¼Œlength=80
+	FieldDefinitionï¼ˆ"Field5",GVT_DATETIME,1ï¼‰æ„å»ºdatetimeåˆ—ï¼Œlength=28
 	*/
 	FieldDefinition(std::string name, GVT type, int count = 1);
 	/*
@@ -112,7 +112,7 @@ public:
 	FieldDefinition(const FieldDefinition & t);
 	/** @} */
 
-	/** @name ¸´ÖÆÓëµÈºÅ¸³ÖµÖØÔØ
+	/** @name å¤åˆ¶ä¸ç­‰å·èµ‹å€¼é‡è½½
 	*  @{
 	*/
 	void copy(const FieldDefinition & t);
@@ -120,7 +120,7 @@ public:
 	bool operator==(const FieldDefinition & t);
 	/** @} */
 
-	/** @name ¶ÔÏó³ÉÔ±±äÁ¿»ñÈ¡ÓëÉèÖÃ²Ù×÷º¯Êı¼¯
+	/** @name å¯¹è±¡æˆå‘˜å˜é‡è·å–ä¸è®¾ç½®æ“ä½œå‡½æ•°é›†
 	*  @{
 	*/
 	inline std::string getName() { return _name; }
@@ -142,8 +142,8 @@ public:
 	inline int  getDecimal() { return _decimal; }
 	inline void   setDecimal(int v) { _decimal = v; }
 
-	inline bool  isNullable() { return _nullable; }
-	inline void   setNullable(bool v) { _nullable = v; }
+	inline bool  isNullable() { return _nullable!=0; }
+	inline void   setNullable(bool v) { _nullable = v?1:0; }
 
 	inline bool setDefaultValue(const VALUE & g) {
 		if (_defaultValue) {
@@ -161,22 +161,22 @@ public:
 	/** @} */
 
 public:
-	/**  ÅĞ¶ÏÊôĞÔÀàĞÍÊÇ·ñÎªÊı×ÖÀàĞÍ
-	*	 @param ÎŞ
-	*   @return Èç¹ûÊôĞÔÀàĞÍÊÇÊı×ÖÀàĞÍ£¬Ôò·µ»Øtrue£¬·ñÔò·µ»Øfalse
+	/**  åˆ¤æ–­å±æ€§ç±»å‹æ˜¯å¦ä¸ºæ•°å­—ç±»å‹
+	*	 @param æ— 
+	*   @return å¦‚æœå±æ€§ç±»å‹æ˜¯æ•°å­—ç±»å‹ï¼Œåˆ™è¿”å›trueï¼Œå¦åˆ™è¿”å›false
 	*/
 	inline bool isNumber() { return ValUtils::isNumber(_type); }
 	inline bool isArray() { return _length / ValUtils::getTypeSize(_type) > 1; }
 	inline bool isText() { return  ValUtils::isChar(_type) && isArray(); }
 	inline bool isBlob() { return (!ValUtils::isChar(_type)) && isArray(); }
 public:
-	/**  ½«ÊôĞÔÀàĞÍ¶ÔÏóĞ´ÈëÁ÷¶ÔÏó
-	*	 @param [in,out]  f Á÷¶ÔÏó
+	/**  å°†å±æ€§ç±»å‹å¯¹è±¡å†™å…¥æµå¯¹è±¡
+	*	 @param [in,out]  f æµå¯¹è±¡
 	*   @return void
 	*/
 	virtual void  write(std::ostream & f);
-	/**  ´ÓÁ÷¶ÔÏóÖĞ¶ÁÈ¡ÊôĞÔÀàĞÍ¶ÔÏó
-	*	 @param [in,out]  f Á÷¶ÔÏó
+	/**  ä»æµå¯¹è±¡ä¸­è¯»å–å±æ€§ç±»å‹å¯¹è±¡
+	*	 @param [in,out]  f æµå¯¹è±¡
 	*   @return void
 	*/
 	virtual void  read(std::istream & f);

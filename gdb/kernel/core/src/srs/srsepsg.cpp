@@ -205,7 +205,7 @@ int EPSGGetUOMAngleInfo(int nUOMAngleCode,
 {
 	const char  *pszUOMName = NULL;
 	double      dfInDegrees = 1.0;
-	const char *pszFilename;
+	//const char *pszFilename;
 	char        szSearchKey[24];
 
 	/* We do a special override of some of the DMS formats name */

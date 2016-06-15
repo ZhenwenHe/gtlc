@@ -1,4 +1,4 @@
-/*
+О╩©/*
 * Geosciences Template Library
 *
 * Copyright (c) 2008
@@ -36,7 +36,7 @@ public:
 	enum
 	{
 		TEXTURE_IMAGE_BMP=0,
-		TEXTURE_IMAGE_DDS=2,//н╙╪Фсцр╩п╘юойЩ╬щё╛1р╡н╙DDSё╛╡╒грд╛хо╣дн╙DDS
+		TEXTURE_IMAGE_DDS=2,//Д╦╨Е┘╪Г■╗Д╦─Д╨⌡Х─│Ф∙╟Ф█╝О╪▄1Д╧÷Д╦╨DDSО╪▄Е╧╤Д╦■И╩≤Х╝╓Г └Д╦╨DDS
 		TEXTURE_IMAGE_TGA=3,
 		TEXTURE_IMAGE_TIF=4,
 		TEXTURE_IMAGE_JPG=5,

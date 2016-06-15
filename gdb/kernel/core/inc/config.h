@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Geosciences Template Library
 *
 * Copyright (c) 2008
@@ -27,6 +27,15 @@
 #include "time.h"
 #include "assert.h"
 
+//#pragma warning  (disable:4244)
+//#pragma warning  (disable:4819)
+//#pragma warning  (disable:4305)
+//#pragma warning  (disable:4267)
+//#pragma warning  (disable:4819)
+//#pragma warning  (disable:4250)
+//#pragma warning  (disable:4800)
+
+
 /*
  * 0-windows, include config_windows.h
  * 1-linux, include config_linux.h
@@ -44,7 +53,7 @@
  * 1-Qt
  * 2-wxWidget
  */
-#define USING_UI_TYPE  1
+#define USING_UI_TYPE  0
 /*
  * If the ui library is 0, the os type must be 0.
  */
@@ -175,6 +184,8 @@ const double  PI        =  3.141592653589793238462643383279502884197169399375105
 #define SMALL_NUMBER 0.0000001
 #endif
 
+
+ 
 
 class Envelope3d;
 /** @defgroup Config  Config-全局配置类

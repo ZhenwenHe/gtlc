@@ -1,4 +1,4 @@
-/*
+ï»¿/*
 * Geosciences Template Library
 *
 * Copyright (c) 2008
@@ -35,288 +35,288 @@ class TerrainProxy;
 typedef std::shared_ptr<TerrainProxy>  TerrainProxySharedPtr;
 
 //////////////////////////////////////////////////////////
-/** @addtogroup terrain TerrainProxy-µØĞÎ²éÑ¯½Ó¿Ú¡¡
+/** @addtogroup terrain TerrainProxy-åœ°å½¢æŸ¥è¯¢æ¥å£ã€€
 *  @{
 */
 class CORE_API TerrainProxy{
 public:
-	/** ¶ÁÈ¡Ö¸¶¨½ğ×ÖËş²ãºÍ¾ØĞÎ·¶Î§µÄDEMÊı¾İ
-	* @param [in]  box2d			DEM½ğ×ÖËş²ã·¶Î§
-	* @param [in]  nLayerID			DEM½ğ×ÖËşµÄ²ãID
-	* @param [out]  pDemBlocks		DEM½ğ×ÖËşµÄÊı¾İ¿éÊı¾İ
+	/** è¯»å–æŒ‡å®šé‡‘å­—å¡”å±‚å’ŒçŸ©å½¢èŒƒå›´çš„DEMæ•°æ®
+	* @param [in]  box2d			DEMé‡‘å­—å¡”å±‚èŒƒå›´
+	* @param [in]  nLayerID			DEMé‡‘å­—å¡”çš„å±‚ID
+	* @param [out]  pDemBlocks		DEMé‡‘å­—å¡”çš„æ•°æ®å—æ•°æ®
 	* @return
 	*/
 	virtual bool extractDEM(const Envelope2d& box2d, Identifier::raw_type  nLayerID, DEMGridSharedPtr & demObj) = 0;
 
-	/** ¾«È·¶ÁÈ¡Ö¸¶¨½ğ×ÖËş²ãºÍ¾ØĞÎ·¶Î§µÄDOMÊı¾İ(Ó°ÏñÊı¾İ)
-	* @param [in]	box2d			DOM½ğ×ÖËş²ã·¶Î§
-	* @param [in]	nLayerID		DOM½ğ×ÖËşµÄ²ãID
-	* @param [out]  domObj			domÊı¾İ
+	/** ç²¾ç¡®è¯»å–æŒ‡å®šé‡‘å­—å¡”å±‚å’ŒçŸ©å½¢èŒƒå›´çš„DOMæ•°æ®(å½±åƒæ•°æ®)
+	* @param [in]	box2d			DOMé‡‘å­—å¡”å±‚èŒƒå›´
+	* @param [in]	nLayerID		DOMé‡‘å­—å¡”çš„å±‚ID
+	* @param [out]  domObj			domæ•°æ®
 	* @return
 	*/
 	virtual bool extractDOM(const Envelope2d& box2d, Identifier::raw_type  nLayerID, DOMGridSharedPtr & domObj) = 0;
 
-	/** Í¨¹ı²ãID¡¢ĞĞºÅºÍÁĞºÅ»ñµÃÊı¾İ¿éID
-	* @param [in]	nLayerID		²ãID
-	* @param [in]	nRow			ĞĞºÅ
-	* @param [in]	nCol			ÁĞºÅ
-	* @param [out]  blkID			Êı¾İ¿éID
+	/** é€šè¿‡å±‚IDã€è¡Œå·å’Œåˆ—å·è·å¾—æ•°æ®å—ID
+	* @param [in]	nLayerID		å±‚ID
+	* @param [in]	nRow			è¡Œå·
+	* @param [in]	nCol			åˆ—å·
+	* @param [out]  blkID			æ•°æ®å—ID
 	* @return
 	*/
 	virtual bool reverseRowColtoBlockID(Identifier::raw_type  nLayerID, int nRow, int nCol, Identifier::raw_type & blkID) = 0;
 
-	/** Í¨¹ıÊı¾İ¿éID»ñµÃ²ãID¡¢ĞĞºÅºÍÁĞºÅ
-	* @param [in]	blkID			Êı¾İ¿éID
-	* @param [out]	nLayerID		²ãID
-	* @param [out]	nRow			ĞĞºÅ
-	* @param [out]  nCol			ÁĞºÅ
+	/** é€šè¿‡æ•°æ®å—IDè·å¾—å±‚IDã€è¡Œå·å’Œåˆ—å·
+	* @param [in]	blkID			æ•°æ®å—ID
+	* @param [out]	nLayerID		å±‚ID
+	* @param [out]	nRow			è¡Œå·
+	* @param [out]  nCol			åˆ—å·
 	* @return
 	*/
 	virtual bool reverseBlockIDtoRowCol(Identifier::raw_type blkID, Identifier::raw_type& nLayerID, int& nRow, int& nCol) = 0;
 
-	/** »ñÈ¡Ö¸¶¨²ãIDºÍ·¶Î§µÄÊı¾İ¿éID
-	* @param [in]	nLayerID		²ãID
-	* @param [in]	box2d			·¶Î§
-	* @param [out]  blkIDs			DEMÊı¾İ¿éID¼¯ºÏ
-	* @param [in]	nDataType		DEM»¹ÊÇDOM;0:DEM;1:DOM
-	* @param [in]	nType			¶ÁÈ¡ÀàĞÍ:0:¶ÁÈ¡ÍêÈ«ÔÚBOXÄÚ²¿µÄÊı¾İ¿é£»1£º°üÀ¨Ïà½»µÄÊı¾İ¿é
+	/** è·å–æŒ‡å®šå±‚IDå’ŒèŒƒå›´çš„æ•°æ®å—ID
+	* @param [in]	nLayerID		å±‚ID
+	* @param [in]	box2d			èŒƒå›´
+	* @param [out]  blkIDs			DEMæ•°æ®å—IDé›†åˆ
+	* @param [in]	nDataType		DEMè¿˜æ˜¯DOM;0:DEM;1:DOM
+	* @param [in]	nType			è¯»å–ç±»å‹:0:è¯»å–å®Œå…¨åœ¨BOXå†…éƒ¨çš„æ•°æ®å—ï¼›1ï¼šåŒ…æ‹¬ç›¸äº¤çš„æ•°æ®å—
 	* @return
 	*/
 	virtual bool getBlockIDsByScope(Identifier::raw_type  nLayerID, const Envelope2d & box2d, std::vector<Identifier::raw_type>& blkIDs, int nDataType, int nType) = 0;
 
-	/** »ñµÃµØĞÎ×î¸ß·Ö±æÂÊ
-	* @param [out]  fRes		µØĞÎ×î¸ß·Ö±æÂÊ
-	* @param [in]	nDataType	DEM»¹ÊÇDOM;0:DEM;1:DOM
+	/** è·å¾—åœ°å½¢æœ€é«˜åˆ†è¾¨ç‡
+	* @param [out]  fRes		åœ°å½¢æœ€é«˜åˆ†è¾¨ç‡
+	* @param [in]	nDataType	DEMè¿˜æ˜¯DOM;0:DEM;1:DOM
 	* @return
 	*/
 	virtual bool getHighestResolution(double& fRes, int nDataType) = 0;
 
-	/** »ñµÃµØĞÎ×îµÍ·Ö±æÂÊ
-	* @param [out]  fRes		DEM×îµÍ·Ö±æÂÊ
-	* @param [in]	nDataType	DEM»¹ÊÇDOM;0:DEM;1:DOM
+	/** è·å¾—åœ°å½¢æœ€ä½åˆ†è¾¨ç‡
+	* @param [out]  fRes		DEMæœ€ä½åˆ†è¾¨ç‡
+	* @param [in]	nDataType	DEMè¿˜æ˜¯DOM;0:DEM;1:DOM
 	* @return
 	*/
 	virtual bool getLowestResolution(double& fRes, int nDataType) = 0;
 
-	/** »ñµÃDEMÊı¾İ¿éµÄ×î´óºÍ×îĞ¡¸ß³Ì
-	* @param [out]  fMax		µØĞÎ×î¸ß·Ö±æÂÊ
-	* @param [out]  fLowestRes	µØĞÎ×î¸ß·Ö±æÂÊ
-	* @param [in]	nDataType	DEM»¹ÊÇDOM;0:DEM;1:DOM
+	/** è·å¾—DEMæ•°æ®å—çš„æœ€å¤§å’Œæœ€å°é«˜ç¨‹
+	* @param [out]  fMax		åœ°å½¢æœ€é«˜åˆ†è¾¨ç‡
+	* @param [out]  fLowestRes	åœ°å½¢æœ€é«˜åˆ†è¾¨ç‡
+	* @param [in]	nDataType	DEMè¿˜æ˜¯DOM;0:DEM;1:DOM
 	* @return
 	*/
 	virtual bool getDEMBlockMaxAndMinZ(Identifier::raw_type blkid, float& blkMaxZ, float& blkMinZ) = 0;
 
-	/** »ñµÃµØĞÎ´Ö·Ö±æÂÊµÄÊı¾İ¿éID¼¯ºÏ
-	* @param [out]  blkIDs		DEM/DOMÊı¾İ¿éID¼¯ºÏ
-	* @param [int]  nDataType	DEM»¹ÊÇDOM;0:DEM;1:DOM
+	/** è·å¾—åœ°å½¢ç²—åˆ†è¾¨ç‡çš„æ•°æ®å—IDé›†åˆ
+	* @param [out]  blkIDs		DEM/DOMæ•°æ®å—IDé›†åˆ
+	* @param [int]  nDataType	DEMè¿˜æ˜¯DOM;0:DEM;1:DOM
 	* @return
 	*/
 	virtual bool getPyramidTopBlockIDs(vector<Identifier::raw_type>& blkIDs, Identifier::raw_type & nLayerID, int nDataType) = 0;
 
 
-	/** ¶ÁÈ¡Ö¸¶¨½ğ×ÖËş²ãµÄDEMÊı¾İ£¬DemBlock ¶ÔÏóÔÚº¯ÊıÄÚ²¿Í¨¹ı new ²úÉú£¬ÓÉÉÏ²ãº¯Êıµ÷ÓÃÕßÎ¬»¤²¢¸ºÔğÊÍ·Å
-	* @param [in]  nLayerID			DEM½ğ×ÖËş²ãID
-	* @param [out]  pDemBlocks		DEM½ğ×ÖËşµÄÊı¾İ¿éÊı¾İ¼¯ºÏ
+	/** è¯»å–æŒ‡å®šé‡‘å­—å¡”å±‚çš„DEMæ•°æ®ï¼ŒDemBlock å¯¹è±¡åœ¨å‡½æ•°å†…éƒ¨é€šè¿‡ new äº§ç”Ÿï¼Œç”±ä¸Šå±‚å‡½æ•°è°ƒç”¨è€…ç»´æŠ¤å¹¶è´Ÿè´£é‡Šæ”¾
+	* @param [in]  nLayerID			DEMé‡‘å­—å¡”å±‚ID
+	* @param [out]  pDemBlocks		DEMé‡‘å­—å¡”çš„æ•°æ®å—æ•°æ®é›†åˆ
 	* @return
 	*/
 	virtual bool getDEMDataByLayerID(Identifier::raw_type  nLayerID, vector<DEMBlockSharedPtr>& pDemBlocks) = 0;
 
 
-	/** ¶ÁÈ¡Ö¸¶¨Êı¾İ¿éIDµÄDEMÊı¾İ£¬DemBlock ¶ÔÏóÔÚº¯ÊıÄÚ²¿Í¨¹ı new ²úÉú£¬ÓÉÉÏ²ãº¯Êıµ÷ÓÃÕßÎ¬»¤²¢¸ºÔğÊÍ·Å
-	* @param [in]	blkID		Êı¾İ¿éID
-	* @param [out]  pDemBlock	DEM½ğ×ÖËşµÄÊı¾İ¿éÊı¾İ
+	/** è¯»å–æŒ‡å®šæ•°æ®å—IDçš„DEMæ•°æ®ï¼ŒDemBlock å¯¹è±¡åœ¨å‡½æ•°å†…éƒ¨é€šè¿‡ new äº§ç”Ÿï¼Œç”±ä¸Šå±‚å‡½æ•°è°ƒç”¨è€…ç»´æŠ¤å¹¶è´Ÿè´£é‡Šæ”¾
+	* @param [in]	blkID		æ•°æ®å—ID
+	* @param [out]  pDemBlock	DEMé‡‘å­—å¡”çš„æ•°æ®å—æ•°æ®
 	* @return
 	*/
 	virtual bool getDEMDataByBlockID(Identifier::raw_type blkID, DEMBlockSharedPtr& pDemBlock) = 0;
 
-	/** ¶ÁÈ¡Ö¸¶¨Êı¾İ¿éIDºÍÖ¸¶¨Ë÷ÒıµÄDEMÊı¾İ£¬DemHeight ¶ÔÏóÔÚº¯ÊıÍâ²¿Í¨¹ı new ²úÉú£¬ÓÉÉÏ²ãº¯Êıµ÷ÓÃÕßÎ¬»¤²¢¸ºÔğÊÍ·Å
-	* @param [in]	blkID		Êı¾İ¿éID
-	* @param [in]	nStartIndex		ÆğÊ¼Ë÷ÒıºÅ
-	* @param [in]	nLength		Ë÷Òı³¤¶È
-	* @param [out]  pDemHeight	DEM½ğ×ÖËşµÄ¸ß³ÌÊı¾İ
+	/** è¯»å–æŒ‡å®šæ•°æ®å—IDå’ŒæŒ‡å®šç´¢å¼•çš„DEMæ•°æ®ï¼ŒDemHeight å¯¹è±¡åœ¨å‡½æ•°å¤–éƒ¨é€šè¿‡ new äº§ç”Ÿï¼Œç”±ä¸Šå±‚å‡½æ•°è°ƒç”¨è€…ç»´æŠ¤å¹¶è´Ÿè´£é‡Šæ”¾
+	* @param [in]	blkID		æ•°æ®å—ID
+	* @param [in]	nStartIndex		èµ·å§‹ç´¢å¼•å·
+	* @param [in]	nLength		ç´¢å¼•é•¿åº¦
+	* @param [out]  pDemHeight	DEMé‡‘å­—å¡”çš„é«˜ç¨‹æ•°æ®
 	* @return
 	*/
 	virtual bool getDEMDataByIndex(Identifier::raw_type blkID, int nStartIndex, int nLength, float*& pDemHeight) = 0;
 
-	/** ¶ÁÈ¡Ö¸¶¨½ğ×ÖËş²ãºÍÊı¾İ¿éIDµÄDEMÊı¾İ£¬DemBlock ¶ÔÏóÔÚº¯ÊıÄÚ²¿Í¨¹ı new ²úÉú£¬ÓÉÉÏ²ãº¯Êıµ÷ÓÃÕßÎ¬»¤²¢¸ºÔğÊÍ·Å
-	* @param [in]	nLayerID	²ãID
-	* @param [in]	blkIDs		Êı¾İ¿éID
-	* @param [out]  pDemBlocks	DEM½ğ×ÖËşµÄÊı¾İ¿éÊı¾İ
+	/** è¯»å–æŒ‡å®šé‡‘å­—å¡”å±‚å’Œæ•°æ®å—IDçš„DEMæ•°æ®ï¼ŒDemBlock å¯¹è±¡åœ¨å‡½æ•°å†…éƒ¨é€šè¿‡ new äº§ç”Ÿï¼Œç”±ä¸Šå±‚å‡½æ•°è°ƒç”¨è€…ç»´æŠ¤å¹¶è´Ÿè´£é‡Šæ”¾
+	* @param [in]	nLayerID	å±‚ID
+	* @param [in]	blkIDs		æ•°æ®å—ID
+	* @param [out]  pDemBlocks	DEMé‡‘å­—å¡”çš„æ•°æ®å—æ•°æ®
 	* @return
 	*/
 	virtual bool getDEMDataByBlockIDs(Identifier::raw_type  nLayerID, vector<Identifier::raw_type> blkIDs, vector<DEMBlockSharedPtr>& pDemBlocks) = 0;
 
 
-	/** ¶ÁÈ¡Ö¸¶¨½ğ×ÖËş²ãºÍ¾ØĞÎ·¶Î§µÄDOMÊı¾İ£¬ImageBlock ¶ÔÏóÔÚº¯ÊıÄÚ²¿Í¨¹ı new ²úÉú£¬ÓÉÉÏ²ãº¯Êıµ÷ÓÃÕßÎ¬»¤²¢¸ºÔğÊÍ·Å
-	* @param [in]  box2d			DOM½ğ×ÖËş²ã·¶Î§
-	* @param [in]  nLayerID			DOM½ğ×ÖËşµÄ²ãID
-	* @param [out]  pImageBlocks	DOM½ğ×ÖËşµÄÊı¾İ¿éÊı¾İ
-	* @param [in]  nType			½ğ×ÖËşµÄ¶ÁÈ¡ÀàĞÍ
+	/** è¯»å–æŒ‡å®šé‡‘å­—å¡”å±‚å’ŒçŸ©å½¢èŒƒå›´çš„DOMæ•°æ®ï¼ŒImageBlock å¯¹è±¡åœ¨å‡½æ•°å†…éƒ¨é€šè¿‡ new äº§ç”Ÿï¼Œç”±ä¸Šå±‚å‡½æ•°è°ƒç”¨è€…ç»´æŠ¤å¹¶è´Ÿè´£é‡Šæ”¾
+	* @param [in]  box2d			DOMé‡‘å­—å¡”å±‚èŒƒå›´
+	* @param [in]  nLayerID			DOMé‡‘å­—å¡”çš„å±‚ID
+	* @param [out]  pImageBlocks	DOMé‡‘å­—å¡”çš„æ•°æ®å—æ•°æ®
+	* @param [in]  nType			é‡‘å­—å¡”çš„è¯»å–ç±»å‹
 	* @return
 	*/
 	virtual bool getDOMDataByBox(const Envelope2d & box2d, Identifier::raw_type  nLayerID, vector<DOMBlockSharedPtr>& pDomBlocks, int nType) = 0;
 
 
-	/** ¶ÁÈ¡Ö¸¶¨½ğ×ÖËş²ãµÄDOMÊı¾İ£¬DomBlock ¶ÔÏóÔÚº¯ÊıÄÚ²¿Í¨¹ı new ²úÉú£¬ÓÉÉÏ²ãº¯Êıµ÷ÓÃÕßÎ¬»¤²¢¸ºÔğÊÍ·Å
-	* @param [in]  nLayerID			DOM½ğ×ÖËş²ãID
-	* @param [out]  pDomBlocks		DOM½ğ×ÖËşµÄÊı¾İ¿éÊı¾İ¼¯ºÏ
+	/** è¯»å–æŒ‡å®šé‡‘å­—å¡”å±‚çš„DOMæ•°æ®ï¼ŒDomBlock å¯¹è±¡åœ¨å‡½æ•°å†…éƒ¨é€šè¿‡ new äº§ç”Ÿï¼Œç”±ä¸Šå±‚å‡½æ•°è°ƒç”¨è€…ç»´æŠ¤å¹¶è´Ÿè´£é‡Šæ”¾
+	* @param [in]  nLayerID			DOMé‡‘å­—å¡”å±‚ID
+	* @param [out]  pDomBlocks		DOMé‡‘å­—å¡”çš„æ•°æ®å—æ•°æ®é›†åˆ
 	* @return
 	*/
 	virtual bool getDOMDataByLayerID(Identifier::raw_type  nLayerID, vector<DOMBlockSharedPtr>& pDomBlocks) = 0;
 
 	//##ModelId=4A15463701CD
-	/** ¶ÁÈ¡Ö¸¶¨½ğ×ÖËş²ãºÍÊı¾İ¿éIDµÄDOMÊı¾İ£¬ImageBlock ¶ÔÏóÔÚº¯ÊıÄÚ²¿Í¨¹ı new ²úÉú£¬ÓÉÉÏ²ãº¯Êıµ÷ÓÃÕßÎ¬»¤²¢¸ºÔğÊÍ·Å
-	* @param [in]	blkID		DOMÊı¾İ¿éID
-	* @param [out]  pImageBlock	DOM½ğ×ÖËşµÄÊı¾İ¿éÊı¾İ
+	/** è¯»å–æŒ‡å®šé‡‘å­—å¡”å±‚å’Œæ•°æ®å—IDçš„DOMæ•°æ®ï¼ŒImageBlock å¯¹è±¡åœ¨å‡½æ•°å†…éƒ¨é€šè¿‡ new äº§ç”Ÿï¼Œç”±ä¸Šå±‚å‡½æ•°è°ƒç”¨è€…ç»´æŠ¤å¹¶è´Ÿè´£é‡Šæ”¾
+	* @param [in]	blkID		DOMæ•°æ®å—ID
+	* @param [out]  pImageBlock	DOMé‡‘å­—å¡”çš„æ•°æ®å—æ•°æ®
 	* @return
 	*/
 	virtual bool getDOMDataByBlockID(Identifier::raw_type blkID, DOMBlockSharedPtr& pDomBlock) = 0;
 
-	/** ¶ÁÈ¡Ö¸¶¨½ğ×ÖËş²ãºÍÊı¾İ¿éIDµÄDEMÊı¾İ£¬DemBlock ¶ÔÏóÔÚº¯ÊıÄÚ²¿Í¨¹ı new ²úÉú£¬ÓÉÉÏ²ãº¯Êıµ÷ÓÃÕßÎ¬»¤²¢¸ºÔğÊÍ·Å
-	* @param [in]	nLayerID	²ãID
-	* @param [in]	blkIDs		Êı¾İ¿éID
-	* @param [out]  pDemBlocks	DOM½ğ×ÖËşµÄÊı¾İ¿éÊı¾İ
+	/** è¯»å–æŒ‡å®šé‡‘å­—å¡”å±‚å’Œæ•°æ®å—IDçš„DEMæ•°æ®ï¼ŒDemBlock å¯¹è±¡åœ¨å‡½æ•°å†…éƒ¨é€šè¿‡ new äº§ç”Ÿï¼Œç”±ä¸Šå±‚å‡½æ•°è°ƒç”¨è€…ç»´æŠ¤å¹¶è´Ÿè´£é‡Šæ”¾
+	* @param [in]	nLayerID	å±‚ID
+	* @param [in]	blkIDs		æ•°æ®å—ID
+	* @param [out]  pDemBlocks	DOMé‡‘å­—å¡”çš„æ•°æ®å—æ•°æ®
 	* @return
 	*/
 	virtual bool getDOMDataByBlockIDs(Identifier::raw_type  nLayerID, vector<Identifier::raw_type> blkIDs, vector<DOMBlockSharedPtr>& pDomBlocks) = 0;
 
-	/** µÃµ½ÉÏ±ßµÄÊı¾İ¿é±àºÅ
-	* @param [in]	nCurBlkID			µ±Ç°Êı¾İ¿éID
-	* @param [out]  nUpperBlkID			ÉÏ±ßÊı¾İ¿éID
-	* @param [int]  nDataType			DEM»¹ÊÇDOM;0:DEM;1:DOM
+	/** å¾—åˆ°ä¸Šè¾¹çš„æ•°æ®å—ç¼–å·
+	* @param [in]	nCurBlkID			å½“å‰æ•°æ®å—ID
+	* @param [out]  nUpperBlkID			ä¸Šè¾¹æ•°æ®å—ID
+	* @param [int]  nDataType			DEMè¿˜æ˜¯DOM;0:DEM;1:DOM
 	* @return
 	*/
 	virtual bool getTopBlockID(Identifier::raw_type nCurBlkID, Identifier::raw_type& nUpperBlkID, int nDataType) = 0;
 
-	/** µÃµ½ÏÂ±ßµÄÊı¾İ¿é±àºÅ
-	* @param [in]	nCurBlkID			µ±Ç°Êı¾İ¿éID
-	* @param [out]  nLowerBlkID			ÏÂ±ßµÄÊı¾İ¿éID
-	* @param [int]  nDataType			DEM»¹ÊÇDOM;0:DEM;1:DOM
+	/** å¾—åˆ°ä¸‹è¾¹çš„æ•°æ®å—ç¼–å·
+	* @param [in]	nCurBlkID			å½“å‰æ•°æ®å—ID
+	* @param [out]  nLowerBlkID			ä¸‹è¾¹çš„æ•°æ®å—ID
+	* @param [int]  nDataType			DEMè¿˜æ˜¯DOM;0:DEM;1:DOM
 	* @return
 	*/
 	virtual bool getBottomBlockIDs(Identifier::raw_type nCurBlkID, vector<Identifier::raw_type>& nLowerBlkIDs, int nDataType) = 0;
 
 
-	/** µÃµ½ÓÒ±ßµÄÊı¾İ¿é±àºÅ
-	* @param [in]	nCurBlkID			µ±Ç°Êı¾İ¿éID
-	* @param [out]  nRightBlkID			ÓÒ±ßµÄÊı¾İ¿éID
-	* @param [int]  nDataType			DEM»¹ÊÇDOM;0:DEM;1:DOM
+	/** å¾—åˆ°å³è¾¹çš„æ•°æ®å—ç¼–å·
+	* @param [in]	nCurBlkID			å½“å‰æ•°æ®å—ID
+	* @param [out]  nRightBlkID			å³è¾¹çš„æ•°æ®å—ID
+	* @param [int]  nDataType			DEMè¿˜æ˜¯DOM;0:DEM;1:DOM
 	* @return
 	*/
 	virtual bool getRightBlockID(Identifier::raw_type nCurBlkID, Identifier::raw_type& nRightBlkID, int nDataType) = 0;
 
 
-	/** µÃµ½×ó±ßµÄÊı¾İ¿é±àºÅ
-	* @param [in]	nCurBlkID			µ±Ç°Êı¾İ¿éID
-	* @param [out]  nLeftBlkID			×ó±ßµÄÊı¾İ¿éID
-	* @param [int]  nDataType			DEM»¹ÊÇDOM;0:DEM;1:DOM
+	/** å¾—åˆ°å·¦è¾¹çš„æ•°æ®å—ç¼–å·
+	* @param [in]	nCurBlkID			å½“å‰æ•°æ®å—ID
+	* @param [out]  nLeftBlkID			å·¦è¾¹çš„æ•°æ®å—ID
+	* @param [int]  nDataType			DEMè¿˜æ˜¯DOM;0:DEM;1:DOM
 	* @return
 	*/
 	virtual bool getLeftBlockID(Identifier::raw_type nCurBlkID, Identifier::raw_type& nLeftBlkID, int nDataType) = 0;
 
 
-	/** µÃµ½¶ù×ÓÊı¾İ¿é±àºÅ
-	* @param [in]	nCurLyrID			µ±Ç°Êı¾İ¿éËùÔÚ²ãID
-	* @param [in]	nCurBlkID			µ±Ç°Êı¾İ¿éID
-	* @param [in]	nChildIDs			µ±Ç°Êı¾İ¿éµÄº¢×ÓÊı¾İ¿éID
-	* @param [out]  nChildLyrID			¶ù×ÓµÄÊı¾İ¿éËùÔÚ²ãID
-	* @param [int]  nDataType			DEM»¹ÊÇDOM;0:DEM;1:DOM
+	/** å¾—åˆ°å„¿å­æ•°æ®å—ç¼–å·
+	* @param [in]	nCurLyrID			å½“å‰æ•°æ®å—æ‰€åœ¨å±‚ID
+	* @param [in]	nCurBlkID			å½“å‰æ•°æ®å—ID
+	* @param [in]	nChildIDs			å½“å‰æ•°æ®å—çš„å­©å­æ•°æ®å—ID
+	* @param [out]  nChildLyrID			å„¿å­çš„æ•°æ®å—æ‰€åœ¨å±‚ID
+	* @param [int]  nDataType			DEMè¿˜æ˜¯DOM;0:DEM;1:DOM
 	* @return
 	*/
 	virtual bool getChildBlockID(Identifier::raw_type nCurLyrID, Identifier::raw_type nCurBlkID, vector<Identifier::raw_type>& nChildIDs, Identifier::raw_type& nChildLyrID, int nDataType) = 0;
 
-	/** µÃµ½¸¸Ç×Êı¾İ¿é±àºÅ
-	* @param [in]	nCurLyrID			µ±Ç°Êı¾İ¿éËùÔÚ²ãID
-	* @param [in]	nCurBlkID			µ±Ç°Êı¾İ¿éID
-	* @param [in]	nParentID			µ±Ç°Êı¾İ¿éµÄ¸¸Ç×Êı¾İ¿éID
-	* @param [out]  nParentLyrID		¸¸Ç×µÄÊı¾İ¿éËùÔÚ²ãID
-	* @param [int]  nDataType			DEM»¹ÊÇDOM;0:DEM;1:DOM
+	/** å¾—åˆ°çˆ¶äº²æ•°æ®å—ç¼–å·
+	* @param [in]	nCurLyrID			å½“å‰æ•°æ®å—æ‰€åœ¨å±‚ID
+	* @param [in]	nCurBlkID			å½“å‰æ•°æ®å—ID
+	* @param [in]	nParentID			å½“å‰æ•°æ®å—çš„çˆ¶äº²æ•°æ®å—ID
+	* @param [out]  nParentLyrID		çˆ¶äº²çš„æ•°æ®å—æ‰€åœ¨å±‚ID
+	* @param [int]  nDataType			DEMè¿˜æ˜¯DOM;0:DEM;1:DOM
 	* @return
 	*/
 	virtual bool getParentBlockID(Identifier::raw_type nCurLyrID, Identifier::raw_type nCurBlkID, Identifier::raw_type& nParentID, Identifier::raw_type& nParentLyrID, int nDataType) = 0;
 
 
-	/** µÃµ½½ğ×ÖËşµÄ²ãÊı
-	* @param [in]	nLayerNum			»ñÈ¡µÄ×Ü½ğ×ÖËş²ãÊı
-	* @param [in]	nDataType			DEM»¹ÊÇDOMÊı¾İ: 0 - DEM,1 - DOM
+	/** å¾—åˆ°é‡‘å­—å¡”çš„å±‚æ•°
+	* @param [in]	nLayerNum			è·å–çš„æ€»é‡‘å­—å¡”å±‚æ•°
+	* @param [in]	nDataType			DEMè¿˜æ˜¯DOMæ•°æ®: 0 - DEM,1 - DOM
 	* @return
 	*/
 	virtual bool getPyramidLayerNumber(int& nLayerNum, int nDataType) = 0;
 
 	//##ModelId=4A1546370205
-	/** µÃµ½DEM½ğ×ÓËş²ãµÄĞÅÏ¢
-	* @param [in]	nLayerID		»ñÈ¡µÄ×Ü½ğ×ÖËş²ãÊı
-	* @param [in]	m_DemLayerInfo	½ğ×ÖËş²ãµÄÊı¾İ
+	/** å¾—åˆ°DEMé‡‘å­å¡”å±‚çš„ä¿¡æ¯
+	* @param [in]	nLayerID		è·å–çš„æ€»é‡‘å­—å¡”å±‚æ•°
+	* @param [in]	m_DemLayerInfo	é‡‘å­—å¡”å±‚çš„æ•°æ®
 	* @return
 	*/
 	virtual bool getDEMLayerInfo(Identifier::raw_type  nLayerID, DEMLayerInfoSharedPtr& demLayerInfo) = 0;
 
 	//##ModelId=4A1546370208
-	/** µÃµ½DOM½ğ×ÓËş²ãµÄĞÅÏ¢
-	* @param [in]	nLayerID		»ñÈ¡µÄ×Ü½ğ×ÖËş²ãÊı
-	* @param [in]	m_DomLayerInfo	DOM½ğ×ÖËş²ãµÄÊı¾İ
+	/** å¾—åˆ°DOMé‡‘å­å¡”å±‚çš„ä¿¡æ¯
+	* @param [in]	nLayerID		è·å–çš„æ€»é‡‘å­—å¡”å±‚æ•°
+	* @param [in]	m_DomLayerInfo	DOMé‡‘å­—å¡”å±‚çš„æ•°æ®
 	* @return
 	*/
 	virtual bool getDOMLayerInfo(Identifier::raw_type  nLayerID, DOMLayerInfoSharedPtr& domLayerInfo) = 0;
 
 	//##ModelId=4A154637020B
-	/** µÃµ½DEMÊı¾İ¿âĞÅÏ¢
-	* @param [out]	demDBInfo		DEMÊı¾İ¿âĞÅÏ¢
+	/** å¾—åˆ°DEMæ•°æ®åº“ä¿¡æ¯
+	* @param [out]	demDBInfo		DEMæ•°æ®åº“ä¿¡æ¯
 	* @return
 	*/
 	virtual bool getDEMDBInfo(DEMDBInfoSharedPtr & demDBInfo) = 0;
 
 	//##ModelId=4A154637020D
-	/** µÃµ½DOMÊı¾İ¿âĞÅÏ¢
-	* @param [out]	domDBInfo		DOMÊı¾İ¿âĞÅÏ¢
+	/** å¾—åˆ°DOMæ•°æ®åº“ä¿¡æ¯
+	* @param [out]	domDBInfo		DOMæ•°æ®åº“ä¿¡æ¯
 	* @return
 	*/
 	virtual bool getDOMDBInfo(DOMDBInfoSharedPtr& domDBInfo) = 0;
 
 
-	/** ¶ÁÈ¡Ö¸¶¨Êı¾İ¿éIDºÍÖ¸¶¨Ë÷ÒıµÄDEMÔ¤´¦ÀíÊı¾İµÄÎó²îÊı¾İ£¬pErrorData ¶ÔÏóÔÚº¯ÊıÍâ²¿Í¨¹ı new ²úÉú£¬ÓÉÉÏ²ãº¯Êıµ÷ÓÃÕßÎ¬»¤²¢¸ºÔğÊÍ·Å
-	* @param [in]	blkID				Êı¾İ¿éID
-	* @param [in]	nStartIndex			ÆğÊ¼Ë÷ÒıºÅ
-	* @param [in]	nLength				Ë÷Òı³¤¶È
-	* @param [out]  pErrorData			DEMÔ¤´¦ÀíÊı¾İµÄÎó²îÊı¾İ
+	/** è¯»å–æŒ‡å®šæ•°æ®å—IDå’ŒæŒ‡å®šç´¢å¼•çš„DEMé¢„å¤„ç†æ•°æ®çš„è¯¯å·®æ•°æ®ï¼ŒpErrorData å¯¹è±¡åœ¨å‡½æ•°å¤–éƒ¨é€šè¿‡ new äº§ç”Ÿï¼Œç”±ä¸Šå±‚å‡½æ•°è°ƒç”¨è€…ç»´æŠ¤å¹¶è´Ÿè´£é‡Šæ”¾
+	* @param [in]	blkID				æ•°æ®å—ID
+	* @param [in]	nStartIndex			èµ·å§‹ç´¢å¼•å·
+	* @param [in]	nLength				ç´¢å¼•é•¿åº¦
+	* @param [out]  pErrorData			DEMé¢„å¤„ç†æ•°æ®çš„è¯¯å·®æ•°æ®
 	* @return
 	*/
 	virtual bool getErrorDataByIndex(Identifier::raw_type blkID, int nStartIndex, int nLength, float*& pErrorData) = 0;
 
-	/** ¶ÁÈ¡Ö¸¶¨Êı¾İ¿éIDµÄÔ¤´¦ÀíÊı¾İµÄboundingboxÊı¾İ£¬pBoundingboxData ¶ÔÏóÔÚº¯ÊıÍâ²¿Í¨¹ı new ²úÉú£¬ÓÉÉÏ²ãº¯Êıµ÷ÓÃÕßÎ¬»¤²¢¸ºÔğÊÍ·Å
-	* @param [in]	blkID				Êı¾İ¿éID
-	* @param [out]  pBoundingboxData	Ô¤´¦ÀíÊı¾İµÄboundingboxÊı¾İ
+	/** è¯»å–æŒ‡å®šæ•°æ®å—IDçš„é¢„å¤„ç†æ•°æ®çš„boundingboxæ•°æ®ï¼ŒpBoundingboxData å¯¹è±¡åœ¨å‡½æ•°å¤–éƒ¨é€šè¿‡ new äº§ç”Ÿï¼Œç”±ä¸Šå±‚å‡½æ•°è°ƒç”¨è€…ç»´æŠ¤å¹¶è´Ÿè´£é‡Šæ”¾
+	* @param [in]	blkID				æ•°æ®å—ID
+	* @param [out]  pBoundingboxData	é¢„å¤„ç†æ•°æ®çš„boundingboxæ•°æ®
 	* @return
 	*/
 	virtual bool getBoundingBoxData(Identifier::raw_type blkID, float*& pBoundingboxData) = 0;
 
-	/** µÃµ½Ìá½»Ô´ÎÄ¼şÏà¹ØĞÅÏ¢
-	* @param [out]	srcInfo		Ô´ÎÄ¼şÏà¹ØĞÅÏ¢
-	* @param [in]	nDataType	Êı¾İÀàĞÍ
+	/** å¾—åˆ°æäº¤æºæ–‡ä»¶ç›¸å…³ä¿¡æ¯
+	* @param [out]	srcInfo		æºæ–‡ä»¶ç›¸å…³ä¿¡æ¯
+	* @param [in]	nDataType	æ•°æ®ç±»å‹
 	* @return
 	*/
 	virtual bool getSourceData(vector<SourceDataInfoSharedPtr>& srcInfo, int nDataType) = 0;
 
-	/** °´ÕÕ¹Ì¶¨·Ö±æÂÊºÍ·¶Î§·Ö·¢DEMÊı¾İ
-	* @param [in]	dfCellSize  ¹Ì¶¨·Ö±æÂÊ
-	* @param [in]	szFullPathName	Â·¾¶
-	* @param [in]	Scope	·Ö·¢·¶Î§
+	/** æŒ‰ç…§å›ºå®šåˆ†è¾¨ç‡å’ŒèŒƒå›´åˆ†å‘DEMæ•°æ®
+	* @param [in]	dfCellSize  å›ºå®šåˆ†è¾¨ç‡
+	* @param [in]	szFullPathName	è·¯å¾„
+	* @param [in]	Scope	åˆ†å‘èŒƒå›´
 	* @return
 	*/
 	virtual bool queryDEMFile(double dfCellSize, char* szFullPathName, const Envelope2d&  Scope) = 0;
 
-	/** °´ÕÕ¹Ì¶¨·Ö±æÂÊºÍ·¶Î§·Ö·¢DOMÊı¾İ
-	* @param [in]	dfResolution  ¹Ì¶¨·Ö±æÂÊ
-	* @param [in]	szFullPathName	Â·¾¶
-	* @param [in]	Scope	·Ö·¢·¶Î§
-	* @param [in]	nBitCount	Ó°ÏñÎ»Êı
+	/** æŒ‰ç…§å›ºå®šåˆ†è¾¨ç‡å’ŒèŒƒå›´åˆ†å‘DOMæ•°æ®
+	* @param [in]	dfResolution  å›ºå®šåˆ†è¾¨ç‡
+	* @param [in]	szFullPathName	è·¯å¾„
+	* @param [in]	Scope	åˆ†å‘èŒƒå›´
+	* @param [in]	nBitCount	å½±åƒä½æ•°
 	* @return
 	*/
 	virtual bool queryDOMFile(double dfResolution, char* szFullPathName, const Envelope2d&  Scope, int nBitCount) = 0;
-	/** °´ÕÕ·¶Î§²éÑ¯¸Ã·¶Î§°üº¬¶àÉÙ¿éDEMBlockºÍDOMBlock,Ö»Òª¿éµÄ·¶Î§ÓëboxÏà½»
-	* @param [in]	box  ²éÑ¯·¶Î§
-	* @param [in]	demblocks	DEM¿é,Êı¾İ¿âµÄÄÚ²¿·Ö¿é
-	* @param [in]	domblocks	DOM¿é£¬Êı¾İ¿âµÄÄÚ²¿·Ö¿é
+	/** æŒ‰ç…§èŒƒå›´æŸ¥è¯¢è¯¥èŒƒå›´åŒ…å«å¤šå°‘å—DEMBlockå’ŒDOMBlock,åªè¦å—çš„èŒƒå›´ä¸boxç›¸äº¤
+	* @param [in]	box  æŸ¥è¯¢èŒƒå›´
+	* @param [in]	demblocks	DEMå—,æ•°æ®åº“çš„å†…éƒ¨åˆ†å—
+	* @param [in]	domblocks	DOMå—ï¼Œæ•°æ®åº“çš„å†…éƒ¨åˆ†å—
 	* @return
 	*/
 	virtual bool queryByBox(const Envelope3d& box, std::vector<DEMBlockSharedPtr> &demblocks) = 0;

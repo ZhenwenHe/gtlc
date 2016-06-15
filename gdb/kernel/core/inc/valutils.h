@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Geosciences Template Library
 *
 * Copyright (c) 2008
@@ -47,29 +47,29 @@ GVT_CHAR16     char16    2-2GB      wchar_t
 */
 // general value type
 enum GVT {
-	GVT_UNKN = 0x0000,   //δ֪����
+	GVT_UNKN = 0x0000,   //未知类型
 
 	GVT_BEGIN_BOOLEAN = 0x1000,
 	GVT_BOOL,// bool
 	GVT_END_BOOLEAN,
 
-	//��ʼ���������͵Ķ���,0b 0000 0000 0000 0000 0000 0001 0000 0000,
+	//开始数字型类型的定义,0b 0000 0000 0000 0000 0000 0001 0000 0000,
 	GVT_BEGIN_NUMBER = 0x2000,
-	//��ʼ�����з��ŵ���������
+	//开始定义有符号的整数类型
 	GVT_BEGIN_INTEGER = 0x2100,
 	GVT_BEGIN_SIGNED_INTEGER = 0x2110,
 	GVT_INT8, //signed char
-	GVT_INT16,  //2���ֽ�����
+	GVT_INT16,  //2个字节整数
 	GVT_SHORT = GVT_INT16,
-	GVT_INT32,//4���ֽ�����
+	GVT_INT32,//4个字节整数
 	GVT_INT = GVT_INT32,
 	GVT_INT64,//
 	GVT_LONGLONG = GVT_INT64,
 	GVT_END_SIGNED_INTEGER,
-	//��ʼ�����޷��ŵ���������
+	//开始定义无符号的整数类型
 	GVT_BEGIN_UNSIGNED_INTEGER = 0x2120,
-	GVT_UINT8,   //�ֽ���������
-	GVT_BYTE = GVT_UINT8,//��UCHAR�ȼ�
+	GVT_UINT8,   //字节整数类型
+	GVT_BYTE = GVT_UINT8,//和UCHAR等价
 	GVT_UCHAR = GVT_UINT8,
 	GVT_UINT16,
 	GVT_USHORT = GVT_UINT16,
@@ -79,32 +79,32 @@ enum GVT {
 	GVT_ULONGLONG = GVT_UINT64,
 	GVT_END_UNSIGNED_INTEGER,
 	GVT_END_INTEGER,
-	//��ʼ���帡��������
+	//开始定义浮点数类型
 	GVT_BEGIN_DECIMAL = 0x2200,
-	GVT_FLOAT32,  //4���ֽڸ�����
+	GVT_FLOAT32,  //4个字节浮点数
 	GVT_FLOAT = GVT_FLOAT32,
-	GVT_FLOAT64,//8���ֽڸ�����
+	GVT_FLOAT64,//8个字节浮点数
 	GVT_DOUBLE = GVT_FLOAT64,
 	GVT_END_DECIMAL,
-	GVT_END_NUMBER,//��ʼ���������͵Ķ���
+	GVT_END_NUMBER,//开始数字型类型的定义
 
 	GVT_BEGIN_TIME = 0x3000,
 	GVT_DATE,//YYYY-MM-DD,3 integer numbers
-	GVT_DATETIME,//YYYY-MM-DD HH:MM:SS 0000(millisecond)��7 integer numbers
+	GVT_DATETIME,//YYYY-MM-DD HH:MM:SS 0000(millisecond)，7 integer numbers
 	GVT_END_TIME,
 
 	GVT_BEGIN_CHAR = 0x4000,//
-	GVT_CHAR8,   //�ַ�����
-	GVT_CHAR16,   //���ַ�����
+	GVT_CHAR8,   //字符类型
+	GVT_CHAR16,   //宽字符类型
 	GVT_END_CHAR,
 
 
-	GVT_MAX   //�������ֵ
+	GVT_MAX   //最大类型值
 };
 //general value struct
 struct VALUE {
-	GVT       type;//ֵ����
-	int       count;//ֵ�ĸ���
+	GVT       type;//值类型
+	int       count;//值的个数
 	union {
 		bool               bv;//bool
 		signed char        i8;
@@ -121,8 +121,8 @@ struct VALUE {
 		int *              datetime;// 7 integer numbers
 		char               c8;
 		wchar_t            c16;
-		void *             pv;//ֵ�ڴ��
-	    /* ���±�����ҪΪ�˷��ʷ���*/
+		void *             pv;//值内存块
+	    /* 以下变量主要为了访问方便*/
 		char *             pc8;
 		wchar_t *          pc16;
 		unsigned char *    pu8;
@@ -151,13 +151,13 @@ public:
 	GVT_DATE->GVT_DATETIME
 	*/
 	static bool changeType(VALUE & g, GVT pt);
-	/*ϵͳ���õ�������򣺣��ο�SQLITE3�Ĺ涨��
-	1��UNKNOWN��NULL�洢��������͵����͡�һ������NULL�洢���͵�ֵ���κ�������ֵ��С����NULLֵ֮��û�о�����������
-	2��BOOL���ͣ�����NULL��true>false;
-	3��NUMBER���ͣ����������͸�����������BOOL�洢���ͣ�����֮����ֵ��ȣ��ڲ�ͨ����ֵ�Ƚϡ�
-	4��TIMEʱ�����ͣ�����NUMBER�洢���ͣ�����ʱ������֮�䣬������������ֵ�Ĵ�С�Ƚϣ�Խ����ʱ����㣬ֵԽС��
-	5���ַ����ͣ�����TIME�洢���ͣ���ֵ��Զ�����ַ����͡������ַ�����֮��ֱ�ӱȽ��ַ����ķ�ʽ���С�
-	6����������(���ַ���)������ߵ���ֵ���൱��BLOB���Ƚ��ڴ���С��
+	/*系统采用的排序规则：（参考SQLITE3的规定）
+	1、UNKNOWN和NULL存储类型是最低的类型。一个具有NULL存储类型的值比任何其他的值都小，在NULL值之间没有具体的排序规则。
+	2、BOOL类型，高于NULL，true>false;
+	3、NUMBER类型，包好整数和浮点数，高于BOOL存储类型，它们之间类值相等，内部通过数值比较。
+	4、TIME时间类型，高于NUMBER存储类型，两个时间类型之间，按照年月日数值的大小比较，越靠近时间零点，值越小。
+	5、字符类型，高于TIME存储类型，数值永远低于字符类型。两个字符类型之间直接比较字符串的方式进行。
+	6、数组类型(非字符串)具有最高的类值，相当于BLOB，比较内存块大小。
 	*/
 	static int compare(VALUE &  v1, VALUE &v2);
 public:

@@ -1,4 +1,4 @@
-/*
+ï»¿/*
 * Geosciences Template Library
 *
 * Copyright (c) 2008
@@ -31,7 +31,7 @@ begin_gtl_namespace
 begin_gdb_namespace
 
 class Builders;
-/** @defgroup Builders Builders-¿Õ¼äÊı¾İ¿â±à¼­½Ó¿Ú¼¯ºÏ 
+/** @defgroup Builders Builders-ç©ºé—´æ•°æ®åº“ç¼–è¾‘æ¥å£é›†åˆ 
 *  @{
 */
 

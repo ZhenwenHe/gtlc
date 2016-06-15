@@ -1,4 +1,4 @@
-
+ï»¿
 /*
 * Geosciences Template Library
 *
@@ -30,11 +30,11 @@ enum CSVCompareCriteria {
 };
 class CORE_API CommaSeparatedValues {
 	/* Cache for whole file */
-	int         nLineCount;//°üº¬ÁË×Ö¶ÎĞĞµÄÊı£¬Èç¹ûÎÄ¼şÓĞ×Ö¶ÎÃûÕâÒ»ĞĞ£¬ÔòµÚ0ĞĞÎª×Ö¶ÎÃû¼¯ºÏ
-	char        **papszFieldNames;//²ğ·ÖºóµÄ×Ö¶ÎÃûÊı×é
-	char        **papszLines;//×Ö·û´®µÄÖ¸ÕëÊı×é£¬Êı×éÖĞµÄÃ¿¸öÔªËØÖ¸ÏòÃ¿ĞĞµÄ¿ªÊ¼Î»ÖÃ
-	char        *pszRawData;//Õû¸öÎÄ¼şµÄÊı¾İ´æ·ÅÔÚÕâÀï
-	char         cSeparator;//¼ÇÂ¼·Ö¸î·ûºÅ
+	int         nLineCount;//åŒ…å«äº†å­—æ®µè¡Œçš„æ•°ï¼Œå¦‚æœæ–‡ä»¶æœ‰å­—æ®µåè¿™ä¸€è¡Œï¼Œåˆ™ç¬¬0è¡Œä¸ºå­—æ®µåé›†åˆ
+	char        **papszFieldNames;//æ‹†åˆ†åçš„å­—æ®µåæ•°ç»„
+	char        **papszLines;//å­—ç¬¦ä¸²çš„æŒ‡é’ˆæ•°ç»„ï¼Œæ•°ç»„ä¸­çš„æ¯ä¸ªå…ƒç´ æŒ‡å‘æ¯è¡Œçš„å¼€å§‹ä½ç½®
+	char        *pszRawData;//æ•´ä¸ªæ–‡ä»¶çš„æ•°æ®å­˜æ”¾åœ¨è¿™é‡Œ
+	char         cSeparator;//è®°å½•åˆ†å‰²ç¬¦å·
 public:	
 	CommaSeparatedValues();
 	CommaSeparatedValues(const char * pathname);

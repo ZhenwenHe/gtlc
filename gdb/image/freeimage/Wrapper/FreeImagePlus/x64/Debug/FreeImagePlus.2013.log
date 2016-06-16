@@ -1,0 +1,41 @@
+﻿  fipImage.cpp
+src\fipImage.cpp : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+H:\gtl\gtl\gdb\image\freeimage\Wrapper\FreeImagePlus\FreeImagePlus.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+H:\gtl\gtl\gdb\image\freeimage\Source\FreeImage.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+H:\gtl\gtl\gdb\image\freeimage\Wrapper\FreeImagePlus\FreeImagePlus.h(872): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+  fipMemoryIO.cpp
+src\fipMemoryIO.cpp : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+H:\gtl\gtl\gdb\image\freeimage\Wrapper\FreeImagePlus\FreeImagePlus.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+H:\gtl\gtl\gdb\image\freeimage\Source\FreeImage.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+H:\gtl\gtl\gdb\image\freeimage\Wrapper\FreeImagePlus\FreeImagePlus.h(872): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+  fipMetadataFind.cpp
+src\fipMetadataFind.cpp : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+H:\gtl\gtl\gdb\image\freeimage\Wrapper\FreeImagePlus\FreeImagePlus.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+H:\gtl\gtl\gdb\image\freeimage\Source\FreeImage.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+H:\gtl\gtl\gdb\image\freeimage\Wrapper\FreeImagePlus\FreeImagePlus.h(872): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+  fipMultiPage.cpp
+src\fipMultiPage.cpp : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+H:\gtl\gtl\gdb\image\freeimage\Wrapper\FreeImagePlus\FreeImagePlus.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+H:\gtl\gtl\gdb\image\freeimage\Source\FreeImage.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+H:\gtl\gtl\gdb\image\freeimage\Wrapper\FreeImagePlus\FreeImagePlus.h(872): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+  fipTag.cpp
+src\fipTag.cpp : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+H:\gtl\gtl\gdb\image\freeimage\Wrapper\FreeImagePlus\FreeImagePlus.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+H:\gtl\gtl\gdb\image\freeimage\Source\FreeImage.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+H:\gtl\gtl\gdb\image\freeimage\Wrapper\FreeImagePlus\FreeImagePlus.h(872): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+  fipWinImage.cpp
+src\fipWinImage.cpp : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+H:\gtl\gtl\gdb\image\freeimage\Wrapper\FreeImagePlus\FreeImagePlus.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+H:\gtl\gtl\gdb\image\freeimage\Source\FreeImage.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+H:\gtl\gtl\gdb\image\freeimage\Wrapper\FreeImagePlus\FreeImagePlus.h(872): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+  FreeImagePlus.cpp
+src\FreeImagePlus.cpp : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+H:\gtl\gtl\gdb\image\freeimage\Wrapper\FreeImagePlus\FreeImagePlus.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+H:\gtl\gtl\gdb\image\freeimage\Source\FreeImage.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+H:\gtl\gtl\gdb\image\freeimage\Wrapper\FreeImagePlus\FreeImagePlus.h(872): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+  正在生成代码...
+     正在创建库 .\x64\Debug\FreeImagePlusd.lib 和对象 .\x64\Debug\FreeImagePlusd.exp
+  FreeImagePlus.2013.vcxproj -> H:\gtl\gtl\gdb\image\freeimage\Wrapper\FreeImagePlus\.\x64\Debug\FreeImagePlusd.dll
+          1 file(s) copied.
+          1 file(s) copied.
+          1 file(s) copied.

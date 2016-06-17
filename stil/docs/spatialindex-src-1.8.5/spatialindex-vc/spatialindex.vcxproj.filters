@@ -1,0 +1,248 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Source Files\mvrtree">
+      <UniqueIdentifier>{ff55b950-c64c-437e-abdc-3fe3d82c24c4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\rtree">
+      <UniqueIdentifier>{d4541fb5-117b-4598-be9a-93e25fe8fc4d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\spatialindex">
+      <UniqueIdentifier>{cc0a164e-9351-4f2d-9652-d7e31a4ddea5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\storagemanager">
+      <UniqueIdentifier>{5f554947-6cf9-45d1-9233-2ea9391266ba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\tools">
+      <UniqueIdentifier>{f6fec261-20bf-4d66-8465-d73a3cd8e535}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\tprtree">
+      <UniqueIdentifier>{d8876d91-8acf-4b67-8e82-707dbd682ba5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Header Files\tools">
+      <UniqueIdentifier>{39aa03d4-76ad-4e43-9289-5c9ed316e95c}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\src\mvrtree\Index.cc">
+      <Filter>Source Files\mvrtree</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mvrtree\Leaf.cc">
+      <Filter>Source Files\mvrtree</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mvrtree\MVRTree.cc">
+      <Filter>Source Files\mvrtree</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mvrtree\Node.cc">
+      <Filter>Source Files\mvrtree</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mvrtree\Statistics.cc">
+      <Filter>Source Files\mvrtree</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\rtree\BulkLoader.cc">
+      <Filter>Source Files\rtree</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\rtree\Index.cc">
+      <Filter>Source Files\rtree</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\rtree\Leaf.cc">
+      <Filter>Source Files\rtree</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\rtree\Node.cc">
+      <Filter>Source Files\rtree</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\rtree\RTree.cc">
+      <Filter>Source Files\rtree</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\rtree\Statistics.cc">
+      <Filter>Source Files\rtree</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\spatialindex\LineSegment.cc">
+      <Filter>Source Files\spatialindex</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\spatialindex\MovingPoint.cc">
+      <Filter>Source Files\spatialindex</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\spatialindex\MovingRegion.cc">
+      <Filter>Source Files\spatialindex</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\spatialindex\Point.cc">
+      <Filter>Source Files\spatialindex</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\spatialindex\Region.cc">
+      <Filter>Source Files\spatialindex</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\spatialindex\SpatialIndexImpl.cc">
+      <Filter>Source Files\spatialindex</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\spatialindex\TimePoint.cc">
+      <Filter>Source Files\spatialindex</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\spatialindex\TimeRegion.cc">
+      <Filter>Source Files\spatialindex</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\storagemanager\Buffer.cc">
+      <Filter>Source Files\storagemanager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\storagemanager\DiskStorageManager.cc">
+      <Filter>Source Files\storagemanager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\storagemanager\MemoryStorageManager.cc">
+      <Filter>Source Files\storagemanager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\storagemanager\RandomEvictionsBuffer.cc">
+      <Filter>Source Files\storagemanager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\tools\rand48.cc">
+      <Filter>Source Files\tools</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\tools\Tools.cc">
+      <Filter>Source Files\tools</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\tprtree\Index.cc">
+      <Filter>Source Files\tprtree</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\tprtree\Leaf.cc">
+      <Filter>Source Files\tprtree</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\tprtree\Node.cc">
+      <Filter>Source Files\tprtree</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\tprtree\Statistics.cc">
+      <Filter>Source Files\tprtree</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\tprtree\TPRTree.cc">
+      <Filter>Source Files\tprtree</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\src\mvrtree\Index.h">
+      <Filter>Source Files\mvrtree</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\mvrtree\Leaf.h">
+      <Filter>Source Files\mvrtree</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\mvrtree\MVRTree.h">
+      <Filter>Source Files\mvrtree</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\mvrtree\Node.h">
+      <Filter>Source Files\mvrtree</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\mvrtree\PointerPoolNode.h">
+      <Filter>Source Files\mvrtree</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\mvrtree\Statistics.h">
+      <Filter>Source Files\mvrtree</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\rtree\BulkLoader.h">
+      <Filter>Source Files\rtree</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\rtree\Index.h">
+      <Filter>Source Files\rtree</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\rtree\Leaf.h">
+      <Filter>Source Files\rtree</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\rtree\Node.h">
+      <Filter>Source Files\rtree</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\rtree\PointerPoolNode.h">
+      <Filter>Source Files\rtree</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\rtree\RTree.h">
+      <Filter>Source Files\rtree</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\rtree\Statistics.h">
+      <Filter>Source Files\rtree</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\spatialindex\SpatialIndexImpl.h">
+      <Filter>Source Files\spatialindex</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\storagemanager\Buffer.h">
+      <Filter>Source Files\storagemanager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\storagemanager\DiskStorageManager.h">
+      <Filter>Source Files\storagemanager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\storagemanager\MemoryStorageManager.h">
+      <Filter>Source Files\storagemanager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\storagemanager\RandomEvictionsBuffer.h">
+      <Filter>Source Files\storagemanager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\tprtree\Index.h">
+      <Filter>Source Files\tprtree</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\tprtree\Leaf.h">
+      <Filter>Source Files\tprtree</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\tprtree\Node.h">
+      <Filter>Source Files\tprtree</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\tprtree\PointerPoolNode.h">
+      <Filter>Source Files\tprtree</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\tprtree\Statistics.h">
+      <Filter>Source Files\tprtree</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\tprtree\TPRTree.h">
+      <Filter>Source Files\tprtree</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\LineSegment.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\MovingPoint.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\MovingRegion.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\MVRTree.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\Point.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\Region.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\RTree.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\SpatialIndex.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\TimePoint.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\TimeRegion.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\TPRTree.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\tools\PointerPool.h">
+      <Filter>Header Files\tools</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\tools\PoolPointer.h">
+      <Filter>Header Files\tools</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\tools\rand48.h">
+      <Filter>Header Files\tools</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\tools\SmartPointer.h">
+      <Filter>Header Files\tools</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\tools\Tools.h">
+      <Filter>Header Files\tools</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

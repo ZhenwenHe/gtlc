@@ -14,12 +14,8 @@ public class IdentifierImpl implements Identifier {
         this.data = 0;
     }
 
-    private IdentifierImpl(long data) {
+    public IdentifierImpl(long data) {
         this.data = data;
-    }
-
-    public void setData(long d){
-        this.data=d;
     }
 
     @Override
@@ -75,7 +71,6 @@ public class IdentifierImpl implements Identifier {
         return data == that.data;
 
     }
-
     @Override
     public int hashCode() {
         return (int) (data ^ (data >>> 32));
@@ -99,5 +94,25 @@ public class IdentifierImpl implements Identifier {
     @Override
     public void increase() {
         ++this.data;
+    }
+
+    @Override
+    public byte byteValue() {
+        return (byte)this.data;
+    }
+
+    @Override
+    public short shortValue() {
+        return (short)this.data;
+    }
+
+    @Override
+    public int compare(Identifier i) {
+        if(this.data>i.longValue())
+            return 1;
+        else if(this.data==i.longValue())
+            return 0;
+        else
+            return -1;
     }
 }

@@ -20,8 +20,7 @@ public class IndexSuits {
     }
 
     public static Identifier createIdentifier(long v){
-        IdentifierImpl i = new IdentifierImpl();
-        i.setData(v);
+        IdentifierImpl i = new IdentifierImpl(v);
         return i ;
     }
 

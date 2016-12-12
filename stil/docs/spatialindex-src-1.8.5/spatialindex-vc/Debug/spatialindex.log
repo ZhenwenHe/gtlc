@@ -1,0 +1,498 @@
+﻿  Index.cc
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\tools/Tools.h(92): warning C4091: '__declspec(dllexport)': ignored on left of 'Tools::IntervalType' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\tools/Tools.h(113): warning C4091: '__declspec(dllexport)': ignored on left of 'Tools::VariantType' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\tools/Tools.h(119): warning C4091: '__declspec(dllexport)': ignored on left of 'Tools::FileMode' when no variable is declared
+H:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex/SpatialIndex.h(50): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::CommandType' when no variable is declared
+H:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex/SpatialIndex.h(217): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::StorageManager::StorageManagerConstants' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\RTree.h(39): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::RTree::RTreeVariant' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\RTree.h(44): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::RTree::BulkLoadMethod' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\RTree.h(50): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::RTree::PersistenObjectIdentifier' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\RTree.h(56): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::RTree::RangeQueryType' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\MVRTree.h(39): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::MVRTree::MVRTreeVariant' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\MVRTree.h(45): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::MVRTree::PersistenObjectIdentifier' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\MVRTree.h(51): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::MVRTree::RangeQueryType' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\TPRTree.h(38): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::TPRTree::TPRTreeVariant' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\TPRTree.h(44): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::TPRTree::PersistenObjectIdentifier' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\TPRTree.h(50): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::TPRTree::RangeQueryType' when no variable is declared
+  Leaf.cc
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\tools/Tools.h(92): warning C4091: '__declspec(dllexport)': ignored on left of 'Tools::IntervalType' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\tools/Tools.h(113): warning C4091: '__declspec(dllexport)': ignored on left of 'Tools::VariantType' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\tools/Tools.h(119): warning C4091: '__declspec(dllexport)': ignored on left of 'Tools::FileMode' when no variable is declared
+H:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex/SpatialIndex.h(50): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::CommandType' when no variable is declared
+H:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex/SpatialIndex.h(217): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::StorageManager::StorageManagerConstants' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\RTree.h(39): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::RTree::RTreeVariant' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\RTree.h(44): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::RTree::BulkLoadMethod' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\RTree.h(50): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::RTree::PersistenObjectIdentifier' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\RTree.h(56): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::RTree::RangeQueryType' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\MVRTree.h(39): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::MVRTree::MVRTreeVariant' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\MVRTree.h(45): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::MVRTree::PersistenObjectIdentifier' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\MVRTree.h(51): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::MVRTree::RangeQueryType' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\TPRTree.h(38): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::TPRTree::TPRTreeVariant' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\TPRTree.h(44): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::TPRTree::PersistenObjectIdentifier' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\TPRTree.h(50): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::TPRTree::RangeQueryType' when no variable is declared
+  MVRTree.cc
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\tools/Tools.h(92): warning C4091: '__declspec(dllexport)': ignored on left of 'Tools::IntervalType' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\tools/Tools.h(113): warning C4091: '__declspec(dllexport)': ignored on left of 'Tools::VariantType' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\tools/Tools.h(119): warning C4091: '__declspec(dllexport)': ignored on left of 'Tools::FileMode' when no variable is declared
+H:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex/SpatialIndex.h(50): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::CommandType' when no variable is declared
+H:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex/SpatialIndex.h(217): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::StorageManager::StorageManagerConstants' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\RTree.h(39): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::RTree::RTreeVariant' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\RTree.h(44): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::RTree::BulkLoadMethod' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\RTree.h(50): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::RTree::PersistenObjectIdentifier' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\RTree.h(56): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::RTree::RangeQueryType' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\MVRTree.h(39): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::MVRTree::MVRTreeVariant' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\MVRTree.h(45): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::MVRTree::PersistenObjectIdentifier' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\MVRTree.h(51): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::MVRTree::RangeQueryType' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\TPRTree.h(38): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::TPRTree::TPRTreeVariant' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\TPRTree.h(44): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::TPRTree::PersistenObjectIdentifier' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\TPRTree.h(50): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::TPRTree::RangeQueryType' when no variable is declared
+  Node.cc
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\tools/Tools.h(92): warning C4091: '__declspec(dllexport)': ignored on left of 'Tools::IntervalType' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\tools/Tools.h(113): warning C4091: '__declspec(dllexport)': ignored on left of 'Tools::VariantType' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\tools/Tools.h(119): warning C4091: '__declspec(dllexport)': ignored on left of 'Tools::FileMode' when no variable is declared
+H:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex/SpatialIndex.h(50): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::CommandType' when no variable is declared
+H:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex/SpatialIndex.h(217): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::StorageManager::StorageManagerConstants' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\RTree.h(39): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::RTree::RTreeVariant' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\RTree.h(44): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::RTree::BulkLoadMethod' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\RTree.h(50): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::RTree::PersistenObjectIdentifier' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\RTree.h(56): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::RTree::RangeQueryType' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\MVRTree.h(39): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::MVRTree::MVRTreeVariant' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\MVRTree.h(45): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::MVRTree::PersistenObjectIdentifier' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\MVRTree.h(51): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::MVRTree::RangeQueryType' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\TPRTree.h(38): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::TPRTree::TPRTreeVariant' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\TPRTree.h(44): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::TPRTree::PersistenObjectIdentifier' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\TPRTree.h(50): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::TPRTree::RangeQueryType' when no variable is declared
+  Statistics.cc
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\tools/Tools.h(92): warning C4091: '__declspec(dllexport)': ignored on left of 'Tools::IntervalType' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\tools/Tools.h(113): warning C4091: '__declspec(dllexport)': ignored on left of 'Tools::VariantType' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\tools/Tools.h(119): warning C4091: '__declspec(dllexport)': ignored on left of 'Tools::FileMode' when no variable is declared
+H:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex/SpatialIndex.h(50): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::CommandType' when no variable is declared
+H:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex/SpatialIndex.h(217): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::StorageManager::StorageManagerConstants' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\RTree.h(39): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::RTree::RTreeVariant' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\RTree.h(44): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::RTree::BulkLoadMethod' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\RTree.h(50): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::RTree::PersistenObjectIdentifier' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\RTree.h(56): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::RTree::RangeQueryType' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\MVRTree.h(39): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::MVRTree::MVRTreeVariant' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\MVRTree.h(45): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::MVRTree::PersistenObjectIdentifier' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\MVRTree.h(51): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::MVRTree::RangeQueryType' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\TPRTree.h(38): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::TPRTree::TPRTreeVariant' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\TPRTree.h(44): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::TPRTree::PersistenObjectIdentifier' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\TPRTree.h(50): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::TPRTree::RangeQueryType' when no variable is declared
+  BulkLoader.cc
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\tools/Tools.h(92): warning C4091: '__declspec(dllexport)': ignored on left of 'Tools::IntervalType' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\tools/Tools.h(113): warning C4091: '__declspec(dllexport)': ignored on left of 'Tools::VariantType' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\tools/Tools.h(119): warning C4091: '__declspec(dllexport)': ignored on left of 'Tools::FileMode' when no variable is declared
+H:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex/SpatialIndex.h(50): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::CommandType' when no variable is declared
+H:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex/SpatialIndex.h(217): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::StorageManager::StorageManagerConstants' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\RTree.h(39): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::RTree::RTreeVariant' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\RTree.h(44): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::RTree::BulkLoadMethod' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\RTree.h(50): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::RTree::PersistenObjectIdentifier' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\RTree.h(56): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::RTree::RangeQueryType' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\MVRTree.h(39): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::MVRTree::MVRTreeVariant' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\MVRTree.h(45): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::MVRTree::PersistenObjectIdentifier' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\MVRTree.h(51): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::MVRTree::RangeQueryType' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\TPRTree.h(38): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::TPRTree::TPRTreeVariant' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\TPRTree.h(44): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::TPRTree::PersistenObjectIdentifier' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\TPRTree.h(50): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::TPRTree::RangeQueryType' when no variable is declared
+  RTree.cc
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\tools/Tools.h(92): warning C4091: '__declspec(dllexport)': ignored on left of 'Tools::IntervalType' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\tools/Tools.h(113): warning C4091: '__declspec(dllexport)': ignored on left of 'Tools::VariantType' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\tools/Tools.h(119): warning C4091: '__declspec(dllexport)': ignored on left of 'Tools::FileMode' when no variable is declared
+H:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex/SpatialIndex.h(50): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::CommandType' when no variable is declared
+H:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex/SpatialIndex.h(217): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::StorageManager::StorageManagerConstants' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\RTree.h(39): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::RTree::RTreeVariant' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\RTree.h(44): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::RTree::BulkLoadMethod' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\RTree.h(50): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::RTree::PersistenObjectIdentifier' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\RTree.h(56): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::RTree::RangeQueryType' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\MVRTree.h(39): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::MVRTree::MVRTreeVariant' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\MVRTree.h(45): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::MVRTree::PersistenObjectIdentifier' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\MVRTree.h(51): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::MVRTree::RangeQueryType' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\TPRTree.h(38): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::TPRTree::TPRTreeVariant' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\TPRTree.h(44): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::TPRTree::PersistenObjectIdentifier' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\TPRTree.h(50): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::TPRTree::RangeQueryType' when no variable is declared
+  LineSegment.cc
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\tools/Tools.h(92): warning C4091: '__declspec(dllexport)': ignored on left of 'Tools::IntervalType' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\tools/Tools.h(113): warning C4091: '__declspec(dllexport)': ignored on left of 'Tools::VariantType' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\tools/Tools.h(119): warning C4091: '__declspec(dllexport)': ignored on left of 'Tools::FileMode' when no variable is declared
+H:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex/SpatialIndex.h(50): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::CommandType' when no variable is declared
+H:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex/SpatialIndex.h(217): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::StorageManager::StorageManagerConstants' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\RTree.h(39): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::RTree::RTreeVariant' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\RTree.h(44): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::RTree::BulkLoadMethod' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\RTree.h(50): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::RTree::PersistenObjectIdentifier' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\RTree.h(56): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::RTree::RangeQueryType' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\MVRTree.h(39): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::MVRTree::MVRTreeVariant' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\MVRTree.h(45): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::MVRTree::PersistenObjectIdentifier' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\MVRTree.h(51): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::MVRTree::RangeQueryType' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\TPRTree.h(38): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::TPRTree::TPRTreeVariant' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\TPRTree.h(44): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::TPRTree::PersistenObjectIdentifier' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\TPRTree.h(50): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::TPRTree::RangeQueryType' when no variable is declared
+  MovingPoint.cc
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\tools/Tools.h(92): warning C4091: '__declspec(dllexport)': ignored on left of 'Tools::IntervalType' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\tools/Tools.h(113): warning C4091: '__declspec(dllexport)': ignored on left of 'Tools::VariantType' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\tools/Tools.h(119): warning C4091: '__declspec(dllexport)': ignored on left of 'Tools::FileMode' when no variable is declared
+H:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex/SpatialIndex.h(50): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::CommandType' when no variable is declared
+H:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex/SpatialIndex.h(217): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::StorageManager::StorageManagerConstants' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\RTree.h(39): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::RTree::RTreeVariant' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\RTree.h(44): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::RTree::BulkLoadMethod' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\RTree.h(50): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::RTree::PersistenObjectIdentifier' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\RTree.h(56): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::RTree::RangeQueryType' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\MVRTree.h(39): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::MVRTree::MVRTreeVariant' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\MVRTree.h(45): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::MVRTree::PersistenObjectIdentifier' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\MVRTree.h(51): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::MVRTree::RangeQueryType' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\TPRTree.h(38): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::TPRTree::TPRTreeVariant' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\TPRTree.h(44): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::TPRTree::PersistenObjectIdentifier' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\TPRTree.h(50): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::TPRTree::RangeQueryType' when no variable is declared
+  MovingRegion.cc
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\tools/Tools.h(92): warning C4091: '__declspec(dllexport)': ignored on left of 'Tools::IntervalType' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\tools/Tools.h(113): warning C4091: '__declspec(dllexport)': ignored on left of 'Tools::VariantType' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\tools/Tools.h(119): warning C4091: '__declspec(dllexport)': ignored on left of 'Tools::FileMode' when no variable is declared
+H:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex/SpatialIndex.h(50): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::CommandType' when no variable is declared
+H:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex/SpatialIndex.h(217): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::StorageManager::StorageManagerConstants' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\RTree.h(39): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::RTree::RTreeVariant' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\RTree.h(44): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::RTree::BulkLoadMethod' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\RTree.h(50): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::RTree::PersistenObjectIdentifier' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\RTree.h(56): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::RTree::RangeQueryType' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\MVRTree.h(39): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::MVRTree::MVRTreeVariant' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\MVRTree.h(45): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::MVRTree::PersistenObjectIdentifier' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\MVRTree.h(51): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::MVRTree::RangeQueryType' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\TPRTree.h(38): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::TPRTree::TPRTreeVariant' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\TPRTree.h(44): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::TPRTree::PersistenObjectIdentifier' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\TPRTree.h(50): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::TPRTree::RangeQueryType' when no variable is declared
+  Point.cc
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\tools/Tools.h(92): warning C4091: '__declspec(dllexport)': ignored on left of 'Tools::IntervalType' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\tools/Tools.h(113): warning C4091: '__declspec(dllexport)': ignored on left of 'Tools::VariantType' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\tools/Tools.h(119): warning C4091: '__declspec(dllexport)': ignored on left of 'Tools::FileMode' when no variable is declared
+H:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex/SpatialIndex.h(50): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::CommandType' when no variable is declared
+H:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex/SpatialIndex.h(217): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::StorageManager::StorageManagerConstants' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\RTree.h(39): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::RTree::RTreeVariant' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\RTree.h(44): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::RTree::BulkLoadMethod' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\RTree.h(50): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::RTree::PersistenObjectIdentifier' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\RTree.h(56): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::RTree::RangeQueryType' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\MVRTree.h(39): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::MVRTree::MVRTreeVariant' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\MVRTree.h(45): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::MVRTree::PersistenObjectIdentifier' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\MVRTree.h(51): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::MVRTree::RangeQueryType' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\TPRTree.h(38): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::TPRTree::TPRTreeVariant' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\TPRTree.h(44): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::TPRTree::PersistenObjectIdentifier' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\TPRTree.h(50): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::TPRTree::RangeQueryType' when no variable is declared
+  Region.cc
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\tools/Tools.h(92): warning C4091: '__declspec(dllexport)': ignored on left of 'Tools::IntervalType' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\tools/Tools.h(113): warning C4091: '__declspec(dllexport)': ignored on left of 'Tools::VariantType' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\tools/Tools.h(119): warning C4091: '__declspec(dllexport)': ignored on left of 'Tools::FileMode' when no variable is declared
+H:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex/SpatialIndex.h(50): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::CommandType' when no variable is declared
+H:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex/SpatialIndex.h(217): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::StorageManager::StorageManagerConstants' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\RTree.h(39): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::RTree::RTreeVariant' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\RTree.h(44): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::RTree::BulkLoadMethod' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\RTree.h(50): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::RTree::PersistenObjectIdentifier' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\RTree.h(56): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::RTree::RangeQueryType' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\MVRTree.h(39): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::MVRTree::MVRTreeVariant' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\MVRTree.h(45): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::MVRTree::PersistenObjectIdentifier' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\MVRTree.h(51): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::MVRTree::RangeQueryType' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\TPRTree.h(38): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::TPRTree::TPRTreeVariant' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\TPRTree.h(44): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::TPRTree::PersistenObjectIdentifier' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\TPRTree.h(50): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::TPRTree::RangeQueryType' when no variable is declared
+  SpatialIndexImpl.cc
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\tools/Tools.h(92): warning C4091: '__declspec(dllexport)': ignored on left of 'Tools::IntervalType' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\tools/Tools.h(113): warning C4091: '__declspec(dllexport)': ignored on left of 'Tools::VariantType' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\tools/Tools.h(119): warning C4091: '__declspec(dllexport)': ignored on left of 'Tools::FileMode' when no variable is declared
+H:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex/SpatialIndex.h(50): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::CommandType' when no variable is declared
+H:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex/SpatialIndex.h(217): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::StorageManager::StorageManagerConstants' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\RTree.h(39): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::RTree::RTreeVariant' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\RTree.h(44): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::RTree::BulkLoadMethod' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\RTree.h(50): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::RTree::PersistenObjectIdentifier' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\RTree.h(56): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::RTree::RangeQueryType' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\MVRTree.h(39): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::MVRTree::MVRTreeVariant' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\MVRTree.h(45): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::MVRTree::PersistenObjectIdentifier' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\MVRTree.h(51): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::MVRTree::RangeQueryType' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\TPRTree.h(38): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::TPRTree::TPRTreeVariant' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\TPRTree.h(44): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::TPRTree::PersistenObjectIdentifier' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\TPRTree.h(50): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::TPRTree::RangeQueryType' when no variable is declared
+  TimePoint.cc
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\tools/Tools.h(92): warning C4091: '__declspec(dllexport)': ignored on left of 'Tools::IntervalType' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\tools/Tools.h(113): warning C4091: '__declspec(dllexport)': ignored on left of 'Tools::VariantType' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\tools/Tools.h(119): warning C4091: '__declspec(dllexport)': ignored on left of 'Tools::FileMode' when no variable is declared
+H:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex/SpatialIndex.h(50): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::CommandType' when no variable is declared
+H:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex/SpatialIndex.h(217): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::StorageManager::StorageManagerConstants' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\RTree.h(39): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::RTree::RTreeVariant' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\RTree.h(44): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::RTree::BulkLoadMethod' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\RTree.h(50): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::RTree::PersistenObjectIdentifier' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\RTree.h(56): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::RTree::RangeQueryType' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\MVRTree.h(39): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::MVRTree::MVRTreeVariant' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\MVRTree.h(45): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::MVRTree::PersistenObjectIdentifier' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\MVRTree.h(51): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::MVRTree::RangeQueryType' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\TPRTree.h(38): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::TPRTree::TPRTreeVariant' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\TPRTree.h(44): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::TPRTree::PersistenObjectIdentifier' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\TPRTree.h(50): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::TPRTree::RangeQueryType' when no variable is declared
+  TimeRegion.cc
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\tools/Tools.h(92): warning C4091: '__declspec(dllexport)': ignored on left of 'Tools::IntervalType' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\tools/Tools.h(113): warning C4091: '__declspec(dllexport)': ignored on left of 'Tools::VariantType' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\tools/Tools.h(119): warning C4091: '__declspec(dllexport)': ignored on left of 'Tools::FileMode' when no variable is declared
+H:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex/SpatialIndex.h(50): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::CommandType' when no variable is declared
+H:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex/SpatialIndex.h(217): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::StorageManager::StorageManagerConstants' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\RTree.h(39): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::RTree::RTreeVariant' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\RTree.h(44): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::RTree::BulkLoadMethod' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\RTree.h(50): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::RTree::PersistenObjectIdentifier' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\RTree.h(56): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::RTree::RangeQueryType' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\MVRTree.h(39): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::MVRTree::MVRTreeVariant' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\MVRTree.h(45): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::MVRTree::PersistenObjectIdentifier' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\MVRTree.h(51): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::MVRTree::RangeQueryType' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\TPRTree.h(38): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::TPRTree::TPRTreeVariant' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\TPRTree.h(44): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::TPRTree::PersistenObjectIdentifier' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\TPRTree.h(50): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::TPRTree::RangeQueryType' when no variable is declared
+  Buffer.cc
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\tools/Tools.h(92): warning C4091: '__declspec(dllexport)': ignored on left of 'Tools::IntervalType' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\tools/Tools.h(113): warning C4091: '__declspec(dllexport)': ignored on left of 'Tools::VariantType' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\tools/Tools.h(119): warning C4091: '__declspec(dllexport)': ignored on left of 'Tools::FileMode' when no variable is declared
+H:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex/SpatialIndex.h(50): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::CommandType' when no variable is declared
+H:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex/SpatialIndex.h(217): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::StorageManager::StorageManagerConstants' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\RTree.h(39): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::RTree::RTreeVariant' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\RTree.h(44): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::RTree::BulkLoadMethod' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\RTree.h(50): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::RTree::PersistenObjectIdentifier' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\RTree.h(56): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::RTree::RangeQueryType' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\MVRTree.h(39): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::MVRTree::MVRTreeVariant' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\MVRTree.h(45): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::MVRTree::PersistenObjectIdentifier' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\MVRTree.h(51): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::MVRTree::RangeQueryType' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\TPRTree.h(38): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::TPRTree::TPRTreeVariant' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\TPRTree.h(44): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::TPRTree::PersistenObjectIdentifier' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\TPRTree.h(50): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::TPRTree::RangeQueryType' when no variable is declared
+  DiskStorageManager.cc
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\tools/Tools.h(92): warning C4091: '__declspec(dllexport)': ignored on left of 'Tools::IntervalType' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\tools/Tools.h(113): warning C4091: '__declspec(dllexport)': ignored on left of 'Tools::VariantType' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\tools/Tools.h(119): warning C4091: '__declspec(dllexport)': ignored on left of 'Tools::FileMode' when no variable is declared
+H:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex/SpatialIndex.h(50): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::CommandType' when no variable is declared
+H:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex/SpatialIndex.h(217): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::StorageManager::StorageManagerConstants' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\RTree.h(39): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::RTree::RTreeVariant' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\RTree.h(44): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::RTree::BulkLoadMethod' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\RTree.h(50): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::RTree::PersistenObjectIdentifier' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\RTree.h(56): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::RTree::RangeQueryType' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\MVRTree.h(39): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::MVRTree::MVRTreeVariant' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\MVRTree.h(45): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::MVRTree::PersistenObjectIdentifier' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\MVRTree.h(51): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::MVRTree::RangeQueryType' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\TPRTree.h(38): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::TPRTree::TPRTreeVariant' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\TPRTree.h(44): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::TPRTree::PersistenObjectIdentifier' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\TPRTree.h(50): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::TPRTree::RangeQueryType' when no variable is declared
+  MemoryStorageManager.cc
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\tools/Tools.h(92): warning C4091: '__declspec(dllexport)': ignored on left of 'Tools::IntervalType' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\tools/Tools.h(113): warning C4091: '__declspec(dllexport)': ignored on left of 'Tools::VariantType' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\tools/Tools.h(119): warning C4091: '__declspec(dllexport)': ignored on left of 'Tools::FileMode' when no variable is declared
+H:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex/SpatialIndex.h(50): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::CommandType' when no variable is declared
+H:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex/SpatialIndex.h(217): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::StorageManager::StorageManagerConstants' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\RTree.h(39): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::RTree::RTreeVariant' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\RTree.h(44): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::RTree::BulkLoadMethod' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\RTree.h(50): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::RTree::PersistenObjectIdentifier' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\RTree.h(56): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::RTree::RangeQueryType' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\MVRTree.h(39): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::MVRTree::MVRTreeVariant' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\MVRTree.h(45): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::MVRTree::PersistenObjectIdentifier' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\MVRTree.h(51): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::MVRTree::RangeQueryType' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\TPRTree.h(38): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::TPRTree::TPRTreeVariant' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\TPRTree.h(44): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::TPRTree::PersistenObjectIdentifier' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\TPRTree.h(50): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::TPRTree::RangeQueryType' when no variable is declared
+..\src\storagemanager\MemoryStorageManager.cc(67): warning C4244: 'argument': conversion from 'const SpatialIndex::id_type' to 'unsigned int', possible loss of data
+..\src\storagemanager\MemoryStorageManager.cc(95): warning C4244: 'argument': conversion from 'SpatialIndex::id_type' to 'unsigned int', possible loss of data
+..\src\storagemanager\MemoryStorageManager.cc(103): warning C4244: 'argument': conversion from 'SpatialIndex::id_type' to 'unsigned int', possible loss of data
+..\src\storagemanager\MemoryStorageManager.cc(114): warning C4244: 'argument': conversion from 'SpatialIndex::id_type' to 'unsigned int', possible loss of data
+..\src\storagemanager\MemoryStorageManager.cc(123): warning C4244: 'argument': conversion from 'const SpatialIndex::id_type' to 'unsigned int', possible loss of data
+..\src\storagemanager\MemoryStorageManager.cc(131): warning C4244: 'argument': conversion from 'const SpatialIndex::id_type' to 'unsigned int', possible loss of data
+  RandomEvictionsBuffer.cc
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\tools/Tools.h(92): warning C4091: '__declspec(dllexport)': ignored on left of 'Tools::IntervalType' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\tools/Tools.h(113): warning C4091: '__declspec(dllexport)': ignored on left of 'Tools::VariantType' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\tools/Tools.h(119): warning C4091: '__declspec(dllexport)': ignored on left of 'Tools::FileMode' when no variable is declared
+H:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex/SpatialIndex.h(50): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::CommandType' when no variable is declared
+H:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex/SpatialIndex.h(217): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::StorageManager::StorageManagerConstants' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\RTree.h(39): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::RTree::RTreeVariant' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\RTree.h(44): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::RTree::BulkLoadMethod' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\RTree.h(50): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::RTree::PersistenObjectIdentifier' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\RTree.h(56): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::RTree::RangeQueryType' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\MVRTree.h(39): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::MVRTree::MVRTreeVariant' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\MVRTree.h(45): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::MVRTree::PersistenObjectIdentifier' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\MVRTree.h(51): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::MVRTree::RangeQueryType' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\TPRTree.h(38): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::TPRTree::TPRTreeVariant' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\TPRTree.h(44): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::TPRTree::PersistenObjectIdentifier' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\TPRTree.h(50): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::TPRTree::RangeQueryType' when no variable is declared
+  rand48.cc
+  Generating Code...
+  Compiling...
+  Tools.cc
+H:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex/tools/Tools.h(92): warning C4091: '__declspec(dllexport)': ignored on left of 'Tools::IntervalType' when no variable is declared
+H:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex/tools/Tools.h(113): warning C4091: '__declspec(dllexport)': ignored on left of 'Tools::VariantType' when no variable is declared
+H:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex/tools/Tools.h(119): warning C4091: '__declspec(dllexport)': ignored on left of 'Tools::FileMode' when no variable is declared
+  TPRTree.cc
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\tools/Tools.h(92): warning C4091: '__declspec(dllexport)': ignored on left of 'Tools::IntervalType' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\tools/Tools.h(113): warning C4091: '__declspec(dllexport)': ignored on left of 'Tools::VariantType' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\tools/Tools.h(119): warning C4091: '__declspec(dllexport)': ignored on left of 'Tools::FileMode' when no variable is declared
+H:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex/SpatialIndex.h(50): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::CommandType' when no variable is declared
+H:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex/SpatialIndex.h(217): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::StorageManager::StorageManagerConstants' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\RTree.h(39): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::RTree::RTreeVariant' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\RTree.h(44): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::RTree::BulkLoadMethod' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\RTree.h(50): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::RTree::PersistenObjectIdentifier' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\RTree.h(56): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::RTree::RangeQueryType' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\MVRTree.h(39): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::MVRTree::MVRTreeVariant' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\MVRTree.h(45): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::MVRTree::PersistenObjectIdentifier' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\MVRTree.h(51): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::MVRTree::RangeQueryType' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\TPRTree.h(38): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::TPRTree::TPRTreeVariant' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\TPRTree.h(44): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::TPRTree::PersistenObjectIdentifier' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\TPRTree.h(50): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::TPRTree::RangeQueryType' when no variable is declared
+  Generating Code...
+  Index.cc
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\tools/Tools.h(92): warning C4091: '__declspec(dllexport)': ignored on left of 'Tools::IntervalType' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\tools/Tools.h(113): warning C4091: '__declspec(dllexport)': ignored on left of 'Tools::VariantType' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\tools/Tools.h(119): warning C4091: '__declspec(dllexport)': ignored on left of 'Tools::FileMode' when no variable is declared
+H:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex/SpatialIndex.h(50): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::CommandType' when no variable is declared
+H:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex/SpatialIndex.h(217): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::StorageManager::StorageManagerConstants' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\RTree.h(39): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::RTree::RTreeVariant' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\RTree.h(44): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::RTree::BulkLoadMethod' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\RTree.h(50): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::RTree::PersistenObjectIdentifier' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\RTree.h(56): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::RTree::RangeQueryType' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\MVRTree.h(39): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::MVRTree::MVRTreeVariant' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\MVRTree.h(45): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::MVRTree::PersistenObjectIdentifier' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\MVRTree.h(51): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::MVRTree::RangeQueryType' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\TPRTree.h(38): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::TPRTree::TPRTreeVariant' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\TPRTree.h(44): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::TPRTree::PersistenObjectIdentifier' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\TPRTree.h(50): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::TPRTree::RangeQueryType' when no variable is declared
+  Leaf.cc
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\tools/Tools.h(92): warning C4091: '__declspec(dllexport)': ignored on left of 'Tools::IntervalType' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\tools/Tools.h(113): warning C4091: '__declspec(dllexport)': ignored on left of 'Tools::VariantType' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\tools/Tools.h(119): warning C4091: '__declspec(dllexport)': ignored on left of 'Tools::FileMode' when no variable is declared
+H:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex/SpatialIndex.h(50): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::CommandType' when no variable is declared
+H:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex/SpatialIndex.h(217): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::StorageManager::StorageManagerConstants' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\RTree.h(39): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::RTree::RTreeVariant' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\RTree.h(44): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::RTree::BulkLoadMethod' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\RTree.h(50): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::RTree::PersistenObjectIdentifier' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\RTree.h(56): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::RTree::RangeQueryType' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\MVRTree.h(39): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::MVRTree::MVRTreeVariant' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\MVRTree.h(45): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::MVRTree::PersistenObjectIdentifier' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\MVRTree.h(51): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::MVRTree::RangeQueryType' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\TPRTree.h(38): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::TPRTree::TPRTreeVariant' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\TPRTree.h(44): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::TPRTree::PersistenObjectIdentifier' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\TPRTree.h(50): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::TPRTree::RangeQueryType' when no variable is declared
+  Node.cc
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\tools/Tools.h(92): warning C4091: '__declspec(dllexport)': ignored on left of 'Tools::IntervalType' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\tools/Tools.h(113): warning C4091: '__declspec(dllexport)': ignored on left of 'Tools::VariantType' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\tools/Tools.h(119): warning C4091: '__declspec(dllexport)': ignored on left of 'Tools::FileMode' when no variable is declared
+H:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex/SpatialIndex.h(50): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::CommandType' when no variable is declared
+H:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex/SpatialIndex.h(217): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::StorageManager::StorageManagerConstants' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\RTree.h(39): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::RTree::RTreeVariant' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\RTree.h(44): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::RTree::BulkLoadMethod' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\RTree.h(50): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::RTree::PersistenObjectIdentifier' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\RTree.h(56): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::RTree::RangeQueryType' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\MVRTree.h(39): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::MVRTree::MVRTreeVariant' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\MVRTree.h(45): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::MVRTree::PersistenObjectIdentifier' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\MVRTree.h(51): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::MVRTree::RangeQueryType' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\TPRTree.h(38): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::TPRTree::TPRTreeVariant' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\TPRTree.h(44): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::TPRTree::PersistenObjectIdentifier' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\TPRTree.h(50): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::TPRTree::RangeQueryType' when no variable is declared
+  Statistics.cc
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\tools/Tools.h(92): warning C4091: '__declspec(dllexport)': ignored on left of 'Tools::IntervalType' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\tools/Tools.h(113): warning C4091: '__declspec(dllexport)': ignored on left of 'Tools::VariantType' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\tools/Tools.h(119): warning C4091: '__declspec(dllexport)': ignored on left of 'Tools::FileMode' when no variable is declared
+H:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex/SpatialIndex.h(50): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::CommandType' when no variable is declared
+H:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex/SpatialIndex.h(217): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::StorageManager::StorageManagerConstants' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\RTree.h(39): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::RTree::RTreeVariant' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\RTree.h(44): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::RTree::BulkLoadMethod' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\RTree.h(50): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::RTree::PersistenObjectIdentifier' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\RTree.h(56): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::RTree::RangeQueryType' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\MVRTree.h(39): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::MVRTree::MVRTreeVariant' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\MVRTree.h(45): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::MVRTree::PersistenObjectIdentifier' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\MVRTree.h(51): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::MVRTree::RangeQueryType' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\TPRTree.h(38): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::TPRTree::TPRTreeVariant' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\TPRTree.h(44): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::TPRTree::PersistenObjectIdentifier' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\TPRTree.h(50): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::TPRTree::RangeQueryType' when no variable is declared
+  Index.cc
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\tools/Tools.h(92): warning C4091: '__declspec(dllexport)': ignored on left of 'Tools::IntervalType' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\tools/Tools.h(113): warning C4091: '__declspec(dllexport)': ignored on left of 'Tools::VariantType' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\tools/Tools.h(119): warning C4091: '__declspec(dllexport)': ignored on left of 'Tools::FileMode' when no variable is declared
+H:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex/SpatialIndex.h(50): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::CommandType' when no variable is declared
+H:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex/SpatialIndex.h(217): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::StorageManager::StorageManagerConstants' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\RTree.h(39): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::RTree::RTreeVariant' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\RTree.h(44): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::RTree::BulkLoadMethod' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\RTree.h(50): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::RTree::PersistenObjectIdentifier' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\RTree.h(56): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::RTree::RangeQueryType' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\MVRTree.h(39): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::MVRTree::MVRTreeVariant' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\MVRTree.h(45): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::MVRTree::PersistenObjectIdentifier' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\MVRTree.h(51): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::MVRTree::RangeQueryType' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\TPRTree.h(38): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::TPRTree::TPRTreeVariant' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\TPRTree.h(44): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::TPRTree::PersistenObjectIdentifier' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\TPRTree.h(50): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::TPRTree::RangeQueryType' when no variable is declared
+  Leaf.cc
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\tools/Tools.h(92): warning C4091: '__declspec(dllexport)': ignored on left of 'Tools::IntervalType' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\tools/Tools.h(113): warning C4091: '__declspec(dllexport)': ignored on left of 'Tools::VariantType' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\tools/Tools.h(119): warning C4091: '__declspec(dllexport)': ignored on left of 'Tools::FileMode' when no variable is declared
+H:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex/SpatialIndex.h(50): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::CommandType' when no variable is declared
+H:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex/SpatialIndex.h(217): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::StorageManager::StorageManagerConstants' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\RTree.h(39): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::RTree::RTreeVariant' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\RTree.h(44): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::RTree::BulkLoadMethod' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\RTree.h(50): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::RTree::PersistenObjectIdentifier' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\RTree.h(56): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::RTree::RangeQueryType' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\MVRTree.h(39): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::MVRTree::MVRTreeVariant' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\MVRTree.h(45): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::MVRTree::PersistenObjectIdentifier' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\MVRTree.h(51): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::MVRTree::RangeQueryType' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\TPRTree.h(38): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::TPRTree::TPRTreeVariant' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\TPRTree.h(44): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::TPRTree::PersistenObjectIdentifier' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\TPRTree.h(50): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::TPRTree::RangeQueryType' when no variable is declared
+  Node.cc
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\tools/Tools.h(92): warning C4091: '__declspec(dllexport)': ignored on left of 'Tools::IntervalType' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\tools/Tools.h(113): warning C4091: '__declspec(dllexport)': ignored on left of 'Tools::VariantType' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\tools/Tools.h(119): warning C4091: '__declspec(dllexport)': ignored on left of 'Tools::FileMode' when no variable is declared
+H:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex/SpatialIndex.h(50): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::CommandType' when no variable is declared
+H:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex/SpatialIndex.h(217): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::StorageManager::StorageManagerConstants' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\RTree.h(39): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::RTree::RTreeVariant' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\RTree.h(44): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::RTree::BulkLoadMethod' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\RTree.h(50): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::RTree::PersistenObjectIdentifier' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\RTree.h(56): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::RTree::RangeQueryType' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\MVRTree.h(39): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::MVRTree::MVRTreeVariant' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\MVRTree.h(45): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::MVRTree::PersistenObjectIdentifier' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\MVRTree.h(51): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::MVRTree::RangeQueryType' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\TPRTree.h(38): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::TPRTree::TPRTreeVariant' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\TPRTree.h(44): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::TPRTree::PersistenObjectIdentifier' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\TPRTree.h(50): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::TPRTree::RangeQueryType' when no variable is declared
+  Statistics.cc
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\tools/Tools.h(92): warning C4091: '__declspec(dllexport)': ignored on left of 'Tools::IntervalType' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\tools/Tools.h(113): warning C4091: '__declspec(dllexport)': ignored on left of 'Tools::VariantType' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\tools/Tools.h(119): warning C4091: '__declspec(dllexport)': ignored on left of 'Tools::FileMode' when no variable is declared
+H:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex/SpatialIndex.h(50): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::CommandType' when no variable is declared
+H:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex/SpatialIndex.h(217): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::StorageManager::StorageManagerConstants' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\RTree.h(39): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::RTree::RTreeVariant' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\RTree.h(44): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::RTree::BulkLoadMethod' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\RTree.h(50): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::RTree::PersistenObjectIdentifier' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\RTree.h(56): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::RTree::RangeQueryType' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\MVRTree.h(39): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::MVRTree::MVRTreeVariant' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\MVRTree.h(45): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::MVRTree::PersistenObjectIdentifier' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\MVRTree.h(51): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::MVRTree::RangeQueryType' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\TPRTree.h(38): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::TPRTree::TPRTreeVariant' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\TPRTree.h(44): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::TPRTree::PersistenObjectIdentifier' when no variable is declared
+h:\gtl\stil\docs\spatialindex-src-1.8.5\include\spatialindex\TPRTree.h(50): warning C4091: '__declspec(dllexport)': ignored on left of 'SpatialIndex::TPRTree::RangeQueryType' when no variable is declared
+C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppBuild.targets(1189,5): warning MSB8012: TargetPath(H:\gtl\stil\docs\spatialindex-src-1.8.5\spatialindex-vc.dll) does not match the Linker's OutputFile property value (H:\gtl\stil\docs\spatialindex-src-1.8.5\spatialindex_d.dll). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Link.OutputFile).
+C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppBuild.targets(1191,5): warning MSB8012: TargetName(spatialindex-vc) does not match the Linker's OutputFile property value (spatialindex_d). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Link.OutputFile).
+  Microsoft (R) Incremental Linker Version 14.00.24210.0
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  
+  "/OUT:H:\gtl\stil\docs\spatialindex-src-1.8.5\spatialindex_d.dll" "/VERSION:1.5.0" /INCREMENTAL /NOLOGO /MANIFEST:NO /DEBUG "/PDB:H:\gtl\stil\docs\spatialindex-src-1.8.5\spatialindex-vc.pdb" /ASSEMBLYDEBUG /TLBID:1 /DYNAMICBASE /NXCOMPAT "/IMPLIB:H:\gtl\stil\docs\spatialindex-src-1.8.5\spatialindex-vc.lib" /MACHINE:X86 /SAFESEH /DLL Debug\Index.obj 
+  Debug\Leaf.obj 
+  Debug\MVRTree.obj 
+  Debug\Node.obj 
+  Debug\Statistics.obj 
+  Debug\BulkLoader.obj 
+  Debug\RTree.obj 
+  Debug\LineSegment.obj 
+  Debug\MovingPoint.obj 
+  Debug\MovingRegion.obj 
+  Debug\Point.obj 
+  Debug\Region.obj 
+  Debug\SpatialIndexImpl.obj 
+  Debug\TimePoint.obj 
+  Debug\TimeRegion.obj 
+  Debug\Buffer.obj 
+  Debug\DiskStorageManager.obj 
+  Debug\MemoryStorageManager.obj 
+  Debug\RandomEvictionsBuffer.obj 
+  Debug\rand48.obj 
+  Debug\Tools.obj 
+  Debug\TPRTree.obj 
+  Debug\Index1.obj 
+  Debug\Leaf1.obj 
+  Debug\Node1.obj 
+  Debug\Statistics1.obj 
+  Debug\Index2.obj 
+  Debug\Leaf2.obj 
+  Debug\Node2.obj 
+  Debug\Statistics2.obj 
+LINK : fatal error LNK1117: syntax error in option 'VERSION:1.5.0'

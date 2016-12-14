@@ -170,4 +170,47 @@ public class VertexImp implements Vertex {
         else
             return null;
     }
+
+    @Override
+    public void copyFrom(Object i) {
+        if(i instanceof Vertex){
+            if(((Vertex)i).getCoordinates().length==this.coordinates.length){
+                System.arraycopy(
+                        ((Vertex)i).getCoordinates(), 0,
+                        this.coordinates,0,this.coordinates.length);
+            }
+            else{
+                this.coordinates=new double[((Vertex)i).getCoordinates().length];
+                System.arraycopy(
+                        ((Vertex)i).getCoordinates(), 0,
+                        this.coordinates,0,this.coordinates.length);
+            }
+        }
+    }
+
+    @Override
+    public void copyTo(Object i) {
+        if(i instanceof Vertex){
+            if(((Vertex)i).getCoordinates().length==this.coordinates.length){
+                System.arraycopy(
+                        this.coordinates, 0,
+                        ((Vertex)i).getCoordinates(),0,this.coordinates.length);
+            }
+            else{
+                ((Vertex)i).reset(this.coordinates);
+            }
+        }
+    }
+
+    public void reset(double [] coordinates){
+        if(this.coordinates.length==coordinates.length){
+            System.arraycopy(this.coordinates,0,
+                    coordinates,0,coordinates.length);
+        }
+        else{
+            this.coordinates=new double [coordinates.length];
+            System.arraycopy(this.coordinates,0,
+                    coordinates,0,coordinates.length);
+        }
+    }
 }

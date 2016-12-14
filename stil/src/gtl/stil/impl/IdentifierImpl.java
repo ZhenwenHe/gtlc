@@ -82,13 +82,15 @@ public class IdentifierImpl implements Identifier {
     }
 
     @Override
-    public void copyFrom(Identifier i) {
-        this.data = i.longValue();
+    public void copyFrom(Object i) {
+        if(i instanceof Identifier)
+        this.data = ((Identifier)i).longValue();
     }
 
     @Override
-    public void copyTo(Identifier i) {
-        i.reset(this.data);
+    public void copyTo(Object i) {
+        if(i instanceof Identifier)
+            ((Identifier)i).reset(this.data);
     }
 
     @Override
@@ -115,6 +117,7 @@ public class IdentifierImpl implements Identifier {
         else
             return -1;
     }
+
 
 
 }

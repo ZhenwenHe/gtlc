@@ -1,4 +1,4 @@
-package test.gtl.stil.impl;
+package test.gtl.stil.shape.impl;
 
 import gtl.stil.shape.Point;
 import gtl.stil.shape.impl.PointImpl;

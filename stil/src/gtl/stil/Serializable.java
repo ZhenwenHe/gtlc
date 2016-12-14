@@ -7,8 +7,12 @@ import java.io.*;
  */
 public interface Serializable extends java.io.Serializable, Cloneable{
     Object clone();
+    void copyFrom(Object i );
+    void copyTo(Object i);
+
     boolean read(InputStream in) throws IOException;
     boolean write(OutputStream out) throws IOException;
+
 
     long getByteArraySize();
 

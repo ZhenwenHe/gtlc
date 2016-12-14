@@ -10,8 +10,6 @@ public interface Identifier extends Serializable{
     int intValue();
     long longValue();
     void reset(long v);
-    void copyFrom(Identifier i );
-    void copyTo(Identifier i);
     void increase();
     int compare(Identifier i);
 }

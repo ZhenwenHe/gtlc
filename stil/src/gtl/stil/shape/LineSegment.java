@@ -1,8 +1,6 @@
-package gtl.stil;
+package gtl.stil.shape;
 
-import gtl.stil.shape.Point;
-import gtl.stil.shape.Region;
-import gtl.stil.shape.Shape;
+import gtl.stil.Vertex;
 
 /**
  * Created by ZhenwenHe on 2016/12/8.

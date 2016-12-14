@@ -18,4 +18,6 @@ public interface Vertex extends Serializable{
 
     void makeInfinite(int dimension);
     void makeDimension(int dimension);
+
+    void reset(double [] coordinates);
 }

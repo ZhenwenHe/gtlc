@@ -1,6 +1,7 @@
 package gtl.stil.impl;
 
 import gtl.stil.Vertex;
+import gtl.stil.shape.impl.PointImpl;
 
 import java.io.*;
 import java.util.Arrays;

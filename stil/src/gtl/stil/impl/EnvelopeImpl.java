@@ -11,12 +11,12 @@ public class EnvelopeImpl implements Envelope {
     double [] low;
     double [] high;
 
-    EnvelopeImpl(){
+    public EnvelopeImpl(){
         this.low=null;
         this.high=null;
     }
 
-    EnvelopeImpl(double [] low, double [] high){
+    public EnvelopeImpl(double [] low, double [] high){
          initialize(low,high,Math.min(low.length,high.length));
     }
 

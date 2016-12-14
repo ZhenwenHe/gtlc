@@ -1,5 +1,7 @@
 package gtl.stil;
 
+import gtl.stil.shape.Region;
+
 /**
  * Created by ZhenwenHe on 2016/12/8.
  */

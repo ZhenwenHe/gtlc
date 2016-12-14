@@ -1,11 +1,15 @@
 package gtl.stil;
 
+import gtl.stil.shape.Point;
+import gtl.stil.shape.Region;
+import gtl.stil.shape.Shape;
+
 /**
  * Created by ZhenwenHe on 2016/12/8.
  */
 public interface LineSegment extends Shape {
     boolean intersectsLineSegment( LineSegment l) ;
-    boolean intersectsRegion( Region  p) ;
+    boolean intersectsRegion( Region p) ;
     double getMinimumDistance( Point p) ;
     double getRelativeMinimumDistance( Point p) ;
     double getRelativeMaximumDistance( Region  r) ;

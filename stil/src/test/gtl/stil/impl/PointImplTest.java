@@ -1,8 +1,7 @@
 package test.gtl.stil.impl;
 
-import gtl.stil.Point;
-import gtl.stil.impl.PointImpl;
-import gtl.stil.impl.IdentifierImpl;
+import gtl.stil.shape.Point;
+import gtl.stil.shape.impl.PointImpl;
 import junit.framework.TestCase;
 
 import java.io.ByteArrayInputStream;

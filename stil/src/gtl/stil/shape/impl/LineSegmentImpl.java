@@ -8,8 +8,9 @@ import gtl.stil.shape.Point;
 import gtl.stil.shape.Region;
 import gtl.stil.shape.Shape;
 
-import java.io.*;
-import java.util.Arrays;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;import java.util.Arrays;
 
 /**
  * Created by ZhenwenHe on 2016/12/8.
@@ -396,9 +397,7 @@ public class LineSegmentImpl implements LineSegment {
 		else { 
 			return false;
 		}
-		*/
-
-        return false;
+		*/        return false;
     }
 
 

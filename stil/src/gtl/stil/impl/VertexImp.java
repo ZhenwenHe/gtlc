@@ -96,7 +96,9 @@ public class VertexImp implements Vertex {
     @Override
     public boolean read(InputStream in) throws IOException {
         DataInputStream dis =new DataInputStream(in);
-        for(int i=0;i<this.coordinates.length;i++) {
+        int dims = dis.readInt();
+        this.makeDimension(dims);
+        for(int i=0;i<dims;i++) {
             this.coordinates[i] = dis.readDouble();
         }
         return true;
@@ -105,6 +107,8 @@ public class VertexImp implements Vertex {
     @Override
     public boolean write(OutputStream out) throws IOException {
         DataOutputStream dos =new DataOutputStream(out);
+        int dims = this.getDimension();
+        dos.writeInt(dims);
         for(double d:this.coordinates)
             dos.writeDouble(d);
         dos.close();
@@ -112,7 +116,7 @@ public class VertexImp implements Vertex {
     }
     @Override
     public long getByteArraySize(){
-        return getDimension()*8;
+        return getDimension()*8+4;
     }
 
 
@@ -142,12 +146,12 @@ public class VertexImp implements Vertex {
     @Override
     public void makeDimension(int dimension) {
         if (this.getDimension() != dimension){
-            double [] newdata=new double[dimension];
-            int minDims=Math.min(newdata.length,this.coordinates.length);
+            double [] newData=new double[dimension];
+            int minDims=Math.min(newData.length,this.coordinates.length);
             for(int i=0;i<minDims;i++){
-                newdata[i]=this.coordinates[i];
+                newData[i]=this.coordinates[i];
             }
-            this.coordinates=newdata;
+            this.coordinates=newData;
         }
     }
 

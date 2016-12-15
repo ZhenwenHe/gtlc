@@ -19,6 +19,8 @@ public interface LineSegment extends Shape {
     double[] getStartCoordinates();
     double[] getEndCoordinates();
 
-    Double getStartCoordinate(int i);
-    Double getEndCoordinate(int i);
+    double getStartCoordinate(int i);
+    double getEndCoordinate(int i);
+
+    void reset(double [] s,double []e);
 }

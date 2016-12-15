@@ -19,6 +19,8 @@ import java.io.IOException;
  * Created by ZhenwenHe on 2016/12/10.
  */
 public class IndexSuits {
+    public  static final double EPSILON = 1.0E-308;
+    public  static final double M_PI_2 =1.57079632679489661922;
     public static BufferedStorageManager createBufferedStorageManager(StorageManager storageManager, int capacity, boolean writeThrough){
         return new BufferedStorageManagerImpl(storageManager,  capacity,  writeThrough);
     }

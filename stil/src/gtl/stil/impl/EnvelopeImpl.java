@@ -1,6 +1,7 @@
 package gtl.stil.impl;
 
 import gtl.stil.Envelope;
+import gtl.stil.IndexSuits;
 import gtl.stil.Vertex;
 
 import java.io.*;
@@ -26,10 +27,12 @@ public class EnvelopeImpl implements Envelope {
     public boolean read(InputStream in) throws IOException {
         int i=0;
         DataInputStream dis =new DataInputStream(in);
-        for( i=0;i<getDimension();i++) {
+        int dims= dis.readInt();
+        this.makeDimension(dims);
+        for( i=0;i<dims;i++) {
             this.low[i] = dis.readDouble();
         }
-        for( i=0;i<getDimension();i++) {
+        for( i=0;i<dims;i++) {
             this.high[i] = dis.readDouble();
         }
         return true;
@@ -38,17 +41,19 @@ public class EnvelopeImpl implements Envelope {
     @Override
     public boolean write(OutputStream out) throws IOException {
         DataOutputStream dos =new DataOutputStream(out);
+        int dims = this.getDimension();
+        dos.writeInt(dims);
         for(double d:this.low)
             dos.writeDouble(d);
         for(double d:this.high)
             dos.writeDouble(d);
         dos.close();
-        return false;
+        return true;
     }
 
     @Override
     public long getByteArraySize(){
-        return getDimension()*8*2;
+        return getDimension()*8*2+4;
     }
 
     @Override
@@ -66,13 +71,13 @@ public class EnvelopeImpl implements Envelope {
             double [] newdataLow=new double[dimension];
             double [] newdataHigh=new double[dimension];
 
-            int minDims=Math.min(newdataLow.length,this.low.length);
+            int minDims=Math.min(dimension,this.low.length);
             for(int i=0;i<minDims;i++){
                 newdataLow[i]=this.low[i];
             }
             this.low=newdataLow;
 
-            minDims=Math.min(newdataHigh.length,this.high.length);
+            minDims=Math.min(dimension,this.high.length);
             for(int i=0;i<minDims;i++){
                 newdataHigh[i]=this.high[i];
             }
@@ -189,15 +194,15 @@ public class EnvelopeImpl implements Envelope {
         for (int i = 0; i < dims; ++i) {
             if (
                     (
-                            this.low[i] >= e.getLowCoordinate(i) + Double.POSITIVE_INFINITY
+                            this.low[i] >= e.getLowCoordinate(i) + IndexSuits.EPSILON
                                     &&
-                            this.low[i] <= e.getLowCoordinate(i) - Double.POSITIVE_INFINITY
+                            this.low[i] <= e.getLowCoordinate(i) - IndexSuits.EPSILON
                     )
                     ||
                     (
-                            this.high[i] >= e.getHighCoordinate(i) + Double.POSITIVE_INFINITY
+                            this.high[i] >= e.getHighCoordinate(i) + IndexSuits.EPSILON
                                     &&
-                            this.high[i] <= e.getHighCoordinate(i) - Double.POSITIVE_INFINITY
+                            this.high[i] <= e.getHighCoordinate(i) - IndexSuits.EPSILON
                     )
             )
             return false;
@@ -222,10 +227,10 @@ public class EnvelopeImpl implements Envelope {
 
         for (int i = 0; i < dims; ++i){
             if (
-            (this.low[i] >= p.getCoordinate(i) - Double.POSITIVE_INFINITY &&
-             this.low[i] <= p.getCoordinate(i) + Double.POSITIVE_INFINITY) ||
-            (this.high[i] >= p.getCoordinate(i) - Double.POSITIVE_INFINITY &&
-             this.high[i] <= p.getCoordinate(i) + Double.POSITIVE_INFINITY))
+            (this.low[i] >= p.getCoordinate(i) - IndexSuits.EPSILON &&
+             this.low[i] <= p.getCoordinate(i) + IndexSuits.EPSILON) ||
+            (this.high[i] >= p.getCoordinate(i) - IndexSuits.EPSILON &&
+             this.high[i] <= p.getCoordinate(i) + IndexSuits.EPSILON ))
             return true;
         }
         return false;

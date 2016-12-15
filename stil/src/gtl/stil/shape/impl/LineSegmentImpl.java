@@ -8,8 +8,9 @@ import gtl.stil.shape.Point;
 import gtl.stil.shape.Region;
 import gtl.stil.shape.Shape;
 
-import javax.sound.sampled.Line;
-import java.io.*;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.Arrays;
 
 /**
@@ -343,6 +344,7 @@ public class LineSegmentImpl implements LineSegment {
 
     //some helpers for intersects methods
     protected static double doubleAreaTriangle( Point a,  Point b,  Point c){
+<<<<<<< HEAD
 		/*
 		double *pA, *pB, *pC;
     pA = a.m_pCoords; pB = b.m_pCoords; pC = c.m_pCoords;
@@ -394,6 +396,26 @@ public class LineSegmentImpl implements LineSegment {
 			return false;
 		}
 		*/
+=======
+        return 0;
+    }
+    protected static boolean leftOf( Point a,  Point b,  Point c){
+        return false;
+    }
+    protected static boolean collinear( Point a,  Point b,  Point c){
+        return false;
+    }
+    protected static boolean between( Point a,  Point b,  Point c){
+        return false;
+    }
+    protected static boolean between(double a, double b, double c){
+        return false;
+    }
+    protected static boolean intersectsProper( Point  a,  Point  b,  Point  c,  Point  d){
+        return false;
+    }
+    protected static boolean intersects( Point a,  Point b,  Point c,  Point d){
+>>>>>>> 37dd173417d0c963f70c19ca1d4593d3e91576ea
         return false;
     }
 

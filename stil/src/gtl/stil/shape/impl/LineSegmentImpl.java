@@ -396,9 +396,7 @@ public class LineSegmentImpl implements LineSegment {
 		else { 
 			return false;
 		}
-		*/
-
-        return false;
+		*/        return false;
     }
 
 

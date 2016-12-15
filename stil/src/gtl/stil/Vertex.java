@@ -5,13 +5,13 @@ package gtl.stil;
  */
 public interface Vertex extends Serializable{
     double[] getCoordinates();
-    Double getCoordinate(int i);
+    double getCoordinate(int i);
 
     int getDimension();
 
-    Double getX();
-    Double getY();
-    Double getZ();
+    double getX();
+    double getY();
+    double getZ();
     void setX(double x);
     void setY(double y);
     void setZ(double z);

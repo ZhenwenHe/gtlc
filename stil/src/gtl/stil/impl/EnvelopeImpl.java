@@ -82,7 +82,7 @@ public class EnvelopeImpl implements Envelope {
 
     @Override
     public int getDimension() {
-        return this.low.length;
+        return Math.min(this.low.length,this.high.length);
     }
 
     @Override
@@ -96,12 +96,12 @@ public class EnvelopeImpl implements Envelope {
     }
 
     @Override
-    public Double getLowCoordinate(int i) {
+    public double getLowCoordinate(int i) {
         return this.low[i];
     }
 
     @Override
-    public Double getHighCoordinate(int i) {
+    public double getHighCoordinate(int i) {
         return this.high[i];
     }
 
@@ -229,5 +229,96 @@ public class EnvelopeImpl implements Envelope {
             return true;
         }
         return false;
+    }
+
+    @Override
+    public Envelope getIntersectingEnvelope(Envelope e) {
+        if(e==null) return null;
+        int dims = this.getDimension();
+        if(dims!=e.getDimension()) return null;
+
+        EnvelopeImpl ret = new EnvelopeImpl();
+        ret.makeInfinite(dims);
+
+        // check for intersection.
+        for (int cDim = 0; cDim < dims; ++cDim) {
+            if (this.low[cDim] > e.getHighCoordinate(cDim) || this.high[cDim] < e.getLowCoordinate(cDim))
+                return ret;
+        }
+
+        for (int cDim = 0; cDim < dims; ++cDim) {
+            ret.low[cDim] = Math.max(this.low[cDim], e.getLowCoordinate(cDim));
+            ret.high[cDim] = Math.min(this.high[cDim], e.getHighCoordinate(cDim));
+        }
+
+        return ret;
+    }
+
+    @Override
+    public double getIntersectingArea(Envelope e) {
+        if(e==null) return 0.0;
+        int dims = this.getDimension();
+        if(dims!=e.getDimension()) return 0.0;
+
+        double ret = 1.0;
+        double f1, f2;
+
+        for (int cDim = 0; cDim < dims; ++cDim) {
+            if (this.low[cDim] > e.getHighCoordinate(cDim) || this.high[cDim] < e.getLowCoordinate(cDim)) return 0.0;
+
+            f1 = Math.max(this.low[cDim], e.getLowCoordinate(cDim));
+            f2 = Math.min(this.high[cDim], e.getHighCoordinate(cDim));
+            ret *= f2 - f1;
+        }
+
+        return ret;
+    }
+
+    /*
+     * Returns the margin of a region. It is calculated as the sum of  2^(d-1) * width, in each dimension.
+     * It is actually the sum of all edges, no matter what the dimensionality is.
+    */
+    @Override
+    public double getMargin() {
+        int dims = this.getDimension();
+        double mul = Math.pow(2.0, dims - 1.0);
+        double margin = 0.0;
+
+        for (int i = 0; i < dims; ++i) {
+            margin += (this.high[i] - this.low[i]) * mul;
+        }
+
+        return margin;
+    }
+
+    @Override
+    public void combine(Envelope e) {
+        int dims  = this.getDimension();
+        if(e.getDimension()!=dims)
+            return ;
+
+        for (int cDim = 0; cDim < dims; ++cDim) {
+            this.low[cDim] = Math.min(this.low[cDim], e.getLowCoordinate(cDim));
+            this.high[cDim] = Math.max(this.high[cDim], e.getHighCoordinate(cDim));
+        }
+    }
+
+    @Override
+    public void combine(Vertex v) {
+        int dims  = this.getDimension();
+        if(v.getDimension()!=dims)
+            return ;
+
+        for (int cDim = 0; cDim < dims; ++cDim) {
+            this.low[cDim] = Math.min(this.low[cDim], v.getCoordinate(cDim));
+            this.high[cDim] = Math.max(this.high[cDim], v.getCoordinate(cDim));
+        }
+    }
+
+    @Override
+    public Envelope getCombinedEnvelope(Envelope e) {
+        EnvelopeImpl r = (EnvelopeImpl) this.clone();
+        r.combine(e);
+        return r;
     }
 }

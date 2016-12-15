@@ -20,6 +20,10 @@ public class RegionImpl extends EnvelopeImpl implements Region {
         super(low, high);
     }
 
+    public RegionImpl(Envelope e) {
+        super(e.getLowCoordinates(), e.getHighCoordinates());
+    }
+
     @Override
     public boolean intersectsShape(Shape in) {
         if(in ==null) return false;
@@ -205,37 +209,59 @@ public class RegionImpl extends EnvelopeImpl implements Region {
                 e.intersectsShape(IndexSuits.createLineSegment(ur, lr)) || e.intersectsShape(IndexSuits.createLineSegment(lr, ll)));
     }
     @Override
-    public double getMinimumDistance(Point in) {
-        return 0;
+    public double getMinimumDistance(Point p) {
+
+        if(p==null) return Double.MAX_VALUE;
+        int dims = this.getDimension();
+        if(dims!=p.getDimension()) return Double.MAX_VALUE;
+
+
+        double ret = 0.0;
+
+        for (int i = 0; i < dims; ++i){
+            if (p.getCoordinate(i) < this.getLowCoordinate(i))
+            {
+                ret += Math.pow(this.getLowCoordinate(i) - p.getCoordinate(i), 2.0);
+            }
+            else if (p.getCoordinate(i) > this.getHighCoordinate(i))
+            {
+                ret += Math.pow(p.getCoordinate(i) - this.getHighCoordinate(i), 2.0);
+            }
+        }
+
+        return Math.sqrt(ret);
     }
 
     @Override
     public Region getIntersectingRegion(Region r) {
-        return null;
+        return new RegionImpl(super.getIntersectingEnvelope(r));
     }
 
     @Override
     public double getIntersectingArea(Region in) {
-        return 0;
+        return super.getIntersectingArea(in);
     }
 
     @Override
     public double getMargin() {
-        return 0;
+        return super.getMargin();
     }
 
     @Override
     public void combineRegion(Region in) {
-
+        super.combine(in);
     }
 
     @Override
     public void combinePoint(Point in) {
-
+        super.combine(in);
     }
 
     @Override
     public Region getCombinedRegion(Region in) {
-        return null;
+
+        RegionImpl r =(RegionImpl) this.clone();
+        r.combine(in);
+        return r;
     }
 }

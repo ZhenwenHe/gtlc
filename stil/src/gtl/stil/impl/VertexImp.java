@@ -79,29 +79,18 @@ public class VertexImp implements Vertex {
     }
 
     @Override
-    public Double getX() {
-        if(this.coordinates!=null)
-            return this.coordinates[0];
-        else
-            return null;
+    public double getX() {
+        return this.coordinates[0];
     }
 
     @Override
-    public Double getY() {
-        if(this.coordinates!=null & this.coordinates.length>=2) {
-            return this.coordinates[1];
-        }
-        else
-            return null;
+    public double getY() {
+         return this.coordinates[1];
     }
 
     @Override
-    public Double getZ() {
-        if(this.coordinates!=null & this.coordinates.length>=3){
-            return this.coordinates[2];
-        }
-        else
-            return null;
+    public double getZ() {
+        return this.coordinates[2];
     }
 
     @Override
@@ -163,12 +152,8 @@ public class VertexImp implements Vertex {
     }
 
     @Override
-    public Double getCoordinate(int i) {
-        if(i>=0 && i<this.coordinates.length){
-            return this.coordinates[i];
-        }
-        else
-            return null;
+    public double getCoordinate(int i) {
+        return this.coordinates[i];
     }
 
     @Override

@@ -56,7 +56,7 @@ public class VertexImplTest extends TestCase {
         v.setZ(10);
         Double x= v.getX();
         x=20.0;
-        Assert.assertEquals(v.getX().doubleValue(),10.0);
+        Assert.assertEquals(v.getX(),10.0);
     }
 
     public void testGetY() throws Exception {
@@ -105,7 +105,7 @@ public class VertexImplTest extends TestCase {
         v.setY(10);
         v.setZ(10);
         v.getCoordinates()[0]=20.0;
-        Assert.assertEquals(v.getX().doubleValue(),20.0);
+        Assert.assertEquals(v.getX(),20.0);
     }
 
 }

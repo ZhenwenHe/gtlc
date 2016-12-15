@@ -8,7 +8,6 @@ import gtl.stil.shape.Point;
 import gtl.stil.shape.Region;
 import gtl.stil.shape.Shape;
 
-import javax.sound.sampled.Line;
 import java.io.*;
 import java.util.Arrays;
 
@@ -375,11 +374,15 @@ public class LineSegmentImpl implements LineSegment {
         return ( ((a <= c) && (c <= b)) || ((a >= c) && (c >= b)) );
     }
     protected static boolean intersectsProper( Point  a,  Point  b,  Point  c,  Point  d){
+        /*
         if ( collinear(a, b, c) || collinear(a, b, d) ||
          collinear(c, d, a) || collinear(c, d, b)) {
 			return false;
 		}
+
 		return ((leftOf(a, b, c) ^ leftOf(a, b, d)) && (leftOf(c, d, a) ^ leftOf(c, d, b)));
+		*/
+        return false;
     }
     protected static boolean intersects( Point a,  Point b,  Point c,  Point d){
 		/*
@@ -394,7 +397,9 @@ public class LineSegmentImpl implements LineSegment {
 			return false;
 		}
 		*/
+
         return false;
     }
+
 
 }

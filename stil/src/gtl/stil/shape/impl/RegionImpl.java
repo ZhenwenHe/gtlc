@@ -186,27 +186,23 @@ public class RegionImpl extends EnvelopeImpl implements Region {
 
         assert dims==2;
 
-//        // there may be a more efficient method, but this suffices for now
-//        Point ll = Point(m_pLow, 2);
-//        Point ur = Point(m_pHigh, 2);
-//        // fabricate ul and lr coordinates and points
-//        double c_ul[2] = {m_pLow[0], m_pHigh[1]};
-//        double c_lr[2] = {m_pHigh[0], m_pLow[1]};
-//        Point ul = Point(&c_ul[0], 2);
-//        Point lr = Point(&c_lr[0], 2);
-//
-//        // Points/LineSegment for the segment
-//        Point p1 = Point(in.m_pStartPoint, 2);
-//        Point p2 = Point(in.m_pEndPoint, 2);
-//
-//
-//        //Check whether either or both the endpoints are within the region OR
-//        //whether any of the bounding segments of the Region intersect the segment
-//        return (containsPoint(p1) || containsPoint(p2) ||
-//                in.intersectsShape(LineSegment(ll, ul)) || in.intersectsShape(LineSegment(ul, ur)) ||
-//                in.intersectsShape(LineSegment(ur, lr)) || in.intersectsShape(LineSegment(lr, ll)));
+        // there may be a more efficient method, but this suffices for now
+        Point ll = IndexSuits.createPoint(this.getLowCoordinates());
+        Point ur = IndexSuits.createPoint(this.getHighCoordinates());
+        // fabricate ul and lr coordinates and points
+        Point ul = IndexSuits.createPoint(this.getLowCoordinate(0),this.getHighCoordinate(1));
+        Point lr = IndexSuits.createPoint(this.getHighCoordinate(0),this.getLowCoordinate(1));
 
-        return false;
+        // Points/LineSegment for the segment
+        Point p1 = IndexSuits.createPoint(e.getStartCoordinates());
+        Point p2 = IndexSuits.createPoint(e.getEndCoordinates());
+
+
+        //Check whether either or both the endpoints are within the region OR
+        //whether any of the bounding segments of the Region intersect the segment
+        return (this.containsPoint(p1) || this.containsPoint(p2) ||
+                e.intersectsShape(IndexSuits.createLineSegment(ll, ul)) || e.intersectsShape(IndexSuits.createLineSegment(ul, ur)) ||
+                e.intersectsShape(IndexSuits.createLineSegment(ur, lr)) || e.intersectsShape(IndexSuits.createLineSegment(lr, ll)));
     }
     @Override
     public double getMinimumDistance(Point in) {

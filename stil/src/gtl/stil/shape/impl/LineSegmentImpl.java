@@ -11,48 +11,53 @@ import gtl.stil.shape.Shape;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.Arrays;
 
 /**
  * Created by ZhenwenHe on 2016/12/8.
  */
 public class LineSegmentImpl implements LineSegment {
-    VertexImp startPoint;
-    VertexImp endPoint;
+    double[] startCoordinates;
+    double[] endCoordinates;
 
     public LineSegmentImpl( ) {
-        this.startPoint = null;
-        this.endPoint = null;
+        this.startCoordinates = null;
+        this.endCoordinates = null;
     }
 
-    public LineSegmentImpl(VertexImp startPoint, VertexImp endPoint) {
-        this.startPoint = startPoint;
-        this.endPoint = endPoint;
+    public LineSegmentImpl(double[] startPoint, double[] endPoint) {
+
     }
+
+    public LineSegmentImpl(Vertex startPoint, Vertex endPoint) {
+
+    }
+
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (!(o instanceof LineSegmentImpl)) return false;
 
         LineSegmentImpl that = (LineSegmentImpl) o;
 
-        if (!getStartPoint().equals(that.getStartPoint())) return false;
-        return getEndPoint().equals(that.getEndPoint());
+        if (!Arrays.equals(startCoordinates, that.startCoordinates)) return false;
+        return Arrays.equals(endCoordinates, that.endCoordinates);
 
     }
 
     @Override
     public int hashCode() {
-        int result = getStartPoint().hashCode();
-        result = 31 * result + getEndPoint().hashCode();
+        int result = Arrays.hashCode(startCoordinates);
+        result = 31 * result + Arrays.hashCode(endCoordinates);
         return result;
     }
 
     @Override
     public String toString() {
         return "LineSegmentImpl{" +
-                "startPoint=" + startPoint +
-                ", endPoint=" + endPoint +
+                "startCoordinates=" + Arrays.toString(startCoordinates) +
+                ", endCoordinates=" + Arrays.toString(endCoordinates) +
                 '}';
     }
 
@@ -157,16 +162,6 @@ public class LineSegmentImpl implements LineSegment {
     }
 
     @Override
-    public Vertex getStartPoint() {
-        return null;
-    }
-
-    @Override
-    public Vertex getEndPoint() {
-        return null;
-    }
-
-    @Override
     public void copyFrom(Object i) {
 
     }
@@ -174,5 +169,25 @@ public class LineSegmentImpl implements LineSegment {
     @Override
     public void copyTo(Object i) {
 
+    }
+
+    @Override
+    public double[] getStartCoordinates() {
+        return new double[0];
+    }
+
+    @Override
+    public double[] getEndCoordinates() {
+        return new double[0];
+    }
+
+    @Override
+    public Double getStartCoordinate(int i) {
+        return null;
+    }
+
+    @Override
+    public Double getEndCoordinate(int i) {
+        return null;
     }
 }

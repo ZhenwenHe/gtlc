@@ -16,7 +16,9 @@ public interface LineSegment extends Shape {
     void makeInfinite(int dimension);
     void makeDimension(int dimension);
 
-    Vertex getStartPoint();
-    Vertex getEndPoint();
+    double[] getStartCoordinates();
+    double[] getEndCoordinates();
 
+    Double getStartCoordinate(int i);
+    Double getEndCoordinate(int i);
 }

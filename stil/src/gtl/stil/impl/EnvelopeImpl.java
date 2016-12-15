@@ -96,12 +96,12 @@ public class EnvelopeImpl implements Envelope {
     }
 
     @Override
-    public double getLowCoordinate(int i) {
+    public Double getLowCoordinate(int i) {
         return this.low[i];
     }
 
     @Override
-    public double getHighCoordinate(int i) {
+    public Double getHighCoordinate(int i) {
         return this.high[i];
     }
 

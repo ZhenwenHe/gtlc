@@ -7,8 +7,8 @@ public interface Envelope extends Serializable{
     int getDimension();
     double[] getLowCoordinates();
     double[] getHighCoordinates();
-    double getLowCoordinate(int i);
-    double getHighCoordinate(int i);
+    Double getLowCoordinate(int i);
+    Double getHighCoordinate(int i);
     void makeInfinite(int dimension);
     void makeDimension(int dimension);
     void reset(double[] low, double [] high, int dimension);

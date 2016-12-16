@@ -6,6 +6,7 @@ import junit.framework.Assert;
 import junit.framework.TestCase;
 
 import java.awt.geom.Arc2D;
+import java.util.ArrayList;
 
 /**
  * Created by ZhenwenHe on 2016/12/15.
@@ -14,7 +15,24 @@ public class VertexImplTest extends TestCase {
     public void setUp() throws Exception {
         super.setUp();
 
+        System.out.println("setUp");
+        ArrayList<Long> a= new ArrayList<Long>();
+        a.add(Long.valueOf(1));
+        a.add(Long.valueOf(2));
+        a.add(Long.valueOf(3));
+        for( Long i: a)
+            System.out.println(i);
+        ArrayList<Long> b= new ArrayList<Long>();
 
+        b.addAll(a);
+
+        for( Long i: a)
+            System.out.println(i);
+
+        for( Long i: b)
+            System.out.println(i);
+
+        System.out.println("setUp");
     }
 
     public void tearDown() throws Exception {

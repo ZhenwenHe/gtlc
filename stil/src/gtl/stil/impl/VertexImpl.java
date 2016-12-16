@@ -1,7 +1,6 @@
 package gtl.stil.impl;
 
 import gtl.stil.Vertex;
-import gtl.stil.shape.impl.PointImpl;
 
 import java.io.*;
 import java.util.Arrays;
@@ -9,28 +8,28 @@ import java.util.Arrays;
 /**
  * Created by ZhenwenHe on 2016/12/8.
  */
-public class VertexImp implements Vertex {
+public class VertexImpl implements Vertex {
 
     double  [] coordinates;
 
-    public VertexImp( ) {
+    public VertexImpl( ) {
         this.coordinates = new double[3];
     }
 
-    public VertexImp(double x ,double y) {
+    public VertexImpl(double x , double y) {
         this.coordinates = new double[2];
         this.coordinates[0]=x;
         this.coordinates[1]=y;
     }
 
-    public VertexImp(double x ,double y,double z) {
+    public VertexImpl(double x , double y, double z) {
         this.coordinates = new double[3];
         this.coordinates[0]=x;
         this.coordinates[1]=y;
         this.coordinates[2]=z;
     }
 
-    public VertexImp(double[] coordinates) {
+    public VertexImpl(double[] coordinates) {
         this.coordinates=new double[coordinates.length];
         System.arraycopy(coordinates,0,this.coordinates,0,coordinates.length);
     }
@@ -47,15 +46,15 @@ public class VertexImp implements Vertex {
     public Object clone() {
         double [] td = new double [this.coordinates.length];
         System.arraycopy(this.coordinates,0,td,0,td.length);
-        return new PointImpl(td);
+        return new VertexImpl(td);
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof VertexImp)) return false;
+        if (!(o instanceof VertexImpl)) return false;
 
-        VertexImp point = (VertexImp) o;
+        VertexImpl point = (VertexImpl) o;
 
         return Arrays.equals(getCoordinates(), point.getCoordinates());
 
@@ -68,7 +67,7 @@ public class VertexImp implements Vertex {
 
     @Override
     public String toString() {
-        return "VertexImp{" +
+        return "VertexImpl{" +
                 "coordinates=" + Arrays.toString(coordinates) +
                 '}';
     }

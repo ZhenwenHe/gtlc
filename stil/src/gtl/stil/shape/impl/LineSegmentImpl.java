@@ -2,7 +2,6 @@ package gtl.stil.shape.impl;
 
 
 import gtl.stil.*;
-import gtl.stil.impl.VertexImp;
 import gtl.stil.shape.LineSegment;
 import gtl.stil.shape.Point;
 import gtl.stil.shape.Region;

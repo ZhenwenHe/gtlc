@@ -1,7 +1,7 @@
 package gtl.stil;
 
 import gtl.stil.impl.EnvelopeImpl;
-import gtl.stil.impl.VertexImp;
+import gtl.stil.impl.VertexImpl;
 import gtl.stil.shape.LineSegment;
 import gtl.stil.shape.Point;
 import gtl.stil.shape.impl.LineSegmentImpl;
@@ -57,15 +57,15 @@ public class IndexSuits {
     }
 
     public static Vertex createVertex(){
-        return new VertexImp();
+        return new VertexImpl();
     }
     public static Vertex createVertex(double [] v){
-        return new VertexImp(v);
+        return new VertexImpl(v);
     }
     public static Vertex createVertex(double x,double y){
-        return new VertexImp(x,y);
+        return new VertexImpl(x,y);
     }
     public static Vertex createVertex(double x,double y,double z){
-        return new VertexImp(x,y,z);
+        return new VertexImpl(x,y,z);
     }
 }

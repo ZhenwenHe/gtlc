@@ -3,7 +3,7 @@ package gtl.stil.shape.impl;
 
 import gtl.stil.Envelope;
 import gtl.stil.impl.EnvelopeImpl;
-import gtl.stil.impl.VertexImp;
+import gtl.stil.impl.VertexImpl;
 import gtl.stil.shape.Point;
 import gtl.stil.shape.Region;
 import gtl.stil.shape.Shape;
@@ -13,7 +13,7 @@ import java.util.Arrays;
 /**
  * Created by ZhenwenHe on 2016/12/7.
  */
-public class PointImpl extends VertexImp implements Point {
+public class PointImpl extends VertexImpl implements Point {
 
     public PointImpl(){
         super();
@@ -32,9 +32,7 @@ public class PointImpl extends VertexImp implements Point {
 
     @Override
     public Object clone() {
-        double [] td = new double [super.getCoordinates().length];
-        System.arraycopy(super.getCoordinates(),0,td,0,td.length);
-        return new PointImpl(td);
+        return new PointImpl(this.getCoordinates());
     }
 
     @Override

@@ -30,7 +30,11 @@
       <file leaf-file-name="IdentifierImpl.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/gtl/stil/impl/IdentifierImpl.java">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="2112">
+=======
+            <state relative-caret-position="395">
+>>>>>>> 44cc10a02bb3976dc66d4f1d64ceb1426faa3597
               <caret line="120" column="0" selection-start-line="120" selection-start-column="0" selection-end-line="120" selection-end-column="0" />
               <folding />
             </state>
@@ -50,8 +54,13 @@
       <file leaf-file-name="RegionImpl.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/gtl/stil/shape/impl/RegionImpl.java">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="2289">
               <caret line="264" column="17" selection-start-line="264" selection-start-column="17" selection-end-line="264" selection-end-column="17" />
+=======
+            <state relative-caret-position="-380">
+              <caret line="204" column="132" selection-start-line="204" selection-start-column="132" selection-end-line="204" selection-end-column="132" />
+>>>>>>> 44cc10a02bb3976dc66d4f1d64ceb1426faa3597
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#6296#6297#0" expanded="true" />
@@ -1009,11 +1018,26 @@
       <workItem from="1481768297300" duration="11351000" />
       <workItem from="1481792587842" duration="26000" />
       <workItem from="1481811836933" duration="266000" />
+<<<<<<< HEAD
       <workItem from="1481855901936" duration="4048000" />
+=======
+>>>>>>> 44cc10a02bb3976dc66d4f1d64ceb1426faa3597
     </task>
     <servers />
   </component>
   <component name="TestHistory">
+<<<<<<< HEAD
+=======
+    <history-entry file="VertexImplTest - 2016.12.15 at 11h 16m 36s.xml">
+      <configuration name="VertexImplTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="VertexImplTest - 2016.12.15 at 11h 16m 47s.xml">
+      <configuration name="VertexImplTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="VertexImplTest - 2016.12.15 at 11h 28m 45s.xml">
+      <configuration name="VertexImplTest" configurationId="JUnit" />
+    </history-entry>
+>>>>>>> 44cc10a02bb3976dc66d4f1d64ceb1426faa3597
     <history-entry file="VertexImplTest - 2016.12.15 at 11h 29m 15s.xml">
       <configuration name="VertexImplTest" configurationId="JUnit" />
     </history-entry>
@@ -1046,7 +1070,11 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
     <option name="totallyTimeSpent" value="101466000" />
+=======
+    <option name="totallyTimeSpent" value="97418000" />
+>>>>>>> 44cc10a02bb3976dc66d4f1d64ceb1426faa3597
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1073,7 +1101,11 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+<<<<<<< HEAD
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17552084" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+=======
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2795699" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+>>>>>>> 44cc10a02bb3976dc66d4f1d64ceb1426faa3597
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24973205" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1368,16 +1400,26 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/gtl/stil/shape/impl/LineSegmentImpl.java">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="1144">
           <caret line="61" column="5" selection-start-line="61" selection-start-column="5" selection-end-line="61" selection-end-column="5" />
           <folding />
+=======
+        <state relative-caret-position="132">
+          <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
+>>>>>>> 44cc10a02bb3976dc66d4f1d64ceb1426faa3597
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/gtl/stil/impl/IdentifierImpl.java">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="2112">
           <caret line="120" column="0" selection-start-line="120" selection-start-column="0" selection-end-line="120" selection-end-column="0" />
+=======
+        <state relative-caret-position="375">
+          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+>>>>>>> 44cc10a02bb3976dc66d4f1d64ceb1426faa3597
           <folding />
         </state>
       </provider>

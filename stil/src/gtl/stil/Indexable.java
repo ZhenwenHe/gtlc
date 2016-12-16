@@ -7,7 +7,7 @@ import gtl.stil.shape.Shape;
  * Created by ZhenwenHe on 2016/12/6.
  */
 public interface Indexable {
-    void insert(int len, byte[] pData, Shape shape, Identifier shapeIdentifier);
+    void insert(byte[] pData, Shape shape, Identifier shapeIdentifier);
     boolean delete(Shape shape, Identifier shapeIdentifier);
     void contains(Shape query, Visitor  v);
     void intersects(Shape query, Visitor  v);

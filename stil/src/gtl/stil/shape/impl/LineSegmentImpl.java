@@ -222,7 +222,7 @@ public class LineSegmentImpl implements LineSegment {
         // clockwise.
         double d1 = this.getRelativeMinimumDistance(IndexSuits.createPoint(r.getLowCoordinates()));
 
-        double []  coords=new double [this.getDimension()];
+        double []  coords = new double [this.getDimension()];
         coords[0] = r.getLowCoordinate(0);
         coords[1] = r.getHighCoordinate(1);
         double d2 = getRelativeMinimumDistance(IndexSuits.createPoint(coords));
@@ -342,12 +342,11 @@ public class LineSegmentImpl implements LineSegment {
 
     //some helpers for intersects methods
     protected static double doubleAreaTriangle( Point a,  Point b,  Point c){
-		/*
-		double *pA, *pB, *pC;
-    pA = a.m_pCoords; pB = b.m_pCoords; pC = c.m_pCoords;
-    return (((pB[0] - pA[0]) * (pC[1] - pA[1])) - ((pC[0] - pA[0]) * (pB[1] - pA[1])));
-	*/
-        return 0;
+        double [] pA=a.getCoordinates();
+        double[] pB=b.getCoordinates();
+        double [] pC=c.getCoordinates();
+
+        return (((pB[0] - pA[0]) * (pC[1] - pA[1])) - ((pC[0] - pA[0]) * (pB[1] - pA[1])));
     }
     protected static boolean leftOf( Point a,  Point b,  Point c){
         return (doubleAreaTriangle(a, b, c) > 0);
@@ -356,36 +355,33 @@ public class LineSegmentImpl implements LineSegment {
         return (doubleAreaTriangle(a, b, c) == 0);
     }
     protected static boolean between( Point a,  Point b,  Point c){
-		/*
+
 		if ( !collinear(a, b, c) ) {
-        return false;
-    }
-    double *pA, *pB, *pC;
-    pA = a.m_pCoords; pB = b.m_pCoords; pC = c.m_pCoords;
-    if ( pA[0] != pB[0] ) { // a & b are not on the same vertical, compare on x axis
-        return  between(pA[0], pB[0], pC[0]);
-    } else { // a & b are a vertical segment, we need to compare on y axis
-        return between(pA[1], pB[1], pC[1]);
-    }
-	*/
-        return false;
+            return false;
+        }
+        double [] pA=a.getCoordinates();
+        double[] pB=b.getCoordinates();
+        double [] pC=c.getCoordinates();
+        if ( pA[0] != pB[0] ) { // a & b are not on the same vertical, compare on x axis
+            return  between(pA[0], pB[0], pC[0]);
+        } else { // a & b are a vertical segment, we need to compare on y axis
+            return between(pA[1], pB[1], pC[1]);
+        }
     }
     protected static boolean between(double a, double b, double c){
         return ( ((a <= c) && (c <= b)) || ((a >= c) && (c >= b)) );
     }
     protected static boolean intersectsProper( Point  a,  Point  b,  Point  c,  Point  d){
-        /*
+
         if ( collinear(a, b, c) || collinear(a, b, d) ||
          collinear(c, d, a) || collinear(c, d, b)) {
 			return false;
 		}
 
 		return ((leftOf(a, b, c) ^ leftOf(a, b, d)) && (leftOf(c, d, a) ^ leftOf(c, d, b)));
-		*/
-        return false;
     }
     protected static boolean intersects( Point a,  Point b,  Point c,  Point d){
-		/*
+
 		if (intersectsProper(a, b, c, d)) {
 			return true;
 		} 
@@ -396,8 +392,6 @@ public class LineSegmentImpl implements LineSegment {
 		else { 
 			return false;
 		}
-		*/        return false;
+
     }
-
-
 }

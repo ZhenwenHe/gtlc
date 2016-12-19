@@ -11,6 +11,77 @@ public class StatisticsImpl implements gtl.stil.Statistics{
         reset();
     }
 
+    public void setReadTimes(long readTimes) {
+        this.readTimes = readTimes;
+    }
+
+    public void setWriteTimes(long writeTimes) {
+        this.writeTimes = writeTimes;
+    }
+
+    public long getSplitTimes() {
+        return splitTimes;
+    }
+
+    public void setSplitTimes(long splitTimes) {
+        this.splitTimes = splitTimes;
+    }
+
+    public long getHits() {
+        return hits;
+    }
+
+    public void setHits(long hits) {
+        this.hits = hits;
+    }
+
+    public long getMisses() {
+        return misses;
+    }
+
+    public void setMisses(long misses) {
+        this.misses = misses;
+    }
+
+    public void setNodeNumber(long nodeNumber) {
+        this.nodeNumber = nodeNumber;
+    }
+
+    public long getAdjustments() {
+        return adjustments;
+    }
+
+    public void setAdjustments(long adjustments) {
+        this.adjustments = adjustments;
+    }
+
+    public long getQueryResults() {
+        return queryResults;
+    }
+
+    public void setQueryResults(long queryResults) {
+        this.queryResults = queryResults;
+    }
+
+    public void setDataNumber(long dataNumber) {
+        this.dataNumber = dataNumber;
+    }
+
+    public long getTreeHeight() {
+        return treeHeight;
+    }
+
+    public void setTreeHeight(long treeHeight) {
+        this.treeHeight = treeHeight;
+    }
+
+    public ArrayList<Long> getNodeInLevelNumber() {
+        return nodeInLevelNumber;
+    }
+
+    public void setNodeInLevelNumber(ArrayList<Long> nodeInLevelNumber) {
+        this.nodeInLevelNumber = nodeInLevelNumber;
+    }
 
     @Override
     public long getReadTimes() {
@@ -49,7 +120,6 @@ public class StatisticsImpl implements gtl.stil.Statistics{
             this.dataNumber = s.dataNumber;
             this.treeHeight=s.treeHeight;
             this.nodeInLevelNumber = new ArrayList<Long>(s.nodeInLevelNumber);
-
         }
     }
 

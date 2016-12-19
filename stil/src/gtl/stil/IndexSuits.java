@@ -4,8 +4,10 @@ import gtl.stil.impl.EnvelopeImpl;
 import gtl.stil.impl.VertexImpl;
 import gtl.stil.shape.LineSegment;
 import gtl.stil.shape.Point;
+import gtl.stil.shape.Region;
 import gtl.stil.shape.impl.LineSegmentImpl;
 import gtl.stil.shape.impl.PointImpl;
+import gtl.stil.shape.impl.RegionImpl;
 import gtl.stil.storage.BufferedStorageManager;
 import gtl.stil.storage.StorageManager;
 import gtl.stil.storage.impl.DiskStorageManager;
@@ -27,12 +29,18 @@ public class IndexSuits {
     public static Envelope createEnvelope(){
         return new EnvelopeImpl();
     }
+    public static Envelope[] createEnvelopeArray(int size){
+        return new EnvelopeImpl[size];
+    }
     public static Envelope createEnvelope(double [] low, double [] high){
         return new EnvelopeImpl(low,high);
     }
 
     public static Identifier createIdentifier(long v){
         return new IdentifierImpl(v);
+    }
+    public static Identifier[] createIdentifierArray(int size){
+        return new IdentifierImpl[size];
     }
 
     public static LineSegment createLineSegment(Vertex s,Vertex e){
@@ -46,6 +54,19 @@ public class IndexSuits {
     }
     public static Point createPoint(double x,double y){
         return new PointImpl(x,y);
+    }
+    public static Point[] createPointArray(int size ){
+        return new PointImpl[size];
+    }
+
+    public static Region createRegion(){
+        return new RegionImpl();
+    }
+    public static Region createRegion(double [] low, double [] high){
+        return new RegionImpl(low,high);
+    }
+    public static Region[] createRegionArray(int size){
+        return new  RegionImpl[size];
     }
 
     public static StorageManager createDiskStorageManager(String baseName, int pageSize, boolean overWrite) throws IOException {
@@ -67,5 +88,8 @@ public class IndexSuits {
     }
     public static Vertex createVertex(double x,double y,double z){
         return new VertexImpl(x,y,z);
+    }
+    public static Vertex[] createVertex(int size){
+        return new VertexImpl[size];
     }
 }

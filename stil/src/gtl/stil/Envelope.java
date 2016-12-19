@@ -9,6 +9,8 @@ public interface Envelope extends Serializable{
     double[] getHighCoordinates();
     double getLowCoordinate(int i);
     double getHighCoordinate(int i);
+    void setLowCoordinate(int i,double d);
+    void setHighCoordinate(int i,double d);
     void makeInfinite(int dimension);
     void makeDimension(int dimension);
     void reset(double[] low, double [] high, int dimension);

@@ -20,4 +20,5 @@ public interface Indexable {
     void addCommand(Command in, CommandType ct);
     boolean isValid();
     Statistics getStatistics( );
+    int getDimension();
 }

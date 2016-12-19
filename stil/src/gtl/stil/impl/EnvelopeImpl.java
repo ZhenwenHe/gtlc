@@ -111,6 +111,16 @@ public class EnvelopeImpl implements Envelope {
     }
 
     @Override
+    public void setLowCoordinate(int i, double d) {
+        this.low[i]=d;
+    }
+
+    @Override
+    public void setHighCoordinate(int i, double d) {
+        this.high[i]=d;
+    }
+
+    @Override
     public void reset(double[] low, double[] high, int dimension) {
         dimension = Math.min(Math.min(low.length,high.length),dimension);
         this.low=new double [dimension];

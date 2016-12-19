@@ -1,4 +1,4 @@
-package gtl.stil;
+package gtl.stil.shape;
 
 import gtl.stil.shape.Region;
 

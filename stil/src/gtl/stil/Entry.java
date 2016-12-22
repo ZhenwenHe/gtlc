@@ -8,4 +8,5 @@ import gtl.stil.shape.Shape;
 public interface Entry extends Serializable{
     Identifier getIdentifier() ;
     Shape getShape( ) ;
+
 }

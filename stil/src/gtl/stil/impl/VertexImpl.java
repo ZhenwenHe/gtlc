@@ -100,6 +100,7 @@ public class VertexImpl implements Vertex {
         for(int i=0;i<dims;i++) {
             this.coordinates[i] = dis.readDouble();
         }
+        dis.close();
         return true;
     }
 

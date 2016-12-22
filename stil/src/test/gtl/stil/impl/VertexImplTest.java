@@ -6,6 +6,10 @@ import junit.framework.Assert;
 import junit.framework.TestCase;
 
 import java.awt.geom.Arc2D;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
 import java.util.ArrayList;
 
 /**
@@ -90,7 +94,32 @@ public class VertexImplTest extends TestCase {
     }
 
     public void testWrite() throws Exception {
-
+        ByteArrayOutputStream baos = new ByteArrayOutputStream(1024);
+        DataOutputStream dos = new DataOutputStream(baos);
+        dos.writeInt(987654);
+        Vertex v = IndexSuits.createVertex(1.0,1.0);
+        v.write(baos);
+        v = IndexSuits.createVertex(2.0,2.0);
+        v.write(baos);
+        v = IndexSuits.createVertex(3.0,3.0);
+        v.write(baos);
+        dos.writeInt(456789);
+        dos.close();
+        byte[] data = baos.toByteArray();
+        ByteArrayInputStream bios = new ByteArrayInputStream(data);
+        DataInputStream dis =new DataInputStream(bios);
+        System.out.println(dis.readInt());
+        Vertex v1 = IndexSuits.createVertex(9.0,9.0,9.0);
+        v1.read(bios);
+        System.out.println(v1);
+        v1 = IndexSuits.createVertex(9.0,9.0,9.0);
+        v1.read(bios);
+        System.out.println(v1);
+        v1 = IndexSuits.createVertex(9.0,9.0,9.0);
+        v1.read(bios);
+        System.out.println(v1);
+        System.out.println(dis.readInt());
+        dis.close();
     }
 
     public void testGetByteArraySize() throws Exception {

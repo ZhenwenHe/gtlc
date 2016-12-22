@@ -6,9 +6,7 @@ import gtl.stil.Node;
 import gtl.stil.shape.Region;
 import gtl.stil.shape.Shape;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Stack;
 
@@ -30,7 +28,6 @@ public abstract  class NodeImpl implements Node {
         this.m_totalDataLength=0;
 
         this.m_nodeMBR.makeInfinite(this.m_pTree.getDimension());
-        this.m_nodeMBR.makeInfinite(this.m_pTree.getDimension());
         this.m_pData = new byte[this.m_capacity + 1][];
         m_ptrMBR = IndexSuits.createRegionArray(m_capacity + 1);
         m_pIdentifier = IndexSuits.createIdentifierArray(m_capacity + 1);
@@ -38,15 +35,16 @@ public abstract  class NodeImpl implements Node {
 
     public NodeImpl() {
         this.m_pTree = null;
-        this.m_identifier= null;
+        this.m_identifier= IndexSuits.createIdentifier(-1);
         this.m_level=0;
-        this.m_capacity=0;
+        this.m_capacity=32;
+        this.m_totalDataLength=0;
 
         this.m_children=0;
-        this.m_pData =null;
-        this.m_ptrMBR=null;
-        this.m_pIdentifier=null;
-        this.m_totalDataLength=0;
+        this.m_nodeMBR.makeInfinite(this.m_pTree.getDimension());
+        this.m_pData = new byte[this.m_capacity + 1][];
+        m_ptrMBR = IndexSuits.createRegionArray(m_capacity + 1);
+        m_pIdentifier = IndexSuits.createIdentifierArray(m_capacity + 1);
     }
 
     RTreeImpl m_pTree;
@@ -91,9 +89,7 @@ public abstract  class NodeImpl implements Node {
     }
 
     @Override
-    public Object clone() {
-        return null;
-    }
+    public abstract Object clone();
 
     @Override
     public Identifier getChildIdentifier(int index) {
@@ -110,12 +106,36 @@ public abstract  class NodeImpl implements Node {
 
     @Override
     public void copyFrom(Object i) {
-
+        if(i instanceof NodeImpl){
+            NodeImpl ni = ((NodeImpl)i);
+            this.m_pTree=ni.m_pTree;
+            this.m_level=ni.m_level;
+            this.m_identifier=(Identifier) ni.m_identifier.clone();
+            this.m_children =ni.m_children;
+            this.m_capacity=ni.m_capacity;
+            this.m_nodeMBR=(Region)(ni.m_nodeMBR.clone());
+            this.m_pData=IndexSuits.createByteArray(ni.m_pData);
+            this.m_ptrMBR=IndexSuits.createRegionArray(ni.m_ptrMBR);
+            this.m_pIdentifier= IndexSuits.createIdentifierArray(ni.m_pIdentifier);
+            this.m_totalDataLength=ni.m_totalDataLength;
+        }
     }
 
     @Override
     public void copyTo(Object i) {
-
+        if(i instanceof NodeImpl){
+            NodeImpl ni = ((NodeImpl)i);
+            ni.m_pTree=this.m_pTree;
+            ni.m_level=this.m_level;
+            ni.m_identifier=(Identifier) this.m_identifier.clone();
+            ni.m_children =this.m_children;
+            ni.m_capacity=this.m_capacity;
+            ni.m_nodeMBR=(Region)(this.m_nodeMBR.clone());
+            ni.m_pData=IndexSuits.createByteArray(this.m_pData);
+            ni.m_ptrMBR=IndexSuits.createRegionArray(this.m_ptrMBR);
+            ni.m_pIdentifier= IndexSuits.createIdentifierArray(this.m_pIdentifier);
+            ni.m_totalDataLength=this.m_totalDataLength;
+        }
     }
 
     @Override
@@ -129,9 +149,60 @@ public abstract  class NodeImpl implements Node {
 
     @Override
     public boolean read(InputStream in) throws IOException {
-        return false;
+        this.m_nodeMBR.makeInfinite(this.m_pTree.getDimension());
+        this.m_totalDataLength =0;
+        DataInputStream dis=new DataInputStream(in);
+        int nodeType = dis.readInt();//无用，直接舍弃
+        this.m_level=dis.readInt();
+        this.m_children=dis.readInt();
+        for (int u32Child = 0; u32Child < m_children; ++u32Child) {
+            if(this.m_ptrMBR[u32Child]==null){
+                this.m_ptrMBR[u32Child]=IndexSuits.createRegion();
+            }
+            this.m_ptrMBR[u32Child].read(in);
+            if(this.m_pIdentifier[u32Child]==null){
+                this.m_pIdentifier[u32Child]=IndexSuits.createIdentifier(-1);
+            }
+            this.m_pIdentifier[u32Child].read(in);
+            int len =dis.readInt();
+            this.m_pData[u32Child]=new byte[len];
+            dis.read(this.m_pData[u32Child]);
+            this.m_totalDataLength+=len;
+        }
+        this.m_nodeMBR.read(in);
+        dis.close();
+        return true;
     }
+    @Override
+    public boolean write(OutputStream out) throws IOException {
 
+        DataOutputStream dos =new DataOutputStream(out);
+
+        int nodeType;
+
+        if (m_level == 0)
+            nodeType = 1;//Index or internal node
+        else
+            nodeType = 2;//leaf node
+
+        dos.writeInt(nodeType);
+        dos.writeInt(this.m_level);
+        dos.writeInt(this.m_children);
+        dos.flush();
+
+        for (int u32Child = 0; u32Child < m_children; ++u32Child){
+            m_ptrMBR[u32Child].write(out);
+            m_pIdentifier[u32Child].write(out);
+            dos.writeInt(this.m_pData[u32Child].length);
+            dos.write(this.m_pData[u32Child]);
+        }
+
+        // store the node MBR for efficiency. This increases the node size a little bit.
+        this.m_nodeMBR.write(out);
+
+        dos.close();
+        return true;
+    }
     @Override
     public Shape getChildShape(int index) {
         if (index <= m_children)
@@ -145,10 +216,7 @@ public abstract  class NodeImpl implements Node {
         return m_level;
     }
 
-    @Override
-    public boolean write(OutputStream out) throws IOException {
-        return false;
-    }
+
 
     @Override
     public boolean isIndex() {
@@ -162,7 +230,15 @@ public abstract  class NodeImpl implements Node {
 
     @Override
     public long getByteArraySize() {
-        return 0;
+        long sum = 3*4;
+        for (int u32Child = 0; u32Child < this.m_children; ++u32Child){
+            sum+=this.m_ptrMBR[u32Child].getByteArraySize();
+            sum+=this.m_pIdentifier[u32Child].getByteArraySize();
+            sum+=4;
+        }
+        sum+=this.m_totalDataLength;
+        sum+=this.m_nodeMBR.getByteArraySize();
+        return sum;
     }
 
     void  insertEntry(byte[] pData, Region mbr, Identifier id)

@@ -23,6 +23,27 @@ import java.io.IOException;
 public class IndexSuits {
     public  static final double EPSILON = 1.0E-308;
     public  static final double M_PI_2 =1.57079632679489661922;
+
+    public static byte [] createByteArray(byte[] ba){
+        byte[] r = new byte[ba.length];
+        System.arraycopy(ba,0,r,0,r.length);
+        return r;
+    }
+    public static byte [] createByteArray(int size, byte defaultValue){
+        byte[] r = new byte[size];
+        for(int i=0;i<size;i++)
+            r[i]=defaultValue;
+        return r;
+    }
+    public static byte [][] createByteArray(byte[][] baa){
+        byte[][] r = new byte[baa.length][];
+        for(int i=0;i<baa.length;i++){
+            r[i]=new byte[baa[i].length];
+            System.arraycopy(baa[i],0,r[i],0,baa[i].length);
+        }
+        return r;
+    }
+
     public static BufferedStorageManager createBufferedStorageManager(StorageManager storageManager, int capacity, boolean writeThrough){
         return new BufferedStorageManagerImpl(storageManager,  capacity,  writeThrough);
     }
@@ -41,6 +62,13 @@ public class IndexSuits {
     }
     public static Identifier[] createIdentifierArray(int size){
         return new IdentifierImpl[size];
+    }
+    public static Identifier[] createIdentifierArray(Identifier[] c ){
+        Identifier[] r= new  IdentifierImpl[c.length];
+        for(int i=0;i<r.length;i++){
+            r[i]=(Identifier) c[i].clone();
+        }
+        return r;
     }
 
     public static LineSegment createLineSegment(Vertex s,Vertex e){
@@ -67,6 +95,13 @@ public class IndexSuits {
     }
     public static Region[] createRegionArray(int size){
         return new  RegionImpl[size];
+    }
+    public static Region[] createRegionArray(Region[] c ){
+        Region[] r= new  RegionImpl[c.length];
+        for(int i=0;i<r.length;i++){
+            r[i]=(Region) c[i].clone();
+        }
+        return r;
     }
 
     public static StorageManager createDiskStorageManager(String baseName, int pageSize, boolean overWrite) throws IOException {

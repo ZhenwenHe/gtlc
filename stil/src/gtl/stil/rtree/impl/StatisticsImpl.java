@@ -75,14 +75,20 @@ public class StatisticsImpl implements gtl.stil.Statistics{
         this.treeHeight = treeHeight;
     }
 
-    public ArrayList<Long> getNodeInLevelNumber() {
-        return nodeInLevelNumber;
+    public ArrayList<Long> getNodeNumberInLevelArray() {
+        return nodeNumberInLevelArray;
     }
 
-    public void setNodeInLevelNumber(ArrayList<Long> nodeInLevelNumber) {
-        this.nodeInLevelNumber = nodeInLevelNumber;
+    public void setNodeNumberInLevelArray(ArrayList<Long> nodeNumberInLevelArray) {
+        this.nodeNumberInLevelArray = nodeNumberInLevelArray;
     }
 
+    public long getNodeNumberInLevel(int level) {
+        return nodeNumberInLevelArray.get(level);
+    }
+    public void setNodeNumberInLevel(int level,long numb) {
+        nodeNumberInLevelArray.set(level,numb);
+    }
     @Override
     public long getReadTimes() {
         return this.readTimes;
@@ -119,7 +125,7 @@ public class StatisticsImpl implements gtl.stil.Statistics{
             this.queryResults = s.queryResults;
             this.dataNumber = s.dataNumber;
             this.treeHeight=s.treeHeight;
-            this.nodeInLevelNumber = new ArrayList<Long>(s.nodeInLevelNumber);
+            this.nodeNumberInLevelArray = new ArrayList<Long>(s.nodeNumberInLevelArray);
         }
     }
 
@@ -142,7 +148,7 @@ public class StatisticsImpl implements gtl.stil.Statistics{
             s.queryResults = this.queryResults;
             s.dataNumber = this.dataNumber;
             s.treeHeight=this.treeHeight;
-            s.nodeInLevelNumber = new ArrayList<Long>(this.nodeInLevelNumber);
+            s.nodeNumberInLevelArray = new ArrayList<Long>(this.nodeNumberInLevelArray);
         }
     }
 
@@ -161,7 +167,7 @@ public class StatisticsImpl implements gtl.stil.Statistics{
         this.treeHeight=dis.readLong();
         int s = dis.readInt();
         for(int i=0;i<s;i++){
-            this.nodeInLevelNumber.add(Long.valueOf(dis.readLong()));
+            this.nodeNumberInLevelArray.add(Long.valueOf(dis.readLong()));
         }
         dis.close();
         return true;
@@ -180,9 +186,9 @@ public class StatisticsImpl implements gtl.stil.Statistics{
         dos.writeLong(this.queryResults);
         dos.writeLong(this.dataNumber);
         dos.writeLong(this.treeHeight);
-        int s = this.nodeInLevelNumber.size();
+        int s = this.nodeNumberInLevelArray.size();
         dos.writeInt(s);
-        for(Long i: this.nodeInLevelNumber){
+        for(Long i: this.nodeNumberInLevelArray){
             dos.writeLong(i);
         }
         dos.close();
@@ -192,7 +198,7 @@ public class StatisticsImpl implements gtl.stil.Statistics{
 
     @Override
     public long getByteArraySize() {
-        return (10+this.nodeInLevelNumber.size())*8+4;
+        return (10+this.nodeNumberInLevelArray.size())*8+4;
     }
 
     @Override
@@ -207,7 +213,7 @@ public class StatisticsImpl implements gtl.stil.Statistics{
         queryResults=0;
         dataNumber=0;
         treeHeight=0;
-        nodeInLevelNumber=new ArrayList<Long> ();
+        nodeNumberInLevelArray =new ArrayList<Long> ();
     }
 
 
@@ -231,5 +237,5 @@ public class StatisticsImpl implements gtl.stil.Statistics{
 
     long treeHeight;
 
-    ArrayList<Long> nodeInLevelNumber;
+    ArrayList<Long> nodeNumberInLevelArray;
 }

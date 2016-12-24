@@ -1,5 +1,6 @@
 package gtl.stil.rtree.impl;
 
+import gtl.stil.ExternalNode;
 import gtl.stil.Identifier;
 import gtl.stil.Node;
 import gtl.stil.shape.Region;
@@ -9,7 +10,7 @@ import java.util.Stack;
 /**
  * Created by ZhenwenHe on 2016/12/22.
  */
-public class LeafImpl extends NodeImpl {
+public class ExternalNodeImpl extends NodeImpl implements ExternalNode{
     @Override
     Node chooseSubtree(Region mbr, int level, Stack<Identifier> pathBuffer) {
         return null;
@@ -21,11 +22,16 @@ public class LeafImpl extends NodeImpl {
     }
 
     @Override
-    void split(byte[] pData, Region mbr, Identifier id, Node left, Node right) {
-
+    public Node[] split(byte[] pData, Region mbr, Identifier id ) {
+        return null;
     }
 
     void deleteData(Identifier id, Stack<Identifier> pathBuffer){
 
+    }
+
+    @Override
+    public Object clone() {
+        return null;
     }
 }

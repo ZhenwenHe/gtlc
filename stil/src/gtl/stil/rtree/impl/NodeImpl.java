@@ -1,14 +1,17 @@
 package gtl.stil.rtree.impl;
 
-import gtl.stil.Identifier;
-import gtl.stil.IndexSuits;
-import gtl.stil.Node;
+import gtl.stil.*;
+import gtl.stil.rtree.RTreeVariant;
+import gtl.stil.shape.Point;
 import gtl.stil.shape.Region;
 import gtl.stil.shape.Shape;
+import gtl.stil.shape.impl.RegionImpl;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.Stack;
+import java.util.concurrent.atomic.DoubleAccumulator;
 
 /**
  * Created by ZhenwenHe on 2016/12/19.
@@ -27,6 +30,7 @@ public abstract  class NodeImpl implements Node {
         this.m_pIdentifier=null;
         this.m_totalDataLength=0;
 
+        this.m_nodeMBR=new RegionImpl();
         this.m_nodeMBR.makeInfinite(this.m_pTree.getDimension());
         this.m_pData = new byte[this.m_capacity + 1][];
         m_ptrMBR = IndexSuits.createRegionArray(m_capacity + 1);
@@ -41,6 +45,7 @@ public abstract  class NodeImpl implements Node {
         this.m_totalDataLength=0;
 
         this.m_children=0;
+        this.m_nodeMBR=new RegionImpl();
         this.m_nodeMBR.makeInfinite(this.m_pTree.getDimension());
         this.m_pData = new byte[this.m_capacity + 1][];
         m_ptrMBR = IndexSuits.createRegionArray(m_capacity + 1);
@@ -216,8 +221,6 @@ public abstract  class NodeImpl implements Node {
         return m_level;
     }
 
-
-
     @Override
     public boolean isIndex() {
         return (m_level != 0);
@@ -225,6 +228,16 @@ public abstract  class NodeImpl implements Node {
 
     @Override
     public boolean isLeaf() {
+        return (m_level == 0);
+    }
+
+    @Override
+    public boolean isInternalNode() {
+        return (m_level != 0);
+    }
+
+    @Override
+    public boolean isExternalNode() {
         return (m_level == 0);
     }
 
@@ -292,20 +305,448 @@ public abstract  class NodeImpl implements Node {
     }
 
     boolean insertData(byte[] pData, Region mbr, Identifier id, Stack<Identifier> pathBuffer, byte[] overflowTable) {
-        return false;
+        // 如果子节点个数小于容量
+        if (m_children < m_capacity){
+            boolean adjusted = false;
+
+            // this has to happen before insertEntry modifies m_nodeMBR.
+            boolean b = this.m_nodeMBR.containsRegion(mbr);
+
+            this.insertEntry( pData, mbr, id);
+            this.m_pTree.writeNode(this);
+
+            if ((! b) && (! pathBuffer.empty())){
+                Identifier cParent = pathBuffer.pop();
+                Node ptrN = this.m_pTree.readNode(cParent);
+                InternalNodeImpl p = (InternalNodeImpl)(ptrN);
+                p.adjustTree(this, pathBuffer);
+                adjusted = true;
+            }
+            return adjusted;
+        }
+        else if (this.m_pTree.m_treeVariant == RTreeVariant.RV_RSTAR && (! pathBuffer.empty()) && overflowTable[m_level] == 0)
+        {
+            overflowTable[m_level] = 1;
+
+            ArrayList<Integer> vReinsert=new ArrayList<Integer>();
+            ArrayList<Integer>  vKeep=new ArrayList<Integer>();
+            this.reinsertData(pData, mbr, id, vReinsert, vKeep);
+
+            int lReinsert = vReinsert.size();
+            int lKeep = vKeep.size();
+
+            byte[][] reinsertdata = null;
+            Region[] reinsertmbr = null;
+            Identifier[] reinsertid = null;
+
+            byte[][] keepdata = null;
+            Region[] keepmbr =null;
+            Identifier []keepid =null;
+
+
+            reinsertdata = new byte[lReinsert][];
+            reinsertmbr = new Region[lReinsert];
+            reinsertid = new Identifier[lReinsert];
+
+            keepdata = new byte[m_capacity + 1][];
+            keepmbr = new Region[m_capacity + 1];
+            keepid = new Identifier[m_capacity + 1];
+
+
+
+            int cIndex;
+
+            for (cIndex = 0; cIndex < lReinsert; ++cIndex){
+                reinsertdata[cIndex] = m_pData[vReinsert.get(cIndex)];
+                reinsertmbr[cIndex] = m_ptrMBR[vReinsert.get(cIndex)];
+                reinsertid[cIndex] = m_pIdentifier[vReinsert.get(cIndex)];
+            }
+
+            for (cIndex = 0; cIndex < lKeep; ++cIndex){
+                keepdata[cIndex] = m_pData[vKeep.get(cIndex)];
+                keepmbr[cIndex] = m_ptrMBR[vKeep.get(cIndex)];
+                keepid[cIndex] = m_pIdentifier[vKeep.get(cIndex)];
+            }
+
+            this.m_pData = keepdata;
+            this.m_ptrMBR = keepmbr;
+            this.m_pIdentifier = keepid;
+            this.m_children = lKeep;
+            this.m_totalDataLength = 0;
+
+            for (int u32Child = 0; u32Child < this.m_children; ++u32Child)
+                this.m_totalDataLength += keepdata[u32Child].length;
+
+            for (int cDim = 0; cDim < this.m_nodeMBR.getDimension(); ++cDim){
+                //m_nodeMBR.m_pLow[cDim] = std::numeric_limits<double>::max();
+                this.m_nodeMBR.setLowCoordinate(cDim,Double.MAX_VALUE);
+                //m_nodeMBR.m_pHigh[cDim] = -std::numeric_limits<double>::max();
+                this.m_nodeMBR.setHighCoordinate(cDim, Double.MAX_VALUE);
+
+                for (int u32Child = 0; u32Child < this.m_children; ++u32Child){
+                    //m_nodeMBR.m_pLow[cDim] = std::min(m_nodeMBR.m_pLow[cDim], m_ptrMBR[u32Child]->m_pLow[cDim]);
+                    this.m_nodeMBR.setLowCoordinate(cDim,Math.min(this.m_nodeMBR.getLowCoordinate(cDim),this.m_ptrMBR[u32Child].getLowCoordinate(cDim)));
+                    //m_nodeMBR.m_pHigh[cDim] = std::max(m_nodeMBR.m_pHigh[cDim], m_ptrMBR[u32Child]->m_pHigh[cDim]);
+                    this.m_nodeMBR.setHighCoordinate(cDim,Math.max(this.m_nodeMBR.getHighCoordinate(cDim),this.m_ptrMBR[u32Child].getHighCoordinate(cDim)));
+                }
+            }
+
+            this.m_pTree.writeNode(this);
+
+            // Divertion from R*-Tree algorithm here. First adjust
+            // the path to the root, then start reinserts, to avoid complicated handling
+            // of changes to the same node from multiple insertions.
+            Identifier cParent = pathBuffer.pop();
+            Node ptrN = this.m_pTree.readNode(cParent);
+            InternalNodeImpl p = (InternalNodeImpl)ptrN;
+            p.adjustTree(this, pathBuffer);
+
+            for (cIndex = 0; cIndex < lReinsert; ++cIndex){
+                this.m_pTree.insertData_impl(
+                        reinsertdata[cIndex],
+                        reinsertmbr[cIndex], reinsertid[cIndex],
+                        m_level, overflowTable);
+            }
+
+            return true;
+        }
+        else  {
+            Node [] nodes = split(pData,mbr,id);
+            NodeImpl n=(NodeImpl)nodes[0];
+            NodeImpl nn=(NodeImpl)nodes[1];
+
+            if (pathBuffer.empty()){
+                n.m_level = m_level;
+                nn.m_level = m_level;
+                n.m_identifier.reset(-1);
+                nn.m_identifier.reset(-1);
+                m_pTree.writeNode(n);
+                m_pTree.writeNode(nn);
+
+                NodeImpl ptrR = new InternalNodeImpl(this.m_pTree,m_pTree.m_rootID,m_level+1);
+
+                ptrR.insertEntry(null, n.m_nodeMBR, n.m_identifier);
+                ptrR.insertEntry(null, nn.m_nodeMBR, nn.m_identifier);
+
+                m_pTree.writeNode(ptrR);
+
+                StatisticsImpl s =(StatisticsImpl) (m_pTree.m_stats);
+                s.setNodeNumberInLevel(m_level,2L);
+                m_pTree.m_stats.getNodeNumberInLevelArray().add(1L);
+                m_pTree.m_stats.setTreeHeight(m_level + 2);
+            }
+            else {
+                n.m_level = this.m_level;
+                nn.m_level = this.m_level;
+                n.m_identifier.reset(this.m_identifier.longValue());
+                nn.m_identifier.reset(-1L);
+
+                m_pTree.writeNode(n);
+                m_pTree.writeNode(nn);
+
+                Identifier cParent =  pathBuffer.pop();
+                InternalNodeImpl ptrN =(InternalNodeImpl) m_pTree.readNode(cParent);
+                ptrN.adjustTree(n, nn, pathBuffer, overflowTable);
+            }
+
+            return true;
+        }
     }
 
 
     void reinsertData(byte[] pData, Region mbr, Identifier id, ArrayList<Integer> reinsert, ArrayList<Integer> keep){
+        ReinsertEntry[]v = new ReinsertEntry[m_capacity + 1];
 
+        m_pData[m_children] = pData;
+        m_ptrMBR[m_children] = (Region) mbr.clone();
+        m_pIdentifier[m_children]=(Identifier) id.clone();
+
+
+        Point nc =m_nodeMBR.getCenter();
+        Point c = IndexSuits.createPoint();
+
+        for (int u32Child = 0; u32Child < m_capacity + 1; ++u32Child){
+            v[u32Child] = new ReinsertEntry(u32Child, 0.0);
+            c=m_ptrMBR[u32Child].getCenter();
+
+            // calculate relative distance of every entry from the node MBR (ignore square root.)
+            for (int cDim = 0; cDim < m_nodeMBR.getDimension(); ++cDim){
+                double d = nc.getCoordinate(cDim) - c.getCoordinate(cDim);
+                v[u32Child].dist += d * d;
+            }
+        }
+
+        // sort by increasing order of distances.
+        java.util.Arrays.sort(v);
+
+        int cReinsert = (int)(Math.floor((m_capacity + 1) * m_pTree.m_reinsertFactor));
+
+        int cCount;
+
+        for (cCount = 0; cCount < cReinsert; ++cCount) {
+            reinsert.add(v[cCount].index);
+        }
+
+        for (cCount = cReinsert; cCount < m_capacity + 1; ++cCount){
+            keep.add(v[cCount].index);
+        }
     }
 
     void rtreeSplit(byte[] pData, Region mbr, Identifier id, ArrayList<Integer> group1, ArrayList<Integer> group2){
+        int u32Child;
+        int minimumLoad = (int)(Math.floor(m_capacity * m_pTree.m_fillFactor));
 
+        // use this mask array for marking visited entries.
+	    byte[] mask = new byte[m_capacity + 1];
+        java.util.Arrays.fill(mask,(byte)0);
+        // insert new data in the node for easier manipulation. Data arrays are always
+        // by one larger than node capacity.
+        m_pData[m_capacity] = pData;
+        m_ptrMBR[m_capacity] = (Region)mbr.clone();
+        m_pIdentifier[m_capacity].reset(id.longValue());
+        // m_totalDataLength does not need to be increased here.
+
+        // initialize each group with the seed entries.
+
+        int [] seeds=new int[2];
+        pickSeeds(seeds);
+        int seed1=seeds[0], seed2=seeds[2];
+        group1.add(seed1);
+        group2.add(seed2);
+
+        mask[seed1] = 1;
+        mask[seed2] = 1;
+
+        // find MBR of each group.
+        Region  mbr1 =(Region) m_ptrMBR[seed1].clone();
+        Region  mbr2 =(Region) m_ptrMBR[seed2].clone();
+
+        // count how many entries are left unchecked (exclude the seeds here.)
+        int cRemaining = m_capacity + 1 - 2;
+
+        while (cRemaining > 0) {
+            if (minimumLoad - group1.size() == cRemaining){
+                // all remaining entries must be assigned to group1 to comply with minimun load requirement.
+                for (u32Child = 0; u32Child < m_capacity + 1; ++u32Child) {
+                    if (mask[u32Child] == 0){
+                        group1.add(u32Child);
+                        mask[u32Child] = 1;
+                        --cRemaining;
+                    }
+                }
+            }
+            else if (minimumLoad - group2.size() == cRemaining){
+                // all remaining entries must be assigned to group2 to comply with minimun load requirement.
+                for (u32Child = 0; u32Child < m_capacity + 1; ++u32Child){
+                    if (mask[u32Child] == 0){
+                        group2.add(u32Child);
+                        mask[u32Child] = 1;
+                        --cRemaining;
+                    }
+                }
+            }
+            else{
+                // For all remaining entries compute the difference of the cost of grouping an
+                // entry in either group. When done, choose the entry that yielded the maximum
+                // difference. In case of linear split, select any entry (e.g. the first one.)
+                int sel=0;
+                double md1 = 0.0, md2 = 0.0;
+                double m = -Double.MAX_VALUE;
+                double d1, d2, d;
+                double a1 = mbr1.getArea();
+                double a2 = mbr2.getArea();
+
+                Region a = null;
+                Region b = null;
+
+                for (u32Child = 0; u32Child < m_capacity + 1; ++u32Child){
+                    if (mask[u32Child] == 0){
+                        a=mbr1.getCombinedRegion(m_ptrMBR[u32Child]);
+                        d1 = a.getArea() - a1;
+                        b=mbr2.getCombinedRegion(m_ptrMBR[u32Child]);
+                        d2 = b.getArea() - a2;
+                        d = Math.abs(d1 - d2);
+
+                        if (d > m) {
+                            m = d;
+                            md1 = d1; md2 = d2;
+                            sel = u32Child;
+                            if (m_pTree.m_treeVariant== RTreeVariant.RV_LINEAR || m_pTree.m_treeVariant == RTreeVariant.RV_RSTAR)
+                                break;
+                        }
+                    }
+                }
+
+                // determine the group where we should add the new entry.
+                int group = -1;
+
+                if (md1 < md2) {
+                    group1.add(sel);
+                    group = 1;
+                }
+                else if (md2 < md1){
+                    group2.add(sel);
+                    group = 2;
+                }
+                else if (a1 < a2){
+                    group1.add(sel);
+                    group = 1;
+                }
+                else if (a2 < a1){
+                    group2.add(sel);
+                    group = 2;
+                }
+                else if (group1.size() < group2.size()){
+                    group1.add(sel);
+                    group = 1;
+                }
+                else if (group2.size() < group1.size()){
+                    group2.add(sel);
+                    group = 2;
+                }
+                else{
+                    group1.add(sel);
+                    group = 1;
+                }
+                mask[sel] = 1;
+                --cRemaining;
+                if (group == 1){
+                    mbr1.combineRegion(m_ptrMBR[sel]);
+                }
+                else {
+                    mbr2.combineRegion(m_ptrMBR[sel]);
+                }
+            }
+        }
     }
 
     void rstarSplit(byte[] pData, Region mbr, Identifier id, ArrayList<Integer> group1, ArrayList<Integer> group2){
+        RstarSplitEntry[] dataLow = new RstarSplitEntry[m_capacity + 1];
+        RstarSplitEntry[] dataHigh = new RstarSplitEntry[m_capacity + 1];
 
+        m_pData[m_capacity] = pData;
+        m_ptrMBR[m_capacity] = (Region) mbr.clone();
+        m_pIdentifier[m_capacity].reset(id.longValue());
+        // m_totalDataLength does not need to be increased here.
+
+        int nodeSPF =(int)( Math.floor((m_capacity + 1) * m_pTree.m_splitDistributionFactor));
+        int splitDistribution = (m_capacity + 1) - (2 * nodeSPF) + 2;
+
+        int u32Child = 0, cDim, cIndex;
+
+        for (u32Child = 0; u32Child <= m_capacity; ++u32Child) {
+            dataLow[u32Child] = new RstarSplitEntry(m_ptrMBR[u32Child], u32Child, 0);
+            dataHigh[u32Child] = dataLow[u32Child];
+        }
+
+        double minimumMargin = Double.MAX_VALUE;
+        int splitAxis = Integer.MAX_VALUE;
+        int sortOrder =  Integer.MAX_VALUE;
+
+        // chooseSplitAxis.
+        for (cDim = 0; cDim < m_pTree.m_dimension; ++cDim){
+            java.util.Arrays.sort(dataLow,new RstarSplitEntryLowComparator());
+            java.util.Arrays.sort(dataHigh,new RstarSplitEntryHighComparator());
+            // calculate sum of margins and overlap for all distributions.
+            double marginl = 0.0;
+            double marginh = 0.0;
+
+            Region bbl1=null, bbl2=null, bbh1=null, bbh2=null;
+
+            for (u32Child = 1; u32Child <= splitDistribution; ++u32Child){
+                int l = nodeSPF - 1 + u32Child;
+
+                bbl1 =(Region) (dataLow[0].region.clone());
+                bbh1 = (Region)(dataHigh[0].region.clone());
+
+                for (cIndex = 1; cIndex < l; ++cIndex){
+                    bbl1.combineRegion(dataLow[cIndex].region);
+                    bbh1.combineRegion(dataHigh[cIndex].region);
+                }
+
+                bbl2 = (Region) dataLow[l].region.clone();
+                bbh2 = (Region) dataHigh[l].region.clone();
+
+                for (cIndex = l + 1; cIndex <= m_capacity; ++cIndex){
+                    bbl2.combineRegion(dataLow[cIndex].region);
+                    bbh2.combineRegion(dataHigh[cIndex].region);
+                }
+
+                marginl += bbl1.getMargin() + bbl2.getMargin();
+                marginh += bbh1.getMargin() + bbh2.getMargin();
+            } // for (u32Child)
+
+            double margin = Math.min(marginl, marginh);
+
+            // keep minimum margin as split axis.
+            if (margin < minimumMargin){
+                minimumMargin = margin;
+                splitAxis = cDim;
+                sortOrder = (marginl < marginh) ? 0 : 1;
+            }
+
+            // increase the dimension according to which the data entries should be sorted.
+            for (u32Child = 0; u32Child <= m_capacity; ++u32Child){
+                dataLow[u32Child].sortDim = cDim + 1;
+            }
+        } // for (cDim)
+
+        for (u32Child = 0; u32Child <= m_capacity; ++u32Child){
+            dataLow[u32Child].sortDim= splitAxis;
+        }
+
+        if(sortOrder == 0)
+            java.util.Arrays.sort(dataLow,new RstarSplitEntryLowComparator());
+        else
+            java.util.Arrays.sort(dataLow,new RstarSplitEntryHighComparator());
+
+        double ma = Double.MAX_VALUE;
+        double mo = Double.MAX_VALUE;
+        int splitPoint = Integer.MAX_VALUE;
+        Region bb1=null, bb2=null;
+
+        for (u32Child = 1; u32Child <= splitDistribution; ++u32Child){
+            int l = nodeSPF - 1 + u32Child;
+
+            bb1 = (Region) dataLow[0].region.clone();
+
+            for (cIndex = 1; cIndex < l; ++cIndex){
+                bb1.combineRegion(dataLow[cIndex].region);
+            }
+
+            bb2 = (Region)dataLow[l].region.clone();
+
+            for (cIndex = l + 1; cIndex <= m_capacity; ++cIndex){
+                bb2.combineRegion(dataLow[cIndex].region);
+            }
+
+            double o = bb1.getIntersectingArea(bb2);
+
+            if (o < mo){
+                splitPoint = u32Child;
+                mo = o;
+                ma = bb1.getArea() + bb2.getArea();
+            }
+            else if (o == mo){
+                double a = bb1.getArea() + bb2.getArea();
+
+                if (a < ma)
+                {
+                    splitPoint = u32Child;
+                    ma = a;
+                }
+            }
+        } // for (u32Child)
+
+        int l1 = nodeSPF - 1 + splitPoint;
+
+        for (cIndex = 0; cIndex < l1; ++cIndex){
+            group1.add(dataLow[cIndex].index);
+        }
+
+        for (cIndex = l1; cIndex <= m_capacity; ++cIndex){
+            group2.add(dataLow[cIndex].index);
+        }
     }
 
     //为了能将参数传递进去，并将修改值带出来，采用数组实现
@@ -313,6 +754,73 @@ public abstract  class NodeImpl implements Node {
         int index1=indexes[0];
         int index2=indexes[1];
 
+        double separation = -Double.MAX_VALUE;
+        double inefficiency = -Double.MAX_VALUE;
+        int cDim, u32Child, cIndex;
+
+        switch (m_pTree.m_treeVariant) {
+            case RV_LINEAR:
+            case RV_RSTAR: {
+                for (cDim = 0; cDim < m_pTree.m_dimension; ++cDim) {
+                    double leastLower = m_ptrMBR[0].getLowCoordinate(cDim);
+                    double greatestUpper = m_ptrMBR[0].getHighCoordinate(cDim);
+                    int greatestLower = 0;
+                    int leastUpper = 0;
+                    double width;
+
+                    for (u32Child = 1; u32Child <= m_capacity; ++u32Child) {
+                        if (m_ptrMBR[u32Child].getLowCoordinate(cDim) > m_ptrMBR[greatestLower].getLowCoordinate(cDim))
+                            greatestLower = u32Child;
+                        if (m_ptrMBR[u32Child].getHighCoordinate(cDim) < m_ptrMBR[leastUpper].getHighCoordinate(cDim))
+                            leastUpper = u32Child;
+
+                        leastLower = Math.min(m_ptrMBR[u32Child].getLowCoordinate(cDim), leastLower);
+                        greatestUpper = Math.max(m_ptrMBR[u32Child].getHighCoordinate(cDim), greatestUpper);
+                    }
+
+                    width = greatestUpper - leastLower;
+                    if (width <= 0) width = 1;
+
+                    double f = (m_ptrMBR[greatestLower].getLowCoordinate(cDim) - m_ptrMBR[leastUpper].getHighCoordinate(cDim)) / width;
+
+                    if (f > separation) {
+                        index1 = leastUpper;
+                        index2 = greatestLower;
+                        separation = f;
+                    }
+                }  // for (cDim)
+
+                if (index1 == index2) {
+                    if (index2 == 0) ++index2;
+                    else --index2;
+                }
+
+                break;
+            }
+
+            case RV_QUADRATIC: {
+                // for each pair of Regions (account for overflow Region too!)
+                for (u32Child = 0; u32Child < m_capacity; ++u32Child) {
+                    double a = m_ptrMBR[u32Child].getArea();
+
+                    for (cIndex = u32Child + 1; cIndex <= m_capacity; ++cIndex) {
+                        // get the combined MBR of those two entries.
+                        Region r= m_ptrMBR[u32Child].getCombinedRegion( m_ptrMBR[cIndex]);
+
+                        // find the inefficiency of grouping these entries together.
+                        double d = r.getArea() - a - m_ptrMBR[cIndex].getArea();
+
+                        if (d > inefficiency) {
+                            inefficiency = d;
+                            index1 = u32Child;
+                            index2 = cIndex;
+                        }
+                    }  // for (cIndex)
+                } // for (u32Child)
+
+                break;
+            }
+        }
 
         //计算完后将得到的值传入数组带回
         indexes[0]=index1;
@@ -327,21 +835,43 @@ public abstract  class NodeImpl implements Node {
 
     abstract Node findLeaf(Region mbr, Identifier id, Stack<Identifier> pathBuffer);
 
-    abstract void split( byte[] pData, Region mbr, Identifier id, Node left, Node right) ;
+    //
+    public abstract Node[] split(byte[] pData, Region mbr, Identifier id ) ;
 
-    class RstarSplitEntry {
+    class RstarSplitEntry  {
         Region region;
         int index;
         int sortDim;
 
 
-        RstarSplitEntry(Region  v_region, int v_index, int v_dimension){
+        public RstarSplitEntry(Region  v_region, int v_index, int v_dimension){
             region =v_region;
             index =v_index;
             sortDim=v_dimension;
         }
     }; // RstarSplitEntry
-    class ReinsertEntry {
+    class RstarSplitEntryLowComparator implements Comparator<RstarSplitEntry> {
+        @Override
+        public int compare(RstarSplitEntry pe1, RstarSplitEntry pe2) {
+            assert(pe1.sortDim == pe2.sortDim);
+
+            if (pe1.region.getLowCoordinate(pe1.sortDim) < pe2.region.getLowCoordinate(pe2.sortDim)) return -1;
+            if (pe1.region.getLowCoordinate(pe1.sortDim) > pe2.region.getLowCoordinate(pe2.sortDim)) return 1;
+            return 0;
+        }
+    }
+    class RstarSplitEntryHighComparator implements Comparator<RstarSplitEntry>{
+        @Override
+        public int compare(RstarSplitEntry pe1, RstarSplitEntry pe2){
+
+            assert(pe1.sortDim == pe2.sortDim);
+
+            if (pe1.region.getHighCoordinate(pe1.sortDim) < pe2.region.getHighCoordinate(pe2.sortDim)) return -1;
+            if (pe1.region.getHighCoordinate(pe1.sortDim) > pe2.region.getHighCoordinate(pe2.sortDim)) return 1;
+            return 0;
+        }
+    }
+    class ReinsertEntry implements Comparable{
         int index;
         double dist;
 
@@ -349,28 +879,13 @@ public abstract  class NodeImpl implements Node {
             index =v_index;
             dist =v_dist;
         }
+
+        @Override
+        public int compareTo(Object o) {
+            ReinsertEntry pe2=( ReinsertEntry)o;
+            if (this.dist < pe2.dist) return -1;
+            if (this.dist > pe2.dist) return 1;
+            return 0;
+        }
     };
-    static int compareReinsertEntry(ReinsertEntry pe1, ReinsertEntry pe2){
-        if (pe1.dist < pe2.dist) return -1;
-        if (pe1.dist > pe2.dist) return 1;
-        return 0;
-    }
-
-    static int compareLow(RstarSplitEntry pe1, RstarSplitEntry pe2){ 
-
-        assert(pe1.sortDim == pe2.sortDim);
-
-        if (pe1.region.getLowCoordinate(pe1.sortDim) < pe2.region.getLowCoordinate(pe2.sortDim)) return -1;
-        if (pe1.region.getLowCoordinate(pe1.sortDim) > pe2.region.getLowCoordinate(pe2.sortDim)) return 1;
-        return 0;
-    }
-
-    static int compareHigh(RstarSplitEntry pe1, RstarSplitEntry pe2){
-       
-        assert(pe1.sortDim == pe2.sortDim);
-
-        if (pe1.region.getHighCoordinate(pe1.sortDim) < pe2.region.getHighCoordinate(pe2.sortDim)) return -1;
-        if (pe1.region.getHighCoordinate(pe1.sortDim) > pe2.region.getHighCoordinate(pe2.sortDim)) return 1;
-        return 0;
-    }
 }

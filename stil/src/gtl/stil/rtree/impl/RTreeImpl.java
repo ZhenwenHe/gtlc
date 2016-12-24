@@ -44,7 +44,7 @@ public class RTreeImpl implements RTree{
 
     Region m_infiniteRegion;
 
-    Statistics m_stats;
+    StatisticsImpl m_stats;
 
     boolean  m_bTightMBRs;
 

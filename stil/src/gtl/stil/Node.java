@@ -13,4 +13,6 @@ public interface Node extends Entry {
     int getLevel() ;
     boolean isIndex() ;
     boolean isLeaf() ;
+    boolean isInternalNode();
+    boolean isExternalNode();
 }

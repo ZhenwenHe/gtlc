@@ -1,18 +1,28 @@
 package gtl.stil.rtree.impl;
 
 import gtl.stil.Identifier;
+import gtl.stil.InternalNode;
 import gtl.stil.Node;
+import gtl.stil.rtree.RTree;
 import gtl.stil.shape.Region;
 
 import java.util.Stack;
 
 /**
+ * internal node class
  * Created by ZhenwenHe on 2016/12/19.
  */
-public class IndexImpl extends NodeImpl {
+public class InternalNodeImpl extends NodeImpl implements InternalNode{
 
+    InternalNodeImpl(RTree pTree, Identifier id, int level){
 
-    int findLeastEnlargement( Region r) {
+    }
+    @Override
+    public Object clone() {
+        return null;
+    }
+
+    int findLeastEnlargement(Region r) {
         return -1;
     }
 
@@ -38,8 +48,8 @@ public class IndexImpl extends NodeImpl {
     }
 
     @Override
-    void split(byte[] pData, Region mbr, Identifier id, Node left, Node right) {
-
+    public Node[] split(byte[] pData, Region mbr, Identifier id ) {
+        return null;
     }
 
     class OverlapEntry {

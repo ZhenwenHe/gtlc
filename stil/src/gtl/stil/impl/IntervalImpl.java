@@ -186,12 +186,6 @@ public class IntervalImpl implements Interval {
     }
 
     @Override
-    public void copyTo(Object i) {
-        if(i instanceof Interval)
-            ((Interval)i).reset(this.type,this.low,this.high);
-    }
-
-    @Override
     public boolean read(InputStream in) throws IOException {
         DataInputStream dis =new DataInputStream(in);
         int t= dis.readInt();

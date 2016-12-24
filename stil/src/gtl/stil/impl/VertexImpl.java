@@ -177,20 +177,6 @@ public class VertexImpl implements Vertex {
         }
     }
 
-    @Override
-    public void copyTo(Object i) {
-        if(i instanceof Vertex){
-            if(((Vertex)i).getCoordinates().length==this.coordinates.length){
-                System.arraycopy(
-                        this.coordinates, 0,
-                        ((Vertex)i).getCoordinates(),0,this.coordinates.length);
-            }
-            else{
-                ((Vertex)i).reset(this.coordinates);
-            }
-        }
-    }
-
     public void reset(double [] coordinates){
         if(this.coordinates.length==coordinates.length){
             System.arraycopy(this.coordinates,0,

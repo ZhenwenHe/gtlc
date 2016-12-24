@@ -296,13 +296,6 @@ public class LineSegmentImpl implements LineSegment {
     }
 
     @Override
-    public void copyTo(Object i) {
-        if(i instanceof LineSegment){
-            ((LineSegment)i).reset(this.startCoordinates,this.endCoordinates);
-        }
-    }
-
-    @Override
     public double[] getStartCoordinates() {
         return this.startCoordinates;
     }

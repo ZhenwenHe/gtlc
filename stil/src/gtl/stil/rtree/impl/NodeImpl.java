@@ -127,23 +127,6 @@ public abstract  class NodeImpl implements Node {
     }
 
     @Override
-    public void copyTo(Object i) {
-        if(i instanceof NodeImpl){
-            NodeImpl ni = ((NodeImpl)i);
-            ni.m_pTree=this.m_pTree;
-            ni.m_level=this.m_level;
-            ni.m_identifier=(Identifier) this.m_identifier.clone();
-            ni.m_children =this.m_children;
-            ni.m_capacity=this.m_capacity;
-            ni.m_nodeMBR=(Region)(this.m_nodeMBR.clone());
-            ni.m_pData=IndexSuits.createByteArray(this.m_pData);
-            ni.m_ptrMBR=IndexSuits.createRegionArray(this.m_ptrMBR);
-            ni.m_pIdentifier= IndexSuits.createIdentifierArray(this.m_pIdentifier);
-            ni.m_totalDataLength=this.m_totalDataLength;
-        }
-    }
-
-    @Override
     public byte[] getChildData(int index) {
         if (index <= m_children) {
             return  m_pData[index];
@@ -223,12 +206,12 @@ public abstract  class NodeImpl implements Node {
 
     @Override
     public boolean isIndex() {
-        return (m_level != 0);
+        return isInternalNode();
     }
 
     @Override
     public boolean isLeaf() {
-        return (m_level == 0);
+        return isExternalNode();
     }
 
     @Override
@@ -828,7 +811,75 @@ public abstract  class NodeImpl implements Node {
     }
 
     void condenseTree(Stack<Node> toReinsert, Stack<Identifier> pathBuffer, Node  ptrThis){
+        int minimumLoad = (int)(Math.floor(m_capacity * m_pTree.m_fillFactor));
+        double d1,d2;//临时变量
+        if (pathBuffer.empty()){
+            // eliminate root if it has only one child.
+            if (m_level != 0 && m_children == 1){
+                NodeImpl  ptrN = (NodeImpl)m_pTree.readNode(m_pIdentifier[0]);
+                m_pTree.deleteNode(ptrN);
+                ptrN.m_identifier.reset(m_pTree.m_rootID.longValue());
+                m_pTree.writeNode(ptrN);
 
+                //m_pTree.m_stats.m_nodesInLevel.pop_back();
+                ArrayList<Long> alNodesInLevel = m_pTree.m_stats.getNodeNumberInLevelArray();
+                //删除最后一个元素
+                alNodesInLevel.remove(alNodesInLevel.size()-1);
+                //m_pTree.m_stats.m_u32TreeHeight -= 1;
+                m_pTree.m_stats.setTreeHeight(m_pTree.m_stats.getTreeHeight()-1);
+                // HACK: pending deleteNode for deleted child will decrease nodesInLevel, later on.
+                alNodesInLevel.set((int)(m_pTree.m_stats.getTreeHeight()-1),2L);
+            }
+        }
+        else{
+            Identifier cParent = pathBuffer.pop();
+            NodeImpl ptrParent = (NodeImpl)m_pTree.readNode(cParent);
+            InternalNodeImpl p = (InternalNodeImpl)(ptrParent);
+
+            // find the entry in the parent, that points to this node.
+            int child;
+
+            for (child = 0; child != p.m_children; ++child){
+                if (p.m_pIdentifier[child].equals(m_identifier))
+                    break;
+            }
+
+            if (m_children < minimumLoad){
+                // used space less than the minimum
+                // 1. eliminate node entry from the parent. deleteEntry will fix the parent's MBR.
+                p.deleteEntry(child);
+                // 2. add this node to the stack in order to reinsert its entries.
+                toReinsert.push(ptrThis);
+            }
+            else{
+                // adjust the entry in 'p' to contain the new bounding region of this node.
+			    //*(p->m_ptrMBR[child]) = m_nodeMBR;
+                assert this.m_nodeMBR.copyTo(p.m_ptrMBR[child])!=null;
+
+                // global recalculation necessary since the MBR can only shrink in size,
+                // due to data removal.
+                if (m_pTree.m_bTightMBRs){
+                    for (int cDim = 0; cDim < p.m_nodeMBR.getDimension(); ++cDim){
+                        //p->m_nodeMBR.m_pLow[cDim] = std::numeric_limits<double>::max();
+                        p.m_nodeMBR.setLowCoordinate(cDim,Double.MAX_VALUE);
+                        //p->m_nodeMBR.m_pHigh[cDim] = -std::numeric_limits<double>::max();
+                        p.m_nodeMBR.setHighCoordinate(cDim,-Double.MAX_VALUE);
+
+                        for (int u32Child = 0; u32Child < p.m_children; ++u32Child){
+                            d1=Math.min(p.m_nodeMBR.getLowCoordinate(cDim),p.m_ptrMBR[u32Child].getLowCoordinate(cDim));
+                            p.m_nodeMBR.setLowCoordinate(cDim,d1);
+                            d2=Math.max(p.m_nodeMBR.getHighCoordinate(cDim),p.m_ptrMBR[u32Child].getHighCoordinate(cDim));
+                            p.m_nodeMBR.setHighCoordinate(cDim,d2);
+                        }
+                    }
+                }
+            }
+
+            // write parent node back to storage.
+            m_pTree.writeNode(p);
+
+            p.condenseTree(toReinsert, pathBuffer, ptrParent);
+        }
     }
 
     abstract Node chooseSubtree( Region mbr, int level, Stack<Identifier> pathBuffer);

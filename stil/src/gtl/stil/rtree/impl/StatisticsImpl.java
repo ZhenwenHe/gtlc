@@ -135,24 +135,6 @@ public class StatisticsImpl implements gtl.stil.Statistics{
     }
 
     @Override
-    public void copyTo(Object i) {
-        if(i instanceof StatisticsImpl) {
-            StatisticsImpl s = (StatisticsImpl) (i);
-            s.readTimes = this.readTimes;
-            s.writeTimes = this.writeTimes;
-            s.splitTimes = this.splitTimes;
-            s.hits = this.hits;
-            s.misses = this.misses;
-            s.nodeNumber = this.nodeNumber;
-            s.adjustments = this.adjustments;
-            s.queryResults = this.queryResults;
-            s.dataNumber = this.dataNumber;
-            s.treeHeight=this.treeHeight;
-            s.nodeNumberInLevelArray = new ArrayList<Long>(this.nodeNumberInLevelArray);
-        }
-    }
-
-    @Override
     public boolean read(InputStream in) throws IOException {
         DataInputStream dis =new DataInputStream(in);
         this.readTimes=dis.readLong();

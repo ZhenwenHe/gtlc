@@ -147,16 +147,6 @@ public class EnvelopeImpl implements Envelope {
     }
 
     @Override
-    public void copyTo(Object i) {
-        if(i instanceof Envelope){
-            Envelope e = (Envelope)i;
-            e.reset(this.getLowCoordinates(),
-                    this.getHighCoordinates(),
-                    this.getDimension());
-        }
-    }
-
-    @Override
     public void reset(double[] low, double[] high) {
         int dimension = Math.min(low.length,high.length);
         if(getDimension()!=dimension){

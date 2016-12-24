@@ -88,12 +88,6 @@ public class IdentifierImpl implements Identifier {
     }
 
     @Override
-    public void copyTo(Object i) {
-        if(i instanceof Identifier)
-            ((Identifier)i).reset(this.data);
-    }
-
-    @Override
     public void increase() {
         ++this.data;
     }

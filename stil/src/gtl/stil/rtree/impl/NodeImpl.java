@@ -32,9 +32,12 @@ public abstract  class NodeImpl implements Node {
 
         this.m_nodeMBR=new RegionImpl();
         this.m_nodeMBR.makeInfinite(this.m_pTree.getDimension());
+        //数组中的每个元素依然是null
         this.m_pData = new byte[this.m_capacity + 1][];
-        m_ptrMBR = IndexSuits.createRegionArray(m_capacity + 1);
-        m_pIdentifier = IndexSuits.createIdentifierArray(m_capacity + 1);
+        //数组中的每个元素依然是null
+        m_ptrMBR = new Region[(m_capacity + 1)];
+        //数组中的每个元素依然是null
+        m_pIdentifier = new Identifier[(m_capacity + 1)];
     }
 
     public NodeImpl() {
@@ -47,40 +50,43 @@ public abstract  class NodeImpl implements Node {
         this.m_children=0;
         this.m_nodeMBR=new RegionImpl();
         this.m_nodeMBR.makeInfinite(this.m_pTree.getDimension());
+        //数组中的每个元素依然是null
         this.m_pData = new byte[this.m_capacity + 1][];
-        m_ptrMBR = IndexSuits.createRegionArray(m_capacity + 1);
-        m_pIdentifier = IndexSuits.createIdentifierArray(m_capacity + 1);
+        //数组中的每个元素依然是null
+        m_ptrMBR = new Region[(m_capacity + 1)];
+        //数组中的每个元素依然是null
+        m_pIdentifier = new Identifier[(m_capacity + 1)];
     }
 
     RTreeImpl m_pTree;
     // Parent of all nodes.
 
-    int m_level;
+    private int m_level;
     // The level of the node in the tree.
     // Leaves are always at level 0.
 
-    Identifier m_identifier;
+    private Identifier m_identifier;
     // The unique ID of this node.
 
-    int m_children;
+    private int m_children;
     // The number of children pointed by this node.
 
-    int m_capacity;
+    private int m_capacity;
     // Specifies the node capacity.
 
-    Region m_nodeMBR;
+    private Region m_nodeMBR;
     // The minimum bounding region enclosing all data contained in the node.
 
-    byte[][] m_pData;
+    private byte[][] m_pData;
     // The data stored in the node.
 
-    Region [] m_ptrMBR;
+    private Region [] m_ptrMBR;
     // The corresponding data MBRs.
 
-    Identifier [] m_pIdentifier;
+    private Identifier [] m_pIdentifier;
     // The corresponding data identifiers.
 
-    int m_totalDataLength;
+    private int m_totalDataLength;
 
 
     @Override
@@ -94,6 +100,25 @@ public abstract  class NodeImpl implements Node {
     }
 
     @Override
+    public void setIdentifier(long id) {
+        this.m_identifier.reset(id);
+    }
+
+    @Override
+    public void setIdentifier(Identifier id) {
+        if(id==null) return ;
+        this.m_identifier.reset(id.longValue());
+    }
+
+    @Override
+    public void setShape(Shape s) {
+        if(s==null) return ;
+        if(s instanceof Region  || s instanceof Envelope){
+            this.m_nodeMBR.copyFrom(s);
+        }
+    }
+
+    @Override
     public abstract Object clone();
 
     @Override
@@ -103,7 +128,18 @@ public abstract  class NodeImpl implements Node {
         else
             return null;
     }
-
+    @Override
+    public void setChildIdentifier(int index,Identifier id){
+        if(id==null) return;
+        if (index <= m_children) {
+            if(m_pIdentifier[index]==null){
+                m_pIdentifier[index]=IndexSuits.createIdentifier(id.longValue());
+            }
+            else {
+                m_pIdentifier[index].reset(id.longValue());
+            }
+        }
+    }
     @Override
     public Shape getShape() {
         return m_nodeMBR;
@@ -111,6 +147,7 @@ public abstract  class NodeImpl implements Node {
 
     @Override
     public void copyFrom(Object i) {
+        if(i==null) return ;
         if(i instanceof NodeImpl){
             NodeImpl ni = ((NodeImpl)i);
             this.m_pTree=ni.m_pTree;
@@ -133,6 +170,12 @@ public abstract  class NodeImpl implements Node {
         }
         else
             return null;
+    }
+    public void setChildData(int index,byte[] data){
+        if(data==null) return;
+        if (index <= m_children) {
+            m_pData[index]=IndexSuits.createByteArray(data);
+        }
     }
 
     @Override
@@ -177,7 +220,6 @@ public abstract  class NodeImpl implements Node {
         dos.writeInt(this.m_level);
         dos.writeInt(this.m_children);
         dos.flush();
-
         for (int u32Child = 0; u32Child < m_children; ++u32Child){
             m_ptrMBR[u32Child].write(out);
             m_pIdentifier[u32Child].write(out);
@@ -237,8 +279,14 @@ public abstract  class NodeImpl implements Node {
         return sum;
     }
 
-    void  insertEntry(byte[] pData, Region mbr, Identifier id)
-    {
+    /*
+        这里的参数传递到函数后，最好设置为null
+        insertEntry(pData, mbr, id) ;
+        pDate=null;
+        mbr=null;
+        id=null;
+     */
+    protected void  insertEntry(byte[] pData, Region mbr, Identifier id) {
         assert(m_children < m_capacity);
         m_pData[m_children] = pData;
         m_ptrMBR[m_children] = mbr;
@@ -813,6 +861,7 @@ public abstract  class NodeImpl implements Node {
     void condenseTree(Stack<Node> toReinsert, Stack<Identifier> pathBuffer, Node  ptrThis){
         int minimumLoad = (int)(Math.floor(m_capacity * m_pTree.m_fillFactor));
         double d1,d2;//临时变量
+        int dims=0;
         if (pathBuffer.empty()){
             // eliminate root if it has only one child.
             if (m_level != 0 && m_children == 1){
@@ -839,8 +888,8 @@ public abstract  class NodeImpl implements Node {
             // find the entry in the parent, that points to this node.
             int child;
 
-            for (child = 0; child != p.m_children; ++child){
-                if (p.m_pIdentifier[child].equals(m_identifier))
+            for (child = 0; child != p.getChildrenCount(); ++child){
+                if (p.getChildIdentifier(child).equals(m_identifier))
                     break;
             }
 
@@ -854,22 +903,25 @@ public abstract  class NodeImpl implements Node {
             else{
                 // adjust the entry in 'p' to contain the new bounding region of this node.
 			    //*(p->m_ptrMBR[child]) = m_nodeMBR;
-                assert this.m_nodeMBR.copyTo(p.m_ptrMBR[child])!=null;
+                assert this.m_nodeMBR.copyTo(p.getChildShape(child))!=null;
 
                 // global recalculation necessary since the MBR can only shrink in size,
                 // due to data removal.
                 if (m_pTree.m_bTightMBRs){
-                    for (int cDim = 0; cDim < p.m_nodeMBR.getDimension(); ++cDim){
-                        //p->m_nodeMBR.m_pLow[cDim] = std::numeric_limits<double>::max();
-                        p.m_nodeMBR.setLowCoordinate(cDim,Double.MAX_VALUE);
-                        //p->m_nodeMBR.m_pHigh[cDim] = -std::numeric_limits<double>::max();
-                        p.m_nodeMBR.setHighCoordinate(cDim,-Double.MAX_VALUE);
+                    dims=p.getShape().getDimension();
+                    Region r =(Region) p.getShape();
+                    Region r2=null;
+                    int childC=p.getChildrenCount();
+                    for (int cDim = 0; cDim < dims; ++cDim){
+                       r.setLowCoordinate(cDim,Double.MAX_VALUE);
+                        r.setHighCoordinate(cDim,-Double.MAX_VALUE);
 
-                        for (int u32Child = 0; u32Child < p.m_children; ++u32Child){
-                            d1=Math.min(p.m_nodeMBR.getLowCoordinate(cDim),p.m_ptrMBR[u32Child].getLowCoordinate(cDim));
-                            p.m_nodeMBR.setLowCoordinate(cDim,d1);
-                            d2=Math.max(p.m_nodeMBR.getHighCoordinate(cDim),p.m_ptrMBR[u32Child].getHighCoordinate(cDim));
-                            p.m_nodeMBR.setHighCoordinate(cDim,d2);
+                        for (int u32Child = 0; u32Child < childC; ++u32Child){
+                            r2=(Region) p.getChildShape(u32Child);
+                            d1=Math.min(r.getLowCoordinate(cDim),r2.getLowCoordinate(cDim));
+                            r.setLowCoordinate(cDim,d1);
+                            d2=Math.max(r.getHighCoordinate(cDim),r2.getHighCoordinate(cDim));
+                            r.setHighCoordinate(cDim,d2);
                         }
                     }
                 }

@@ -90,7 +90,11 @@ public class VertexImplTest extends TestCase {
     }
 
     public void testRead() throws Exception {
-
+        Vertex[] vv=new Vertex[2];
+        vv[0]=IndexSuits.createVertex();
+        vv[1]=IndexSuits.createVertex();
+        for(Vertex v:vv)
+            System.out.println(v.toString());
     }
 
     public void testWrite() throws Exception {

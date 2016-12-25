@@ -9,9 +9,17 @@ import gtl.stil.shape.TimeShape;
  * Created by ZhenwenHe on 2016/12/22.
  */
 public class TimePointImpl extends PointImpl implements TimePoint{
+    protected  double startTime;
+    protected double endTime;
+
     @Override
     public double getLowerBound() {
-        return 0;
+        return startTime;
+    }
+    @Override
+    public double getUpperBound() {
+
+        return endTime;
     }
 
     @Override
@@ -19,14 +27,11 @@ public class TimePointImpl extends PointImpl implements TimePoint{
         return false;
     }
 
-    @Override
-    public double getUpperBound() {
-        return 0;
-    }
 
     @Override
     public void setBounds(double l, double u) {
-
+        this.startTime=l;
+        this.endTime=u;
     }
 
     @Override
@@ -36,7 +41,8 @@ public class TimePointImpl extends PointImpl implements TimePoint{
 
     @Override
     public boolean intersects(Interval i) {
-        return false;
+        if(i==null) return false;
+        return intersects(i.getType(),i.getLowerBound(),i.getUpperBound());
     }
 
     @Override
@@ -46,7 +52,9 @@ public class TimePointImpl extends PointImpl implements TimePoint{
 
     @Override
     public boolean intersects(IntervalType type, double start, double end) {
-        return false;
+        if (startTime >= end || endTime <= start)
+            return false;
+        return true;
     }
 
     @Override

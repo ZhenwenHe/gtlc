@@ -50,9 +50,6 @@ public class IndexSuits {
     public static Envelope createEnvelope(){
         return new EnvelopeImpl();
     }
-    public static Envelope[] createEnvelopeArray(int size){
-        return new EnvelopeImpl[size];
-    }
     public static Envelope createEnvelope(double [] low, double [] high){
         return new EnvelopeImpl(low,high);
     }
@@ -60,11 +57,8 @@ public class IndexSuits {
     public static Identifier createIdentifier(long v){
         return new IdentifierImpl(v);
     }
-    public static Identifier[] createIdentifierArray(int size){
-        return new IdentifierImpl[size];
-    }
     public static Identifier[] createIdentifierArray(Identifier[] c ){
-        Identifier[] r= new  IdentifierImpl[c.length];
+        Identifier[] r= new  Identifier[c.length];
         for(int i=0;i<r.length;i++){
             r[i]=(Identifier) c[i].clone();
         }
@@ -93,11 +87,8 @@ public class IndexSuits {
     public static Region createRegion(double [] low, double [] high){
         return new RegionImpl(low,high);
     }
-    public static Region[] createRegionArray(int size){
-        return new  RegionImpl[size];
-    }
     public static Region[] createRegionArray(Region[] c ){
-        Region[] r= new  RegionImpl[c.length];
+        Region[] r= new  Region[c.length];
         for(int i=0;i<r.length;i++){
             r[i]=(Region) c[i].clone();
         }
@@ -123,8 +114,5 @@ public class IndexSuits {
     }
     public static Vertex createVertex(double x,double y,double z){
         return new VertexImpl(x,y,z);
-    }
-    public static Vertex[] createVertex(int size){
-        return new VertexImpl[size];
     }
 }

@@ -15,8 +15,12 @@ public class EnvelopeImpl implements Envelope {
     double [] high;
 
     public EnvelopeImpl(){
-        this.low=null;
-        this.high=null;
+        this.low=new double[3];
+        this.high=new double[3];
+        for (int cIndex = 0; cIndex < 3; ++cIndex){
+            this.low[cIndex] = Double.MAX_VALUE;
+            this.high[cIndex] = -Double.MAX_VALUE;
+        }
     }
 
     public EnvelopeImpl(double [] low, double [] high){
@@ -59,6 +63,15 @@ public class EnvelopeImpl implements Envelope {
     @Override
     public void makeInfinite(int dimension) {
         makeDimension(dimension);
+        for (int cIndex = 0; cIndex < dimension; ++cIndex){
+            this.low[cIndex] = Double.MAX_VALUE;
+            this.high[cIndex] = -Double.MAX_VALUE;
+        }
+    }
+
+    @Override
+    public void makeInfinite() {
+        int dimension=this.getDimension();
         for (int cIndex = 0; cIndex < dimension; ++cIndex){
             this.low[cIndex] = Double.MAX_VALUE;
             this.high[cIndex] = -Double.MAX_VALUE;

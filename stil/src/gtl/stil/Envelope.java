@@ -12,6 +12,7 @@ public interface Envelope extends Serializable{
     void setLowCoordinate(int i,double d);
     void setHighCoordinate(int i,double d);
     void makeInfinite(int dimension);
+    void makeInfinite() ;
     void makeDimension(int dimension);
     void reset(double[] low, double [] high, int dimension);
     void reset(double[] low, double [] high);

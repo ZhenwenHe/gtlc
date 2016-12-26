@@ -196,7 +196,10 @@ public abstract  class NodeImpl implements Node {
             }
             this.m_pIdentifier[u32Child].read(in);
             int len =dis.readInt();
-            this.m_pData[u32Child]=new byte[len];
+            if(len>0)
+                this.m_pData[u32Child]=new byte[len];
+            else
+                this.m_pData[u32Child]=null;
             dis.read(this.m_pData[u32Child]);
             this.m_totalDataLength+=len;
         }
@@ -223,7 +226,10 @@ public abstract  class NodeImpl implements Node {
         for (int u32Child = 0; u32Child < m_children; ++u32Child){
             m_ptrMBR[u32Child].write(out);
             m_pIdentifier[u32Child].write(out);
-            dos.writeInt(this.m_pData[u32Child].length);
+            if(this.m_pData[u32Child]==null)
+                dos.writeInt(0);
+            else
+                dos.writeInt(this.m_pData[u32Child].length);
             dos.write(this.m_pData[u32Child]);
         }
 
@@ -232,6 +238,18 @@ public abstract  class NodeImpl implements Node {
 
         dos.close();
         return true;
+    }
+    @Override
+    public long getByteArraySize() {
+        long sum = 3*4;
+        for (int u32Child = 0; u32Child < this.m_children; ++u32Child){
+            sum+=this.m_ptrMBR[u32Child].getByteArraySize();
+            sum+=this.m_pIdentifier[u32Child].getByteArraySize();
+            sum+=4;
+        }
+        sum+=this.m_totalDataLength;
+        sum+=this.m_nodeMBR.getByteArraySize();
+        return sum;
     }
     @Override
     public Shape getChildShape(int index) {
@@ -266,76 +284,72 @@ public abstract  class NodeImpl implements Node {
         return (m_level == 0);
     }
 
-    @Override
-    public long getByteArraySize() {
-        long sum = 3*4;
-        for (int u32Child = 0; u32Child < this.m_children; ++u32Child){
-            sum+=this.m_ptrMBR[u32Child].getByteArraySize();
-            sum+=this.m_pIdentifier[u32Child].getByteArraySize();
-            sum+=4;
-        }
-        sum+=this.m_totalDataLength;
-        sum+=this.m_nodeMBR.getByteArraySize();
-        return sum;
-    }
 
-    /*
-        这里的参数传递到函数后，最好设置为null
-        insertEntry(pData, mbr, id) ;
-        pDate=null;
-        mbr=null;
-        id=null;
+
+    /**
+     * 注意：为了提高效率，减少内存复制，这里传入的三个参数在这个函数执行后，
+     * 不能在进行修改，否则将导致传入的数据在这个函数后也会被连带修改，因此，
+     * 这个函数执行后，最好将这三个参数都设置为null,避免错误的修改。
+     *例如：
+     *      insertEntry(pData,  mbr, id)；
+     *      pData=null;
+     *      mbr=null;
+     *      id=null;
+     *
      */
     protected void  insertEntry(byte[] pData, Region mbr, Identifier id) {
         assert(m_children < m_capacity);
         m_pData[m_children] = pData;
-        m_ptrMBR[m_children] = mbr;
-        m_pIdentifier[m_children] = id;
+        m_ptrMBR[m_children] = (Region) mbr;
+        m_pIdentifier[m_children] = (Identifier) id;
 
-        m_totalDataLength += pData.length;
+        if(pData!=null)
+            m_totalDataLength += pData.length;
+
         ++m_children;
 
         m_nodeMBR.combineRegion(mbr);
     }
 
-    void deleteEntry(int index) {
+    protected void deleteEntry(int index) {
         assert(index >= 0 && index < m_children);
-
         // cache it, since I might need it for "touches" later.
         Region ptrR = m_ptrMBR[index];
-
-        m_totalDataLength -= m_pData[index].length;
-
+        if(m_pData[index]!=null)
+            m_totalDataLength -= m_pData[index].length;
         if (m_children > 1 && index != m_children - 1){
             m_pData[index] = m_pData[m_children - 1];
             m_ptrMBR[index] = m_ptrMBR[m_children - 1];
             m_pIdentifier[index] = m_pIdentifier[m_children - 1];
         }
-
         --m_children;
-
         // WARNING: index has now changed. Do not use it below here.
-
         if (m_children == 0){
-            m_nodeMBR.makeInfinite(m_pTree.getDimension());
+            m_nodeMBR.makeInfinite();
         }
-        else if (m_pTree.m_bTightMBRs && m_nodeMBR.touchesRegion(ptrR)){
-            for (int cDim = 0; cDim < m_nodeMBR.getDimension(); ++cDim){
-                //m_nodeMBR.m_pLow[cDim] = Double.MAX_VALUE;
+        else if (m_pTree.m_bTightMBRs && this.m_nodeMBR.touchesRegion(ptrR)){
+            //重新计算节点的矩形区域
+            for (int cDim = 0; cDim < this.m_nodeMBR.getDimension(); ++cDim){
                 this.m_nodeMBR.setLowCoordinate(cDim,Double.MAX_VALUE);
-                //m_nodeMBR.m_pHigh[cDim] = -Double.MAX_VALUE;
                 this.m_nodeMBR.setHighCoordinate(cDim,-Double.MAX_VALUE);
                 for (int u32Child = 0; u32Child < m_children; ++u32Child){
-                    //m_nodeMBR.m_pLow[cDim] = std::min(m_nodeMBR.m_pLow[cDim], m_ptrMBR[u32Child].m_pLow[cDim]);
                     this.m_nodeMBR.setLowCoordinate(cDim,Math.min(this.m_nodeMBR.getLowCoordinate(cDim),m_ptrMBR[u32Child].getLowCoordinate(cDim)));
-                    //m_nodeMBR.m_pHigh[cDim] = std::max(m_nodeMBR.m_pHigh[cDim], m_ptrMBR[u32Child].m_pHigh[cDim]);
                     this.m_nodeMBR.setHighCoordinate(cDim,Math.max(this.m_nodeMBR.getHighCoordinate(cDim),m_ptrMBR[u32Child].getHighCoordinate(cDim)));
                 }
             }
         }
     }
-
-    boolean insertData(byte[] pData, Region mbr, Identifier id, Stack<Identifier> pathBuffer, byte[] overflowTable) {
+    /**
+     * 注意：为了提高效率，减少内存复制，这里传入的三个参数pData,  mbr, id,
+     * 在这个函数执行后，不能在进行修改，否则将导致传入的数据在这个函数后也会被连带修改，
+     * 因此，这个函数执行后，最好将这三个参数都设置为null,避免错误的修改。
+     *例如：
+     *      insertData(pData,  mbr, id)；
+     *      pData=null;
+     *      mbr=null;
+     *      id=null;
+     */
+    protected boolean insertData(byte[] pData, Region mbr, Identifier id, Stack<Identifier> pathBuffer, byte[] overflowTable) {
         // 如果子节点个数小于容量
         if (m_children < m_capacity){
             boolean adjusted = false;
@@ -344,6 +358,10 @@ public abstract  class NodeImpl implements Node {
             boolean b = this.m_nodeMBR.containsRegion(mbr);
 
             this.insertEntry( pData, mbr, id);
+            pData=null;
+            mbr=null;
+            id=null;
+
             this.m_pTree.writeNode(this);
 
             if ((! b) && (! pathBuffer.empty())){
@@ -355,72 +373,65 @@ public abstract  class NodeImpl implements Node {
             }
             return adjusted;
         }
-        else if (this.m_pTree.m_treeVariant == RTreeVariant.RV_RSTAR && (! pathBuffer.empty()) && overflowTable[m_level] == 0)
-        {
+        else if (this.m_pTree.m_treeVariant == RTreeVariant.RV_RSTAR && (! pathBuffer.empty()) && overflowTable[m_level] == 0){
+            //如果是RStarTree则需要重新插入
             overflowTable[m_level] = 1;
-
+            //记录需要重插的孩子节点下标
             ArrayList<Integer> vReinsert=new ArrayList<Integer>();
+            //记录需要重插的孩子节点下标
             ArrayList<Integer>  vKeep=new ArrayList<Integer>();
+            //执行RStarTree的重插数据，得到哪些子节点是需要保留的，哪些是需要重插的
             this.reinsertData(pData, mbr, id, vReinsert, vKeep);
-
+            pData=null;
+            mbr=null;
+            id=null;
+            //需要重插的项数
             int lReinsert = vReinsert.size();
+            //需要保留的项数
             int lKeep = vKeep.size();
 
-            byte[][] reinsertdata = null;
-            Region[] reinsertmbr = null;
-            Identifier[] reinsertid = null;
+            byte[][]  reinsertdata = new byte[lReinsert][];
+            Region[] reinsertmbr = new Region[lReinsert];
+            Identifier[] reinsertid = new Identifier[lReinsert];
 
-            byte[][] keepdata = null;
-            Region[] keepmbr =null;
-            Identifier []keepid =null;
-
-
-            reinsertdata = new byte[lReinsert][];
-            reinsertmbr = new Region[lReinsert];
-            reinsertid = new Identifier[lReinsert];
-
-            keepdata = new byte[m_capacity + 1][];
-            keepmbr = new Region[m_capacity + 1];
-            keepid = new Identifier[m_capacity + 1];
-
-
+            byte[][] keepdata = new byte[m_capacity + 1][];
+            Region[] keepmbr = new Region[m_capacity + 1];
+            Identifier[] keepid = new Identifier[m_capacity + 1];
 
             int cIndex;
-
+            //需要重新插入的数据项
             for (cIndex = 0; cIndex < lReinsert; ++cIndex){
                 reinsertdata[cIndex] = m_pData[vReinsert.get(cIndex)];
                 reinsertmbr[cIndex] = m_ptrMBR[vReinsert.get(cIndex)];
                 reinsertid[cIndex] = m_pIdentifier[vReinsert.get(cIndex)];
             }
-
+            //需要保留的数据项
             for (cIndex = 0; cIndex < lKeep; ++cIndex){
                 keepdata[cIndex] = m_pData[vKeep.get(cIndex)];
                 keepmbr[cIndex] = m_ptrMBR[vKeep.get(cIndex)];
                 keepid[cIndex] = m_pIdentifier[vKeep.get(cIndex)];
             }
-
+            //将本节点设置为保留数据项
             this.m_pData = keepdata;
             this.m_ptrMBR = keepmbr;
             this.m_pIdentifier = keepid;
             this.m_children = lKeep;
             this.m_totalDataLength = 0;
-
             for (int u32Child = 0; u32Child < this.m_children; ++u32Child)
                 this.m_totalDataLength += keepdata[u32Child].length;
-
+            //重新计算节点的边界矩形
             for (int cDim = 0; cDim < this.m_nodeMBR.getDimension(); ++cDim){
-                //m_nodeMBR.m_pLow[cDim] = std::numeric_limits<double>::max();
                 this.m_nodeMBR.setLowCoordinate(cDim,Double.MAX_VALUE);
-                //m_nodeMBR.m_pHigh[cDim] = -std::numeric_limits<double>::max();
-                this.m_nodeMBR.setHighCoordinate(cDim, Double.MAX_VALUE);
+                this.m_nodeMBR.setHighCoordinate(cDim, -Double.MAX_VALUE);
 
                 for (int u32Child = 0; u32Child < this.m_children; ++u32Child){
-                    //m_nodeMBR.m_pLow[cDim] = std::min(m_nodeMBR.m_pLow[cDim], m_ptrMBR[u32Child]->m_pLow[cDim]);
                     this.m_nodeMBR.setLowCoordinate(cDim,Math.min(this.m_nodeMBR.getLowCoordinate(cDim),this.m_ptrMBR[u32Child].getLowCoordinate(cDim)));
-                    //m_nodeMBR.m_pHigh[cDim] = std::max(m_nodeMBR.m_pHigh[cDim], m_ptrMBR[u32Child]->m_pHigh[cDim]);
                     this.m_nodeMBR.setHighCoordinate(cDim,Math.max(this.m_nodeMBR.getHighCoordinate(cDim),this.m_ptrMBR[u32Child].getHighCoordinate(cDim)));
                 }
             }
+            keepdata=null;
+            keepmbr=null;
+            keepid=null;
 
             this.m_pTree.writeNode(this);
 
@@ -431,35 +442,44 @@ public abstract  class NodeImpl implements Node {
             Node ptrN = this.m_pTree.readNode(cParent);
             InternalNodeImpl p = (InternalNodeImpl)ptrN;
             p.adjustTree(this, pathBuffer);
-
+            //将需要重新插入的数据进行重插
             for (cIndex = 0; cIndex < lReinsert; ++cIndex){
                 this.m_pTree.insertData_impl(
                         reinsertdata[cIndex],
                         reinsertmbr[cIndex], reinsertid[cIndex],
                         m_level, overflowTable);
+                reinsertdata[cIndex]=null;
+                reinsertmbr[cIndex]=null;
+                reinsertid[cIndex]=null;
             }
-
             return true;
         }
         else  {
             Node [] nodes = split(pData,mbr,id);
+            pData=null;
+            mbr=null;
+            id=null;
+
             NodeImpl n=(NodeImpl)nodes[0];
             NodeImpl nn=(NodeImpl)nodes[1];
 
             if (pathBuffer.empty()){
-                n.m_level = m_level;
-                nn.m_level = m_level;
+                n.m_level = this.m_level;
+                nn.m_level = this.m_level;
                 n.m_identifier.reset(-1);
                 nn.m_identifier.reset(-1);
                 m_pTree.writeNode(n);
                 m_pTree.writeNode(nn);
 
-                NodeImpl ptrR = new InternalNodeImpl(this.m_pTree,m_pTree.m_rootID,m_level+1);
+                NodeImpl ptrR = new InternalNodeImpl(this.m_pTree,m_pTree.m_rootID,this.m_level+1);
 
                 ptrR.insertEntry(null, n.m_nodeMBR, n.m_identifier);
                 ptrR.insertEntry(null, nn.m_nodeMBR, nn.m_identifier);
 
                 m_pTree.writeNode(ptrR);
+                n=null;
+                nn=null;
+                nodes=null;
 
                 StatisticsImpl s =(StatisticsImpl) (m_pTree.m_stats);
                 s.setNodeNumberInLevel(m_level,2L);
@@ -478,23 +498,36 @@ public abstract  class NodeImpl implements Node {
                 Identifier cParent =  pathBuffer.pop();
                 InternalNodeImpl ptrN =(InternalNodeImpl) m_pTree.readNode(cParent);
                 ptrN.adjustTree(n, nn, pathBuffer, overflowTable);
+                n=null;
+                nn=null;
+                nodes=null;
             }
-
             return true;
         }
     }
 
-
-    void reinsertData(byte[] pData, Region mbr, Identifier id, ArrayList<Integer> reinsert, ArrayList<Integer> keep){
+    /**
+     * 计算插入节点（ pData,  mbr,  id）时候，
+     * 本节点中哪些项需要重新插入，其下标纪录在reinsert中，
+     * 需要保留的项，其下标纪录在keep中
+     * @param pData
+     * @param mbr
+     * @param id
+     * @param reinsert
+     * @param keep
+     */
+    protected void reinsertData(byte[] pData, Region mbr, Identifier id, ArrayList<Integer> reinsert, ArrayList<Integer> keep){
         ReinsertEntry[]v = new ReinsertEntry[m_capacity + 1];
 
         m_pData[m_children] = pData;
-        m_ptrMBR[m_children] = (Region) mbr.clone();
-        m_pIdentifier[m_children]=(Identifier) id.clone();
-
+        m_ptrMBR[m_children] = mbr;
+        m_pIdentifier[m_children]=id;
+        pData=null;
+        mbr=null;
+        id=null;
 
         Point nc =m_nodeMBR.getCenter();
-        Point c = IndexSuits.createPoint();
+        Point c = null;
 
         for (int u32Child = 0; u32Child < m_capacity + 1; ++u32Child){
             v[u32Child] = new ReinsertEntry(u32Child, 0.0);
@@ -523,7 +556,15 @@ public abstract  class NodeImpl implements Node {
         }
     }
 
-    void rtreeSplit(byte[] pData, Region mbr, Identifier id, ArrayList<Integer> group1, ArrayList<Integer> group2){
+    /**
+     * 普通Rtree的分解策略
+     * @param pData
+     * @param mbr
+     * @param id
+     * @param group1
+     * @param group2
+     */
+    protected void rtreeSplit(byte[] pData, Region mbr, Identifier id, ArrayList<Integer> group1, ArrayList<Integer> group2){
         int u32Child;
         int minimumLoad = (int)(Math.floor(m_capacity * m_pTree.m_fillFactor));
 
@@ -533,15 +574,20 @@ public abstract  class NodeImpl implements Node {
         // insert new data in the node for easier manipulation. Data arrays are always
         // by one larger than node capacity.
         m_pData[m_capacity] = pData;
-        m_ptrMBR[m_capacity] = (Region)mbr.clone();
-        m_pIdentifier[m_capacity].reset(id.longValue());
+        m_ptrMBR[m_capacity] = mbr;
+        m_pIdentifier[m_capacity]=id;
+        pData=null;
+        mbr=null;
+        id=null;
         // m_totalDataLength does not need to be increased here.
 
         // initialize each group with the seed entries.
-
         int [] seeds=new int[2];
         pickSeeds(seeds);
-        int seed1=seeds[0], seed2=seeds[2];
+        int seed1=seeds[0];
+        int seed2=seeds[2];
+        seeds=null;
+
         group1.add(seed1);
         group2.add(seed2);
 
@@ -656,8 +702,8 @@ public abstract  class NodeImpl implements Node {
         RstarSplitEntry[] dataHigh = new RstarSplitEntry[m_capacity + 1];
 
         m_pData[m_capacity] = pData;
-        m_ptrMBR[m_capacity] = (Region) mbr.clone();
-        m_pIdentifier[m_capacity].reset(id.longValue());
+        m_ptrMBR[m_capacity] = mbr;
+        m_pIdentifier[m_capacity]=id;
         // m_totalDataLength does not need to be increased here.
 
         int nodeSPF =(int)( Math.floor((m_capacity + 1) * m_pTree.m_splitDistributionFactor));

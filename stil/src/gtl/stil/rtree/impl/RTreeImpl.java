@@ -13,6 +13,36 @@ import gtl.stil.storage.StorageManager;
  * Created by ZhenwenHe on 2016/12/19.
  */
 public class RTreeImpl implements RTree{
+    public RTreeImpl(StorageManager m_pStorageManager,
+                     Identifier m_rootID,
+                     Identifier m_headerID,
+                     RTreeVariant m_treeVariant,
+                     double m_fillFactor,
+                     int m_indexCapacity,
+                     int m_leafCapacity,
+                     int m_nearMinimumOverlapFactor,
+                     double m_splitDistributionFactor,
+                     double m_reinsertFactor,
+                     int m_dimension,
+                     Region m_infiniteRegion,
+                     StatisticsImpl m_stats,
+                     boolean m_bTightMBRs) {
+        this.m_pStorageManager = m_pStorageManager;
+        this.m_rootID = m_rootID;
+        this.m_headerID = m_headerID;
+        this.m_treeVariant = m_treeVariant;
+        this.m_fillFactor = m_fillFactor;
+        this.m_indexCapacity = m_indexCapacity;
+        this.m_leafCapacity = m_leafCapacity;
+        this.m_nearMinimumOverlapFactor = m_nearMinimumOverlapFactor;
+        this.m_splitDistributionFactor = m_splitDistributionFactor;
+        this.m_reinsertFactor = m_reinsertFactor;
+        this.m_dimension = m_dimension;
+        this.m_infiniteRegion = m_infiniteRegion;
+        this.m_stats = m_stats;
+        this.m_bTightMBRs = m_bTightMBRs;
+    }
+
     StorageManager m_pStorageManager;
 
     Identifier m_rootID, m_headerID;

@@ -1,11 +1,11 @@
 package gtl.stil.rtree.impl;
 
-import gtl.stil.Identifier;
-import gtl.stil.InternalNode;
-import gtl.stil.Node;
+import gtl.stil.*;
 import gtl.stil.rtree.RTree;
 import gtl.stil.shape.Region;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Stack;
 
 /**
@@ -14,8 +14,10 @@ import java.util.Stack;
  */
 public class InternalNodeImpl extends NodeImpl implements InternalNode{
 
-    InternalNodeImpl(RTree pTree, Identifier id, int level){
-
+    InternalNodeImpl(){
+    }
+    InternalNodeImpl(RTreeImpl pTree, Identifier id, int level){
+        super(pTree, id, level, pTree.m_indexCapacity);
     }
     @Override
     public Object clone() {
@@ -23,50 +25,289 @@ public class InternalNodeImpl extends NodeImpl implements InternalNode{
     }
 
     int findLeastEnlargement(Region r) {
-        return -1;
+
+        double area = Double.MAX_VALUE;
+        int best = Integer.MAX_VALUE;
+
+        Region t = null;
+
+        for (int cChild = 0; cChild < m_children; ++cChild){
+            t=m_ptrMBR[cChild].getCombinedRegion(r);
+
+            double a = m_ptrMBR[cChild].getArea();
+            double enl = t.getArea() - a;
+
+            if (enl < area){
+                area = enl;
+                best = cChild;
+            }
+            else if (enl == area){
+                // this will rarely happen, so compute best area on the fly only
+                // when necessary.
+                if (a < m_ptrMBR[best].getArea()) best = cChild;
+            }
+        }
+
+        return best;
     }
 
     int findLeastOverlap( Region r) {
-        return -1;
+        OverlapEntry[] entries = new OverlapEntry[m_children];
+
+        double leastOverlap = Double.MAX_VALUE;
+        double me = Double.MAX_VALUE;
+        OverlapEntry best = null;
+
+        // find combined region and enlargement of every entry and store it.
+        for (int cChild = 0; cChild < m_children; ++cChild){
+            entries[cChild] = new OverlapEntry();
+            entries[cChild].m_index = cChild;
+            entries[cChild].m_original = m_ptrMBR[cChild];
+            entries[cChild].m_combined = m_ptrMBR[cChild].getCombinedRegion( r);
+            entries[cChild].m_oa = entries[cChild].m_original.getArea();
+            entries[cChild].m_ca = entries[cChild].m_combined.getArea();
+            entries[cChild].m_enlargement = entries[cChild].m_ca - entries[cChild].m_oa;
+
+            if (entries[cChild].m_enlargement < me){
+                me = entries[cChild].m_enlargement;
+                best = entries[cChild];
+            }
+		    else if (entries[cChild].m_enlargement == me && entries[cChild].m_oa < best.m_oa){
+                best = entries[cChild];
+            }
+        }
+
+        if (me < - IndexSuits.EPSILON || me > IndexSuits.EPSILON){
+            int cIterations;
+
+            if (m_children > m_pTree.m_nearMinimumOverlapFactor){
+                // sort entries in increasing order of enlargement.
+                Arrays.sort(entries); 
+                assert(entries[0].m_enlargement <= entries[m_children - 1].m_enlargement);
+
+                cIterations = m_pTree.m_nearMinimumOverlapFactor;
+            }
+            else {
+                cIterations = m_children;
+            }
+
+            // calculate overlap of most important original entries (near minimum overlap cost).
+            for (int cIndex = 0; cIndex < cIterations; ++cIndex){
+                double dif = 0.0;
+                OverlapEntry e = entries[cIndex];
+
+                for (int cChild = 0; cChild < m_children; ++cChild){
+                    if (e.m_index != cChild)
+                    {
+                        double f = e.m_combined.getIntersectingArea(m_ptrMBR[cChild]);
+                        if (f != 0.0) 
+                            dif += f - e.m_original.getIntersectingArea(m_ptrMBR[cChild]);
+                    }
+                } // for (cChild)
+
+                if (dif < leastOverlap){
+                    leastOverlap = dif;
+                    best = entries[cIndex];
+                }
+                else if (dif == leastOverlap){
+                    if (e.m_enlargement == best.m_enlargement){
+                        // keep the one with least area.
+                        if (e.m_original.getArea() < best.m_original.getArea())
+                            best = entries[cIndex];
+                    }
+                    else{
+                        // keep the one with least enlargement.
+                        if (e.m_enlargement < best.m_enlargement) best = entries[cIndex];
+                    }
+                }
+            } // for (cIndex)
+        }
+
+        int ret = best.m_index;
+
+        return ret;
     }
 
-    void adjustTree(NodeImpl n, Stack<Identifier>s){
+    void adjustTree(NodeImpl n, Stack<Identifier> pathBuffer){
+        ++(m_pTree.m_stats.adjustments);
 
+        // find entry pointing to old node;
+        int child;
+        for (child = 0; child < m_children; ++child){
+            if (m_pIdentifier[child] == n.m_identifier) break;
+        }
+
+        // MBR needs recalculation if either:
+        //   1. the NEW child MBR is not contained.
+        //   2. the OLD child MBR is touching.
+        boolean bContained = m_nodeMBR.containsRegion(n.m_nodeMBR);
+        boolean bTouches = m_nodeMBR.touchesRegion(m_ptrMBR[child]);
+        boolean bRecompute = (! bContained || (bTouches && m_pTree.m_bTightMBRs));
+
+        assert n.m_nodeMBR.copyTo(m_ptrMBR[child])!=null;
+
+        if (bRecompute) {
+            m_nodeMBR.makeInfinite();
+            for (int cDim = 0; cDim < m_nodeMBR.getDimension(); ++cDim){
+                for (int cChild = 0; cChild < m_children; ++cChild){
+                    m_nodeMBR.setLowCoordinate(cDim, Math.min(m_nodeMBR.getLowCoordinate(cDim), m_ptrMBR[cChild].getLowCoordinate(cDim)));
+                    m_nodeMBR.setHighCoordinate(cDim, Math.max(m_nodeMBR.getHighCoordinate(cDim), m_ptrMBR[cChild].getHighCoordinate(cDim)));
+                }
+            }
+        }
+
+        m_pTree.writeNode(this);
+
+        if (bRecompute && (! pathBuffer.empty())){
+            Identifier cParent = pathBuffer.pop();
+            InternalNodeImpl  p = (InternalNodeImpl)m_pTree.readNode(cParent);
+            p.adjustTree(this, pathBuffer);
+        }
     }
-    void adjustTree(NodeImpl n1, NodeImpl n2, Stack<Identifier> s, byte[] overflowTable){
+    void adjustTree(NodeImpl n1, NodeImpl n2, Stack<Identifier> pathBuffer, byte[] overflowTable){
+        ++(m_pTree.m_stats.adjustments);
 
+        // find entry pointing to old node;
+        int child;
+        for (child = 0; child < m_children; ++child){
+            if (m_pIdentifier[child] == n1.m_identifier) break;
+        }
+
+        // MBR needs recalculation if either:
+        //   1. the NEW child MBR is not contained.
+        //   2. the OLD child MBR is touching.
+        boolean bContained = m_nodeMBR.containsRegion(n1.m_nodeMBR);
+        boolean bTouches = m_nodeMBR.touchesRegion(m_ptrMBR[child]);
+        boolean bRecompute = (! bContained || (bTouches && m_pTree.m_bTightMBRs));
+
+	    assert n1.m_nodeMBR.copyTo(m_ptrMBR[child])!=null;
+
+        if (bRecompute){
+            int dims = m_nodeMBR.getDimension();
+            m_nodeMBR.makeInfinite();
+            for (int cDim = 0; cDim < dims; ++cDim){
+
+                for (int cChild = 0; cChild < m_children; ++cChild)                {
+                    m_nodeMBR.setLowCoordinate(cDim, Math.min(m_nodeMBR.getLowCoordinate(cDim), m_ptrMBR[cChild].getLowCoordinate(cDim)));
+                    m_nodeMBR.setHighCoordinate(cDim, Math.max(m_nodeMBR.getHighCoordinate(cDim), m_ptrMBR[cChild].getHighCoordinate(cDim)));
+                }
+            }
+        }
+
+        // No write necessary here. insertData will write the node if needed.
+        //m_pTree.writeNode(this);
+
+        boolean bAdjusted = insertData(null, n2.m_nodeMBR, n2.m_identifier, pathBuffer, overflowTable);
+
+        // if n2 is contained in the node and there was no split or reinsert,
+        // we need to adjust only if recalculation took place.
+        // In all other cases insertData above took care of adjustment.
+        if ((! bAdjusted) && bRecompute && (! pathBuffer.empty())) {
+            Identifier cParent =pathBuffer.pop();
+            InternalNodeImpl p =(InternalNodeImpl) m_pTree.readNode(cParent);
+            p.adjustTree(this, pathBuffer);
+        }
     }
 
     @Override
-    Node chooseSubtree(Region mbr, int level, Stack<Identifier> pathBuffer) {
-        return null;
+    Node chooseSubtree(Region mbr, int insertionLevel, Stack<Identifier> pathBuffer) {
+        if (m_level == insertionLevel) return this;
+        pathBuffer.push((Identifier) getIdentifier().clone());
+        int child = 0;
+        switch (m_pTree.m_treeVariant){
+            case RV_LINEAR:
+            case RV_QUADRATIC:
+                child = findLeastEnlargement(mbr);
+                break;
+            case RV_RSTAR:
+                if (m_level == 1){
+                    // if this node points to leaves...
+                    child = findLeastOverlap(mbr);
+                }
+                else{
+                    child = findLeastEnlargement(mbr);
+                }
+                break;
+            default:
+                return null;
+        }
+        assert(child != Integer.MAX_VALUE);
+
+        NodeImpl n = (NodeImpl)m_pTree.readNode(m_pIdentifier[child]);
+        return n.chooseSubtree(mbr, insertionLevel, pathBuffer);
     }
 
     @Override
     Node findLeaf(Region mbr, Identifier id, Stack<Identifier> pathBuffer) {
+        pathBuffer.push(m_identifier);
+        for (int cChild = 0; cChild < m_children; ++cChild){
+            if (m_ptrMBR[cChild].containsRegion(mbr)){
+                NodeImpl n = (NodeImpl)m_pTree.readNode(m_pIdentifier[cChild]);
+                Node  ln = n.findLeaf(mbr, id, pathBuffer);
+                if (ln!=null) return ln;
+            }
+        }
+        pathBuffer.pop();
         return null;
     }
 
     @Override
     public Node[] split(byte[] pData, Region mbr, Identifier id ) {
-        return null;
+
+        m_pTree.m_stats.setSplitTimes(m_pTree.m_stats.getSplitTimes()+1);
+
+        ArrayList<Integer> g1=new ArrayList<>();
+        ArrayList<Integer> g2=new ArrayList<>();
+
+        switch (m_pTree.m_treeVariant){
+            case RV_LINEAR:
+            case RV_QUADRATIC:
+                rtreeSplit(pData, mbr, id, g1, g2);
+                break;
+            case RV_RSTAR:
+                rstarSplit(pData, mbr, id, g1, g2);
+                break;
+            default:
+                return null;
+        }
+
+        InternalNodeImpl ptrLeft = new InternalNodeImpl(m_pTree, m_identifier, m_level);
+        InternalNodeImpl ptrRight =new InternalNodeImpl(m_pTree, IndexSuits.createIdentifier(-1L), m_level);
+
+        ptrLeft.m_nodeMBR.copyFrom(m_pTree.m_infiniteRegion);
+        ptrRight.m_nodeMBR.copyFrom(m_pTree.m_infiniteRegion);
+
+        int cIndex;
+
+        for (cIndex = 0; cIndex < g1.size(); ++cIndex){
+            ptrLeft.insertEntry(null,m_ptrMBR[g1.get(cIndex)], m_pIdentifier[g1.get(cIndex)]);
+        }
+
+        for (cIndex = 0; cIndex < g2.size(); ++cIndex){
+            ptrRight.insertEntry(null, m_ptrMBR[g2.get(cIndex)], m_pIdentifier[g2.get(cIndex)]);
+        }
+        Node [] nodes = new Node[2];
+        nodes[0]=ptrLeft;
+        nodes[1]=ptrRight;
+        return nodes;
     }
 
-    class OverlapEntry {
+    class OverlapEntry implements Comparable{
         int m_index;
         double m_enlargement;
         Region m_original;
         Region m_combined;
         double m_oa;
         double m_ca;
+
+        @Override
+        public int compareTo(Object o) {
+            OverlapEntry pe1 =  (OverlapEntry) this;
+            OverlapEntry pe2 =  (OverlapEntry) o;
+
+            if (pe1.m_enlargement < pe2.m_enlargement) return -1;
+            if (pe1.m_enlargement > pe2.m_enlargement) return 1;
+            return 0;
+        }
     }; // OverlapEntry
-
-    static int compareEntries(Object pv1, Object pv2) {
-        OverlapEntry pe1 =  (OverlapEntry) pv1;
-        OverlapEntry pe2 =  (OverlapEntry) pv2;
-
-        if (pe1.m_enlargement < pe2.m_enlargement) return -1;
-        if (pe1.m_enlargement > pe2.m_enlargement) return 1;
-        return 0;
-    }
 }

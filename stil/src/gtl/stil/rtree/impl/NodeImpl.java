@@ -11,7 +11,6 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Stack;
-import java.util.concurrent.atomic.DoubleAccumulator;
 
 /**
  * Created by ZhenwenHe on 2016/12/19.
@@ -61,32 +60,32 @@ public abstract  class NodeImpl implements Node {
     RTreeImpl m_pTree;
     // Parent of all nodes.
 
-    private int m_level;
+    int m_level;
     // The level of the node in the tree.
     // Leaves are always at level 0.
 
-    private Identifier m_identifier;
+    Identifier m_identifier;
     // The unique ID of this node.
 
-    private int m_children;
+    int m_children;
     // The number of children pointed by this node.
 
-    private int m_capacity;
+    int m_capacity;
     // Specifies the node capacity.
 
-    private Region m_nodeMBR;
+    Region m_nodeMBR;
     // The minimum bounding region enclosing all data contained in the node.
 
-    private byte[][] m_pData;
+    byte[][] m_pData;
     // The data stored in the node.
 
-    private Region [] m_ptrMBR;
+    Region [] m_ptrMBR;
     // The corresponding data MBRs.
 
-    private Identifier [] m_pIdentifier;
+    Identifier [] m_pIdentifier;
     // The corresponding data identifiers.
 
-    private int m_totalDataLength;
+    int m_totalDataLength;
 
 
     @Override
@@ -697,13 +696,24 @@ public abstract  class NodeImpl implements Node {
         }
     }
 
-    void rstarSplit(byte[] pData, Region mbr, Identifier id, ArrayList<Integer> group1, ArrayList<Integer> group2){
+    /**
+     * RStarTree的分解策略
+     * @param pData
+     * @param mbr
+     * @param id
+     * @param group1
+     * @param group2
+     */
+    protected void rstarSplit(byte[] pData, Region mbr, Identifier id, ArrayList<Integer> group1, ArrayList<Integer> group2){
         RstarSplitEntry[] dataLow = new RstarSplitEntry[m_capacity + 1];
         RstarSplitEntry[] dataHigh = new RstarSplitEntry[m_capacity + 1];
 
         m_pData[m_capacity] = pData;
         m_ptrMBR[m_capacity] = mbr;
         m_pIdentifier[m_capacity]=id;
+        pData=null;
+        mbr=null;
+        id=null;
         // m_totalDataLength does not need to be increased here.
 
         int nodeSPF =(int)( Math.floor((m_capacity + 1) * m_pTree.m_splitDistributionFactor));
@@ -720,6 +730,11 @@ public abstract  class NodeImpl implements Node {
         int splitAxis = Integer.MAX_VALUE;
         int sortOrder =  Integer.MAX_VALUE;
 
+        Region bbl1=IndexSuits.createRegion();
+        Region bbl2=IndexSuits.createRegion();
+        Region bbh1=IndexSuits.createRegion();
+        Region bbh2=IndexSuits.createRegion();
+
         // chooseSplitAxis.
         for (cDim = 0; cDim < m_pTree.m_dimension; ++cDim){
             java.util.Arrays.sort(dataLow,new RstarSplitEntryLowComparator());
@@ -728,23 +743,23 @@ public abstract  class NodeImpl implements Node {
             double marginl = 0.0;
             double marginh = 0.0;
 
-            Region bbl1=null, bbl2=null, bbh1=null, bbh2=null;
+
 
             for (u32Child = 1; u32Child <= splitDistribution; ++u32Child){
-                int l = nodeSPF - 1 + u32Child;
+                int ls = nodeSPF - 1 + u32Child;
 
-                bbl1 =(Region) (dataLow[0].region.clone());
-                bbh1 = (Region)(dataHigh[0].region.clone());
+                bbl1.copyFrom(dataLow[0].region);
+                bbh1.copyFrom(dataHigh[0].region);
 
-                for (cIndex = 1; cIndex < l; ++cIndex){
+                for (cIndex = 1; cIndex < ls; ++cIndex){
                     bbl1.combineRegion(dataLow[cIndex].region);
                     bbh1.combineRegion(dataHigh[cIndex].region);
                 }
 
-                bbl2 = (Region) dataLow[l].region.clone();
-                bbh2 = (Region) dataHigh[l].region.clone();
+                bbl2.copyFrom(dataLow[ls].region);
+                bbh2.copyFrom(dataHigh[ls].region);
 
-                for (cIndex = l + 1; cIndex <= m_capacity; ++cIndex){
+                for (cIndex = ls + 1; cIndex <= m_capacity; ++cIndex){
                     bbl2.combineRegion(dataLow[cIndex].region);
                     bbh2.combineRegion(dataHigh[cIndex].region);
                 }
@@ -780,23 +795,18 @@ public abstract  class NodeImpl implements Node {
         double ma = Double.MAX_VALUE;
         double mo = Double.MAX_VALUE;
         int splitPoint = Integer.MAX_VALUE;
-        Region bb1=null, bb2=null;
-
+        Region bb1=IndexSuits.createRegion();
+        Region bb2=IndexSuits.createRegion();
         for (u32Child = 1; u32Child <= splitDistribution; ++u32Child){
-            int l = nodeSPF - 1 + u32Child;
-
-            bb1 = (Region) dataLow[0].region.clone();
-
-            for (cIndex = 1; cIndex < l; ++cIndex){
+            int ls = nodeSPF - 1 + u32Child;
+            bb1.copyFrom(dataLow[0].region);
+            for (cIndex = 1; cIndex < ls; ++cIndex){
                 bb1.combineRegion(dataLow[cIndex].region);
             }
-
-            bb2 = (Region)dataLow[l].region.clone();
-
-            for (cIndex = l + 1; cIndex <= m_capacity; ++cIndex){
+            bb2.copyFrom(dataLow[ls].region);
+            for (cIndex = ls + 1; cIndex <= m_capacity; ++cIndex){
                 bb2.combineRegion(dataLow[cIndex].region);
             }
-
             double o = bb1.getIntersectingArea(bb2);
 
             if (o < mo){
@@ -815,19 +825,25 @@ public abstract  class NodeImpl implements Node {
             }
         } // for (u32Child)
 
-        int l1 = nodeSPF - 1 + splitPoint;
+        int l1s = nodeSPF - 1 + splitPoint;
 
-        for (cIndex = 0; cIndex < l1; ++cIndex){
+        for (cIndex = 0; cIndex < l1s; ++cIndex){
             group1.add(dataLow[cIndex].index);
         }
 
-        for (cIndex = l1; cIndex <= m_capacity; ++cIndex){
+        for (cIndex = l1s; cIndex <= m_capacity; ++cIndex){
             group2.add(dataLow[cIndex].index);
         }
     }
 
-    //为了能将参数传递进去，并将修改值带出来，采用数组实现
-    void pickSeeds(int []indexes){
+    //
+
+    /**
+     * 选择种子，为了能将参数传递进去，
+     * 并将修改值带出来，采用数组实现
+     * @param indexes
+     */
+    protected void pickSeeds(int []indexes){
         int index1=indexes[0];
         int index2=indexes[1];
 
@@ -839,8 +855,8 @@ public abstract  class NodeImpl implements Node {
             case RV_LINEAR:
             case RV_RSTAR: {
                 for (cDim = 0; cDim < m_pTree.m_dimension; ++cDim) {
-                    double leastLower = m_ptrMBR[0].getLowCoordinate(cDim);
-                    double greatestUpper = m_ptrMBR[0].getHighCoordinate(cDim);
+                    double leastLower = this.m_ptrMBR[0].getLowCoordinate(cDim);
+                    double greatestUpper = this.m_ptrMBR[0].getHighCoordinate(cDim);
                     int greatestLower = 0;
                     int leastUpper = 0;
                     double width;
@@ -904,6 +920,12 @@ public abstract  class NodeImpl implements Node {
         indexes[1]=index2;
     }
 
+    /**
+     *
+     * @param toReinsert
+     * @param pathBuffer
+     * @param ptrThis
+     */
     void condenseTree(Stack<Node> toReinsert, Stack<Identifier> pathBuffer, Node  ptrThis){
         int minimumLoad = (int)(Math.floor(m_capacity * m_pTree.m_fillFactor));
         double d1,d2;//临时变量
@@ -916,11 +938,9 @@ public abstract  class NodeImpl implements Node {
                 ptrN.m_identifier.reset(m_pTree.m_rootID.longValue());
                 m_pTree.writeNode(ptrN);
 
-                //m_pTree.m_stats.m_nodesInLevel.pop_back();
                 ArrayList<Long> alNodesInLevel = m_pTree.m_stats.getNodeNumberInLevelArray();
                 //删除最后一个元素
                 alNodesInLevel.remove(alNodesInLevel.size()-1);
-                //m_pTree.m_stats.m_u32TreeHeight -= 1;
                 m_pTree.m_stats.setTreeHeight(m_pTree.m_stats.getTreeHeight()-1);
                 // HACK: pending deleteNode for deleted child will decrease nodesInLevel, later on.
                 alNodesInLevel.set((int)(m_pTree.m_stats.getTreeHeight()-1),2L);
@@ -933,7 +953,6 @@ public abstract  class NodeImpl implements Node {
 
             // find the entry in the parent, that points to this node.
             int child;
-
             for (child = 0; child != p.getChildrenCount(); ++child){
                 if (p.getChildIdentifier(child).equals(m_identifier))
                     break;

@@ -259,6 +259,10 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+<<<<<<< HEAD
+=======
+      <pane id="Scratches" />
+>>>>>>> 288d5338db6e3480f7ee059b90f3a432c6ab8385
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -292,6 +296,7 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="stil" />
+<<<<<<< HEAD
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -318,6 +323,8 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="impl" />
+=======
+>>>>>>> 288d5338db6e3480f7ee059b90f3a432c6ab8385
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -363,9 +370,14 @@
           </PATH>
         </subPane>
       </pane>
+<<<<<<< HEAD
       <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="Scratches" />
+=======
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
+>>>>>>> 288d5338db6e3480f7ee059b90f3a432c6ab8385
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -989,11 +1001,17 @@
       <workItem from="1482716893104" duration="6686000" />
       <workItem from="1482731358589" duration="9885000" />
       <workItem from="1482931275949" duration="909000" />
+<<<<<<< HEAD
       <workItem from="1483367202010" duration="52000" />
+=======
+>>>>>>> 288d5338db6e3480f7ee059b90f3a432c6ab8385
     </task>
     <servers />
   </component>
   <component name="TestHistory">
+    <history-entry file="VertexImplTest - 2016.12.25 at 21h 35m 19s.xml">
+      <configuration name="VertexImplTest" configurationId="JUnit" />
+    </history-entry>
     <history-entry file="VertexImplTest - 2016.12.25 at 21h 45m 44s.xml">
       <configuration name="VertexImplTest" configurationId="JUnit" />
     </history-entry>
@@ -1021,12 +1039,18 @@
     <history-entry file="VertexImplTest - 2016.12.26 at 20h 00m 27s.xml">
       <configuration name="VertexImplTest" configurationId="JUnit" />
     </history-entry>
+<<<<<<< HEAD
     <history-entry file="VertexImplTest - 2017.01.02 at 22h 27m 02s.xml">
       <configuration name="VertexImplTest" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
     <option name="totallyTimeSpent" value="195798000" />
+=======
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="195746000" />
+>>>>>>> 288d5338db6e3480f7ee059b90f3a432c6ab8385
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1039,7 +1063,11 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
+<<<<<<< HEAD
     <editor active="false" />
+=======
+    <editor active="true" />
+>>>>>>> 288d5338db6e3480f7ee059b90f3a432c6ab8385
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29377204" sideWeight="0.49571276" order="6" side_tool="false" content_ui="tabs" />
@@ -1053,7 +1081,11 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+<<<<<<< HEAD
       <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2368703" sideWeight="0.49361023" order="0" side_tool="false" content_ui="combo" />
+=======
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2368703" sideWeight="0.49361023" order="0" side_tool="false" content_ui="combo" />
+>>>>>>> 288d5338db6e3480f7ee059b90f3a432c6ab8385
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18333334" sideWeight="0.49361023" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1368,6 +1400,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1825">
           <caret line="116" column="5" selection-start-line="116" selection-start-column="5" selection-end-line="116" selection-end-column="5" />
+<<<<<<< HEAD
+=======
+          <folding />
+>>>>>>> 288d5338db6e3480f7ee059b90f3a432c6ab8385
         </state>
       </provider>
     </entry>
@@ -1375,6 +1411,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2025">
           <caret line="91" column="45" selection-start-line="91" selection-start-column="45" selection-end-line="91" selection-end-column="45" />
+<<<<<<< HEAD
+=======
+          <folding />
+>>>>>>> 288d5338db6e3480f7ee059b90f3a432c6ab8385
         </state>
       </provider>
     </entry>
@@ -1449,8 +1489,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/gtl/stil/rtree/impl/RTreeImpl.java">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="1425">
           <caret line="115" column="96" selection-start-line="115" selection-start-column="96" selection-end-line="115" selection-end-column="96" />
+=======
+        <state relative-caret-position="675">
+          <caret line="64" column="96" selection-start-line="64" selection-start-column="96" selection-end-line="64" selection-end-column="96" />
+>>>>>>> 288d5338db6e3480f7ee059b90f3a432c6ab8385
           <folding />
         </state>
       </provider>

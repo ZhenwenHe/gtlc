@@ -9,38 +9,89 @@ import gtl.stil.shape.Region;
 import gtl.stil.shape.Shape;
 import gtl.stil.storage.StorageManager;
 
+import java.util.Map;
+
 /**
  * Created by ZhenwenHe on 2016/12/19.
  */
 public class RTreeImpl implements RTree{
-    public RTreeImpl(StorageManager m_pStorageManager,
-                     Identifier m_rootID,
-                     Identifier m_headerID,
-                     RTreeVariant m_treeVariant,
-                     double m_fillFactor,
-                     int m_indexCapacity,
-                     int m_leafCapacity,
-                     int m_nearMinimumOverlapFactor,
-                     double m_splitDistributionFactor,
-                     double m_reinsertFactor,
-                     int m_dimension,
-                     Region m_infiniteRegion,
-                     StatisticsImpl m_stats,
-                     boolean m_bTightMBRs) {
-        this.m_pStorageManager = m_pStorageManager;
-        this.m_rootID = m_rootID;
-        this.m_headerID = m_headerID;
-        this.m_treeVariant = m_treeVariant;
-        this.m_fillFactor = m_fillFactor;
-        this.m_indexCapacity = m_indexCapacity;
-        this.m_leafCapacity = m_leafCapacity;
-        this.m_nearMinimumOverlapFactor = m_nearMinimumOverlapFactor;
-        this.m_splitDistributionFactor = m_splitDistributionFactor;
-        this.m_reinsertFactor = m_reinsertFactor;
-        this.m_dimension = m_dimension;
-        this.m_infiniteRegion = m_infiniteRegion;
-        this.m_stats = m_stats;
-        this.m_bTightMBRs = m_bTightMBRs;
+
+    public RTreeImpl() {
+
+    }
+
+    /**
+     * String                   Value     Description
+     * ----------------------------------------------
+     * IndexIdentifier         Identifier   If specified an existing index will be openened from the supplied
+     *                          storage manager with the given index id. Behaviour is unspecified
+     *                          if the index id or the storage manager are incorrect.
+     * Dimension                Integer  Dimensionality of the data that will be inserted.
+     * IndexCapacity            Integer  The index node capacity. Default is 100.
+     * LeafCapacity             Integer  The leaf node capacity. Default is 100.
+     * FillFactor               Double The fill factor. Default is 70%
+     * TreeVariant              Integer   Can be one of Linear, Quadratic or Rstar. Default is Rstar
+     * NearMinimumOverlapFactor Integer  Default is 32.
+     * SplitDistributionFactor  Double Default is 0.4
+     * ReinsertFactor           Double Default is 0.3
+     * EnsureTightMBRs          Boolean   Default is true
+     * @param storageManager
+     * @param propSet
+     */
+    @Override
+    public void reset(StorageManager storageManager,PropertySet propSet) {
+        this.m_pStorageManager=storageManager;
+        this.m_rootID=IndexSuits.createIdentifier(StorageManager.NEW_PAGE);
+        this.m_headerID=IndexSuits.createIdentifier(StorageManager.NEW_PAGE);
+        this.m_treeVariant=RTreeVariant.RV_RSTAR;
+        this.m_fillFactor=0.7;
+        this.m_indexCapacity=100;
+        this.m_leafCapacity=100;
+        this.m_nearMinimumOverlapFactor=32;
+        this.m_splitDistributionFactor=(0.4);
+        this.m_reinsertFactor=(0.3);
+        this.m_dimension=(2);
+        this.m_bTightMBRs=(true);
+        this.m_infiniteRegion=IndexSuits.createRegion();
+        this.m_stats=new StatisticsImpl();
+
+
+    }
+
+    @Override
+    public void reset(StorageManager storageManager,
+                      Identifier indexIdentifier,
+                      int dimension,
+                      int indexCapacity,
+                      int leafCapacity,
+                      double fillFactor,
+                      RTreeVariant treeVariant,
+                      int nearMinimumOverlapFactor,
+                      double splitDistributionFactor,
+                      double reinsertFactor,
+                      boolean ensureTightMBRs) {
+
+        this.m_pStorageManager=storageManager;
+        this.m_rootID=IndexSuits.createIdentifier(StorageManager.NEW_PAGE);
+        this.m_headerID=IndexSuits.createIdentifier(StorageManager.NEW_PAGE);
+        this.m_treeVariant=RTreeVariant.RV_RSTAR;
+        this.m_fillFactor=0.7;
+        this.m_indexCapacity=100;
+        this.m_leafCapacity=100;
+        this.m_nearMinimumOverlapFactor=32;
+        this.m_splitDistributionFactor=(0.4);
+        this.m_reinsertFactor=(0.3);
+        this.m_dimension=(2);
+        this.m_bTightMBRs=(true);
+        this.m_infiniteRegion=IndexSuits.createRegion();
+        this.m_stats=new StatisticsImpl();
+
+        if(indexIdentifier==null){//new
+
+        }
+        else {//old
+
+        }
     }
 
     StorageManager m_pStorageManager;

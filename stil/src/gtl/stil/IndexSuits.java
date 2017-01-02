@@ -1,6 +1,7 @@
 package gtl.stil;
 
 import gtl.stil.impl.EnvelopeImpl;
+import gtl.stil.impl.PropertySetImpl;
 import gtl.stil.impl.VertexImpl;
 import gtl.stil.shape.LineSegment;
 import gtl.stil.shape.Point;
@@ -63,6 +64,10 @@ public class IndexSuits {
             r[i]=(Identifier) c[i].clone();
         }
         return r;
+    }
+
+    public static PropertySet createPropertySet(){
+        return new PropertySetImpl();
     }
 
     public static LineSegment createLineSegment(Vertex s,Vertex e){

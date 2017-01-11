@@ -4,14 +4,15 @@ import gtl.stil.Interval;
 import gtl.stil.IntervalType;
 
 import java.io.*;
+import java.util.DoubleSummaryStatistics;
 
 /**
  * Created by ZhenwenHe on 2016/12/8.
  */
 public class IntervalImpl implements Interval {
-    IntervalType type;
-    double low;
-    double high;
+    private IntervalType type;
+    private double low;
+    private double high;
 
     public IntervalImpl(IntervalType type, double low, double high) {
         assert low<high;
@@ -40,9 +41,12 @@ public class IntervalImpl implements Interval {
 
         IntervalImpl interval = (IntervalImpl) o;
 
+        if(type != interval.type) return false;
+
         if (Double.compare(interval.low, low) != 0) return false;
         if (Double.compare(interval.high, high) != 0) return false;
-        return type == interval.type;
+
+        return true;
 
     }
 
@@ -216,4 +220,136 @@ public class IntervalImpl implements Interval {
         this.low = low;
         this.high = high;
     }
+
+    /**
+     * Equals Query: Is = Qs and Ie = Qe.
+     * @param i
+     * @return
+     */
+    @Override
+    public boolean equals(Interval i) {
+        return equals((Object) i);
+    }
+
+    /**
+     * Starts Query: Is = Qs and Qs < Ie < Qe; as shown in Fig. 3a.
+     * @param q
+     * @return
+     */
+    @Override
+    public boolean starts(Interval q) {
+        /*如果左端是开区间，则直接返回false*/
+        if(this.type==IntervalType.IT_OPEN ||
+                this.type==IntervalType.IT_LEFTOPEN){
+            return false;
+        }
+        if(q.getType()==IntervalType.IT_OPEN ||
+                q.getType()==IntervalType.IT_LEFTOPEN){
+            return false;
+        }
+        if(Double.compare(q.getLowerBound(),this.getLowerBound())==0){
+            if(q.getLowerBound()<this.getUpperBound() &&
+                    this.getUpperBound()<q.getUpperBound())
+                return true;
+        }
+        return false;
+    }
+
+    /**
+     * StartedBy Query: Is = Qs and Ie > Qe; as shown in Fig. 3b.
+     * @param q
+     * @return
+     */
+    @Override
+    public boolean startedBy(Interval q) {
+        /*如果左端是开区间，则直接返回false*/
+        if(this.type==IntervalType.IT_OPEN ||
+                this.type==IntervalType.IT_LEFTOPEN){
+            return false;
+        }
+        if(q.getType()==IntervalType.IT_OPEN ||
+                q.getType()==IntervalType.IT_LEFTOPEN){
+            return false;
+        }
+        if(Double.compare(q.getLowerBound(),this.getLowerBound())==0){
+            if(q.getUpperBound()<this.getUpperBound())
+                return true;
+        }
+        return false;
+    }
+
+    /**
+     * Meets Query: Is < Ie = Qs < Qe; as shown in Fig. 3c.
+     * @param q
+     * @return
+     */
+    @Override
+    public boolean meets(Interval q) {
+        if(this.getType()==IntervalType.IT_OPEN||
+                this.getType()==IntervalType.IT_RIGHTOPEN)
+            return false;
+        if(q.getType()==IntervalType.IT_OPEN||
+                q.getType()==IntervalType.IT_LEFTOPEN)
+            return false;
+        if(Double.compare(q.getLowerBound(),this.getUpperBound())==0){
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * MetBy Query: Qs < Qe = Is < Ie; as shown in Fig. 3d.
+     * @param q
+     * @return
+     */
+    @Override
+    public boolean metBy(Interval q) {
+        return false;
+    }
+
+    @Override
+    public boolean finishes(Interval q) {
+        return false;
+    }
+
+    @Override
+    public boolean finishedBy(Interval q) {
+        return false;
+    }
+
+    @Override
+    public boolean before(Interval q) {
+        return false;
+    }
+
+    @Override
+    public boolean after(Interval q) {
+        return false;
+    }
+
+    @Override
+    public boolean overlaps(Interval q) {
+        return false;
+    }
+
+    @Override
+    public boolean overlappedBy(Interval q) {
+        return false;
+    }
+
+    @Override
+    public boolean during(Interval q) {
+        return false;
+    }
+
+    @Override
+    public boolean covers(Interval q) {
+        return false;
+    }
+
+    @Override
+    public boolean coveredBy(Interval q) {
+        return false;
+    }
+
 }

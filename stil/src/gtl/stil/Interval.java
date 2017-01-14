@@ -12,8 +12,12 @@ public interface Interval extends gtl.stil.Serializable {
      boolean intersects(IntervalType type,  double start,  double end)  ;
      IntervalType getType()  ;
      void reset(IntervalType type,  double start,  double end);
+     boolean lowerClosed();
+     boolean upperClosed();
 
      /**
+      *  this is (Is,Ie)
+      *  q is the input parameter Inteval （Qs,Qe）
       *
       *Equals Query: Is = Qs and Ie = Qe.
       *Starts Query: Is = Qs and Qs < Ie < Qe; as shown in Fig. 3a.
@@ -28,14 +32,6 @@ public interface Interval extends gtl.stil.Serializable {
       *OverlappedBy Query: Qs < Is < Qe and Ie > Qe; as shown in      Fig. 4d.
       *During Query: Qs < Is < Ie < Qe; as shown in Fig. 4e.
       *Contains Query: Is < Qs < Qe < Ie; as shown in Fig. 4f.
-      */
-
-     /**
-      * this equals to q
-      * ---- this
-      * ---- q
-      * @param q
-      * @return
       */
      boolean equals(Interval q);
      boolean starts(Interval q);

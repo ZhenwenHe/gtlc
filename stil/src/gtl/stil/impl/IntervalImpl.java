@@ -14,6 +14,8 @@ public class IntervalImpl implements Interval {
     private double low;
     private double high;
 
+
+
     public IntervalImpl(IntervalType type, double low, double high) {
         assert low<high;
         this.type = type;
@@ -138,38 +140,15 @@ public class IntervalImpl implements Interval {
         
     }
 
+
     @Override
-    public boolean contains(Interval i) {
+    public boolean lowerClosed() {
+        return !(this.type==IntervalType.IT_OPEN || this.type==IntervalType.IT_LEFTOPEN);
+    }
 
-        if (this.high < this.low) return false;
-        double low = i.getLowerBound();
-        double high = i.getUpperBound();
-        IntervalType type = i.getType();
-
-        if (this.low < low && this.high > high) return true;
-        if (this.low > low || this.high < high) return false;
-
-        switch (this.type)
-        {
-            case IT_CLOSED:
-                break;
-            case IT_OPEN:
-                if ((this.low == low && this.high == high && type != IntervalType.IT_OPEN) ||
-                        (this.low == low && (type == IntervalType.IT_CLOSED || type == IntervalType.IT_RIGHTOPEN)) ||
-                        (this.high == high && ( type == IntervalType.IT_CLOSED || type == IntervalType.IT_LEFTOPEN)))
-                    return false;
-                break;
-            case IT_RIGHTOPEN:
-                if (this.high == high && (type == IntervalType.IT_CLOSED || type == IntervalType.IT_LEFTOPEN))
-                    return false;
-                break;
-            case IT_LEFTOPEN:
-                if (this.low == low && (type == IntervalType.IT_CLOSED || type == IntervalType.IT_RIGHTOPEN))
-                    return false;
-                break;
-        }
-
-        return true;
+    @Override
+    public boolean upperClosed() {
+        return !(this.type==IntervalType.IT_OPEN || this.type==IntervalType.IT_RIGHTOPEN);
     }
 
     @Override
@@ -223,30 +202,24 @@ public class IntervalImpl implements Interval {
 
     /**
      * Equals Query: Is = Qs and Ie = Qe.
-     * @param i
-     * @return
+     * @param q : the input interval for query
+     * @return : if equals to q ,return true ,else return false
      */
     @Override
-    public boolean equals(Interval i) {
-        return equals((Object) i);
+    public boolean equals(Interval q) {
+        return equals((Object) q);
     }
 
     /**
      * Starts Query: Is = Qs and Qs < Ie < Qe; as shown in Fig. 3a.
-     * @param q
-     * @return
+     * @param q : the input interval for query
+     * @return: true or false
      */
     @Override
     public boolean starts(Interval q) {
-        /*如果左端是开区间，则直接返回false*/
-        if(this.type==IntervalType.IT_OPEN ||
-                this.type==IntervalType.IT_LEFTOPEN){
-            return false;
-        }
-        if(q.getType()==IntervalType.IT_OPEN ||
-                q.getType()==IntervalType.IT_LEFTOPEN){
-            return false;
-        }
+        //如果左端的开闭状态不一致，直接返回false
+        if(q.lowerClosed()!=this.lowerClosed()) return false;
+
         if(Double.compare(q.getLowerBound(),this.getLowerBound())==0){
             if(q.getLowerBound()<this.getUpperBound() &&
                     this.getUpperBound()<q.getUpperBound())
@@ -257,20 +230,14 @@ public class IntervalImpl implements Interval {
 
     /**
      * StartedBy Query: Is = Qs and Ie > Qe; as shown in Fig. 3b.
-     * @param q
-     * @return
+     * @param q: the input interval for query
+     * @return: true or false
      */
     @Override
     public boolean startedBy(Interval q) {
-        /*如果左端是开区间，则直接返回false*/
-        if(this.type==IntervalType.IT_OPEN ||
-                this.type==IntervalType.IT_LEFTOPEN){
-            return false;
-        }
-        if(q.getType()==IntervalType.IT_OPEN ||
-                q.getType()==IntervalType.IT_LEFTOPEN){
-            return false;
-        }
+        //如果左端的开闭状态不一致，直接返回false
+        if(q.lowerClosed()!=this.lowerClosed()) return false;
+
         if(Double.compare(q.getLowerBound(),this.getLowerBound())==0){
             if(q.getUpperBound()<this.getUpperBound())
                 return true;
@@ -280,76 +247,224 @@ public class IntervalImpl implements Interval {
 
     /**
      * Meets Query: Is < Ie = Qs < Qe; as shown in Fig. 3c.
-     * @param q
-     * @return
+     * @param q: the input interval for query
+     * @return: true or false
      */
     @Override
     public boolean meets(Interval q) {
-        if(this.getType()==IntervalType.IT_OPEN||
-                this.getType()==IntervalType.IT_RIGHTOPEN)
-            return false;
-        if(q.getType()==IntervalType.IT_OPEN||
-                q.getType()==IntervalType.IT_LEFTOPEN)
-            return false;
+
+        if(q.lowerClosed()!=this.upperClosed()) return false;
+
         if(Double.compare(q.getLowerBound(),this.getUpperBound())==0){
             return true;
         }
+
         return false;
     }
 
     /**
      * MetBy Query: Qs < Qe = Is < Ie; as shown in Fig. 3d.
-     * @param q
-     * @return
+     * @param q: the input interval for query
+     * @return: true or false
      */
     @Override
     public boolean metBy(Interval q) {
+
+        if(q.upperClosed()!=this.lowerClosed()) return false;
+
+        if(Double.compare(q.getUpperBound(),this.getLowerBound())==0){
+            return true;
+        }
+
         return false;
     }
 
+    /**
+     *  this is (Is,Ie)
+     *  q is the input parameter Inteval （Qs,Qe）
+     *Finishes Query: Qs < Is < Qe and Ie = Qe; as shown in Fig. 3e.
+     * @param q: the input interval for query
+     * @return true or false
+     */
     @Override
     public boolean finishes(Interval q) {
+        if(this.upperClosed()!=q.upperClosed()) return false;
+        if(Double.compare(this.getUpperBound(),q.getUpperBound())==0){
+            if(Double.compare(this.getLowerBound(),q.getLowerBound())>0 &&
+                    Double.compare(this.getLowerBound(),q.getUpperBound())<0)
+                return true;
+        }
         return false;
     }
 
+    /**
+     *  this is (Is,Ie)
+     *  q is the input parameter Inteval （Qs,Qe）
+     *FinishedBy Query: Is < Qs and Ie = Qe; as shown in Fig. 3f.
+     */
     @Override
     public boolean finishedBy(Interval q) {
+
+        if(this.upperClosed()!=q.upperClosed()) return false;
+        if(Double.compare(this.getUpperBound(),q.getUpperBound())==0){
+            if(Double.compare(this.getLowerBound(),q.getLowerBound())<0 )
+                return true;
+        }
         return false;
     }
 
+    /**
+     *  this is (Is,Ie)
+     *  q is the input parameter Inteval （Qs,Qe）
+     *Before Query: Is < Ie < Qs < Qe; as shown in Fig. 3a.
+     */
     @Override
     public boolean before(Interval q) {
-        return false;
+
+        int i = Double.compare(q.getLowerBound(),this.getUpperBound());
+        if(i>0) return true;
+        else if(i==0){
+            if(q.lowerClosed() && this.upperClosed())
+                return false;
+            else
+                return true;
+        }
+        else
+            return false;
     }
 
+    /**
+     *  this is (Is,Ie)
+     *  q is the input parameter Inteval （Qs,Qe）
+     *After Query: Qs < Qe < Is < Ie; as shown in Fig. 4b.
+     */
     @Override
     public boolean after(Interval q) {
-        return false;
+
+        int i = Double.compare(q.getUpperBound(),this.getLowerBound());
+
+        if(i<0)
+            return true;
+        else if(i==0){
+            if(q.upperClosed() && this.lowerClosed())
+                return false;
+            else
+                return true;
+        }
+        else
+            return false;
     }
 
+    /**
+     *  this is (Is,Ie)
+     *  q is the input parameter Inteval （Qs,Qe）
+     *Overlaps Query: Is < Qs and Qs < Ie < Qe; as shown in Fig. 4c.
+     */
     @Override
     public boolean overlaps(Interval q) {
         return false;
     }
 
+    /**
+     *  this is (Is,Ie)
+     *  q is the input parameter Inteval （Qs,Qe）
+     *Finishes Query: Qs < Is < Qe and Ie = Qe; as shown in Fig. 3e.
+     *FinishedBy Query: Is < Qs and Ie = Qe; as shown in Fig. 3f.
+     *Before Query: Is < Ie < Qs < Qe; as shown in Fig. 3a.
+     *After Query: Qs < Qe < Is < Ie; as shown in Fig. 4b.
+     *Overlaps Query: Is < Qs and Qs < Ie < Qe; as shown in Fig. 4c.
+     *OverlappedBy Query: Qs < Is < Qe and Ie > Qe; as shown in      Fig. 4d.
+     *During Query: Qs < Is < Ie < Qe; as shown in Fig. 4e.
+     *Contains Query: Is < Qs < Qe < Ie; as shown in Fig. 4f.
+     */
     @Override
     public boolean overlappedBy(Interval q) {
         return false;
     }
 
+    /**
+     *  this is (Is,Ie)
+     *  q is the input parameter Inteval （Qs,Qe）
+     *Finishes Query: Qs < Is < Qe and Ie = Qe; as shown in Fig. 3e.
+     *FinishedBy Query: Is < Qs and Ie = Qe; as shown in Fig. 3f.
+     *Before Query: Is < Ie < Qs < Qe; as shown in Fig. 3a.
+     *After Query: Qs < Qe < Is < Ie; as shown in Fig. 4b.
+     *Overlaps Query: Is < Qs and Qs < Ie < Qe; as shown in Fig. 4c.
+     *OverlappedBy Query: Qs < Is < Qe and Ie > Qe; as shown in      Fig. 4d.
+     *During Query: Qs < Is < Ie < Qe; as shown in Fig. 4e.
+     *Contains Query: Is < Qs < Qe < Ie; as shown in Fig. 4f.
+     */
     @Override
     public boolean during(Interval q) {
         return false;
     }
 
+    /**
+     *  this is (Is,Ie)
+     *  q is the input parameter Inteval （Qs,Qe）
+     *Finishes Query: Qs < Is < Qe and Ie = Qe; as shown in Fig. 3e.
+     *FinishedBy Query: Is < Qs and Ie = Qe; as shown in Fig. 3f.
+     *Before Query: Is < Ie < Qs < Qe; as shown in Fig. 3a.
+     *After Query: Qs < Qe < Is < Ie; as shown in Fig. 4b.
+     *Overlaps Query: Is < Qs and Qs < Ie < Qe; as shown in Fig. 4c.
+     *OverlappedBy Query: Qs < Is < Qe and Ie > Qe; as shown in      Fig. 4d.
+     *During Query: Qs < Is < Ie < Qe; as shown in Fig. 4e.
+     *Contains Query: Is < Qs < Qe < Ie; as shown in Fig. 4f.
+     */
     @Override
     public boolean covers(Interval q) {
         return false;
     }
 
+    /**
+     *  this is (Is,Ie)
+     *  q is the input parameter Inteval （Qs,Qe）
+     *Finishes Query: Qs < Is < Qe and Ie = Qe; as shown in Fig. 3e.
+     *FinishedBy Query: Is < Qs and Ie = Qe; as shown in Fig. 3f.
+     *Before Query: Is < Ie < Qs < Qe; as shown in Fig. 3a.
+     *After Query: Qs < Qe < Is < Ie; as shown in Fig. 4b.
+     *Overlaps Query: Is < Qs and Qs < Ie < Qe; as shown in Fig. 4c.
+     *OverlappedBy Query: Qs < Is < Qe and Ie > Qe; as shown in      Fig. 4d.
+     *During Query: Qs < Is < Ie < Qe; as shown in Fig. 4e.
+     *Contains Query: Is < Qs < Qe < Ie; as shown in Fig. 4f.
+     */
     @Override
     public boolean coveredBy(Interval q) {
         return false;
+    }
+
+    @Override
+    public boolean contains(Interval i) {
+
+        if (this.high < this.low) return false;
+        double low = i.getLowerBound();
+        double high = i.getUpperBound();
+        IntervalType type = i.getType();
+
+        if (this.low < low && this.high > high) return true;
+        if (this.low > low || this.high < high) return false;
+
+        switch (this.type)
+        {
+            case IT_CLOSED:
+                break;
+            case IT_OPEN:
+                if ((this.low == low && this.high == high && type != IntervalType.IT_OPEN) ||
+                        (this.low == low && (type == IntervalType.IT_CLOSED || type == IntervalType.IT_RIGHTOPEN)) ||
+                        (this.high == high && ( type == IntervalType.IT_CLOSED || type == IntervalType.IT_LEFTOPEN)))
+                    return false;
+                break;
+            case IT_RIGHTOPEN:
+                if (this.high == high && (type == IntervalType.IT_CLOSED || type == IntervalType.IT_LEFTOPEN))
+                    return false;
+                break;
+            case IT_LEFTOPEN:
+                if (this.low == low && (type == IntervalType.IT_CLOSED || type == IntervalType.IT_RIGHTOPEN))
+                    return false;
+                break;
+        }
+
+        return true;
     }
 
 }

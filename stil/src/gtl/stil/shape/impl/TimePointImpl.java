@@ -106,4 +106,84 @@ public class TimePointImpl extends PointImpl implements TimePoint{
     public double getIntersectingAreaInTime(Interval ivI, TimeShape r) {
         return 0;
     }
+
+    @Override
+    public boolean lowerClosed() {
+        return false;
+    }
+
+    @Override
+    public boolean upperClosed() {
+        return false;
+    }
+
+    @Override
+    public boolean equals(Interval q) {
+        return false;
+    }
+
+    @Override
+    public boolean starts(Interval q) {
+        return false;
+    }
+
+    @Override
+    public boolean startedBy(Interval q) {
+        return false;
+    }
+
+    @Override
+    public boolean meets(Interval q) {
+        return false;
+    }
+
+    @Override
+    public boolean metBy(Interval q) {
+        return false;
+    }
+
+    @Override
+    public boolean finishes(Interval q) {
+        return false;
+    }
+
+    @Override
+    public boolean finishedBy(Interval q) {
+        return false;
+    }
+
+    @Override
+    public boolean before(Interval q) {
+        return false;
+    }
+
+    @Override
+    public boolean after(Interval q) {
+        return false;
+    }
+
+    @Override
+    public boolean overlaps(Interval q) {
+        return false;
+    }
+
+    @Override
+    public boolean overlappedBy(Interval q) {
+        return false;
+    }
+
+    @Override
+    public boolean during(Interval q) {
+        return false;
+    }
+
+    @Override
+    public boolean covers(Interval q) {
+        return false;
+    }
+
+    @Override
+    public boolean coveredBy(Interval q) {
+        return false;
+    }
 }

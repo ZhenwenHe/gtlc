@@ -14,6 +14,7 @@ public interface Interval extends gtl.stil.Serializable {
      void reset(IntervalType type,  double start,  double end);
      boolean lowerClosed();
      boolean upperClosed();
+     boolean isValid();
 
      /**
       *  this is (Is,Ie)

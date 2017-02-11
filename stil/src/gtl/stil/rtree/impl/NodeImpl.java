@@ -525,8 +525,8 @@ public abstract  class NodeImpl implements Node {
         mbr=null;
         id=null;
 
-        Point nc =m_nodeMBR.getCenter();
-        Point c = null;
+        Vertex nc =m_nodeMBR.getCenter();
+        Vertex c = null;
 
         for (int u32Child = 0; u32Child < m_capacity + 1; ++u32Child){
             v[u32Child] = new ReinsertEntry(u32Child, 0.0);

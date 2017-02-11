@@ -155,7 +155,7 @@ public class LineSegmentImpl implements LineSegment {
     }
 
     @Override
-    public Point getCenter() {
+    public Vertex getCenter() {
         int dims =this.getDimension();
         double[] coordinates = new double[dims];
         for (int cDim = 0; cDim < dims; ++cDim)

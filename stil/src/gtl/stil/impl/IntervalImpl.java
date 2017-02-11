@@ -1,5 +1,6 @@
 package gtl.stil.impl;
 
+import gtl.stil.IndexSuits;
 import gtl.stil.Interval;
 import gtl.stil.IntervalType;
 
@@ -34,6 +35,11 @@ public class IntervalImpl implements Interval {
         this.type=IntervalType.IT_RIGHTOPEN;
         this.low=0;
         this.high=1;
+    }
+
+    @Override
+    public boolean isValid() {
+        return Double.compare(this.high,this.low)>0;
     }
 
     @Override
@@ -90,54 +96,71 @@ public class IntervalImpl implements Interval {
     }
 
     @Override
-    public boolean intersects(Interval i) {
-        return this.intersects(this.type,this.low,this.high);
+    public boolean intersects(Interval q) {
+
+        //invalid interval
+        if (this.isValid()==false)
+            return false;
+
+        /**
+         * this         -----
+         * Q    ------
+         */
+        //after
+        int tlqh = Double.compare(this.getLowerBound(),q.getUpperBound());
+        if(tlqh>0)return false;
+        //before
+        /**
+         * this -----
+         * Q           ------
+         */
+        int thql = Double.compare(this.getUpperBound(),q.getLowerBound());
+        if(thql<0) return false;
+
+        int tlql = Double.compare(this.getLowerBound(),q.getLowerBound());
+
+        if(tlql <0 ){
+            /**
+             * this -----
+             * Q      ------
+             */
+            if(thql>0)
+                return true;
+            if(thql==0){//meet
+                if(this.upperClosed()&&q.lowerClosed())
+                    return true;
+            }
+        }
+        else if(tlql==0){
+            /**
+             * this -----
+             * Q    ------
+             */
+            return true;
+        }
+        else {
+            /**
+             * this  -----
+             * Q    ------
+             */
+            if(tlqh<0)
+                return true;
+            /**
+             * this       -----
+             * Q    ------
+             */
+            if(tlqh==0){//metBy
+                if(this.lowerClosed() && q.upperClosed())
+                    return true;
+            }
+        }
+        return false;
     }
 
     @Override
     public boolean intersects(IntervalType type, double low, double high) {
-        if (this.high < this.low)
-            return false;
-
-        if (this.low > high || this.high < low) return false;
-        if ((this.low > low && this.low < high) || (this.high > low && this.high < high)) return true;
-
-        switch (this.type) {
-            case IT_CLOSED:
-                if (this.low == high) {
-                    if (type == IntervalType.IT_CLOSED || type == IntervalType.IT_LEFTOPEN) return true;
-                    else return false;
-                }
-                else if (this.high == low) {
-                    if (type == IntervalType.IT_CLOSED || type == IntervalType.IT_RIGHTOPEN) return true;
-                    else return false;
-                }
-                break;
-            case IT_OPEN:
-                if (this.low == high || this.high == low) return false;
-                break;
-            case IT_RIGHTOPEN:
-                if (this.low == high){
-                    if (type == IntervalType.IT_CLOSED || type == IntervalType.IT_LEFTOPEN) return true;
-                    else return false;
-                }
-                else if (this.high == low){
-                    return false;
-                }
-                break;
-            case IT_LEFTOPEN:
-                if (this.low == high){
-                    return false;
-                }
-                else if (this.high == low){
-                    if (type == IntervalType.IT_CLOSED || type == IntervalType.IT_RIGHTOPEN) return true;
-                    else return false;
-                }
-                break;
-        }
-
-        return true;
-        
+        Interval q= IndexSuits.createInterval(type,low,high);
+        return intersects(q);
     }
 
 
@@ -196,8 +219,8 @@ public class IntervalImpl implements Interval {
     @Override
     public void reset(IntervalType type, double start, double end) {
         this.type = type;
-        this.low = low;
-        this.high = high;
+        this.low = start;
+        this.high = end;
     }
 
     /**
@@ -533,6 +556,5 @@ public class IntervalImpl implements Interval {
         }
         return true;
     }
-
 
 }

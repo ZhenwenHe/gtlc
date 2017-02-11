@@ -29,6 +29,14 @@ public class VertexImpl implements Vertex {
         this.coordinates[2]=z;
     }
 
+    public VertexImpl(double x , double y, double z,double t) {
+        this.coordinates = new double[4];
+        this.coordinates[0]=x;
+        this.coordinates[1]=y;
+        this.coordinates[2]=z;
+        this.coordinates[3]=t;
+    }
+
     public VertexImpl(double[] coordinates) {
         this.coordinates=new double[coordinates.length];
         System.arraycopy(coordinates,0,this.coordinates,0,coordinates.length);
@@ -177,6 +185,7 @@ public class VertexImpl implements Vertex {
         }
     }
 
+    @Override
     public void reset(double [] coordinates){
         if(this.coordinates.length==coordinates.length){
             System.arraycopy(this.coordinates,0,

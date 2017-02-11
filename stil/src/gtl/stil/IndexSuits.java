@@ -1,8 +1,6 @@
 package gtl.stil;
 
-import gtl.stil.impl.EnvelopeImpl;
-import gtl.stil.impl.PropertySetImpl;
-import gtl.stil.impl.VertexImpl;
+import gtl.stil.impl.*;
 import gtl.stil.shape.LineSegment;
 import gtl.stil.shape.Point;
 import gtl.stil.shape.Region;
@@ -12,7 +10,6 @@ import gtl.stil.shape.impl.RegionImpl;
 import gtl.stil.storage.BufferedStorageManager;
 import gtl.stil.storage.StorageManager;
 import gtl.stil.storage.impl.DiskStorageManager;
-import gtl.stil.impl.IdentifierImpl;
 import gtl.stil.storage.impl.MemoryStorageManager;
 import gtl.stil.storage.impl.BufferedStorageManagerImpl;
 
@@ -64,6 +61,10 @@ public class IndexSuits {
             r[i]=(Identifier) c[i].clone();
         }
         return r;
+    }
+
+    public static Interval createInterval(IntervalType t, double low, double high ){
+        return new IntervalImpl(t,low,high);
     }
 
     public static PropertySet createPropertySet(){

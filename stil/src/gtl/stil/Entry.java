@@ -7,8 +7,11 @@ import gtl.stil.shape.Shape;
  */
 public interface Entry extends Serializable{
     Identifier getIdentifier() ;
-    Shape getShape( ) ;
+    Shape getShape();
     void setIdentifier(long id) ;
     void setIdentifier(Identifier id) ;
     void setShape(Shape s) ;
+    byte[] getData();
+    void setData(byte[] data);
+    long getDataLength();
 }

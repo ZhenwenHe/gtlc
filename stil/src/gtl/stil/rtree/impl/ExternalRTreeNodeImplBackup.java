@@ -1,11 +1,8 @@
 package gtl.stil.rtree.impl;
 
-import gtl.stil.ExternalNode;
-import gtl.stil.Identifier;
-import gtl.stil.IndexSuits;
-import gtl.stil.Node;
-import gtl.stil.rtree.RTree;
+import gtl.stil.*;
 import gtl.stil.shape.Region;
+import gtl.stil.shape.Shape;
 
 import java.util.ArrayList;
 import java.util.Stack;
@@ -13,11 +10,26 @@ import java.util.Stack;
 /**
  * Created by ZhenwenHe on 2016/12/22.
  */
-public class ExternalNodeImpl extends NodeImpl implements ExternalNode{
-    ExternalNodeImpl(){
+public class ExternalRTreeNodeImplBackup extends RTreeNodeImplBackup implements ExternalNode{
+    @Override
+    public long getDataLength() {
+        return 0;
+    }
+
+    @Override
+    public byte[] getData() {
+        return new byte[0];
+    }
+
+    @Override
+    public void setData(byte[] data) {
+
+    }
+
+    ExternalRTreeNodeImplBackup(){
         super();
     }
-    ExternalNodeImpl(RTreeImpl pTree,Identifier id){
+    ExternalRTreeNodeImplBackup(RTreeImpl pTree, Identifier id){
         super(pTree,id,0,pTree.m_leafCapacity);
     }
 
@@ -55,9 +67,9 @@ public class ExternalNodeImpl extends NodeImpl implements ExternalNode{
                return null;
         }
 
-        Node[] nodes=new ExternalNodeImpl[2];
-        ExternalNodeImpl pLeft = (ExternalNodeImpl)(nodes[0]);
-        ExternalNodeImpl pRight = (ExternalNodeImpl)(nodes[1]);
+        Node[] nodes=new ExternalRTreeNodeImplBackup[2];
+        ExternalRTreeNodeImplBackup pLeft = (ExternalRTreeNodeImplBackup)(nodes[0]);
+        ExternalRTreeNodeImplBackup pRight = (ExternalRTreeNodeImplBackup)(nodes[1]);
 
         pLeft.getShape().copyFrom(m_pTree.m_infiniteRegion);
         pRight.getShape().copyFrom(m_pTree.m_infiniteRegion);
@@ -108,8 +120,28 @@ public class ExternalNodeImpl extends NodeImpl implements ExternalNode{
     }
     @Override
     public Object clone() {
-        ExternalNodeImpl e=new ExternalNodeImpl();
+        ExternalRTreeNodeImplBackup e=new ExternalRTreeNodeImplBackup();
         e.copyFrom(this);
         return e;
+    }
+
+    @Override
+    public Shape recalculateShape() {
+        return null;
+    }
+
+    @Override
+    public Entry getChildEntry(int index) {
+        return null;
+    }
+
+    @Override
+    public void insertEntry(Entry e) {
+
+    }
+
+    @Override
+    public Entry removeEntry(int index) {
+        return null;
     }
 }

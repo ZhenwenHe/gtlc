@@ -2,6 +2,7 @@ package gtl.stil.shape.impl;
 
 
 import gtl.stil.Envelope;
+import gtl.stil.Vertex;
 import gtl.stil.impl.EnvelopeImpl;
 import gtl.stil.impl.VertexImpl;
 import gtl.stil.shape.Point;
@@ -85,7 +86,7 @@ public class PointImpl extends VertexImpl implements Point {
     }
 
     @Override
-    public Point getCenter() {
+    public Vertex getCenter() {
         return this;
     }
 

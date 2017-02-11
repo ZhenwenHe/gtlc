@@ -30,6 +30,11 @@ public class TimeRegionImpl extends RegionImpl implements TimeRegion {
     }
 
     @Override
+    public boolean isValid() {
+        return false;
+    }
+
+    @Override
     public boolean intersectsShapeInTime(Interval ivI, TimeShape in) {
         return false;
     }

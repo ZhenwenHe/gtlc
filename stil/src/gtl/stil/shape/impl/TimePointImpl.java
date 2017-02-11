@@ -186,4 +186,9 @@ public class TimePointImpl extends PointImpl implements TimePoint{
     public boolean coveredBy(Interval q) {
         return false;
     }
+
+    @Override
+    public boolean isValid() {
+        return false;
+    }
 }

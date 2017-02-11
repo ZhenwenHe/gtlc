@@ -1,8 +1,8 @@
 package gtl.stil.rtree.impl;
 
 import gtl.stil.*;
-import gtl.stil.rtree.RTree;
 import gtl.stil.shape.Region;
+import gtl.stil.shape.Shape;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -12,11 +12,25 @@ import java.util.Stack;
  * internal node class
  * Created by ZhenwenHe on 2016/12/19.
  */
-public class InternalNodeImpl extends NodeImpl implements InternalNode{
-
-    InternalNodeImpl(){
+public class InternalRTreeNodeImplBack extends RTreeNodeImplBackup implements InternalNode{
+    @Override
+    public long getDataLength() {
+        return 0;
     }
-    InternalNodeImpl(RTreeImpl pTree, Identifier id, int level){
+
+    @Override
+    public byte[] getData() {
+        return new byte[0];
+    }
+
+    @Override
+    public void setData(byte[] data) {
+
+    }
+
+    InternalRTreeNodeImplBack(){
+    }
+    InternalRTreeNodeImplBack(RTreeImpl pTree, Identifier id, int level){
         super(pTree, id, level, pTree.m_indexCapacity);
     }
     @Override
@@ -128,7 +142,7 @@ public class InternalNodeImpl extends NodeImpl implements InternalNode{
         return ret;
     }
 
-    void adjustTree(NodeImpl n, Stack<Identifier> pathBuffer){
+    void adjustTree(RTreeNodeImplBackup n, Stack<Identifier> pathBuffer){
         ++(m_pTree.m_stats.adjustments);
 
         // find entry pointing to old node;
@@ -160,53 +174,12 @@ public class InternalNodeImpl extends NodeImpl implements InternalNode{
 
         if (bRecompute && (! pathBuffer.empty())){
             Identifier cParent = pathBuffer.pop();
-            InternalNodeImpl  p = (InternalNodeImpl)m_pTree.readNode(cParent);
+            InternalRTreeNodeImplBack p = (InternalRTreeNodeImplBack)m_pTree.readNode(cParent);
             p.adjustTree(this, pathBuffer);
         }
     }
-    void adjustTree(NodeImpl n1, NodeImpl n2, Stack<Identifier> pathBuffer, byte[] overflowTable){
-        ++(m_pTree.m_stats.adjustments);
+    void adjustTree(RTreeNodeImpl n, Stack<Identifier> pathBuffer){
 
-        // find entry pointing to old node;
-        int child;
-        for (child = 0; child < m_children; ++child){
-            if (m_pIdentifier[child] == n1.m_identifier) break;
-        }
-
-        // MBR needs recalculation if either:
-        //   1. the NEW child MBR is not contained.
-        //   2. the OLD child MBR is touching.
-        boolean bContained = m_nodeMBR.containsRegion(n1.m_nodeMBR);
-        boolean bTouches = m_nodeMBR.touchesRegion(m_ptrMBR[child]);
-        boolean bRecompute = (! bContained || (bTouches && m_pTree.m_bTightMBRs));
-
-	    assert n1.m_nodeMBR.copyTo(m_ptrMBR[child])!=null;
-
-        if (bRecompute){
-            int dims = m_nodeMBR.getDimension();
-            m_nodeMBR.makeInfinite();
-            for (int cDim = 0; cDim < dims; ++cDim){
-
-                for (int cChild = 0; cChild < m_children; ++cChild)                {
-                    m_nodeMBR.setLowCoordinate(cDim, Math.min(m_nodeMBR.getLowCoordinate(cDim), m_ptrMBR[cChild].getLowCoordinate(cDim)));
-                    m_nodeMBR.setHighCoordinate(cDim, Math.max(m_nodeMBR.getHighCoordinate(cDim), m_ptrMBR[cChild].getHighCoordinate(cDim)));
-                }
-            }
-        }
-
-        // No write necessary here. insertData will write the node if needed.
-        //m_pTree.writeNode(this);
-
-        boolean bAdjusted = insertData(null, n2.m_nodeMBR, n2.m_identifier, pathBuffer, overflowTable);
-
-        // if n2 is contained in the node and there was no split or reinsert,
-        // we need to adjust only if recalculation took place.
-        // In all other cases insertData above took care of adjustment.
-        if ((! bAdjusted) && bRecompute && (! pathBuffer.empty())) {
-            Identifier cParent =pathBuffer.pop();
-            InternalNodeImpl p =(InternalNodeImpl) m_pTree.readNode(cParent);
-            p.adjustTree(this, pathBuffer);
-        }
     }
 
     @Override
@@ -233,7 +206,7 @@ public class InternalNodeImpl extends NodeImpl implements InternalNode{
         }
         assert(child != Integer.MAX_VALUE);
 
-        NodeImpl n = (NodeImpl)m_pTree.readNode(m_pIdentifier[child]);
+        RTreeNodeImplBackup n = (RTreeNodeImplBackup)m_pTree.readNode(m_pIdentifier[child]);
         return n.chooseSubtree(mbr, insertionLevel, pathBuffer);
     }
 
@@ -242,7 +215,7 @@ public class InternalNodeImpl extends NodeImpl implements InternalNode{
         pathBuffer.push(m_identifier);
         for (int cChild = 0; cChild < m_children; ++cChild){
             if (m_ptrMBR[cChild].containsRegion(mbr)){
-                NodeImpl n = (NodeImpl)m_pTree.readNode(m_pIdentifier[cChild]);
+                RTreeNodeImplBackup n = (RTreeNodeImplBackup)m_pTree.readNode(m_pIdentifier[cChild]);
                 Node  ln = n.findLeaf(mbr, id, pathBuffer);
                 if (ln!=null) return ln;
             }
@@ -271,8 +244,8 @@ public class InternalNodeImpl extends NodeImpl implements InternalNode{
                 return null;
         }
 
-        InternalNodeImpl ptrLeft = new InternalNodeImpl(m_pTree, m_identifier, m_level);
-        InternalNodeImpl ptrRight =new InternalNodeImpl(m_pTree, IndexSuits.createIdentifier(-1L), m_level);
+        InternalRTreeNodeImplBack ptrLeft = new InternalRTreeNodeImplBack(m_pTree, m_identifier, m_level);
+        InternalRTreeNodeImplBack ptrRight =new InternalRTreeNodeImplBack(m_pTree, IndexSuits.createIdentifier(-1L), m_level);
 
         ptrLeft.m_nodeMBR.copyFrom(m_pTree.m_infiniteRegion);
         ptrRight.m_nodeMBR.copyFrom(m_pTree.m_infiniteRegion);
@@ -310,4 +283,25 @@ public class InternalNodeImpl extends NodeImpl implements InternalNode{
             return 0;
         }
     }; // OverlapEntry
+
+
+    @Override
+    public Shape recalculateShape() {
+        return null;
+    }
+
+    @Override
+    public Entry getChildEntry(int index) {
+        return null;
+    }
+
+    @Override
+    public void insertEntry(Entry e) {
+
+    }
+
+    @Override
+    public Entry removeEntry(int index) {
+        return null;
+    }
 }

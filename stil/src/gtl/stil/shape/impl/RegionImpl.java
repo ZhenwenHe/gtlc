@@ -73,7 +73,7 @@ public class RegionImpl extends EnvelopeImpl implements Region {
     }
 
     @Override
-    public Point getCenter() {
+    public Vertex getCenter() {
         Point p =IndexSuits.createPoint();
 
         int dims=this.getDimension();

@@ -27,6 +27,8 @@ public class StatisticsImpl implements gtl.stil.Statistics{
         this.splitTimes = splitTimes;
     }
 
+    public void increaseSplitTimes(){this.splitTimes++;}
+
     public long getHits() {
         return hits;
     }
@@ -34,6 +36,8 @@ public class StatisticsImpl implements gtl.stil.Statistics{
     public void setHits(long hits) {
         this.hits = hits;
     }
+
+    public void increaseHits(){this.hits++;}
 
     public long getMisses() {
         return misses;
@@ -55,6 +59,8 @@ public class StatisticsImpl implements gtl.stil.Statistics{
         this.adjustments = adjustments;
     }
 
+    public void increaseAdjustments(){++this.adjustments;}
+
     public long getQueryResults() {
         return queryResults;
     }
@@ -67,13 +73,13 @@ public class StatisticsImpl implements gtl.stil.Statistics{
         this.dataNumber = dataNumber;
     }
 
-    public long getTreeHeight() {
-        return treeHeight;
-    }
+    public long getTreeHeight() {return this.treeHeight;}
 
     public void setTreeHeight(long treeHeight) {
         this.treeHeight = treeHeight;
     }
+
+    public void increaseTreeHeight(){++this.treeHeight;}
 
     public ArrayList<Long> getNodeNumberInLevelArray() {
         return nodeNumberInLevelArray;

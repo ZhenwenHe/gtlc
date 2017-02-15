@@ -58,7 +58,8 @@ NodePtr Leaf::findLeaf(const Region& mbr, id_type id, std::stack<id_type>&)
 	{
 		// should make sure to relinquish other PoolPointer lists that might be pointing to the
 		// same leaf.
-		if (m_pIdentifier[cChild] == id && mbr == *(m_ptrMBR[cChild])) return NodePtr(this, &(m_pTree->m_leafPool));
+		if (m_pIdentifier[cChild] == id && mbr == *(m_ptrMBR[cChild])) 
+			return NodePtr(this, &(m_pTree->m_leafPool));
 	}
 
 	return NodePtr();

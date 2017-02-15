@@ -94,7 +94,17 @@ public abstract class NodeImpl implements Node {
 
     @Override
     public long getDataLength() {
-        return 0;
+        return this.totalDataLength;
+    }
+
+    //重新计算节点的数据长度
+    @Override
+    public long recalculateDataLength(){
+        this.totalDataLength=0;
+        for(Entry e: this.entries){
+            this.totalDataLength+=e.getDataLength();
+        }
+        return  this.totalDataLength;
     }
 
     @Override
@@ -105,6 +115,11 @@ public abstract class NodeImpl implements Node {
     @Override
     public int getLevel() {
         return this.level;
+    }
+
+    @Override
+    public void setLevel(int level) {
+        this.level=level;
     }
 
     @Override
@@ -124,7 +139,19 @@ public abstract class NodeImpl implements Node {
         else
             return null;
     }
-
+    @Override
+    public void setChildEntry(int index, Entry e) {
+        if(index>=0 && index<this.capacity)
+            this.entries[index]=e;
+    }
+    @Override
+    public void setChildEntries(Entry [] es){
+        this.totalDataLength=0;
+        this.entries=es;
+        for(Entry e : es){
+            this.totalDataLength+=e.getDataLength();
+        }
+    }
     @Override
     public long getByteArraySize() {
         long sum=4*4;

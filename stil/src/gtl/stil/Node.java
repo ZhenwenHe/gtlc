@@ -46,17 +46,22 @@ public interface Node extends Entry {
         return null;
     }
     int getLevel() ;
+    void setLevel(int l);
     default boolean isIndex() {return isInternalNode();}
     default boolean isLeaf() {return  isExternalNode();}
     boolean isInternalNode();
     boolean isExternalNode();
 
     Entry getChildEntry(int index);
+    void setChildEntry(int index, Entry e);
+    void setChildEntries(Entry[] es);
     void insertEntry(Entry e);
     Entry removeEntry(int index);
 
-    //重新计算节点的包围矩形，对于不同的
+    //重新计算节点的包围矩形
     Shape recalculateShape();
+    //重新计算节点的数据长度
+    long recalculateDataLength();
     /**
      * 对于不同的节点实现，需要重载这个函数生成对应的边界矩形，
      * 例如，如果是RTree的Node，则生产的是Region ;

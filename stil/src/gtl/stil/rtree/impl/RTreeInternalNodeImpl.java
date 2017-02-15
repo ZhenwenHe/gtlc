@@ -1,5 +1,6 @@
 package gtl.stil.rtree.impl;
 
+import gtl.stil.Entry;
 import gtl.stil.Identifier;
 import gtl.stil.Node;
 import gtl.stil.shape.Region;
@@ -14,7 +15,7 @@ public class RTreeInternalNodeImpl extends RTreeNodeImpl  {
         super(tree, identifier, level, capacity);
     }
 
-    public RTreeInternalNodeImpl(RTreeImpl tree) {
+    public RTreeInternalNodeImpl(RTreeImpl tree, Identifier m_rootID, int i) {
         super(tree);
     }
 
@@ -34,7 +35,14 @@ public class RTreeInternalNodeImpl extends RTreeNodeImpl  {
     }
 
     @Override
-    protected Node[] split(byte[] pData, Region mbr, Identifier id) {
+    protected Node[] split(Entry e) {
         return new Node[0];
+    }
+
+    public void adjustTree(RTreeNodeImpl n, Stack<Identifier> pathBuffer){
+
+    }
+    public void adjustTree(Node n, Node nn, Stack<Identifier> pathBuffer, byte[] overflowTable){
+
     }
 }

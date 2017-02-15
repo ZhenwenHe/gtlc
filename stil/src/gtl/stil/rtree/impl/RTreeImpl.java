@@ -217,6 +217,9 @@ public class RTreeImpl implements RTree{
     void insertData_impl(byte[] pData, Region mbr, Identifier id, int level, byte[] overflowTable){
 
     }
+    void insertData_impl(Entry e, int level, byte[] overflowTable){
+
+    }
     boolean deleteData_impl(Region mbr, Identifier id){
         return false;
     }

@@ -19,6 +19,26 @@ public class InternalRTreeNodeImplBack extends RTreeNodeImplBackup implements In
     }
 
     @Override
+    public void setLevel(int l) {
+
+    }
+
+    @Override
+    public void setChildEntry(int index, Entry e) {
+
+    }
+
+    @Override
+    public void setChildEntries(Entry[] es) {
+
+    }
+
+    @Override
+    public long recalculateDataLength() {
+        return 0;
+    }
+
+    @Override
     public byte[] getData() {
         return new byte[0];
     }

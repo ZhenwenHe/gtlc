@@ -9,7 +9,7 @@ import gtl.stil.shape.Region;
 import gtl.stil.shape.Shape;
 import gtl.stil.storage.StorageManager;
 
-import java.util.Map;
+import java.util.ArrayList;
 
 /**
  * Created by ZhenwenHe on 2016/12/19.
@@ -40,20 +40,20 @@ public class RTreeImpl implements RTree{
      */
     @Override
     public void reset(StorageManager storageManager,PropertySet propSet) {
-        this.m_pStorageManager=storageManager;
-        this.m_rootID=IndexSuits.createIdentifier(StorageManager.NEW_PAGE);
-        this.m_headerID=IndexSuits.createIdentifier(StorageManager.NEW_PAGE);
-        this.m_treeVariant=RTreeVariant.RV_RSTAR;
-        this.m_fillFactor=0.7;
-        this.m_indexCapacity=100;
-        this.m_leafCapacity=100;
-        this.m_nearMinimumOverlapFactor=32;
-        this.m_splitDistributionFactor=(0.4);
-        this.m_reinsertFactor=(0.3);
-        this.m_dimension=(2);
-        this.m_bTightMBRs=(true);
-        this.m_infiniteRegion=IndexSuits.createRegion();
-        this.m_stats=new StatisticsImpl();
+        this.storageManager =storageManager;
+        this.rootIdentifier =IndexSuits.createIdentifier(StorageManager.NEW_PAGE);
+        this.headerIdentifier =IndexSuits.createIdentifier(StorageManager.NEW_PAGE);
+        this.treeVariant =RTreeVariant.RV_RSTAR;
+        this.fillFactor =0.7;
+        this.indexCapacity =100;
+        this.leafCapacity =100;
+        this.nearMinimumOverlapFactor =32;
+        this.splitDistributionFactor =(0.4);
+        this.reinsertFactor =(0.3);
+        this.dimension =(2);
+        this.tightMBRs =(true);
+        this.infiniteRegion =IndexSuits.createRegion();
+        this.stats =new StatisticsImpl();
 
 
     }
@@ -71,20 +71,20 @@ public class RTreeImpl implements RTree{
                       double reinsertFactor,
                       boolean ensureTightMBRs) {
 
-        this.m_pStorageManager=storageManager;
-        this.m_rootID=IndexSuits.createIdentifier(StorageManager.NEW_PAGE);
-        this.m_headerID=IndexSuits.createIdentifier(StorageManager.NEW_PAGE);
-        this.m_treeVariant=RTreeVariant.RV_RSTAR;
-        this.m_fillFactor=0.7;
-        this.m_indexCapacity=100;
-        this.m_leafCapacity=100;
-        this.m_nearMinimumOverlapFactor=32;
-        this.m_splitDistributionFactor=(0.4);
-        this.m_reinsertFactor=(0.3);
-        this.m_dimension=(2);
-        this.m_bTightMBRs=(true);
-        this.m_infiniteRegion=IndexSuits.createRegion();
-        this.m_stats=new StatisticsImpl();
+        this.storageManager =storageManager;
+        this.rootIdentifier =IndexSuits.createIdentifier(StorageManager.NEW_PAGE);
+        this.headerIdentifier =IndexSuits.createIdentifier(StorageManager.NEW_PAGE);
+        this.treeVariant =RTreeVariant.RV_RSTAR;
+        this.fillFactor =0.7;
+        this.indexCapacity =100;
+        this.leafCapacity =100;
+        this.nearMinimumOverlapFactor =32;
+        this.splitDistributionFactor =(0.4);
+        this.reinsertFactor =(0.3);
+        this.dimension =(2);
+        this.tightMBRs =(true);
+        this.infiniteRegion =IndexSuits.createRegion();
+        this.stats =new StatisticsImpl();
 
         if(indexIdentifier==null){//new
 
@@ -94,40 +94,45 @@ public class RTreeImpl implements RTree{
         }
     }
 
-    StorageManager m_pStorageManager;
+    StorageManager storageManager;
 
-    Identifier m_rootID, m_headerID;
+    Identifier rootIdentifier;
+    Identifier headerIdentifier;
 
-    RTreeVariant m_treeVariant;
+    RTreeVariant treeVariant;
 
-    double m_fillFactor;
+    double fillFactor;
 
-    int m_indexCapacity;
+    int indexCapacity;
 
-    int m_leafCapacity;
+    int leafCapacity;
 
-    int m_nearMinimumOverlapFactor;
+    int nearMinimumOverlapFactor;
     // The R*-Tree 'p' constant, for calculating nearly minimum overlap cost.
     // [Beckmann, Kriegel, Schneider, Seeger 'The R*-tree: An efficient and Robust Access Method
     // for Points and Rectangles', Section 4.1]
 
-    double m_splitDistributionFactor;
+    double splitDistributionFactor;
     // The R*-Tree 'm' constant, for calculating spliting distributions.
     // [Beckmann, Kriegel, Schneider, Seeger 'The R*-tree: An efficient and Robust Access Method
     // for Points and Rectangles', Section 4.2]
 
-    double m_reinsertFactor;
+    double reinsertFactor;
     // The R*-Tree 'p' constant, for removing entries at reinserts.
     // [Beckmann, Kriegel, Schneider, Seeger 'The R*-tree: An efficient and Robust Access Method
     //  for Points and Rectangles', Section 4.3]
 
-    int m_dimension;
+    int dimension;
 
-    Region m_infiniteRegion;
+    Region infiniteRegion;
 
-    StatisticsImpl m_stats;
+    StatisticsImpl stats;
 
-    boolean  m_bTightMBRs;
+    boolean tightMBRs;
+
+    ArrayList<Command> writeNodeCommands;
+    ArrayList<Command> readNodeCommands;
+    ArrayList<Command> deleteNodeCommands;
 
     @Override
     public void insert(byte[] pData, Shape shape, Identifier shapeIdentifier) {
@@ -234,10 +239,10 @@ public class RTreeImpl implements RTree{
 
     }
 
-    void rangeQuery(RangeQueryType type, Shape query, Visitor v){
+    void range(RangeQueryType type, Shape query, Visitor v){
 
     }
-    void selfJoinQuery(Identifier id1, Identifier id2,  Region r, Visitor vis){
+    void selfJoin(Identifier id1, Identifier id2,  Region r, Visitor vis){
 
     }
     void visitSubTree(Node  subTree, Visitor  v){

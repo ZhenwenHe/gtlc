@@ -12,30 +12,28 @@ import java.util.Stack;
  * Created by ZhenwenHe on 2017/2/13.
  */
 public class RTreeExternalNodeImpl extends RTreeNodeImpl{
-    public RTreeExternalNodeImpl(RTreeImpl tree, Identifier identifier, int level, int capacity) {
-        super(tree, identifier, level, capacity);
+    public RTreeExternalNodeImpl(RTreeImpl tree, Identifier identifier) {
+        super(tree, identifier, 0, tree.leafCapacity);
     }
-
-    public RTreeExternalNodeImpl(RTreeImpl tree) {
+    public RTreeExternalNodeImpl(RTreeImpl tree){
         super(tree);
     }
-
     @Override
     public Object clone() {
-        return null;
+        RTreeExternalNodeImpl r = new RTreeExternalNodeImpl(tree);
+        r.copyFrom(this);
+        return r;
     }
 
     @Override
     protected Node chooseSubtree(Region mbr, int level, Stack<Identifier> pathBuffer) {
-
-        return null;
+        return this;
     }
 
     @Override
     protected Node findLeaf(Region mbr, Identifier id, Stack<Identifier> pathBuffer) {
         int childCount=getChildrenCount();
         for (int cChild = 0; cChild < childCount; ++cChild){
-            // should make sure to relinquish other PoolPointer lists that might be pointing to the same leaf.
             if (getChildIdentifier(cChild).equals(id) && getChildShape(cChild).equals(mbr))
                 return this;
         }
@@ -44,10 +42,10 @@ public class RTreeExternalNodeImpl extends RTreeNodeImpl{
 
     @Override
     protected Node[] split(Entry e) {
-        tree.m_stats.setSplitTimes(tree.m_stats.getSplitTimes()+1);
+        tree.stats.setSplitTimes(tree.stats.getSplitTimes()+1);
         ArrayList<Integer> g1=new ArrayList<Integer>();
         ArrayList<Integer> g2=new ArrayList<Integer>();
-        switch (tree.m_treeVariant) {
+        switch (tree.treeVariant) {
             case RV_LINEAR:
             case RV_QUADRATIC:
                 rtreeSplit( e, g1, g2);
@@ -63,8 +61,8 @@ public class RTreeExternalNodeImpl extends RTreeNodeImpl{
         RTreeExternalNodeImpl pLeft = (RTreeExternalNodeImpl)(nodes[0]);
         RTreeExternalNodeImpl pRight = (RTreeExternalNodeImpl)(nodes[1]);
 
-        pLeft.getShape().copyFrom(tree.m_infiniteRegion);
-        pRight.getShape().copyFrom(tree.m_infiniteRegion);
+        pLeft.getShape().copyFrom(tree.infiniteRegion);
+        pRight.getShape().copyFrom(tree.infiniteRegion);
 
         int cIndex;
         int tIndex;
@@ -83,5 +81,39 @@ public class RTreeExternalNodeImpl extends RTreeNodeImpl{
         }
 
         return nodes;
+    }
+
+    protected void deleteData(Identifier id, Stack<Identifier>  pathBuffer){
+        int child;
+        int children=getChildrenCount();
+        for (child = 0; child < children; ++child){
+            if (id.equals(getChildIdentifier(child))) break;
+        }
+
+        deleteEntry(child);
+        tree.writeNode(this);
+
+        Stack<Node> toReinsert=new Stack<>();
+        condenseTree(toReinsert, pathBuffer, this);
+
+
+        // re-insert eliminated nodes.
+        while (! toReinsert.empty()){
+            Node n = toReinsert.pop();
+            tree.deleteNode(n);
+            // warning : the value has been changed
+            children=n.getChildrenCount();
+            for (int cChild = 0; cChild <children; ++cChild){
+                // keep this in the for loop. The tree height might change after insertions.
+			    byte[] overflowTable = new byte[(int)tree.stats.getTreeHeight()];
+                for(int i=0;i<overflowTable.length;i++)
+                    overflowTable[i]=0;
+                tree.insertData_impl(n.getChildData(cChild),
+                        (Region) n.getChildShape(cChild),
+                        n.getChildIdentifier(cChild),
+                        n.getLevel(), overflowTable);
+                n.setChildData(cChild,null);
+            }
+        }
     }
 }

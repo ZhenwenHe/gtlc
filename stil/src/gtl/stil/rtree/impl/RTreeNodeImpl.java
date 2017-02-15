@@ -1,21 +1,16 @@
 package gtl.stil.rtree.impl;
 
-import com.sun.org.apache.regexp.internal.RE;
 import gtl.stil.*;
 import gtl.stil.impl.EntryImpl;
 import gtl.stil.impl.NodeImpl;
-import gtl.stil.rtree.RTreeVariant;
 import gtl.stil.shape.Region;
 import gtl.stil.shape.Shape;
-import gtl.stil.shape.impl.RegionImpl;
 
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Stack;
-import java.util.function.Supplier;
 
 import static gtl.stil.rtree.RTreeVariant.RV_LINEAR;
-import static gtl.stil.rtree.RTreeVariant.RV_QUADRATIC;
 import static gtl.stil.rtree.RTreeVariant.RV_RSTAR;
 
 /**
@@ -39,6 +34,7 @@ public abstract  class RTreeNodeImpl extends NodeImpl {
         setShape(s);
     }
 
+
     @Override
     public void  insertEntry(Entry e) {
         super.insertEntry(e);
@@ -50,7 +46,7 @@ public abstract  class RTreeNodeImpl extends NodeImpl {
 
     /**
      *
-     * @param index index >= 0 && index < m_children
+     * @param index index >= 0 && index < children
      */
     protected void deleteEntry(int index) {
         Entry e = removeEntry(index);
@@ -61,7 +57,7 @@ public abstract  class RTreeNodeImpl extends NodeImpl {
         if (getChildrenCount() == 0){
             r.makeInfinite();
         }
-        else if (this.tree.m_bTightMBRs && r.touchesRegion(er)){
+        else if (this.tree.tightMBRs && r.touchesRegion(er)){
             recalculateShape();
         }
     }
@@ -69,6 +65,12 @@ public abstract  class RTreeNodeImpl extends NodeImpl {
     @Override
     public abstract Object clone();
 
+    @Override
+    public void copyFrom(Object obj){
+        super.copyFrom(obj);
+        if(obj instanceof  RTreeNodeImpl)
+            this.tree=((RTreeNodeImpl)(obj)).tree;
+    }
     @Override
     public Shape recalculateShape() {
         Region er =null;
@@ -105,7 +107,7 @@ public abstract  class RTreeNodeImpl extends NodeImpl {
         if (children < capacity){
             boolean adjusted = false;
 
-            // this has to happen before insertEntry modifies m_nodeMBR.
+            // this has to happen before insertEntry modifies nodeMBR.
             boolean b = nodeMBR.containsRegion(mbr);
             this.insertEntry(e);
             this.tree.writeNode(this);
@@ -119,7 +121,7 @@ public abstract  class RTreeNodeImpl extends NodeImpl {
             }
             return adjusted;
         }
-        else if (this.tree.m_treeVariant == RV_RSTAR && (! pathBuffer.empty()) && overflowTable[level] == 0){
+        else if (this.tree.treeVariant == RV_RSTAR && (! pathBuffer.empty()) && overflowTable[level] == 0){
             //如果是RStarTree则需要重新插入
             overflowTable[level] = 1;
             //记录需要重插的孩子节点下标
@@ -179,17 +181,17 @@ public abstract  class RTreeNodeImpl extends NodeImpl {
                 this.tree.writeNode(n);
                 this.tree.writeNode(nn);
 
-                RTreeNodeImpl ptrR = new RTreeInternalNodeImpl(this.tree,this.tree.m_rootID,this.getLevel()+1);
+                RTreeNodeImpl ptrR = new RTreeInternalNodeImpl(this.tree,this.tree.rootIdentifier,this.getLevel()+1);
 
                 ptrR.insertEntry((Entry)n);
                 ptrR.insertEntry((Entry)nn);
 
                 this.tree.writeNode(ptrR);
 
-                StatisticsImpl s =(StatisticsImpl) (this.tree.m_stats);
+                StatisticsImpl s =(StatisticsImpl) (this.tree.stats);
                 s.setNodeNumberInLevel(level,2L);
-                this.tree.m_stats.getNodeNumberInLevelArray().add(1L);
-                this.tree.m_stats.setTreeHeight(level + 2);
+                this.tree.stats.getNodeNumberInLevelArray().add(1L);
+                this.tree.stats.setTreeHeight(level + 2);
             }
             else {
                 n.setLevel(this.getLevel());
@@ -208,19 +210,19 @@ public abstract  class RTreeNodeImpl extends NodeImpl {
         }
     }
     protected void reinsertData(Entry e, ArrayList<Integer> reinsert, ArrayList<Integer> keep){
-        int m_capacity=getCapacity();
-        int m_children=getChildrenCount();
-        ReinsertEntry[]v = new ReinsertEntry[m_capacity + 1];
-        setChildEntry(m_children,e);
-        Region m_nodeMBR = (Region)getShape();
-        Vertex nc =m_nodeMBR.getCenter();
+        int capacity=getCapacity();
+        int children=getChildrenCount();
+        ReinsertEntry[]v = new ReinsertEntry[capacity + 1];
+        setChildEntry(children,e);
+        Region nodeMBR = (Region)getShape();
+        Vertex nc =nodeMBR.getCenter();
         Vertex c = null;
 
-        for (int u32Child = 0; u32Child < m_capacity + 1; ++u32Child){
+        for (int u32Child = 0; u32Child < capacity + 1; ++u32Child){
             v[u32Child] = new ReinsertEntry(u32Child, 0.0);
             c=getChildShape(u32Child).getCenter();
             // calculate relative distance of every entry from the node MBR (ignore square root.)
-            for (int cDim = 0; cDim < m_nodeMBR.getDimension(); ++cDim){
+            for (int cDim = 0; cDim < nodeMBR.getDimension(); ++cDim){
                 double d = nc.getCoordinate(cDim) - c.getCoordinate(cDim);
                 v[u32Child].dist += d * d;
             }
@@ -229,7 +231,7 @@ public abstract  class RTreeNodeImpl extends NodeImpl {
         // sort by increasing order of distances.
         java.util.Arrays.sort(v);
 
-        int cReinsert = (int)(Math.floor((m_capacity + 1) * this.tree.m_reinsertFactor));
+        int cReinsert = (int)(Math.floor((capacity + 1) * this.tree.reinsertFactor));
 
         int cCount;
 
@@ -237,21 +239,21 @@ public abstract  class RTreeNodeImpl extends NodeImpl {
             reinsert.add(v[cCount].index);
         }
 
-        for (cCount = cReinsert; cCount < m_capacity + 1; ++cCount){
+        for (cCount = cReinsert; cCount < capacity + 1; ++cCount){
             keep.add(v[cCount].index);
         }
     }
     protected void rtreeSplit(Entry e, ArrayList<Integer> group1, ArrayList<Integer> group2){
         int u32Child;
-        int m_capacity=getCapacity();
-        int minimumLoad = (int)(Math.floor(m_capacity * this.tree.m_fillFactor));
+        int capacity=getCapacity();
+        int minimumLoad = (int)(Math.floor(capacity * this.tree.fillFactor));
 
         // use this mask array for marking visited entries.
-        byte[] mask = new byte[m_capacity + 1];
+        byte[] mask = new byte[capacity + 1];
         java.util.Arrays.fill(mask,(byte)0);
         // insert new data in the node for easier manipulation. Data arrays are always
         // by one larger than node capacity.
-        setChildEntry(m_capacity,e);
+        setChildEntry(capacity,e);
         // m_totalDataLength does not need to be increased here.
 
         // initialize each group with the seed entries.
@@ -272,12 +274,12 @@ public abstract  class RTreeNodeImpl extends NodeImpl {
         Region  mbr2 =(Region) getChildShape(seed2).clone();
 
         // count how many entries are left unchecked (exclude the seeds here.)
-        int cRemaining = m_capacity + 1 - 2;
+        int cRemaining = capacity + 1 - 2;
 
         while (cRemaining > 0) {
             if (minimumLoad - group1.size() == cRemaining){
                 // all remaining entries must be assigned to group1 to comply with minimun load requirement.
-                for (u32Child = 0; u32Child < m_capacity + 1; ++u32Child) {
+                for (u32Child = 0; u32Child < capacity + 1; ++u32Child) {
                     if (mask[u32Child] == 0){
                         group1.add(u32Child);
                         mask[u32Child] = 1;
@@ -287,7 +289,7 @@ public abstract  class RTreeNodeImpl extends NodeImpl {
             }
             else if (minimumLoad - group2.size() == cRemaining){
                 // all remaining entries must be assigned to group2 to comply with minimun load requirement.
-                for (u32Child = 0; u32Child < m_capacity + 1; ++u32Child){
+                for (u32Child = 0; u32Child < capacity + 1; ++u32Child){
                     if (mask[u32Child] == 0){
                         group2.add(u32Child);
                         mask[u32Child] = 1;
@@ -309,7 +311,7 @@ public abstract  class RTreeNodeImpl extends NodeImpl {
                 Region a = null;
                 Region b = null;
 
-                for (u32Child = 0; u32Child < m_capacity + 1; ++u32Child){
+                for (u32Child = 0; u32Child < capacity + 1; ++u32Child){
                     if (mask[u32Child] == 0){
                         a=mbr1.getCombinedRegion((Region) getChildShape(u32Child));
                         d1 = a.getArea() - a1;
@@ -321,7 +323,7 @@ public abstract  class RTreeNodeImpl extends NodeImpl {
                             m = d;
                             md1 = d1; md2 = d2;
                             sel = u32Child;
-                            if (this.tree.m_treeVariant== RV_LINEAR || this.tree.m_treeVariant == RV_RSTAR)
+                            if (this.tree.treeVariant == RV_LINEAR || this.tree.treeVariant == RV_RSTAR)
                                 break;
                         }
                     }
@@ -370,18 +372,18 @@ public abstract  class RTreeNodeImpl extends NodeImpl {
         }
     }
     protected void rstarSplit(Entry e, ArrayList<Integer> group1, ArrayList<Integer> group2){
-        int m_capacity=getCapacity();
-        RstarSplitEntry[] dataLow = new RstarSplitEntry[m_capacity + 1];
-        RstarSplitEntry[] dataHigh = new RstarSplitEntry[m_capacity + 1];
-        setChildEntry(m_capacity,e);
+        int capacity=getCapacity();
+        RstarSplitEntry[] dataLow = new RstarSplitEntry[capacity + 1];
+        RstarSplitEntry[] dataHigh = new RstarSplitEntry[capacity + 1];
+        setChildEntry(capacity,e);
         // m_totalDataLength does not need to be increased here.
 
-        int nodeSPF =(int)( Math.floor((m_capacity + 1) * this.tree.m_splitDistributionFactor));
-        int splitDistribution = (m_capacity + 1) - (2 * nodeSPF) + 2;
+        int nodeSPF =(int)( Math.floor((capacity + 1) * this.tree.splitDistributionFactor));
+        int splitDistribution = (capacity + 1) - (2 * nodeSPF) + 2;
 
         int u32Child = 0, cDim, cIndex;
 
-        for (u32Child = 0; u32Child <= m_capacity; ++u32Child) {
+        for (u32Child = 0; u32Child <= capacity; ++u32Child) {
             dataLow[u32Child] = new RstarSplitEntry((Region)getChildShape(u32Child), u32Child, 0);
             dataHigh[u32Child] = dataLow[u32Child];
         }
@@ -396,7 +398,7 @@ public abstract  class RTreeNodeImpl extends NodeImpl {
         Region bbh2=IndexSuits.createRegion();
 
         // chooseSplitAxis.
-        for (cDim = 0; cDim < this.tree.m_dimension; ++cDim){
+        for (cDim = 0; cDim < this.tree.dimension; ++cDim){
             java.util.Arrays.sort(dataLow,new RstarSplitEntryLowComparator());
             java.util.Arrays.sort(dataHigh,new RstarSplitEntryHighComparator());
             // calculate sum of margins and overlap for all distributions.
@@ -419,7 +421,7 @@ public abstract  class RTreeNodeImpl extends NodeImpl {
                 bbl2.copyFrom(dataLow[ls].region);
                 bbh2.copyFrom(dataHigh[ls].region);
 
-                for (cIndex = ls + 1; cIndex <= m_capacity; ++cIndex){
+                for (cIndex = ls + 1; cIndex <= capacity; ++cIndex){
                     bbl2.combineRegion(dataLow[cIndex].region);
                     bbh2.combineRegion(dataHigh[cIndex].region);
                 }
@@ -438,12 +440,12 @@ public abstract  class RTreeNodeImpl extends NodeImpl {
             }
 
             // increase the dimension according to which the data entries should be sorted.
-            for (u32Child = 0; u32Child <= m_capacity; ++u32Child){
+            for (u32Child = 0; u32Child <= capacity; ++u32Child){
                 dataLow[u32Child].sortDim = cDim + 1;
             }
         } // for (cDim)
 
-        for (u32Child = 0; u32Child <= m_capacity; ++u32Child){
+        for (u32Child = 0; u32Child <= capacity; ++u32Child){
             dataLow[u32Child].sortDim= splitAxis;
         }
 
@@ -464,7 +466,7 @@ public abstract  class RTreeNodeImpl extends NodeImpl {
                 bb1.combineRegion(dataLow[cIndex].region);
             }
             bb2.copyFrom(dataLow[ls].region);
-            for (cIndex = ls + 1; cIndex <= m_capacity; ++cIndex){
+            for (cIndex = ls + 1; cIndex <= capacity; ++cIndex){
                 bb2.combineRegion(dataLow[cIndex].region);
             }
             double o = bb1.getIntersectingArea(bb2);
@@ -491,12 +493,12 @@ public abstract  class RTreeNodeImpl extends NodeImpl {
             group1.add(dataLow[cIndex].index);
         }
 
-        for (cIndex = l1s; cIndex <= m_capacity; ++cIndex){
+        for (cIndex = l1s; cIndex <= capacity; ++cIndex){
             group2.add(dataLow[cIndex].index);
         }
     }
     protected void pickSeeds(int []indexes){
-        int m_capacity=getCapacity();
+        int capacity=getCapacity();
         int index1=indexes[0];
         int index2=indexes[1];
 
@@ -504,17 +506,17 @@ public abstract  class RTreeNodeImpl extends NodeImpl {
         double inefficiency = -Double.MAX_VALUE;
         int cDim, u32Child, cIndex;
 
-        switch (this.tree.m_treeVariant) {
+        switch (this.tree.treeVariant) {
             case RV_LINEAR:
             case RV_RSTAR: {
-                for (cDim = 0; cDim < this.tree.m_dimension; ++cDim) {
+                for (cDim = 0; cDim < this.tree.dimension; ++cDim) {
                     double leastLower = ((Region)getChildShape(0)).getLowCoordinate(cDim);
                     double greatestUpper =((Region)getChildShape(0)).getHighCoordinate(cDim);
                     int greatestLower = 0;
                     int leastUpper = 0;
                     double width;
 
-                    for (u32Child = 1; u32Child <= m_capacity; ++u32Child) {
+                    for (u32Child = 1; u32Child <= capacity; ++u32Child) {
                         if (((Region)getChildShape(u32Child)).getLowCoordinate(cDim) > ((Region)getChildShape(greatestLower)).getLowCoordinate(cDim))
                             greatestLower = u32Child;
                         if (((Region)getChildShape(u32Child)).getHighCoordinate(cDim) <  ((Region)getChildShape(leastUpper)).getHighCoordinate(cDim))
@@ -547,10 +549,10 @@ public abstract  class RTreeNodeImpl extends NodeImpl {
 
             case RV_QUADRATIC: {
                 // for each pair of Regions (account for overflow Region too!)
-                for (u32Child = 0; u32Child < m_capacity; ++u32Child) {
+                for (u32Child = 0; u32Child < capacity; ++u32Child) {
                     double a = ((Region)getChildShape(u32Child)).getArea();
 
-                    for (cIndex = u32Child + 1; cIndex <= m_capacity; ++cIndex) {
+                    for (cIndex = u32Child + 1; cIndex <= capacity; ++cIndex) {
                         // get the combined MBR of those two entries.
                         Region r= ((Region)getChildShape(u32Child)).getCombinedRegion( ((Region)getChildShape(cIndex)));
 
@@ -574,34 +576,33 @@ public abstract  class RTreeNodeImpl extends NodeImpl {
         indexes[1]=index2;
     }
     protected void condenseTree(Stack<Node> toReinsert, Stack<Identifier> pathBuffer, Node  ptrThis){
-        int m_capacity=getCapacity();
-        int m_children=getChildrenCount();
-        int m_level= getLevel();
-        RTreeImpl m_pTree=this.tree;
-        Region m_nodeMBR=(Region)getShape();
-        int minimumLoad = (int)(Math.floor(m_capacity * m_pTree.m_fillFactor));
+        int capacity=getCapacity();
+        int children=getChildrenCount();
+        int level= getLevel(); 
+        Region nodeMBR=(Region)getShape();
+        int minimumLoad = (int)(Math.floor(capacity * this.tree.fillFactor));
         double d1,d2;//临时变量
         int dims=0;
         if (pathBuffer.empty()){
             // eliminate root if it has only one child.
-            if (m_level != 0 && m_children == 1){
-                RTreeNodeImpl ptrN = (RTreeNodeImpl)m_pTree.readNode(getChildIdentifier(0));
-                m_pTree.deleteNode(ptrN);
-                ptrN.setIdentifier(m_pTree.m_rootID.longValue());
-                m_pTree.writeNode(ptrN);
+            if (level != 0 && children == 1){
+                RTreeNodeImpl ptrN = (RTreeNodeImpl)this.tree.readNode(getChildIdentifier(0));
+                this.tree.deleteNode(ptrN);
+                ptrN.setIdentifier(this.tree.rootIdentifier.longValue());
+                this.tree.writeNode(ptrN);
 
-                ArrayList<Long> alNodesInLevel = m_pTree.m_stats.getNodeNumberInLevelArray();
+                ArrayList<Long> alNodesInLevel = this.tree.stats.getNodeNumberInLevelArray();
                 //删除最后一个元素
                 alNodesInLevel.remove(alNodesInLevel.size()-1);
-                m_pTree.m_stats.setTreeHeight(m_pTree.m_stats.getTreeHeight()-1);
+                this.tree.stats.setTreeHeight(this.tree.stats.getTreeHeight()-1);
                 // HACK: pending deleteNode for deleted child will decrease nodesInLevel, later on.
-                alNodesInLevel.set((int)(m_pTree.m_stats.getTreeHeight()-1),2L);
+                alNodesInLevel.set((int)(this.tree.stats.getTreeHeight()-1),2L);
             }
         }
         else{
             Identifier cParent = pathBuffer.pop();
-            RTreeNodeImplBackup ptrParent = (RTreeNodeImplBackup)m_pTree.readNode(cParent);
-            InternalRTreeNodeImplBack p = (InternalRTreeNodeImplBack)(ptrParent);
+            RTreeNodeImpl ptrParent = (RTreeNodeImpl)this.tree.readNode(cParent);
+            RTreeInternalNodeImpl p = (RTreeInternalNodeImpl)(ptrParent);
 
             // find the entry in the parent, that points to this node.
             int child;
@@ -610,7 +611,7 @@ public abstract  class RTreeNodeImpl extends NodeImpl {
                     break;
             }
 
-            if (m_children < minimumLoad){
+            if (children < minimumLoad){
                 // used space less than the minimum
                 // 1. eliminate node entry from the parent. deleteEntry will fix the parent's MBR.
                 p.deleteEntry(child);
@@ -619,12 +620,12 @@ public abstract  class RTreeNodeImpl extends NodeImpl {
             }
             else{
                 // adjust the entry in 'p' to contain the new bounding region of this node.
-                //*(p->m_ptrMBR[child]) = m_nodeMBR;
-                assert m_nodeMBR.copyTo(p.getChildShape(child))!=null;
+                //*(p->m_ptrMBR[child]) = nodeMBR;
+                assert nodeMBR.copyTo(p.getChildShape(child))!=null;
 
                 // global recalculation necessary since the MBR can only shrink in size,
                 // due to data removal.
-                if (m_pTree.m_bTightMBRs){
+                if (this.tree.tightMBRs){
                     dims=p.getShape().getDimension();
                     Region r =(Region) p.getShape();
                     Region r2=null;
@@ -645,7 +646,7 @@ public abstract  class RTreeNodeImpl extends NodeImpl {
             }
 
             // write parent node back to storage.
-            m_pTree.writeNode(p);
+            this.tree.writeNode(p);
 
             p.condenseTree(toReinsert, pathBuffer, ptrParent);
         }

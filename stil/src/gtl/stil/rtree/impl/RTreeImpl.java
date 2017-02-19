@@ -203,19 +203,6 @@ public class RTreeImpl implements RTree{
         return 0;
     }
 
-    void initNew(PropertySet ps){
-
-    }
-    void initOld(PropertySet  ps){
-
-    }
-    void storeHeader(){
-
-    }
-    void loadHeader(){
-
-    }
-
     void insertData_impl( byte[] pData, Region mbr, Identifier id){
 
     }
@@ -246,6 +233,67 @@ public class RTreeImpl implements RTree{
 
     }
     void visitSubTree(Node  subTree, Visitor  v){
+
+    }
+
+    class NNEntry implements Comparable<NNEntry> {
+        Identifier m_id;
+        Entry m_pEntry;
+        double m_minDist;
+
+        NNEntry(Identifier id, Entry e, double f){
+            this.m_id=(Identifier) id.clone();
+            this.m_pEntry=e;
+            this.m_minDist=f;
+        }
+        NNEntry() {
+        }
+
+        @Override
+        public int compareTo(NNEntry o) {
+            if(this.m_minDist>o.m_minDist)
+                return 1;
+            else if(this.m_minDist==o.m_minDist)
+                return 0;
+            else
+                return -1;
+        }
+    }; // NNEntry
+
+    class NNComparator implements NearestNeighborComparator {
+        @Override
+        public double getMinimumDistance(Shape query, Shape entry) {
+            return query.getMinimumDistance(entry);
+        }
+
+        @Override
+        public double getMinimumDistance(Shape query, Entry data) {
+            Shape   pS=data.getShape();
+            double ret = query.getMinimumDistance(pS);
+            return ret;
+        }
+    }; // NNComparator
+
+    class ValidateEntry {
+        ValidateEntry(Region r, Node pNode){
+            this.m_parentMBR=(Region) r.clone();
+            this.m_pNode=pNode;
+        }
+
+        Region m_parentMBR;
+        Node m_pNode;
+    }; // ValidateEntry
+
+    private void initNew(PropertySet ps){
+
+    }
+    private void initOld(PropertySet  ps){
+
+    }
+    private void storeHeader(){
+
+    }
+    private void loadHeader(){
 
     }
 }

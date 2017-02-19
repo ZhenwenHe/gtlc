@@ -49,5 +49,4 @@ public interface Serializable extends java.io.Serializable, Cloneable{
         bais.close();
         return b;
     }
-
 }

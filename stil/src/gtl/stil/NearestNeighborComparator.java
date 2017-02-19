@@ -7,5 +7,5 @@ import gtl.stil.shape.Shape;
  */
 public interface NearestNeighborComparator {
     public double getMinimumDistance(Shape query, Shape entry) ;
-    public double getMinimumDistance(Shape query, Data  data) ;
+    public double getMinimumDistance(Shape query, Entry  data) ;
 }

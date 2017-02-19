@@ -13,7 +13,7 @@ import gtl.stil.storage.impl.DiskStorageManager;
 import gtl.stil.storage.impl.MemoryStorageManager;
 import gtl.stil.storage.impl.BufferedStorageManagerImpl;
 
-import java.io.IOException;
+import java.io.*;
 
 /**
  * Created by ZhenwenHe on 2016/12/10.
@@ -121,4 +121,5 @@ public class IndexSuits {
     public static Vertex createVertex(double x,double y,double z){
         return new VertexImpl(x,y,z);
     }
+
 }

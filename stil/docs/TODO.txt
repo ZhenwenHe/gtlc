@@ -14,6 +14,8 @@ The packages and classes finished：
 13 RTreeInternalNodeImpl
 
 Next to do:
+Variant
+PropertySetImpl
 RTreeImpl
 StatisticsImpl
 

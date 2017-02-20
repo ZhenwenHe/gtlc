@@ -1,6 +1,8 @@
 package gtl.stil;
 
 
+import com.sun.org.apache.xpath.internal.operations.Bool;
+
 import java.io.*;
 import java.util.Arrays;
 import java.util.Objects;
@@ -57,6 +59,7 @@ public class Variant implements gtl.stil.Serializable , Comparable<Variant> {
     public Variant(double[] v){reset(v); }
     public Variant(String[] v) {reset(v); }
     public Variant(Variant v){reset(v.type,v.value);}
+    public Variant(Object v){reset(v);}
     public Variant(int type,Object value){reset(type,value);}
 
     public boolean isNumber(){ return this.type>=BYTE && this.type<=DOUBLE;}
@@ -635,6 +638,68 @@ public class Variant implements gtl.stil.Serializable , Comparable<Variant> {
         }
     }
 
+    public void reset(Object value){
+        if(value instanceof Boolean){
+            reset(((Boolean)value).booleanValue());
+        }
+        else if(value instanceof Byte){
+            reset(((Byte)value).byteValue());
+        }
+        else if(value instanceof Character){
+            reset(((Character)value).charValue());
+        }
+        else if(value instanceof Short){
+            reset(((Short)value).shortValue());
+        }
+        else if(value instanceof Integer){
+            reset(((Integer)value).intValue());
+        }
+        else if(value instanceof Long){
+            reset(((Long)value).longValue());
+        }
+        else if(value instanceof Float){
+            reset(((Float)value).floatValue());
+        }
+        else if(value instanceof Double){
+            reset(((Double)value).doubleValue());
+        }
+        else if(value instanceof String){
+            reset((String)value);
+        }
+        else if(value instanceof byte[]){
+            reset((byte[])value);
+        }
+        else if(value instanceof boolean[]){
+            reset((boolean[])value);
+        }
+        else if(value instanceof char[]){
+            reset((char[])value);
+        }
+        else if(value instanceof short[]){
+            reset((short[])value);
+        }
+        else if(value instanceof int[]){
+            reset((int[])value);
+        }
+        else if(value instanceof long[]){
+            reset((long[])value);
+        }
+        else if(value instanceof float[]){
+            reset((float[])value);
+        }
+        else if(value instanceof double[]){
+            reset((double[])value);
+        }
+        else if(value instanceof String[]){
+            reset((String[])value);
+        }
+        else if (value instanceof Variant){
+            reset((Variant)value);
+        }
+        else {
+            assert false;
+        }
+    }
     @Override
     public int compareTo(Variant o) {
         if(o.isNumber() && this.isNumber()){

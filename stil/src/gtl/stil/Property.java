@@ -5,11 +5,12 @@ import java.io.*;
 /**
  * Created by hadoop on 17-2-19.
  */
-public class Property extends Variant  implements  Serializable {
+public class Property extends Variant  implements  Serializable  {
     private String name=null;
 
-    public Property() {
+    public Property( ) {
         super();
+        this.name="Unknown";
     }
 
     public Property(String name,Variant v) {
@@ -19,6 +20,11 @@ public class Property extends Variant  implements  Serializable {
 
     public Property(String name,int type, Object value) {
         super(type,value);
+        this.name = name;
+    }
+
+    public Property(String name,Object value) {
+        super(value);
         this.name = name;
     }
 
@@ -70,4 +76,7 @@ public class Property extends Variant  implements  Serializable {
     public long getByteArraySize() {
         return super.getByteArraySize()+4+this.name.length()*2;
     }
+
+
+
 }

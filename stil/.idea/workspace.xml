@@ -264,19 +264,10 @@
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/test/CMakeFiles/test-tprtree-TPRTreeQuery.dir/progress.make" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/test/Makefile" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/test/cmake_install.cmake" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/gtl/stil/Property.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/gtl/stil/Variant.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/gtl/stil/IndexSuitsTest.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/gtl/stil/VariantTest.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/gtl/stil/impl/PropertySetImplTest.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/gtl/stil/PropertyTest.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/TODO.txt" afterPath="$PROJECT_DIR$/docs/TODO.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gtl/stil/IndexSuits.java" afterPath="$PROJECT_DIR$/src/gtl/stil/IndexSuits.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gtl/stil/NearestNeighborComparator.java" afterPath="$PROJECT_DIR$/src/gtl/stil/NearestNeighborComparator.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gtl/stil/PropertySet.java" afterPath="$PROJECT_DIR$/src/gtl/stil/PropertySet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gtl/stil/Serializable.java" afterPath="$PROJECT_DIR$/src/gtl/stil/Serializable.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gtl/stil/impl/PropertySetImpl.java" afterPath="$PROJECT_DIR$/src/gtl/stil/impl/PropertySetImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gtl/stil/rtree/impl/RTreeImpl.java" afterPath="$PROJECT_DIR$/src/gtl/stil/rtree/impl/RTreeImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gtl/stil/Property.java" afterPath="$PROJECT_DIR$/src/gtl/stil/Property.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gtl/stil/Variant.java" afterPath="$PROJECT_DIR$/src/gtl/stil/Variant.java" />
     </list>
     <ignored path="stil.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -311,11 +302,7 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="315">
               <caret line="28" column="5" lean-forward="false" selection-start-line="28" selection-start-column="5" selection-end-line="28" selection-end-column="5" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#531#532#0" expanded="true" />
-                <element signature="e#581#582#0" expanded="true" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -323,8 +310,8 @@
       <file leaf-file-name="Variant.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/gtl/stil/Variant.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="840">
-              <caret line="59" column="60" lean-forward="false" selection-start-line="59" selection-start-column="60" selection-end-line="59" selection-end-column="60" />
+            <state relative-caret-position="3045">
+              <caret line="210" column="34" lean-forward="false" selection-start-line="210" selection-start-column="34" selection-end-line="210" selection-end-column="34" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -344,21 +331,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="IndexSuits.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/gtl/stil/IndexSuits.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1200">
-              <caret line="123" column="0" lean-forward="false" selection-start-line="123" selection-start-column="0" selection-end-line="123" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PropertySetImplTest.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="PropertySetImplTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/gtl/stil/impl/PropertySetImplTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="614">
-              <caret line="57" column="5" lean-forward="false" selection-start-line="57" selection-start-column="5" selection-end-line="57" selection-end-column="5" />
+            <state relative-caret-position="1365">
+              <caret line="98" column="71" lean-forward="false" selection-start-line="90" selection-start-column="8" selection-end-line="98" selection-end-column="71" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -376,11 +353,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="IndexSuitsTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/gtl/stil/IndexSuitsTest.java">
+      <file leaf-file-name="Property.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/gtl/stil/Property.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="630">
-              <caret line="49" column="25" lean-forward="false" selection-start-line="49" selection-start-column="25" selection-end-line="49" selection-end-column="25" />
+            <state relative-caret-position="375">
+              <caret line="25" column="47" lean-forward="false" selection-start-line="25" selection-start-column="47" selection-end-line="25" selection-end-column="47" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PropertyTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/gtl/stil/PropertyTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="650">
+              <caret line="107" column="61" lean-forward="false" selection-start-line="107" selection-start-column="61" selection-end-line="107" selection-end-column="61" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -388,44 +375,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Serializable.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/gtl/stil/Serializable.java">
+      <file leaf-file-name="workspace.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+            <state relative-caret-position="-28628">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PropertySet.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/gtl/stil/PropertySet.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" column="25" lean-forward="false" selection-start-line="9" selection-start-column="25" selection-end-line="9" selection-end-column="25" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Property.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/gtl/stil/Property.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="24" column="29" lean-forward="false" selection-start-line="24" selection-start-column="29" selection-end-line="24" selection-end-column="29" />
-              <folding>
-                <element signature="e#198#199#0" expanded="true" />
-                <element signature="e#221#222#0" expanded="true" />
-                <element signature="e#493#494#0" expanded="true" />
-                <element signature="e#533#534#0" expanded="true" />
-                <element signature="e#565#566#0" expanded="true" />
-                <element signature="e#618#619#0" expanded="true" />
-                <element signature="e#696#697#0" expanded="true" />
-                <element signature="e#742#743#0" expanded="true" />
-                <element signature="e#795#796#0" expanded="true" />
-                <element signature="e#1535#1536#0" expanded="true" />
-                <element signature="e#1605#1606#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -437,8 +392,8 @@
       <list>
         <option value="Interface" />
         <option value="Enum" />
-        <option value="JUnit3 Test Class" />
         <option value="Class" />
+        <option value="JUnit3 Test Class" />
       </list>
     </option>
   </component>
@@ -472,7 +427,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/gtl/stil/shape/MovingRegion.java" />
         <option value="$PROJECT_DIR$/src/gtl/stil/shape/impl/MovingRegionImpl.java" />
         <option value="$PROJECT_DIR$/src/gtl/stil/RTreeVariant.java" />
         <option value="$PROJECT_DIR$/src/gtl/stil/RangeQueryType.java" />
@@ -519,10 +473,11 @@
         <option value="$PROJECT_DIR$/docs/TODO.txt" />
         <option value="$PROJECT_DIR$/src/test/gtl/stil/IndexSuitsTest.java" />
         <option value="$PROJECT_DIR$/src/test/gtl/stil/impl/PropertySetImplTest.java" />
-        <option value="$PROJECT_DIR$/src/gtl/stil/Variant.java" />
         <option value="$PROJECT_DIR$/src/gtl/stil/PropertySet.java" />
-        <option value="$PROJECT_DIR$/src/gtl/stil/Property.java" />
         <option value="$PROJECT_DIR$/src/gtl/stil/impl/PropertySetImpl.java" />
+        <option value="$PROJECT_DIR$/src/gtl/stil/Variant.java" />
+        <option value="$PROJECT_DIR$/src/test/gtl/stil/PropertyTest.java" />
+        <option value="$PROJECT_DIR$/src/gtl/stil/Property.java" />
       </list>
     </option>
   </component>
@@ -572,8 +527,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -597,6 +552,10 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="stil" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -650,7 +609,43 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="out" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="production" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="stil" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="stil" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="stil" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="docs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="stil" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="stil" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value=".idea" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -685,33 +680,7 @@
       <recent name="groovy.util.GroovyTestCase" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.PropertySetImplTest">
-    <configuration default="false" name="VertexImplTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="test.gtl.stil.impl.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="stil" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="test.gtl.stil.impl" />
-      <option name="MAIN_CLASS_NAME" value="test.gtl.stil.impl.VertexImplTest" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-      <method />
-    </configuration>
+  <component name="RunManager" selected="JUnit.PropertyTest">
     <configuration default="false" name="IndexSuitsTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -804,6 +773,32 @@
       <option name="MAIN_CLASS_NAME" value="test.gtl.stil.VariantTest" />
       <option name="METHOD_NAME" value="testWrite" />
       <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="false" name="PropertyTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="test.gtl.stil.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="stil" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="test.gtl.stil" />
+      <option name="MAIN_CLASS_NAME" value="test.gtl.stil.PropertyTest" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
       <option name="VM_PARAMETERS" />
       <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" />
@@ -1262,19 +1257,19 @@
       <method />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="JUnit.VertexImplTest" />
-      <item index="1" class="java.lang.String" itemvalue="JUnit.IndexSuitsTest" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.PropertySetImplTest" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.VariantTest" />
-      <item index="4" class="java.lang.String" itemvalue="JUnit.VariantTest.testWrite" />
+      <item index="0" class="java.lang.String" itemvalue="JUnit.IndexSuitsTest" />
+      <item index="1" class="java.lang.String" itemvalue="JUnit.PropertySetImplTest" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.VariantTest" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.VariantTest.testWrite" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.PropertyTest" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.PropertySetImplTest" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.VariantTest" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.VariantTest.testWrite" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.IndexSuitsTest" />
-        <item index="4" class="java.lang.String" itemvalue="JUnit.VertexImplTest" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.PropertyTest" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.PropertySetImplTest" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.VariantTest" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.VariantTest.testWrite" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.IndexSuitsTest" />
       </list>
     </recent_temporary>
     <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android Application">
@@ -1379,7 +1374,10 @@
       <workItem from="1487395827058" duration="2563000" />
       <workItem from="1487407718531" duration="21987000" />
       <workItem from="1487467752860" duration="6592000" />
-      <workItem from="1487482801154" duration="22000" />
+      <workItem from="1487482801154" duration="214000" />
+      <workItem from="1487560954781" duration="1396000" />
+      <workItem from="1487571544875" duration="6499000" />
+      <workItem from="1487580509982" duration="64000" />
     </task>
     <task id="LOCAL-00001" summary="修改RTree的实现方式&#10;">
       <created>1486948741277</created>
@@ -1409,43 +1407,57 @@
       <option name="project" value="LOCAL" />
       <updated>1487161633003</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="implement internal node class &#10;add Variant and Property &#10;">
+      <created>1487482944459</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1487482944459</updated>
+    </task>
+    <task id="LOCAL-00006" summary="implement internal node class &#10;add Variant and Property &#10;">
+      <created>1487483004778</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1487483004778</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="PropertySetImplTest - 2017.02.19 at 10h 24m 49s.xml">
-      <configuration name="PropertySetImplTest" configurationId="JUnit" />
+    <history-entry file="PropertyTest - 2017.02.20 at 15h 42m 31s.xml">
+      <configuration name="PropertyTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="PropertySetImplTest - 2017.02.19 at 10h 26m 58s.xml">
-      <configuration name="PropertySetImplTest" configurationId="JUnit" />
+    <history-entry file="PropertyTest - 2017.02.20 at 15h 54m 41s.xml">
+      <configuration name="PropertyTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="PropertySetImplTest - 2017.02.19 at 10h 29m 25s.xml">
-      <configuration name="PropertySetImplTest" configurationId="JUnit" />
+    <history-entry file="PropertyTest - 2017.02.20 at 15h 56m 06s.xml">
+      <configuration name="PropertyTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="PropertySetImplTest - 2017.02.19 at 10h 30m 29s.xml">
-      <configuration name="PropertySetImplTest" configurationId="JUnit" />
+    <history-entry file="PropertyTest - 2017.02.20 at 15h 56m 32s.xml">
+      <configuration name="PropertyTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="PropertySetImplTest - 2017.02.19 at 13h 18m 39s.xml">
-      <configuration name="PropertySetImplTest" configurationId="JUnit" />
+    <history-entry file="PropertyTest - 2017.02.20 at 15h 58m 52s.xml">
+      <configuration name="PropertyTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="PropertySetImplTest - 2017.02.19 at 13h 24m 43s.xml">
-      <configuration name="PropertySetImplTest" configurationId="JUnit" />
+    <history-entry file="PropertyTest - 2017.02.20 at 15h 59m 04s.xml">
+      <configuration name="PropertyTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="PropertySetImplTest - 2017.02.19 at 13h 33m 06s.xml">
-      <configuration name="PropertySetImplTest" configurationId="JUnit" />
+    <history-entry file="PropertyTest - 2017.02.20 at 15h 59m 28s.xml">
+      <configuration name="PropertyTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="PropertySetImplTest - 2017.02.19 at 13h 34m 14s.xml">
-      <configuration name="PropertySetImplTest" configurationId="JUnit" />
+    <history-entry file="PropertyTest - 2017.02.20 at 16h 00m 02s.xml">
+      <configuration name="PropertyTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="PropertySetImplTest - 2017.02.19 at 13h 38m 59s.xml">
-      <configuration name="PropertySetImplTest" configurationId="JUnit" />
+    <history-entry file="PropertyTest - 2017.02.20 at 16h 04m 01s.xml">
+      <configuration name="PropertyTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="VariantTest - 2017.02.19 at 10h 24m 38s.xml">
-      <configuration name="VariantTest" configurationId="JUnit" />
+    <history-entry file="PropertyTest - 2017.02.20 at 16h 26m 16s.xml">
+      <configuration name="PropertyTest" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="284375000" />
+    <option name="totallyTimeSpent" value="292526000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1474,14 +1486,14 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17191818" sideWeight="0.49361023" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1774461" sideWeight="0.49361023" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2769486" sideWeight="0.49361023" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24947916" sideWeight="0.5063898" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31935483" sideWeight="0.472043" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30645162" sideWeight="0.472043" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1510,11 +1522,26 @@
     <MESSAGE value="修改RTree的实现方式&#10;" />
     <MESSAGE value="&#10;" />
     <MESSAGE value="implement internal node class &#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="implement internal node class &#10;" />
+    <MESSAGE value="implement internal node class &#10;add Variant and Property &#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="implement internal node class &#10;add Variant and Property &#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="25" />
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/gtl/stil/PropertyTest.java</url>
+          <line>106</line>
+          <properties />
+          <option name="timeStamp" value="31" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/gtl/stil/PropertyTest.java</url>
+          <line>107</line>
+          <properties />
+          <option name="timeStamp" value="32" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="33" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1523,20 +1550,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/gtl/stil/shape/impl/MovingPointImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="9" column="7" lean-forward="false" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gtl/stil/shape/impl/TimeRegionImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1137">
-          <caret line="10" column="7" lean-forward="false" selection-start-line="10" selection-start-column="7" selection-end-line="10" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/gtl/stil/shape/impl/MovingRegionImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="175">
@@ -1743,7 +1756,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
           <caret line="9" column="55" lean-forward="false" selection-start-line="9" selection-start-column="55" selection-end-line="9" selection-end-column="55" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1758,7 +1770,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="5" column="12" lean-forward="false" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="12" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1767,29 +1778,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2865">
           <caret line="210" column="20" lean-forward="false" selection-start-line="205" selection-start-column="8" selection-end-line="210" selection-end-column="20" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#867#868#0" expanded="false" />
-            <element signature="e#926#927#0" expanded="false" />
-            <element signature="e#1951#1952#0" expanded="false" />
-            <element signature="e#1982#1983#0" expanded="false" />
-            <element signature="e#2033#2034#0" expanded="false" />
-            <element signature="e#2065#2066#0" expanded="false" />
-            <element signature="e#3912#3913#0" expanded="false" />
-            <element signature="e#4008#4009#0" expanded="false" />
-            <element signature="e#4058#4059#0" expanded="false" />
-            <element signature="e#4155#4156#0" expanded="false" />
-            <element signature="e#4206#4207#0" expanded="false" />
-            <element signature="e#4238#4239#0" expanded="false" />
-            <element signature="e#4281#4282#0" expanded="false" />
-            <element signature="e#4350#4351#0" expanded="false" />
-            <element signature="e#5214#5215#0" expanded="false" />
-            <element signature="e#5242#5243#0" expanded="false" />
-            <element signature="e#5633#5634#0" expanded="false" />
-            <element signature="e#5674#5675#0" expanded="false" />
-            <element signature="e#13966#13967#0" expanded="false" />
-            <element signature="e#14014#14015#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1798,24 +1786,6 @@
         <state relative-caret-position="345">
           <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gtl/stil/IndexSuits.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1200">
-          <caret line="123" column="0" lean-forward="false" selection-start-line="123" selection-start-column="0" selection-end-line="123" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/gtl/stil/VariantTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2040">
-          <caret line="141" column="5" lean-forward="false" selection-start-line="141" selection-start-column="5" selection-end-line="141" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1831,19 +1801,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="630">
           <caret line="49" column="25" lean-forward="false" selection-start-line="49" selection-start-column="25" selection-end-line="49" selection-end-column="25" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gtl/stil/Variant.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="840">
-          <caret line="59" column="60" lean-forward="false" selection-start-line="59" selection-start-column="60" selection-end-line="59" selection-end-column="60" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1855,45 +1812,74 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/gtl/stil/Property.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="24" column="29" lean-forward="false" selection-start-line="24" selection-start-column="29" selection-end-line="24" selection-end-column="29" />
-          <folding>
-            <element signature="e#198#199#0" expanded="true" />
-            <element signature="e#221#222#0" expanded="true" />
-            <element signature="e#493#494#0" expanded="true" />
-            <element signature="e#533#534#0" expanded="true" />
-            <element signature="e#565#566#0" expanded="true" />
-            <element signature="e#618#619#0" expanded="true" />
-            <element signature="e#696#697#0" expanded="true" />
-            <element signature="e#742#743#0" expanded="true" />
-            <element signature="e#795#796#0" expanded="true" />
-            <element signature="e#1535#1536#0" expanded="true" />
-            <element signature="e#1605#1606#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/gtl/stil/impl/PropertySetImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
           <caret line="28" column="5" lean-forward="false" selection-start-line="28" selection-start-column="5" selection-end-line="28" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gtl/stil/IndexSuits.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="589">
+          <caret line="123" column="0" lean-forward="false" selection-start-line="123" selection-start-column="0" selection-end-line="123" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/gtl/stil/VariantTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2040">
+          <caret line="141" column="5" lean-forward="false" selection-start-line="141" selection-start-column="5" selection-end-line="141" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#531#532#0" expanded="true" />
-            <element signature="e#581#582#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/gtl/stil/impl/PropertySetImplTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="614">
-          <caret line="57" column="5" lean-forward="false" selection-start-line="57" selection-start-column="5" selection-end-line="57" selection-end-column="5" />
+        <state relative-caret-position="1365">
+          <caret line="98" column="71" lean-forward="false" selection-start-line="90" selection-start-column="8" selection-end-line="98" selection-end-column="71" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gtl/stil/Variant.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3045">
+          <caret line="210" column="34" lean-forward="false" selection-start-line="210" selection-start-column="34" selection-end-line="210" selection-end-column="34" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gtl/stil/Property.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="25" column="47" lean-forward="false" selection-start-line="25" selection-start-column="47" selection-end-line="25" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/gtl/stil/PropertyTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="650">
+          <caret line="107" column="61" lean-forward="false" selection-start-line="107" selection-start-column="61" selection-end-line="107" selection-end-column="61" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-28628">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

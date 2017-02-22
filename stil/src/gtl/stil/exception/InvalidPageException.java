@@ -1,4 +1,4 @@
-package gtl.stil.impl;
+package gtl.stil.exception;
 
 import gtl.stil.Identifier;
 

@@ -14,9 +14,11 @@ import java.util.Stack;
 public class RTreeExternalNodeImpl extends RTreeNodeImpl{
     public RTreeExternalNodeImpl(RTreeImpl tree, Identifier identifier) {
         super(tree, identifier, 0, tree.leafCapacity);
+        setType(0);
     }
     public RTreeExternalNodeImpl(RTreeImpl tree){
         super(tree);
+        setType(0);
     }
     @Override
     public Object clone() {

@@ -14,10 +14,12 @@ import java.util.*;
 public class RTreeInternalNodeImpl extends RTreeNodeImpl  {
     public RTreeInternalNodeImpl(RTreeImpl tree, Identifier identifier, int level) {
         super(tree, identifier, level, tree.indexCapacity);
+        setType(1);
     }
 
     public RTreeInternalNodeImpl(RTreeImpl tree) {
         super(tree);
+        setType(1);
     }
 
     @Override

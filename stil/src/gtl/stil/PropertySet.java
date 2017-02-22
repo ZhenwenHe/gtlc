@@ -8,4 +8,5 @@ import java.util.Map;
  */
 public interface  PropertySet extends Map<String,Variant>,gtl.stil.Serializable {
     void put(Property p);
+    Variant getProperty(String key);
 }

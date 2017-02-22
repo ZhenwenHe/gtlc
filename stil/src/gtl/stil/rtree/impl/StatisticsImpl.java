@@ -50,7 +50,12 @@ public class StatisticsImpl implements gtl.stil.Statistics{
     public void setNodeNumber(long nodeNumber) {
         this.nodeNumber = nodeNumber;
     }
-
+    public void increaseNodeNumber() {
+        ++this.nodeNumber;
+    }
+    public void decreaseNodeNumber() {
+        --this.nodeNumber;
+    }
     public long getAdjustments() {
         return adjustments;
     }
@@ -68,10 +73,14 @@ public class StatisticsImpl implements gtl.stil.Statistics{
     public void setQueryResults(long queryResults) {
         this.queryResults = queryResults;
     }
+    public void increaseQueryResults( ) { this.queryResults ++;}
 
     public void setDataNumber(long dataNumber) {
         this.dataNumber = dataNumber;
     }
+
+    public void increaseDataNumber(){++this.dataNumber;}
+    public void decreaseDataNumber(){--this.dataNumber;}
 
     public long getTreeHeight() {return this.treeHeight;}
 
@@ -99,11 +108,13 @@ public class StatisticsImpl implements gtl.stil.Statistics{
     public long getReadTimes() {
         return this.readTimes;
     }
-
+    public void increaseReadTimes(){++this.readTimes;}
     @Override
     public long getWriteTimes() {
         return this.writeTimes;
     }
+
+    public void increaseWriteTimes(){++this.writeTimes;}
 
     @Override
     public Object clone() {

@@ -83,4 +83,8 @@ public class PropertySetImpl extends HashMap<String,Variant> implements Property
 
         return c;
     }
+    @Override
+    public Variant getProperty(String key){
+        return super.get((Object)key);
+    }
 }

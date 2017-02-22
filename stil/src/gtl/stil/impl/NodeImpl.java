@@ -17,6 +17,7 @@ import java.util.function.Supplier;
 public abstract class NodeImpl implements Node {
 
     Identifier identifier;
+    int type;
     Shape      shape;
     // The level of the node in the tree.
     // Leaves are always at level 0.
@@ -39,7 +40,7 @@ public abstract class NodeImpl implements Node {
         this.totalDataLength=0;
         this.capacity = capacity;
         this.entries=new Entry[this.capacity+1];
-
+        this.type=-1;
     }
 
     public NodeImpl() {
@@ -50,8 +51,17 @@ public abstract class NodeImpl implements Node {
         this.children=0;
         this.totalDataLength=0;
         this.entries=new Entry[this.capacity+1];
+        this.type=-1;
     }
 
+    @Override
+    public int getType(){
+        return this.type;
+    }
+    @Override
+    public void setType(int nodeType){
+        this.type=nodeType;
+    }
     @Override
     public Identifier getIdentifier() {
         return this.identifier;
@@ -154,7 +164,8 @@ public abstract class NodeImpl implements Node {
     }
     @Override
     public long getByteArraySize() {
-        long sum=4*4;
+        long sum=4;//node type
+        sum+=4*4;
         sum+=this.identifier.getByteArraySize();
         sum+=this.shape.getByteArraySize();
         // child entry array
@@ -167,6 +178,7 @@ public abstract class NodeImpl implements Node {
     @Override
     public boolean read(InputStream in) throws IOException {
         DataInputStream dis=new DataInputStream(in);
+        this.type = dis.readInt();//skip
         this.identifier.read(in);
         this.shape.read(in);
         // Leaves are always at level 0.
@@ -193,6 +205,7 @@ public abstract class NodeImpl implements Node {
     @Override
     public boolean write(OutputStream out) throws IOException {
         DataOutputStream dos =new DataOutputStream(out);
+        dos.writeInt(this.type);
         this.identifier.write(out);
         this.shape.write(out);
         // Leaves are always at level 0.

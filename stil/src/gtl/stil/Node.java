@@ -10,6 +10,8 @@ import java.util.function.Supplier;
 public interface Node extends Entry {
     int getChildrenCount() ;
     int getCapacity();
+    int getType();
+    void setType(int nodeType);
     default  Identifier getChildIdentifier(int index){
         if (index <= this.getChildrenCount())
             return getChildEntry(index).getIdentifier();

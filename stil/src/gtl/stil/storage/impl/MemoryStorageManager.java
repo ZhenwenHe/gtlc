@@ -1,7 +1,6 @@
 package gtl.stil.storage.impl;
 
 import gtl.stil.Identifier;
-import gtl.stil.impl.InvalidPageException;
 import gtl.stil.storage.StorageManager;
 
 import java.io.IOException;

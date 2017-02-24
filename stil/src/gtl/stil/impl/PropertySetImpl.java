@@ -12,9 +12,16 @@ import java.util.Objects;
  */
 public class PropertySetImpl extends HashMap<String,Variant> implements PropertySet{
 
+    /**
+     *
+     */
     public PropertySetImpl() {
     }
 
+    /**
+     *
+     * @param data
+     */
     public PropertySetImpl(byte [] data){
         try {
             loadFromByteArray(data);
@@ -23,6 +30,10 @@ public class PropertySetImpl extends HashMap<String,Variant> implements Property
         }
     }
 
+    /**
+     *
+     * @param p
+     */
     @Override
     public void put(Property p) {
         super.put(p.getName(),(Variant) p);

@@ -198,4 +198,6 @@ public class VertexImpl implements Vertex {
                     coordinates,0,coordinates.length);
         }
     }
+
+
 }

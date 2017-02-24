@@ -62,7 +62,13 @@ public class VariantTest extends TestCase {
     }
 
     public void testClone() throws Exception {
-
+        Variant []tv = new Variant[18];
+        int i=0;
+        for(Variant v:vs){
+            tv[i]=(Variant) v.clone();
+            assertTrue(tv[i].equals(v));
+            i++;
+        }
     }
 
     public void testReset() throws Exception {

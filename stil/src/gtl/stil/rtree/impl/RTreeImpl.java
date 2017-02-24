@@ -17,6 +17,7 @@ import gtl.stil.storage.StorageManager;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.Stack;
 
 /**
@@ -188,13 +189,29 @@ public class RTreeImpl implements RTree{
     }
 
     @Override
-    public void selfJoin(Shape s, Visitor v) {
+    public void selfJoin(Shape query, Visitor v) {
+        try{
+            if (query.getDimension() != this.dimension)
+                throw new IllegalArgumentException("selfJoinQuery: Shape has the wrong number of dimensions.");
+
+            Region mbr = new RegionImpl(query.getMBR());
+            selfJoin(this.rootIdentifier, this.rootIdentifier, mbr, v);
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
 
     }
 
     @Override
     public void queryStrategy(QueryStrategy qs) {
+        Identifier next = (Identifier)this.rootIdentifier.clone();
+        Boolean hasNext = true;
 
+        while (hasNext){
+            Node n = readNode(next);
+            qs.getNextEntry(n, next, hasNext);
+        }
     }
 
     @Override
@@ -234,12 +251,93 @@ public class RTreeImpl implements RTree{
 
     @Override
     public void addCommand(Command in, CommandType ct) {
-
+        switch (ct)
+        {
+            case CT_NODEREAD:
+                this.readNodeCommands.add(in);
+                break;
+            case CT_NODEWRITE:
+                this.writeNodeCommands.add(in);
+                break;
+            case CT_NODEDELETE:
+                this.deleteNodeCommands.add(in);
+                break;
+        }
     }
 
     @Override
     public boolean isValid() {
-        return false;
+        boolean ret = true;
+        Stack<ValidateEntry>  st=new Stack<>();
+        Node root = readNode(this.rootIdentifier);
+        int level = root.getLevel();
+        Region r =null;
+        if (level != this.stats.getTreeHeight() - 1)
+            return false;
+
+        HashMap<Integer,Integer>  nodesInLevel= new HashMap<>();
+        nodesInLevel.put(level,1);
+        r = (Region)root.getShape();
+        ValidateEntry e=new ValidateEntry(r, root);
+        st.push(e);
+
+        while (! st.empty()) {
+            e = st.pop();
+
+            Region tmpRegion=(Region) this.infiniteRegion.clone();
+
+            for (int cDim = 0; cDim < tmpRegion.getDimension(); ++cDim) {
+                tmpRegion.setLowCoordinate(cDim,Double.MAX_VALUE);
+                tmpRegion.setHighCoordinate(cDim,-Double.MAX_VALUE);
+                for (int cChild = 0; cChild < e.node.getChildrenCount(); ++cChild){
+                    r= (Region) e.node.getChildShape(cChild);
+                    tmpRegion.setLowCoordinate(cDim,Math.min(tmpRegion.getLowCoordinate(cDim),r.getLowCoordinate(cDim)));
+                    tmpRegion.setHighCoordinate(cDim,Math.max(tmpRegion.getHighCoordinate(cDim),r.getHighCoordinate(cDim)));
+                }
+            }
+
+            if (! (tmpRegion.equals( e.node.getShape()))) {
+                ret = false;
+            }
+            else if (! (tmpRegion.equals(e.parentMBR))){
+                ret = false;
+            }
+
+            if (e.node.getLevel() != 0) {
+                for (int cChild = 0; cChild < e.node.getChildrenCount(); ++cChild){
+                    Node ptrN = readNode(e.node.getChildIdentifier(cChild));
+                    ValidateEntry tmpEntry=new ValidateEntry((Region) e.node.getChildShape(cChild), ptrN);
+
+                    Integer itNodes = nodesInLevel.get(tmpEntry.node.getLevel());
+
+                    if (itNodes == null){
+                        nodesInLevel.put( tmpEntry.node.getLevel(), 1);
+                    }
+                    else {
+                        Integer key = tmpEntry.node.getLevel();
+                        Integer va= nodesInLevel.get(key);
+                        va+=1;
+                        nodesInLevel.put(key,va);
+                    }
+
+                    st.push(tmpEntry);
+                }
+            }
+        }
+
+        int nodes = 0;
+        for (int cLevel = 0; cLevel < this.stats.getTreeHeight(); ++cLevel){
+            if (nodesInLevel.get(cLevel) != this.stats.getNodeNumberInLevel(cLevel)){
+                ret = false;
+            }
+            nodes += this.stats.getNodeNumberInLevel(cLevel);
+        }
+
+        if (nodes != this.stats.getNodeNumber()){
+            ret = false;
+        }
+
+        return ret;
     }
 
     @Override
@@ -777,5 +875,6 @@ public class RTreeImpl implements RTree{
     ArrayList<Command> writeNodeCommands;
     ArrayList<Command> readNodeCommands;
     ArrayList<Command> deleteNodeCommands;
+
 
 }

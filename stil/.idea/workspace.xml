@@ -2,272 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f4f12fcb-5606-4079-92f6-72b4a2d2afcd" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/CMakeFiles/3.6.3/CMakeDetermineCompilerABI_C.bin" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/CMakeFiles/3.6.3/CMakeDetermineCompilerABI_CXX.bin" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/CMakeFiles/3.6.3/CompilerIdC/a.out" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/CMakeFiles/3.6.3/CompilerIdCXX/a.out" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/CMakeFiles/feature_tests.bin" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/bin/libspatialindex.so" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/bin/libspatialindex.so.4" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/bin/libspatialindex.so.4.1.0" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/bin/libspatialindex_c.so" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/bin/libspatialindex_c.so.4" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/bin/libspatialindex_c.so.4.1.0" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/bin/test-geometry-Intersection" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/bin/test-mvrtree-Exhaustive" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/bin/test-mvrtree-Generator" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/bin/test-mvrtree-MVRTreeLoad" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/bin/test-mvrtree-MVRTreeQuery" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/bin/test-rtree-Exhaustive" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/bin/test-rtree-Generator" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/bin/test-rtree-RTreeBulkLoad" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/bin/test-rtree-RTreeLoad" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/bin/test-rtree-RTreeQuery" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/bin/test-tprtree-Exhaustive" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/bin/test-tprtree-Generator" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/bin/test-tprtree-TPRTreeLoad" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/bin/test-tprtree-TPRTreeQuery" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/src/CMakeFiles/spatialindex.dir/mvrtree/Index.cc.o" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/src/CMakeFiles/spatialindex.dir/mvrtree/Leaf.cc.o" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/src/CMakeFiles/spatialindex.dir/mvrtree/MVRTree.cc.o" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/src/CMakeFiles/spatialindex.dir/mvrtree/Node.cc.o" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/src/CMakeFiles/spatialindex.dir/mvrtree/Statistics.cc.o" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/src/CMakeFiles/spatialindex.dir/rtree/BulkLoader.cc.o" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/src/CMakeFiles/spatialindex.dir/rtree/Index.cc.o" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/src/CMakeFiles/spatialindex.dir/rtree/Leaf.cc.o" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/src/CMakeFiles/spatialindex.dir/rtree/Node.cc.o" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/src/CMakeFiles/spatialindex.dir/rtree/RTree.cc.o" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/src/CMakeFiles/spatialindex.dir/rtree/Statistics.cc.o" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/src/CMakeFiles/spatialindex.dir/spatialindex/LineSegment.cc.o" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/src/CMakeFiles/spatialindex.dir/spatialindex/MovingPoint.cc.o" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/src/CMakeFiles/spatialindex.dir/spatialindex/MovingRegion.cc.o" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/src/CMakeFiles/spatialindex.dir/spatialindex/Point.cc.o" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/src/CMakeFiles/spatialindex.dir/spatialindex/Region.cc.o" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/src/CMakeFiles/spatialindex.dir/spatialindex/SpatialIndexImpl.cc.o" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/src/CMakeFiles/spatialindex.dir/spatialindex/TimePoint.cc.o" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/src/CMakeFiles/spatialindex.dir/spatialindex/TimeRegion.cc.o" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/src/CMakeFiles/spatialindex.dir/storagemanager/Buffer.cc.o" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/src/CMakeFiles/spatialindex.dir/storagemanager/DiskStorageManager.cc.o" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/src/CMakeFiles/spatialindex.dir/storagemanager/MemoryStorageManager.cc.o" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/src/CMakeFiles/spatialindex.dir/storagemanager/RandomEvictionsBuffer.cc.o" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/src/CMakeFiles/spatialindex.dir/tools/Tools.cc.o" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/src/CMakeFiles/spatialindex.dir/tprtree/Index.cc.o" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/src/CMakeFiles/spatialindex.dir/tprtree/Leaf.cc.o" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/src/CMakeFiles/spatialindex.dir/tprtree/Node.cc.o" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/src/CMakeFiles/spatialindex.dir/tprtree/Statistics.cc.o" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/src/CMakeFiles/spatialindex.dir/tprtree/TPRTree.cc.o" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/src/CMakeFiles/spatialindex_c.dir/capi/BoundsQuery.cc.o" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/src/CMakeFiles/spatialindex_c.dir/capi/CountVisitor.cc.o" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/src/CMakeFiles/spatialindex_c.dir/capi/CustomStorage.cc.o" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/src/CMakeFiles/spatialindex_c.dir/capi/DataStream.cc.o" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/src/CMakeFiles/spatialindex_c.dir/capi/Error.cc.o" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/src/CMakeFiles/spatialindex_c.dir/capi/IdVisitor.cc.o" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/src/CMakeFiles/spatialindex_c.dir/capi/Index.cc.o" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/src/CMakeFiles/spatialindex_c.dir/capi/LeafQuery.cc.o" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/src/CMakeFiles/spatialindex_c.dir/capi/ObjVisitor.cc.o" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/src/CMakeFiles/spatialindex_c.dir/capi/Utility.cc.o" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/src/CMakeFiles/spatialindex_c.dir/capi/sidx_api.cc.o" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/test/CMakeFiles/test-geometry-Intersection.dir/geometry/Intersection.cc.o" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/test/CMakeFiles/test-mvrtree-Exhaustive.dir/mvrtree/Exhaustive.cc.o" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/test/CMakeFiles/test-mvrtree-Generator.dir/mvrtree/Generator.cc.o" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/test/CMakeFiles/test-mvrtree-MVRTreeLoad.dir/mvrtree/MVRTreeLoad.cc.o" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/test/CMakeFiles/test-mvrtree-MVRTreeQuery.dir/mvrtree/MVRTreeQuery.cc.o" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/test/CMakeFiles/test-rtree-Exhaustive.dir/rtree/Exhaustive.cc.o" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/test/CMakeFiles/test-rtree-Generator.dir/rtree/Generator.cc.o" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/test/CMakeFiles/test-rtree-RTreeBulkLoad.dir/rtree/RTreeBulkLoad.cc.o" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/test/CMakeFiles/test-rtree-RTreeLoad.dir/rtree/RTreeLoad.cc.o" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/test/CMakeFiles/test-rtree-RTreeQuery.dir/rtree/RTreeQuery.cc.o" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/test/CMakeFiles/test-tprtree-Exhaustive.dir/tprtree/Exhaustive.cc.o" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/test/CMakeFiles/test-tprtree-Exhaustive.dir/tprtree/RandomGenerator.cc.o" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/test/CMakeFiles/test-tprtree-Generator.dir/tprtree/Generator.cc.o" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/test/CMakeFiles/test-tprtree-Generator.dir/tprtree/RandomGenerator.cc.o" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/test/CMakeFiles/test-tprtree-TPRTreeLoad.dir/tprtree/RandomGenerator.cc.o" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/test/CMakeFiles/test-tprtree-TPRTreeLoad.dir/tprtree/TPRTreeLoad.cc.o" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/test/CMakeFiles/test-tprtree-TPRTreeQuery.dir/tprtree/RandomGenerator.cc.o" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/test/CMakeFiles/test-tprtree-TPRTreeQuery.dir/tprtree/TPRTreeQuery.cc.o" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/.idea/.name" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/.idea/misc.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/.idea/modules.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/.idea/runConfigurations/Build_All.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/.idea/spatialindex-src-1.8.5.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/.idea/vcs.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/.idea/workspace.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/CMakeCache.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/CMakeFiles/3.6.3/CMakeCCompiler.cmake" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/CMakeFiles/3.6.3/CMakeCXXCompiler.cmake" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/CMakeFiles/3.6.3/CMakeSystem.cmake" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/CMakeFiles/3.6.3/CompilerIdC/CMakeCCompilerId.c" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/CMakeFiles/3.6.3/CompilerIdCXX/CMakeCXXCompilerId.cpp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/CMakeFiles/CMakeDirectoryInformation.cmake" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/CMakeFiles/CMakeOutput.log" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/CMakeFiles/Makefile.cmake" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/CMakeFiles/Makefile2" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/CMakeFiles/TargetDirectories.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/CMakeFiles/clion-environment.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/CMakeFiles/clion-log.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/CMakeFiles/cmake.check_cache" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/CMakeFiles/feature_tests.c" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/CMakeFiles/feature_tests.cxx" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/CMakeFiles/progress.marks" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/Makefile" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/cmake_install.cmake" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/spatialindex.cbp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/src/CMakeFiles/CMakeDirectoryInformation.cmake" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/src/CMakeFiles/progress.marks" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/src/CMakeFiles/spatialindex.dir/CXX.includecache" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/src/CMakeFiles/spatialindex.dir/DependInfo.cmake" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/src/CMakeFiles/spatialindex.dir/build.make" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/src/CMakeFiles/spatialindex.dir/cmake_clean.cmake" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/src/CMakeFiles/spatialindex.dir/depend.internal" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/src/CMakeFiles/spatialindex.dir/depend.make" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/src/CMakeFiles/spatialindex.dir/flags.make" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/src/CMakeFiles/spatialindex.dir/link.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/src/CMakeFiles/spatialindex.dir/progress.make" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/src/CMakeFiles/spatialindex_c.dir/CXX.includecache" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/src/CMakeFiles/spatialindex_c.dir/DependInfo.cmake" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/src/CMakeFiles/spatialindex_c.dir/build.make" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/src/CMakeFiles/spatialindex_c.dir/cmake_clean.cmake" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/src/CMakeFiles/spatialindex_c.dir/depend.internal" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/src/CMakeFiles/spatialindex_c.dir/depend.make" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/src/CMakeFiles/spatialindex_c.dir/flags.make" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/src/CMakeFiles/spatialindex_c.dir/link.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/src/CMakeFiles/spatialindex_c.dir/progress.make" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/src/Makefile" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/src/cmake_install.cmake" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/test/CMakeFiles/CMakeDirectoryInformation.cmake" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/test/CMakeFiles/progress.marks" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/test/CMakeFiles/test-geometry-Intersection.dir/CXX.includecache" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/test/CMakeFiles/test-geometry-Intersection.dir/DependInfo.cmake" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/test/CMakeFiles/test-geometry-Intersection.dir/build.make" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/test/CMakeFiles/test-geometry-Intersection.dir/cmake_clean.cmake" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/test/CMakeFiles/test-geometry-Intersection.dir/depend.internal" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/test/CMakeFiles/test-geometry-Intersection.dir/depend.make" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/test/CMakeFiles/test-geometry-Intersection.dir/flags.make" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/test/CMakeFiles/test-geometry-Intersection.dir/link.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/test/CMakeFiles/test-geometry-Intersection.dir/progress.make" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/test/CMakeFiles/test-mvrtree-Exhaustive.dir/CXX.includecache" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/test/CMakeFiles/test-mvrtree-Exhaustive.dir/DependInfo.cmake" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/test/CMakeFiles/test-mvrtree-Exhaustive.dir/build.make" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/test/CMakeFiles/test-mvrtree-Exhaustive.dir/cmake_clean.cmake" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/test/CMakeFiles/test-mvrtree-Exhaustive.dir/depend.internal" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/test/CMakeFiles/test-mvrtree-Exhaustive.dir/depend.make" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/test/CMakeFiles/test-mvrtree-Exhaustive.dir/flags.make" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/test/CMakeFiles/test-mvrtree-Exhaustive.dir/link.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/test/CMakeFiles/test-mvrtree-Exhaustive.dir/progress.make" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/test/CMakeFiles/test-mvrtree-Generator.dir/CXX.includecache" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/test/CMakeFiles/test-mvrtree-Generator.dir/DependInfo.cmake" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/test/CMakeFiles/test-mvrtree-Generator.dir/build.make" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/test/CMakeFiles/test-mvrtree-Generator.dir/cmake_clean.cmake" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/test/CMakeFiles/test-mvrtree-Generator.dir/depend.internal" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/test/CMakeFiles/test-mvrtree-Generator.dir/depend.make" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/test/CMakeFiles/test-mvrtree-Generator.dir/flags.make" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/test/CMakeFiles/test-mvrtree-Generator.dir/link.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/test/CMakeFiles/test-mvrtree-Generator.dir/progress.make" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/test/CMakeFiles/test-mvrtree-MVRTreeLoad.dir/CXX.includecache" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/test/CMakeFiles/test-mvrtree-MVRTreeLoad.dir/DependInfo.cmake" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/test/CMakeFiles/test-mvrtree-MVRTreeLoad.dir/build.make" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/test/CMakeFiles/test-mvrtree-MVRTreeLoad.dir/cmake_clean.cmake" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/test/CMakeFiles/test-mvrtree-MVRTreeLoad.dir/depend.internal" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/test/CMakeFiles/test-mvrtree-MVRTreeLoad.dir/depend.make" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/test/CMakeFiles/test-mvrtree-MVRTreeLoad.dir/flags.make" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/test/CMakeFiles/test-mvrtree-MVRTreeLoad.dir/link.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/test/CMakeFiles/test-mvrtree-MVRTreeLoad.dir/progress.make" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/test/CMakeFiles/test-mvrtree-MVRTreeQuery.dir/CXX.includecache" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/test/CMakeFiles/test-mvrtree-MVRTreeQuery.dir/DependInfo.cmake" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/test/CMakeFiles/test-mvrtree-MVRTreeQuery.dir/build.make" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/test/CMakeFiles/test-mvrtree-MVRTreeQuery.dir/cmake_clean.cmake" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/test/CMakeFiles/test-mvrtree-MVRTreeQuery.dir/depend.internal" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/test/CMakeFiles/test-mvrtree-MVRTreeQuery.dir/depend.make" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/test/CMakeFiles/test-mvrtree-MVRTreeQuery.dir/flags.make" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/test/CMakeFiles/test-mvrtree-MVRTreeQuery.dir/link.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/test/CMakeFiles/test-mvrtree-MVRTreeQuery.dir/progress.make" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/test/CMakeFiles/test-rtree-Exhaustive.dir/CXX.includecache" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/test/CMakeFiles/test-rtree-Exhaustive.dir/DependInfo.cmake" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/test/CMakeFiles/test-rtree-Exhaustive.dir/build.make" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/test/CMakeFiles/test-rtree-Exhaustive.dir/cmake_clean.cmake" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/test/CMakeFiles/test-rtree-Exhaustive.dir/depend.internal" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/test/CMakeFiles/test-rtree-Exhaustive.dir/depend.make" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/test/CMakeFiles/test-rtree-Exhaustive.dir/flags.make" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/test/CMakeFiles/test-rtree-Exhaustive.dir/link.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/test/CMakeFiles/test-rtree-Exhaustive.dir/progress.make" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/test/CMakeFiles/test-rtree-Generator.dir/CXX.includecache" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/test/CMakeFiles/test-rtree-Generator.dir/DependInfo.cmake" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/test/CMakeFiles/test-rtree-Generator.dir/build.make" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/test/CMakeFiles/test-rtree-Generator.dir/cmake_clean.cmake" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/test/CMakeFiles/test-rtree-Generator.dir/depend.internal" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/test/CMakeFiles/test-rtree-Generator.dir/depend.make" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/test/CMakeFiles/test-rtree-Generator.dir/flags.make" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/test/CMakeFiles/test-rtree-Generator.dir/link.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/test/CMakeFiles/test-rtree-Generator.dir/progress.make" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/test/CMakeFiles/test-rtree-RTreeBulkLoad.dir/CXX.includecache" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/test/CMakeFiles/test-rtree-RTreeBulkLoad.dir/DependInfo.cmake" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/test/CMakeFiles/test-rtree-RTreeBulkLoad.dir/build.make" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/test/CMakeFiles/test-rtree-RTreeBulkLoad.dir/cmake_clean.cmake" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/test/CMakeFiles/test-rtree-RTreeBulkLoad.dir/depend.internal" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/test/CMakeFiles/test-rtree-RTreeBulkLoad.dir/depend.make" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/test/CMakeFiles/test-rtree-RTreeBulkLoad.dir/flags.make" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/test/CMakeFiles/test-rtree-RTreeBulkLoad.dir/link.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/test/CMakeFiles/test-rtree-RTreeBulkLoad.dir/progress.make" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/test/CMakeFiles/test-rtree-RTreeLoad.dir/CXX.includecache" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/test/CMakeFiles/test-rtree-RTreeLoad.dir/DependInfo.cmake" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/test/CMakeFiles/test-rtree-RTreeLoad.dir/build.make" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/test/CMakeFiles/test-rtree-RTreeLoad.dir/cmake_clean.cmake" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/test/CMakeFiles/test-rtree-RTreeLoad.dir/depend.internal" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/test/CMakeFiles/test-rtree-RTreeLoad.dir/depend.make" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/test/CMakeFiles/test-rtree-RTreeLoad.dir/flags.make" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/test/CMakeFiles/test-rtree-RTreeLoad.dir/link.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/test/CMakeFiles/test-rtree-RTreeLoad.dir/progress.make" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/test/CMakeFiles/test-rtree-RTreeQuery.dir/CXX.includecache" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/test/CMakeFiles/test-rtree-RTreeQuery.dir/DependInfo.cmake" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/test/CMakeFiles/test-rtree-RTreeQuery.dir/build.make" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/test/CMakeFiles/test-rtree-RTreeQuery.dir/cmake_clean.cmake" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/test/CMakeFiles/test-rtree-RTreeQuery.dir/depend.internal" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/test/CMakeFiles/test-rtree-RTreeQuery.dir/depend.make" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/test/CMakeFiles/test-rtree-RTreeQuery.dir/flags.make" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/test/CMakeFiles/test-rtree-RTreeQuery.dir/link.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/test/CMakeFiles/test-rtree-RTreeQuery.dir/progress.make" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/test/CMakeFiles/test-tprtree-Exhaustive.dir/CXX.includecache" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/test/CMakeFiles/test-tprtree-Exhaustive.dir/DependInfo.cmake" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/test/CMakeFiles/test-tprtree-Exhaustive.dir/build.make" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/test/CMakeFiles/test-tprtree-Exhaustive.dir/cmake_clean.cmake" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/test/CMakeFiles/test-tprtree-Exhaustive.dir/depend.internal" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/test/CMakeFiles/test-tprtree-Exhaustive.dir/depend.make" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/test/CMakeFiles/test-tprtree-Exhaustive.dir/flags.make" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/test/CMakeFiles/test-tprtree-Exhaustive.dir/link.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/test/CMakeFiles/test-tprtree-Exhaustive.dir/progress.make" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/test/CMakeFiles/test-tprtree-Generator.dir/CXX.includecache" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/test/CMakeFiles/test-tprtree-Generator.dir/DependInfo.cmake" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/test/CMakeFiles/test-tprtree-Generator.dir/build.make" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/test/CMakeFiles/test-tprtree-Generator.dir/cmake_clean.cmake" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/test/CMakeFiles/test-tprtree-Generator.dir/depend.internal" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/test/CMakeFiles/test-tprtree-Generator.dir/depend.make" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/test/CMakeFiles/test-tprtree-Generator.dir/flags.make" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/test/CMakeFiles/test-tprtree-Generator.dir/link.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/test/CMakeFiles/test-tprtree-Generator.dir/progress.make" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/test/CMakeFiles/test-tprtree-TPRTreeLoad.dir/CXX.includecache" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/test/CMakeFiles/test-tprtree-TPRTreeLoad.dir/DependInfo.cmake" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/test/CMakeFiles/test-tprtree-TPRTreeLoad.dir/build.make" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/test/CMakeFiles/test-tprtree-TPRTreeLoad.dir/cmake_clean.cmake" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/test/CMakeFiles/test-tprtree-TPRTreeLoad.dir/depend.internal" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/test/CMakeFiles/test-tprtree-TPRTreeLoad.dir/depend.make" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/test/CMakeFiles/test-tprtree-TPRTreeLoad.dir/flags.make" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/test/CMakeFiles/test-tprtree-TPRTreeLoad.dir/link.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/test/CMakeFiles/test-tprtree-TPRTreeLoad.dir/progress.make" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/test/CMakeFiles/test-tprtree-TPRTreeQuery.dir/CXX.includecache" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/test/CMakeFiles/test-tprtree-TPRTreeQuery.dir/DependInfo.cmake" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/test/CMakeFiles/test-tprtree-TPRTreeQuery.dir/build.make" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/test/CMakeFiles/test-tprtree-TPRTreeQuery.dir/cmake_clean.cmake" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/test/CMakeFiles/test-tprtree-TPRTreeQuery.dir/depend.internal" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/test/CMakeFiles/test-tprtree-TPRTreeQuery.dir/depend.make" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/test/CMakeFiles/test-tprtree-TPRTreeQuery.dir/flags.make" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/test/CMakeFiles/test-tprtree-TPRTreeQuery.dir/link.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/test/CMakeFiles/test-tprtree-TPRTreeQuery.dir/progress.make" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/test/Makefile" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/spatialindex-src-1.8.5/cmake-build-debug/test/cmake_install.cmake" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/gtl/stil/PropertyTest.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/gtl/stil/impl/EnvelopeImplTest.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gtl/stil/Property.java" afterPath="$PROJECT_DIR$/src/gtl/stil/Property.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gtl/stil/Variant.java" afterPath="$PROJECT_DIR$/src/gtl/stil/Variant.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/TODO.txt" afterPath="$PROJECT_DIR$/docs/TODO.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gtl/stil/QueryStrategy.java" afterPath="$PROJECT_DIR$/src/gtl/stil/QueryStrategy.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gtl/stil/impl/EnvelopeImpl.java" afterPath="$PROJECT_DIR$/src/gtl/stil/impl/EnvelopeImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gtl/stil/impl/PropertySetImpl.java" afterPath="$PROJECT_DIR$/src/gtl/stil/impl/PropertySetImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gtl/stil/impl/VertexImpl.java" afterPath="$PROJECT_DIR$/src/gtl/stil/impl/VertexImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gtl/stil/rtree/impl/RTreeImpl.java" afterPath="$PROJECT_DIR$/src/gtl/stil/rtree/impl/RTreeImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/gtl/stil/PropertyTest.java" afterPath="$PROJECT_DIR$/src/test/gtl/stil/PropertyTest.java" />
     </list>
     <ignored path="stil.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -281,11 +24,11 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/stil$PropertySetImplTest.coverage" NAME="PropertySetImplTest Coverage Results" MODIFIED="1487416422367" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>test.gtl.stil.impl.*</FILTER>
-    </SUITE>
     <SUITE FILE_PATH="coverage/stil$DiskStorageManagerTest.coverage" NAME="DiskStorageManagerTest Coverage Results" MODIFIED="1481340777234" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>test.gtl.stil.storage.impl.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/stil$PropertySetImplTest.coverage" NAME="PropertySetImplTest Coverage Results" MODIFIED="1487416422367" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>test.gtl.stil.impl.*</FILTER>
     </SUITE>
   </component>
   <component name="CreatePatchCommitExecutor">
@@ -297,67 +40,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="PropertySetImpl.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/gtl/stil/impl/PropertySetImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="28" column="5" lean-forward="false" selection-start-line="28" selection-start-column="5" selection-end-line="28" selection-end-column="5" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Variant.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/gtl/stil/Variant.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3045">
-              <caret line="210" column="34" lean-forward="false" selection-start-line="210" selection-start-column="34" selection-end-line="210" selection-end-column="34" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="VariantTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/gtl/stil/VariantTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2040">
-              <caret line="141" column="5" lean-forward="false" selection-start-line="141" selection-start-column="5" selection-end-line="141" selection-end-column="5" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PropertySetImplTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/gtl/stil/impl/PropertySetImplTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1365">
-              <caret line="98" column="71" lean-forward="false" selection-start-line="90" selection-start-column="8" selection-end-line="98" selection-end-column="71" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TODO.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/docs/TODO.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="16" column="7" lean-forward="false" selection-start-line="16" selection-start-column="7" selection-end-line="16" selection-end-column="7" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="Property.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/gtl/stil/Property.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="25" column="47" lean-forward="false" selection-start-line="25" selection-start-column="47" selection-end-line="25" selection-end-column="47" />
+            <state relative-caret-position="27">
+              <caret line="7" column="17" lean-forward="false" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -366,21 +53,41 @@
       <file leaf-file-name="PropertyTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/gtl/stil/PropertyTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="650">
-              <caret line="107" column="61" lean-forward="false" selection-start-line="107" selection-start-column="61" selection-end-line="107" selection-end-column="61" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="337">
+              <caret line="105" column="8" lean-forward="false" selection-start-line="105" selection-start-column="8" selection-end-line="105" selection-end-column="8" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="workspace.xml" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+      <file leaf-file-name="Envelope.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/gtl/stil/Envelope.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-28628">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="301">
+              <caret line="30" column="29" lean-forward="false" selection-start-line="30" selection-start-column="29" selection-end-line="30" selection-end-column="29" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="EnvelopeImpl.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/gtl/stil/impl/EnvelopeImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="662">
+              <caret line="342" column="0" lean-forward="false" selection-start-line="342" selection-start-column="0" selection-end-line="342" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RTreeImpl.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/gtl/stil/rtree/impl/RTreeImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1377">
+              <caret line="114" column="53" lean-forward="true" selection-start-line="114" selection-start-column="53" selection-end-line="114" selection-end-column="53" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -403,12 +110,16 @@
       <find>public final static int</find>
       <find>return new Variant</find>
       <find>NULL</find>
+      <find>bis.</find>
+      <find>clone</find>
     </findStrings>
     <replaceStrings>
       <replace>overlapEntries</replace>
       <replace>case</replace>
       <replace>reset</replace>
       <replace>UNKNOWN</replace>
+      <replace>bis.read</replace>
+      <replace>dis.</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -427,13 +138,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/gtl/stil/shape/impl/MovingRegionImpl.java" />
-        <option value="$PROJECT_DIR$/src/gtl/stil/RTreeVariant.java" />
-        <option value="$PROJECT_DIR$/src/gtl/stil/RangeQueryType.java" />
-        <option value="$PROJECT_DIR$/src/gtl/stil/rtree/RTree.java" />
-        <option value="$PROJECT_DIR$/src/gtl/stil/rtree/RTreeVariant.java" />
-        <option value="$PROJECT_DIR$/src/gtl/stil/Data.java" />
-        <option value="$PROJECT_DIR$/src/gtl/stil/InternalNode.java" />
         <option value="$PROJECT_DIR$/src/gtl/stil/ExternalNode.java" />
         <option value="$PROJECT_DIR$/src/gtl/stil/rtree/impl/IndexImpl.java" />
         <option value="$PROJECT_DIR$/src/gtl/stil/rtree/impl/LeafImpl.java" />
@@ -441,10 +145,8 @@
         <option value="$PROJECT_DIR$/src/gtl/stil/shape/impl/LineSegmentImpl.java" />
         <option value="$PROJECT_DIR$/src/gtl/stil/impl/IdentifierImpl.java" />
         <option value="$PROJECT_DIR$/src/gtl/stil/impl/IntervalImpl.java" />
-        <option value="$PROJECT_DIR$/src/gtl/stil/impl/VertexImpl.java" />
         <option value="$PROJECT_DIR$/src/test/gtl/stil/impl/VertexImplTest.java" />
         <option value="$PROJECT_DIR$/src/gtl/stil/shape/impl/TimePointImpl.java" />
-        <option value="$PROJECT_DIR$/src/gtl/stil/impl/EnvelopeImpl.java" />
         <option value="$PROJECT_DIR$/src/gtl/stil/Envelope.java" />
         <option value="$PROJECT_DIR$/src/gtl/stil/rtree/impl/NodeImpl.java" />
         <option value="$PROJECT_DIR$/src/gtl/stil/rtree/impl/EntryImpl.java" />
@@ -455,29 +157,38 @@
         <option value="$PROJECT_DIR$/src/gtl/stil/rtree/impl/ExternalRTreeNodeImpl.java" />
         <option value="$PROJECT_DIR$/src/gtl/stil/rtree/impl/InternalRTreeNodeImpl.java" />
         <option value="$PROJECT_DIR$/src/gtl/stil/rtree/impl/RTreeNodeImplBackup.java" />
-        <option value="$PROJECT_DIR$/src/gtl/stil/impl/NodeImpl.java" />
-        <option value="$PROJECT_DIR$/src/gtl/stil/Node.java" />
         <option value="$PROJECT_DIR$/src/gtl/stil/rtree/impl/ExternalRTreeNodeImplBackup.java" />
         <option value="$PROJECT_DIR$/src/gtl/stil/rtree/impl/InternalRTreeNodeImplBack.java" />
         <option value="$PROJECT_DIR$/src/gtl/backup/RTreeNodeImplBackup.java" />
         <option value="$PROJECT_DIR$/src/gtl/stil/rtree/impl/RTreeNodeImpl.java" />
-        <option value="$PROJECT_DIR$/src/gtl/stil/rtree/impl/RTreeExternalNodeImpl.java" />
-        <option value="$PROJECT_DIR$/src/gtl/stil/rtree/impl/StatisticsImpl.java" />
-        <option value="$PROJECT_DIR$/src/gtl/stil/rtree/impl/RTreeInternalNodeImpl.java" />
         <option value="$PROJECT_DIR$/src/gtl/stil/NearestNeighborComparator.java" />
-        <option value="$PROJECT_DIR$/src/gtl/stil/rtree/impl/RTreeImpl.java" />
         <option value="$PROJECT_DIR$/src/gtl/stil/VariantType.java" />
         <option value="$PROJECT_DIR$/src/gtl/stil/Serializable.java" />
-        <option value="$PROJECT_DIR$/src/test/gtl/stil/VariantTest.java" />
         <option value="$PROJECT_DIR$/src/gtl/stil/IndexSuits.java" />
-        <option value="$PROJECT_DIR$/docs/TODO.txt" />
         <option value="$PROJECT_DIR$/src/test/gtl/stil/IndexSuitsTest.java" />
         <option value="$PROJECT_DIR$/src/test/gtl/stil/impl/PropertySetImplTest.java" />
-        <option value="$PROJECT_DIR$/src/gtl/stil/PropertySet.java" />
-        <option value="$PROJECT_DIR$/src/gtl/stil/impl/PropertySetImpl.java" />
-        <option value="$PROJECT_DIR$/src/gtl/stil/Variant.java" />
-        <option value="$PROJECT_DIR$/src/test/gtl/stil/PropertyTest.java" />
         <option value="$PROJECT_DIR$/src/gtl/stil/Property.java" />
+        <option value="$PROJECT_DIR$/docs/TODO.txt" />
+        <option value="$PROJECT_DIR$/src/gtl/stil/PropertySet.java" />
+        <option value="$PROJECT_DIR$/src/gtl/stil/exception/InvalidPageException.java" />
+        <option value="$PROJECT_DIR$/src/gtl/stil/exception/IllegalArgumentException.java" />
+        <option value="$PROJECT_DIR$/src/gtl/stil/Node.java" />
+        <option value="$PROJECT_DIR$/src/gtl/stil/rtree/impl/RTreeInternalNodeImpl.java" />
+        <option value="$PROJECT_DIR$/src/gtl/stil/rtree/impl/RTreeExternalNodeImpl.java" />
+        <option value="$PROJECT_DIR$/src/gtl/stil/impl/NodeImpl.java" />
+        <option value="$PROJECT_DIR$/src/gtl/stil/Visitor.java" />
+        <option value="$PROJECT_DIR$/src/gtl/stil/rtree/impl/StatisticsImpl.java" />
+        <option value="$PROJECT_DIR$/src/gtl/stil/Variant.java" />
+        <option value="$PROJECT_DIR$/src/test/gtl/stil/VariantTest.java" />
+        <option value="$PROJECT_DIR$/src/gtl/stil/rtree/RTree.java" />
+        <option value="$PROJECT_DIR$/src/test/gtl/stil/rtree/impl/RTreeImplTest.java" />
+        <option value="$PROJECT_DIR$/src/gtl/stil/impl/PropertySetImpl.java" />
+        <option value="$PROJECT_DIR$/src/gtl/stil/impl/EnvelopeImpl.java" />
+        <option value="$PROJECT_DIR$/src/test/gtl/stil/impl/EnvelopeImplTest.java" />
+        <option value="$PROJECT_DIR$/src/gtl/stil/impl/VertexImpl.java" />
+        <option value="$PROJECT_DIR$/src/gtl/stil/QueryStrategy.java" />
+        <option value="$PROJECT_DIR$/src/gtl/stil/rtree/impl/RTreeImpl.java" />
+        <option value="$PROJECT_DIR$/src/test/gtl/stil/PropertyTest.java" />
       </list>
     </option>
   </component>
@@ -488,10 +199,10 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="65" />
-    <option name="y" value="24" />
-    <option name="width" value="1855" />
-    <option name="height" value="1056" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1936" />
+    <option name="height" value="1050" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -527,32 +238,13 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
             <PATH_ELEMENT>
               <option name="myItemId" value="stil" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="stil" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="stil" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="stil" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="stil" />
@@ -609,11 +301,29 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="out" />
+              <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="production" />
+              <option name="myItemId" value="gtl" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="stil" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="stil" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gtl" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -631,7 +341,19 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="docs" />
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gtl" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="stil" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="shape" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -645,21 +367,119 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value=".idea" />
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gtl" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="stil" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="shape" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="impl" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="stil" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="stil" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gtl" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="stil" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="rtree" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="stil" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="stil" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gtl" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="stil" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="rtree" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="impl" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="stil" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="stil" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gtl" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="stil" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="impl" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
+      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="aspect.path.notification.shown" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/junit.jar!/" />
-    <property name="settings.editor.selected.configurable" value="preferences.editor" />
-    <property name="settings.editor.splitter.proportion" value="0.2" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Font" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -669,11 +489,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.RecentsKey">
-      <recent name="test.gtl.stil" />
       <recent name="test.gtl.stil.impl" />
+      <recent name="test.gtl.stil.rtree.impl" />
+      <recent name="test.gtl.stil" />
       <recent name="test.gtl.stil.storage.impl" />
       <recent name="gtl.stil.storage.impl" />
-      <recent name="test.cn.edu.cug.cs.stil.impl" />
     </key>
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="junit.framework.TestCase" />
@@ -881,156 +701,6 @@
       <envs />
       <method />
     </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="" />
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-      <method />
-    </configuration>
-    <configuration default="true" type="ArquillianTestNG" factoryName="">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="" />
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="SUITE_NAME" />
-      <option name="PACKAGE_NAME" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
-      <option name="GROUP_NAME" />
-      <option name="TEST_OBJECT" value="CLASS" />
-      <option name="VM_PARAMETERS" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" />
-      <option name="OUTPUT_DIRECTORY" />
-      <option name="ANNOTATION_TYPE" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <option name="USE_DEFAULT_REPORTERS" value="false" />
-      <option name="PROPERTIES_FILE" />
-      <envs />
-      <properties />
-      <listeners />
-      <method />
-    </configuration>
-    <configuration default="true" type="Cold Fusion runner description" factoryName="Cold Fusion" custom_browser="" web_path="">
-      <method />
-    </configuration>
-    <configuration default="true" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="myFilePath" />
-      <option name="GLUE" />
-      <option name="myNameFilter" />
-      <option name="myGeneratedName" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="" />
-      <envs />
-      <method />
-    </configuration>
-    <configuration default="true" type="FlashRunConfigurationType" factoryName="Flash App">
-      <option name="BCName" value="" />
-      <option name="IOSSimulatorSdkPath" value="" />
-      <option name="adlOptions" value="" />
-      <option name="airProgramParameters" value="" />
-      <option name="appDescriptorForEmulator" value="Android" />
-      <option name="debugTransport" value="USB" />
-      <option name="debuggerSdkRaw" value="BC SDK" />
-      <option name="emulator" value="NexusOne" />
-      <option name="emulatorAdlOptions" value="" />
-      <option name="fastPackaging" value="true" />
-      <option name="fullScreenHeight" value="0" />
-      <option name="fullScreenWidth" value="0" />
-      <option name="launchUrl" value="false" />
-      <option name="launcherParameters">
-        <LauncherParameters>
-          <option name="browser" value="a7bb68e0-33c0-4d6f-a81a-aac1fdb870c8" />
-          <option name="launcherType" value="OSDefault" />
-          <option name="newPlayerInstance" value="false" />
-          <option name="playerPath" value="FlashPlayerDebugger.exe" />
-        </LauncherParameters>
-      </option>
-      <option name="mobileRunTarget" value="Emulator" />
-      <option name="moduleName" value="" />
-      <option name="overriddenMainClass" value="" />
-      <option name="overriddenOutputFileName" value="" />
-      <option name="overrideMainClass" value="false" />
-      <option name="runTrusted" value="true" />
-      <option name="screenDpi" value="0" />
-      <option name="screenHeight" value="0" />
-      <option name="screenWidth" value="0" />
-      <option name="url" value="http://" />
-      <option name="usbDebugPort" value="7936" />
-      <method />
-    </configuration>
-    <configuration default="true" type="FlexUnitRunConfigurationType" factoryName="FlexUnit" appDescriptorForEmulator="Android" class_name="" emulatorAdlOptions="" method_name="" package_name="" scope="Class">
-      <option name="BCName" value="" />
-      <option name="launcherParameters">
-        <LauncherParameters>
-          <option name="browser" value="a7bb68e0-33c0-4d6f-a81a-aac1fdb870c8" />
-          <option name="launcherType" value="OSDefault" />
-          <option name="newPlayerInstance" value="false" />
-          <option name="playerPath" value="FlashPlayerDebugger.exe" />
-        </LauncherParameters>
-      </option>
-      <option name="moduleName" value="" />
-      <option name="trusted" value="true" />
-      <method />
-    </configuration>
-    <configuration default="true" type="GoApplicationRunConfiguration" factoryName="Go Application">
-      <module name="" />
-      <working_directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$" />
-      <kind value="FILE" />
-      <method />
-    </configuration>
-    <configuration default="true" type="GoRunFileConfiguration" factoryName="Go Single File">
-      <module name="" />
-      <working_directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$" />
-      <method />
-    </configuration>
-    <configuration default="true" type="GoTestRunConfiguration" factoryName="Go Test">
-      <module name="" />
-      <working_directory value="$PROJECT_DIR$" />
-      <framework value="gotest" />
-      <kind value="DIRECTORY" />
-      <method />
-    </configuration>
     <configuration default="true" type="GradleRunConfiguration" factoryName="Gradle">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -1045,16 +715,6 @@
         </option>
         <option name="vmOptions" />
       </ExternalSystemSettings>
-      <method />
-    </configuration>
-    <configuration default="true" type="GrailsRunConfigurationType" factoryName="Grails">
-      <setting name="vmparams" value="" />
-      <setting name="cmdLine" value="run-app" />
-      <setting name="passParentEnv" value="true" />
-      <setting name="launchBrowser" value="true" />
-      <setting name="launchBrowserUrl" value="" />
-      <setting name="depsClasspath" value="false" />
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <method />
     </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
@@ -1099,15 +759,6 @@
       <envs />
       <method />
     </configuration>
-    <configuration default="true" type="JavaScriptTestRunnerProtractor" factoryName="Protractor">
-      <config-file value="" />
-      <node-interpreter value="project" />
-      <envs />
-      <method />
-    </configuration>
-    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
-      <method />
-    </configuration>
     <configuration default="true" type="JetRunConfigurationType" factoryName="Kotlin">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="MAIN_CLASS_NAME" />
@@ -1131,9 +782,6 @@
       <option name="workingDirectory" />
       <option name="isAlternativeJrePathEnabled" value="false" />
       <envs />
-      <method />
-    </configuration>
-    <configuration default="true" type="NodeJSConfigurationType" factoryName="Node.js" path-to-node="project" working-dir="">
       <method />
     </configuration>
     <configuration default="true" type="ScalaTestRunConfiguration" factoryName="ScalaTest">
@@ -1170,12 +818,6 @@
       <envs />
       <method />
     </configuration>
-    <configuration default="true" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="" />
-      <envs />
-      <method />
-    </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="" />
@@ -1202,41 +844,6 @@
       <envs />
       <properties />
       <listeners />
-      <method />
-    </configuration>
-    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
-      <node-interpreter>project</node-interpreter>
-      <node-options />
-      <gulpfile />
-      <tasks />
-      <arguments />
-      <envs />
-      <method />
-    </configuration>
-    <configuration default="true" type="js.build_tools.npm" factoryName="npm">
-      <command value="run" />
-      <scripts />
-      <node-interpreter value="project" />
-      <envs />
-      <method />
-    </configuration>
-    <configuration default="true" type="mocha-javascript-test-runner" factoryName="Mocha">
-      <node-interpreter>project</node-interpreter>
-      <node-options />
-      <working-directory />
-      <pass-parent-env>true</pass-parent-env>
-      <envs />
-      <ui />
-      <extra-mocha-options />
-      <test-kind>DIRECTORY</test-kind>
-      <test-directory />
-      <recursive>false</recursive>
-      <method />
-    </configuration>
-    <configuration default="true" type="osgi.bnd.run" factoryName="Run Launcher">
-      <method />
-    </configuration>
-    <configuration default="true" type="osgi.bnd.run" factoryName="Test Launcher (JUnit)">
       <method />
     </configuration>
     <configuration default="true" type="uTestRunConfiguration" factoryName="utest">
@@ -1266,8 +873,8 @@
     <recent_temporary>
       <list size="5">
         <item index="0" class="java.lang.String" itemvalue="JUnit.PropertyTest" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.PropertySetImplTest" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.VariantTest" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.VariantTest" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.PropertySetImplTest" />
         <item index="3" class="java.lang.String" itemvalue="JUnit.VariantTest.testWrite" />
         <item index="4" class="java.lang.String" itemvalue="JUnit.IndexSuitsTest" />
       </list>
@@ -1378,6 +985,7 @@
       <workItem from="1487560954781" duration="1396000" />
       <workItem from="1487571544875" duration="6499000" />
       <workItem from="1487580509982" duration="64000" />
+      <workItem from="1487583589582" duration="17000" />
     </task>
     <task id="LOCAL-00001" summary="修改RTree的实现方式&#10;">
       <created>1486948741277</created>
@@ -1421,43 +1029,57 @@
       <option name="project" value="LOCAL" />
       <updated>1487483004778</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="rtree &#10;">
+      <created>1487777502102</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1487777502102</updated>
+    </task>
+    <task id="LOCAL-00008" summary="rtree &#10;">
+      <created>1487926649328</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1487926649328</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="PropertyTest - 2017.02.20 at 15h 42m 31s.xml">
+    <history-entry file="PropertyTest - 2017.02.24 at 16h 43m 14s.xml">
       <configuration name="PropertyTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="PropertyTest - 2017.02.20 at 15h 54m 41s.xml">
+    <history-entry file="PropertyTest - 2017.02.24 at 16h 43m 24s.xml">
       <configuration name="PropertyTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="PropertyTest - 2017.02.20 at 15h 56m 06s.xml">
+    <history-entry file="PropertyTest - 2017.02.25 at 18h 12m 58s.xml">
       <configuration name="PropertyTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="PropertyTest - 2017.02.20 at 15h 56m 32s.xml">
-      <configuration name="PropertyTest" configurationId="JUnit" />
+    <history-entry file="VariantTest - 2017.02.24 at 16h 43m 42s.xml">
+      <configuration name="VariantTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="PropertyTest - 2017.02.20 at 15h 58m 52s.xml">
-      <configuration name="PropertyTest" configurationId="JUnit" />
+    <history-entry file="VariantTest - 2017.02.24 at 16h 44m 03s.xml">
+      <configuration name="VariantTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="PropertyTest - 2017.02.20 at 15h 59m 04s.xml">
-      <configuration name="PropertyTest" configurationId="JUnit" />
+    <history-entry file="VariantTest - 2017.02.24 at 16h 47m 04s.xml">
+      <configuration name="VariantTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="PropertyTest - 2017.02.20 at 15h 59m 28s.xml">
-      <configuration name="PropertyTest" configurationId="JUnit" />
+    <history-entry file="VariantTest - 2017.02.24 at 16h 49m 12s.xml">
+      <configuration name="VariantTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="PropertyTest - 2017.02.20 at 16h 00m 02s.xml">
-      <configuration name="PropertyTest" configurationId="JUnit" />
+    <history-entry file="VariantTest - 2017.02.24 at 16h 49m 54s.xml">
+      <configuration name="VariantTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="PropertyTest - 2017.02.20 at 16h 04m 01s.xml">
-      <configuration name="PropertyTest" configurationId="JUnit" />
+    <history-entry file="VariantTest - 2017.02.25 at 18h 12m 09s.xml">
+      <configuration name="VariantTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="PropertyTest - 2017.02.20 at 16h 26m 16s.xml">
-      <configuration name="PropertyTest" configurationId="JUnit" />
+    <history-entry file="VariantTest - 2017.02.25 at 18h 12m 49s.xml">
+      <configuration name="VariantTest" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="292526000" />
+    <option name="totallyTimeSpent" value="292543000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1469,36 +1091,36 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="65" y="24" width="1855" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1050" extended-state="6" />
     <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2935883" sideWeight="0.49571276" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34731182" sideWeight="0.4655914" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39952996" sideWeight="0.52795696" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18897638" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1991001" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32795697" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1774461" sideWeight="0.49361023" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2769486" sideWeight="0.49361023" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19936034" sideWeight="0.49361023" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2553305" sideWeight="0.49361023" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24947916" sideWeight="0.5063898" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30645162" sideWeight="0.472043" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.52755904" sideWeight="0.472043" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18390192" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34731182" sideWeight="0.4655914" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15478165" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3236559" sideWeight="0.49356914" order="1" side_tool="false" content_ui="tabs" />
@@ -1520,27 +1142,14 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="修改RTree的实现方式&#10;" />
-    <MESSAGE value="&#10;" />
     <MESSAGE value="implement internal node class &#10;" />
     <MESSAGE value="implement internal node class &#10;add Variant and Property &#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="implement internal node class &#10;add Variant and Property &#10;" />
+    <MESSAGE value="&#10;" />
+    <MESSAGE value="rtree &#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="rtree &#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/gtl/stil/PropertyTest.java</url>
-          <line>106</line>
-          <properties />
-          <option name="timeStamp" value="31" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/gtl/stil/PropertyTest.java</url>
-          <line>107</line>
-          <properties />
-          <option name="timeStamp" value="32" />
-        </line-breakpoint>
-      </breakpoints>
       <option name="time" value="33" />
     </breakpoint-manager>
     <watches-manager />
@@ -1550,97 +1159,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/gtl/stil/shape/impl/MovingRegionImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="8" column="7" lean-forward="false" selection-start-line="8" selection-start-column="7" selection-end-line="8" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gtl/stil/shape/impl/LineSegmentImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6925">
-          <caret line="296" column="0" lean-forward="false" selection-start-line="296" selection-start-column="0" selection-end-line="296" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gtl/stil/impl/VertexImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3725">
-          <caret line="178" column="0" lean-forward="false" selection-start-line="178" selection-start-column="0" selection-end-line="178" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gtl/stil/impl/IdentifierImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1750">
-          <caret line="88" column="0" lean-forward="false" selection-start-line="88" selection-start-column="0" selection-end-line="88" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gtl/stil/Vertex.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="9" column="23" lean-forward="false" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gtl/stil/shape/TimePoint.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="5" column="17" lean-forward="false" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gtl/stil/shape/impl/TimePointImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1938">
-          <caret line="131" column="0" lean-forward="false" selection-start-line="131" selection-start-column="0" selection-end-line="131" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gtl/stil/impl/EnvelopeImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1197">
-          <caret line="72" column="32" lean-forward="false" selection-start-line="72" selection-start-column="4" selection-end-line="72" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gtl/stil/Envelope.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="14" column="4" lean-forward="false" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/gtl/stil/shape/impl/PointImplTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="16" column="13" lean-forward="false" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/gtl/stil/impl/VertexImplTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-873">
-          <caret line="91" column="45" lean-forward="false" selection-start-line="91" selection-start-column="45" selection-end-line="91" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gtl/stil/shape/Region.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="7" column="17" lean-forward="false" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gtl/stil/shape/Shape.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="10" column="17" lean-forward="false" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/gtl/stil/shape/MovingRegion.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="95">
@@ -1676,34 +1194,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/gtl/stil/Entry.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="9" column="21" lean-forward="false" selection-start-line="9" selection-start-column="21" selection-end-line="9" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/gtl/stil/rtree/impl/RTreeNodeImplBackup.java" />
     <entry file="file://$PROJECT_DIR$/src/gtl/stil/rtree/impl/ExternalRTreeNodeImplBackup.java" />
     <entry file="file://$PROJECT_DIR$/src/gtl/stil/rtree/impl/InternalRTreeNodeImplBack.java" />
-    <entry file="file://$PROJECT_DIR$/src/gtl/stil/Node.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="185">
-          <caret line="26" column="19" lean-forward="false" selection-start-line="26" selection-start-column="19" selection-end-line="26" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/gtl/stil/Indexable.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="418">
           <caret line="23" column="1" lean-forward="false" selection-start-line="23" selection-start-column="1" selection-end-line="23" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gtl/stil/rtree/RTree.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-136">
-          <caret line="12" column="17" lean-forward="false" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="17" />
         </state>
       </provider>
     </entry>
@@ -1717,52 +1214,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/gtl/stil/rtree/impl/RTreeExternalNodeImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1365">
-          <caret line="95" column="45" lean-forward="false" selection-start-line="95" selection-start-column="45" selection-end-line="95" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gtl/stil/rtree/impl/StatisticsImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="149">
-          <caret line="61" column="35" lean-forward="false" selection-start-line="61" selection-start-column="16" selection-end-line="61" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gtl/stil/rtree/impl/RTreeNodeImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="239">
-          <caret line="39" column="23" lean-forward="false" selection-start-line="39" selection-start-column="14" selection-end-line="39" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gtl/stil/impl/NodeImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="237" column="5" lean-forward="false" selection-start-line="237" selection-start-column="5" selection-end-line="237" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gtl/stil/rtree/impl/RTreeInternalNodeImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-7032">
-          <caret line="13" column="34" lean-forward="false" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/gtl/stil/NearestNeighborComparator.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
           <caret line="9" column="55" lean-forward="false" selection-start-line="9" selection-start-column="55" selection-end-line="9" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gtl/stil/rtree/impl/RTreeImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3990">
-          <caret line="293" column="0" lean-forward="false" selection-start-line="293" selection-start-column="0" selection-end-line="293" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -1781,42 +1236,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/gtl/stil/Serializable.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/docs/TODO.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="7" lean-forward="false" selection-start-line="16" selection-start-column="7" selection-end-line="16" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/gtl/stil/IndexSuitsTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="630">
           <caret line="49" column="25" lean-forward="false" selection-start-line="49" selection-start-column="25" selection-end-line="49" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gtl/stil/PropertySet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="25" lean-forward="false" selection-start-line="9" selection-start-column="25" selection-end-line="9" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gtl/stil/impl/PropertySetImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="28" column="5" lean-forward="false" selection-start-line="28" selection-start-column="5" selection-end-line="28" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1827,59 +1250,343 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/gtl/stil/VariantTest.java">
+    <entry file="file://$PROJECT_DIR$/src/test/gtl/stil/impl/PropertySetImplTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2040">
-          <caret line="141" column="5" lean-forward="false" selection-start-line="141" selection-start-column="5" selection-end-line="141" selection-end-column="5" />
+        <state relative-caret-position="1729">
+          <caret line="98" column="71" lean-forward="false" selection-start-line="90" selection-start-column="8" selection-end-line="98" selection-end-column="71" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docs/TODO.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="17" column="11" lean-forward="false" selection-start-line="17" selection-start-column="11" selection-end-line="17" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_111/src.zip!/java/lang/Exception.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="567">
+          <caret line="44" column="13" lean-forward="false" selection-start-line="44" selection-start-column="13" selection-end-line="44" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gtl/stil/exception/InvalidPageException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gtl/stil/exception/IllegalArgumentException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gtl/stil/Entry.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="351">
+          <caret line="13" column="21" lean-forward="false" selection-start-line="13" selection-start-column="21" selection-end-line="13" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gtl/stil/rtree/impl/RTreeNodeImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2673">
+          <caret line="112" column="22" lean-forward="false" selection-start-line="112" selection-start-column="22" selection-end-line="112" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gtl/stil/rtree/impl/RTreeExternalNodeImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="20" column="19" lean-forward="true" selection-start-line="20" selection-start-column="19" selection-end-line="20" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gtl/stil/Node.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="13" column="4" lean-forward="true" selection-start-line="13" selection-start-column="4" selection-end-line="13" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gtl/stil/impl/NodeImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2700">
+          <caret line="5" column="21" lean-forward="false" selection-start-line="5" selection-start-column="21" selection-end-line="5" selection-end-column="21" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#1436#1437#0" expanded="false" />
+            <element signature="e#1468#1469#0" expanded="false" />
+            <element signature="e#1521#1522#0" expanded="false" />
+            <element signature="e#1555#1556#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/gtl/stil/impl/PropertySetImplTest.java">
+    <entry file="file://$PROJECT_DIR$/src/gtl/stil/rtree/impl/RTreeInternalNodeImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1365">
-          <caret line="98" column="71" lean-forward="false" selection-start-line="90" selection-start-column="8" selection-end-line="98" selection-end-column="71" />
+        <state relative-caret-position="378">
+          <caret line="21" column="19" lean-forward="false" selection-start-line="21" selection-start-column="19" selection-end-line="21" selection-end-column="19" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gtl/stil/rtree/impl/StatisticsImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1134">
+          <caret line="75" column="36" lean-forward="false" selection-start-line="75" selection-start-column="16" selection-end-line="75" selection-end-column="36" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#212#213#0" expanded="false" />
+            <element signature="e#235#236#0" expanded="false" />
+            <element signature="e#283#284#0" expanded="false" />
+            <element signature="e#325#326#0" expanded="false" />
+            <element signature="e#375#376#0" expanded="false" />
+            <element signature="e#419#420#0" expanded="false" />
+            <element signature="e#454#455#0" expanded="false" />
+            <element signature="e#487#488#0" expanded="false" />
+            <element signature="e#537#538#0" expanded="false" />
+            <element signature="e#581#582#0" expanded="false" />
+            <element signature="e#668#669#0" expanded="false" />
+            <element signature="e#695#696#0" expanded="false" />
+            <element signature="e#733#734#0" expanded="false" />
+            <element signature="e#765#766#0" expanded="false" />
+            <element signature="e#842#843#0" expanded="false" />
+            <element signature="e#871#872#0" expanded="false" />
+            <element signature="e#913#914#0" expanded="false" />
+            <element signature="e#949#950#0" expanded="false" />
+            <element signature="e#999#1000#0" expanded="false" />
+            <element signature="e#1043#1044#0" expanded="false" />
+            <element signature="e#1082#1083#0" expanded="false" />
+            <element signature="e#1115#1116#0" expanded="false" />
+            <element signature="e#1154#1155#0" expanded="false" />
+            <element signature="e#1187#1188#0" expanded="false" />
+            <element signature="e#1222#1223#0" expanded="false" />
+            <element signature="e#1256#1257#0" expanded="false" />
+            <element signature="e#1308#1309#0" expanded="false" />
+            <element signature="e#1354#1355#0" expanded="false" />
+            <element signature="e#1451#1452#0" expanded="false" />
+            <element signature="e#1486#1487#0" expanded="false" />
+            <element signature="e#1540#1541#0" expanded="false" />
+            <element signature="e#1588#1589#0" expanded="false" />
+            <element signature="e#1703#1704#0" expanded="false" />
+            <element signature="e#1747#1748#0" expanded="false" />
+            <element signature="e#1971#1972#0" expanded="false" />
+            <element signature="e#2015#2016#0" expanded="false" />
+            <element signature="e#2131#2132#0" expanded="false" />
+            <element signature="e#2176#2177#0" expanded="false" />
+            <element signature="e#2380#2381#0" expanded="false" />
+            <element signature="e#2436#2437#0" expanded="false" />
+            <element signature="e#2496#2497#0" expanded="false" />
+            <element signature="e#2550#2551#0" expanded="false" />
+            <element signature="e#2597#2598#0" expanded="false" />
+            <element signature="e#2634#2635#0" expanded="false" />
+            <element signature="e#2737#2738#0" expanded="false" />
+            <element signature="e#2775#2776#0" expanded="false" />
+            <element signature="e#3017#3018#0" expanded="false" />
+            <element signature="e#3055#3056#0" expanded="false" />
+            <element signature="e#3778#3779#0" expanded="false" />
+            <element signature="e#3816#3817#0" expanded="false" />
+            <element signature="e#5328#5329#0" expanded="false" />
+            <element signature="e#5394#5395#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gtl/stil/rtree/RangeQueryType.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="5" column="12" lean-forward="false" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gtl/stil/shape/impl/RegionImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/gtl/stil/VariantTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1971">
+          <caret line="78" column="0" lean-forward="false" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gtl/stil/Visitor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="8" column="31" lean-forward="false" selection-start-line="8" selection-start-column="31" selection-end-line="8" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gtl/stil/rtree/RTree.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="891">
+          <caret line="38" column="0" lean-forward="false" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/gtl/stil/rtree/impl/RTreeImplTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="27">
+          <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/gtl/stil/Variant.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3045">
-          <caret line="210" column="34" lean-forward="false" selection-start-line="210" selection-start-column="34" selection-end-line="210" selection-end-column="34" />
+        <state relative-caret-position="1107">
+          <caret line="46" column="38" lean-forward="false" selection-start-line="46" selection-start-column="38" selection-end-line="46" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gtl/stil/PropertySet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gtl/stil/impl/VertexImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4644">
+          <caret line="201" column="0" lean-forward="false" selection-start-line="201" selection-start-column="0" selection-end-line="201" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#273#274#0" expanded="false" />
+            <element signature="e#321#322#0" expanded="false" />
+            <element signature="e#1140#1141#0" expanded="false" />
+            <element signature="e#1174#1175#0" expanded="false" />
+            <element signature="e#1230#1231#0" expanded="false" />
+            <element signature="e#1276#1277#0" expanded="false" />
+            <element signature="e#1792#1793#0" expanded="false" />
+            <element signature="e#1848#1849#0" expanded="false" />
+            <element signature="e#2063#2064#0" expanded="false" />
+            <element signature="e#2109#2110#0" expanded="false" />
+            <element signature="e#2151#2152#0" expanded="false" />
+            <element signature="e#2193#2194#0" expanded="false" />
+            <element signature="e#2235#2236#0" expanded="false" />
+            <element signature="e#2278#2279#0" expanded="false" />
+            <element signature="e#2320#2321#0" expanded="false" />
+            <element signature="e#2362#2363#0" expanded="false" />
+            <element signature="e#3077#3078#0" expanded="false" />
+            <element signature="e#3118#3119#0" expanded="false" />
+            <element signature="e#3167#3168#0" expanded="false" />
+            <element signature="e#3204#3205#0" expanded="false" />
+            <element signature="e#3252#3253#0" expanded="false" />
+            <element signature="e#3289#3290#0" expanded="false" />
+            <element signature="e#3337#3338#0" expanded="false" />
+            <element signature="e#3374#3375#0" expanded="false" />
+            <element signature="e#4063#4064#0" expanded="false" />
+            <element signature="e#4105#4106#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/gtl/stil/impl/VertexImplTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1242">
+          <caret line="119" column="22" lean-forward="true" selection-start-line="119" selection-start-column="22" selection-end-line="119" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/gtl/stil/impl/EnvelopeImplTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="770">
+          <caret line="127" column="5" lean-forward="false" selection-start-line="127" selection-start-column="5" selection-end-line="127" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gtl/stil/QueryStrategy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gtl/stil/Serializable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="27">
+          <caret line="40" column="21" lean-forward="false" selection-start-line="40" selection-start-column="21" selection-end-line="40" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gtl/stil/impl/PropertySetImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="27">
+          <caret line="42" column="24" lean-forward="false" selection-start-line="42" selection-start-column="16" selection-end-line="42" selection-end-column="24" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/gtl/stil/Property.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="25" column="47" lean-forward="false" selection-start-line="25" selection-start-column="47" selection-end-line="25" selection-end-column="47" />
+        <state relative-caret-position="27">
+          <caret line="7" column="17" lean-forward="false" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/gtl/stil/PropertyTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="650">
-          <caret line="107" column="61" lean-forward="false" selection-start-line="107" selection-start-column="61" selection-end-line="107" selection-end-column="61" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="337">
+          <caret line="105" column="8" lean-forward="false" selection-start-line="105" selection-start-column="8" selection-end-line="105" selection-end-column="8" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+    <entry file="file://$PROJECT_DIR$/src/gtl/stil/Envelope.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-28628">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="301">
+          <caret line="30" column="29" lean-forward="false" selection-start-line="30" selection-start-column="29" selection-end-line="30" selection-end-column="29" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gtl/stil/impl/EnvelopeImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="662">
+          <caret line="342" column="0" lean-forward="false" selection-start-line="342" selection-start-column="0" selection-end-line="342" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gtl/stil/rtree/impl/RTreeImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1377">
+          <caret line="114" column="53" lean-forward="true" selection-start-line="114" selection-start-column="53" selection-end-line="114" selection-end-column="53" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1936,6 +1643,18 @@
       <state key="ModuleStructureConfigurable.UI">
         <settings>
           <last-edited>stil</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

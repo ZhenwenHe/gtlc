@@ -165,12 +165,53 @@ public class RTreeImpl implements RTree{
 
     @Override
     public void contains(Shape query, Visitor v) {
-
+        try{
+            if (query.getDimension() != this.dimension)
+                throw new IllegalArgumentException("containsWhatQuery: Shape has the wrong number of dimensions.");
+            Stack<Node> st=new Stack<>();
+            Node root = readNode(this.rootIdentifier);
+            st.push(root);
+            while (! st.empty()){
+                Node n = st.pop();
+                if(n.getLevel() == 0){
+                    v.visitNode(n);
+                    for (int cChild = 0; cChild < n.getChildrenCount(); ++cChild){
+                        if(query.containsShape(n.getChildShape(cChild))){
+                            Entry data = new EntryImpl(n.getChildIdentifier(cChild),n.getChildShape(cChild),n.getChildData(cChild));
+                            v.visitData(data);
+                            this.stats.increaseQueryResults();
+                        }
+                    }
+                }
+                else {  //not a leaf
+                    if(query.containsShape(n.getShape())){
+                        visitSubTree(n, v);
+                    }
+                    else if(query.intersectsShape(n.getShape())){
+                        v.visitNode(n);
+                        for (int cChild = 0; cChild < n.getChildrenCount(); ++cChild){
+                            st.push(readNode(n.getChildIdentifier(cChild)));
+                        }
+                    }
+                }
+            }
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
     }
 
     @Override
     public void intersects(Shape query, Visitor v) {
-
+        try{
+            if (query.getDimension() != this.dimension)
+                throw new IllegalArgumentException("intersectsWithQuery: Shape has the wrong number of dimensions.");
+            range(RangeQueryType.RQT_INTERSECTION_QUERY, query, v);
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -200,7 +241,6 @@ public class RTreeImpl implements RTree{
         catch (Exception e){
             e.printStackTrace();
         }
-
     }
 
     @Override
@@ -759,7 +799,7 @@ public class RTreeImpl implements RTree{
 
                 for (int cChild = 0; cChild < n.getChildrenCount(); ++cChild) {
                     boolean b;
-                    if (type == RangeQueryType.ContainmentQuery)
+                    if (type == RangeQueryType.RQT_CONTAINMENT_QUERY)
                         b = query.containsShape(n.getChildShape(cChild));
 				    else
 				        b = query.intersectsShape(n.getChildShape(cChild));

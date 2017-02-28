@@ -15,10 +15,7 @@ import gtl.stil.shape.impl.RegionImpl;
 import gtl.stil.storage.StorageManager;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Stack;
+import java.util.*;
 
 /**
  * Created by ZhenwenHe on 2016/12/19.
@@ -216,17 +213,82 @@ public class RTreeImpl implements RTree{
 
     @Override
     public void pointLocation(Point query, Visitor v) {
-
+        try{
+            if (query.getDimension() != this.dimension)
+                throw new IllegalArgumentException("pointLocationQuery: Shape has the wrong number of dimensions.");
+            Region r=new RegionImpl(query.getCoordinates(), query.getCoordinates());
+            range(RangeQueryType.RQT_INTERSECTION_QUERY, r, v);
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     @Override
     public void nearestNeighbor(int k, Shape query, Visitor v, NearestNeighborComparator nnc) {
+        try {
+            if (query.getDimension() != this.getDimension())
+                throw new IllegalArgumentException("nearestNeighborQuery: Shape has the wrong number of dimensions.");
+
+            PriorityQueue<NNEntry> queue=new PriorityQueue<NNEntry>();
+
+            queue.add(new NNEntry(this.rootIdentifier, null, 0.0));
+
+            int count = 0;
+            double knearest = 0.0;
+
+            while (! queue.isEmpty()){
+                NNEntry pFirst = queue.peek();
+                // report all nearest neighbors with equal greatest distances.
+                // (neighbors can be more than k, if many happen to have the same greatest distance).
+                if (count >= k && pFirst.m_minDist > knearest)	break;
+
+                queue.poll();
+
+                if (pFirst.m_pEntry ==null) {
+                    // n is a leaf or an index.
+                    Node  n = readNode(pFirst.m_id);
+                    v.visitNode(n);
+
+                    for (int cChild = 0; cChild < n.getChildrenCount(); ++cChild) {
+                        if (n.getLevel() == 0) {
+                            Entry e = new EntryImpl(n.getChildIdentifier(cChild),n.getChildShape(cChild),n.getChildData(cChild));
+                            // we need to compare the query with the actual data entry here, so we call the
+                            // appropriate getMinimumDistance method of NearestNeighborComparator.
+                            queue.add(new NNEntry(n.getChildIdentifier(cChild), e, nnc.getMinimumDistance(query, e)));
+                        }
+                        else
+                        {
+                            queue.add(new NNEntry(n.getChildIdentifier(cChild), null, nnc.getMinimumDistance(query, n.getChildShape(cChild))));
+                        }
+                    }
+                }
+                else
+                {
+                    v.visitData(pFirst.m_pEntry);
+                    this.stats.increaseQueryResults();
+                    ++count;
+                    knearest = pFirst.m_minDist;
+                }
+            }
+            queue.clear();
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
 
     }
 
     @Override
     public void nearestNeighbor(int k, Shape query, Visitor v) {
-
+        try{
+            if (query.getDimension() != this.dimension)
+                throw new IllegalArgumentException("nearestNeighborQuery: Shape has the wrong number of dimensions.");
+            nearestNeighbor(k, query, v, new NNComparator());
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     @Override

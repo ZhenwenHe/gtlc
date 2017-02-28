@@ -157,6 +157,7 @@ public class BufferedStorageManagerImpl implements BufferedStorageManager {
         assert this.buffer.size()<=this.capacity;
         if(this.buffer.size()==this.capacity) {
             removeEntry();
+            assert this.buffer.size()<this.capacity;
         }
         assert this.buffer.containsKey(page)==false;
         this.buffer.put(page,entry);
@@ -197,11 +198,15 @@ public class BufferedStorageManagerImpl implements BufferedStorageManager {
         Iterator<Map.Entry<Identifier, BufferedStorageManagerImpl.Entry>> it = s.iterator();
         int i=0;
         Map.Entry<Identifier, BufferedStorageManagerImpl.Entry> me=null;
+
         while(it.hasNext()){
+            if(i==entry) {
+                me = it.next();
+                break;
+            }
             i+=1;
-            if(i==entry) break;
-            me=it.next();
         }
+        assert me !=null;
         return me;
     }
 

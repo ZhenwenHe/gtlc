@@ -17,6 +17,18 @@ import java.util.Iterator;
 public class BufferedStorageManagerImplTest extends TestCase {
     public void setUp() throws Exception {
         super.setUp();
+
+    }
+
+    public void tearDown() throws Exception {
+
+    }
+
+    public void testGetHits() throws Exception {
+
+    }
+
+    public void testLoadByteArray() throws Exception {
         StorageManager sm = IndexSuits.createMemoryStorageManager();
         BufferedStorageManager bsm = IndexSuits.createBufferedStorageManager(sm,5,true);
         ArrayList<Identifier> ids=new ArrayList<Identifier>();
@@ -51,18 +63,6 @@ public class BufferedStorageManagerImplTest extends TestCase {
 
         System.out.println("hits="+bsm.getHits());
         bsm.close();
-    }
-
-    public void tearDown() throws Exception {
-
-    }
-
-    public void testGetHits() throws Exception {
-
-    }
-
-    public void testLoadByteArray() throws Exception {
-
     }
 
     public void testStoreByteArray() throws Exception {

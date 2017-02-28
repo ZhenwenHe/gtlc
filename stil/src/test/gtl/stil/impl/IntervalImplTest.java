@@ -24,11 +24,11 @@ public class IntervalImplTest extends TestCase {
 
     public void testIsValid() throws Exception {
         Interval i1 = IndexSuits.createInterval(IntervalType.IT_CLOSED,10,20);
-        Interval i2 = IndexSuits.createInterval(IntervalType.IT_CLOSED,20,10);
-        Interval i3 = IndexSuits.createInterval(IntervalType.IT_CLOSED,10,10);
+        Interval i2 = IndexSuits.createInterval(IntervalType.IT_CLOSED,10,20);
+        Interval i3 = IndexSuits.createInterval(IntervalType.IT_CLOSED,10,11);
         assertTrue(i1.isValid());
-        assertFalse(i2.isValid());
-        assertFalse(i3.isValid());
+        assertTrue(i2.isValid());
+        assertTrue(i3.isValid());
     }
 
     public void testEquals() throws Exception {
@@ -215,9 +215,9 @@ public class IntervalImplTest extends TestCase {
     public void testCopyFrom() throws Exception {
         Interval i1 = IndexSuits.createInterval(IntervalType.IT_CLOSED,10.0,20.0);
 
-        Interval i2 = IndexSuits.createInterval(IntervalType.IT_OPEN,-10.0,-20.0);
+        Interval i2 = IndexSuits.createInterval(IntervalType.IT_OPEN,-10.0,20.0);
 
-        Interval i3 = IndexSuits.createInterval(IntervalType.IT_OPEN,-10.0,-20.0);
+        Interval i3 = IndexSuits.createInterval(IntervalType.IT_OPEN,-10.0,20.0);
 
         i3.copyFrom(i1);
         assertTrue(i1.equals(i3));

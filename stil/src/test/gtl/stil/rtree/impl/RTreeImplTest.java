@@ -1,6 +1,10 @@
 package test.gtl.stil.rtree.impl;
 
+import gtl.stil.shape.Region;
 import junit.framework.TestCase;
+
+import java.util.Map;
+import java.util.Random;
 
 /**
  * Created by ZhenwenHe on 2017/2/24.
@@ -8,7 +12,6 @@ import junit.framework.TestCase;
 public class RTreeImplTest extends TestCase {
     public void setUp() throws Exception {
         super.setUp();
-
     }
 
     public void tearDown() throws Exception {

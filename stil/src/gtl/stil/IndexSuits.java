@@ -1,6 +1,8 @@
 package gtl.stil;
 
 import gtl.stil.impl.*;
+import gtl.stil.rtree.RTree;
+import gtl.stil.rtree.impl.RTreeImpl;
 import gtl.stil.shape.LineSegment;
 import gtl.stil.shape.Point;
 import gtl.stil.shape.Region;
@@ -22,6 +24,10 @@ public class IndexSuits {
     public  static final double EPSILON = 1.0E-308;
     public  static final double M_PI_2 =1.57079632679489661922;
 
+    public static BufferedStorageManager createBufferedStorageManager(StorageManager storageManager, int capacity, boolean writeThrough){
+        return new BufferedStorageManagerImpl(storageManager,  capacity,  writeThrough);
+    }
+
     public static byte [] createByteArray(byte[] ba){
         byte[] r = new byte[ba.length];
         System.arraycopy(ba,0,r,0,r.length);
@@ -42,9 +48,10 @@ public class IndexSuits {
         return r;
     }
 
-    public static BufferedStorageManager createBufferedStorageManager(StorageManager storageManager, int capacity, boolean writeThrough){
-        return new BufferedStorageManagerImpl(storageManager,  capacity,  writeThrough);
+    public static StorageManager createDiskStorageManager(String baseName, int pageSize, boolean overWrite) throws IOException {
+        return new DiskStorageManager(baseName,pageSize,overWrite);
     }
+
     public static Envelope createEnvelope(){
         return new EnvelopeImpl();
     }
@@ -67,13 +74,19 @@ public class IndexSuits {
         return new IntervalImpl(t,low,high);
     }
 
+    public static LineSegment createLineSegment(Vertex s,Vertex e){
+        return new LineSegmentImpl(s,e);
+    }
+
+    public static StorageManager createMemoryStorageManager() throws IOException{
+        return new MemoryStorageManager();
+    }
+
     public static PropertySet createPropertySet(){
         return new PropertySetImpl();
     }
 
-    public static LineSegment createLineSegment(Vertex s,Vertex e){
-        return new LineSegmentImpl(s,e);
-    }
+
     public static Point createPoint( ){
         return new PointImpl( );
     }
@@ -100,13 +113,13 @@ public class IndexSuits {
         }
         return r;
     }
-
-    public static StorageManager createDiskStorageManager(String baseName, int pageSize, boolean overWrite) throws IOException {
-        return new DiskStorageManager(baseName,pageSize,overWrite);
+    public static RTree createRTree(StorageManager sm , PropertySet ps){
+        return new RTreeImpl(sm,ps);
     }
 
-    public static StorageManager createMemoryStorageManager() throws IOException{
-        return new MemoryStorageManager();
+
+    public static Variant createVariant(){
+        return new Variant();
     }
 
     public static Vertex createVertex(){
@@ -122,4 +135,10 @@ public class IndexSuits {
         return new VertexImpl(x,y,z);
     }
 
+    public static RTree loadRTree(StorageManager sm ,Identifier indexIdentifier){
+        Variant var=new Variant(indexIdentifier.longValue());
+        PropertySet ps=createPropertySet() ;
+        ps.put("IndexIdentifier", var);
+        return createRTree(sm, ps);
+    }
 }

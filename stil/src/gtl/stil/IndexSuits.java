@@ -16,6 +16,7 @@ import gtl.stil.storage.impl.MemoryStorageManager;
 import gtl.stil.storage.impl.BufferedStorageManagerImpl;
 
 import java.io.*;
+import java.util.Random;
 
 /**
  * Created by ZhenwenHe on 2016/12/10.
@@ -140,5 +141,33 @@ public class IndexSuits {
         PropertySet ps=createPropertySet() ;
         ps.put("IndexIdentifier", var);
         return createRTree(sm, ps);
+    }
+
+    public static void generateRTreeTestData(){
+        //
+
+    }
+
+    /**
+     * each interval's range is [0,1.0)
+     * @param numb number of the generated intervals
+     * @return
+     */
+    public static Interval[] generateRandomIntervals(int numb){
+        double v1, v2,v;
+        Interval [] ivs = new Interval[numb];
+        Random r = new Random(System.currentTimeMillis());
+        for(int i=0;i<numb;i++) {
+            v1 = r.nextDouble();
+            v2 = r.nextDouble();
+            while(v1==v2){
+                v2=r.nextDouble();
+            }
+            if(v1>v2)
+                ivs[i]=createInterval(IntervalType.IT_CLOSED,v2,v1);
+            else
+                ivs[i]=createInterval(IntervalType.IT_CLOSED,v1,v2);
+        }
+        return ivs;
     }
 }

@@ -3,6 +3,10 @@ package test.gtl.stil.rtree.impl;
 import gtl.stil.shape.Region;
 import junit.framework.TestCase;
 
+import java.io.DataOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.util.Map;
 import java.util.Random;
 
@@ -12,6 +16,8 @@ import java.util.Random;
 public class RTreeImplTest extends TestCase {
     public void setUp() throws Exception {
         super.setUp();
+
+
     }
 
     public void tearDown() throws Exception {
@@ -19,7 +25,11 @@ public class RTreeImplTest extends TestCase {
     }
 
     public void testReset() throws Exception {
+        FileOutputStream fw = new FileOutputStream("H:"+ File.separator+"rtree.dat");
+        DataOutputStream dos = new DataOutputStream(fw);
 
+        dos.close();
+        fw.close();
     }
 
     public void testReset1() throws Exception {

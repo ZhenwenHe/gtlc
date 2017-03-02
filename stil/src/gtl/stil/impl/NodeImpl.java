@@ -163,6 +163,10 @@ public abstract class NodeImpl implements Node {
         }
     }
     @Override
+    public Entry[] getChildEntries(){
+        return this.entries;
+    }
+    @Override
     public long getByteArraySize() {
         long sum=4;//node type
         sum+=4*4;

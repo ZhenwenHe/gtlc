@@ -2,6 +2,7 @@ package gtl.stil;
 
 import gtl.stil.impl.*;
 import gtl.stil.rtree.RTree;
+import gtl.stil.rtree.RTreeVariant;
 import gtl.stil.rtree.impl.RTreeImpl;
 import gtl.stil.shape.LineSegment;
 import gtl.stil.shape.Point;
@@ -22,8 +23,9 @@ import java.util.Random;
  * Created by ZhenwenHe on 2016/12/10.
  */
 public class IndexSuits {
-    public  static final double EPSILON = 1.0E-308;
-    public  static final double M_PI_2 =1.57079632679489661922;
+    public static final double EPSILON = 1.0E-308;
+    public static final double M_PI_2 =1.57079632679489661922;
+    public static final  String DATA_DIR="."+ File.separator+"data"+File.separator;
 
     public static BufferedStorageManager createBufferedStorageManager(StorageManager storageManager, int capacity, boolean writeThrough){
         return new BufferedStorageManagerImpl(storageManager,  capacity,  writeThrough);
@@ -117,7 +119,13 @@ public class IndexSuits {
     public static RTree createRTree(StorageManager sm , PropertySet ps){
         return new RTreeImpl(sm,ps);
     }
-
+    public static RTree createRTree(StorageManager sm,
+                     int dimension,
+                     int indexCapacity,
+                     int leafCapacity,
+                     RTreeVariant treeVariant){
+        return new  RTreeImpl(sm,dimension,indexCapacity,leafCapacity,treeVariant);
+    }
 
     public static Variant createVariant(){
         return new Variant();

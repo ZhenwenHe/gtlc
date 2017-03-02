@@ -1,6 +1,12 @@
 package test.gtl.stil.rtree.impl;
 
+import gtl.stil.Envelope;
+import gtl.stil.Identifier;
+import gtl.stil.IndexSuits;
+import gtl.stil.rtree.RTree;
+import gtl.stil.rtree.RTreeVariant;
 import gtl.stil.shape.Region;
+import gtl.stil.storage.StorageManager;
 import junit.framework.TestCase;
 
 import java.io.DataOutputStream;
@@ -25,11 +31,7 @@ public class RTreeImplTest extends TestCase {
     }
 
     public void testReset() throws Exception {
-        FileOutputStream fw = new FileOutputStream("H:"+ File.separator+"rtree.dat");
-        DataOutputStream dos = new DataOutputStream(fw);
 
-        dos.close();
-        fw.close();
     }
 
     public void testReset1() throws Exception {
@@ -37,7 +39,15 @@ public class RTreeImplTest extends TestCase {
     }
 
     public void testInsert() throws Exception {
-
+        Envelope[] envelopes=IndexSuits.readEnvelopeFile(IndexSuits.DATA_DIR+"test2d100.envelopes");
+        StorageManager sm = IndexSuits.createDiskStorageManager(IndexSuits.DATA_DIR+"rtree",32,true);
+        RTree rtree= IndexSuits.createRTree(sm,2,4,4, RTreeVariant.RV_RSTAR);
+        for(int i=0;i<envelopes.length;++i){
+            Region r = IndexSuits.createRegion(envelopes[i].getLowCoordinates(),envelopes[i].getHighCoordinates());
+            byte [] data=r.storeToByteArray();
+            Identifier id = IndexSuits.createIdentifier(i);
+            rtree.insert(data,r,id);
+        }
     }
 
     public void testDelete() throws Exception {

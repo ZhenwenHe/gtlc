@@ -25,7 +25,7 @@ public class RTreeImpl implements RTree{
     /**
      * String                   Value     Description
      * ----------------------------------------------
-     * IndexIdentifier         Identifier   If specified an existing index will be openened from the supplied
+     * IndexIdentifier         Identifier   If specified an existing index will be opened from the supplied
      *                          storage manager with the given index id. Behaviour is unspecified
      *                          if the index id or the storage manager are incorrect.
      * Dimension                Integer  Dimensionality of the data that will be inserted.
@@ -44,6 +44,24 @@ public class RTreeImpl implements RTree{
         reset(storageManager,propSet);
     }
 
+    /**
+     *
+     * @param storageManager
+     * @param dimension
+     * @param indexCapacity
+     * @param leafCapacity
+     * @param treeVariant
+     */
+    public RTreeImpl(StorageManager storageManager,
+                     int dimension,
+                     int indexCapacity,
+                     int leafCapacity,
+                     RTreeVariant treeVariant
+                     ) {
+        reset(storageManager,
+                null,dimension,indexCapacity,leafCapacity,0.7,treeVariant,
+                32,0.4,0.3,true);
+    }
     /**
      * String                   Value     Description
      * ----------------------------------------------
@@ -79,9 +97,14 @@ public class RTreeImpl implements RTree{
         this.infiniteRegion =IndexSuits.createRegion();
         this.infiniteRegion.makeInfinite(this.dimension);
         this.stats =new StatisticsImpl();
+        this.writeNodeCommands=new ArrayList<Command>();
+        this.readNodeCommands=new ArrayList<Command>();
+        this.deleteNodeCommands=new ArrayList<Command>();
 
         try {
             Variant v = propSet.getProperty("IndexIdentifier");
+
+
             if (v != null && !v.isEmpty()) {
                 if (v.isNumber())
                     this.headerIdentifier.reset(v.longValue());
@@ -124,10 +147,14 @@ public class RTreeImpl implements RTree{
         this.splitDistributionFactor =splitDistributionFactor>0?splitDistributionFactor:0.4;
         this.reinsertFactor =reinsertFactor>0?reinsertFactor:0.3;
         this.dimension =dimension>1?dimension:2;
-        this.tightMBRs =tightMBRs;//(true);
+        this.tightMBRs =true;
+        this.tightMBRs=ensureTightMBRs;//(true);
         this.infiniteRegion =IndexSuits.createRegion();
         this.infiniteRegion.makeInfinite(this.dimension);
         this.stats =new StatisticsImpl();
+        this.writeNodeCommands=new ArrayList<Command>();
+        this.readNodeCommands=new ArrayList<Command>();
+        this.deleteNodeCommands=new ArrayList<Command>();
 
         if(indexIdentifier==null){//new
             this.stats.treeHeight = 1;
@@ -712,8 +739,7 @@ public class RTreeImpl implements RTree{
     void loadHeader(){
         try {
             byte []data=this.storageManager.loadByteArray(this.headerIdentifier);
-            ByteArrayInputStream bis=new ByteArrayInputStream(data);
-            DataInputStream dis = new DataInputStream(bis);
+            DataInputStream dis = new DataInputStream(new ByteArrayInputStream(data));
             this.rootIdentifier.load(dis);
             this.treeVariant=RTreeVariant.values()[dis.readInt()];
             this.fillFactor=dis.readDouble();
@@ -732,8 +758,6 @@ public class RTreeImpl implements RTree{
             this.stats.setTreeHeight(lval);
             for(int i=0;i<lval;++i)
                 this.stats.getNodeNumberInLevelArray().add(dis.readLong());
-            dis.close();
-            bis.close();
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -818,8 +842,9 @@ public class RTreeImpl implements RTree{
 			else
                 n = new RTreeExternalNodeImpl(this, new IdentifierImpl(-1L));
 
-            n.setIdentifier(page);
             n.loadFromByteArray(buffer);
+            n.setIdentifier(page);//change the identifier
+
             this.stats.increaseReadTimes();
             for (int cIndex = 0; cIndex < this.readNodeCommands.size(); ++cIndex){
                 this.readNodeCommands.get(cIndex).execute(n);

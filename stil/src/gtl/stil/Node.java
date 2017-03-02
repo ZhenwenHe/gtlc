@@ -57,6 +57,7 @@ public interface Node extends Entry {
     Entry getChildEntry(int index);
     void setChildEntry(int index, Entry e);
     void setChildEntries(Entry[] es);
+    Entry[] getChildEntries(  );
     void insertEntry(Entry e);
     Entry removeEntry(int index);
 

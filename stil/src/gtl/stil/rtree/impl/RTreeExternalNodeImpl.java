@@ -2,6 +2,7 @@ package gtl.stil.rtree.impl;
 
 import gtl.stil.Entry;
 import gtl.stil.Identifier;
+import gtl.stil.IndexSuits;
 import gtl.stil.Node;
 import gtl.stil.shape.Region;
 
@@ -56,30 +57,36 @@ public class RTreeExternalNodeImpl extends RTreeNodeImpl{
                 rstarSplit(e, g1, g2);
                 break;
             default:
-                return null;
+                assert false;
         }
 
-        Node[] nodes=new RTreeExternalNodeImpl[2];
+        Node[] nodes=new Node[2];
+        nodes[0] = (Node) new RTreeExternalNodeImpl(this.tree, IndexSuits.createIdentifier(-1L));
+        nodes[1] = (Node) new RTreeExternalNodeImpl(this.tree, IndexSuits.createIdentifier(-1L));
         RTreeExternalNodeImpl pLeft = (RTreeExternalNodeImpl)(nodes[0]);
         RTreeExternalNodeImpl pRight = (RTreeExternalNodeImpl)(nodes[1]);
 
         pLeft.getShape().copyFrom(tree.infiniteRegion);
         pRight.getShape().copyFrom(tree.infiniteRegion);
 
+        Entry[] entries = getChildEntries();
+
         int cIndex;
         int tIndex;
         for (cIndex = 0; cIndex < g1.size(); ++cIndex){
             tIndex=g1.get(cIndex);
-            pLeft.insertEntry(getChildEntry(tIndex));
+            pLeft.insertEntry(entries[tIndex]);
             // we don't want to delete the data array from this node's destructor!
-            this.setChildData(tIndex,null);
+            //this.setChildData(tIndex,null);
+            entries[tIndex].setData(null);
         }
 
         for (cIndex = 0; cIndex < g2.size(); ++cIndex){
             tIndex=g2.get(cIndex);
-            pRight.insertEntry(getChildEntry(tIndex));
+            pRight.insertEntry(entries[tIndex]);
             // we don't want to delete the data array from this node's destructor!
-            this.setChildData(tIndex,null);
+            //this.setChildData(tIndex,null);
+            entries[tIndex].setData(null);
         }
         return nodes;
     }

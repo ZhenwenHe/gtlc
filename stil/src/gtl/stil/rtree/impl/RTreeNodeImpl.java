@@ -375,7 +375,9 @@ public abstract  class RTreeNodeImpl extends NodeImpl {
         int capacity=getCapacity();
         RstarSplitEntry[] dataLow = new RstarSplitEntry[capacity + 1];
         RstarSplitEntry[] dataHigh = new RstarSplitEntry[capacity + 1];
-        setChildEntry(capacity,e);
+        Entry [] entries = this.getChildEntries();
+        //setChildEntry(capacity,e);
+        entries[capacity]=e;
         // m_totalDataLength does not need to be increased here.
 
         int nodeSPF =(int)( Math.floor((capacity + 1) * this.tree.splitDistributionFactor));
@@ -384,7 +386,8 @@ public abstract  class RTreeNodeImpl extends NodeImpl {
         int u32Child = 0, cDim, cIndex;
 
         for (u32Child = 0; u32Child <= capacity; ++u32Child) {
-            dataLow[u32Child] = new RstarSplitEntry((Region)getChildShape(u32Child), u32Child, 0);
+            //dataLow[u32Child] = new RstarSplitEntry((Region)(getChildShape(u32Child)), u32Child, 0);
+            dataLow[u32Child] = new RstarSplitEntry((Region)(entries[u32Child].getShape()), u32Child, 0);
             dataHigh[u32Child] = dataLow[u32Child];
         }
 

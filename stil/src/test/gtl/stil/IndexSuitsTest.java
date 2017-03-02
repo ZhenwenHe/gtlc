@@ -64,10 +64,10 @@ public class IndexSuitsTest extends TestCase {
     }
 
     public void testWriteEnvelopeFile()throws Exception{
-        Envelope [] envs=IndexSuits.generateRandomEnvelopes(10,2,0.0001,0.001);
-        IndexSuits.writeEnvelopeFile(envs,"H:"+ File.separator+"test.envelopes");
-        Envelope[] tenvs=IndexSuits.readEnvelopeFile("H:"+ File.separator+"test.envelopes");
-        for(int i=0;i<10;++i) {
+        Envelope [] envs=IndexSuits.generateRandomEnvelopes(100,4,0.0001,0.001);
+        IndexSuits.writeEnvelopeFile(envs,IndexSuits.DATA_DIR +"test.envelopes");
+        Envelope[] tenvs=IndexSuits.readEnvelopeFile(IndexSuits.DATA_DIR +"test.envelopes");
+        for(int i=0;i<100;++i) {
             assertTrue(tenvs[i].equals(envs[i]));
         }
     }

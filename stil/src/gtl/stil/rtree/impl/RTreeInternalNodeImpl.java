@@ -55,7 +55,7 @@ public class RTreeInternalNodeImpl extends RTreeNodeImpl  {
                 }
                 break;
             default:
-                return null;
+                assert false;
         }
         assert (child != Integer.MAX_VALUE);
 

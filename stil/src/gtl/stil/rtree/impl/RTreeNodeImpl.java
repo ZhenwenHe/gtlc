@@ -91,7 +91,9 @@ public abstract  class RTreeNodeImpl extends NodeImpl {
 
     @Override
     public Shape newShape() {
-        return IndexSuits.createRegion();
+        Region r=  IndexSuits.createRegion();
+        r.makeInfinite(this.tree.dimension);
+        return r;
     }
 
 

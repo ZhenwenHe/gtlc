@@ -34,7 +34,7 @@ public abstract class NodeImpl implements Node {
 
     public NodeImpl(Identifier identifier, int level, int capacity ) {
         this.identifier=(Identifier) identifier.clone();
-        this.shape=newShape();
+        this.shape=null;
         this.level=level;
         this.children=0;
         this.totalDataLength=0;
@@ -170,7 +170,7 @@ public abstract class NodeImpl implements Node {
     public long getByteArraySize() {
         long sum=4;//node type
         sum+=4*4;
-        sum+=this.identifier.getByteArraySize();
+        //sum+=this.identifier.getByteArraySize();
         sum+=this.shape.getByteArraySize();
         // child entry array
         for(int iChild=0;iChild<this.children;++iChild){
@@ -181,8 +181,8 @@ public abstract class NodeImpl implements Node {
 
     @Override
     public boolean load(DataInput dis ) throws IOException {
-        this.type = dis.readInt();//skip
-        this.identifier.load(dis);
+        this.type = dis.readInt();
+        //this.identifier.load(dis);
         this.shape.load(dis);
         // Leaves are always at level 0.
         this.level=dis.readInt();
@@ -194,10 +194,7 @@ public abstract class NodeImpl implements Node {
         this.totalDataLength=dis.readInt();
         // child entry array
         for(int iChild=0;iChild<this.children;++iChild){
-            EntryImpl e = new EntryImpl();
-            Shape s = newShape();
-            assert s!=null;
-            e.setShape(s);
+            EntryImpl e = new EntryImpl(IndexSuits.createIdentifier(-1L),newShape(),null);
             e.load(dis);
             this.entries[iChild]=e;
         }
@@ -207,7 +204,7 @@ public abstract class NodeImpl implements Node {
     @Override
     public boolean store(DataOutput dos) throws IOException {
         dos.writeInt(this.type);
-        this.identifier.store(dos);
+        //this.identifier.store(dos);
         this.shape.store(dos);
         // Leaves are always at level 0.
         dos.writeInt(this.level);

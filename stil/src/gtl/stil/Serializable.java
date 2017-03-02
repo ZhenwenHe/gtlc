@@ -59,8 +59,9 @@ public interface Serializable extends java.io.Serializable, Cloneable{
         ByteArrayOutputStream baos= new ByteArrayOutputStream();
         DataOutputStream dos = new DataOutputStream(baos);
          store(dos);
+        dos.flush();
         byte [] bs = baos.toByteArray();
-        baos.close();
+        dos.close();
         return bs;
     }
     default boolean loadFromByteArray(byte[] bs) throws IOException{

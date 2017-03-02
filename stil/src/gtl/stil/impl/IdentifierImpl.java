@@ -1,6 +1,7 @@
 package gtl.stil.impl;
 
 import gtl.stil.Identifier;
+import gtl.stil.Variant;
 
 import java.io.*;
 
@@ -31,6 +32,17 @@ public class IdentifierImpl implements Identifier {
     @Override
     public Object clone() {
         return new IdentifierImpl(this.data);
+    }
+
+    @Override
+    public byte[] storeToByteArray() throws IOException {
+        return Variant.longToByteArray(this.data);
+    }
+
+    @Override
+    public boolean loadFromByteArray(byte[] bs) throws IOException {
+        this.data=Variant.byteArrayToLong(bs);
+        return true;
     }
 
     @Override

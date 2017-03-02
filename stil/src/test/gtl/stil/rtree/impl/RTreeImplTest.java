@@ -42,6 +42,7 @@ public class RTreeImplTest extends TestCase {
         Envelope[] envelopes=IndexSuits.readEnvelopeFile(IndexSuits.DATA_DIR+"test2d100.envelopes");
         StorageManager sm = IndexSuits.createDiskStorageManager(IndexSuits.DATA_DIR+"rtree",32,true);
         RTree rtree= IndexSuits.createRTree(sm,2,4,4, RTreeVariant.RV_RSTAR);
+        // i==5出错，EnvelopeImpl.load(DataInput dis) 函数的dims数据读取出错，原因需要查找
         for(int i=0;i<envelopes.length;++i){
             Region r = IndexSuits.createRegion(envelopes[i].getLowCoordinates(),envelopes[i].getHighCoordinates());
             byte [] data=r.storeToByteArray();

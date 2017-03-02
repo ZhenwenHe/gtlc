@@ -1244,12 +1244,12 @@ public class Variant implements gtl.stil.Serializable , Comparable<Variant> {
     }
 
     public static byte[] integerToByteArray(int v){
-        byte[] size = new byte[4];
-        size[0]=(byte) ((v >>> 24) & 0xFF);
-        size[1]=(byte)((v >>> 16) & 0xFF);
-        size[2]=(byte)((v >>>  8) & 0xFF);
-        size[3]=(byte)((v >>>  0) & 0xFF);
-        return size;
+        byte[] s = new byte[8];
+        s[0]=(byte) ((v >>> 24) & 0xFF);
+        s[1]=(byte)((v >>> 16) & 0xFF);
+        s[2]=(byte)((v >>>  8) & 0xFF);
+        s[3]=(byte)((v >>>  0) & 0xFF);
+        return s;
     }
     public static int byteArrayToInteger(byte[] s){
         int ch1 = s[0];
@@ -1259,18 +1259,37 @@ public class Variant implements gtl.stil.Serializable , Comparable<Variant> {
         return  ((ch1 << 24) + (ch2 << 16) + (ch3 << 8) + (ch4 << 0));
     }
     public static byte[] longToByteArray(long v){
-        byte[] size = new byte[8];
-        size[0]=(byte) ((v >>> 24) & 0xFF);
-        size[1]=(byte)((v >>> 16) & 0xFF);
-        size[2]=(byte)((v >>>  8) & 0xFF);
-        size[3]=(byte)((v >>>  0) & 0xFF);
-        return size;
+        byte writeBuffer[] = new byte[8];
+        writeBuffer[0] = (byte)(v >>> 56);
+        writeBuffer[1] = (byte)(v >>> 48);
+        writeBuffer[2] = (byte)(v >>> 40);
+        writeBuffer[3] = (byte)(v >>> 32);
+        writeBuffer[4] = (byte)(v >>> 24);
+        writeBuffer[5] = (byte)(v >>> 16);
+        writeBuffer[6] = (byte)(v >>>  8);
+        writeBuffer[7] = (byte)(v >>>  0);
+        return writeBuffer;
     }
     public static long byteArrayToLong(byte[] s){
-        int ch1 = s[0];
-        int ch2 = s[1];
-        int ch3 = s[2];
-        int ch4 = s[3];
-        return  ((ch1 << 24) + (ch2 << 16) + (ch3 << 8) + (ch4 << 0));
+        return (((long)s[0] << 56) +
+                ((long)(s[1] & 255) << 48) +
+                ((long)(s[2] & 255) << 40) +
+                ((long)(s[3] & 255) << 32) +
+                ((long)(s[4] & 255) << 24) +
+                ((s[5] & 255) << 16) +
+                ((s[6] & 255) <<  8) +
+                ((s[7] & 255) <<  0));
+    }
+    public static float byteArrayToFloat(byte[] s){
+        return  Float.intBitsToFloat(byteArrayToInteger(s));
+    }
+    public static byte[] floatToByteArray(float v){
+        return integerToByteArray(Float.floatToIntBits(v));
+    }
+    public static double byteArrayToDouble(byte[]s){
+        return Double.longBitsToDouble(byteArrayToLong(s));
+    }
+    public static byte[] doubleToByteArray(double v){
+        return longToByteArray(Double.doubleToLongBits(v));
     }
 }

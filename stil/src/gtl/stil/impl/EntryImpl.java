@@ -31,12 +31,6 @@ public class EntryImpl implements Entry{
         this.data=null;
     }
 
-    public EntryImpl() {
-        this.identifier = IndexSuits.createIdentifier(-1L);
-        this.shape = IndexSuits.createRegion();
-        this.data = null;
-    }
-
     @Override
     public Identifier getIdentifier() {
         return this.identifier;

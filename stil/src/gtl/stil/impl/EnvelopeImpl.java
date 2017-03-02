@@ -48,6 +48,7 @@ public class EnvelopeImpl implements Envelope {
     @Override
     public boolean store(DataOutput dos) throws IOException {
         int dims = this.getDimension();
+        assert dims<=4;
         dos.writeInt(dims);
         for(double d:this.low)
             dos.writeDouble(d);
@@ -102,7 +103,10 @@ public class EnvelopeImpl implements Envelope {
 
     @Override
     public int getDimension() {
-        return Math.min(this.low.length,this.high.length);
+        if(this.low==null || this.high==null)
+            return 0;
+        else
+            return Math.min(this.low.length,this.high.length);
     }
 
     @Override

@@ -728,9 +728,9 @@ public class RTreeImpl implements RTree{
             for( Long v:this.stats.getNodeNumberInLevelArray()){
                 dos.writeLong(v);
             }
-            dos.close();
+            dos.flush();
             byte [] data =bos.toByteArray();
-            bos.close();
+            dos.close();
             this.storageManager.storeByteArray(this.headerIdentifier,data);
         } catch (IOException e) {
             e.printStackTrace();
@@ -756,6 +756,7 @@ public class RTreeImpl implements RTree{
             this.stats.setDataNumber(lval);
             lval=dis.readLong();
             this.stats.setTreeHeight(lval);
+            this.stats.getNodeNumberInLevelArray().clear();
             for(int i=0;i<lval;++i)
                 this.stats.getNodeNumberInLevelArray().add(dis.readLong());
 

@@ -55,20 +55,16 @@ public class Property extends Variant  implements  Serializable  {
     }
 
     @Override
-    public boolean read(InputStream in) throws IOException {
-        DataInputStream dis=new DataInputStream(in);
+    public boolean load(DataInput dis) throws IOException {
         this.name =Variant.readString(dis);
-        boolean b=  super.read(in);
-        dis.close();
+        boolean b=  super.load(dis);
         return b;
     }
 
     @Override
-    public boolean write(OutputStream out) throws IOException {
-        DataOutputStream dos =new DataOutputStream(out);
+    public boolean store(DataOutput dos) throws IOException {
         Variant.writeString(dos,this.name);
-        boolean b= super.write(out);
-        dos.close();
+        boolean b= super.store(dos);
         return b;
     }
 

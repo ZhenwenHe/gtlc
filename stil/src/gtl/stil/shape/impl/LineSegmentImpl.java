@@ -59,9 +59,8 @@ public class LineSegmentImpl implements LineSegment {
     }
 
     @Override
-    public boolean read(InputStream in) throws IOException {
+    public boolean load(DataInput dis) throws IOException {
         int i=0;
-        DataInputStream dis =new DataInputStream(in);
         int dims = dis.readInt();
         this.makeDimension(dims);
         for( i=0;i<getDimension();i++) {
@@ -75,15 +74,13 @@ public class LineSegmentImpl implements LineSegment {
 
 
     @Override
-    public boolean write(OutputStream out) throws IOException {
-        DataOutputStream dos =new DataOutputStream(out);
+    public boolean store(DataOutput dos) throws IOException {
         int dims = this.getDimension();
         dos.writeInt(dims);
         for(double d:this.startCoordinates)
             dos.writeDouble(d);
         for(double d:this.endCoordinates)
             dos.writeDouble(d);
-        dos.close();
         return true;
     }
 

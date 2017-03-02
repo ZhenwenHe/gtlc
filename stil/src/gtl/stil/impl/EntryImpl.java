@@ -97,31 +97,27 @@ public class EntryImpl implements Entry{
     }
 
     @Override
-    public boolean read(InputStream in) throws IOException {
-        DataInputStream dis=new DataInputStream(in);
-        this.identifier.read(in);
-        this.shape.read(in);
+    public boolean load(DataInput dis) throws IOException {
+        this.identifier.load(dis);
+        this.shape.load(dis);
         int len = dis.readInt();
         if(len>0){
             this.data=new byte[len];
-            dis.read(this.data);
+            dis.readFully(this.data);
         }
-        dis.close();
         return true;
     }
 
     @Override
-    public boolean write(OutputStream out) throws IOException {
-        DataOutputStream dos =new DataOutputStream(out);
-        this.identifier.write(out);
-        this.shape.write(out);
+    public boolean store(DataOutput dos) throws IOException {
+        this.identifier.store(dos);
+        this.shape.store(dos);
         if(this.data==null)
             dos.writeInt(0);
         else {
             dos.writeInt(this.data.length);
             dos.write(this.data);
         }
-        dos.close();
         return true;
     }
 

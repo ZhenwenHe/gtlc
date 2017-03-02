@@ -5,12 +5,16 @@ import gtl.stil.IndexSuits;
 import gtl.stil.Vertex;
 
 import java.io.*;
+import java.util.Arrays;
 import java.util.DoubleSummaryStatistics;
 
 /**
  * Created by ZhenwenHe on 2016/12/8.
  */
 public class EnvelopeImpl implements Envelope {
+
+
+
     double [] low;
     double [] high;
 
@@ -28,9 +32,8 @@ public class EnvelopeImpl implements Envelope {
     }
 
     @Override
-    public boolean read(InputStream in) throws IOException {
+    public boolean load(DataInput dis) throws IOException {
         int i=0;
-        DataInputStream dis =new DataInputStream(in);
         int dims= dis.readInt();
         this.makeDimension(dims);
         for( i=0;i<dims;i++) {
@@ -43,15 +46,13 @@ public class EnvelopeImpl implements Envelope {
     }
 
     @Override
-    public boolean write(OutputStream out) throws IOException {
-        DataOutputStream dos =new DataOutputStream(out);
+    public boolean store(DataOutput dos) throws IOException {
         int dims = this.getDimension();
         dos.writeInt(dims);
         for(double d:this.low)
             dos.writeDouble(d);
         for(double d:this.high)
             dos.writeDouble(d);
-        dos.close();
         return true;
     }
 
@@ -77,6 +78,7 @@ public class EnvelopeImpl implements Envelope {
             this.high[cIndex] = -Double.MAX_VALUE;
         }
     }
+
 
     @Override
     public void makeDimension(int dimension) {
@@ -146,17 +148,31 @@ public class EnvelopeImpl implements Envelope {
     public Object clone() {
         return new EnvelopeImpl(this.low,this.high);
     }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof EnvelopeImpl)) return false;
+
+        EnvelopeImpl envelope = (EnvelopeImpl) o;
+
+        if (!Arrays.equals(low, envelope.low)) return false;
+        return Arrays.equals(high, envelope.high);
+    }
 
     @Override
+    public int hashCode() {
+        int result = Arrays.hashCode(low);
+        result = 31 * result + Arrays.hashCode(high);
+        return result;
+    }
+    @Override
     public void copyFrom(Object i) {
-
         if(i instanceof Envelope){
             Envelope e = (Envelope)i;
             if(this.getDimension()!=e.getDimension()){
                 this.reset(e.getLowCoordinates(),e.getHighCoordinates(),e.getDimension());
             }
         }
-
     }
 
     @Override

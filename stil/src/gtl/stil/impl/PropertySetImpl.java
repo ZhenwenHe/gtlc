@@ -50,9 +50,8 @@ public class PropertySetImpl extends HashMap<String,Variant> implements Property
     }
 
     @Override
-    public boolean read(InputStream in) throws IOException {
+    public boolean load(DataInput dis) throws IOException {
         super.clear();
-        DataInputStream dis =new DataInputStream(in);
         int count = dis.readInt();
         String key=null;
         Variant value=null;
@@ -60,23 +59,20 @@ public class PropertySetImpl extends HashMap<String,Variant> implements Property
             //read key string
             key=Variant.readString(dis);
             value =new Variant();
-            value.read(in);
+            value.load(dis);
             super.put(key,value);
         }
         return true;
     }
 
     @Override
-    public boolean write(OutputStream out) throws IOException {
-        DataOutputStream dos =new DataOutputStream(out);
+    public boolean store(DataOutput dos) throws IOException {
         int c = this.size();
         dos.writeInt(c);
         for(Map.Entry<String,Variant> es:entrySet()){
             Variant.writeString(dos,(String)(es.getKey()));
-            ((Variant)es.getValue()).write(out);
+            ((Variant)es.getValue()).store(dos);
         }
-
-        dos.close();
         return true;
     }
 

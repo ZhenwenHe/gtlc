@@ -81,7 +81,6 @@ public class RTreeExternalNodeImpl extends RTreeNodeImpl{
             // we don't want to delete the data array from this node's destructor!
             this.setChildData(tIndex,null);
         }
-
         return nodes;
     }
 
@@ -91,7 +90,6 @@ public class RTreeExternalNodeImpl extends RTreeNodeImpl{
         for (child = 0; child < children; ++child){
             if (id.equals(getChildIdentifier(child))) break;
         }
-
         deleteEntry(child);
         tree.writeNode(this);
 

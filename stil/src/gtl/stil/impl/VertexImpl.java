@@ -102,25 +102,21 @@ public class VertexImpl implements Vertex {
     }
 
     @Override
-    public boolean read(InputStream in) throws IOException {
-        DataInputStream dis =new DataInputStream(in);
+    public boolean load(DataInput dis) throws IOException {
         int dims = dis.readInt();
         this.makeDimension(dims);
         for(int i=0;i<dims;i++) {
             this.coordinates[i] = dis.readDouble();
         }
-        dis.close();
         return true;
     }
 
     @Override
-    public boolean write(OutputStream out) throws IOException {
-        DataOutputStream dos =new DataOutputStream(out);
+    public boolean store(DataOutput dos) throws IOException {
         int dims = this.getDimension();
         dos.writeInt(dims);
         for(double d:this.coordinates)
             dos.writeDouble(d);
-        dos.close();
         return true;
     }
     @Override

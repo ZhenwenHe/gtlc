@@ -176,11 +176,10 @@ public abstract class NodeImpl implements Node {
     }
 
     @Override
-    public boolean read(InputStream in) throws IOException {
-        DataInputStream dis=new DataInputStream(in);
+    public boolean load(DataInput dis ) throws IOException {
         this.type = dis.readInt();//skip
-        this.identifier.read(in);
-        this.shape.read(in);
+        this.identifier.load(dis);
+        this.shape.load(dis);
         // Leaves are always at level 0.
         this.level=dis.readInt();
         // The number of children pointed by this node.
@@ -195,19 +194,17 @@ public abstract class NodeImpl implements Node {
             Shape s = newShape();
             assert s!=null;
             e.setShape(s);
-            e.read(in);
+            e.load(dis);
             this.entries[iChild]=e;
         }
-        dis.close();
         return true;
     }
 
     @Override
-    public boolean write(OutputStream out) throws IOException {
-        DataOutputStream dos =new DataOutputStream(out);
+    public boolean store(DataOutput dos) throws IOException {
         dos.writeInt(this.type);
-        this.identifier.write(out);
-        this.shape.write(out);
+        this.identifier.store(dos);
+        this.shape.store(dos);
         // Leaves are always at level 0.
         dos.writeInt(this.level);
         // The number of children pointed by this node.
@@ -216,12 +213,10 @@ public abstract class NodeImpl implements Node {
         dos.writeInt(this.capacity);
         // total data length
         dos.writeInt(this.totalDataLength);
-        dos.flush();
         // child entry array
         for(int iChild=0;iChild<this.children;++iChild){
-            this.entries[iChild].write(out);
+            this.entries[iChild].store(dos);
         }
-        dos.close();
         return true;
     }
 

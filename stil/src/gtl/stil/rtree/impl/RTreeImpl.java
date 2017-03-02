@@ -453,7 +453,7 @@ public class RTreeImpl implements RTree{
 
 
 
-    class NNEntry implements Comparable<NNEntry> {
+    public class NNEntry implements Comparable<NNEntry> {
         Identifier m_id;
         Entry m_pEntry;
         double m_minDist;
@@ -685,7 +685,7 @@ public class RTreeImpl implements RTree{
         try {
             ByteArrayOutputStream bos=new ByteArrayOutputStream(1024);
             DataOutputStream dos = new DataOutputStream(bos);
-            this.rootIdentifier.write(bos);
+            this.rootIdentifier.store(dos);
             dos.writeInt(this.treeVariant.ordinal());
             dos.writeDouble(this.fillFactor);
             dos.writeInt(this.indexCapacity);
@@ -714,7 +714,7 @@ public class RTreeImpl implements RTree{
             byte []data=this.storageManager.loadByteArray(this.headerIdentifier);
             ByteArrayInputStream bis=new ByteArrayInputStream(data);
             DataInputStream dis = new DataInputStream(bis);
-            this.rootIdentifier.read(bis);
+            this.rootIdentifier.load(dis);
             this.treeVariant=RTreeVariant.values()[dis.readInt()];
             this.fillFactor=dis.readDouble();
             this.indexCapacity=dis.readInt();

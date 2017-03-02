@@ -1,13 +1,12 @@
 package test.gtl.stil;
 
+import gtl.stil.Envelope;
 import gtl.stil.IndexSuits;
 import gtl.stil.Variant;
+import gtl.stil.shape.EvolvingShape;
 import junit.framework.TestCase;
 
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.DataInputStream;
-import java.io.DataOutputStream;
+import java.io.*;
 
 /**
  * Created by hadoop on 17-2-18.
@@ -62,6 +61,15 @@ public class IndexSuitsTest extends TestCase {
 
     public void testWriteString() throws Exception {
 
+    }
+
+    public void testWriteEnvelopeFile()throws Exception{
+        Envelope [] envs=IndexSuits.generateRandomEnvelopes(10,2,0.0001,0.001);
+        IndexSuits.writeEnvelopeFile(envs,"H:"+ File.separator+"test.envelopes");
+        Envelope[] tenvs=IndexSuits.readEnvelopeFile("H:"+ File.separator+"test.envelopes");
+        for(int i=0;i<10;++i) {
+            assertTrue(tenvs[i].equals(envs[i]));
+        }
     }
 
 }

@@ -34,18 +34,14 @@ public class IdentifierImpl implements Identifier {
     }
 
     @Override
-    public boolean read(InputStream in) throws IOException {
-        DataInputStream dis = new DataInputStream(in);
+    public boolean load(DataInput dis) throws IOException {
         this.data=dis.readLong();
-        dis.close();
         return true;
     }
 
     @Override
-    public boolean write(OutputStream out) throws IOException {
-        DataOutputStream dos = new DataOutputStream(out);
+    public boolean store(DataOutput dos) throws IOException {
         dos.writeLong(this.data);
-        dos.close();
         return true;
     }
 

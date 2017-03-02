@@ -722,8 +722,7 @@ public class Variant implements gtl.stil.Serializable , Comparable<Variant> {
     }
 
     @Override
-    public boolean read(InputStream in) throws IOException {
-        DataInputStream dis =new DataInputStream(in);
+    public boolean load(DataInput dis) throws IOException {
         this.type=dis.readInt();
         switch (this.type){
             case UNKNOWN:{
@@ -809,8 +808,7 @@ public class Variant implements gtl.stil.Serializable , Comparable<Variant> {
     }
 
     @Override
-    public boolean write(OutputStream out) throws IOException {
-        DataOutputStream dos = new DataOutputStream(out);
+    public boolean store(DataOutput dos) throws IOException {
         dos.writeInt(this.type);
         switch (this.type){
             case UNKNOWN:{
@@ -891,7 +889,6 @@ public class Variant implements gtl.stil.Serializable , Comparable<Variant> {
             default:
                 break;
         }
-        dos.close();
         return true;
     }
 
@@ -1246,5 +1243,34 @@ public class Variant implements gtl.stil.Serializable , Comparable<Variant> {
         }
     }
 
-
+    public static byte[] integerToByteArray(int v){
+        byte[] size = new byte[4];
+        size[0]=(byte) ((v >>> 24) & 0xFF);
+        size[1]=(byte)((v >>> 16) & 0xFF);
+        size[2]=(byte)((v >>>  8) & 0xFF);
+        size[3]=(byte)((v >>>  0) & 0xFF);
+        return size;
+    }
+    public static int byteArrayToInteger(byte[] s){
+        int ch1 = s[0];
+        int ch2 = s[1];
+        int ch3 = s[2];
+        int ch4 = s[3];
+        return  ((ch1 << 24) + (ch2 << 16) + (ch3 << 8) + (ch4 << 0));
+    }
+    public static byte[] longToByteArray(long v){
+        byte[] size = new byte[8];
+        size[0]=(byte) ((v >>> 24) & 0xFF);
+        size[1]=(byte)((v >>> 16) & 0xFF);
+        size[2]=(byte)((v >>>  8) & 0xFF);
+        size[3]=(byte)((v >>>  0) & 0xFF);
+        return size;
+    }
+    public static long byteArrayToLong(byte[] s){
+        int ch1 = s[0];
+        int ch2 = s[1];
+        int ch3 = s[2];
+        int ch4 = s[3];
+        return  ((ch1 << 24) + (ch2 << 16) + (ch3 << 8) + (ch4 << 0));
+    }
 }

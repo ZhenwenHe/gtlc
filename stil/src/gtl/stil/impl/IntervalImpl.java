@@ -192,8 +192,7 @@ public class IntervalImpl implements Interval {
     }
 
     @Override
-    public boolean read(InputStream in) throws IOException {
-        DataInputStream dis =new DataInputStream(in);
+    public boolean load(DataInput dis) throws IOException {
         int t= dis.readInt();
         this.type=IntervalType.values()[t];
         this.low = dis.readDouble();
@@ -202,12 +201,10 @@ public class IntervalImpl implements Interval {
     }
 
     @Override
-    public boolean write(OutputStream out) throws IOException {
-        DataOutputStream dos =new DataOutputStream(out);
+    public boolean store(DataOutput dos) throws IOException {
         dos.writeInt(this.type.ordinal());
         dos.writeDouble(this.low);
         dos.writeDouble(this.high);
-        dos.close();
         return true;
     }
 

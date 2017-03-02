@@ -152,8 +152,7 @@ public class StatisticsImpl implements gtl.stil.Statistics{
     }
 
     @Override
-    public boolean read(InputStream in) throws IOException {
-        DataInputStream dis =new DataInputStream(in);
+    public boolean load(DataInput dis) throws IOException {
         this.readTimes=dis.readLong();
         this.writeTimes=dis.readLong();
         this.splitTimes=dis.readLong();
@@ -168,13 +167,11 @@ public class StatisticsImpl implements gtl.stil.Statistics{
         for(int i=0;i<s;i++){
             this.nodeNumberInLevelArray.add(Long.valueOf(dis.readLong()));
         }
-        dis.close();
         return true;
     }
 
     @Override
-    public boolean write(OutputStream out) throws IOException {
-        DataOutputStream dos =new DataOutputStream(out);
+    public boolean store(DataOutput dos) throws IOException {
         dos.writeLong(this.readTimes);
         dos.writeLong(this.writeTimes);
         dos.writeLong(this.splitTimes);
@@ -190,7 +187,6 @@ public class StatisticsImpl implements gtl.stil.Statistics{
         for(Long i: this.nodeNumberInLevelArray){
             dos.writeLong(i);
         }
-        dos.close();
         return true;
     }
 

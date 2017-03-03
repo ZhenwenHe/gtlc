@@ -127,7 +127,11 @@ public class VertexImplTest extends TestCase {
     }
 
     public void testGetByteArraySize() throws Exception {
-
+        Vertex v1=IndexSuits.createVertex(1.0,2.0);
+        Vertex v2=IndexSuits.createVertex(0.0,1.0,1.0);
+        byte[] bs= v1.storeToByteArray();
+        v2.loadFromByteArray(bs);
+        assertTrue(v2.equals(v1));
     }
 
     public void testSetX() throws Exception {

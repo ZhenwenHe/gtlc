@@ -1,5 +1,7 @@
 package gtl.stil;
 
+import gtl.stil.exception.IllegalArgumentException;
+import gtl.stil.impl.EntryImpl;
 import gtl.stil.shape.Shape;
 
 import java.util.function.Supplier;
@@ -40,12 +42,21 @@ public interface Node extends Entry {
         }
     }
     default Shape getChildShape(int index) {
-        if (index <= this.getChildrenCount()) {
-            Entry e = this.getChildEntry(index);
-            assert e!=null;
-            return e.getShape();
+        try {
+            if (index <= this.getChildrenCount()) {
+                Entry e = this.getChildEntry(index);
+                assert e!=null;
+                return e.getShape();
+            }
+            else {
+                throw new IllegalArgumentException("Node.getChildShape(int index):" + String.valueOf(index));
+            }
+        }
+        catch (Exception e){
+            e.printStackTrace();
         }
         return null;
+
     }
     int getLevel() ;
     void setLevel(int l);
@@ -60,6 +71,9 @@ public interface Node extends Entry {
     Entry[] getChildEntries(  );
     void insertEntry(Entry e);
     Entry removeEntry(int index);
+    default void insertEntry(Identifier i, Shape s, byte[] data){
+        insertEntry(new EntryImpl(i,s,data));
+    }
 
     //重新计算节点的包围矩形
     Shape recalculateShape();

@@ -1,5 +1,7 @@
 package test.gtl.stil.impl;
 
+import gtl.stil.Identifier;
+import gtl.stil.IndexSuits;
 import junit.framework.TestCase;
 
 /**
@@ -32,7 +34,11 @@ public class IdentifierImplTest extends TestCase {
     }
 
     public void testWrite() throws Exception {
-
+        Identifier i1= IndexSuits.createIdentifier(1L);
+        Identifier i2=IndexSuits.createIdentifier(2L);
+        byte[] dat= i1.storeToByteArray();
+        i2.loadFromByteArray(dat);
+        assertTrue(i1.equals(i2)  && i2.intValue()==1);
     }
 
     public void testGetByteArraySize() throws Exception {

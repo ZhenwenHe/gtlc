@@ -164,6 +164,14 @@ public class EnvelopeImpl implements Envelope {
     }
 
     @Override
+    public String toString() {
+        return "EnvelopeImpl{" +
+                "low=" + Arrays.toString(low) +
+                ", high=" + Arrays.toString(high) +
+                '}';
+    }
+
+    @Override
     public int hashCode() {
         int result = Arrays.hashCode(low);
         result = 31 * result + Arrays.hashCode(high);
@@ -173,9 +181,10 @@ public class EnvelopeImpl implements Envelope {
     public void copyFrom(Object i) {
         if(i instanceof Envelope){
             Envelope e = (Envelope)i;
-            if(this.getDimension()!=e.getDimension()){
-                this.reset(e.getLowCoordinates(),e.getHighCoordinates(),e.getDimension());
-            }
+            this.reset(e.getLowCoordinates(),e.getHighCoordinates(),e.getDimension());
+        }
+        else {
+            assert false;
         }
     }
 

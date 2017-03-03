@@ -6,6 +6,7 @@ import gtl.stil.IndexSuits;
 import gtl.stil.shape.Shape;
 
 import java.io.*;
+import java.util.Arrays;
 
 /**
  * Created by ZhenwenHe on 2017/2/12.
@@ -129,4 +130,35 @@ public class EntryImpl implements Entry{
     public long getDataLength() {
         return this.data==null?0:this.data.length;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof EntryImpl)) return false;
+
+        EntryImpl entry = (EntryImpl) o;
+
+        if (!getIdentifier().equals(entry.getIdentifier())) return false;
+        if (!getShape().equals(entry.getShape())) return false;
+        return Arrays.equals(getData(), entry.getData());
+    }
+
+    @Override
+    public int hashCode() {
+        int result = getIdentifier().hashCode();
+        result = 31 * result + getShape().hashCode();
+        result = 31 * result + Arrays.hashCode(getData());
+        return result;
+    }
+
+    @Override
+    public String toString() {
+        return "EntryImpl{" +
+                "identifier=" + identifier +
+                ", shape=" + shape +
+                ", data=" + Arrays.toString(data) +
+                '}';
+    }
+
+
 }

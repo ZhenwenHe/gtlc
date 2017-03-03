@@ -185,8 +185,9 @@ public abstract  class RTreeNodeImpl extends NodeImpl {
 
                 RTreeNodeImpl ptrR = new RTreeInternalNodeImpl(this.tree,this.tree.rootIdentifier,this.getLevel()+1);
 
-                ptrR.insertEntry((Entry)n);
-                ptrR.insertEntry((Entry)nn);
+
+                ptrR.insertEntry(n.getIdentifier(),n.getShape(),null);
+                ptrR.insertEntry(nn.getIdentifier(),nn.getShape(),null);
 
                 this.tree.writeNode(ptrR);
 

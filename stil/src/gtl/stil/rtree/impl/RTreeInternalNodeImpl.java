@@ -324,6 +324,7 @@ public class RTreeInternalNodeImpl extends RTreeNodeImpl  {
         return ret;
     }
 
+
     class OverlapEntry implements  Comparator<OverlapEntry>{
         public int m_index;
         public double m_enlargement;

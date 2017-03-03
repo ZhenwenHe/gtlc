@@ -76,17 +76,11 @@ public class RTreeExternalNodeImpl extends RTreeNodeImpl{
         for (cIndex = 0; cIndex < g1.size(); ++cIndex){
             tIndex=g1.get(cIndex);
             pLeft.insertEntry(entries[tIndex]);
-            // we don't want to delete the data array from this node's destructor!
-            //this.setChildData(tIndex,null);
-            entries[tIndex].setData(null);
         }
 
         for (cIndex = 0; cIndex < g2.size(); ++cIndex){
             tIndex=g2.get(cIndex);
             pRight.insertEntry(entries[tIndex]);
-            // we don't want to delete the data array from this node's destructor!
-            //this.setChildData(tIndex,null);
-            entries[tIndex].setData(null);
         }
         return nodes;
     }
@@ -123,4 +117,6 @@ public class RTreeExternalNodeImpl extends RTreeNodeImpl{
             }
         }
     }
+
+
 }

@@ -4,11 +4,13 @@ import gtl.stil.Entry;
 import gtl.stil.Identifier;
 import gtl.stil.IndexSuits;
 import gtl.stil.Node;
+import gtl.stil.exception.IllegalArgumentException;
 import gtl.stil.shape.Region;
 import gtl.stil.shape.Shape;
 import gtl.stil.shape.impl.RegionImpl;
 
 import java.io.*;
+import java.util.Arrays;
 import java.util.function.Supplier;
 
 /**
@@ -144,14 +146,10 @@ public abstract class NodeImpl implements Node {
 
     @Override
     public Entry getChildEntry(int index) {
-        if(index>=0 && index<this.children)
             return this.entries[index];
-        else
-            return null;
     }
     @Override
     public void setChildEntry(int index, Entry e) {
-        if(index>=0 && index<this.capacity)
             this.entries[index]=e;
     }
     @Override
@@ -159,7 +157,8 @@ public abstract class NodeImpl implements Node {
         this.totalDataLength=0;
         this.entries=es;
         for(Entry e : es){
-            this.totalDataLength+=e.getDataLength();
+            if(e!=null)
+                this.totalDataLength+=e.getDataLength();
         }
     }
     @Override
@@ -170,7 +169,7 @@ public abstract class NodeImpl implements Node {
     public long getByteArraySize() {
         long sum=4;//node type
         sum+=4*4;
-        //sum+=this.identifier.getByteArraySize();
+        sum+=this.identifier.getByteArraySize();
         sum+=this.shape.getByteArraySize();
         // child entry array
         for(int iChild=0;iChild<this.children;++iChild){
@@ -182,7 +181,7 @@ public abstract class NodeImpl implements Node {
     @Override
     public boolean load(DataInput dis ) throws IOException {
         this.type = dis.readInt();
-        //this.identifier.load(dis);
+        this.identifier.load(dis);
         this.shape.load(dis);
         // Leaves are always at level 0.
         this.level=dis.readInt();
@@ -204,7 +203,7 @@ public abstract class NodeImpl implements Node {
     @Override
     public boolean store(DataOutput dos) throws IOException {
         dos.writeInt(this.type);
-        //this.identifier.store(dos);
+        this.identifier.store(dos);
         this.shape.store(dos);
         // Leaves are always at level 0.
         dos.writeInt(this.level);
@@ -240,10 +239,21 @@ public abstract class NodeImpl implements Node {
 
     @Override
     public void insertEntry(Entry e){
-        assert(this.children < this.capacity);
-        this.entries[this.children] = e;
-        this.totalDataLength += e.getDataLength();
-        ++this.children;
+        try {
+            if(e instanceof EntryImpl){
+                assert(this.children < this.capacity);
+                this.entries[this.children] = e;
+                this.totalDataLength += e.getDataLength();
+                ++this.children;
+            }
+            else{
+                throw new IllegalArgumentException("NodeImpl.insertEntry(Entry e): wrong parameter");
+            }
+        }
+        catch (Exception ex){
+            ex.printStackTrace();
+        }
+
     }
     @Override
     public Entry removeEntry(int index) {
@@ -264,4 +274,35 @@ public abstract class NodeImpl implements Node {
     public abstract Shape recalculateShape();
     @Override
     public abstract Shape newShape();
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof NodeImpl)) return false;
+
+        NodeImpl node = (NodeImpl) o;
+
+        if (getType() != node.getType()) return false;
+        if (getLevel() != node.getLevel()) return false;
+        if (children != node.children) return false;
+        if (getCapacity() != node.getCapacity()) return false;
+        if (totalDataLength != node.totalDataLength) return false;
+        if (!getIdentifier().equals(node.getIdentifier())) return false;
+        if (!getShape().equals(node.getShape())) return false;
+        // Probably incorrect - comparing Object[] arrays with Arrays.equals
+        return Arrays.equals(entries, node.entries);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = getIdentifier().hashCode();
+        result = 31 * result + getType();
+        result = 31 * result + getShape().hashCode();
+        result = 31 * result + getLevel();
+        result = 31 * result + children;
+        result = 31 * result + Arrays.hashCode(entries);
+        result = 31 * result + getCapacity();
+        result = 31 * result + totalDataLength;
+        return result;
+    }
 }

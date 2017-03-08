@@ -1,20 +1,13 @@
 package test.gtl.stil.rtree.impl;
 
-import gtl.stil.Envelope;
-import gtl.stil.Identifier;
+import gtl.math.geometry.Envelope;
+import gtl.common.Identifier;
 import gtl.stil.IndexSuits;
 import gtl.stil.rtree.RTree;
 import gtl.stil.rtree.RTreeVariant;
-import gtl.stil.shape.Region;
-import gtl.stil.storage.StorageManager;
+import gtl.shape.Region;
+import gtl.storage.StorageManager;
 import junit.framework.TestCase;
-
-import java.io.DataOutputStream;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.FileWriter;
-import java.util.Map;
-import java.util.Random;
 
 /**
  * Created by ZhenwenHe on 2017/2/24.

@@ -1,10 +1,11 @@
 package gtl.stil.rtree.impl;
+import gtl.math.MathSuits;
 import gtl.stil.Entry;
-import gtl.stil.Identifier;
+import gtl.common.Identifier;
 import gtl.stil.IndexSuits;
 import gtl.stil.Node;
 import gtl.stil.impl.EntryImpl;
-import gtl.stil.shape.Region;
+import gtl.shape.Region;
 
 import java.util.*;
 
@@ -268,7 +269,7 @@ public class RTreeInternalNodeImpl extends RTreeNodeImpl  {
             }
         }
 
-        if (me < - IndexSuits.EPSILON || me > IndexSuits.EPSILON) {
+        if (me < - MathSuits.EPSILON || me > MathSuits.EPSILON) {
             int cIterations;
 
             if (children > tree.nearMinimumOverlapFactor) {

@@ -1,9 +1,9 @@
 package gtl.stil.impl;
 
 import gtl.stil.Entry;
-import gtl.stil.Identifier;
+import gtl.common.Identifier;
 import gtl.stil.IndexSuits;
-import gtl.stil.shape.Shape;
+import gtl.shape.Shape;
 
 import java.io.*;
 import java.util.Arrays;

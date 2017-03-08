@@ -1,17 +1,15 @@
 package gtl.stil.impl;
 
+import gtl.common.impl.IdentifierImpl;
 import gtl.stil.Entry;
-import gtl.stil.Identifier;
+import gtl.common.Identifier;
 import gtl.stil.IndexSuits;
 import gtl.stil.Node;
-import gtl.stil.exception.IllegalArgumentException;
-import gtl.stil.shape.Region;
-import gtl.stil.shape.Shape;
-import gtl.stil.shape.impl.RegionImpl;
+import gtl.exception.IllegalArgumentException;
+import gtl.shape.Shape;
 
 import java.io.*;
 import java.util.Arrays;
-import java.util.function.Supplier;
 
 /**
  * Created by ZhenwenHe on 2017/2/12.

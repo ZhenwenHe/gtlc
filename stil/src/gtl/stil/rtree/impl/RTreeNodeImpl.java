@@ -1,10 +1,12 @@
 package gtl.stil.rtree.impl;
 
+import gtl.common.Identifier;
+import gtl.math.geometry.Vertex;
 import gtl.stil.*;
 import gtl.stil.impl.EntryImpl;
 import gtl.stil.impl.NodeImpl;
-import gtl.stil.shape.Region;
-import gtl.stil.shape.Shape;
+import gtl.shape.Region;
+import gtl.shape.Shape;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -20,7 +22,7 @@ public abstract  class RTreeNodeImpl extends NodeImpl {
     // Parent of all nodes.
     RTreeImpl tree;
 
-    public RTreeNodeImpl(RTreeImpl tree,Identifier identifier, int level, int capacity) {
+    public RTreeNodeImpl(RTreeImpl tree, Identifier identifier, int level, int capacity) {
         super(identifier, level, capacity);
         this.tree = tree;
         Shape s= newShape();

@@ -1,7 +1,7 @@
 package test.gtl.stil.impl;
 
 import gtl.stil.Entry;
-import gtl.stil.Envelope;
+import gtl.math.geometry.Envelope;
 import gtl.stil.IndexSuits;
 import gtl.stil.impl.EntryImpl;
 import junit.framework.TestCase;

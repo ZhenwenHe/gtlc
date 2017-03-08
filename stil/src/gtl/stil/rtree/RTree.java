@@ -1,11 +1,9 @@
 package gtl.stil.rtree;
 
-import gtl.stil.Identifier;
+import gtl.common.Identifier;
 import gtl.stil.Indexable;
-import gtl.stil.PropertySet;
-import gtl.stil.storage.StorageManager;
-
-import java.util.Map;
+import gtl.common.PropertySet;
+import gtl.storage.StorageManager;
 
 /**
  * Created by ZhenwenHe on 2016/12/22.

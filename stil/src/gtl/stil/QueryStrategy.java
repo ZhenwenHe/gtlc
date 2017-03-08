@@ -1,10 +1,13 @@
 package gtl.stil;
 
 
+import gtl.common.Identifier;
+import gtl.storage.Serializable;
+
 /**
  * Created by ZhenwenHe on 2016/12/6.
  */
-public interface QueryStrategy extends Serializable{
+public interface QueryStrategy extends Serializable {
     /**
      *
      * @param previouslyFetched  前一个获取的Entry，传入的值不会被改变

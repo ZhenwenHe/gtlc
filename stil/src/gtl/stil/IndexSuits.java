@@ -1,20 +1,31 @@
 package gtl.stil;
 
-import gtl.stil.impl.*;
+import gtl.common.Identifier;
+import gtl.common.PropertySet;
+import gtl.common.Variant;
+import gtl.common.impl.IdentifierImpl;
+import gtl.common.impl.PropertySetImpl;
+import gtl.math.geometry.Envelope;
+import gtl.math.geometry.Interval;
+import gtl.math.geometry.IntervalType;
+import gtl.math.geometry.Vertex;
+import gtl.math.geometry.impl.EnvelopeImpl;
+import gtl.math.geometry.impl.IntervalImpl;
+import gtl.math.geometry.impl.VertexImpl;
 import gtl.stil.rtree.RTree;
 import gtl.stil.rtree.RTreeVariant;
 import gtl.stil.rtree.impl.RTreeImpl;
-import gtl.stil.shape.LineSegment;
-import gtl.stil.shape.Point;
-import gtl.stil.shape.Region;
-import gtl.stil.shape.impl.LineSegmentImpl;
-import gtl.stil.shape.impl.PointImpl;
-import gtl.stil.shape.impl.RegionImpl;
-import gtl.stil.storage.BufferedStorageManager;
-import gtl.stil.storage.StorageManager;
-import gtl.stil.storage.impl.DiskStorageManager;
-import gtl.stil.storage.impl.MemoryStorageManager;
-import gtl.stil.storage.impl.BufferedStorageManagerImpl;
+import gtl.shape.LineSegment;
+import gtl.shape.Point;
+import gtl.shape.Region;
+import gtl.shape.impl.LineSegmentImpl;
+import gtl.shape.impl.PointImpl;
+import gtl.shape.impl.RegionImpl;
+import gtl.storage.BufferedStorageManager;
+import gtl.storage.StorageManager;
+import gtl.storage.impl.DiskStorageManager;
+import gtl.storage.impl.MemoryStorageManager;
+import gtl.storage.impl.BufferedStorageManagerImpl;
 
 import java.io.*;
 import java.util.Random;
@@ -23,8 +34,6 @@ import java.util.Random;
  * Created by ZhenwenHe on 2016/12/10.
  */
 public class IndexSuits {
-    public static final double EPSILON = 1.0E-308;
-    public static final double M_PI_2 =1.57079632679489661922;
     public static final  String DATA_DIR="."+ File.separator+"data"+File.separator;
 
     public static BufferedStorageManager createBufferedStorageManager(StorageManager storageManager, int capacity, boolean writeThrough){
@@ -77,7 +86,7 @@ public class IndexSuits {
         return new IntervalImpl(t,low,high);
     }
 
-    public static LineSegment createLineSegment(Vertex s,Vertex e){
+    public static LineSegment createLineSegment(Vertex s, Vertex e){
         return new LineSegmentImpl(s,e);
     }
 

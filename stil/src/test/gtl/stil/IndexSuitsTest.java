@@ -1,9 +1,8 @@
 package test.gtl.stil;
 
-import gtl.stil.Envelope;
+import gtl.math.geometry.Envelope;
 import gtl.stil.IndexSuits;
-import gtl.stil.Variant;
-import gtl.stil.shape.EvolvingShape;
+import gtl.common.Variant;
 import junit.framework.TestCase;
 
 import java.io.*;

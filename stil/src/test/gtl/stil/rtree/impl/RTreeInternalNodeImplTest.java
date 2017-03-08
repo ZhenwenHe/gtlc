@@ -1,16 +1,15 @@
 package test.gtl.stil.rtree.impl;
 
 import gtl.stil.Entry;
-import gtl.stil.Envelope;
-import gtl.stil.Identifier;
+import gtl.math.geometry.Envelope;
+import gtl.common.Identifier;
 import gtl.stil.IndexSuits;
 import gtl.stil.impl.EntryImpl;
 import gtl.stil.rtree.RTree;
 import gtl.stil.rtree.RTreeVariant;
-import gtl.stil.rtree.impl.RTreeExternalNodeImpl;
 import gtl.stil.rtree.impl.RTreeImpl;
 import gtl.stil.rtree.impl.RTreeInternalNodeImpl;
-import gtl.stil.storage.StorageManager;
+import gtl.storage.StorageManager;
 import junit.framework.TestCase;
 
 import java.util.Arrays;

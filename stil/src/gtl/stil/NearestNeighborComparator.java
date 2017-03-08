@@ -1,6 +1,6 @@
 package gtl.stil;
 
-import gtl.stil.shape.Shape;
+import gtl.shape.Shape;
 
 /**
  * Created by ZhenwenHe on 2016/12/6.

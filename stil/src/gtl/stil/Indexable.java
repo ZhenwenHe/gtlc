@@ -1,7 +1,9 @@
 package gtl.stil;
 
-import gtl.stil.shape.Point;
-import gtl.stil.shape.Shape;
+import gtl.common.Identifier;
+import gtl.common.PropertySet;
+import gtl.shape.Point;
+import gtl.shape.Shape;
 
 /**
  * Created by ZhenwenHe on 2016/12/6.

@@ -1,18 +1,21 @@
 package gtl.stil.rtree.impl;
 
+import gtl.common.Identifier;
+import gtl.common.PropertySet;
+import gtl.common.Variant;
 import gtl.stil.*;
-import gtl.stil.exception.IllegalArgumentException;
+import gtl.exception.IllegalArgumentException;
 import gtl.stil.impl.EntryImpl;
-import gtl.stil.impl.IdentifierImpl;
-import gtl.stil.impl.PropertySetImpl;
+import gtl.common.impl.IdentifierImpl;
+import gtl.common.impl.PropertySetImpl;
 import gtl.stil.rtree.RTree;
 import gtl.stil.rtree.RTreeVariant;
 import gtl.stil.rtree.RangeQueryType;
-import gtl.stil.shape.Point;
-import gtl.stil.shape.Region;
-import gtl.stil.shape.Shape;
-import gtl.stil.shape.impl.RegionImpl;
-import gtl.stil.storage.StorageManager;
+import gtl.shape.Point;
+import gtl.shape.Region;
+import gtl.shape.Shape;
+import gtl.shape.impl.RegionImpl;
+import gtl.storage.StorageManager;
 
 import java.io.*;
 import java.util.*;

@@ -1,10 +1,9 @@
 package gtl.stil;
 
-import gtl.stil.exception.IllegalArgumentException;
+import gtl.common.Identifier;
+import gtl.exception.IllegalArgumentException;
 import gtl.stil.impl.EntryImpl;
-import gtl.stil.shape.Shape;
-
-import java.util.function.Supplier;
+import gtl.shape.Shape;
 
 /**
  * Created by ZhenwenHe on 2016/12/7.
@@ -14,7 +13,7 @@ public interface Node extends Entry {
     int getCapacity();
     int getType();
     void setType(int nodeType);
-    default  Identifier getChildIdentifier(int index){
+    default Identifier getChildIdentifier(int index){
         if (index <= this.getChildrenCount())
             return getChildEntry(index).getIdentifier();
         else

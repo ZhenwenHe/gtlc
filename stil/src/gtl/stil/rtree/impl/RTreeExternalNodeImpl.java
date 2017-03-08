@@ -1,10 +1,10 @@
 package gtl.stil.rtree.impl;
 
 import gtl.stil.Entry;
-import gtl.stil.Identifier;
+import gtl.common.Identifier;
 import gtl.stil.IndexSuits;
 import gtl.stil.Node;
-import gtl.stil.shape.Region;
+import gtl.shape.Region;
 
 import java.util.ArrayList;
 import java.util.Stack;

@@ -1,11 +1,13 @@
 package gtl.stil;
 
-import gtl.stil.shape.Shape;
+import gtl.common.Identifier;
+import gtl.shape.Shape;
+import gtl.storage.Serializable;
 
 /**
  * Created by ZhenwenHe on 2016/12/7.
  */
-public interface Entry extends Serializable{
+public interface Entry extends Serializable {
     Identifier getIdentifier() ;
     Shape getShape();
     void setIdentifier(long id) ;

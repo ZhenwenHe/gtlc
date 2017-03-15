@@ -1,6 +1,6 @@
 package gtl.storage.impl;
 
-import gtl.stil.IndexSuits;
+import gtl.common.CommonSuits;
 import gtl.common.Identifier;
 import gtl.storage.StorageManager;
 
@@ -13,7 +13,7 @@ import java.util.Iterator;
 /**
  * Created by ZhenwenHe on 2016/12/9.
  */
-public class DiskStorageManager implements StorageManager{
+class DiskStorageManager implements StorageManager{
     /**
      * length为数据长度，如果长度超过了一个页面的长度，
      * 则会放在几个页面，页面的ID存放在pages中；
@@ -59,7 +59,7 @@ public class DiskStorageManager implements StorageManager{
         String indexFileName = baseName+".idx";
         long length=0;//记录文件长度
 
-        this.nextPage= IndexSuits.createIdentifier(StorageManager.NEW_PAGE);
+        this.nextPage= CommonSuits.createIdentifier(StorageManager.NEW_PAGE);
         this.emptyPages=new ArrayList<Identifier>() ;
         this.pageIndex = new HashMap<Identifier, Entry> ();
         this.buffer = null;
@@ -99,7 +99,7 @@ public class DiskStorageManager implements StorageManager{
             count= (int)this.indexFile.readLong();
 
             for (int cCount = 0; cCount < count; ++cCount) {
-                page = IndexSuits.createIdentifier(indexFile.readLong());
+                page = CommonSuits.createIdentifier(indexFile.readLong());
                 this.emptyPages.add(page);
             }
 
@@ -107,11 +107,11 @@ public class DiskStorageManager implements StorageManager{
             count=(int)this.indexFile.readLong();
             for (int cCount = 0; cCount < count; ++cCount){
                 Entry  e = new Entry();
-                id = IndexSuits.createIdentifier(this.indexFile.readLong());
+                id = CommonSuits.createIdentifier(this.indexFile.readLong());
                 e.length=(int)this.indexFile.readLong();
                 int count2 = (int) this.indexFile.readLong();
                 for (int cCount2 = 0; cCount2 < count2; ++cCount2) {
-                    page = IndexSuits.createIdentifier(this.indexFile.readLong());
+                    page = CommonSuits.createIdentifier(this.indexFile.readLong());
                     e.pages.add(page);
                 }
                 this.pageIndex.put(id, e);
@@ -160,7 +160,7 @@ public class DiskStorageManager implements StorageManager{
             e.length = data.length;
 
 		    int ptr = 0;//从data数组的第0个字节开始
-            Identifier cPage=IndexSuits.createIdentifier(StorageManager.NEW_PAGE);
+            Identifier cPage=CommonSuits.createIdentifier(StorageManager.NEW_PAGE);
             int cRem = data.length;
             int cLen=0;
 
@@ -196,7 +196,7 @@ public class DiskStorageManager implements StorageManager{
             e.length=data.length;
 
 		    int ptr = 0;
-            Identifier cPage = IndexSuits.createIdentifier(StorageManager.NEW_PAGE);
+            Identifier cPage = CommonSuits.createIdentifier(StorageManager.NEW_PAGE);
             int cRem = e.length;
             int cLen, cNext = 0;
 

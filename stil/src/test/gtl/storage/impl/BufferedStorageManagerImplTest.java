@@ -1,9 +1,10 @@
 package test.gtl.storage.impl;
 
+import gtl.common.CommonSuits;
 import gtl.common.Identifier;
-import gtl.stil.IndexSuits;
 import gtl.storage.BufferedStorageManager;
 import gtl.storage.StorageManager;
+import gtl.storage.StorageSuits;
 import junit.framework.Assert;
 import junit.framework.TestCase;
 
@@ -29,8 +30,8 @@ public class BufferedStorageManagerImplTest extends TestCase {
     }
 
     public void testLoadByteArray() throws Exception {
-        StorageManager sm = IndexSuits.createMemoryStorageManager();
-        BufferedStorageManager bsm = IndexSuits.createBufferedStorageManager(sm,5,true);
+        StorageManager sm = StorageSuits.createMemoryStorageManager();
+        BufferedStorageManager bsm = StorageSuits.createBufferedStorageManager(sm,5,true);
         ArrayList<Identifier> ids=new ArrayList<Identifier>();
         int pageSize =1024*8;//8k
         int dataSize=(int)(pageSize*1.6);
@@ -39,7 +40,7 @@ public class BufferedStorageManagerImplTest extends TestCase {
             for(int j=0;j<dataSize;j++){
                 data[j]=(byte)i;
             }
-            Identifier pi = IndexSuits.createIdentifier(StorageManager.NEW_PAGE);
+            Identifier pi = CommonSuits.createIdentifier(StorageManager.NEW_PAGE);
             bsm.storeByteArray(pi,data);
             ids.add((Identifier) pi.clone());
         }
@@ -68,8 +69,8 @@ public class BufferedStorageManagerImplTest extends TestCase {
     public void testStoreByteArray() throws Exception {
         int pageSize =1024*8;//8k
         ArrayList<Identifier> ids=new ArrayList<Identifier>();
-        StorageManager sm = IndexSuits.createDiskStorageManager("h:"+ File.separator+"test",pageSize,true);
-        BufferedStorageManager bsm = IndexSuits.createBufferedStorageManager(sm,5,true);
+        StorageManager sm = StorageSuits.createDiskStorageManager("h:"+ File.separator+"test",pageSize,true);
+        BufferedStorageManager bsm = StorageSuits.createBufferedStorageManager(sm,5,true);
 
         int dataSize=(int)(pageSize*2.6);
         byte [] data =new byte[dataSize];
@@ -77,7 +78,7 @@ public class BufferedStorageManagerImplTest extends TestCase {
             for(int j=0;j<dataSize;j++){
                 data[j]=(byte)i;
             }
-            Identifier pi = IndexSuits.createIdentifier(StorageManager.NEW_PAGE);
+            Identifier pi = CommonSuits.createIdentifier(StorageManager.NEW_PAGE);
             bsm.storeByteArray(pi,data);
             ids.add((Identifier) pi.clone());
         }

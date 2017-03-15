@@ -1,7 +1,7 @@
 package test.gtl.shape.impl;
 
 import gtl.shape.Point;
-import gtl.shape.impl.PointImpl;
+import gtl.shape.ShapeSuits;
 import junit.framework.TestCase;
 
 import java.io.ByteArrayInputStream;
@@ -16,7 +16,7 @@ import java.util.Set;
  */
 public class PointImplTest extends TestCase {
     public void testClone() throws Exception {
-        Point p1=new PointImpl(1.0,2.0,3.0);
+        Point p1= ShapeSuits.createPoint(1.0,2.0,3.0);
         System.out.println(p1.toString());
         Point p2 = (Point) p1.clone();
         System.out.println(p2.toString());

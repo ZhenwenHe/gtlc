@@ -2,7 +2,6 @@ package gtl.math.geometry.impl;
 
 import gtl.math.MathSuits;
 import gtl.math.geometry.Envelope;
-import gtl.stil.IndexSuits;
 import gtl.math.geometry.Vertex;
 
 import java.io.*;
@@ -11,7 +10,7 @@ import java.util.Arrays;
 /**
  * Created by ZhenwenHe on 2016/12/8.
  */
-public class EnvelopeImpl implements Envelope {
+class EnvelopeImpl implements Envelope {
 
 
 
@@ -159,15 +158,15 @@ public class EnvelopeImpl implements Envelope {
 
         EnvelopeImpl envelope = (EnvelopeImpl) o;
 
-        if (!Arrays.equals(low, envelope.low)) return false;
-        return Arrays.equals(high, envelope.high);
+        if (!Arrays.equals(this.low, envelope.low)) return false;
+        return Arrays.equals(this.high, envelope.high);
     }
 
     @Override
     public String toString() {
         return "EnvelopeImpl{" +
-                "low=" + Arrays.toString(low) +
-                ", high=" + Arrays.toString(high) +
+                "low=" + Arrays.toString(this.low) +
+                ", high=" + Arrays.toString(this.high) +
                 '}';
     }
 

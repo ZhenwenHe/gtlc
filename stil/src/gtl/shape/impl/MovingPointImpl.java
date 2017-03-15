@@ -6,7 +6,7 @@ import gtl.shape.Region;
 /**
  * Created by ZhenwenHe on 2016/12/22.
  */
-public class MovingPointImpl extends TimePointImpl implements  MovingPoint{
+class MovingPointImpl extends TimePointImpl implements  MovingPoint{
     @Override
     public Region getVMBR() {
         return null;

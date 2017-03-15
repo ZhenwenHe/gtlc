@@ -13,7 +13,7 @@ import java.util.Set;
 /**
  * Created by ZhenwenHe on 2016/12/8.
  */
-public class BufferedStorageManagerImpl implements BufferedStorageManager {
+class BufferedStorageManagerImpl implements BufferedStorageManager {
     /**
      * buffer中存放的数据项的个数最多为capacity
      * 如果超过了，则必须调用removeEntry删除一项

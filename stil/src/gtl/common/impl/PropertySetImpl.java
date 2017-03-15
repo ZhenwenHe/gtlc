@@ -11,7 +11,7 @@ import java.util.Map;
 /**
  * Created by ZhenwenHe on 2016/12/27.
  */
-public class PropertySetImpl extends HashMap<String,Variant> implements PropertySet {
+class PropertySetImpl extends HashMap<String,Variant> implements PropertySet {
 
     /**
      *

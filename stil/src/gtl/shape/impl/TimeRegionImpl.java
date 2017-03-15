@@ -8,7 +8,7 @@ import gtl.shape.TimeShape;
 /**
  * Created by ZhenwenHe on 2016/12/22.
  */
-public class TimeRegionImpl extends RegionImpl implements TimeRegion {
+class TimeRegionImpl extends RegionImpl implements TimeRegion {
     @Override
     public double getLowerBound() {
         return 0;

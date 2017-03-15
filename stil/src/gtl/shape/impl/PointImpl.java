@@ -2,33 +2,108 @@ package gtl.shape.impl;
 
 
 import gtl.math.geometry.Envelope;
+import gtl.math.geometry.GeometrySuits;
 import gtl.math.geometry.Vertex;
-import gtl.math.geometry.impl.EnvelopeImpl;
-import gtl.math.geometry.impl.VertexImpl;
 import gtl.shape.Point;
 import gtl.shape.Region;
 import gtl.shape.Shape;
+import gtl.shape.ShapeSuits;
 
+import java.io.DataInput;
+import java.io.DataOutput;
+import java.io.IOException;
 import java.util.Arrays;
 
 /**
  * Created by ZhenwenHe on 2016/12/7.
  */
-public class PointImpl extends VertexImpl implements Point {
-
+class PointImpl implements Point {
+    Vertex data;
     public PointImpl(){
-        super();
+        this.data=GeometrySuits.createVertex();
     }
     public PointImpl(double x ,double y) {
-        super(x,y);
+        this.data=GeometrySuits.createVertex(x,y);
     }
-
     public PointImpl(double x ,double y,double z) {
-        super(x,y,z);
+        this.data=GeometrySuits.createVertex(x,y,z);
     }
 
     public PointImpl(double[] coordinates) {
-        super(coordinates);
+        this.data=GeometrySuits.createVertex(coordinates);
+    }
+
+    @Override
+    public double[] getCoordinates() {
+        return this.data.getCoordinates();
+    }
+
+    @Override
+    public double getCoordinate(int i) {
+        return this.data.getCoordinate(i);
+    }
+
+    @Override
+    public void copyFrom(Object i) {
+        if(i instanceof Point || i instanceof Vertex){
+            this.data.copyFrom(i);
+        }
+    }
+
+    @Override
+    public double getX() {
+        return this.data.getX();
+    }
+
+    @Override
+    public double getY() {
+        return this.data.getY();
+    }
+
+    @Override
+    public double getZ() {
+        return this.data.getZ();
+    }
+
+    @Override
+    public void setX(double x) {
+        this.data.setX(x);
+    }
+
+    @Override
+    public void setY(double y) {
+        this.data.setY(y);
+    }
+
+    @Override
+    public void setZ(double z) {
+        this.data.setX(z);
+    }
+
+    @Override
+    public void makeInfinite(int dimension) {
+        this.makeInfinite(dimension);
+    }
+
+    @Override
+    public void makeDimension(int dimension) {
+        this.makeInfinite(dimension);
+    }
+
+    @Override
+    public void reset(double[] coordinates) {
+        this.data.reset(coordinates);
+    }
+
+
+    @Override
+    public boolean load(DataInput in) throws IOException {
+        return this.data.load(in);
+    }
+
+    @Override
+    public boolean store(DataOutput out) throws IOException {
+        return this.data.store(out);
     }
 
     @Override
@@ -55,7 +130,7 @@ public class PointImpl extends VertexImpl implements Point {
     @Override
     public String toString() {
         return "PointImpl{" +
-                "coordinates=" + Arrays.toString(super.getCoordinates()) +
+                "coordinates=" + Arrays.toString(this.getCoordinates()) +
                 '}';
     }
 
@@ -87,17 +162,17 @@ public class PointImpl extends VertexImpl implements Point {
 
     @Override
     public Vertex getCenter() {
-        return this;
+        return (Vertex) this.data.clone();
     }
 
     @Override
     public int getDimension() {
-            return super.getDimension();
+            return this.data.getDimension();
     }
 
     @Override
     public Envelope getMBR() {
-        return new EnvelopeImpl(this.getCoordinates(),this.getCoordinates());
+        return GeometrySuits.createEnvelope(this.getCoordinates(),this.getCoordinates());
     }
 
     @Override

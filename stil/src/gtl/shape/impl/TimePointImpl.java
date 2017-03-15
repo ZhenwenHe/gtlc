@@ -8,7 +8,7 @@ import gtl.shape.TimeShape;
 /**
  * Created by ZhenwenHe on 2016/12/22.
  */
-public class TimePointImpl extends PointImpl implements TimePoint{
+class TimePointImpl extends PointImpl implements TimePoint{
     protected  double startTime;
     protected double endTime;
 

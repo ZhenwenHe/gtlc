@@ -1,6 +1,6 @@
 package test.gtl.math.geometry.impl;
 
-import gtl.stil.IndexSuits;
+import gtl.math.geometry.GeometrySuits;
 import gtl.math.geometry.Vertex;
 import junit.framework.Assert;
 import junit.framework.TestCase;
@@ -71,7 +71,7 @@ public class VertexImplTest extends TestCase {
     }
 
     public void testGetX() throws Exception {
-        Vertex v = IndexSuits.createVertex();
+        Vertex v = GeometrySuits.createVertex();
         v.setX(10);
         v.setY(10);
         v.setZ(10);
@@ -90,8 +90,8 @@ public class VertexImplTest extends TestCase {
 
     public void testRead() throws Exception {
         Vertex[] vv=new Vertex[2];
-        vv[0]=IndexSuits.createVertex();
-        vv[1]=IndexSuits.createVertex();
+        vv[0]=GeometrySuits.createVertex();
+        vv[1]=GeometrySuits.createVertex();
         for(Vertex v:vv)
             System.out.println(v.toString());
     }
@@ -100,11 +100,11 @@ public class VertexImplTest extends TestCase {
         ByteArrayOutputStream baos = new ByteArrayOutputStream(1024);
         DataOutputStream dos = new DataOutputStream(baos);
         dos.writeInt(987654);
-        Vertex v = IndexSuits.createVertex(1.0,1.0);
+        Vertex v = GeometrySuits.createVertex(1.0,1.0);
         v.write(baos);
-        v = IndexSuits.createVertex(2.0,2.0);
+        v = GeometrySuits.createVertex(2.0,2.0);
         v.write(baos);
-        v = IndexSuits.createVertex(3.0,3.0);
+        v = GeometrySuits.createVertex(3.0,3.0);
         v.write(baos);
         dos.writeInt(456789);
         dos.close();
@@ -112,13 +112,13 @@ public class VertexImplTest extends TestCase {
         ByteArrayInputStream bios = new ByteArrayInputStream(data);
         DataInputStream dis =new DataInputStream(bios);
         System.out.println(dis.readInt());
-        Vertex v1 = IndexSuits.createVertex(9.0,9.0,9.0);
+        Vertex v1 = GeometrySuits.createVertex(9.0,9.0,9.0);
         v1.read(bios);
         System.out.println(v1);
-        v1 = IndexSuits.createVertex(9.0,9.0,9.0);
+        v1 = GeometrySuits.createVertex(9.0,9.0,9.0);
         v1.read(bios);
         System.out.println(v1);
-        v1 = IndexSuits.createVertex(9.0,9.0,9.0);
+        v1 = GeometrySuits.createVertex(9.0,9.0,9.0);
         v1.read(bios);
         System.out.println(v1);
         System.out.println(dis.readInt());
@@ -126,8 +126,8 @@ public class VertexImplTest extends TestCase {
     }
 
     public void testGetByteArraySize() throws Exception {
-        Vertex v1=IndexSuits.createVertex(1.0,2.0);
-        Vertex v2=IndexSuits.createVertex(0.0,1.0,1.0);
+        Vertex v1=GeometrySuits.createVertex(1.0,2.0);
+        Vertex v2=GeometrySuits.createVertex(0.0,1.0,1.0);
         byte[] bs= v1.storeToByteArray();
         v2.loadFromByteArray(bs);
         assertTrue(v2.equals(v1));
@@ -154,7 +154,7 @@ public class VertexImplTest extends TestCase {
     }
 
     public void testGetCoordinate() throws Exception {
-        Vertex v = IndexSuits.createVertex();
+        Vertex v = GeometrySuits.createVertex();
         v.setX(10);
         v.setY(10);
         v.setZ(10);

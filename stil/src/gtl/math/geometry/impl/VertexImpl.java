@@ -9,7 +9,7 @@ import java.util.Arrays;
  * Created by ZhenwenHe on 2016/12/8.
  * 2017/02/12 finished and checked
  */
-public class VertexImpl implements Vertex {
+class VertexImpl implements Vertex {
 
     double  [] coordinates;
 

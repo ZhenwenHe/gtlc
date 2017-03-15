@@ -3,12 +3,10 @@ package gtl.shape.impl;
 
 import gtl.math.MathSuits;
 import gtl.math.geometry.Envelope;
+import gtl.math.geometry.GeometrySuits;
 import gtl.math.geometry.Vertex;
-import gtl.stil.*;
-import gtl.shape.LineSegment;
-import gtl.shape.Point;
-import gtl.shape.Region;
-import gtl.shape.Shape;
+import gtl.index.*;
+import gtl.shape.*;
 
 import java.io.*;
 import java.util.Arrays;
@@ -16,7 +14,7 @@ import java.util.Arrays;
 /**
  * Created by ZhenwenHe on 2016/12/8.
  */
-public class LineSegmentImpl implements LineSegment {
+class LineSegmentImpl implements LineSegment {
     double[] startCoordinates;
     double[] endCoordinates;
 
@@ -97,10 +95,10 @@ public class LineSegmentImpl implements LineSegment {
         assert this.getDimension()==2;
 
         // use Geometry::intersects
-        Point p1 = IndexSuits.createPoint(this.startCoordinates);
-        Point p2 = IndexSuits.createPoint(this.endCoordinates);
-        Point p3 = IndexSuits.createPoint(l.getStartCoordinates());
-        Point p4 = IndexSuits.createPoint(l.getEndCoordinates());
+        Point p1 = ShapeSuits.createPoint(this.startCoordinates);
+        Point p2 = ShapeSuits.createPoint(this.endCoordinates);
+        Point p3 = ShapeSuits.createPoint(l.getStartCoordinates());
+        Point p4 = ShapeSuits.createPoint(l.getEndCoordinates());
         return LineSegmentImpl.intersects(p1, p2, p3, p4);
     }
 
@@ -164,7 +162,7 @@ public class LineSegmentImpl implements LineSegment {
                     (Math.abs(this.startCoordinates[cDim] - this.endCoordinates[cDim]) / 2.0) +
                             Math.min(this.startCoordinates[cDim], this.endCoordinates[cDim]);
         }
-        return IndexSuits.createPoint(coordinates);
+        return ShapeSuits.createPoint(coordinates).getCenter();
     }
 
     @Override
@@ -212,25 +210,25 @@ public class LineSegmentImpl implements LineSegment {
             high[cDim] =  Math.max(this.startCoordinates[cDim], this.endCoordinates[cDim]);
         }
 
-        return IndexSuits.createEnvelope(low,high);
+        return GeometrySuits.createEnvelope(low,high);
     }
 
     @Override
     public double getRelativeMaximumDistance(Region r) {
          assert this.getDimension()==2;
         // clockwise.
-        double d1 = this.getRelativeMinimumDistance(IndexSuits.createPoint(r.getLowCoordinates()));
+        double d1 = this.getRelativeMinimumDistance(ShapeSuits.createPoint(r.getLowCoordinates()));
 
         double []  coords = new double [this.getDimension()];
         coords[0] = r.getLowCoordinate(0);
         coords[1] = r.getHighCoordinate(1);
-        double d2 = getRelativeMinimumDistance(IndexSuits.createPoint(coords));
+        double d2 = getRelativeMinimumDistance(ShapeSuits.createPoint(coords));
 
-        double d3 = getRelativeMinimumDistance(IndexSuits.createPoint(r.getHighCoordinates()));
+        double d3 = getRelativeMinimumDistance(ShapeSuits.createPoint(r.getHighCoordinates()));
 
         coords[0] =r.getHighCoordinate(0);
         coords[1] = r.getLowCoordinates()[1];
-        double d4 = getRelativeMinimumDistance(IndexSuits.createPoint(coords));
+        double d4 = getRelativeMinimumDistance(ShapeSuits.createPoint(coords));
 
         return Math.max(d1, Math.max(d2, Math.max(d3, d4)));
     }

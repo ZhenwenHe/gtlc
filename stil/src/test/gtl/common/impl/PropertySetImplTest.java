@@ -1,8 +1,8 @@
 package test.gtl.common.impl;
 
+import gtl.common.CommonSuits;
 import gtl.common.PropertySet;
 import gtl.common.Variant;
-import gtl.common.impl.PropertySetImpl;
 import junit.framework.TestCase;
 
 import java.io.ByteArrayInputStream;
@@ -16,7 +16,7 @@ public class PropertySetImplTest extends TestCase {
     public void setUp() throws Exception {
         super.setUp();
         System.out.println("setUp");
-        ps = new PropertySetImpl();
+        ps = CommonSuits.createPropertySet();//new PropertySetImpl();
         ps.put("Byte",new Variant((byte)1));
         ps.put("Character",new Variant('1'));
         ps.put("Boolean",new Variant(true));
@@ -38,7 +38,7 @@ public class PropertySetImplTest extends TestCase {
 
     public void testCopyFrom() throws Exception {
         System.out.println("testCopyFrom");
-        PropertySet ps3=new PropertySetImpl();
+        PropertySet ps3=CommonSuits.createPropertySet();// PropertySetImpl();
 
         ps.copyTo(ps3);
         assertTrue(((Variant)ps3.get("Byte")).byteValue()==(byte)1);
@@ -59,7 +59,7 @@ public class PropertySetImplTest extends TestCase {
     public void testRead() throws Exception {
         System.out.println("testRead");
         byte [] data=ps.storeToByteArray();
-        PropertySet ps2=new PropertySetImpl();
+        PropertySet ps2=CommonSuits.createPropertySet();//new PropertySetImpl();
         ps2.loadFromByteArray(data);
         assertTrue(((Variant)ps2.get("Byte")).byteValue()==(byte)1);
         assertTrue(((Variant)ps2.get("Boolean")).booleanValue()==true);
@@ -85,7 +85,7 @@ public class PropertySetImplTest extends TestCase {
         assertTrue(len==ps.getByteArraySize());
         byte[]data=bos.toByteArray();
         ByteArrayInputStream bis=new ByteArrayInputStream(data);
-        PropertySet ps2=new PropertySetImpl();
+        PropertySet ps2=CommonSuits.createPropertySet();//new PropertySetImpl();
         ps2.read(bis);
         assertTrue(((Variant)ps2.get("Byte")).byteValue()==(byte)1);
         assertTrue(((Variant)ps2.get("Boolean")).booleanValue()==true);

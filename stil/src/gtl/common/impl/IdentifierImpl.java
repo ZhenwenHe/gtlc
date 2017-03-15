@@ -8,7 +8,7 @@ import java.io.*;
 /**
  * Created by ZhenwenHe on 2016/12/9.
  */
-public class IdentifierImpl implements Identifier {
+class IdentifierImpl implements Identifier {
     long data;
 
     public IdentifierImpl() {

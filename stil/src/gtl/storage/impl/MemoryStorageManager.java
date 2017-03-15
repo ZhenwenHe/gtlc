@@ -10,7 +10,7 @@ import java.util.Stack;
 /**
  * Created by ZhenwenHe on 2016/12/8.
  */
-public class MemoryStorageManager implements StorageManager {
+class MemoryStorageManager implements StorageManager {
 
     class Entry{
         byte [] data;

@@ -13,7 +13,7 @@ import java.io.IOException;
 /**
  * Created by ZhenwenHe on 2017/3/13.
  */
-public class TriangleImpl implements Triangle {
+class TriangleImpl implements Triangle {
     Vertex vertices[]=null;//逆时针方向存储点
 
     public TriangleImpl() {

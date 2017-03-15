@@ -1,29 +1,131 @@
 package gtl.shape.impl;
 
+
 import gtl.math.geometry.Envelope;
+import gtl.math.geometry.GeometrySuits;
 import gtl.math.geometry.Vertex;
-import gtl.stil.*;
-import gtl.math.geometry.impl.EnvelopeImpl;
-import gtl.shape.LineSegment;
-import gtl.shape.Point;
-import gtl.shape.Region;
-import gtl.shape.Shape;
+import gtl.index.*;
+import gtl.shape.*;
+
+import java.io.DataInput;
+import java.io.DataOutput;
+import java.io.IOException;
 
 /**
  * Created by ZhenwenHe on 2016/12/8.
  */
-public class RegionImpl extends EnvelopeImpl implements Region {
+class RegionImpl  implements Region {
+
+    Envelope data;
 
     public RegionImpl() {
-        super();
+        this.data=GeometrySuits.createEnvelope();
     }
 
     public RegionImpl(double[] low, double[] high) {
-        super(low, high);
+        this.data=GeometrySuits.createEnvelope(low, high);
     }
 
     public RegionImpl(Envelope e) {
-        super(e.getLowCoordinates(), e.getHighCoordinates());
+        this.data=GeometrySuits.createEnvelope(e.getLowCoordinates(), e.getHighCoordinates());
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof RegionImpl)) return false;
+
+        RegionImpl region = (RegionImpl) o;
+
+        return data.equals(region.data);
+    }
+
+    @Override
+    public int hashCode() {
+        return data.hashCode();
+    }
+
+    @Override
+    public double getLowCoordinate(int i) {
+        return this.data.getLowCoordinate(i);
+    }
+
+    @Override
+    public double getHighCoordinate(int i) {
+        return this.data.getHighCoordinate(i);
+    }
+
+    @Override
+    public double[] getLowCoordinates() {
+        return this.data.getLowCoordinates();
+    }
+
+    @Override
+    public double[] getHighCoordinates() {
+        return this.data.getHighCoordinates();
+    }
+
+    @Override
+    public void setLowCoordinate(int i, double d) {
+        this.data.setLowCoordinate(i,d);
+    }
+
+    @Override
+    public void setHighCoordinate(int i, double d) {
+        this.data.setHighCoordinate(i,d);
+    }
+
+    @Override
+    public void makeInfinite(int dimension) {
+        this.data.makeInfinite(dimension);
+    }
+
+    @Override
+    public void makeInfinite() {
+        this.data.makeInfinite();
+    }
+
+    @Override
+    public void makeDimension(int dimension) {
+        this.data.makeDimension(dimension);
+    }
+
+    @Override
+    public void reset(double[] low, double[] high, int dimension) {
+        this.data.reset(low,high,dimension);
+    }
+
+    @Override
+    public void reset(double[] low, double[] high) {
+        this.data.reset(low,high);
+    }
+
+    @Override
+    public void copyFrom(Object i) {
+        if(i instanceof Region){
+            this.data.copyFrom(((RegionImpl)i).data);
+        }
+        else if(i instanceof Envelope){
+            this.data.copyFrom(i);
+        }
+        else {
+            assert false;
+        }
+    }
+
+    @Override
+    public boolean load(DataInput in) throws IOException {
+        return this.data.load(in);
+    }
+
+    @Override
+    public boolean store(DataOutput out) throws IOException {
+        return this.data.store(out);
+    }
+
+    @Override
+    public long getByteArraySize() {
+        return this.data.getByteArraySize();
     }
 
     @Override
@@ -76,7 +178,7 @@ public class RegionImpl extends EnvelopeImpl implements Region {
 
     @Override
     public Vertex getCenter() {
-        Point p =IndexSuits.createPoint();
+        Point p = ShapeSuits.createPoint();
 
         int dims=this.getDimension();
         p.makeDimension(dims);
@@ -84,18 +186,17 @@ public class RegionImpl extends EnvelopeImpl implements Region {
         for(int i=0;i<dims;i++) {
             cc[i] = (this.getLowCoordinate(i) + this.getHighCoordinate(i)) / 2.0;
         }
-        return p;
+        return p.getCenter();
     }
 
     @Override
     public int getDimension() {
-
-        return super.getDimension();
+        return this.data.getDimension();
     }
 
     @Override
     public Envelope getMBR() {
-        return IndexSuits.createEnvelope(super.getLowCoordinates(),super.getHighCoordinates());
+        return (Envelope) this.data.clone();
     }
 
     @Override
@@ -131,19 +232,17 @@ public class RegionImpl extends EnvelopeImpl implements Region {
 
     @Override
     public boolean intersectsRegion(Region in) {
-        return super.intersects((Envelope)in);
+        return this.data.intersects(in.getMBR());
     }
 
     @Override
     public boolean containsRegion(Region in) {
-
-        return super.contains((Envelope)in);
+        return this.data.contains(in.getMBR());
     }
 
     @Override
     public boolean touchesRegion(Region in) {
-
-        return super.touches((Envelope)in);
+        return this.data.touches(in.getMBR());
     }
 
     @Override
@@ -174,14 +273,12 @@ public class RegionImpl extends EnvelopeImpl implements Region {
 
     @Override
     public boolean containsPoint(Point in) {
-
-        return super.contains((Vertex)in);
+        return this.data.contains(in.getCenter());
     }
 
     @Override
     public boolean touchesPoint(Point in) {
-
-        return super.touches((Vertex)in);
+        return this.data.touches(in.getCenter());
     }
 
     @Override
@@ -193,22 +290,22 @@ public class RegionImpl extends EnvelopeImpl implements Region {
         assert dims==2;
 
         // there may be a more efficient method, but this suffices for now
-        Point ll = IndexSuits.createPoint(this.getLowCoordinates());
-        Point ur = IndexSuits.createPoint(this.getHighCoordinates());
+        Point ll = ShapeSuits.createPoint(this.getLowCoordinates());
+        Point ur = ShapeSuits.createPoint(this.getHighCoordinates());
         // fabricate ul and lr coordinates and points
-        Point ul = IndexSuits.createPoint(this.getLowCoordinate(0),this.getHighCoordinate(1));
-        Point lr = IndexSuits.createPoint(this.getHighCoordinate(0),this.getLowCoordinate(1));
+        Point ul = ShapeSuits.createPoint(this.getLowCoordinate(0),this.getHighCoordinate(1));
+        Point lr = ShapeSuits.createPoint(this.getHighCoordinate(0),this.getLowCoordinate(1));
 
         // Points/LineSegment for the segment
-        Point p1 = IndexSuits.createPoint(e.getStartCoordinates());
-        Point p2 = IndexSuits.createPoint(e.getEndCoordinates());
+        Point p1 = ShapeSuits.createPoint(e.getStartCoordinates());
+        Point p2 = ShapeSuits.createPoint(e.getEndCoordinates());
 
 
         //Check whether either or both the endpoints are within the region OR
         //whether any of the bounding segments of the Region intersect the segment
         return (this.containsPoint(p1) || this.containsPoint(p2) ||
-                e.intersectsShape(IndexSuits.createLineSegment(ll, ul)) || e.intersectsShape(IndexSuits.createLineSegment(ul, ur)) ||
-                e.intersectsShape(IndexSuits.createLineSegment(ur, lr)) || e.intersectsShape(IndexSuits.createLineSegment(lr, ll)));
+                e.intersectsShape(ShapeSuits.createLineSegment(ll, ul)) || e.intersectsShape(ShapeSuits.createLineSegment(ul, ur)) ||
+                e.intersectsShape(ShapeSuits.createLineSegment(ur, lr)) || e.intersectsShape(ShapeSuits.createLineSegment(lr, ll)));
     }
     @Override
     public double getMinimumDistance(Point p) {
@@ -236,34 +333,34 @@ public class RegionImpl extends EnvelopeImpl implements Region {
 
     @Override
     public Region getIntersectingRegion(Region r) {
-        return new RegionImpl(super.getIntersectingEnvelope(r));
+        return new RegionImpl(this.data.getIntersectingEnvelope(r.getMBR()));
     }
 
     @Override
     public double getIntersectingArea(Region in) {
-        return super.getIntersectingArea(in);
+        return this.data.getIntersectingArea(in.getMBR());
     }
 
     @Override
     public double getMargin() {
-        return super.getMargin();
+        return this.data.getMargin();
     }
 
     @Override
     public void combineRegion(Region in) {
-        super.combine(in);
+        this.data.combine(in.getMBR());
     }
 
     @Override
     public void combinePoint(Point in) {
-        super.combine(in);
+        this.data.combine(in.getCenter());
     }
 
     @Override
     public Region getCombinedRegion(Region in) {
 
         RegionImpl r =(RegionImpl) this.clone();
-        r.combine(in);
+        r.combineRegion(in);
         return r;
     }
 }

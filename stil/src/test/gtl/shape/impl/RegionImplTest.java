@@ -1,8 +1,11 @@
 package test.gtl.shape.impl;
 
 import gtl.math.geometry.Envelope;
-import gtl.stil.IndexSuits;
+import gtl.math.geometry.GeometrySuits;
+import gtl.index.IndexSuits;
 import gtl.shape.Region;
+import gtl.shape.Shape;
+import gtl.shape.ShapeSuits;
 import junit.framework.TestCase;
 
 /**
@@ -51,19 +54,19 @@ public class RegionImplTest extends TestCase {
     }
 
     public void testClone() throws Exception {
-        Envelope[] envs= IndexSuits.readEnvelopeFile(IndexSuits.DATA_DIR+"test2d100.envelopes");
+        Envelope[] envs= GeometrySuits.readEnvelopeFile(IndexSuits.DATA_DIR+"test2d100.envelopes");
         Region[] rs = new Region[envs.length];
         Region[] rs2 = new Region[envs.length];
         int i=0;
         for(Envelope e: envs) {
             System.out.println(e);
-            rs[i]=IndexSuits.createRegion(e.getLowCoordinates(),e.getHighCoordinates());
+            rs[i]= ShapeSuits.createRegion(e.getLowCoordinates(),e.getHighCoordinates());
             i++;
         }
         i=0;
         for (Region r: rs){
             byte[] bs = r.storeToByteArray();
-            rs2[i]=IndexSuits.createRegion();
+            rs2[i]=ShapeSuits.createRegion();
             rs2[i].loadFromByteArray(bs);
             assertTrue(rs2[i].getMBR().equals(envs[i]));
             i++;

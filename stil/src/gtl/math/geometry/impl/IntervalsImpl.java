@@ -1,9 +1,9 @@
 package gtl.math.geometry.impl;
 
+import gtl.common.CommonSuits;
 import gtl.common.Identifier;
 import gtl.math.geometry.Interval;
 import gtl.math.geometry.Intervals;
-import gtl.common.impl.IdentifierImpl;
 
 import java.io.DataInput;
 import java.io.DataOutput;
@@ -14,23 +14,23 @@ import java.util.function.Consumer;
 /**
  * Created by ZhenwenHe on 2017/3/12.
  */
-public class IntervalsImpl implements Intervals {
+class IntervalsImpl implements Intervals {
     Identifier identifier;
     Interval [] intervals;
 
     public IntervalsImpl(Identifier identifier, Interval[] intervals) {
-        this.identifier = new IdentifierImpl(identifier.longValue());
+        this.identifier = CommonSuits.createIdentifier(identifier.longValue());
         this.intervals = new Interval[intervals.length] ;
         System.arraycopy(intervals,0,this.intervals,0,intervals.length);
     }
 
     public IntervalsImpl(Identifier identifier) {
-        this.identifier = new IdentifierImpl(identifier.longValue());
+        this.identifier = CommonSuits.createIdentifier(identifier.longValue());
         this.intervals=null;
     }
 
     public IntervalsImpl() {
-        this.identifier = new IdentifierImpl(-1L);
+        this.identifier = CommonSuits.createIdentifier(-1L);
         this.intervals=null;
     }
 

@@ -1,7 +1,7 @@
 package test.gtl.common.impl;
 
+import gtl.common.CommonSuits;
 import gtl.common.Identifier;
-import gtl.stil.IndexSuits;
 import junit.framework.TestCase;
 
 /**
@@ -34,8 +34,8 @@ public class IdentifierImplTest extends TestCase {
     }
 
     public void testWrite() throws Exception {
-        Identifier i1= IndexSuits.createIdentifier(1L);
-        Identifier i2=IndexSuits.createIdentifier(2L);
+        Identifier i1= CommonSuits.createIdentifier(1L);
+        Identifier i2=CommonSuits.createIdentifier(2L);
         byte[] dat= i1.storeToByteArray();
         i2.loadFromByteArray(dat);
         assertTrue(i1.equals(i2)  && i2.intValue()==1);

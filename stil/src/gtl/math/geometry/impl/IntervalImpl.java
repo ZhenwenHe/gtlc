@@ -1,6 +1,5 @@
 package gtl.math.geometry.impl;
 
-import gtl.stil.IndexSuits;
 import gtl.math.geometry.Interval;
 import gtl.math.geometry.IntervalType;
 
@@ -9,7 +8,7 @@ import java.io.*;
 /**
  * Created by ZhenwenHe on 2016/12/8.
  */
-public class IntervalImpl implements Interval {
+class IntervalImpl implements Interval {
     private IntervalType type;
     private double low;
     private double high;
@@ -156,7 +155,7 @@ public class IntervalImpl implements Interval {
 
     @Override
     public boolean intersects(IntervalType type, double low, double high) {
-        Interval q= IndexSuits.createInterval(type,low,high);
+        Interval q= new IntervalImpl(type,low,high);
         return intersects(q);
     }
 

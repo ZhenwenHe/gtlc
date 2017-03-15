@@ -4,7 +4,7 @@ The packages and classes finished：
 3 EnvelopeImpl
 4 RegionImpl
 5 IdentifierImpl
-6 gtl.stil.storage
+6 gtl.index.storage
 7 InvalidPageException
 8 Interval
 9 IntervalImpl

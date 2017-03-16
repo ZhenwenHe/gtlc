@@ -1,9 +1,9 @@
 package gtl.shape;
 
 
-import gtl.math.geometry.Envelope;
-import gtl.storage.Serializable;
-import gtl.math.geometry.Vertex;
+import gtl.geom.Envelope;
+import gtl.geom.Vector;
+import gtl.io.Serializable;
 
 /**
  * Created by ZhenwenHe on 2016/12/6.
@@ -12,7 +12,7 @@ public interface Shape extends Serializable {
     boolean intersectsShape(Shape in) ;
     boolean containsShape(Shape in)  ;
     boolean touchesShape(Shape in)  ;
-    Vertex getCenter() ;
+    Vector getCenter() ;
     int getDimension()  ;
     Envelope getMBR( ) ;
     double getArea()  ;

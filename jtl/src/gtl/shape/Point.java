@@ -1,7 +1,7 @@
 package gtl.shape;
 
-import gtl.math.geometry.Envelope;
-import gtl.math.geometry.Vertex;
+import gtl.geom.Envelope;
+import gtl.geom.Vector;
 
 /**
  * Created by ZhenwenHe on 2016/12/6.
@@ -22,7 +22,7 @@ public interface Point extends Shape {
     public boolean intersectsShape(Shape in) ;
     public boolean containsShape(Shape in);
     public boolean touchesShape(Shape in) ;
-    public Vertex getCenter();
+    public Vector getCenter();
     public int getDimension();
     public Envelope getMBR();
     public double getMinimumDistance(Shape in);

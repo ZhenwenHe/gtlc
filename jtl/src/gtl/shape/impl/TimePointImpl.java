@@ -1,7 +1,7 @@
 package gtl.shape.impl;
 
-import gtl.math.geometry.Interval;
-import gtl.math.geometry.IntervalType;
+import gtl.geom.Interval;
+import gtl.geom.IntervalType;
 import gtl.shape.TimePoint;
 import gtl.shape.TimeShape;
 

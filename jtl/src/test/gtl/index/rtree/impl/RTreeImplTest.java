@@ -1,16 +1,16 @@
 package test.gtl.index.rtree.impl;
 
 import gtl.common.CommonSuits;
-import gtl.math.geometry.Envelope;
+import gtl.geom.Envelope;
 import gtl.common.Identifier;
-import gtl.math.geometry.GeometrySuits;
+import gtl.geom.Geom3DSuits;
 import gtl.index.IndexSuits;
 import gtl.index.rtree.RTree;
 import gtl.index.rtree.RTreeVariant;
 import gtl.shape.Region;
 import gtl.shape.ShapeSuits;
-import gtl.storage.StorageManager;
-import gtl.storage.StorageSuits;
+import gtl.io.storage.StorageManager;
+import gtl.io.storage.StorageSuits;
 import junit.framework.TestCase;
 
 /**
@@ -40,7 +40,7 @@ public class RTreeImplTest extends TestCase {
      * //可能的原因：
      * 1.Identifier的读写出错
      * 2.EntryImpl的读写出错
-     * 3.Envelope 的读写出错
+     * 3.Envelope2D 的读写出错
      * 4.RegionImpl的读写出错
      * 5.NodeImpl
      * 6.RTreeNodeImpl
@@ -49,7 +49,7 @@ public class RTreeImplTest extends TestCase {
      * @throws Exception
      */
     public void testInsert() throws Exception {
-        Envelope[] envelopes= GeometrySuits.readEnvelopeFile(IndexSuits.DATA_DIR+"test2d100.envelopes");
+        Envelope[] envelopes= Geom3DSuits.readEnvelopeFile(IndexSuits.DATA_DIR+"test2d100.envelopes");
         StorageManager sm = StorageSuits.createDiskStorageManager(IndexSuits.DATA_DIR+"rtree",32,true);
         RTree rtree= IndexSuits.createRTree(sm,2,4,4, RTreeVariant.RV_RSTAR);
 

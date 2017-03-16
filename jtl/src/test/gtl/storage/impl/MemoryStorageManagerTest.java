@@ -2,8 +2,8 @@ package test.gtl.storage.impl;
 
 import gtl.common.CommonSuits;
 import gtl.common.Identifier;
-import gtl.storage.StorageManager;
-import gtl.storage.StorageSuits;
+import gtl.io.storage.StorageManager;
+import gtl.io.storage.StorageSuits;
 import junit.framework.Assert;
 import junit.framework.TestCase;
 

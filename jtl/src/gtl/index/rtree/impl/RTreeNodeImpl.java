@@ -1,7 +1,7 @@
 package gtl.index.rtree.impl;
 
 import gtl.common.Identifier;
-import gtl.math.geometry.Vertex;
+import gtl.geom.Vector;
 import gtl.index.*;
 import gtl.index.impl.EntryImpl;
 import gtl.index.impl.NodeImpl;
@@ -221,15 +221,15 @@ public abstract  class RTreeNodeImpl extends NodeImpl {
         ReinsertEntry[]v = new ReinsertEntry[capacity + 1];
         setChildEntry(children,e);
         Region nodeMBR = (Region)getShape();
-        Vertex nc =nodeMBR.getCenter();
-        Vertex c = null;
+        Vector nc =nodeMBR.getCenter();
+        Vector c = null;
 
         for (int u32Child = 0; u32Child < capacity + 1; ++u32Child){
             v[u32Child] = new ReinsertEntry(u32Child, 0.0);
             c=getChildShape(u32Child).getCenter();
-            // calculate relative distance of every entry from the node MBR (ignore square root.)
+            // calculate relative distance2D of every entry from the node MBR (ignore square root.)
             for (int cDim = 0; cDim < nodeMBR.getDimension(); ++cDim){
-                double d = nc.getCoordinate(cDim) - c.getCoordinate(cDim);
+                double d = nc.getOrdinate(cDim) - c.getOrdinate(cDim);
                 v[u32Child].dist += d * d;
             }
         }

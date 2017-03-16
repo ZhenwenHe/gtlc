@@ -1,11 +1,10 @@
 package gtl.shape.impl;
 
 
+import gtl.geom.Vector;
 import gtl.math.MathSuits;
-import gtl.math.geometry.Envelope;
-import gtl.math.geometry.GeometrySuits;
-import gtl.math.geometry.Vertex;
-import gtl.index.*;
+import gtl.geom.Envelope;
+import gtl.geom.Geom3DSuits;
 import gtl.shape.*;
 
 import java.io.*;
@@ -27,7 +26,7 @@ class LineSegmentImpl implements LineSegment {
         reset(startPoint,endPoint);
     }
 
-    public LineSegmentImpl(Vertex startPoint, Vertex endPoint) {
+    public LineSegmentImpl(Vector startPoint, Vector endPoint) {
         reset(startPoint.getCoordinates(),endPoint.getCoordinates());
     }
 
@@ -153,7 +152,7 @@ class LineSegmentImpl implements LineSegment {
     }
 
     @Override
-    public Vertex getCenter() {
+    public Vector getCenter() {
         int dims =this.getDimension();
         double[] coordinates = new double[dims];
         for (int cDim = 0; cDim < dims; ++cDim)
@@ -210,7 +209,7 @@ class LineSegmentImpl implements LineSegment {
             high[cDim] =  Math.max(this.startCoordinates[cDim], this.endCoordinates[cDim]);
         }
 
-        return GeometrySuits.createEnvelope(low,high);
+        return Geom3DSuits.createEnvelope(low,high);
     }
 
     @Override

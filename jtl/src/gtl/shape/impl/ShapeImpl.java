@@ -1,7 +1,7 @@
 package gtl.shape.impl;
 
-import gtl.math.geometry.Envelope;
-import gtl.math.geometry.Vertex;
+import gtl.geom.Envelope;
+import gtl.geom.Vector;
 import gtl.shape.LineSegment;
 import gtl.shape.Point;
 import gtl.shape.Region;
@@ -10,7 +10,7 @@ import gtl.shape.Region;
  * Created by ZhenwenHe on 2017/3/15.
  */
 public class ShapeImpl {
-    public static LineSegment createLineSegment(Vertex s, Vertex e){
+    public static LineSegment createLineSegment(Vector s, Vector e){
         return new LineSegmentImpl(s,e);
     }
     public static LineSegment createLineSegment(Point s, Point e){

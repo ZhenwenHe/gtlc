@@ -1,9 +1,9 @@
 package test.gtl.index.impl;
 
 import gtl.common.CommonSuits;
-import gtl.math.geometry.GeometrySuits;
+import gtl.geom.Geom3DSuits;
 import gtl.index.Entry;
-import gtl.math.geometry.Envelope;
+import gtl.geom.Envelope;
 import gtl.index.IndexSuits;
 import gtl.index.impl.EntryImpl;
 import gtl.shape.ShapeSuits;
@@ -67,7 +67,7 @@ public class EntryImplTest extends TestCase {
     }
 
     public void testGetByteArraySize() throws Exception {
-        Envelope[] envs= GeometrySuits.readEnvelopeFile(IndexSuits.DATA_DIR+"test2d100.envelopes");
+        Envelope[] envs= Geom3DSuits.readEnvelopeFile(IndexSuits.DATA_DIR+"test2d100.envelopes");
         Entry[] entries= new Entry[4];
         Entry[] entries2= new Entry[4];
         for(int i=0;i<4;i++){

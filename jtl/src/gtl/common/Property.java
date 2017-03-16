@@ -5,7 +5,7 @@ import java.io.*;
 /**
  * Created by hadoop on 17-2-19.
  */
-public class Property extends Variant  implements gtl.storage.Serializable {
+public class Property extends Variant  implements gtl.io.Serializable {
     private String name=null;
 
     public Property( ) {

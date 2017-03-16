@@ -1,10 +1,5 @@
 package gtl.math;
 
-import gtl.common.Variant;
-import gtl.math.geometry.Vertex;
-
-import java.util.Optional;
-
 /**
  * Created by ZhenwenHe on 2017/3/13.
  */
@@ -28,77 +23,114 @@ public class MathSuits {
         }
         return java.lang.Math.sqrt(dRtn);
     }
-    /**求 C 点在直线 AB 上的垂线距离
-     *
-     */
-    public static double perpendicularDistance(Vertex vA, Vertex vB, Vertex vC){
-        int dims=java.lang.Math.min(java.lang.Math.min(vA.getDimension(),vB.getDimension()),vC.getDimension());
-        double [] v1=new double[dims];
-        double [] v2=new double[dims];
-        double [] P =new double[dims];
-        double [] A = vA.getCoordinates();
-        double [] B = vB.getCoordinates();
-        double [] C = vC.getCoordinates();
-        for(int i=0;i<dims;++i){
-            v1[i]=A[i]-B[i];
-            v2[i]=C[i]-B[i];
-        }
-        double t = MathSuits.dotProduct(A,B);
-        if ( Math.abs(t)<MathSuits.EPSILON ) {
-            t=0;
-        }
-        else {
-            t = MathSuits.dotProduct(v1, v2)/t;
-        }
-        for(int i=0;i<dims;++i){
-            P[i] = B[i] + v1[i]* t;
-        }
-        return MathSuits.distance(C, P);
+
+
+    public static boolean equalsWithTolerance(double x1, double x2, double tolerance)
+    {
+        return Math.abs(x1 - x2) <= tolerance;
     }
 
     /**
-     * 求 C 点在直线 AB 上的垂足点P，并返回垂直距离，
-     * @param vA
-     * @param vB
-     * @param vC
-     * @param vP
-     * @param onAB 如果点P在线段AB上，返回真，否则返回假
-     * @return
+     * Clamps a <tt>double</tt> value to a given range.
+     * @param x the value to clamp
+     * @param min the minimum value of the range
+     * @param max the maximum value of the range
+     * @return the clamped value
      */
-    public static double perpendicularDistance(Vertex vA, Vertex vB, Vertex vC, Vertex vP, Variant  onAB){
-        int dims=java.lang.Math.min(java.lang.Math.min(vA.getDimension(),vB.getDimension()),vC.getDimension());
-        double [] v1=new double[dims];
-        double [] v2=new double[dims];
-        double [] P =new double[dims];
-        double [] A = vA.getCoordinates();
-        double [] B = vB.getCoordinates();
-        double [] C = vC.getCoordinates();
-        for(int i=0;i<dims;++i){
-            v1[i]=A[i]-B[i];
-            v2[i]=C[i]-B[i];
-        }
-        double t = MathSuits.dotProduct(A,B);
-        if ( Math.abs(t)<MathSuits.EPSILON ) {
-            t=0;
-        }
-        else {
-            t = MathSuits.dotProduct(v1, v2)/t;
-        }
-        for(int i=0;i<dims;++i){
-            P[i] = B[i] + v1[i]* t;
-        }
+    public static double clamp(double x, double min, double max)
+    {
+        if (x < min) return min;
+        if (x > max) return max;
+        return x;
+    }
 
-        if(vP!=null){
-            vP.reset(P);
+    /**
+     * Clamps an <tt>int</tt> value to a given range.
+     * @param x the value to clamp
+     * @param min the minimum value of the range
+     * @param max the maximum value of the range
+     * @return the clamped value
+     */
+    public static int clamp(int x, int min, int max)
+    {
+        if (x < min) return min;
+        if (x > max) return max;
+        return x;
+    }
+
+    private static final double LOG_10 = Math.log(10);
+
+    /**
+     * Computes the base-10 logarithm of a <tt>double</tt> value.
+     * <ul>
+     * <li>If the argument is NaN or less than zero, then the result is NaN.
+     * <li>If the argument is positive infinity, then the result is positive infinity.
+     * <li>If the argument is positive zero or negative zero, then the result is negative infinity.
+     * </ul>
+     *
+     * @param x a positive number
+     * @return the value log a, the base-10 logarithm of the input value
+     */
+    public static double log10(double x)
+    {
+        double ln = Math.log(x);
+        if (Double.isInfinite(ln)) return ln;
+        if (Double.isNaN(ln)) return ln;
+        return ln / LOG_10;
+    }
+
+    /**
+     * Computes an index which wraps around a given maximum value.
+     * For values &gt;= 0, this is equals to <tt>val % max</tt>.
+     * For values &lt; 0, this is equal to <tt>max - (-val) % max</tt>
+     *
+     * @param index the value to wrap
+     * @param max the maximum value (or modulus)
+     * @return the wrapped index
+     */
+    public static int wrap(int index, int max)
+    {
+        if (index < 0) {
+            return max - ((-index) % max);
         }
-        if(onAB!=null){
-            if ( (t<0)||(t>1) ){
-                onAB.reset(false);
-            }
-            else {
-                onAB.reset(true);
-            }
-        }
-        return MathSuits.distance(C, P);
+        return index % max;
+    }
+
+    /**
+     * Computes the average of two numbers.
+     *
+     * @param x1 a number
+     * @param x2 a number
+     * @return the average of the inputs
+     */
+    public static double average(double x1, double x2)
+    {
+        return (x1 + x2) / 2.0;
+    }
+
+    public static double max(double v1, double v2, double v3)
+    {
+        double max = v1;
+        if (v2 > max) max = v2;
+        if (v3 > max) max = v3;
+        return max;
+    }
+
+    public static double max(double v1, double v2, double v3, double v4)
+    {
+        double max = v1;
+        if (v2 > max) max = v2;
+        if (v3 > max) max = v3;
+        if (v4 > max) max = v4;
+        return max;
+    }
+
+    public static double min(double v1, double v2, double v3, double v4)
+    {
+        double min = v1;
+        if (v2 < min) min = v2;
+        if (v3 < min) min = v3;
+        if (v4 < min) min = v4;
+        return min;
     }
 }

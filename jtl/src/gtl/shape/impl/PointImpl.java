@@ -1,13 +1,12 @@
 package gtl.shape.impl;
 
 
-import gtl.math.geometry.Envelope;
-import gtl.math.geometry.GeometrySuits;
-import gtl.math.geometry.Vertex;
+import gtl.geom.Envelope;
+import gtl.geom.Geom3DSuits;
+import gtl.geom.Vector;
 import gtl.shape.Point;
 import gtl.shape.Region;
 import gtl.shape.Shape;
-import gtl.shape.ShapeSuits;
 
 import java.io.DataInput;
 import java.io.DataOutput;
@@ -18,19 +17,19 @@ import java.util.Arrays;
  * Created by ZhenwenHe on 2016/12/7.
  */
 class PointImpl implements Point {
-    Vertex data;
+    Vector data;
     public PointImpl(){
-        this.data=GeometrySuits.createVertex();
+        this.data= Geom3DSuits.createVector();
     }
     public PointImpl(double x ,double y) {
-        this.data=GeometrySuits.createVertex(x,y);
+        this.data= Geom3DSuits.createVector(x,y);
     }
     public PointImpl(double x ,double y,double z) {
-        this.data=GeometrySuits.createVertex(x,y,z);
+        this.data= Geom3DSuits.createVector(x,y,z);
     }
 
     public PointImpl(double[] coordinates) {
-        this.data=GeometrySuits.createVertex(coordinates);
+        this.data= Geom3DSuits.createVector(coordinates);
     }
 
     @Override
@@ -40,12 +39,12 @@ class PointImpl implements Point {
 
     @Override
     public double getCoordinate(int i) {
-        return this.data.getCoordinate(i);
+        return this.data.getOrdinate(i);
     }
 
     @Override
     public void copyFrom(Object i) {
-        if(i instanceof Point || i instanceof Vertex){
+        if(i instanceof Point || i instanceof Vector){
             this.data.copyFrom(i);
         }
     }
@@ -82,7 +81,7 @@ class PointImpl implements Point {
 
     @Override
     public void makeInfinite(int dimension) {
-        this.makeInfinite(dimension);
+        this.data.makeInfinite(dimension);
     }
 
     @Override
@@ -161,8 +160,8 @@ class PointImpl implements Point {
     }
 
     @Override
-    public Vertex getCenter() {
-        return (Vertex) this.data.clone();
+    public Vector getCenter() {
+        return (Vector) this.data.clone();
     }
 
     @Override
@@ -172,7 +171,7 @@ class PointImpl implements Point {
 
     @Override
     public Envelope getMBR() {
-        return GeometrySuits.createEnvelope(this.getCoordinates(),this.getCoordinates());
+        return Geom3DSuits.createEnvelope(this.getCoordinates(),this.getCoordinates());
     }
 
     @Override

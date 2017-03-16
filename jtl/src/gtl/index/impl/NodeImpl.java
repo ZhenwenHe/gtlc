@@ -21,7 +21,7 @@ public abstract class NodeImpl implements Node {
     // The level of the node in the tree.
     // Leaves are always at level 0.
     int level;
-    // The number of children pointed by this node.
+    // The numeric of children pointed by this node.
     int children;
     // child entry array
     Entry [] entries;
@@ -182,7 +182,7 @@ public abstract class NodeImpl implements Node {
         this.shape.load(dis);
         // Leaves are always at level 0.
         this.level=dis.readInt();
-        // The number of children pointed by this node.
+        // The numeric of children pointed by this node.
         this.children=dis.readInt();
         // Specifies the node capacity.
         this.capacity=dis.readInt();
@@ -204,7 +204,7 @@ public abstract class NodeImpl implements Node {
         this.shape.store(dos);
         // Leaves are always at level 0.
         dos.writeInt(this.level);
-        // The number of children pointed by this node.
+        // The numeric of children pointed by this node.
         dos.writeInt(this.children);
         // Specifies the node capacity.
         dos.writeInt(this.capacity);

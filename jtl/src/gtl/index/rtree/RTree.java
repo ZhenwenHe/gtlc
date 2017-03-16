@@ -3,7 +3,7 @@ package gtl.index.rtree;
 import gtl.common.Identifier;
 import gtl.index.Indexable;
 import gtl.common.PropertySet;
-import gtl.storage.StorageManager;
+import gtl.io.storage.StorageManager;
 
 /**
  * Created by ZhenwenHe on 2016/12/22.

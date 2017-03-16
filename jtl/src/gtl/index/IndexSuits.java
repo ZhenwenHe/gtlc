@@ -4,14 +4,10 @@ import gtl.common.CommonSuits;
 import gtl.common.Identifier;
 import gtl.common.PropertySet;
 import gtl.common.Variant;
-import gtl.math.geometry.Vertex;
 import gtl.index.rtree.RTree;
 import gtl.index.rtree.RTreeVariant;
 import gtl.index.rtree.impl.RTreeImpl;
-import gtl.shape.LineSegment;
-import gtl.shape.Point;
-import gtl.shape.Region;
-import gtl.storage.StorageManager;
+import gtl.io.storage.StorageManager;
 
 import java.io.*;
 

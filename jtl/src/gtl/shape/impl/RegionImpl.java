@@ -1,10 +1,9 @@
 package gtl.shape.impl;
 
 
-import gtl.math.geometry.Envelope;
-import gtl.math.geometry.GeometrySuits;
-import gtl.math.geometry.Vertex;
-import gtl.index.*;
+import gtl.geom.Envelope;
+import gtl.geom.Geom3DSuits;
+import gtl.geom.Vector;
 import gtl.shape.*;
 
 import java.io.DataInput;
@@ -19,15 +18,15 @@ class RegionImpl  implements Region {
     Envelope data;
 
     public RegionImpl() {
-        this.data=GeometrySuits.createEnvelope();
+        this.data= Geom3DSuits.createEnvelope();
     }
 
     public RegionImpl(double[] low, double[] high) {
-        this.data=GeometrySuits.createEnvelope(low, high);
+        this.data= Geom3DSuits.createEnvelope(low, high);
     }
 
     public RegionImpl(Envelope e) {
-        this.data=GeometrySuits.createEnvelope(e.getLowCoordinates(), e.getHighCoordinates());
+        this.data= Geom3DSuits.createEnvelope(e.getLowCoordinates(), e.getHighCoordinates());
     }
 
     @Override
@@ -177,7 +176,7 @@ class RegionImpl  implements Region {
     }
 
     @Override
-    public Vertex getCenter() {
+    public Vector getCenter() {
         Point p = ShapeSuits.createPoint();
 
         int dims=this.getDimension();

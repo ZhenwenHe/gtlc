@@ -2,7 +2,7 @@ package gtl.index;
 
 import gtl.common.Identifier;
 import gtl.shape.Shape;
-import gtl.storage.Serializable;
+import gtl.io.Serializable;
 
 /**
  * Created by ZhenwenHe on 2016/12/7.

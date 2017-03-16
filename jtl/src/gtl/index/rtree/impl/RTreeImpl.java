@@ -14,7 +14,7 @@ import gtl.shape.Point;
 import gtl.shape.Region;
 import gtl.shape.Shape;
 import gtl.shape.ShapeSuits;
-import gtl.storage.StorageManager;
+import gtl.io.storage.StorageManager;
 
 import java.io.*;
 import java.util.*;
@@ -111,7 +111,7 @@ public class RTreeImpl implements RTree{
                 if (v.isNumber())
                     this.headerIdentifier.reset(v.longValue());
                 else
-                    throw new IllegalArgumentException("RTree: Property IndexIdentifier must be number");
+                    throw new IllegalArgumentException("RTree: Property IndexIdentifier must be numeric");
 
                 initOld(propSet);
             } else {
@@ -193,7 +193,7 @@ public class RTreeImpl implements RTree{
     public void contains(Shape query, Visitor v) {
         try{
             if (query.getDimension() != this.dimension)
-                throw new IllegalArgumentException("containsWhatQuery: Shape has the wrong number of dimensions.");
+                throw new IllegalArgumentException("containsWhatQuery: Shape has the wrong numeric of dimensions.");
             Stack<Node> st=new Stack<>();
             Node root = readNode(this.rootIdentifier);
             st.push(root);
@@ -232,7 +232,7 @@ public class RTreeImpl implements RTree{
     public void intersects(Shape query, Visitor v) {
         try{
             if (query.getDimension() != this.dimension)
-                throw new IllegalArgumentException("intersectsWithQuery: Shape has the wrong number of dimensions.");
+                throw new IllegalArgumentException("intersectsWithQuery: Shape has the wrong numeric of dimensions.");
             range(RangeQueryType.RQT_INTERSECTION_QUERY, query, v);
         }
         catch (Exception e){
@@ -244,7 +244,7 @@ public class RTreeImpl implements RTree{
     public void pointLocation(Point query, Visitor v) {
         try{
             if (query.getDimension() != this.dimension)
-                throw new IllegalArgumentException("pointLocationQuery: Shape has the wrong number of dimensions.");
+                throw new IllegalArgumentException("pointLocationQuery: Shape has the wrong numeric of dimensions.");
             Region r=ShapeSuits.createRegion(query.getCoordinates(), query.getCoordinates());
             range(RangeQueryType.RQT_INTERSECTION_QUERY, r, v);
         }
@@ -257,7 +257,7 @@ public class RTreeImpl implements RTree{
     public void nearestNeighbor(int k, Shape query, Visitor v, NearestNeighborComparator nnc) {
         try {
             if (query.getDimension() != this.getDimension())
-                throw new IllegalArgumentException("nearestNeighborQuery: Shape has the wrong number of dimensions.");
+                throw new IllegalArgumentException("nearestNeighborQuery: Shape has the wrong numeric of dimensions.");
 
             PriorityQueue<NNEntry> queue=new PriorityQueue<NNEntry>();
 
@@ -269,7 +269,7 @@ public class RTreeImpl implements RTree{
             while (! queue.isEmpty()){
                 NNEntry pFirst = queue.peek();
                 // report all nearest neighbors with equal greatest distances.
-                // (neighbors can be more than k, if many happen to have the same greatest distance).
+                // (neighbors can be more than k, if many happen to have the same greatest distance2D).
                 if (count >= k && pFirst.m_minDist > knearest)	break;
 
                 queue.poll();
@@ -312,7 +312,7 @@ public class RTreeImpl implements RTree{
     public void nearestNeighbor(int k, Shape query, Visitor v) {
         try{
             if (query.getDimension() != this.dimension)
-                throw new IllegalArgumentException("nearestNeighborQuery: Shape has the wrong number of dimensions.");
+                throw new IllegalArgumentException("nearestNeighborQuery: Shape has the wrong numeric of dimensions.");
             nearestNeighbor(k, query, v, new NNComparator());
         }
         catch (Exception e){
@@ -324,7 +324,7 @@ public class RTreeImpl implements RTree{
     public void selfJoin(Shape query, Visitor v) {
         try{
             if (query.getDimension() != this.dimension)
-                throw new IllegalArgumentException("selfJoinQuery: Shape has the wrong number of dimensions.");
+                throw new IllegalArgumentException("selfJoinQuery: Shape has the wrong numeric of dimensions.");
 
             Region mbr = ShapeSuits.createRegion(query.getMBR());
             selfJoin(this.rootIdentifier, this.rootIdentifier, mbr, v);
@@ -537,7 +537,7 @@ public class RTreeImpl implements RTree{
             v = ps.getProperty("TreeVariant");
             if (v!=null && !v.isEmpty()){
                 if(v.isNumber()==false)
-                    throw new IllegalArgumentException("initNew: Property TreeVariant must be number");
+                    throw new IllegalArgumentException("initNew: Property TreeVariant must be numeric");
 
                 int rv = v.intValue();
                 if(rv != RTreeVariant.RV_LINEAR.ordinal() &&
@@ -549,11 +549,11 @@ public class RTreeImpl implements RTree{
 
             // fill factor
             // it cannot be larger than 50%, since linear and quadratic split algorithms
-            // require assigning to both nodes the same number of entries.
+            // require assigning to both nodes the same numeric of entries.
             v = ps.getProperty("FillFactor");
             if (v!=null && !v.isEmpty()) {
                 if(!v.isNumber())
-                    throw new IllegalArgumentException("initNew: Property FillFactor was not of type number");
+                    throw new IllegalArgumentException("initNew: Property FillFactor was not of type numeric");
                 double rv = v.doubleValue();
                 if (rv <= 0.0)  throw new IllegalArgumentException("initNew: Property FillFactor was less than 0.0");
 
@@ -576,7 +576,7 @@ public class RTreeImpl implements RTree{
             v = ps.getProperty("LeafCapacity");
             if (v!=null && !v.isEmpty()){
                 if (!v.isNumber() || v.longValue() < 4)
-                    throw new IllegalArgumentException("initNew: Property LeafCapacity must be number and >= 4");
+                    throw new IllegalArgumentException("initNew: Property LeafCapacity must be numeric and >= 4");
 
                 this.leafCapacity = v.intValue();
             }
@@ -596,7 +596,7 @@ public class RTreeImpl implements RTree{
             v = ps.getProperty("SplitDistributionFactor");
             if (v!=null && !v.isEmpty()){
                 if (!v.isNumber() ||v.doubleValue() <= 0.0 || v.doubleValue() >= 1.0)
-                    throw new IllegalArgumentException("initNew: Property SplitDistributionFactor must be number and in (0.0, 1.0)");
+                    throw new IllegalArgumentException("initNew: Property SplitDistributionFactor must be numeric and in (0.0, 1.0)");
 
                 this.splitDistributionFactor =v.doubleValue();
             }
@@ -604,7 +604,7 @@ public class RTreeImpl implements RTree{
             v = ps.getProperty("ReinsertFactor");
             if (v!=null && !v.isEmpty()){
                 if (!v.isNumber() ||v.doubleValue()<= 0.0 ||v.doubleValue() >= 1.0)
-                    throw new IllegalArgumentException("initNew: Property ReinsertFactor must be number and in (0.0, 1.0)");
+                    throw new IllegalArgumentException("initNew: Property ReinsertFactor must be numeric and in (0.0, 1.0)");
 
                 this.reinsertFactor = v.doubleValue();
             }
@@ -612,7 +612,7 @@ public class RTreeImpl implements RTree{
             v = ps.getProperty("Dimension");
             if (v!=null && !v.isEmpty()){
                 if (!v.isNumber())
-                    throw new IllegalArgumentException("initNew: Property Dimension must be number");
+                    throw new IllegalArgumentException("initNew: Property Dimension must be numeric");
                 int rv = v.intValue();
                 if (rv <= 1)
                     throw new IllegalArgumentException("initNew: Property Dimension must be greater than 1");
@@ -655,7 +655,7 @@ public class RTreeImpl implements RTree{
             v = ps.getProperty("TreeVariant");
             if (v!=null && !v.isEmpty()){
                 if (! v.isNumber())
-                    throw new IllegalArgumentException("initOld: Property TreeVariant must be number");
+                    throw new IllegalArgumentException("initOld: Property TreeVariant must be numeric");
                 int rv = v.intValue();
                 if(rv != RTreeVariant.RV_LINEAR.ordinal() &&
                         rv != RTreeVariant.RV_QUADRATIC.ordinal() &&
@@ -680,7 +680,7 @@ public class RTreeImpl implements RTree{
             v = ps.getProperty("SplitDistributionFactor");
             if (v!=null && !v.isEmpty()){
                 if (!v.isNumber() ||v.doubleValue() <= 0.0 || v.doubleValue() >= 1.0)
-                    throw new IllegalArgumentException("initOld: Property SplitDistributionFactor must be number and in (0.0, 1.0)");
+                    throw new IllegalArgumentException("initOld: Property SplitDistributionFactor must be numeric and in (0.0, 1.0)");
 
                 this.splitDistributionFactor =v.doubleValue();
             }
@@ -689,7 +689,7 @@ public class RTreeImpl implements RTree{
             v = ps.getProperty("ReinsertFactor");
             if (v!=null && !v.isEmpty()){
                 if (!v.isNumber() ||v.doubleValue()<= 0.0 ||v.doubleValue() >= 1.0)
-                    throw new IllegalArgumentException("initNew: Property ReinsertFactor must be number and in (0.0, 1.0)");
+                    throw new IllegalArgumentException("initNew: Property ReinsertFactor must be numeric and in (0.0, 1.0)");
 
                 this.reinsertFactor = v.doubleValue();
             }

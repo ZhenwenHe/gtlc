@@ -1,10 +1,9 @@
 package test.gtl.shape.impl;
 
-import gtl.math.geometry.Envelope;
-import gtl.math.geometry.GeometrySuits;
+import gtl.geom.Envelope;
+import gtl.geom.Geom3DSuits;
 import gtl.index.IndexSuits;
 import gtl.shape.Region;
-import gtl.shape.Shape;
 import gtl.shape.ShapeSuits;
 import junit.framework.TestCase;
 
@@ -54,7 +53,7 @@ public class RegionImplTest extends TestCase {
     }
 
     public void testClone() throws Exception {
-        Envelope[] envs= GeometrySuits.readEnvelopeFile(IndexSuits.DATA_DIR+"test2d100.envelopes");
+        Envelope[] envs= Geom3DSuits.readEnvelopeFile(IndexSuits.DATA_DIR+"test2d100.envelopes");
         Region[] rs = new Region[envs.length];
         Region[] rs2 = new Region[envs.length];
         int i=0;

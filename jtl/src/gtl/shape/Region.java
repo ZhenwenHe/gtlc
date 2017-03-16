@@ -1,7 +1,5 @@
 package gtl.shape;
 
-import gtl.math.geometry.Envelope;
-
 /**
  * Created by ZhenwenHe on 2016/12/7.
  */

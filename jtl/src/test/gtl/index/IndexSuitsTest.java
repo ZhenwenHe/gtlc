@@ -1,7 +1,7 @@
 package test.gtl.index;
 
-import gtl.math.geometry.Envelope;
-import gtl.math.geometry.GeometrySuits;
+import gtl.geom.Envelope;
+import gtl.geom.Geom3DSuits;
 import gtl.index.IndexSuits;
 import gtl.common.Variant;
 import junit.framework.TestCase;
@@ -64,11 +64,31 @@ public class IndexSuitsTest extends TestCase {
     }
 
     public void testWriteEnvelopeFile()throws Exception{
-        Envelope [] envs= GeometrySuits.generateRandomEnvelopes(100,4,0.0001,0.001);
-        GeometrySuits.writeEnvelopeFile(envs,IndexSuits.DATA_DIR +"test.envelopes");
-        Envelope[] tenvs=GeometrySuits.readEnvelopeFile(IndexSuits.DATA_DIR +"test.envelopes");
-        for(int i=0;i<100;++i) {
-            assertTrue(tenvs[i].equals(envs[i]));
+        {
+            Envelope [] envs= Geom3DSuits.generateRandomEnvelopes(100,2,0.0001,0.001);
+            Geom3DSuits.writeEnvelopeFile(envs,IndexSuits.DATA_DIR +"test2d100.envelopes");
+            Envelope[] tenvs= Geom3DSuits.readEnvelopeFile(IndexSuits.DATA_DIR +"test2d100.envelopes");
+            for(int i=0;i<100;++i) {
+                assertTrue(tenvs[i].equals(envs[i]));
+            }
+        }
+
+        {
+            Envelope [] envs= Geom3DSuits.generateRandomEnvelopes(100,3,0.0001,0.001);
+            Geom3DSuits.writeEnvelopeFile(envs,IndexSuits.DATA_DIR +"test3d100.envelopes");
+            Envelope[] tenvs= Geom3DSuits.readEnvelopeFile(IndexSuits.DATA_DIR +"test3d100.envelopes");
+            for(int i=0;i<100;++i) {
+                assertTrue(tenvs[i].equals(envs[i]));
+            }
+        }
+
+        {
+            Envelope [] envs= Geom3DSuits.generateRandomEnvelopes(100,4,0.0001,0.001);
+            Geom3DSuits.writeEnvelopeFile(envs,IndexSuits.DATA_DIR +"test4d100.envelopes");
+            Envelope[] tenvs= Geom3DSuits.readEnvelopeFile(IndexSuits.DATA_DIR +"test4d100.envelopes");
+            for(int i=0;i<100;++i) {
+                assertTrue(tenvs[i].equals(envs[i]));
+            }
         }
     }
 

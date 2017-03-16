@@ -1,9 +1,9 @@
 package test.gtl.index.rtree.impl;
 
 import gtl.common.CommonSuits;
-import gtl.math.geometry.GeometrySuits;
+import gtl.geom.Geom3DSuits;
 import gtl.index.Entry;
-import gtl.math.geometry.Envelope;
+import gtl.geom.Envelope;
 import gtl.common.Identifier;
 import gtl.index.IndexSuits;
 import gtl.index.impl.EntryImpl;
@@ -12,8 +12,8 @@ import gtl.index.rtree.RTreeVariant;
 import gtl.index.rtree.impl.RTreeImpl;
 import gtl.index.rtree.impl.RTreeInternalNodeImpl;
 import gtl.shape.ShapeSuits;
-import gtl.storage.StorageManager;
-import gtl.storage.StorageSuits;
+import gtl.io.storage.StorageManager;
+import gtl.io.storage.StorageSuits;
 import junit.framework.TestCase;
 
 import java.util.Arrays;
@@ -32,7 +32,7 @@ public class RTreeInternalNodeImplTest extends TestCase {
     }
 
     public void testClone() throws Exception {
-        Envelope[] envelopes= GeometrySuits.readEnvelopeFile(IndexSuits.DATA_DIR+"test2d100.envelopes");
+        Envelope[] envelopes= Geom3DSuits.readEnvelopeFile(IndexSuits.DATA_DIR+"test2d100.envelopes");
         StorageManager sm = StorageSuits.createDiskStorageManager(IndexSuits.DATA_DIR+"rtree",32,true);
         RTree rtree= IndexSuits.createRTree(sm,2,4,4, RTreeVariant.RV_RSTAR);
         RTreeInternalNodeImpl leafNode = new RTreeInternalNodeImpl((RTreeImpl) rtree,CommonSuits.createIdentifier(-1L),1);

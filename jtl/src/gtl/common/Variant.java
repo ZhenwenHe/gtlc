@@ -8,7 +8,7 @@ import java.util.Arrays;
 /**
  * Created by hadoop on 17-2-18.
  */
-public class Variant implements gtl.storage.Serializable, Comparable<Variant> {
+public class Variant implements gtl.io.Serializable, Comparable<Variant> {
 
     public final static int UNKNOWN=0;
     public final static int BOOLEAN=1;

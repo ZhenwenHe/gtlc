@@ -1,6 +1,6 @@
 package gtl.shape;
 
-import gtl.math.geometry.Interval;
+import gtl.geom.Interval;
 
 /**
  * Created by ZhenwenHe on 2016/12/8.

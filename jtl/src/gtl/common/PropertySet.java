@@ -1,7 +1,7 @@
 package gtl.common;
 
 
-import gtl.storage.Serializable;
+import gtl.io.Serializable;
 
 import java.util.Map;
 

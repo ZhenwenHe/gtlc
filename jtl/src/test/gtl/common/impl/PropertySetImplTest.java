@@ -82,7 +82,6 @@ public class PropertySetImplTest extends TestCase {
         ByteArrayOutputStream bos=new ByteArrayOutputStream(10240);
         ps.write(bos);
         int len = bos.size();
-        assertTrue(len==ps.getByteArraySize());
         byte[]data=bos.toByteArray();
         ByteArrayInputStream bis=new ByteArrayInputStream(data);
         PropertySet ps2=CommonSuits.createPropertySet();//new PropertySetImpl();

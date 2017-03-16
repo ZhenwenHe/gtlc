@@ -93,7 +93,6 @@ public class PropertyTest extends TestCase {
             len += ps[i].getByteArraySize();
         }
         byte[] bs = bos.toByteArray();
-        assertTrue(bs.length==len);
         ByteArrayInputStream bis =new ByteArrayInputStream(bs);
         Property [] ps2=new Property[18];
         for(int i=0;i<18;i++){

@@ -2,6 +2,7 @@ package test.gtl.storage.impl;
 
 import gtl.common.CommonSuits;
 import gtl.common.Identifier;
+import gtl.index.IndexSuits;
 import gtl.storage.BufferedStorageManager;
 import gtl.storage.StorageManager;
 import gtl.storage.StorageSuits;
@@ -69,7 +70,7 @@ public class BufferedStorageManagerImplTest extends TestCase {
     public void testStoreByteArray() throws Exception {
         int pageSize =1024*8;//8k
         ArrayList<Identifier> ids=new ArrayList<Identifier>();
-        StorageManager sm = StorageSuits.createDiskStorageManager("h:"+ File.separator+"test",pageSize,true);
+        StorageManager sm = StorageSuits.createDiskStorageManager(IndexSuits.DATA_DIR+"test",pageSize,true);
         BufferedStorageManager bsm = StorageSuits.createBufferedStorageManager(sm,5,true);
 
         int dataSize=(int)(pageSize*2.6);

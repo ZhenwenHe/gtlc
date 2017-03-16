@@ -5,10 +5,7 @@ import gtl.math.geometry.Interval;
 import gtl.math.geometry.IntervalType;
 import gtl.math.geometry.Vertex;
 
-import java.io.DataInputStream;
-import java.io.DataOutputStream;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
+import java.io.*;
 import java.util.Random;
 
 /**
@@ -116,7 +113,7 @@ public class GeometryImpl {
                 e.store(dos);
             dos.close();
         }
-        catch (Exception e){
+        catch (IOException e){
             e.printStackTrace();
         }
         return true;

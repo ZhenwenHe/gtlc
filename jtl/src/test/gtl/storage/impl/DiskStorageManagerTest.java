@@ -2,6 +2,7 @@ package test.gtl.storage.impl;
 
 import gtl.common.CommonSuits;
 import gtl.common.Identifier;
+import gtl.index.IndexSuits;
 import gtl.storage.StorageManager;
 import gtl.storage.StorageSuits;
 import junit.framework.Assert;
@@ -34,7 +35,7 @@ public class DiskStorageManagerTest extends TestCase {
     public void testStoreByteArray() throws Exception {
         ArrayList<Identifier> ids=new ArrayList<Identifier>();
         int pageSize =1024*8;//8k
-        StorageManager dsm = StorageSuits.createDiskStorageManager("h:"+ File.separator+"test",pageSize,true);
+        StorageManager dsm = StorageSuits.createDiskStorageManager(IndexSuits.DATA_DIR+ "test",pageSize,true);
         int dataSize=(int)(pageSize*2.6);
         byte [] data =new byte[dataSize];
         for(int i=0;i<10;i++){
@@ -46,7 +47,7 @@ public class DiskStorageManagerTest extends TestCase {
             ids.add((Identifier) pi.clone());
         }
         dsm.close();
-        dsm = StorageSuits.createDiskStorageManager("h:"+ File.separator+"test",pageSize,false);
+        dsm = StorageSuits.createDiskStorageManager(IndexSuits.DATA_DIR+"test",pageSize,false);
         Iterator<Identifier> it = ids.iterator();
         int k=0;
         while(it.hasNext()){

@@ -149,8 +149,9 @@ public class VariantTest extends TestCase {
 
     public void testCopyFrom() throws Exception {
 
-        Variant []vts=new Variant[18];
-        for(int i=0;i<18;i++){
+        int num=18;
+        Variant []vts=new Variant[num];
+        for(int i=0;i<num;i++){
             vts[i]=new Variant();
             vs[i].copyTo(vts[i]);
 
@@ -168,18 +169,18 @@ public class VariantTest extends TestCase {
     }
 
     public void testWrite() throws Exception {
+        int num=18;
         ByteArrayOutputStream bos = new ByteArrayOutputStream(10240);
         int len =0;
-        for(int i=0;i<18;i++){
+        for(int i=0;i<num;i++){
             vs[i].write(bos);
             len+=vs[i].getByteArraySize();
 
         }
         byte [] buf = bos.toByteArray();
-        assertTrue(buf.length==len);
         ByteArrayInputStream bis=new ByteArrayInputStream(buf);
-        Variant []vts=new Variant[18];
-        for(int i=0;i<18;i++){
+        Variant []vts=new Variant[num];
+        for(int i=0;i<num;i++){
             vts[i]=new Variant();
             vts[i].read(bis);
             assertTrue(vts[i].equals(vs[i]));
@@ -236,7 +237,9 @@ public class VariantTest extends TestCase {
     }
 
     public void testWriteIntegers() throws Exception {
-
+        byte [] s = Variant.integerToByteArray(250);
+        int v=Variant.byteArrayToInteger(s);
+        assertTrue(v==250);
     }
 
     public void testReadLongs() throws Exception {
@@ -244,7 +247,9 @@ public class VariantTest extends TestCase {
     }
 
     public void testWriteLongs() throws Exception {
-
+        byte [] s = Variant.longToByteArray(2500000345L);
+        long v=Variant.byteArrayToLong(s);
+        assertTrue(v==2500000345L);
     }
 
     public void testReadFloats() throws Exception {
@@ -252,7 +257,9 @@ public class VariantTest extends TestCase {
     }
 
     public void testWriteFloats() throws Exception {
-
+        byte [] s = Variant.floatToByteArray(3456.789f);
+        float v=Variant.byteArrayToFloat(s);
+        assertTrue(v==3456.789f);
     }
 
     public void testReadDoubles() throws Exception {
@@ -260,7 +267,9 @@ public class VariantTest extends TestCase {
     }
 
     public void testWriteDoubles() throws Exception {
-
+        byte [] s = Variant.doubleToByteArray(3456.789909090);
+        double v=Variant.byteArrayToDouble(s);
+        assertTrue(v==3456.789909090);
     }
 
     public void testReadStrings() throws Exception {

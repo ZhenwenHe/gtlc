@@ -64,11 +64,31 @@ public class IndexSuitsTest extends TestCase {
     }
 
     public void testWriteEnvelopeFile()throws Exception{
-        Envelope [] envs= GeometrySuits.generateRandomEnvelopes(100,4,0.0001,0.001);
-        GeometrySuits.writeEnvelopeFile(envs,IndexSuits.DATA_DIR +"test.envelopes");
-        Envelope[] tenvs=GeometrySuits.readEnvelopeFile(IndexSuits.DATA_DIR +"test.envelopes");
-        for(int i=0;i<100;++i) {
-            assertTrue(tenvs[i].equals(envs[i]));
+        {
+            Envelope [] envs= GeometrySuits.generateRandomEnvelopes(100,2,0.0001,0.001);
+            GeometrySuits.writeEnvelopeFile(envs,IndexSuits.DATA_DIR +"test2d100.envelopes");
+            Envelope[] tenvs=GeometrySuits.readEnvelopeFile(IndexSuits.DATA_DIR +"test2d100.envelopes");
+            for(int i=0;i<100;++i) {
+                assertTrue(tenvs[i].equals(envs[i]));
+            }
+        }
+
+        {
+            Envelope [] envs= GeometrySuits.generateRandomEnvelopes(100,3,0.0001,0.001);
+            GeometrySuits.writeEnvelopeFile(envs,IndexSuits.DATA_DIR +"test3d100.envelopes");
+            Envelope[] tenvs=GeometrySuits.readEnvelopeFile(IndexSuits.DATA_DIR +"test3d100.envelopes");
+            for(int i=0;i<100;++i) {
+                assertTrue(tenvs[i].equals(envs[i]));
+            }
+        }
+
+        {
+            Envelope [] envs= GeometrySuits.generateRandomEnvelopes(100,4,0.0001,0.001);
+            GeometrySuits.writeEnvelopeFile(envs,IndexSuits.DATA_DIR +"test4d100.envelopes");
+            Envelope[] tenvs=GeometrySuits.readEnvelopeFile(IndexSuits.DATA_DIR +"test4d100.envelopes");
+            for(int i=0;i<100;++i) {
+                assertTrue(tenvs[i].equals(envs[i]));
+            }
         }
     }
 

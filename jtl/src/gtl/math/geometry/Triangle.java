@@ -10,6 +10,7 @@ import gtl.storage.Serializable;
  */
 public interface Triangle extends Serializable {
     Vertex getVertex(int i);
+    Vertex[] getVertices();
     double getAngle(int i);
     LineSegment getEdge(int s, int e);
     double getHeight(int v);//"height" is measured at right angles  from vertex(v) to its base edge

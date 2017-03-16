@@ -82,7 +82,7 @@ class PointImpl implements Point {
 
     @Override
     public void makeInfinite(int dimension) {
-        this.makeInfinite(dimension);
+        this.data.makeInfinite(dimension);
     }
 
     @Override

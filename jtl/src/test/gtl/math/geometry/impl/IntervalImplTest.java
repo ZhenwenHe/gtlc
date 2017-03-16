@@ -244,7 +244,6 @@ public class IntervalImplTest extends TestCase {
         i2.write(baos);
         i3.write(baos);
         byte [] dat = baos.toByteArray();
-        assertTrue(dat.length==i1.getByteArraySize()*3);
 
         Interval i4 = GeometrySuits.createInterval(IntervalType.IT_CLOSED,0,1);
         Interval i5 = GeometrySuits.createInterval(IntervalType.IT_OPEN,0,1);

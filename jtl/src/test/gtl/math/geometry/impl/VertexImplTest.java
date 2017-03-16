@@ -134,6 +134,46 @@ public class VertexImplTest extends TestCase {
     }
 
     public void testSetX() throws Exception {
+        int [] iv = new int[3];
+        iv[0]=11;
+        iv[1]=21;
+        iv[2]=31;
+        for(int v:iv){
+            v=6;
+        }
+        for(int v:iv){
+            System.out.println(v);
+        }
+        Vertex[] vv= new Vertex[3];
+        vv[0]=GeometrySuits.createVertex(1,2,3);
+        vv[1]=GeometrySuits.createVertex(1,2,3);
+        vv[2]=GeometrySuits.createVertex(1,2,3);
+
+
+
+        for(Vertex v:vv){//改变本身是不起作用的
+            v=GeometrySuits.createVertex(1.0,7.0,9.0);
+        }
+
+        for(Vertex v:vv){
+            assertTrue(v.getX()==1.0);
+            assertTrue(v.getY()==2.0);
+            assertTrue(v.getZ()==3.0);
+            System.out.println(v);
+        }
+
+        for(Vertex v:vv){//改变指向的内容是可以的
+            v.setY(89);
+            v.setX(98);
+            v.setZ(198);
+        }
+
+        for(Vertex v:vv){
+            System.out.println(v);
+            assertTrue(v.getX()==98.0);
+            assertTrue(v.getY()==89.0);
+            assertTrue(v.getZ()==198.0);
+        }
 
     }
 

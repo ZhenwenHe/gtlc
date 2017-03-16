@@ -41,6 +41,11 @@ class TriangleImpl implements Triangle {
     }
 
     @Override
+    public Vertex[] getVertices() {
+        return this.vertices;
+    }
+
+    @Override
     public double getAngle(int i) {
         return this.vertices[i].angle(this.vertices[(i+2)%3],this.vertices[(i+1)%3]);
     }
@@ -69,64 +74,43 @@ class TriangleImpl implements Triangle {
 
     @Override
     public void copyFrom(Object i) {
-
+        if(i instanceof Triangle){
+            Vertex[] vv= ((Triangle)i).getVertices();
+            int k=0;
+            for(Vertex v: vv){
+                this.vertices[k].reset(v.getCoordinates());
+                ++k;
+            }
+        }
     }
 
     @Override
     public LineSegment getEdge(int s, int e) {
-        return null;
+        return new LineSegmentImpl(getVertex(s),getVertex(e));
     }
-
-
-    @Override
-    public boolean isEquilateralTriangle() {
-        return false;
-    }
-
-
-    @Override
-    public boolean isIsoscelesTriangle() {
-        return false;
-    }
-
-
-
-    @Override
-    public boolean isRightAngledTriangle() {
-        return false;
-    }
-
-
 
     @Override
     public int getDimension() {
-        return 0;
+        return this.vertices[0].getDimension();
     }
-
-    @Override
-    public boolean isIsoscelesRightTriangle() {
-        return false;
-    }
-
-    @Override
-    public boolean isScaleneTriangle() {
-        return false;
-    }
-
 
     @Override
     public Object clone() {
-        return null;
+        return new TriangleImpl(this.vertices);
     }
 
     @Override
     public boolean load(DataInput in) throws IOException {
-        return false;
+        for(Vertex v: this.vertices){
+            v.load(in);
+        }
+        return true;
     }
 
     @Override
     public boolean store(DataOutput out) throws IOException {
-        return false;
+
+        return true;
     }
 
     @Override
@@ -158,4 +142,33 @@ class TriangleImpl implements Triangle {
     public boolean contains(Vertex p) {
         return false;
     }
+
+
+    @Override
+    public boolean isEquilateralTriangle() {
+        return false;
+    }
+
+
+    @Override
+    public boolean isIsoscelesTriangle() {
+        return false;
+    }
+
+    @Override
+    public boolean isRightAngledTriangle() {
+        return false;
+    }
+
+    @Override
+    public boolean isIsoscelesRightTriangle() {
+        return false;
+    }
+
+    @Override
+    public boolean isScaleneTriangle() {
+        return false;
+    }
+
+
 }

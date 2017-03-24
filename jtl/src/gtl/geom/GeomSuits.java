@@ -21,11 +21,14 @@ public class GeomSuits  {
     public static Vector createVector(double [] v){
         return new VectorImpl(v);
     }
-    public static Vector createVector(double x, double y){
-        return new VectorImpl(x,y);
+    public static Vector2D createVector(double x, double y){
+        return new Vector2D(x,y);
     }
-    public static Vector createVector(double x, double y, double z){
-        return new VectorImpl(x,y,z);
+    public static Vector3D createVector(double x, double y, double z){
+        return new Vector3D(x,y,z);
+    }
+    public static Vector4D createVector(double x, double y, double z,double w){
+        return new Vector4D(x,y,z,w);
     }
 
     public static Vertex createVertex(double x, double y, double z){return new VertexImpl(x,y,z); }

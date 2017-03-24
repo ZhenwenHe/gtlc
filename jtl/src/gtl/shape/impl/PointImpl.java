@@ -25,7 +25,7 @@ class PointImpl implements Point {
         this.data= Geom3DSuits.createVector(x,y);
     }
     public PointImpl(double x ,double y,double z) {
-        this.data= Geom3DSuits.createVector(x,y,z);
+        this.data= (Vector) Geom3DSuits.createVector(x,y,z);
     }
 
     public PointImpl(double[] coordinates) {

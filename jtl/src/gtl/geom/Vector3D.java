@@ -3,7 +3,7 @@ package gtl.geom;
 /**
  * Created by hadoop on 17-3-24.
  */
-public class Vector3D extends VertexImpl{
+public class Vector3D extends VectorImpl{
     public Vector3D( ) {
         super();
     }

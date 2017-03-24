@@ -251,7 +251,7 @@ public class Geom3DSuits extends GeomSuits {
         double z2 = C.getZ() + t * (D.getZ() - C.getZ());
 
         // length (p1-p2)
-        return distance(createVector(x1, y1, z1), createVector(x2, y2, z2));
+        return distance((Vector) createVector(x1, y1, z1), (Vector) createVector(x2, y2, z2));
     }
 
 }

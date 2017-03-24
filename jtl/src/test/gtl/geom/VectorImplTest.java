@@ -2,6 +2,8 @@ package test.gtl.geom;
 
 import gtl.geom.Geom3DSuits;
 import gtl.geom.Vector;
+import gtl.geom.Vector2D;
+import gtl.geom.Vector3D;
 import junit.framework.Assert;
 import junit.framework.TestCase;
 
@@ -112,7 +114,7 @@ public class VectorImplTest extends TestCase {
         ByteArrayInputStream bios = new ByteArrayInputStream(data);
         DataInputStream dis =new DataInputStream(bios);
         System.out.println(dis.readInt());
-        Vector v1 = Geom3DSuits.createVector(9.0,9.0,9.0);
+        Vector3D v1 = Geom3DSuits.createVector(9.0,9.0,9.0);
         v1.read(bios);
         System.out.println(v1);
         v1 = Geom3DSuits.createVector(9.0,9.0,9.0);
@@ -126,8 +128,9 @@ public class VectorImplTest extends TestCase {
     }
 
     public void testGetByteArraySize() throws Exception {
-        Vector v1= Geom3DSuits.createVector(1.0,2.0);
-        Vector v2= Geom3DSuits.createVector(0.0,1.0,1.0);
+        Vector2D v1= Geom3DSuits.createVector(1.0,2.0);
+        Vector3D v2= Geom3DSuits.createVector(0.0,1.0,1.0);
+
         byte[] bs= v1.storeToByteArray();
         v2.loadFromByteArray(bs);
         assertTrue(v2.equals(v1));
@@ -144,31 +147,31 @@ public class VectorImplTest extends TestCase {
         for(int v:iv){
             System.out.println(v);
         }
-        Vector[] vv= new Vector[3];
+        Vector3D[] vv= new Vector3D[3];
         vv[0]= Geom3DSuits.createVector(1,2,3);
         vv[1]= Geom3DSuits.createVector(1,2,3);
         vv[2]= Geom3DSuits.createVector(1,2,3);
 
 
 
-        for(Vector v:vv){//改变本身是不起作用的
+        for(Vector3D v:vv){//改变本身是不起作用的
             v= Geom3DSuits.createVector(1.0,7.0,9.0);
         }
 
-        for(Vector v:vv){
+        for(Vector3D v:vv){
             assertTrue(v.getX()==1.0);
             assertTrue(v.getY()==2.0);
             assertTrue(v.getZ()==3.0);
             System.out.println(v);
         }
 
-        for(Vector v:vv){//改变指向的内容是可以的
+        for(Vector3D v:vv){//改变指向的内容是可以的
             v.setY(89);
             v.setX(98);
             v.setZ(198);
         }
 
-        for(Vector v:vv){
+        for(Vector3D v:vv){
             System.out.println(v);
             assertTrue(v.getX()==98.0);
             assertTrue(v.getY()==89.0);

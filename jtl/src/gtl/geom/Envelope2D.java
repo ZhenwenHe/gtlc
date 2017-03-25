@@ -11,7 +11,7 @@ import java.io.IOException;
 /**
  *  Defines a rectangular region of the 2D coordinate plane.
  *  It is often used to represent the bounding box of a {@link Geometry},
- *  e.g. the minimum and maximum x and y values of the {@link Vertex}s.
+ *  e.g. the minimum and maximum x and y values of the {@link Vertex2D}s.
  *  <p>
  *  Envelopes support infinite or half-infinite regions, by using the values of
  *  <code>Double.POSITIVE_INFINITY</code> and <code>Double.NEGATIVE_INFINITY</code>.
@@ -22,15 +22,6 @@ import java.io.IOException;
  */
 public class Envelope2D implements Comparable<Envelope2D>, gtl.io.Serializable
 {
-    public int hashCode() {
-        //Algorithm from Effective Java by Joshua Bloch [Jon Aquino]
-        int result = 17;
-        result = 37 * result + Vertex.hashCode(minx);
-        result = 37 * result + Vertex.hashCode(maxx);
-        result = 37 * result + Vertex.hashCode(miny);
-        result = 37 * result + Vertex.hashCode(maxy);
-        return result;
-    }
 
     /**
      * Test the point q to see whether it intersects the Envelope2D defined by p1-p2
@@ -39,7 +30,7 @@ public class Envelope2D implements Comparable<Envelope2D>, gtl.io.Serializable
      * @param q the point to test for intersection
      * @return <code>true</code> if q intersects the envelope2D p1-p2
      */
-    public static boolean intersects(Vertex p1, Vertex p2, Vertex q)
+    public static boolean intersects(Vertex2D p1, Vertex2D p2, Vertex2D q)
     {
         //OptimizeIt shows that Math#min and Math#max here are a bottleneck.
         //Replace with direct comparisons. [Jon Aquino]
@@ -61,7 +52,7 @@ public class Envelope2D implements Comparable<Envelope2D>, gtl.io.Serializable
      * @param q2 another extremal point of the envelope2D Q
      * @return <code>true</code> if Q intersects P
      */
-    public static boolean intersects(Vertex p1, Vertex p2, Vertex q1, Vertex q2)
+    public static boolean intersects(Vertex2D p1, Vertex2D p2, Vertex2D q1, Vertex2D q2)
     {
         double minq = Math.min(q1.x, q2.x);
         double maxq = Math.max(q1.x, q2.x);
@@ -128,20 +119,20 @@ public class Envelope2D implements Comparable<Envelope2D>, gtl.io.Serializable
     /**
      *  Creates an <code>Envelope2D</code> for a region defined by two Coordinates.
      *
-     *@param  p1  the first Vertex
-     *@param  p2  the second Vertex
+     *@param  p1  the first Vertex2D
+     *@param  p2  the second Vertex2D
      */
-    public Envelope2D(Vertex p1, Vertex p2)
+    public Envelope2D(Vertex2D p1, Vertex2D p2)
     {
         init(p1.x, p2.x, p1.y, p2.y);
     }
 
     /**
-     *  Creates an <code>Envelope2D</code> for a region defined by a single Vertex.
+     *  Creates an <code>Envelope2D</code> for a region defined by a single Vertex2D.
      *
-     *@param  p  the Vertex
+     *@param  p  the Vertex2D
      */
-    public Envelope2D(Vertex p)
+    public Envelope2D(Vertex2D p)
     {
         init(p.x, p.x, p.y, p.y);
     }
@@ -195,20 +186,20 @@ public class Envelope2D implements Comparable<Envelope2D>, gtl.io.Serializable
     /**
      *  Initialize an <code>Envelope2D</code> to a region defined by two Coordinates.
      *
-     *@param  p1  the first Vertex
-     *@param  p2  the second Vertex
+     *@param  p1  the first Vertex2D
+     *@param  p2  the second Vertex2D
      */
-    public void init(Vertex p1, Vertex p2)
+    public void init(Vertex2D p1, Vertex2D p2)
     {
         init(p1.x, p2.x, p1.y, p2.y);
     }
 
     /**
-     *  Initialize an <code>Envelope2D</code> to a region defined by a single Vertex.
+     *  Initialize an <code>Envelope2D</code> to a region defined by a single Vertex2D.
      *
      *@param  p  the coordinate
      */
-    public void init(Vertex p)
+    public void init(Vertex2D p)
     {
         init(p.x, p.x, p.y, p.y);
     }
@@ -354,12 +345,12 @@ public class Envelope2D implements Comparable<Envelope2D>, gtl.io.Serializable
 
     /**
      *  Enlarges this <code>Envelope2D</code> so that it contains
-     *  the given {@link Vertex}.
+     *  the given {@link Vertex2D}.
      *  Has no effect if the point is already on or within the envelope2D.
      *
-     *@param  p  the Vertex to expand to include
+     *@param  p  the Vertex2D to expand to include
      */
-    public void expandToInclude(Vertex p)
+    public void expandToInclude(Vertex2D p)
     {
         expandToInclude(p.x, p.y);
     }
@@ -481,9 +472,9 @@ public class Envelope2D implements Comparable<Envelope2D>, gtl.io.Serializable
      * @return the centre coordinate of this envelope2D
      * <code>null</code> if the envelope2D is null
      */
-    public Vertex centre() {
+    public Vertex2D centre() {
         if (isNull()) return null;
-        return Geom2DSuits.createVertex(
+        return Geom2DSuits.createVertex2D(
                 (getMinX() + getMaxX()) / 2.0,
                 (getMinY() + getMaxY()) / 2.0);
     }
@@ -536,16 +527,16 @@ public class Envelope2D implements Comparable<Envelope2D>, gtl.io.Serializable
      *  Check if the point <code>p</code>
      *  overlaps (lies inside) the region of this <code>Envelope2D</code>.
      *
-     *@param  p  the <code>Vertex</code> to be tested
+     *@param  p  the <code>Vertex2D</code> to be tested
      *@return        <code>true</code> if the point overlaps this <code>Envelope2D</code>
      */
-    public boolean intersects(Vertex p) {
+    public boolean intersects(Vertex2D p) {
         return intersects(p.x, p.y);
     }
     /**
      * @deprecated Use #intersects instead.
      */
-    public boolean overlaps(Vertex p) {
+    public boolean overlaps(Vertex2D p) {
         return intersects(p);
     }
     /**
@@ -597,9 +588,9 @@ public class Envelope2D implements Comparable<Envelope2D>, gtl.io.Serializable
      *@return    <code>true</code> if the point lies in the interior or
      *      on the boundary of this <code>Envelope2D</code>.
      *
-     *@see #covers(Vertex)
+     *@see #covers(Vertex2D)
      */
-    public boolean contains(Vertex p) {
+    public boolean contains(Vertex2D p) {
         return covers(p);
     }
 
@@ -648,7 +639,7 @@ public class Envelope2D implements Comparable<Envelope2D>, gtl.io.Serializable
      *@return    <code>true</code> if the point lies in the interior or
      *      on the boundary of this <code>Envelope2D</code>.
      */
-    public boolean covers(Vertex p) {
+    public boolean covers(Vertex2D p) {
         return covers(p.x, p.y);
     }
 
@@ -781,5 +772,18 @@ public class Envelope2D implements Comparable<Envelope2D>, gtl.io.Serializable
         return 8*4;
     }
 
-
+    @Override
+    public int hashCode() {
+        int result;
+        long temp;
+        temp = Double.doubleToLongBits(minx);
+        result = (int) (temp ^ (temp >>> 32));
+        temp = Double.doubleToLongBits(maxx);
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
+        temp = Double.doubleToLongBits(miny);
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
+        temp = Double.doubleToLongBits(maxy);
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
+        return result;
+    }
 }

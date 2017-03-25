@@ -52,7 +52,7 @@ public class Geom2DSuits extends GeomSuits {
      * @return -1 if q is clockwise (right) from p1-p2
      * @return 0 if q is collinear with p1-p2
      */
-    public static int orientationIndex(Vertex p1, Vertex p2, Vertex q)
+    public static int orientationIndex(Vertex2D p1, Vertex2D p2, Vertex2D q)
     {
         /**
          * MD - 9 Aug 2010 It seems that the basic algorithm is slightly orientation
@@ -63,10 +63,10 @@ public class Geom2DSuits extends GeomSuits {
          * For instance, the following situation produces identical results in spite
          * of the inverse orientation of the line segment:
          *
-         * Vertex p0 = Geom2DSuits.createVertex(219.3649559090992, 140.84159161824724);
-         * Vertex p1 = Geom2DSuits.createVertex(168.9018919682399, -5.713787599646864);
+         * Vertex2D p0 = Geom2DSuits.createVertex(219.3649559090992, 140.84159161824724);
+         * Vertex2D p1 = Geom2DSuits.createVertex(168.9018919682399, -5.713787599646864);
          *
-         * Vertex p = Geom2DSuits.createVertex(186.80814046338352, 46.28973405831556); int
+         * Vertex2D p = Geom2DSuits.createVertex(186.80814046338352, 46.28973405831556); int
          * orient = orientationIndex(p0, p1, p); int orientInv =
          * orientationIndex(p1, p0, p);
          *
@@ -101,7 +101,7 @@ public class Geom2DSuits extends GeomSuits {
      *
      * @see locatePointInRing
      */
-    public static boolean isPointInRing(Vertex p, Vertex[] ring)
+    public static boolean isPointInRing(Vertex2D p, Vertex2D[] ring)
     {
         return locatePointInRing(p, ring) != Location.EXTERIOR;
     }
@@ -120,7 +120,7 @@ public class Geom2DSuits extends GeomSuits {
      *          first point identical to last point)
      * @return the {@link Location} of p relative to the ring
      */
-    public static int locatePointInRing(Vertex p, Vertex[] ring)
+    public static int locatePointInRing(Vertex2D p, Vertex2D[] ring)
     {
         return RayCrossingCounter2D.locatePointInRing(p, ring);
     }
@@ -132,12 +132,12 @@ public class Geom2DSuits extends GeomSuits {
      * @return true if the point is a vertex of the line or lies in the interior
      *         of a line segment in the linestring
      */
-    public static boolean isOnLine(Vertex p, Vertex[] pt)
+    public static boolean isOnLine(Vertex2D p, Vertex2D[] pt)
     {
         LineIntersector2D lineIntersector2D = new RobustLineIntersector2D();
         for (int i = 1; i < pt.length; i++) {
-            Vertex p0 = pt[i - 1];
-            Vertex p1 = pt[i];
+            Vertex2D p0 = pt[i - 1];
+            Vertex2D p1 = pt[i];
             lineIntersector2D.computeIntersection(p, p0, p1);
             if (lineIntersector2D.hasIntersection()) {
                 return true;
@@ -147,7 +147,7 @@ public class Geom2DSuits extends GeomSuits {
     }
 
     /**
-     * Computes whether a ring defined by an array of {@link Vertex}s is
+     * Computes whether a ring defined by an array of {@link Vertex2D}s is
      * oriented counter-clockwise.
      * <ul>
      * <li>The list of points is assumed to have the first and last points equal.
@@ -163,7 +163,7 @@ public class Geom2DSuits extends GeomSuits {
      * @throws IllegalArgumentException
      *           if there are too few points to determine orientation (&lt; 4)
      */
-    public static boolean isCCW(Vertex[] ring)
+    public static boolean isCCW(Vertex2D[] ring)
     {
         // # of points without closing endpoint
         int nPts = ring.length - 1;
@@ -173,10 +173,10 @@ public class Geom2DSuits extends GeomSuits {
                     "Ring has fewer than 4 points, so orientation cannot be determined");
 
         // find highest point
-        Vertex hiPt = ring[0];
+        Vertex2D hiPt = ring[0];
         int hiIndex = 0;
         for (int i = 1; i <= nPts; i++) {
-            Vertex p = ring[i];
+            Vertex2D p = ring[i];
             if (p.y > hiPt.y) {
                 hiPt = p;
                 hiIndex = i;
@@ -189,16 +189,16 @@ public class Geom2DSuits extends GeomSuits {
             iPrev = iPrev - 1;
             if (iPrev < 0)
                 iPrev = nPts;
-        } while (ring[iPrev].equals2D(hiPt) && iPrev != hiIndex);
+        } while (ring[iPrev].equals(hiPt) && iPrev != hiIndex);
 
         // find distinct point after highest point
         int iNext = hiIndex;
         do {
             iNext = (iNext + 1) % nPts;
-        } while (ring[iNext].equals2D(hiPt) && iNext != hiIndex);
+        } while (ring[iNext].equals(hiPt) && iNext != hiIndex);
 
-        Vertex prev = ring[iPrev];
-        Vertex next = ring[iNext];
+        Vertex2D prev = ring[iPrev];
+        Vertex2D next = ring[iNext];
 
         /**
          * This check catches cases where the ring contains an A-B-A configuration
@@ -206,7 +206,7 @@ public class Geom2DSuits extends GeomSuits {
          * (including the case where the input array has fewer than 4 elements), or
          * it contains coincident line segments.
          */
-        if (prev.equals2D(hiPt) || next.equals2D(hiPt) || prev.equals2D(next))
+        if (prev.equals(hiPt) || next.equals(hiPt) || prev.equals(next))
             return false;
 
         int disc = computeOrientation(prev, hiPt, next);
@@ -244,8 +244,8 @@ public class Geom2DSuits extends GeomSuits {
      * or -1 if q is clockwise from p1-p2,
      * or 0 if q is collinear with p1-p2
      */
-    public static int computeOrientation(Vertex p1, Vertex p2,
-                                         Vertex q)
+    public static int computeOrientation(Vertex2D p1, Vertex2D p2,
+                                         Vertex2D q)
     {
         return orientationIndex(p1, p2, q);
     }
@@ -263,12 +263,12 @@ public class Geom2DSuits extends GeomSuits {
      *          another point of the line (must be different to A)
      * @return the distance2D from p to line segment AB
      */
-    public static double distancePointLine(Vertex p, Vertex A,
-                                           Vertex B)
+    public static double distancePointLine(Vertex2D p, Vertex2D A,
+                                           Vertex2D B)
     {
         // if start = end, then just compute distance2D to one of the endpoints
         if (A.x == B.x && A.y == B.y)
-            return p.distance2D(A);
+            return p.distance(A);
 
         // otherwise use comp.graphics.algorithms Frequently Asked Questions method
     /*
@@ -289,9 +289,9 @@ public class Geom2DSuits extends GeomSuits {
                 / len2;
 
         if (r <= 0.0)
-            return p.distance2D(A);
+            return p.distance(A);
         if (r >= 1.0)
-            return p.distance2D(B);
+            return p.distance(B);
 
     /*
      * (2) s = (Ay-Cy)(Bx-Ax)-(Ax-Cx)(By-Ay)
@@ -320,8 +320,8 @@ public class Geom2DSuits extends GeomSuits {
      *          another point of the line (must be different to A)
      * @return the distance2D from p to line AB
      */
-    public static double distancePointLinePerpendicular(Vertex p,
-                                                        Vertex A, Vertex B)
+    public static double distancePointLinePerpendicular(Vertex2D p,
+                                                        Vertex2D A, Vertex2D B)
     {
         // use comp.graphics.algorithms Frequently Asked Questions method
     /*
@@ -347,13 +347,13 @@ public class Geom2DSuits extends GeomSuits {
      *          a sequence of contiguous line segments defined by their vertices
      * @return the minimum distance2D between the point and the line segments
      */
-    public static double distancePointLine(Vertex p, Vertex[] line)
+    public static double distancePointLine(Vertex2D p, Vertex2D[] line)
     {
         if (line.length == 0)
             throw new IllegalArgumentException(
                     "Line array must contain at least one vertex");
         // this handles the case of length = 1
-        double minDistance = p.distance2D(line[0]);
+        double minDistance = p.distance(line[0]);
         for (int i = 0; i < line.length - 1; i++) {
             double dist = distancePointLine(p, line[i], line[i + 1]);
             if (dist < minDistance) {
@@ -377,8 +377,8 @@ public class Geom2DSuits extends GeomSuits {
      * @param D
      *          another point of the line (must be different to A)
      */
-    public static double distanceLineLine(Vertex A, Vertex B,
-                                          Vertex C, Vertex D)
+    public static double distanceLineLine(Vertex2D A, Vertex2D B,
+                                          Vertex2D C, Vertex2D D)
     {
         // check for zero-length segments
         if (A.equals(B))
@@ -455,7 +455,7 @@ public class Geom2DSuits extends GeomSuits {
      *          the coordinates forming the ring
      * @return the signed area of the ring
      */
-    public static double signedArea(Vertex[] ring)
+    public static double signedArea(Vertex2D[] ring)
     {
         if (ring.length < 3)
             return 0.0;
@@ -495,9 +495,9 @@ public class Geom2DSuits extends GeomSuits {
          * Based on the Shoelace formula.
          * http://en.wikipedia.org/wiki/Shoelace_formula
          */
-        Vertex p0 = Geom2DSuits.createVertex();
-        Vertex p1 = Geom2DSuits.createVertex();
-        Vertex p2 = Geom2DSuits.createVertex();
+        Vertex2D p0 = Geom2DSuits.createVertex2D();
+        Vertex2D p1 = Geom2DSuits.createVertex2D();
+        Vertex2D p2 = Geom2DSuits.createVertex2D();
         ring.getCoordinate(0, p1);
         ring.getCoordinate(1, p2);
         double x0 = p1.x;
@@ -530,7 +530,7 @@ public class Geom2DSuits extends GeomSuits {
 
         double len = 0.0;
 
-        Vertex p = Geom2DSuits.createVertex();
+        Vertex2D p = Geom2DSuits.createVertex2D();
         pts.getCoordinate(0, p);
         double x0 = p.x;
         double y0 = p.y;
@@ -562,7 +562,7 @@ public class Geom2DSuits extends GeomSuits {
      * @return -1 if q is clockwise (right) from p1-p2
      * @return 0 if q is collinear with p1-p2
      */
-    public static int orientationIndex2d(Vertex p1, Vertex p2, Vertex q)
+    public static int orientationIndex2d(Vertex2D p1, Vertex2D p2, Vertex2D q)
     {
         // fast filter for orientation index
         // avoids use of slow extended-precision arithmetic in many cases
@@ -619,7 +619,7 @@ public class Geom2DSuits extends GeomSuits {
      * @return the orientation index if it can be computed safely
      * @return i > 1 if the orientation index cannot be computed safely
      */
-    private static int orientationIndexFilter2d(Vertex pa, Vertex pb, Vertex pc)
+    private static int orientationIndexFilter2d(Vertex2D pa, Vertex2D pb, Vertex2D pc)
     {
         double detsum;
 
@@ -673,9 +673,9 @@ public class Geom2DSuits extends GeomSuits {
      * @param q2
      * @return
      */
-    public static Vertex intersection2d(
-            Vertex p1, Vertex p2,
-            Vertex q1, Vertex q2)
+    public static Vertex2D intersection2d(
+            Vertex2D p1, Vertex2D p2,
+            Vertex2D q1, Vertex2D q2)
     {
         Float128 denom1 = Float128.valueOf(q2.y).selfSubtract(q1.y)
                 .selfMultiply(Float128.valueOf(p2.x).selfSubtract(p1.x));
@@ -708,6 +708,6 @@ public class Geom2DSuits extends GeomSuits {
 
         double y = Float128.valueOf(q1.y).selfAdd(Float128.valueOf(q2.y).selfSubtract(q1.y).selfMultiply(fracQ)).doubleValue();
 
-        return Geom2DSuits.createVertex(x,y);
+        return Geom2DSuits.createVertex2D(x,y);
     }
 }

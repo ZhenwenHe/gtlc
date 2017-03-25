@@ -19,9 +19,9 @@ class HCoordinate {
      * to increase the precision of the calculation input points should be normalized
      * before passing them to this routine.
      */
-    public static Vertex intersection(
-            Vertex p1, Vertex p2,
-            Vertex q1, Vertex q2)
+    public static Vertex2D intersection(
+            Vertex2D p1, Vertex2D p2,
+            Vertex2D q1, Vertex2D q2)
             throws NotRepresentableException
     {
         // unrolled computation
@@ -45,19 +45,19 @@ class HCoordinate {
             throw new NotRepresentableException();
         }
 
-        return Geom2DSuits.createVertex(xInt, yInt);
+        return Geom2DSuits.createVertex2D(xInt, yInt);
     }
 
   /*
-  public static Vertex OLDintersection(
-      Vertex p1, Vertex p2,
-      Vertex q1, Vertex q2)
+  public static Vertex2D OLDintersection(
+      Vertex2D p1, Vertex2D p2,
+      Vertex2D q1, Vertex2D q2)
       throws NotRepresentableException
   {
     HCoordinate l1 = new HCoordinate(p1, p2);
     HCoordinate l2 = new HCoordinate(q1, q2);
     HCoordinate intHCoord = new HCoordinate(l1, l2);
-    Vertex intPt = intHCoord.getCoordinate();
+    Vertex2D intPt = intHCoord.getCoordinate();
     return intPt;
   }
   */
@@ -82,7 +82,7 @@ class HCoordinate {
         w = 1.0;
     }
 
-    public HCoordinate(Vertex p) {
+    public HCoordinate(Vertex2D p) {
         x = p.x;
         y = p.y;
         w = 1.0;
@@ -98,12 +98,12 @@ class HCoordinate {
     /**
      * Constructs a homogeneous coordinate which is the intersection of the lines
      * define by the homogenous coordinates represented by two
-     * {@link Vertex}s.
+     * {@link Vertex2D}s.
      *
      * @param p1
      * @param p2
      */
-    public HCoordinate(Vertex p1, Vertex p2)
+    public HCoordinate(Vertex2D p1, Vertex2D p2)
     {
         // optimization when it is known that w = 1
         x = p1.y - p2.y;
@@ -111,7 +111,7 @@ class HCoordinate {
         w = p1.x * p2.y - p2.x * p1.y;
     }
 
-    public HCoordinate(Vertex p1, Vertex p2, Vertex q1, Vertex q2)
+    public HCoordinate(Vertex2D p1, Vertex2D p2, Vertex2D q1, Vertex2D q2)
     {
         // unrolled computation
         double px = p1.y - p2.y;
@@ -143,8 +143,8 @@ class HCoordinate {
         return a;
     }
 
-    public Vertex getCoordinate() throws NotRepresentableException {
-        Vertex p = Geom2DSuits.createVertex();
+    public Vertex2D getCoordinate() throws NotRepresentableException {
+        Vertex2D p = Geom2DSuits.createVertex2D();
         p.x = getX();
         p.y = getY();
         return p;

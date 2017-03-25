@@ -431,7 +431,7 @@ class VertexArrays {
      * @param vertices the vertices to scan
      * @return the envelope2D of the vertices
      */
-    public static Envelope2D envelope(Vertex[] vertices) {
+    public static Envelope2D envelope(Vertex2D[] vertices) {
         Envelope2D env = new Envelope2D();
         for (int i = 0; i < vertices.length; i++) {
             env.expandToInclude(vertices[i]);
@@ -446,7 +446,7 @@ class VertexArrays {
      * @param env the envelope2D to intersect with
      * @return an array of the vertices which intersect the envelope2D
      */
-    public static Vertex[] intersection(Vertex[] vertices, Envelope2D env) {
+    public static Vertex[] intersection(Vertex2D[] vertices, Envelope2D env) {
         VertexList coordList = new VertexList();
         for (int i = 0; i < vertices.length; i++) {
             if (env.intersects(vertices[i]))

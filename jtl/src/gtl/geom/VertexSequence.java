@@ -46,6 +46,8 @@ interface VertexSequence extends Serializable {
      * @param coord a {@link Vertex} to receive the value
      */
     void getCoordinate(int index, Vertex coord);
+    void getCoordinate(int index, Vertex2D coord);
+    void getCoordinate(int index, Vertex3D coord);
 
     /**
      * Returns ordinate X (0) of the specified coordinate.

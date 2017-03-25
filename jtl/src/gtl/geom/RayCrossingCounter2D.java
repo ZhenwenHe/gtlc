@@ -39,13 +39,13 @@ class RayCrossingCounter2D {
      * @param ring an array of Coordinates forming a ring
      * @return the location of the point in the ring
      */
-    public static int locatePointInRing(Vertex p, Vertex[] ring)
+    public static int locatePointInRing(Vertex2D p, Vertex2D[] ring)
     {
         RayCrossingCounter2D counter = new RayCrossingCounter2D(p);
 
         for (int i = 1; i < ring.length; i++) {
-            Vertex p1 = ring[i];
-            Vertex p2 = ring[i-1];
+            Vertex2D p1 = ring[i];
+            Vertex2D p2 = ring[i-1];
             counter.countSegment(p1, p2);
             if (counter.isOnSegment())
                 return counter.getLocation();
@@ -62,11 +62,11 @@ class RayCrossingCounter2D {
      *            a coordinate sequence forming a ring
      * @return the location of the point in the ring
      */
-    public static int locatePointInRing(Vertex p, VertexSequence ring) {
+    public static int locatePointInRing(Vertex2D p, VertexSequence ring) {
         RayCrossingCounter2D counter = new RayCrossingCounter2D(p);
 
-        Vertex p1 = Geom2DSuits.createVertex(0.0,0.0);
-        Vertex p2 = Geom2DSuits.createVertex(0.0,0.0);
+        Vertex2D p1 = Geom2DSuits.createVertex2D(0.0,0.0);
+        Vertex2D p2 = Geom2DSuits.createVertex2D(0.0,0.0);
         for (int i = 1; i < ring.size(); i++) {
             ring.getCoordinate(i, p1);
             ring.getCoordinate(i - 1, p2);
@@ -77,12 +77,12 @@ class RayCrossingCounter2D {
         return counter.getLocation();
     }
 
-    private Vertex p;
+    private Vertex2D p;
     private int crossingCount = 0;
     // true if the test point lies on an input segment
     private boolean isPointOnSegment = false;
 
-    public RayCrossingCounter2D(Vertex p)
+    public RayCrossingCounter2D(Vertex2D p)
     {
         this.p = p;
     }
@@ -93,7 +93,7 @@ class RayCrossingCounter2D {
      * @param p1 an endpoint of the segment
      * @param p2 another endpoint of the segment
      */
-    public void countSegment(Vertex p1, Vertex p2) {
+    public void countSegment(Vertex2D p1, Vertex2D p2) {
         /**
          * For each segment, check if it crosses
          * a horizontal ray running from the test point in the positive x direction.

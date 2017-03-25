@@ -6,6 +6,8 @@ package gtl.math;
 
 import gtl.common.Variant;
 import gtl.geom.Vertex;
+import gtl.geom.Vertex2D;
+import gtl.geom.Vertex3D;
 import gtl.io.Serializable;
 
 import java.io.DataInput;
@@ -327,16 +329,27 @@ public class PrecisionModel implements Serializable, Comparable<PrecisionModel> 
     /**
      * Rounds a Vertex to the PrecisionModel grid.
      */
-    public void makePrecise(Vertex coord)
+    public void makePrecise(Vertex2D coord)
     {
         // optimization for full precision
         if (modelType == FLOATING) return;
 
         coord.x = makePrecise(coord.x);
         coord.y = makePrecise(coord.y);
-        //MD says it's OK that we're not makePrecise'ing the z [Jon Aquino]
     }
 
+    /**
+     * Rounds a Vertex to the PrecisionModel grid.
+     */
+    public void makePrecise(Vertex3D coord)
+    {
+        // optimization for full precision
+        if (modelType == FLOATING) return;
+
+        coord.x = makePrecise(coord.x);
+        coord.y = makePrecise(coord.y);
+        coord.z = makePrecise(coord.z);
+    }
 
     public String toString() {
         String description = "UNKNOWN";

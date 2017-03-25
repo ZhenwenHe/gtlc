@@ -76,9 +76,9 @@ abstract class LineIntersector2D
      * but not safe to use for <b>truncated</b> points.
      */
     public static double computeEdgeDistance(
-            Vertex p,
-            Vertex p0,
-            Vertex p1)
+            Vertex2D p,
+            Vertex2D p0,
+            Vertex2D p1)
     {
         double dx = Math.abs(p1.x - p0.x);
         double dy = Math.abs(p1.y - p0.y);
@@ -116,9 +116,9 @@ abstract class LineIntersector2D
      * Currently not sure how to improve this.
      */
     public static double nonRobustComputeEdgeDistance(
-            Vertex p,
-            Vertex p1,
-            Vertex p2)
+            Vertex2D p,
+            Vertex2D p1,
+            Vertex2D p2)
     {
         double dx = p.x - p1.x;
         double dy = p.y - p1.y;
@@ -128,26 +128,26 @@ abstract class LineIntersector2D
     }
 
     protected int result;
-    protected Vertex[][] inputLines = new Vertex[2][2];
-    protected Vertex[] intPt = new Vertex[2];
+    protected Vertex2D[][] inputLines = new Vertex2D[2][2];
+    protected Vertex2D[] intPt = new Vertex2D[2];
     /**
      * The indexes of the endpoints of the intersection lines, in order along
      * the corresponding line
      */
     protected int[][] intLineIndex;
     protected boolean isProper;
-    protected Vertex pa;
-    protected Vertex pb;
+    protected Vertex2D pa;
+    protected Vertex2D pb;
     /**
      * If makePrecise is true, computed intersection coordinates will be made precise
-     * using Vertex#makePrecise
+     * using Vertex2D#makePrecise
      */
     protected PrecisionModel precisionModel = null;
 //public int numIntersects = 0;
 
     public LineIntersector2D() {
-        intPt[0] = Geom2DSuits.createVertex();//new Vertex();
-        intPt[1] = Geom2DSuits.createVertex();//new Vertex();
+        intPt[0] = Geom2DSuits.createVertex2D();//new Vertex2D();
+        intPt[1] = Geom2DSuits.createVertex2D();//new Vertex2D();
         // alias the intersection points for ease of reference
         pa = intPt[0];
         pb = intPt[1];
@@ -181,7 +181,7 @@ abstract class LineIntersector2D
      * @param ptIndex the index of the endpoint (0 or 1)
      * @return the specified endpoint
      */
-    public Vertex getEndpoint(int segmentIndex, int ptIndex)
+    public Vertex2D getEndpoint(int segmentIndex, int ptIndex)
     {
         return inputLines[segmentIndex][ptIndex];
     }
@@ -193,8 +193,8 @@ abstract class LineIntersector2D
      * is equal to the value of <code>p</code>.
      */
     public abstract void computeIntersection(
-            Vertex p,
-            Vertex p1, Vertex p2);
+            Vertex2D p,
+            Vertex2D p1, Vertex2D p2);
 
     protected boolean isCollinear() {
         return result == COLLINEAR_INTERSECTION;
@@ -206,8 +206,8 @@ abstract class LineIntersector2D
      * and the (approximate) value of the intersection point itself (if there is one).
      */
     public void computeIntersection(
-            Vertex p1, Vertex p2,
-            Vertex p3, Vertex p4) {
+            Vertex2D p1, Vertex2D p2,
+            Vertex2D p3, Vertex2D p4) {
         inputLines[0][0] = p1;
         inputLines[0][1] = p2;
         inputLines[1][0] = p3;
@@ -217,8 +217,8 @@ abstract class LineIntersector2D
     }
 
     protected abstract int computeIntersect(
-            Vertex p1, Vertex p2,
-            Vertex q1, Vertex q2);
+            Vertex2D p1, Vertex2D p2,
+            Vertex2D q1, Vertex2D q2);
 
 
 //    public String toString() {
@@ -263,7 +263,7 @@ abstract class LineIntersector2D
      *
      * @return the intIndex'th intersection point
      */
-    public Vertex getIntersection(int intIndex)  { return intPt[intIndex]; }
+    public Vertex2D getIntersection(int intIndex)  { return intPt[intIndex]; }
 
     protected void computeIntLineIndex() {
         if (intLineIndex == null) {
@@ -282,9 +282,9 @@ abstract class LineIntersector2D
      *
      * @return true if the input point is one of the intersection points.
      */
-    public boolean isIntersection(Vertex pt) {
+    public boolean isIntersection(Vertex2D pt) {
         for (int i = 0; i < result; i++) {
-            if (intPt[i].equals2D(pt)) {
+            if (intPt[i].equals(pt)) {
                 return true;
             }
         }
@@ -311,8 +311,8 @@ abstract class LineIntersector2D
     public boolean isInteriorIntersection(int inputLineIndex)
     {
         for (int i = 0; i < result; i++) {
-            if (! (   intPt[i].equals2D(inputLines[inputLineIndex][0])
-                    || intPt[i].equals2D(inputLines[inputLineIndex][1]) )) {
+            if (! (   intPt[i].equals(inputLines[inputLineIndex][0])
+                    || intPt[i].equals(inputLines[inputLineIndex][1]) )) {
                 return true;
             }
         }
@@ -346,7 +346,7 @@ abstract class LineIntersector2D
      *
      * @return the intIndex'th intersection point in the direction of the specified input line segment
      */
-    public Vertex getIntersectionAlongSegment(int segmentIndex, int intIndex) {
+    public Vertex2D getIntersectionAlongSegment(int segmentIndex, int intIndex) {
         // lazily compute int line array
         computeIntLineIndex();
         return intPt[intLineIndex[segmentIndex][intIndex]];

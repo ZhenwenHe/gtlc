@@ -31,9 +31,11 @@ public class GeomSuits  {
         return new Vector4D(x,y,z,w);
     }
 
-    public static Vertex createVertex(double x, double y, double z){return new VertexImpl(x,y,z); }
-    public static Vertex createVertex(double x, double y){return new VertexImpl(x,y); }
-    public static Vertex createVertex(){return new VertexImpl(0.0,0.0,0.0); }
+    public static Vertex3D createVertex3D(double x, double y, double z){return new Vertex3D(x,y,z); }
+    public static Vertex2D createVertex2D(double x, double y){return new Vertex2D(x,y); }
+    public static Vertex2D createVertex2D(Vertex2D v){return new Vertex2D(v.x,v.y); }
+    public static Vertex3D createVertex3D(){return new Vertex3D(0.0,0.0,0.0); }
+    public static Vertex2D createVertex2D(){return new Vertex2D(0.0,0.0); }
     public static Vertex createVertex(Vertex c){ return new VertexImpl(c.x,c.y,c.z); }
 
     public static VertexSequence createVertexSequence(double[] coordinates, int dim ){

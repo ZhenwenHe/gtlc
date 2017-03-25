@@ -137,6 +137,19 @@ import java.util.Arrays;
     }
 
     @Override
+    public void getCoordinate(int i, Vertex2D coord) {
+        coord.x = getOrdinate(i, 0);
+        coord.y = getOrdinate(i, 1);
+    }
+
+    @Override
+    public void getCoordinate(int i, Vertex3D coord) {
+        coord.x = getOrdinate(i, 0);
+        coord.y = getOrdinate(i, 1);
+        coord.z = getOrdinate(i, 2);
+    }
+
+    @Override
     public Vertex[] toCoordinateArray() {
         Vertex[] coords = getCachedCoords();
 // testing - never cache

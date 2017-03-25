@@ -50,6 +50,7 @@ public class Vertex2D implements gtl.io.Serializable, Comparable<Vertex2D>{
     }
 
 
+
     @Override
     public Object clone() {
         return (Object)new Vertex2D(this.x,this.y);

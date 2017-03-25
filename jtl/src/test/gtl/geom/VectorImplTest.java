@@ -12,6 +12,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  * Created by ZhenwenHe on 2016/12/15.
@@ -45,6 +46,18 @@ public class VectorImplTest extends TestCase {
     }
 
     public void testGetCoordinates() throws Exception {
+
+        int [] ints=new int[3];
+        int i=0;
+        ints[0]=10;
+        ints[1]=20;
+        ints[2]=30;
+        int v = ints[i++];
+
+        int [] intssss= Arrays.copyOf(ints,ints.length+3);
+        for( int iv: intssss){
+            System.out.println(iv);
+        }
 
     }
 

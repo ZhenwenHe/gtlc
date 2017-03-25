@@ -14,4 +14,7 @@ public class Vector4D extends VectorImpl {
     public Vector4D(double[] coordinates) {
         super(coordinates);
     }
+    public Vector4D(double []ca, int beginPosition){
+        super(ca,beginPosition,4);
+    }
 }

@@ -6,8 +6,16 @@ import gtl.io.Serializable;
  * Created by ZhenwenHe on 2016/12/8.
  */
 public interface Vector extends Serializable {
+    /**
+     * The value used to indicate a null or missing ordinate value.
+     * In particular, used for the value of ordinates for dimensions
+     * greater than the defined dimension of a coordinate.
+     */
+    public static final double NULL_ORDINATE = Double.NaN;
+
     double[] getCoordinates();
     double getOrdinate(int i);
+    void setOrdinate(int i,double d);
 
     int getDimension();
 

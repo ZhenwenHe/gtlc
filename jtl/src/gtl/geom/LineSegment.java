@@ -6,6 +6,6 @@ package gtl.geom;
 public interface LineSegment extends gtl.io.Serializable, Comparable<LineSegment> {
     void reset(Vector s, Vector e);
     void reset(double[] s, double[] e);
-    Vector getStartVertex();
-    Vector getEndVertex();
+    Vector getStartPoint();
+    Vector getEndPoint();
 }

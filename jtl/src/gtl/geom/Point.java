@@ -18,7 +18,7 @@ public class Point extends Geometry implements Puntal {
     /**
      *  The <code>Vertex</code> wrapped by this <code>Point</code>.
      */
-    private VertexSequence coordinates;
+    private VectorSequence coordinates;
 
 
     @Override

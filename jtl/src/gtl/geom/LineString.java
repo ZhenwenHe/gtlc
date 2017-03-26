@@ -22,7 +22,7 @@ public class LineString extends Geometry implements Lineal {
     /**
      *  The points of this <code>LineString</code>.
      */
-    protected VertexSequence vertices;
+    protected VectorSequence vertices;
 
     @Override
     public Object clone() {

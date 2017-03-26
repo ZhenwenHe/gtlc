@@ -1,10 +1,12 @@
 package test.gtl.geom;
 
 import gtl.geom.PackedVectorSequence;
+import gtl.geom.Vector;
 import gtl.geom.Vector3D;
 import junit.framework.TestCase;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 /**
  * Created by hadoop on 17-3-25.
@@ -12,7 +14,7 @@ import java.util.ArrayList;
 public class PackedVectorSequenceTest extends TestCase {
     PackedVectorSequence pvs = null;
     int dim=3;
-    int size=3;
+    int size=10;
     ArrayList<Vector3D> v3ds=null;
     public PackedVectorSequenceTest() {
         v3ds=new ArrayList<>(size);
@@ -23,7 +25,7 @@ public class PackedVectorSequenceTest extends TestCase {
             Vector3D v3d=new Vector3D(s*dim,s*dim+1,s*dim+2);
             v3ds.add(v3d);
         }
-        this.pvs = new PackedVectorSequence(dim,temp);
+        this.pvs = new PackedVectorSequence(temp,dim);
         temp=null;
     }
 
@@ -66,7 +68,12 @@ public class PackedVectorSequenceTest extends TestCase {
     }
 
     public void testIterator() throws Exception {
-
+        Iterator<Vector> it = pvs.iterator();
+        int i=0;
+        while (it.hasNext()){
+            assertTrue(it.next().equals(v3ds.get(i)));
+            i++;
+        }
     }
 
     public void testToArray() throws Exception {
@@ -79,6 +86,20 @@ public class PackedVectorSequenceTest extends TestCase {
 
     public void testAdd() throws Exception {
 
+
+    }
+
+    public void testInsert() throws Exception {
+
+        PackedVectorSequence p = (PackedVectorSequence)pvs.clone();
+        assertTrue(p.remove(v3ds.get(1)));
+        int s = p.size();
+        assertTrue(s==size-1);
+        p.insert(1,v3ds.get(1));
+        s = p.size();
+        assertTrue(s==size);
+        assertTrue(pvs.find(v3ds.get(1))==1);
+        assertTrue(p.getVector(1).equals(v3ds.get(1)));
     }
 
     public void testFind() throws Exception {
@@ -88,7 +109,15 @@ public class PackedVectorSequenceTest extends TestCase {
     }
 
     public void testRemove() throws Exception {
-
+        PackedVectorSequence p = (PackedVectorSequence)pvs.clone();
+        assertTrue(p.remove(v3ds.get(1)));
+        assertTrue(p.getVector(1).equals(v3ds.get(2)));
+        assertTrue(p.remove(v3ds.get(0)));
+        assertTrue(p.getVector(0).equals(v3ds.get(2)));
+        assertTrue(p.remove(v3ds.get(size-1)));
+        int s = p.size();
+        assertTrue(s==size-3);
+        assertTrue(p.getVector(s-1).equals(v3ds.get(size-2)));
     }
 
     public void testContainsAll() throws Exception {
@@ -164,6 +193,12 @@ public class PackedVectorSequenceTest extends TestCase {
     }
 
     public void testEquals() throws Exception {
+        assertTrue(pvs.getVector(0).equals(v3ds.get(0)));
+        assertTrue(! pvs.getVector(0).equals(v3ds.get(2)));
+        assertTrue(pvs.getVector(1).equals(v3ds.get(1)));
+        assertTrue(! pvs.getVector(1).equals(v3ds.get(0)));
+        assertTrue(pvs.getVector(2).equals(v3ds.get(2)));
+        assertTrue(! pvs.getVector(2).equals(v3ds.get(1)));
 
     }
 

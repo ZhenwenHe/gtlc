@@ -20,4 +20,10 @@ public interface VectorSequence extends Collection<Vector> ,gtl.io.Serializable{
     Vector getVector(int index);
     Vector getVector(int index, Vector v);
     int find(Vector v);
+    Vector remove(int index);
+    void insert(int index, Vector v);
+    void add(double x, double y);
+    void add(double x, double y, double z);
+    void add(double x, double y, double z,double w);
+    void reset(double[] vectors,int dimension);
 }

@@ -22,7 +22,7 @@ public class PackedVectorSequence implements VectorSequence {
      */
     double[] coordinates;
 
-    public PackedVectorSequence(int dimension, double[] coordinates) {
+    public PackedVectorSequence(double[] coordinates,int dimension ) {
         if (dimension < 2) {
             throw new IllegalArgumentException("Must have at least 2 dimensions");
         }
@@ -34,10 +34,20 @@ public class PackedVectorSequence implements VectorSequence {
         this.dimension = dimension;
         this.coordinates = Arrays.copyOf(coordinates,coordinates.length);
     }
+    public PackedVectorSequence( ) {
+        this.dimension = 3;
+        this.coordinates = null;
+    }
+
+    @Override
+    public void reset(double[] vectors,int dimension) {
+        this.dimension = dimension;
+        this.coordinates = Arrays.copyOf(vectors,vectors.length);
+    }
 
     @Override
     public Object clone() {
-        return new PackedVectorSequence(this.dimension,this.coordinates);
+        return new PackedVectorSequence(this.coordinates,this.dimension);
     }
 
     @Override
@@ -172,12 +182,11 @@ public class PackedVectorSequence implements VectorSequence {
             if(i!=-1){
                 double [] dd = new double[this.coordinates.length-this.dimension];
                 //0-i
-                System.arraycopy(this.coordinates,0,dd,0,i);
-                int j=i;
-                for(i+=this.dimension;i<this.coordinates.length;++i){
-                    dd[j]=this.coordinates[i];
-                    ++j;
-                }
+                System.arraycopy(this.coordinates,0,dd,0,i*this.dimension);
+                //i+1-len;
+                System.arraycopy(this.coordinates,(i+1)*this.dimension,
+                        dd,i*this.dimension,(this.size()-1-i)*this.dimension);
+                this.coordinates=dd;
                 return true;
             }
             else {
@@ -185,6 +194,48 @@ public class PackedVectorSequence implements VectorSequence {
             }
         }
         return false;
+    }
+
+    @Override
+    public Vector remove(int index) {
+        Vector v = getVector(index);
+        this.remove(v);
+        return v;
+    }
+
+    @Override
+    public void insert(int index, Vector v) {
+        if(index>=this.size() || this.isEmpty()) {
+            add(v);
+        }
+        else {
+            int len = this.coordinates.length;
+            int newLen=len+this.dimension;
+            int i=0;
+            double [] dd = new double[newLen];
+            len = index* this.dimension;
+            for( i=0;i<len;++i) dd[i]=this.coordinates[i];
+            for( i=(index+1)*this.dimension;i<newLen;++i)
+                dd[i]=this.coordinates[i-this.dimension];
+            for(i=0;i<this.dimension;++i)
+                dd[i+len]=v.getOrdinate(i);
+            this.coordinates=dd;
+        }
+    }
+
+    @Override
+    public void add(double x, double y) {
+        this.add(new Vector2D(x,y));
+    }
+
+    @Override
+    public void add(double x, double y, double z) {
+        this.add(new Vector3D(x,y,z));
+    }
+
+    @Override
+    public void add(double x, double y, double z, double w) {
+        this.add(new Vector4D(x,y,z,w));
     }
 
     @Override
@@ -200,12 +251,8 @@ public class PackedVectorSequence implements VectorSequence {
     @Override
     public boolean addAll(Collection<? extends Vector> c) {
         Iterator<?> it = c.iterator();
-        Vector i=null;
         while(it.hasNext()){
-            i = (Vector) it.next();
-            if(this.contains(i)==false){
-                this.add(i);
-            }
+            this.add((Vector) it.next());
         }
         return true;
     }
@@ -316,7 +363,7 @@ public class PackedVectorSequence implements VectorSequence {
     @Override
     public Vector getVector(int index, Vector v) {
         Vector vr = getVector(index);
-        v.copyTo(vr);
+        vr.copyTo(v);
         return v;
     }
 

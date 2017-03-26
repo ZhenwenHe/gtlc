@@ -39,4 +39,5 @@ public interface Vector extends Serializable {
 
     Vector subtract  (Vector b);//this - b;
     Vector add(Vector b);//this + b;
+    Vector multiply(Scalar s);
 }

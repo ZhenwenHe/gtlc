@@ -1,36 +1,95 @@
 package gtl.geom;
 
+import java.io.DataInput;
+import java.io.DataOutput;
+import java.io.IOException;
+
 /**
  * Created by hadoop on 17-3-26.
  */
-public class Scalar {
+public class Scalar implements gtl.io.Serializable{
     double scalar;
 
     public Scalar(double scalar) {
         this.scalar = scalar;
     }
 
-    Scalar multiply(Scalar s){
+    public Scalar multiply(Scalar s){
         return new Scalar(s.scalar*this.scalar);
     }
 
-    Vector multiply(Vector s){
+    public Vector multiply(Vector s){
         Vector v = (Vector)s.clone();
         for(int i=0;i<s.getDimension();++i)
             v.setOrdinate(i,s.getOrdinate(i)*this.scalar);
         return v;
     }
 
-    Scalar add(Scalar s){
+    public Scalar add(Scalar s){
         return new Scalar(s.scalar+this.scalar);
     }
 
-    Scalar subtract(Scalar s){
+    public Scalar subtract(Scalar s){
         return new Scalar(this.scalar-s.scalar);
     }
 
-    Scalar divide(Scalar s){
+    public Scalar divide(Scalar s){
         return new Scalar(this.scalar/s.scalar);
     }
 
+    public double getScalar(){
+        return this.scalar;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Scalar scalar1 = (Scalar) o;
+
+        return Double.compare(scalar1.scalar, scalar) == 0;
+    }
+
+    @Override
+    public int hashCode() {
+        long temp = Double.doubleToLongBits(scalar);
+        return (int) (temp ^ (temp >>> 32));
+    }
+
+    @Override
+    public String toString() {
+        return "Scalar{" +
+                "scalar=" + scalar +
+                '}';
+    }
+
+    @Override
+    public Object clone() {
+        return new Scalar(this.scalar);
+    }
+
+    @Override
+    public void copyFrom(Object i) {
+        if(i instanceof Scalar){
+            this.scalar=((Scalar)i).scalar;
+        }
+    }
+
+    @Override
+    public boolean load(DataInput in) throws IOException {
+        this.scalar=in.readDouble();
+        return true;
+    }
+
+    @Override
+    public boolean store(DataOutput out) throws IOException {
+        out.writeDouble(this.scalar);
+        return true;
+    }
+
+    @Override
+    public long getByteArraySize() {
+        return 8;
+    }
 }

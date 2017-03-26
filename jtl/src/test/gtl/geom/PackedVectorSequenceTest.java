@@ -1,5 +1,6 @@
 package test.gtl.geom;
 
+import gtl.geom.Geom3DSuits;
 import gtl.geom.PackedVectorSequence;
 import gtl.geom.Vector;
 import gtl.geom.Vector3D;
@@ -165,7 +166,6 @@ public class PackedVectorSequenceTest extends TestCase {
     }
 
     public void testSetY() throws Exception {
-
     }
 
     public void testSetZ() throws Exception {

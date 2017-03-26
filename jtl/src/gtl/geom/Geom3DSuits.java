@@ -10,7 +10,274 @@ import gtl.math.MathSuits;
 public class Geom3DSuits extends GeomSuits {
 
 
+    /**
+     * dot product (3D) which  allows vector operations in arguments
+     * #define dot(u,v)   ((u).x * (v).x + (u).y * (v).y + (u).z * (v).z)
+     * #define norm(v)    sqrt(dot(v,v))  // norm = length of  vector
+     * #define d(P,Q)     norm(P-Q)        // distance = norm of difference
+     * @param P
+     * @param Q
+     * @return
+     */
+    public static double distance(Vector P, Vector Q){
+        Vector v= Q.subtract(P) ;
+        return Math.sqrt(v.dotProduct(v));
+        //return MathSuits.distance(a.getCoordinates(),b.getCoordinates());
+    }
 
+    /**
+     *
+     * @param P
+     * @param L
+     * @return the shortest distance from P to L
+     * ref:http://geomalgorithms.com/a02-_lines.html
+     */
+    public static double perpendicularDistance(Vector P, InfiniteLine L){
+        Vector P0=L.startPoint;
+        Vector P1=L.endPoint;
+        Vector v = P1.subtract(P0);//P1 - P0;
+        Vector w = P.subtract(P0);//P - P0;
+
+        double c1 = w.dotProduct(v);//dot(w,v);
+        double c2 = v.dotProduct(v);//dot(v,v);
+        Scalar b = new Scalar(c1 / c2);
+        //double b = c1 / c2;
+        //Point Pb = L.P0 + b * v;
+        Vector Pb = P0.add(b.multiply(v));
+        return distance(P, Pb);
+    }
+
+    /**
+     *
+     * @param P
+     * @param L
+     * @return return the foot of perpendicular to L
+     */
+    public Vector perpendicularFoot(Vector P, InfiniteLine L){
+        Vector P0=L.startPoint;
+        Vector P1=L.endPoint;
+        Vector v = P1.subtract(P0);//P1 - P0;
+        Vector w = P.subtract(P0);//P - P0;
+
+        double c1 = w.dotProduct(v);//dot(w,v);
+        double c2 = v.dotProduct(v);//dot(v,v);
+        Scalar b = new Scalar(c1 / c2);
+        //double b = c1 / c2;
+        //Point Pb = L.P0 + b * v;
+        Vector Pb = P0.add(b.multiply(v));
+        return Pb;
+    }
+
+    /**
+     *
+     * @param P
+     * @param L
+     * @return return the foot of perpendicular to S
+     */
+    public Vector perpendicularFoot(Vector P , LineSegment S){
+        Vector P0=S.startPoint;
+        Vector P1=S.endPoint;
+        Vector v = P1.subtract(P0);//P1 - P0;
+        Vector w = P.subtract(P0);//P - P0;
+
+        double c1 = w.dotProduct(v);//dot(w,v);
+        double c2 = v.dotProduct(v);//dot(v,v);
+        Scalar b = new Scalar(c1 / c2);
+        //double b = c1 / c2;
+        //Point Pb = S.P0 + b * v;
+        Vector Pb = P0.add(b.multiply(v));
+
+        //TODO : Pb is on S
+
+        return Pb;
+    }
+
+    /**
+     *
+     * @param P
+     * @param PL
+     * @return return the foot of perpendicular to PL
+     */
+
+    public static Vector perpendicularFoot( Vector P, Plane PL) {
+        double    sn, sd;
+        Vector V0=PL.getVertices()[0];
+        Vector N =PL.getNormal();
+        //sn = -dot( PL.n, (P - PL.V0));
+        sn = - N.dotProduct(P.subtract(V0));
+        //sd = dot(PL.n, PL.n);
+        sd = N.dotProduct(N);
+        //*B = P + sb * PL.n;
+        Scalar sb=new Scalar(sn / sd);
+        return P.add(sb.multiply(N));
+    }
+
+    /**
+     *
+     * @param P
+     * @param S
+     * @return the shortest distance from P to S
+     * ref:http://geomalgorithms.com/a02-_lines.html
+     */
+    public static double shortestDistance(Vector P , LineSegment S){
+        Vector P0 = S.startPoint;
+        Vector P1 = S.endPoint;
+
+        Vector v = P1.subtract(P0);
+        Vector w = P.subtract(P0);
+
+        double c1 = w.dotProduct(v);
+        if ( c1 <= 0 )
+            return distance(P, P0);
+
+        double c2 = v.dotProduct(v);
+        if ( c2 <= c1 )
+            return distance(P, P1);
+
+        //double b = c1 / c2;
+        Scalar b= new Scalar(c1/c2);
+        Vector Pb = P0.add(b.multiply(v));
+        return distance(P, Pb);
+    }
+
+    /**
+     *
+     * @param L1
+     * @param L2
+     * @return the shortest distance between L1 and L2
+     * ref:http://geomalgorithms.com/a07-_distance.html
+     */
+    public static double shortestDistance(InfiniteLine L1, InfiniteLine L2){
+        Vector   u = L1.endPoint.subtract(L1.startPoint);//L1.P1 - L1.P0;
+        Vector   v = L2.endPoint.subtract(L2.startPoint);//L2.P1 - L2.P0;
+        Vector   w = L1.startPoint.subtract(L2.startPoint);//L1.P0 - L2.P0;
+        double    a = dotProduct(u,u);         // always >= 0
+        double    b = dotProduct(u,v);
+        double    c = dotProduct(v,v);         // always >= 0
+        double    d = dotProduct(u,w);
+        double    e = dotProduct(v,w);
+        double    D = a*c - b*b;        // always >= 0
+        double    sc, tc;
+
+        // compute the line parameters of the two closest points
+        if (D < MathSuits.EPSILON) {          // the lines are almost parallel
+            sc = 0.0;
+            tc = (b>c ? d/b : e/c);    // use the largest denominator
+        }
+        else {
+            sc = (b*e - c*d) / D;
+            tc = (a*e - b*d) / D;
+        }
+        Scalar scScalar=new Scalar(sc);
+        Scalar tcScalar=new Scalar(tc);
+        // get the difference of the two closest points
+        //Vector   dP = w + (sc * u) - (tc * v);  // =  L1(sc) - L2(tc)
+        Vector   dP = w.add(scScalar.multiply(u)).subtract(tcScalar.multiply(v));
+        return normalize(dP);   // return the closest distance
+    }
+
+    /**
+     *
+     * @param S1
+     * @param S2
+     * @return the shortest distance between S1 and S2
+     * ref:http://geomalgorithms.com/a07-_distance.html
+     */
+    public static double shortestDistance(LineSegment S1,LineSegment S2){
+        Vector   u = subtract(S1.endPoint,S1.startPoint);//S1.P1 - S1.P0;
+        Vector   v = subtract(S2.endPoint,S2.startPoint);//S2.P1 - S2.P0;
+        Vector   w = subtract(S1.startPoint,S2.startPoint);//S1.P0 - S2.P0;
+        double    a = dotProduct(u,u);         // always >= 0
+        double    b = dotProduct(u,v);
+        double    c = dotProduct(v,v);         // always >= 0
+        double    d = dotProduct(u,w);
+        double    e = dotProduct(v,w);
+        double    D = a*c - b*b;        // always >= 0
+        double    sc, sN, sD = D;       // sc = sN / sD, default sD = D >= 0
+        double    tc, tN, tD = D;       // tc = tN / tD, default tD = D >= 0
+
+        // compute the line parameters of the two closest points
+        if (D < MathSuits.EPSILON) { // the lines are almost parallel
+            sN = 0.0;         // force using point P0 on segment S1
+            sD = 1.0;         // to prevent possible division by 0.0 later
+            tN = e;
+            tD = c;
+        }
+        else {                 // get the closest points on the infinite lines
+            sN = (b*e - c*d);
+            tN = (a*e - b*d);
+            if (sN < 0.0) {        // sc < 0 => the s=0 edge is visible
+                sN = 0.0;
+                tN = e;
+                tD = c;
+            }
+            else if (sN > sD) {  // sc > 1  => the s=1 edge is visible
+                sN = sD;
+                tN = e + b;
+                tD = c;
+            }
+        }
+
+        if (tN < 0.0) {            // tc < 0 => the t=0 edge is visible
+            tN = 0.0;
+            // recompute sc for this edge
+            if (-d < 0.0)
+                sN = 0.0;
+            else if (-d > a)
+                sN = sD;
+            else {
+                sN = -d;
+                sD = a;
+            }
+        }
+        else if (tN > tD) {      // tc > 1  => the t=1 edge is visible
+            tN = tD;
+            // recompute sc for this edge
+            if ((-d + b) < 0.0)
+                sN = 0;
+            else if ((-d + b) > a)
+                sN = sD;
+            else {
+                sN = (-d +  b);
+                sD = a;
+            }
+        }
+        // finally do the division to get sc and tc
+        sc = (Math.abs(sN) < MathSuits.EPSILON ? 0.0 : sN / sD);
+        tc = (Math.abs(tN) < MathSuits.EPSILON ? 0.0 : tN / tD);
+        Scalar scScalar=new Scalar(sc);
+        Scalar tcScalar=new Scalar(tc);
+        // get the difference of the two closest points
+        //Vector   dP = w + (sc * u) - (tc * v);  // =  S1(sc) - S2(tc)
+        Vector   dP = w.add(scScalar.multiply(u)).subtract(tcScalar.multiply(v));
+        return normalize(dP);   // return the closest distance
+    }
+
+    /**
+     * dist_Point_to_Plane(): get distance (and perp base) from a point to a plane
+     * Input:  P  = a 3D point
+     * PL = a  plane with point V0 and normal n
+     * Output: B = base point on PL of perpendicular from P
+     * Return: the distance from P to the plane PL
+     * @param P
+     * @param PL
+     * @param basePoint base point on PL of perpendicular from P
+     * @return the distance from P to the plane PL
+     */
+    public static double perpendicularDistance( Vector P, Plane PL, Vector basePoint) {
+        double    sn, sd;
+        Vector V0=PL.getVertices()[0];
+        Vector N =PL.getNormal();
+        //sn = -dot( PL.n, (P - PL.V0));
+        sn = - N.dotProduct(P.subtract(V0));
+        //sd = dot(PL.n, PL.n);
+        sd = N.dotProduct(N);
+        //*B = P + sb * PL.n;
+        Scalar sb=new Scalar(sn / sd);
+        Vector B = P.add(sb.multiply(N));
+        if(basePoint!=null) B.copyTo(basePoint);
+        return distance(P,B);
+    }
 
     /**求 C 点在直线 AB 上的垂线距离
      *
@@ -93,6 +360,13 @@ public class Geom3DSuits extends GeomSuits {
     public static double normalize(Vector v){
         return v.normalize();
     }
+
+    /**
+     *
+     * @param v
+     * @param v2
+     * @return
+     */
     public static double dotProduct(Vector v, Vector v2){
         return v.dotProduct(v2);
     }
@@ -122,136 +396,85 @@ public class Geom3DSuits extends GeomSuits {
         return a.crossProduct(b);
     }
 
+    /**
+     *
+     * @param o
+     * @param a
+     * @param b
+     * @return
+     */
     public static  double angle(Vector o, Vector a , Vector b){
         return o.angle(a,b);
     }
 
+    /**
+     *
+     * @param a
+     * @param b
+     * @return
+     */
     public static Vector subtract  (Vector a, Vector b){
         return a.subtract(b);
     }
+
+    /**
+     *
+     * @param a
+     * @param b
+     * @return
+     */
     public static Vector add(Vector a, Vector b){
         return a.add(b);
     }
-    public static double distance(Vector a, Vector b){
-        return MathSuits.distance(a.getCoordinates(),b.getCoordinates());
-    }
 
-    public static double distancePointSegment(Vector p, Vector A, Vector B) {
-        // if start = end, then just compute distance2D to one of the endpoints
-        if (A.equals(B))
-            return distance(p, A);
+    /**
+     * Closest Point of Approach (CPA)
+     * The "Closest Point of Approach" refers to the positions at which two dynamically moving objects reach their closest possible distance.
+     * This is an important calculation for collision avoidance. In many cases of interest, the objects, referred to as "tracks",
+     * are points moving in two fixed directions at fixed speeds. That means that the two points are moving along two lines in space.
+     * However, their closest distance is not the same as the closest distance between the lines since the distance between the points must be computed at the same moment in time.
+     * So, even in 2D with two lines that intersect, points moving along these lines may remain far apart. But if one of the tracks is stationary,
+     * then the CPA of another moving track is at the base of the perpendicular from the first track to the second's line of motion.
+     * cpa_time(): compute the time of CPA for two tracks
+     * Input:  two tracks Tr1 and Tr2
+     *
+     * @param Tr1
+     * @param Tr2
+     * @return the time at which the two tracks are closest
+     * ref:http://geomalgorithms.com/a07-_distance.html
+     */
+    public  static  double cpaTime( Track Tr1, Track Tr2 ) {
+        Vector   dv = subtract(Tr1.velocity ,Tr2.velocity);
 
-        // otherwise use comp.graphics.algorithms Frequently Asked Questions method
-	    /*
-	     * (1) r = AC dot AB 
-	     *         --------- 
-	     *         ||AB||^2 
-	     *         
-	     * r has the following meaning: 
-	     *   r=0 P = A 
-	     *   r=1 P = B 
-	     *   r<0 P is on the backward extension of AB 
-	     *   r>1 P is on the forward extension of AB 
-	     *   0<r<1 P is interior to AB
-	     */
+        double    dv2 = dotProduct(dv,dv);
+        if (dv2 < MathSuits.EPSILON)      // the  tracks are almost parallel
+            return 0.0;             // any time is ok.  Use time 0.
 
-        double len2 = (B.getX() - A.getX()) * (B.getX() - A.getX()) + (B.getY() - A.getY()) * (B.getY() - A.getY()) + (B.getZ() - A.getZ()) * (B.getZ() - A.getZ());
-        if (Double.isNaN(len2))
-            throw new IllegalArgumentException("Ordinates must not be NaN");
-        double r = ((p.getX() - A.getX()) * (B.getX() - A.getX()) + (p.getY() - A.getY()) * (B.getY() - A.getY()) + (p.getZ() - A.getZ()) * (B.getZ() - A.getZ()))
-                / len2;
+        Vector   w0 = subtract(Tr1.origin , Tr2.origin);
+        double    cpatime = -dotProduct(w0,dv) / dv2;
 
-        if (r <= 0.0)
-            return distance(p, A);
-        if (r >= 1.0)
-            return distance(p, B);
-
-        // compute closest point q on line segment
-        double qx = A.getX() + r * (B.getX() - A.getX());
-        double qy = A.getY() + r * (B.getY() - A.getY());
-        double qz = A.getZ() + r * (B.getZ() - A.getZ());
-        // result is distance2D from p to q
-        double dx = p.getX() - qx;
-        double dy = p.getY() - qy;
-        double dz = p.getZ() - qz;
-        return Math.sqrt(dx*dx + dy*dy + dz*dz);
+        return cpatime;             // time of CPA
     }
 
     /**
-     * Computes the distance2D between two 3D segments.
-     *
-     * @param A the start point of the first segment
-     * @param B the end point of the first segment
-     * @param C the start point of the second segment
-     * @param D the end point of the second segment
-     * @return the distance2D between the segments
+     * Closest Point of Approach (CPA)
+     * The "Closest Point of Approach" refers to the positions at which two dynamically moving objects reach their closest possible distance.
+     * This is an important calculation for collision avoidance. In many cases of interest, the objects, referred to as "tracks",
+     * are points moving in two fixed directions at fixed speeds. That means that the two points are moving along two lines in space.
+     * However, their closest distance is not the same as the closest distance between the lines since the distance between the points must be computed at the same moment in time.
+     * So, even in 2D with two lines that intersect, points moving along these lines may remain far apart. But if one of the tracks is stationary,
+     * then the CPA of another moving track is at the base of the perpendicular from the first track to the second's line of motion.
+     * cpa_distance(): compute the distance at CPA for two tracks
+     * @param Tr1
+     * @param Tr2
+     * @return the distance for which the two tracks are closest
+     * ref: http://geomalgorithms.com/a07-_distance.html
      */
-    public static double distanceSegmentSegment(Vector A, Vector B, Vector C, Vector D)
-    {
-        /**
-         * This calculation is susceptible to roundoff errors when 
-         * passed large ordinate values.
-         * It may be possible to improve this by using {@link DD} arithmetic.
-         */
-        if (A.equals(B))
-            return distancePointSegment(A, C, D);
-        if (C.equals(B))
-            return distancePointSegment(C, A, B);
+    public static double cpaDistance( Track Tr1, Track Tr2 ) {
+        double    ctime = cpaTime( Tr1, Tr2);
+        Vector    P1 = add(Tr1.origin , Tr1.velocity.multiply(ctime));
+        Vector    P2 = add(Tr2.origin , Tr2.velocity.multiply(ctime));
 
-        /**
-         * Algorithm derived from http://softsurfer.com/Archive/algorithm_0106/algorithm_0106.htm
-         */
-        double a = dotProduct(A, B, A, B);
-        double b = dotProduct(A, B, C, D);
-        double c = dotProduct(C, D, C, D);
-        double d = dotProduct(A, B, C, A);
-        double e = dotProduct(C, D, C, A);
-
-        double denom = a*c - b*b;
-        if (Double.isNaN(denom))
-            throw new IllegalArgumentException("Ordinates must not be NaN");
-
-        double s;
-        double t;
-        if (denom <= 0.0) {
-            /**
-             * The lines are parallel. 
-             * In this case solve for the parameters s and t by assuming s is 0.
-             */
-            s = 0;
-            // choose largest denominator for optimal numeric conditioning
-            if (b > c)
-                t = d/b;
-            else
-                t = e/c;
-        }
-        else {
-            s = (b*e - c*d) / denom;
-            t = (a*e - b*d) / denom;
-        }
-        if (s < 0)
-            return distancePointSegment(A, C, D);
-        else if (s > 1)
-            return distancePointSegment(B, C, D);
-        else if (t < 0)
-            return distancePointSegment(C, A, B);
-        else if(t > 1) {
-            return distancePointSegment(D, A, B);
-        }
-        /**
-         * The closest points are in interiors of segments,
-         * so compute them directly
-         */
-        double x1 = A.getX() + s * (B.getX() - A.getX());
-        double y1 = A.getY() + s * (B.getY() - A.getY());
-        double z1 = A.getZ() + s * (B.getZ() - A.getZ());
-
-        double x2 = C.getX() + t * (D.getX() - C.getX());
-        double y2 = C.getY() + t * (D.getY() - C.getY());
-        double z2 = C.getZ() + t * (D.getZ() - C.getZ());
-
-        // length (p1-p2)
-        return distance((Vector) createVector(x1, y1, z1), (Vector) createVector(x2, y2, z2));
+        return distance(P1,P2);            // distance at CPA
     }
-
 }

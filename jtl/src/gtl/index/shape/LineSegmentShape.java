@@ -86,23 +86,6 @@ public class LineSegmentShape extends LineSegment implements Shape {
 
         return Math.abs((x2 - x1) * (y1 - y0) - (x1 - x0) * (y2 - y1)) / (Math.sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1)));
     }
-
-    @Override
-    public Vector getCenter() {
-        double [] startCoordinates = this.getStartCoordinates();
-        double [] endCoordinates = this.getEndCoordinates();
-        int dims =this.getDimension();
-        double[] coordinates = new double[dims];
-        for (int cDim = 0; cDim < dims; ++cDim)
-        {
-            coordinates[cDim] =
-                    (Math.abs(startCoordinates[cDim] - endCoordinates[cDim]) / 2.0) +
-                            Math.min(startCoordinates[cDim], endCoordinates[cDim]);
-        }
-        return ShapeSuits.createPoint(coordinates).getCenter();
-    }
-
-
     public double getRelativeMinimumDistance(PointShape p) {
         assert getDimension()==2;
         double [] startCoordinates = this.getStartCoordinates();

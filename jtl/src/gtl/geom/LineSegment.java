@@ -91,4 +91,8 @@ public class LineSegment implements gtl.io.Serializable, Comparable<LineSegment>
     public InfiniteLine extend(){
         return new InfiniteLine(startPoint,endPoint);
     }
+
+    public Vector getCenter() {
+        return this.startPoint.add(this.endPoint).divide(2);
+    }
 }

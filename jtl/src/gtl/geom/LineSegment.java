@@ -83,4 +83,12 @@ public class LineSegment implements gtl.io.Serializable, Comparable<LineSegment>
     public int compareTo(LineSegment o) {
         return 0;
     }
+
+    /**
+     * extend to line
+     * @return
+     */
+    public InfiniteLine extend(){
+        return new InfiniteLine(startPoint,endPoint);
+    }
 }

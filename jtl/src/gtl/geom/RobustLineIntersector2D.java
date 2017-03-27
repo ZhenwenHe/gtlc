@@ -217,7 +217,7 @@ class RobustLineIntersector2D extends LineIntersector2D {
     private void checkDD(Vertex2D p1, Vertex2D p2, Vertex2D q1,
                          Vertex2D q2, Vertex2D intPt)
     {
-        Vertex2D intPtDD = Geom2DSuits.intersection2d(p1, p2, q1, q2);
+        Vertex2D intPtDD = Geom2DSuits.intersection(p1, p2, q1, q2);
         boolean isIn = isInSegmentEnvelopes(intPtDD);
         System.out.println(   "DD in env = " + isIn + "  --------------------- " + intPtDD);
         if (intPt.distance(intPtDD) > 0.0001) {

@@ -303,4 +303,9 @@ public class VectorImpl implements Vector {
         }
         return v;
     }
+
+    @Override
+    public Vector2D flap(){
+        return new Vector2D(this.coordinates[0],this.coordinates[1]);
+    }
 }

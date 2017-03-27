@@ -477,4 +477,189 @@ public class Geom3DSuits extends GeomSuits {
 
         return distance(P1,P2);            // distance at CPA
     }
+
+    /**
+     *  find the 3D intersection of a segment and a plane
+     *  S = a segment, and Pn = a plane = {Point V0;  Vector n;}
+     * @param S
+     * @param Pn
+     * @param outPoint  the intersect point (when it exists)
+     * @return  0 = disjoint (no intersection)
+     *           1 =  intersection in the unique point *I0
+     *           2 = the segment lies in the plane
+     */
+    public static int intersection(LineSegment S, Plane Pn,Vector outPoint){
+        Vector SP1 = S.endPoint;
+        Vector SP0=S.startPoint;
+        Vector PnV0=Pn.getVertices()[0];
+        Vector Pnn=Pn.getNormal();
+        //Vector u = S.P1 - S.P0;
+        Vector u = SP1.subtract(SP0);
+        //Vector w = S.P0 - Pn.V0;
+        Vector w=SP0.subtract(PnV0);
+        double D = dotProduct(Pnn, u);
+        double N = -dotProduct(Pnn, w);
+
+        if (Math.abs(D) < MathSuits.EPSILON) { // segment is parallel to plane
+            if (N == 0) // segment lies in plane
+                return 2;
+            else
+            return 0;// no intersection
+        }
+        // they are not parallel
+        // compute intersect param
+        double sI = N / D;
+        if (sI < 0 || sI > 1)
+            return 0; // no intersection
+
+        //*I = S.P0 + sI * u; // compute segment intersect point
+        outPoint.copyFrom(u.multiply(sI).add(SP0));
+        return 1;
+    }
+
+    /**
+     *find the 3D intersection of two planes
+     * @param Pn1
+     * @param Pn2
+     * @param outLine  the intersection line (when it exists)
+     * @return 0 = disjoint (no intersection)
+     *          1 = the two  planes coincide
+     *          2 =  intersection in the unique line *L
+     */
+    public static int intersection(Plane Pn1,Plane Pn2,InfiniteLine outLine){
+        Vector Pn1V0=Pn1.getVertices()[0];
+        Vector Pn2V0=Pn2.getVertices()[0];
+        Vector Pn1n=Pn1.getNormal();
+        Vector Pn2n=Pn2.getNormal();
+        Vector u = crossProduct(Pn1n,Pn2n); // cross product
+        double ax = (u.getX() >= 0 ? u.getX() : -u.getX());
+        double ay = (u.getY() >= 0 ? u.getY() : -u.getY());
+        double az = (u.getZ() >= 0 ? u.getZ() : -u.getZ());
+
+        // test if the two planes are parallel
+        if ((ax+ay+az) < MathSuits.EPSILON) { // Pn1 and Pn2 are near parallel
+        // test if disjoint or coincide
+            Vector  v = Pn2V0.subtract(Pn1V0);
+            if (dotProduct(Pn1n, v) == 0) // Pn2V0 lies in Pn1
+                return 1;  // Pn1 and Pn2 coincide
+            else
+                return 0; // Pn1 and Pn2 are disjoint
+        }
+        // Pn1 and Pn2 intersect in a line
+        // first determine max abs coordinate of cross product
+        int maxc=0; // max coordinate
+        if (ax > ay) {
+            if (ax > az)
+                maxc =1;
+            else
+                maxc = 3;
+        }
+        else {
+            if (ay > az)
+                maxc = 2;
+            else
+                maxc = 3;
+        }
+        // next, to get a point on the intersect line
+        // zero the max coord, and solve for the other two
+        double x=0,y=0,z=0;//Vector iP;  // intersect point
+        double d1, d2; // the constants in the 2 plane equations
+        d1 = -dotProduct(Pn1n, Pn1V0); // note: could be pre-stored  with plane
+        d2 = -dotProduct(Pn2n, Pn2V0); // ditto
+        switch (maxc) { // select max coordinate
+            case 1:// intersect with x=0
+            {
+                x = 0;
+                y = (d2*Pn1n.getZ() - d1*Pn2n.getZ()) /u.getX();
+                z = (d1*Pn2n.getY() - d2*Pn1n.getY()) /u.getX();
+                break;
+            }
+            case 2: // intersect with y=0
+            {
+                x = (d1 * Pn2n.getZ() - d2 * Pn1n.getZ()) / u.getY();
+                y = 0;
+                z = (d2 * Pn1n.getX() - d1 * Pn2n.getX()) / u.getY();
+                break;
+            }
+            case 3:// intersect with z=0
+            {
+                x = (d2 * Pn1n.getY() - d1 * Pn2n.getY()) / u.getZ();
+                y = (d1 * Pn2n.getX() - d2 * Pn1n.getX()) / u.getZ();
+                z = 0;
+                break;
+            }
+        }
+        Vector iP = new VectorImpl(x,y,z);
+        outLine.reset(iP,iP.add(u));
+        return 2;
+    }
+
+    /**
+     * find the 3D intersection of a ray with a triangle
+     * @param R
+     * @param T
+     * @param outPoint intersection point (when it exists)
+     * @return -1 = triangle is degenerate (a segment or point)
+     *          0 =  disjoint (no intersect)
+     *          1 =  intersect in unique point outPoint
+     *          2 =  are in the same plane
+     */
+    public static int intersection(Ray R , Triangle T, Vector outPoint){
+        Vector TV0=T.getVertex(0);
+        Vector TV1=T.getVertex(1);
+        Vector TV2=T.getVertex(2);
+        Vector RP0=R.startPoint;
+        Vector RP1=R.endPoint;
+        Vector u, v, n;// triangle vectors
+        Vector dir, w0, w;// ray vectors
+        double r, a, b;// params to calc ray-plane intersect
+
+        // get triangle edge vectors and plane normal
+        u = subtract(TV1 ,TV0);
+        v = subtract(TV2,TV0);
+        n = crossProduct(u , v); // cross product
+        if (n.equals(new VertexImpl(0,0,0)) || n.length()==0)  // triangle is degenerate
+            return -1; // do not deal with this case
+
+        dir = subtract(RP1,RP0);// ray direction vector
+        w0 = subtract(RP0,TV0);
+        a = -dotProduct(n,w0);
+        b = dotProduct(n,dir);
+        if (Math.abs(b) < MathSuits.EPSILON) {// ray is  parallel to triangle plane
+            if (a == 0)// ray lies in triangle plane
+                return 2;
+            else
+                return 0;// ray disjoint from plane
+        }
+
+        // get intersect point of ray with triangle plane
+        r = a / b;
+        if (r < 0.0)// ray goes away from triangle
+            return 0; // => no intersect
+        // for a segment, also test if (r > 1.0) => no intersect
+        //*I = RP0 + r * dir;// intersect point of ray and plane
+        outPoint.copyFrom(dir.multiply(r).add(RP0));
+
+        // is I inside T?
+        double uu, uv, vv, wu, wv, D;
+        uu = dotProduct(u,u);
+        uv = dotProduct(u,v);
+        vv = dotProduct(v,v);
+        //w = *I - TV0;
+        w=outPoint.subtract(TV0);
+        wu = dotProduct(w,u);
+        wv = dotProduct(w,v);
+        D = uv * uv - uu * vv;
+
+        // get and test parametric coords
+        double s, t;
+        s = (uv * wv - vv * wu)/D;
+        if (s < 0.0 || s > 1.0) // I is outside T
+            return 0;
+        t = (uv * wu - uu * wv) / D;
+        if (t < 0.0 || (s + t) > 1.0) // I is outside T
+            return 0;
+
+        return 1;// I is in T
+    }
 }

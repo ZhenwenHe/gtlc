@@ -87,4 +87,8 @@ public class Ray implements gtl.io.Serializable, Comparable<Ray>{
     public int compareTo(Ray o) {
         return 0;
     }
+
+    public InfiniteLine extend(){
+        return new InfiniteLine(startPoint,endPoint);
+    }
 }

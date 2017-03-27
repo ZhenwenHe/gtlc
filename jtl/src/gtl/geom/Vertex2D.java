@@ -171,4 +171,17 @@ public class Vertex2D implements gtl.io.Serializable, Comparable<Vertex2D>{
                 ", y=" + y +
                 '}';
     }
+
+    /**
+     * The "perp dot product"  for  and  vectors in the plane is a modification of the two-dimensional dot product
+     * in which  is replaced by the perpendicular vector rotated  to the left defined by Hill (1994).
+     * It satisfies the identities where  is the angle from vector  to vector .
+     * @param u
+     * @param v
+     * @return
+     * ref:http://mathworld.wolfram.com/PerpDotProduct.html
+     */
+    public static double perpProduct(Vertex2D u, Vertex2D v) {
+        return ((u).x * (v).y - (u).y * (v).x);
+    }
 }

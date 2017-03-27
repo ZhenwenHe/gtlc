@@ -3,6 +3,8 @@ package gtl.geom;
 import gtl.math.MathSuits;
 import gtl.math.Float128;
 
+import javax.sound.sampled.Line;
+
 /**
  * Created by hadoop on 17-3-20.
  */
@@ -38,51 +40,12 @@ public class Geom2DSuits extends GeomSuits {
     public static final int STRAIGHT = COLLINEAR;
 
 
-
-
     /**
-     * Returns the index of the direction of the point <code>q</code> relative to
-     * a vector specified by <code>p1-p2</code>.
-     *
-     * @param p1 the origin point of the vector
-     * @param p2 the final point of the vector
-     * @param q the point to compute the direction to
-     *
-     * @return 1 if q is counter-clockwise (left) from p1-p2
-     * @return -1 if q is clockwise (right) from p1-p2
-     * @return 0 if q is collinear with p1-p2
+     * A value which is safely greater than the
+     * relative round-off error in double-precision numbers
      */
-    public static int orientationIndex(Vertex2D p1, Vertex2D p2, Vertex2D q)
-    {
-        /**
-         * MD - 9 Aug 2010 It seems that the basic algorithm is slightly orientation
-         * dependent, when computing the orientation of a point very close to a
-         * line. This is possibly due to the arithmetic in the translation to the
-         * origin.
-         *
-         * For instance, the following situation produces identical results in spite
-         * of the inverse orientation of the line segment:
-         *
-         * Vertex2D p0 = Geom2DSuits.createVertex(219.3649559090992, 140.84159161824724);
-         * Vertex2D p1 = Geom2DSuits.createVertex(168.9018919682399, -5.713787599646864);
-         *
-         * Vertex2D p = Geom2DSuits.createVertex(186.80814046338352, 46.28973405831556); int
-         * orient = orientationIndex(p0, p1, p); int orientInv =
-         * orientationIndex(p1, p0, p);
-         *
-         * A way to force consistent results is to normalize the orientation of the
-         * vector using the following code. However, this may make the results of
-         * orientationIndex inconsistent through the triangle of points, so it's not
-         * clear this is an appropriate patch.
-         *
-         */
-        return Geom2DSuits.orientationIndex2d(p1, p2, q);
-        // testing only
-        //return ShewchuksDeterminant.orientationIndex(p1, p2, q);
-        // previous implementation - not quite fully robust
-        //return RobustDeterminant2D.orientationIndex(p1, p2, q);
+    private static final double DP_SAFE_EPSILON = 1e-15;
 
-    }
 
     /**
      * Tests whether a point lies inside or on a ring. The ring may be oriented in
@@ -99,7 +62,6 @@ public class Geom2DSuits extends GeomSuits {
      *          first point identical to last point)
      * @return true if p is inside ring
      *
-     * @see locatePointInRing
      */
     public static boolean isPointInRing(Vertex2D p, Vertex2D[] ring)
     {
@@ -562,7 +524,7 @@ public class Geom2DSuits extends GeomSuits {
      * @return -1 if q is clockwise (right) from p1-p2
      * @return 0 if q is collinear with p1-p2
      */
-    public static int orientationIndex2d(Vertex2D p1, Vertex2D p2, Vertex2D q)
+    public static int orientationIndex(Vertex2D p1, Vertex2D p2, Vertex2D q)
     {
         // fast filter for orientation index
         // avoids use of slow extended-precision arithmetic in many cases
@@ -593,11 +555,7 @@ public class Geom2DSuits extends GeomSuits {
         return det.signum();
     }
 
-    /**
-     * A value which is safely greater than the
-     * relative round-off error in double-precision numbers
-     */
-    private static final double DP_SAFE_EPSILON = 1e-15;
+
 
     /**
      * A filter for computing the orientation index of three coordinates.
@@ -673,7 +631,7 @@ public class Geom2DSuits extends GeomSuits {
      * @param q2
      * @return
      */
-    public static Vertex2D intersection2d(
+    public static Vertex2D intersection(
             Vertex2D p1, Vertex2D p2,
             Vertex2D q1, Vertex2D q2)
     {
@@ -709,5 +667,117 @@ public class Geom2DSuits extends GeomSuits {
         double y = Float128.valueOf(q1.y).selfAdd(Float128.valueOf(q2.y).selfSubtract(q1.y).selfMultiply(fracQ)).doubleValue();
 
         return Geom2DSuits.createVertex2D(x,y);
+    }
+
+    /**
+     *
+     * @param P
+     * @param S
+     * @return determine if a point is inside a segment
+     * true= P is inside S
+     * false = P is  not inside S
+     */
+    public static boolean pointInLineSegment(Vector2D P, LineSegment S){
+        Vector2D SP0 = S.getStartPoint().flap();
+        Vector2D SP1 = S.getEndPoint().flap();
+        if (SP0.getX() != SP1.getX()) { // S is not  vertical
+            if (SP0.getX() <= P.getX() && P.getX() <= SP1.getX()) return true;
+            if (SP0.getX() >= P.getX() && P.getX() >= SP1.getX()) return true;
+        }
+        else { // S is vertical, so test y  coordinate
+            if (SP0.getY() <= P.getY() && P.getY() <= SP1.getY()) return true;
+            if (SP0.getY() >= P.getY() && P.getY() >= SP1.getY()) return true;
+        }
+        return false;
+    }
+    /**
+     * find the 2D intersection of 2 finite segments
+     * @param S1
+     * @param S2
+     * @param outPoint0   intersect point (when it exists)
+     * @param outPoint1 endpoint of intersect segment [I0,I1] (when it exists)
+     * @return  0=disjoint (no intersect)
+     *          1=intersect in unique point I0
+     *          2=overlap in segment from I0 to I1
+     */
+    public static int intersection(LineSegment S1, LineSegment S2, Vector2D outPoint0, Vector2D outPoint1){
+        Vector2D S1P0 = S1.getStartPoint().flap();
+        Vector2D S1P1 = S1.getEndPoint().flap();
+        Vector2D S2P0 = S2.getStartPoint().flap();
+        Vector2D S2P1 = S1.getEndPoint().flap();
+        Vector2D u =  (Vector2D)S1P1.subtract(S1P0);
+        Vector2D v = (Vector2D)S2P1.subtract(S2P0);
+        Vector2D w = (Vector2D)S1P0.subtract(S2P0);
+        double D = Vector2D.perpProduct(u,v);
+        // test if they are parallel (includes either being a point)
+        if (Math.abs(D) < MathSuits.EPSILON) {// S1 and S2 are parallel
+             if (Vector2D.perpProduct(u,w) != 0 || Vector2D.perpProduct(v,w) != 0) {
+             return 0; // they are NOT collinear
+            }
+            // they are collinear or degenerate // check if they are degenerate points
+            double du = Vector2D.dotProduct(u,u);
+            double dv = Vector2D.dotProduct(v,v);
+            if (du==0 && dv==0) { // both segments are points
+                if (!S1P0.equals(S2P0)) // they are distinct points
+                    return 0;
+                outPoint0.copyFrom(S1P0); // they are the same point
+                return 1;
+            }
+            if (du==0) { // S1 is a single point
+                if (pointInLineSegment(S1P0, S2) == false) // but is not in S2
+                    return 0;
+                outPoint0.copyFrom(S1P0);
+                return 1;
+            }
+            if (dv==0) { // S2 a single point
+                if (pointInLineSegment(S2P0, S1) == false) // but is not in S1
+                    return 0;
+                outPoint0.copyFrom(S2P0);
+                return 1;
+            }
+            // they are collinear segments - get overlap (or not)
+            double t0, t1; // endpoints of S1 in eqn for S2
+            Vector2D w2 = (Vector2D)S1P1.subtract(S2P0);
+            if (v.getX() != 0) {
+                t0 = w.getX() / v.getX();
+                t1 = w2.getX() / v.getX();
+            }
+            else {
+                t0 = w.getY() / v.getY();
+                t1 = w2.getY()/ v.getY();
+            }
+            if (t0 > t1) { // must have t0 smaller than t1
+                double t=t0; t0=t1; t1=t; // swap if not
+            }
+            if (t0 > 1 || t1 < 0) {
+                return 0; // NO overlap
+            }
+            t0 = t0<0? 0 : t0; // clip to min 0
+            t1 = t1>1? 1 : t1; // clip to max 1
+            if (t0 == t1) { // intersect is a point
+                //*I0 = S2P0 + t0 * v;
+                outPoint0.copyFrom(v.multiply(t0).add((Vector)S2P0));
+                return 1;
+            }
+            // they overlap in a valid subsegment
+            //*I0 = S2P0 + t0 * v;
+            outPoint0.copyFrom(v.multiply(t0).add((Vector)S2P0));
+            //*I1 = S2.P0 + t1 * v;
+            outPoint1.copyFrom(v.multiply(t1).add((Vector)S2P0));
+            return 2;
+        }
+
+        // the segments are skew and may intersect in a point
+        // get the intersect parameter for S1
+        double sI = Vector2D.perpProduct(v,w) / D;
+        if (sI < 0 || sI > 1) // no intersect with S1
+            return 0;
+        // get the intersect parameter for S2
+        double tI = Vector2D.perpProduct(u,w) / D;
+        if (tI < 0 || tI > 1) // no intersect with S2
+            return 0;
+        //*I0 = S1.P0 + sI * u; // compute S1 intersect point
+        outPoint0.copyFrom(u.multiply(sI).add((Vector)S1P0));
+        return 1;
     }
 }

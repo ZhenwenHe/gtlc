@@ -41,4 +41,6 @@ public interface Vector extends Serializable {
     Vector add(Vector b);//this + b;
     Vector multiply(Scalar s);
     Vector multiply(double s);
+
+    Vector2D flap();
 }

@@ -1,14 +1,14 @@
-package gtl.shape.impl;
+package gtl.index.shape.impl;
 
 import gtl.geom.Interval;
 import gtl.geom.IntervalType;
-import gtl.shape.TimeRegion;
-import gtl.shape.TimeShape;
+import gtl.index.shape.TimeRegionShape;
+import gtl.index.shape.TimeShape;
 
 /**
  * Created by ZhenwenHe on 2016/12/22.
  */
-class TimeRegionImpl extends RegionImpl implements TimeRegion {
+class TimeRegionShapeImpl extends RegionShapeImpl implements TimeRegionShape {
     @Override
     public double getLowerBound() {
         return 0;

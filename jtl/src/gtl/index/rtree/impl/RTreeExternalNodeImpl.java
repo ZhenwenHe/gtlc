@@ -4,7 +4,7 @@ import gtl.common.CommonSuits;
 import gtl.index.Entry;
 import gtl.common.Identifier;
 import gtl.index.Node;
-import gtl.shape.Region;
+import gtl.index.shape.RegionShape;
 
 import java.util.ArrayList;
 import java.util.Stack;
@@ -29,12 +29,12 @@ public class RTreeExternalNodeImpl extends RTreeNodeImpl{
     }
 
     @Override
-    protected Node chooseSubtree(Region mbr, int level, Stack<Identifier> pathBuffer) {
+    protected Node chooseSubtree(RegionShape mbr, int level, Stack<Identifier> pathBuffer) {
         return this;
     }
 
     @Override
-    protected Node findLeaf(Region mbr, Identifier id, Stack<Identifier> pathBuffer) {
+    protected Node findLeaf(RegionShape mbr, Identifier id, Stack<Identifier> pathBuffer) {
         int childCount=getChildrenCount();
         for (int cChild = 0; cChild < childCount; ++cChild){
             if (getChildIdentifier(cChild).equals(id) && getChildShape(cChild).equals(mbr))
@@ -66,8 +66,8 @@ public class RTreeExternalNodeImpl extends RTreeNodeImpl{
         RTreeExternalNodeImpl pLeft = (RTreeExternalNodeImpl)(nodes[0]);
         RTreeExternalNodeImpl pRight = (RTreeExternalNodeImpl)(nodes[1]);
 
-        pLeft.getShape().copyFrom(tree.infiniteRegion);
-        pRight.getShape().copyFrom(tree.infiniteRegion);
+        pLeft.getShape().copyFrom(tree.infiniteRegionShape);
+        pRight.getShape().copyFrom(tree.infiniteRegionShape);
 
         Entry[] entries = getChildEntries();
 
@@ -110,7 +110,7 @@ public class RTreeExternalNodeImpl extends RTreeNodeImpl{
                 for(int i=0;i<overflowTable.length;i++)
                     overflowTable[i]=0;
                 tree.insertData_impl(n.getChildData(cChild),
-                        (Region) n.getChildShape(cChild),
+                        (RegionShape) n.getChildShape(cChild),
                         n.getChildIdentifier(cChild),
                         n.getLevel(), overflowTable);
                 n.setChildData(cChild,null);

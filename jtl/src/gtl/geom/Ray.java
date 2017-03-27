@@ -6,7 +6,7 @@ import java.io.IOException;
 
 /**
  * Created by hadoop on 17-3-27.
- * Line and Ray and Segment with defining  points {Point P0, P1;}
+ * Line and Ray and Segment with defining  points {PointShape P0, P1;}
  *  (a Line is infinite, Rays and  Segments start at P0)
  *  (a Ray extends beyond P1, but a  Segment ends at P1)
  *  ref:http://geomalgorithms.com/a06-_intersect-2.html

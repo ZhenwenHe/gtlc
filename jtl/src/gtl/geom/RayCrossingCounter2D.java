@@ -9,7 +9,7 @@ package gtl.geom;
  * from a given point, in an incremental fashion.
  * This can be used to determine whether a point lies in a {@link Polygonal} geometry.
  * The class determines the situation where the point lies exactly on a segment.
- * When being used for Point-In-Polygon determination, this case allows short-circuiting
+ * When being used for PointShape-In-Polygon determination, this case allows short-circuiting
  * the evaluation.
  * <p>
  * This class handles polygonal geometries with any number of shells and holes.

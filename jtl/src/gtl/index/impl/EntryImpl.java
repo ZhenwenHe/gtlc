@@ -3,7 +3,7 @@ package gtl.index.impl;
 import gtl.common.CommonSuits;
 import gtl.index.Entry;
 import gtl.common.Identifier;
-import gtl.shape.Shape;
+import gtl.index.shape.Shape;
 
 import java.io.*;
 import java.util.Arrays;

@@ -305,6 +305,24 @@ public class VectorImpl implements Vector {
     }
 
     @Override
+    public Vector divide(Scalar s) {
+        VectorImpl v = new VectorImpl(this.coordinates);
+        for(int i=0; i< this.coordinates.length; ++i){
+            v.coordinates[i]/=s.scalar;
+        }
+        return v;
+    }
+
+    @Override
+    public Vector divide(double s) {
+        VectorImpl v = new VectorImpl(this.coordinates);
+        for(int i=0; i< this.coordinates.length; ++i){
+            v.coordinates[i]/=s;
+        }
+        return v;
+    }
+
+    @Override
     public Vector2D flap(){
         return new Vector2D(this.coordinates[0],this.coordinates[1]);
     }

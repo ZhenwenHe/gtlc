@@ -10,10 +10,10 @@ import gtl.index.impl.EntryImpl;
 import gtl.index.rtree.RTree;
 import gtl.index.rtree.RTreeVariant;
 import gtl.index.rtree.RangeQueryType;
-import gtl.shape.Point;
-import gtl.shape.Region;
-import gtl.shape.Shape;
-import gtl.shape.ShapeSuits;
+import gtl.index.shape.PointShape;
+import gtl.index.shape.RegionShape;
+import gtl.index.shape.Shape;
+import gtl.index.shape.ShapeSuits;
 import gtl.io.storage.StorageManager;
 
 import java.io.*;
@@ -96,8 +96,8 @@ public class RTreeImpl implements RTree{
         this.reinsertFactor =(0.3);
         this.dimension =(2);
         this.tightMBRs =(true);
-        this.infiniteRegion = ShapeSuits.createRegion();
-        this.infiniteRegion.makeInfinite(this.dimension);
+        this.infiniteRegionShape = ShapeSuits.createRegion();
+        this.infiniteRegionShape.makeInfinite(this.dimension);
         this.stats =new StatisticsImpl();
         this.writeNodeCommands=new ArrayList<Command>();
         this.readNodeCommands=new ArrayList<Command>();
@@ -151,8 +151,8 @@ public class RTreeImpl implements RTree{
         this.dimension =dimension>1?dimension:2;
         this.tightMBRs =true;
         this.tightMBRs=ensureTightMBRs;//(true);
-        this.infiniteRegion =ShapeSuits.createRegion();
-        this.infiniteRegion.makeInfinite(this.dimension);
+        this.infiniteRegionShape =ShapeSuits.createRegion();
+        this.infiniteRegionShape.makeInfinite(this.dimension);
         this.stats =new StatisticsImpl();
         this.writeNodeCommands=new ArrayList<Command>();
         this.readNodeCommands=new ArrayList<Command>();
@@ -168,7 +168,7 @@ public class RTreeImpl implements RTree{
         else {//old
             this.headerIdentifier.reset(indexIdentifier.longValue());
             loadHeader();
-            this.infiniteRegion.makeInfinite(this.dimension);
+            this.infiniteRegionShape.makeInfinite(this.dimension);
         }
      }
 
@@ -176,15 +176,15 @@ public class RTreeImpl implements RTree{
     public void insert(byte[] pData, Shape shape, Identifier shapeIdentifier) {
         if (shape.getDimension() != this.dimension) return;
 
-        // convert the shape into a Region (R-Trees index regions only; i.e., approximations of the shapes).
-        Region mbr = ShapeSuits.createRegion(shape.getMBR());
+        // convert the shape into a RegionShape (R-Trees index regions only; i.e., approximations of the shapes).
+        RegionShape mbr = ShapeSuits.createRegion(shape.getMBR());
         insertData_impl(pData, mbr, shapeIdentifier);
     }
 
     @Override
     public boolean delete(Shape shape, Identifier shapeIdentifier) {
         if (shape.getDimension() != this.dimension) return false;
-        Region  mbr = ShapeSuits.createRegion(shape.getMBR());
+        RegionShape mbr = ShapeSuits.createRegion(shape.getMBR());
         boolean ret = deleteData_impl(mbr, shapeIdentifier);
         return ret;
     }
@@ -241,11 +241,11 @@ public class RTreeImpl implements RTree{
     }
 
     @Override
-    public void pointLocation(Point query, Visitor v) {
+    public void pointLocation(PointShape query, Visitor v) {
         try{
             if (query.getDimension() != this.dimension)
                 throw new IllegalArgumentException("pointLocationQuery: Shape has the wrong numeric of dimensions.");
-            Region r=ShapeSuits.createRegion(query.getCoordinates(), query.getCoordinates());
+            RegionShape r=ShapeSuits.createRegion(query.getCoordinates(), query.getCoordinates());
             range(RangeQueryType.RQT_INTERSECTION_QUERY, r, v);
         }
         catch (Exception e){
@@ -326,7 +326,7 @@ public class RTreeImpl implements RTree{
             if (query.getDimension() != this.dimension)
                 throw new IllegalArgumentException("selfJoinQuery: Shape has the wrong numeric of dimensions.");
 
-            Region mbr = ShapeSuits.createRegion(query.getMBR());
+            RegionShape mbr = ShapeSuits.createRegion(query.getMBR());
             selfJoin(this.rootIdentifier, this.rootIdentifier, mbr, v);
         }
         catch (Exception e){
@@ -402,42 +402,42 @@ public class RTreeImpl implements RTree{
         Stack<ValidateEntry>  st=new Stack<>();
         Node root = readNode(this.rootIdentifier);
         int level = root.getLevel();
-        Region r =null;
+        RegionShape r =null;
         if (level != this.stats.getTreeHeight() - 1)
             return false;
 
         HashMap<Integer,Integer>  nodesInLevel= new HashMap<>();
         nodesInLevel.put(level,1);
-        r = (Region)root.getShape();
+        r = (RegionShape)root.getShape();
         ValidateEntry e=new ValidateEntry(r, root);
         st.push(e);
 
         while (! st.empty()) {
             e = st.pop();
 
-            Region tmpRegion=(Region) this.infiniteRegion.clone();
+            RegionShape tmpRegionShape =(RegionShape) this.infiniteRegionShape.clone();
 
-            for (int cDim = 0; cDim < tmpRegion.getDimension(); ++cDim) {
-                tmpRegion.setLowCoordinate(cDim,Double.MAX_VALUE);
-                tmpRegion.setHighCoordinate(cDim,-Double.MAX_VALUE);
+            for (int cDim = 0; cDim < tmpRegionShape.getDimension(); ++cDim) {
+                tmpRegionShape.setLowCoordinate(cDim,Double.MAX_VALUE);
+                tmpRegionShape.setHighCoordinate(cDim,-Double.MAX_VALUE);
                 for (int cChild = 0; cChild < e.node.getChildrenCount(); ++cChild){
-                    r= (Region) e.node.getChildShape(cChild);
-                    tmpRegion.setLowCoordinate(cDim,Math.min(tmpRegion.getLowCoordinate(cDim),r.getLowCoordinate(cDim)));
-                    tmpRegion.setHighCoordinate(cDim,Math.max(tmpRegion.getHighCoordinate(cDim),r.getHighCoordinate(cDim)));
+                    r= (RegionShape) e.node.getChildShape(cChild);
+                    tmpRegionShape.setLowCoordinate(cDim,Math.min(tmpRegionShape.getLowCoordinate(cDim),r.getLowCoordinate(cDim)));
+                    tmpRegionShape.setHighCoordinate(cDim,Math.max(tmpRegionShape.getHighCoordinate(cDim),r.getHighCoordinate(cDim)));
                 }
             }
 
-            if (! (tmpRegion.equals( e.node.getShape()))) {
+            if (! (tmpRegionShape.equals( e.node.getShape()))) {
                 ret = false;
             }
-            else if (! (tmpRegion.equals(e.parentMBR))){
+            else if (! (tmpRegionShape.equals(e.parentMBR))){
                 ret = false;
             }
 
             if (e.node.getLevel() != 0) {
                 for (int cChild = 0; cChild < e.node.getChildrenCount(); ++cChild){
                     Node ptrN = readNode(e.node.getChildIdentifier(cChild));
-                    ValidateEntry tmpEntry=new ValidateEntry((Region) e.node.getChildShape(cChild), ptrN);
+                    ValidateEntry tmpEntry=new ValidateEntry((RegionShape) e.node.getChildShape(cChild), ptrN);
 
                     Integer itNodes = nodesInLevel.get(tmpEntry.node.getLevel());
 
@@ -521,12 +521,12 @@ public class RTreeImpl implements RTree{
     }; // NNComparator
 
     class ValidateEntry {
-        ValidateEntry(Region r, Node pNode){
-            this.parentMBR=(Region) r.clone();
+        ValidateEntry(RegionShape r, Node pNode){
+            this.parentMBR=(RegionShape) r.clone();
             this.node=pNode;
         }
 
-        Region parentMBR;
+        RegionShape parentMBR;
         Node node;
     }; // ValidateEntry
 
@@ -632,8 +632,8 @@ public class RTreeImpl implements RTree{
             e.printStackTrace();
         }
 
-        this.infiniteRegion=ShapeSuits.createRegion();
-        this.infiniteRegion.makeInfinite(this.dimension);
+        this.infiniteRegionShape =ShapeSuits.createRegion();
+        this.infiniteRegionShape.makeInfinite(this.dimension);
 
         this.stats.treeHeight = 1;
         this.stats.getNodeNumberInLevelArray().add(0L);
@@ -706,9 +706,9 @@ public class RTreeImpl implements RTree{
         catch (Exception e){
             e.printStackTrace();
         }
-        if(this.infiniteRegion==null)
-            this.infiniteRegion=ShapeSuits.createRegion();
-        this.infiniteRegion.makeInfinite(this.dimension);
+        if(this.infiniteRegionShape ==null)
+            this.infiniteRegionShape =ShapeSuits.createRegion();
+        this.infiniteRegionShape.makeInfinite(this.dimension);
     }
     void storeHeader(){
         try {
@@ -767,7 +767,7 @@ public class RTreeImpl implements RTree{
         }
     }
 
-    void insertData_impl( byte[] pData, Region mbr, Identifier id){
+    void insertData_impl(byte[] pData, RegionShape mbr, Identifier id){
         assert(mbr.getDimension() == this.dimension);
         Stack<Identifier> pathBuffer=new Stack();
         RTreeNodeImpl root = (RTreeNodeImpl)readNode(this.rootIdentifier);
@@ -777,12 +777,12 @@ public class RTreeImpl implements RTree{
         l.insertData(new EntryImpl(id,mbr,pData), pathBuffer, overflowTable);
         this.stats.increaseDataNumber();
     }
-    void insertData_impl(byte[] pData, Region mbr, Identifier id, int level, byte[] overflowTable){
+    void insertData_impl(byte[] pData, RegionShape mbr, Identifier id, int level, byte[] overflowTable){
         assert(mbr.getDimension() == this.dimension);
         insertData_impl(new EntryImpl(id,mbr,pData),level,overflowTable);
     }
     void insertData_impl(Entry e, int level, byte[] overflowTable){
-        Region mbr = (Region)e.getShape();
+        RegionShape mbr = (RegionShape)e.getShape();
         assert(mbr.getDimension() == this.dimension);
         Stack<Identifier> pathBuffer=new Stack<>();
         RTreeNodeImpl root = (RTreeNodeImpl) readNode(rootIdentifier);
@@ -790,7 +790,7 @@ public class RTreeImpl implements RTree{
         assert(n.getLevel() == level);
         n.insertData(e, pathBuffer, overflowTable);
     }
-    boolean deleteData_impl(Region mbr, Identifier id){
+    boolean deleteData_impl(RegionShape mbr, Identifier id){
         assert(mbr.getDimension() == this.dimension);
         Stack<Identifier> pathBuffer=new Stack<>();
         RTreeNodeImpl root = (RTreeNodeImpl)readNode(this.rootIdentifier);
@@ -909,22 +909,22 @@ public class RTreeImpl implements RTree{
             }
         }
     }
-    void selfJoin(Identifier id1, Identifier id2,  Region r, Visitor vis){
+    void selfJoin(Identifier id1, Identifier id2, RegionShape r, Visitor vis){
         Node n1 = readNode(id1);
         Node n2 = readNode(id2);
         vis.visitNode(n1);
         vis.visitNode(n2);
-        Region tr1 = null;
-        Region tr2 = null;
+        RegionShape tr1 = null;
+        RegionShape tr2 = null;
         Entry [] ev = new Entry[2];
         Identifier ti1=null;
         Identifier ti2=null;
         for (int cChild1 = 0; cChild1 < n1.getChildrenCount(); ++cChild1) {
-            tr1=(Region)n1.getChildShape(cChild1);
+            tr1=(RegionShape)n1.getChildShape(cChild1);
             ti1=n1.getChildIdentifier(cChild1);
             if (r.intersectsRegion(tr1)) {
                 for (int cChild2 = 0; cChild2 < n2.getChildrenCount(); ++cChild2) {
-                    tr2=(Region)n2.getChildShape(cChild2);
+                    tr2=(RegionShape)n2.getChildShape(cChild2);
                     ti2=n2.getChildIdentifier(cChild2);
                     if (r.intersectsRegion(tr2) &&tr1.intersectsRegion(tr2)){
                         if (n1.getLevel() == 0){
@@ -937,7 +937,7 @@ public class RTreeImpl implements RTree{
                             }
                         }
                         else{
-                            Region rr = r.getIntersectingRegion(tr1.getIntersectingRegion(tr2));
+                            RegionShape rr = r.getIntersectingRegion(tr1.getIntersectingRegion(tr2));
                             selfJoin(ti1, ti2, rr, vis);
                         }
                     }
@@ -996,7 +996,7 @@ public class RTreeImpl implements RTree{
 
     int dimension;
 
-    Region infiniteRegion;
+    RegionShape infiniteRegionShape;
 
     StatisticsImpl stats;
 

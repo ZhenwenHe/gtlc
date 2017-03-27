@@ -1,12 +1,12 @@
-package gtl.shape.impl;
+package gtl.index.shape.impl;
 
 
 import gtl.geom.Envelope;
 import gtl.geom.Geom3DSuits;
 import gtl.geom.Vector;
-import gtl.shape.Point;
-import gtl.shape.Region;
-import gtl.shape.Shape;
+import gtl.index.shape.PointShape;
+import gtl.index.shape.RegionShape;
+import gtl.index.shape.Shape;
 
 import java.io.DataInput;
 import java.io.DataOutput;
@@ -16,19 +16,19 @@ import java.util.Arrays;
 /**
  * Created by ZhenwenHe on 2016/12/7.
  */
-class PointImpl implements Point {
+class PointShapeImpl implements PointShape {
     Vector data;
-    public PointImpl(){
+    public PointShapeImpl(){
         this.data= Geom3DSuits.createVector();
     }
-    public PointImpl(double x ,double y) {
+    public PointShapeImpl(double x , double y) {
         this.data= Geom3DSuits.createVector(x,y);
     }
-    public PointImpl(double x ,double y,double z) {
+    public PointShapeImpl(double x , double y, double z) {
         this.data= (Vector) Geom3DSuits.createVector(x,y,z);
     }
 
-    public PointImpl(double[] coordinates) {
+    public PointShapeImpl(double[] coordinates) {
         this.data= Geom3DSuits.createVector(coordinates);
     }
 
@@ -44,7 +44,7 @@ class PointImpl implements Point {
 
     @Override
     public void copyFrom(Object i) {
-        if(i instanceof Point || i instanceof Vector){
+        if(i instanceof PointShape || i instanceof Vector){
             this.data.copyFrom(i);
         }
     }
@@ -107,15 +107,15 @@ class PointImpl implements Point {
 
     @Override
     public Object clone() {
-        return new PointImpl(this.getCoordinates());
+        return new PointShapeImpl(this.getCoordinates());
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof PointImpl)) return false;
+        if (!(o instanceof PointShapeImpl)) return false;
 
-        PointImpl point = (PointImpl) o;
+        PointShapeImpl point = (PointShapeImpl) o;
 
         return Arrays.equals(getCoordinates(), point.getCoordinates());
 
@@ -128,14 +128,14 @@ class PointImpl implements Point {
 
     @Override
     public String toString() {
-        return "PointImpl{" +
+        return "PointShapeImpl{" +
                 "coordinates=" + Arrays.toString(this.getCoordinates()) +
                 '}';
     }
 
     @Override
     public boolean intersectsShape(Shape in) {
-        if(in instanceof Region){
+        if(in instanceof RegionShape){
             return in.containsShape(this);
         }
         else
@@ -149,10 +149,10 @@ class PointImpl implements Point {
 
     @Override
     public boolean touchesShape(Shape in) {
-        if(in instanceof Point){
+        if(in instanceof PointShape){
             return this.equals(in);
         }
-        if(in instanceof Region){
+        if(in instanceof RegionShape){
             return in.touchesShape(this);
         }
 
@@ -181,10 +181,10 @@ class PointImpl implements Point {
 
     @Override
     public double getMinimumDistance(Shape in) {
-        if(in instanceof Point){
-           return getMinimumDistance((Point)(in));
+        if(in instanceof PointShape){
+           return getMinimumDistance((PointShape)(in));
         }
-        if(in instanceof Region){
+        if(in instanceof RegionShape){
             in.getMinimumDistance(this);
         }
         return 0;
@@ -196,7 +196,7 @@ class PointImpl implements Point {
     }
 
     @Override
-    public double getMinimumDistance(Point in) {
+    public double getMinimumDistance(PointShape in) {
         double ret=0;
         double [] coords = in.getCoordinates();
         for (int cDim = 0; cDim < this.getCoordinates().length; ++cDim){

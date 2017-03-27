@@ -6,7 +6,7 @@ package gtl.geom;
 /**
  * Represents a single point.
  *
- * A <code>Point</code> is topologically valid if and only if:
+ * A <code>PointShape</code> is topologically valid if and only if:
  * <ul>
  * <li>the coordinate which defines it (if any) is a valid coordinate
  * (i.e. does not have an <code>NaN</code> X or Y ordinate)
@@ -16,7 +16,7 @@ package gtl.geom;
  */
 public class Point extends Geometry implements Puntal {
     /**
-     *  The <code>Vertex</code> wrapped by this <code>Point</code>.
+     *  The <code>Vertex</code> wrapped by this <code>PointShape</code>.
      */
     private VectorSequence coordinates;
 

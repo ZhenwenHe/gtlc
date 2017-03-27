@@ -5,9 +5,9 @@ import gtl.geom.Vector;
 import gtl.index.*;
 import gtl.index.impl.EntryImpl;
 import gtl.index.impl.NodeImpl;
-import gtl.shape.Region;
-import gtl.shape.Shape;
-import gtl.shape.ShapeSuits;
+import gtl.index.shape.RegionShape;
+import gtl.index.shape.Shape;
+import gtl.index.shape.ShapeSuits;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -42,8 +42,8 @@ public abstract  class RTreeNodeImpl extends NodeImpl {
     public void  insertEntry(Entry e) {
         super.insertEntry(e);
         //计算节点的包围矩形
-        Region r = (Region) getShape();
-        Region er = (Region) e.getShape();
+        RegionShape r = (RegionShape) getShape();
+        RegionShape er = (RegionShape) e.getShape();
         r.combineRegion(er);
     }
 
@@ -55,8 +55,8 @@ public abstract  class RTreeNodeImpl extends NodeImpl {
         Entry e = removeEntry(index);
         if(e==null) return;
 
-        Region er =(Region) e.getShape();
-        Region r=(Region) getShape();
+        RegionShape er =(RegionShape) e.getShape();
+        RegionShape r=(RegionShape) getShape();
         if (getChildrenCount() == 0){
             r.makeInfinite();
         }
@@ -76,15 +76,15 @@ public abstract  class RTreeNodeImpl extends NodeImpl {
     }
     @Override
     public Shape recalculateShape() {
-        Region er =null;
-        Region r=(Region) getShape();
+        RegionShape er =null;
+        RegionShape r=(RegionShape) getShape();
         int children =getChildrenCount();
         //重新计算节点的矩形区域
         for (int cDim = 0; cDim < r.getDimension(); ++cDim){
             r.setLowCoordinate(cDim,Double.MAX_VALUE);
             r.setHighCoordinate(cDim,-Double.MAX_VALUE);
             for (int u32Child = 0; u32Child < children; ++u32Child){
-                er = (Region) getChildShape(u32Child);
+                er = (RegionShape) getChildShape(u32Child);
                 r.setLowCoordinate(cDim,Math.min(r.getLowCoordinate(cDim),er.getLowCoordinate(cDim)));
                 r.setHighCoordinate(cDim,Math.max(r.getHighCoordinate(cDim),er.getHighCoordinate(cDim)));
             }
@@ -94,7 +94,7 @@ public abstract  class RTreeNodeImpl extends NodeImpl {
 
     @Override
     public Shape newShape() {
-        Region r=  ShapeSuits.createRegion();
+        RegionShape r=  ShapeSuits.createRegion();
         r.makeInfinite(this.tree.dimension);
         return r;
     }
@@ -105,8 +105,8 @@ public abstract  class RTreeNodeImpl extends NodeImpl {
         int cIndex=0;
         int children=getChildrenCount();
         int capacity=getCapacity();
-        Region nodeMBR = (Region) getShape();
-        Region mbr = (Region) e.getShape();
+        RegionShape nodeMBR = (RegionShape) getShape();
+        RegionShape mbr = (RegionShape) e.getShape();
         int level = getLevel();
         // 如果子节点个数小于容量
         if (children < capacity){
@@ -220,7 +220,7 @@ public abstract  class RTreeNodeImpl extends NodeImpl {
         int children=getChildrenCount();
         ReinsertEntry[]v = new ReinsertEntry[capacity + 1];
         setChildEntry(children,e);
-        Region nodeMBR = (Region)getShape();
+        RegionShape nodeMBR = (RegionShape)getShape();
         Vector nc =nodeMBR.getCenter();
         Vector c = null;
 
@@ -276,8 +276,8 @@ public abstract  class RTreeNodeImpl extends NodeImpl {
         mask[seed2] = 1;
 
         // find MBR of each group.
-        Region  mbr1 =(Region) getChildShape(seed1).clone();
-        Region  mbr2 =(Region) getChildShape(seed2).clone();
+        RegionShape mbr1 =(RegionShape) getChildShape(seed1).clone();
+        RegionShape mbr2 =(RegionShape) getChildShape(seed2).clone();
 
         // count how many entries are left unchecked (exclude the seeds here.)
         int cRemaining = capacity + 1 - 2;
@@ -314,14 +314,14 @@ public abstract  class RTreeNodeImpl extends NodeImpl {
                 double a1 = mbr1.getArea();
                 double a2 = mbr2.getArea();
 
-                Region a = null;
-                Region b = null;
+                RegionShape a = null;
+                RegionShape b = null;
 
                 for (u32Child = 0; u32Child < capacity + 1; ++u32Child){
                     if (mask[u32Child] == 0){
-                        a=mbr1.getCombinedRegion((Region) getChildShape(u32Child));
+                        a=mbr1.getCombinedRegion((RegionShape) getChildShape(u32Child));
                         d1 = a.getArea() - a1;
-                        b=mbr2.getCombinedRegion((Region) getChildShape(u32Child));
+                        b=mbr2.getCombinedRegion((RegionShape) getChildShape(u32Child));
                         d2 = b.getArea() - a2;
                         d = Math.abs(d1 - d2);
 
@@ -369,10 +369,10 @@ public abstract  class RTreeNodeImpl extends NodeImpl {
                 mask[sel] = 1;
                 --cRemaining;
                 if (group == 1){
-                    mbr1.combineRegion((Region) getChildShape(sel));
+                    mbr1.combineRegion((RegionShape) getChildShape(sel));
                 }
                 else {
-                    mbr2.combineRegion((Region) getChildShape(sel));
+                    mbr2.combineRegion((RegionShape) getChildShape(sel));
                 }
             }
         }
@@ -392,8 +392,8 @@ public abstract  class RTreeNodeImpl extends NodeImpl {
         int u32Child = 0, cDim, cIndex;
 
         for (u32Child = 0; u32Child <= capacity; ++u32Child) {
-            //dataLow[u32Child] = new RstarSplitEntry((Region)(getChildShape(u32Child)), u32Child, 0);
-            dataLow[u32Child] = new RstarSplitEntry((Region)(entries[u32Child].getShape()), u32Child, 0);
+            //dataLow[u32Child] = new RstarSplitEntry((RegionShape)(getChildShape(u32Child)), u32Child, 0);
+            dataLow[u32Child] = new RstarSplitEntry((RegionShape)(entries[u32Child].getShape()), u32Child, 0);
             dataHigh[u32Child] = dataLow[u32Child];
         }
 
@@ -401,10 +401,10 @@ public abstract  class RTreeNodeImpl extends NodeImpl {
         int splitAxis = Integer.MAX_VALUE;
         int sortOrder =  Integer.MAX_VALUE;
 
-        Region bbl1=ShapeSuits.createRegion();
-        Region bbl2=ShapeSuits.createRegion();
-        Region bbh1=ShapeSuits.createRegion();
-        Region bbh2=ShapeSuits.createRegion();
+        RegionShape bbl1=ShapeSuits.createRegion();
+        RegionShape bbl2=ShapeSuits.createRegion();
+        RegionShape bbh1=ShapeSuits.createRegion();
+        RegionShape bbh2=ShapeSuits.createRegion();
 
         // chooseSplitAxis.
         for (cDim = 0; cDim < this.tree.dimension; ++cDim){
@@ -419,20 +419,20 @@ public abstract  class RTreeNodeImpl extends NodeImpl {
             for (u32Child = 1; u32Child <= splitDistribution; ++u32Child){
                 int ls = nodeSPF - 1 + u32Child;
 
-                bbl1.copyFrom(dataLow[0].region);
-                bbh1.copyFrom(dataHigh[0].region);
+                bbl1.copyFrom(dataLow[0].regionShape);
+                bbh1.copyFrom(dataHigh[0].regionShape);
 
                 for (cIndex = 1; cIndex < ls; ++cIndex){
-                    bbl1.combineRegion(dataLow[cIndex].region);
-                    bbh1.combineRegion(dataHigh[cIndex].region);
+                    bbl1.combineRegion(dataLow[cIndex].regionShape);
+                    bbh1.combineRegion(dataHigh[cIndex].regionShape);
                 }
 
-                bbl2.copyFrom(dataLow[ls].region);
-                bbh2.copyFrom(dataHigh[ls].region);
+                bbl2.copyFrom(dataLow[ls].regionShape);
+                bbh2.copyFrom(dataHigh[ls].regionShape);
 
                 for (cIndex = ls + 1; cIndex <= capacity; ++cIndex){
-                    bbl2.combineRegion(dataLow[cIndex].region);
-                    bbh2.combineRegion(dataHigh[cIndex].region);
+                    bbl2.combineRegion(dataLow[cIndex].regionShape);
+                    bbh2.combineRegion(dataHigh[cIndex].regionShape);
                 }
 
                 marginl += bbl1.getMargin() + bbl2.getMargin();
@@ -466,17 +466,17 @@ public abstract  class RTreeNodeImpl extends NodeImpl {
         double ma = Double.MAX_VALUE;
         double mo = Double.MAX_VALUE;
         int splitPoint = Integer.MAX_VALUE;
-        Region bb1=ShapeSuits.createRegion();
-        Region bb2=ShapeSuits.createRegion();
+        RegionShape bb1=ShapeSuits.createRegion();
+        RegionShape bb2=ShapeSuits.createRegion();
         for (u32Child = 1; u32Child <= splitDistribution; ++u32Child){
             int ls = nodeSPF - 1 + u32Child;
-            bb1.copyFrom(dataLow[0].region);
+            bb1.copyFrom(dataLow[0].regionShape);
             for (cIndex = 1; cIndex < ls; ++cIndex){
-                bb1.combineRegion(dataLow[cIndex].region);
+                bb1.combineRegion(dataLow[cIndex].regionShape);
             }
-            bb2.copyFrom(dataLow[ls].region);
+            bb2.copyFrom(dataLow[ls].regionShape);
             for (cIndex = ls + 1; cIndex <= capacity; ++cIndex){
-                bb2.combineRegion(dataLow[cIndex].region);
+                bb2.combineRegion(dataLow[cIndex].regionShape);
             }
             double o = bb1.getIntersectingArea(bb2);
 
@@ -519,27 +519,27 @@ public abstract  class RTreeNodeImpl extends NodeImpl {
             case RV_LINEAR:
             case RV_RSTAR: {
                 for (cDim = 0; cDim < this.tree.dimension; ++cDim) {
-                    double leastLower = ((Region)getChildShape(0)).getLowCoordinate(cDim);
-                    double greatestUpper =((Region)getChildShape(0)).getHighCoordinate(cDim);
+                    double leastLower = ((RegionShape)getChildShape(0)).getLowCoordinate(cDim);
+                    double greatestUpper =((RegionShape)getChildShape(0)).getHighCoordinate(cDim);
                     int greatestLower = 0;
                     int leastUpper = 0;
                     double width;
 
                     for (u32Child = 1; u32Child <= capacity; ++u32Child) {
-                        if (((Region)getChildShape(u32Child)).getLowCoordinate(cDim) > ((Region)getChildShape(greatestLower)).getLowCoordinate(cDim))
+                        if (((RegionShape)getChildShape(u32Child)).getLowCoordinate(cDim) > ((RegionShape)getChildShape(greatestLower)).getLowCoordinate(cDim))
                             greatestLower = u32Child;
-                        if (((Region)getChildShape(u32Child)).getHighCoordinate(cDim) <  ((Region)getChildShape(leastUpper)).getHighCoordinate(cDim))
+                        if (((RegionShape)getChildShape(u32Child)).getHighCoordinate(cDim) <  ((RegionShape)getChildShape(leastUpper)).getHighCoordinate(cDim))
                             leastUpper = u32Child;
 
-                        leastLower = Math.min(((Region)getChildShape(u32Child)).getLowCoordinate(cDim), leastLower);
-                        greatestUpper = Math.max(((Region)getChildShape(u32Child)).getHighCoordinate(cDim), greatestUpper);
+                        leastLower = Math.min(((RegionShape)getChildShape(u32Child)).getLowCoordinate(cDim), leastLower);
+                        greatestUpper = Math.max(((RegionShape)getChildShape(u32Child)).getHighCoordinate(cDim), greatestUpper);
                     }
 
                     width = greatestUpper - leastLower;
                     if (width <= 0) width = 1;
 
-                    double f = (((Region)getChildShape(greatestLower)).getLowCoordinate(cDim)
-                            - ((Region)getChildShape(leastUpper)).getHighCoordinate(cDim)) / width;
+                    double f = (((RegionShape)getChildShape(greatestLower)).getLowCoordinate(cDim)
+                            - ((RegionShape)getChildShape(leastUpper)).getHighCoordinate(cDim)) / width;
 
                     if (f > separation) {
                         index1 = leastUpper;
@@ -557,16 +557,16 @@ public abstract  class RTreeNodeImpl extends NodeImpl {
             }
 
             case RV_QUADRATIC: {
-                // for each pair of Regions (account for overflow Region too!)
+                // for each pair of Regions (account for overflow RegionShape too!)
                 for (u32Child = 0; u32Child < capacity; ++u32Child) {
-                    double a = ((Region)getChildShape(u32Child)).getArea();
+                    double a = ((RegionShape)getChildShape(u32Child)).getArea();
 
                     for (cIndex = u32Child + 1; cIndex <= capacity; ++cIndex) {
                         // get the combined MBR of those two entries.
-                        Region r= ((Region)getChildShape(u32Child)).getCombinedRegion( ((Region)getChildShape(cIndex)));
+                        RegionShape r= ((RegionShape)getChildShape(u32Child)).getCombinedRegion( ((RegionShape)getChildShape(cIndex)));
 
                         // find the inefficiency of grouping these entries together.
-                        double d = r.getArea() - a - ((Region)getChildShape(u32Child)).getArea();
+                        double d = r.getArea() - a - ((RegionShape)getChildShape(u32Child)).getArea();
 
                         if (d > inefficiency) {
                             inefficiency = d;
@@ -588,7 +588,7 @@ public abstract  class RTreeNodeImpl extends NodeImpl {
         int capacity=getCapacity();
         int children=getChildrenCount();
         int level= getLevel(); 
-        Region nodeMBR=(Region)getShape();
+        RegionShape nodeMBR=(RegionShape)getShape();
         int minimumLoad = (int)(Math.floor(capacity * this.tree.fillFactor));
         double d1,d2;//临时变量
         int dims=0;
@@ -628,7 +628,7 @@ public abstract  class RTreeNodeImpl extends NodeImpl {
                 toReinsert.push(ptrThis);
             }
             else{
-                // adjust the entry in 'p' to contain the new bounding region of this node.
+                // adjust the entry in 'p' to contain the new bounding regionShape of this node.
                 //*(p->m_ptrMBR[child]) = nodeMBR;
                 assert nodeMBR.copyTo(p.getChildShape(child))!=null;
 
@@ -636,15 +636,15 @@ public abstract  class RTreeNodeImpl extends NodeImpl {
                 // due to data removal.
                 if (this.tree.tightMBRs){
                     dims=p.getShape().getDimension();
-                    Region r =(Region) p.getShape();
-                    Region r2=null;
+                    RegionShape r =(RegionShape) p.getShape();
+                    RegionShape r2=null;
                     int childC=p.getChildrenCount();
                     for (int cDim = 0; cDim < dims; ++cDim){
                         r.setLowCoordinate(cDim,Double.MAX_VALUE);
                         r.setHighCoordinate(cDim,-Double.MAX_VALUE);
 
                         for (int u32Child = 0; u32Child < childC; ++u32Child){
-                            r2=(Region) p.getChildShape(u32Child);
+                            r2=(RegionShape) p.getChildShape(u32Child);
                             d1=Math.min(r.getLowCoordinate(cDim),r2.getLowCoordinate(cDim));
                             r.setLowCoordinate(cDim,d1);
                             d2=Math.max(r.getHighCoordinate(cDim),r2.getHighCoordinate(cDim));
@@ -661,20 +661,20 @@ public abstract  class RTreeNodeImpl extends NodeImpl {
         }
     }
 
-    protected abstract Node chooseSubtree( Region mbr, int level, Stack<Identifier> pathBuffer);
+    protected abstract Node chooseSubtree(RegionShape mbr, int level, Stack<Identifier> pathBuffer);
 
-    protected abstract Node findLeaf(Region mbr, Identifier id, Stack<Identifier> pathBuffer);
+    protected abstract Node findLeaf(RegionShape mbr, Identifier id, Stack<Identifier> pathBuffer);
 
     protected abstract Node[] split(Entry e );
 
     class RstarSplitEntry  {
-        Region region;
+        RegionShape regionShape;
         int index;
         int sortDim;
 
 
-        public RstarSplitEntry(Region  v_region, int v_index, int v_dimension){
-            region =v_region;
+        public RstarSplitEntry(RegionShape v_regionShape, int v_index, int v_dimension){
+            regionShape = v_regionShape;
             index =v_index;
             sortDim=v_dimension;
         }
@@ -684,8 +684,8 @@ public abstract  class RTreeNodeImpl extends NodeImpl {
         public int compare(RstarSplitEntry pe1, RstarSplitEntry pe2) {
             assert(pe1.sortDim == pe2.sortDim);
 
-            if (pe1.region.getLowCoordinate(pe1.sortDim) < pe2.region.getLowCoordinate(pe2.sortDim)) return -1;
-            if (pe1.region.getLowCoordinate(pe1.sortDim) > pe2.region.getLowCoordinate(pe2.sortDim)) return 1;
+            if (pe1.regionShape.getLowCoordinate(pe1.sortDim) < pe2.regionShape.getLowCoordinate(pe2.sortDim)) return -1;
+            if (pe1.regionShape.getLowCoordinate(pe1.sortDim) > pe2.regionShape.getLowCoordinate(pe2.sortDim)) return 1;
             return 0;
         }
     }
@@ -695,8 +695,8 @@ public abstract  class RTreeNodeImpl extends NodeImpl {
 
             assert(pe1.sortDim == pe2.sortDim);
 
-            if (pe1.region.getHighCoordinate(pe1.sortDim) < pe2.region.getHighCoordinate(pe2.sortDim)) return -1;
-            if (pe1.region.getHighCoordinate(pe1.sortDim) > pe2.region.getHighCoordinate(pe2.sortDim)) return 1;
+            if (pe1.regionShape.getHighCoordinate(pe1.sortDim) < pe2.regionShape.getHighCoordinate(pe2.sortDim)) return -1;
+            if (pe1.regionShape.getHighCoordinate(pe1.sortDim) > pe2.regionShape.getHighCoordinate(pe2.sortDim)) return 1;
             return 0;
         }
     }

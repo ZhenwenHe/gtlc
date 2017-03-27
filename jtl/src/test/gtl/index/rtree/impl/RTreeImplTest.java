@@ -7,8 +7,8 @@ import gtl.geom.Geom3DSuits;
 import gtl.index.IndexSuits;
 import gtl.index.rtree.RTree;
 import gtl.index.rtree.RTreeVariant;
-import gtl.shape.Region;
-import gtl.shape.ShapeSuits;
+import gtl.index.shape.RegionShape;
+import gtl.index.shape.ShapeSuits;
 import gtl.io.storage.StorageManager;
 import gtl.io.storage.StorageSuits;
 import junit.framework.TestCase;
@@ -54,7 +54,7 @@ public class RTreeImplTest extends TestCase {
         RTree rtree= IndexSuits.createRTree(sm,2,4,4, RTreeVariant.RV_RSTAR);
 
         for(int i=0;i<envelopes.length;++i){
-            Region r = ShapeSuits.createRegion(envelopes[i].getLowCoordinates(),envelopes[i].getHighCoordinates());
+            RegionShape r = ShapeSuits.createRegion(envelopes[i].getLowCoordinates(),envelopes[i].getHighCoordinates());
             byte [] data=r.storeToByteArray();
             Identifier id = CommonSuits.createIdentifier(i);
             rtree.insert(data,r,id);

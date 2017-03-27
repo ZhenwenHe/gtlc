@@ -42,7 +42,7 @@ public class Geom3DSuits extends GeomSuits {
         double c2 = v.dotProduct(v);//dot(v,v);
         Scalar b = new Scalar(c1 / c2);
         //double b = c1 / c2;
-        //Point Pb = L.P0 + b * v;
+        //PointShape Pb = L.P0 + b * v;
         Vector Pb = P0.add(b.multiply(v));
         return distance(P, Pb);
     }
@@ -63,7 +63,7 @@ public class Geom3DSuits extends GeomSuits {
         double c2 = v.dotProduct(v);//dot(v,v);
         Scalar b = new Scalar(c1 / c2);
         //double b = c1 / c2;
-        //Point Pb = L.P0 + b * v;
+        //PointShape Pb = L.P0 + b * v;
         Vector Pb = P0.add(b.multiply(v));
         return Pb;
     }
@@ -84,7 +84,7 @@ public class Geom3DSuits extends GeomSuits {
         double c2 = v.dotProduct(v);//dot(v,v);
         Scalar b = new Scalar(c1 / c2);
         //double b = c1 / c2;
-        //Point Pb = S.P0 + b * v;
+        //PointShape Pb = S.P0 + b * v;
         Vector Pb = P0.add(b.multiply(v));
 
         //TODO : Pb is on S
@@ -428,8 +428,8 @@ public class Geom3DSuits extends GeomSuits {
     }
 
     /**
-     * Closest Point of Approach (CPA)
-     * The "Closest Point of Approach" refers to the positions at which two dynamically moving objects reach their closest possible distance.
+     * Closest PointShape of Approach (CPA)
+     * The "Closest PointShape of Approach" refers to the positions at which two dynamically moving objects reach their closest possible distance.
      * This is an important calculation for collision avoidance. In many cases of interest, the objects, referred to as "tracks",
      * are points moving in two fixed directions at fixed speeds. That means that the two points are moving along two lines in space.
      * However, their closest distance is not the same as the closest distance between the lines since the distance between the points must be computed at the same moment in time.
@@ -457,8 +457,8 @@ public class Geom3DSuits extends GeomSuits {
     }
 
     /**
-     * Closest Point of Approach (CPA)
-     * The "Closest Point of Approach" refers to the positions at which two dynamically moving objects reach their closest possible distance.
+     * Closest PointShape of Approach (CPA)
+     * The "Closest PointShape of Approach" refers to the positions at which two dynamically moving objects reach their closest possible distance.
      * This is an important calculation for collision avoidance. In many cases of interest, the objects, referred to as "tracks",
      * are points moving in two fixed directions at fixed speeds. That means that the two points are moving along two lines in space.
      * However, their closest distance is not the same as the closest distance between the lines since the distance between the points must be computed at the same moment in time.
@@ -480,7 +480,7 @@ public class Geom3DSuits extends GeomSuits {
 
     /**
      *  find the 3D intersection of a segment and a plane
-     *  S = a segment, and Pn = a plane = {Point V0;  Vector n;}
+     *  S = a segment, and Pn = a plane = {PointShape V0;  Vector n;}
      * @param S
      * @param Pn
      * @param outPoint  the intersect point (when it exists)
@@ -661,5 +661,31 @@ public class Geom3DSuits extends GeomSuits {
             return 0;
 
         return 1;// I is in T
+    }
+
+    /**
+     *
+     * @param L1
+     * @param L2
+     * @return 0 =  disjoint (no intersect)
+     *          1 =  intersect in unique point outPoint
+     *          2 =  are in the same line
+     */
+    public static int intersection(InfiniteLine L1, InfiniteLine L2, Vector outPoint){
+        return 0;
+    }
+    /**
+     *
+     * @param S1
+     * @param S2
+     * @return 0 =  disjoint (no intersect)
+     *          1 =  intersect in unique point outPoint
+     *          2 =  are in the same line
+     *          3 =   in S1 outPoint
+     *          4 =   in S2 outPoint
+     */
+    public static int intersection(LineSegment S1, LineSegment S2,Vector outPoint){
+
+        return 0;
     }
 }

@@ -11,7 +11,7 @@ import gtl.index.rtree.RTree;
 import gtl.index.rtree.RTreeVariant;
 import gtl.index.rtree.impl.RTreeExternalNodeImpl;
 import gtl.index.rtree.impl.RTreeImpl;
-import gtl.shape.ShapeSuits;
+import gtl.index.shape.ShapeSuits;
 import gtl.io.storage.StorageManager;
 import gtl.io.storage.StorageSuits;
 import junit.framework.TestCase;

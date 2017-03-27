@@ -6,7 +6,7 @@ import gtl.index.Entry;
 import gtl.geom.Envelope;
 import gtl.index.IndexSuits;
 import gtl.index.impl.EntryImpl;
-import gtl.shape.ShapeSuits;
+import gtl.index.shape.ShapeSuits;
 import junit.framework.TestCase;
 
 /**

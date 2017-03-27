@@ -3,7 +3,7 @@ package gtl.index;
 import gtl.common.Identifier;
 import gtl.exception.IllegalArgumentException;
 import gtl.index.impl.EntryImpl;
-import gtl.shape.Shape;
+import gtl.index.shape.Shape;
 
 /**
  * Created by ZhenwenHe on 2016/12/7.

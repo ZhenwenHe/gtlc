@@ -3,14 +3,14 @@ package test.gtl.shape.impl;
 import gtl.geom.Envelope;
 import gtl.geom.Geom3DSuits;
 import gtl.index.IndexSuits;
-import gtl.shape.Region;
-import gtl.shape.ShapeSuits;
+import gtl.index.shape.RegionShape;
+import gtl.index.shape.ShapeSuits;
 import junit.framework.TestCase;
 
 /**
  * Created by ZhenwenHe on 2017/3/3.
  */
-public class RegionImplTest extends TestCase {
+public class RegionShapeImplTest extends TestCase {
     public void setUp() throws Exception {
         super.setUp();
 
@@ -54,8 +54,8 @@ public class RegionImplTest extends TestCase {
 
     public void testClone() throws Exception {
         Envelope[] envs= Geom3DSuits.readEnvelopeFile(IndexSuits.DATA_DIR+"test2d100.envelopes");
-        Region[] rs = new Region[envs.length];
-        Region[] rs2 = new Region[envs.length];
+        RegionShape[] rs = new RegionShape[envs.length];
+        RegionShape[] rs2 = new RegionShape[envs.length];
         int i=0;
         for(Envelope e: envs) {
             System.out.println(e);
@@ -63,7 +63,7 @@ public class RegionImplTest extends TestCase {
             i++;
         }
         i=0;
-        for (Region r: rs){
+        for (RegionShape r: rs){
             byte[] bs = r.storeToByteArray();
             rs2[i]=ShapeSuits.createRegion();
             rs2[i].loadFromByteArray(bs);

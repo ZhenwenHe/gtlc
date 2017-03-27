@@ -1,6 +1,6 @@
-package gtl.shape;
+package gtl.index.shape;
 
-import gtl.shape.impl.ShapeImpl;
+import gtl.index.shape.impl.ShapeImpl;
 
 /**
  * Created by ZhenwenHe on 2017/3/15.

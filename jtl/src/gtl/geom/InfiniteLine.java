@@ -15,7 +15,7 @@ import java.io.IOException;
  * is how we often think of it today.
  *
  * reference :http://geomalgorithms.com/a02-_lines.html
- * reference :LineSegment
+ * reference :LineSegmentShape
  */
 public class InfiniteLine implements gtl.io.Serializable, Comparable<InfiniteLine>{
     Vector startPoint;

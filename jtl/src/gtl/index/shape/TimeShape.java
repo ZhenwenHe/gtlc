@@ -1,4 +1,4 @@
-package gtl.shape;
+package gtl.index.shape;
 
 import gtl.geom.Interval;
 

@@ -1,4 +1,4 @@
-package gtl.shape;
+package gtl.index.shape;
 
 import gtl.geom.Envelope;
 import gtl.geom.Vector;
@@ -6,8 +6,8 @@ import gtl.geom.Vector;
 /**
  * Created by ZhenwenHe on 2016/12/6.
  */
-public interface Point extends Shape {
-    double getMinimumDistance(Point p) ;
+public interface PointShape extends Shape {
+    double getMinimumDistance(PointShape p) ;
     public double[] getCoordinates();
     public double getCoordinate(int i);
     public double getX();

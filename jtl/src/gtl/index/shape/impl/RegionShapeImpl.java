@@ -1,10 +1,10 @@
-package gtl.shape.impl;
+package gtl.index.shape.impl;
 
 
 import gtl.geom.Envelope;
 import gtl.geom.Geom3DSuits;
 import gtl.geom.Vector;
-import gtl.shape.*;
+import gtl.index.shape.*;
 
 import java.io.DataInput;
 import java.io.DataOutput;
@@ -13,28 +13,28 @@ import java.io.IOException;
 /**
  * Created by ZhenwenHe on 2016/12/8.
  */
-class RegionImpl  implements Region {
+class RegionShapeImpl implements RegionShape {
 
     Envelope data;
 
-    public RegionImpl() {
+    public RegionShapeImpl() {
         this.data= Geom3DSuits.createEnvelope();
     }
 
-    public RegionImpl(double[] low, double[] high) {
+    public RegionShapeImpl(double[] low, double[] high) {
         this.data= Geom3DSuits.createEnvelope(low, high);
     }
 
-    public RegionImpl(Envelope e) {
+    public RegionShapeImpl(Envelope e) {
         this.data= Geom3DSuits.createEnvelope(e.getLowCoordinates(), e.getHighCoordinates());
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof RegionImpl)) return false;
+        if (!(o instanceof RegionShapeImpl)) return false;
 
-        RegionImpl region = (RegionImpl) o;
+        RegionShapeImpl region = (RegionShapeImpl) o;
 
         return data.equals(region.data);
     }
@@ -101,8 +101,8 @@ class RegionImpl  implements Region {
 
     @Override
     public void copyFrom(Object i) {
-        if(i instanceof Region){
-            this.data.copyFrom(((RegionImpl)i).data);
+        if(i instanceof RegionShape){
+            this.data.copyFrom(((RegionShapeImpl)i).data);
         }
         else if(i instanceof Envelope){
             this.data.copyFrom(i);
@@ -130,16 +130,16 @@ class RegionImpl  implements Region {
     @Override
     public boolean intersectsShape(Shape in) {
         if(in ==null) return false;
-        if(in instanceof Region){
-            return this.intersectsRegion((Region)in);
+        if(in instanceof RegionShape){
+            return this.intersectsRegion((RegionShape)in);
         }
 
-        if(in instanceof LineSegment){
-            return this.intersectsLineSegment((LineSegment)in);
+        if(in instanceof LineSegmentShape){
+            return this.intersectsLineSegment((LineSegmentShape)in);
         }
 
-        if(in instanceof Point){
-            return this.containsPoint((Point)in);
+        if(in instanceof PointShape){
+            return this.containsPoint((PointShape)in);
         }
 
         return false;
@@ -149,12 +149,12 @@ class RegionImpl  implements Region {
     public boolean containsShape(Shape in) {
         if(in ==null) return false;
 
-        if(in instanceof Region){
-            return this.containsRegion((Region)in);
+        if(in instanceof RegionShape){
+            return this.containsRegion((RegionShape)in);
         }
 
-        if(in instanceof Point){
-            return this.containsPoint((Point)in);
+        if(in instanceof PointShape){
+            return this.containsPoint((PointShape)in);
         }
 
         return false;
@@ -164,12 +164,12 @@ class RegionImpl  implements Region {
     public boolean touchesShape(Shape in) {
         if(in ==null) return false;
 
-        if(in instanceof Region){
-            return this.touchesRegion((Region)in);
+        if(in instanceof RegionShape){
+            return this.touchesRegion((RegionShape)in);
         }
 
-        if(in instanceof Point){
-            return this.touchesPoint((Point)in);
+        if(in instanceof PointShape){
+            return this.touchesPoint((PointShape)in);
         }
 
         return false;
@@ -177,7 +177,7 @@ class RegionImpl  implements Region {
 
     @Override
     public Vector getCenter() {
-        Point p = ShapeSuits.createPoint();
+        PointShape p = ShapeSuits.createPoint();
 
         int dims=this.getDimension();
         p.makeDimension(dims);
@@ -213,12 +213,12 @@ class RegionImpl  implements Region {
     @Override
     public double getMinimumDistance(Shape in) {
 
-        if(in instanceof Region){
-            return this.getMinimumDistance((Region)in);
+        if(in instanceof RegionShape){
+            return this.getMinimumDistance((RegionShape)in);
         }
 
-        if(in instanceof Point){
-            return this.getMinimumDistance((Point)in);
+        if(in instanceof PointShape){
+            return this.getMinimumDistance((PointShape)in);
         }
 
         return 0;
@@ -226,26 +226,26 @@ class RegionImpl  implements Region {
 
     @Override
     public Object clone() {
-        return new RegionImpl(this.getLowCoordinates(),this.getHighCoordinates());
+        return new RegionShapeImpl(this.getLowCoordinates(),this.getHighCoordinates());
     }
 
     @Override
-    public boolean intersectsRegion(Region in) {
+    public boolean intersectsRegion(RegionShape in) {
         return this.data.intersects(in.getMBR());
     }
 
     @Override
-    public boolean containsRegion(Region in) {
+    public boolean containsRegion(RegionShape in) {
         return this.data.contains(in.getMBR());
     }
 
     @Override
-    public boolean touchesRegion(Region in) {
+    public boolean touchesRegion(RegionShape in) {
         return this.data.touches(in.getMBR());
     }
 
     @Override
-    public double getMinimumDistance(Region e) {
+    public double getMinimumDistance(RegionShape e) {
         if(e==null) return Double.MAX_VALUE;
         int dims = this.getDimension();
         if(dims!=e.getDimension()) return Double.MAX_VALUE;
@@ -271,17 +271,17 @@ class RegionImpl  implements Region {
 
 
     @Override
-    public boolean containsPoint(Point in) {
+    public boolean containsPoint(PointShape in) {
         return this.data.contains(in.getCenter());
     }
 
     @Override
-    public boolean touchesPoint(Point in) {
+    public boolean touchesPoint(PointShape in) {
         return this.data.touches(in.getCenter());
     }
 
     @Override
-    public boolean intersectsLineSegment(LineSegment e) {
+    public boolean intersectsLineSegment(LineSegmentShape e) {
         if(e==null) return false;
         int dims = this.getDimension();
         if(dims!=e.getDimension()) return false;
@@ -289,25 +289,25 @@ class RegionImpl  implements Region {
         assert dims==2;
 
         // there may be a more efficient method, but this suffices for now
-        Point ll = ShapeSuits.createPoint(this.getLowCoordinates());
-        Point ur = ShapeSuits.createPoint(this.getHighCoordinates());
+        PointShape ll = ShapeSuits.createPoint(this.getLowCoordinates());
+        PointShape ur = ShapeSuits.createPoint(this.getHighCoordinates());
         // fabricate ul and lr coordinates and points
-        Point ul = ShapeSuits.createPoint(this.getLowCoordinate(0),this.getHighCoordinate(1));
-        Point lr = ShapeSuits.createPoint(this.getHighCoordinate(0),this.getLowCoordinate(1));
+        PointShape ul = ShapeSuits.createPoint(this.getLowCoordinate(0),this.getHighCoordinate(1));
+        PointShape lr = ShapeSuits.createPoint(this.getHighCoordinate(0),this.getLowCoordinate(1));
 
-        // Points/LineSegment for the segment
-        Point p1 = ShapeSuits.createPoint(e.getStartCoordinates());
-        Point p2 = ShapeSuits.createPoint(e.getEndCoordinates());
+        // Points/LineSegmentShape for the segment
+        PointShape p1 = ShapeSuits.createPoint(e.getStartCoordinates());
+        PointShape p2 = ShapeSuits.createPoint(e.getEndCoordinates());
 
 
         //Check whether either or both the endpoints are within the region OR
-        //whether any of the bounding segments of the Region intersect the segment
+        //whether any of the bounding segments of the RegionShape intersect the segment
         return (this.containsPoint(p1) || this.containsPoint(p2) ||
                 e.intersectsShape(ShapeSuits.createLineSegment(ll, ul)) || e.intersectsShape(ShapeSuits.createLineSegment(ul, ur)) ||
                 e.intersectsShape(ShapeSuits.createLineSegment(ur, lr)) || e.intersectsShape(ShapeSuits.createLineSegment(lr, ll)));
     }
     @Override
-    public double getMinimumDistance(Point p) {
+    public double getMinimumDistance(PointShape p) {
 
         if(p==null) return Double.MAX_VALUE;
         int dims = this.getDimension();
@@ -331,12 +331,12 @@ class RegionImpl  implements Region {
     }
 
     @Override
-    public Region getIntersectingRegion(Region r) {
-        return new RegionImpl(this.data.getIntersectingEnvelope(r.getMBR()));
+    public RegionShape getIntersectingRegion(RegionShape r) {
+        return new RegionShapeImpl(this.data.getIntersectingEnvelope(r.getMBR()));
     }
 
     @Override
-    public double getIntersectingArea(Region in) {
+    public double getIntersectingArea(RegionShape in) {
         return this.data.getIntersectingArea(in.getMBR());
     }
 
@@ -346,19 +346,19 @@ class RegionImpl  implements Region {
     }
 
     @Override
-    public void combineRegion(Region in) {
+    public void combineRegion(RegionShape in) {
         this.data.combine(in.getMBR());
     }
 
     @Override
-    public void combinePoint(Point in) {
+    public void combinePoint(PointShape in) {
         this.data.combine(in.getCenter());
     }
 
     @Override
-    public Region getCombinedRegion(Region in) {
+    public RegionShape getCombinedRegion(RegionShape in) {
 
-        RegionImpl r =(RegionImpl) this.clone();
+        RegionShapeImpl r =(RegionShapeImpl) this.clone();
         r.combineRegion(in);
         return r;
     }

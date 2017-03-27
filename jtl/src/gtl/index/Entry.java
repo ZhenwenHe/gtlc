@@ -1,7 +1,7 @@
 package gtl.index;
 
 import gtl.common.Identifier;
-import gtl.shape.Shape;
+import gtl.index.shape.Shape;
 import gtl.io.Serializable;
 
 /**

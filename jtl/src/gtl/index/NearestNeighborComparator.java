@@ -1,6 +1,6 @@
 package gtl.index;
 
-import gtl.shape.Shape;
+import gtl.index.shape.Shape;
 
 /**
  * Created by ZhenwenHe on 2016/12/6.

@@ -5,7 +5,7 @@ import gtl.index.Entry;
 import gtl.common.Identifier;
 import gtl.index.Node;
 import gtl.exception.IllegalArgumentException;
-import gtl.shape.Shape;
+import gtl.index.shape.Shape;
 
 import java.io.*;
 import java.util.Arrays;

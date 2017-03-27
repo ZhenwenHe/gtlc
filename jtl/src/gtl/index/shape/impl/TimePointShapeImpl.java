@@ -1,14 +1,14 @@
-package gtl.shape.impl;
+package gtl.index.shape.impl;
 
 import gtl.geom.Interval;
 import gtl.geom.IntervalType;
-import gtl.shape.TimePoint;
-import gtl.shape.TimeShape;
+import gtl.index.shape.TimePointShape;
+import gtl.index.shape.TimeShape;
 
 /**
  * Created by ZhenwenHe on 2016/12/22.
  */
-class TimePointImpl extends PointImpl implements TimePoint{
+class TimePointShapeImpl extends PointShapeImpl implements TimePointShape {
     protected  double startTime;
     protected double endTime;
 
